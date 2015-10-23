@@ -1,0 +1,114 @@
+#+BLOG: rubikitch
+#+POSTID: 527
+#+DATE: [2014-10-29 Wed 11:44]
+#+PERMALINK: new-files
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, Emacs 24.4,
+#+DESCRIPTION:
+#+MYTAGS:
+#+TAGS: , Emacs, Emacs 24.4,, locate-user-emacs-file
+#+TITLE: Emacs 24.4で整理された設定ファイルたち
+元々Emacsはホームディレクトリに設定ファイルをばら撒いていました。
+
+しかし、Emacsローカルな設定にも関わらず
+ホームディレクトリにばら撒かれるのは
+整理できていなくて見すぼらしいです。
+
+Emacs 24.4では以下のファイルが対象となります。NEWSより。
+
+| 旧ファイル                        | 新ファイル              |
+|-----------------------------------+-------------------------|
+| ~/.timelog                        | ~/.emacs.d/timelog      |
+| ~/.vip                            | ~/.emacs.d/vip          |
+| ~/.viper                          | ~/.emacs.d/viper        |
+| ~/.ido.last                       | ~/.emacs.d/ido.last     |
+| ~/.kkcrc                          | ~/.emacs.d/kkcrc        |
+| ~/.quickurls                      | ~/.emacs.d/quickurls    |
+| ~/.idlwave/                       | ~/.emacs.d/idlwave/     |
+| ~/.bdfcache.el                    | ~/.emacs.d/bdfcache.el  |
+| ~/.emacs-places                   | ~/.emacs.d/places       |
+| ~/.shadows                        | ~/.emacs.d/shadows      |
+| ~/.shadow_todo                    | ~/.emacs.d/shadow_todo  |
+| ~/.strokes                        | ~/.emacs.d/strokes      |
+| ~/.notes                          | ~/.emacs.d/notes        |
+| ~/.type-break                     | ~/.emacs.d/type-break   |
+|-----------------------------------+-------------------------|
+| ~/.todo-do                        | ~/.emacs.d/todo-do      |
+| ~/.todo-done                      | ~/.emacs.d/todo-done    |
+| ~/.todo-top                       | ~/.emacs.d/todo-top     |
+
+なお、todo-*についてはotodo-mode.elが扱いますが、
+すでにobsoleteとなっています。
+
+
+** すべてのリスト
+以前から.emacs.d/に配置されるようになっているパッケージもあるので、
+それらをすべて機械的にリストしてみました。
+
+設定ファイルは *locate-user-emacs-file* で見ています。
+
+第1引数に.emacs.d/以下の新しいファイル名、
+第2引数は古いファイル名(存在する場合)です。
+
+たとえば
+#+BEGIN_SRC emacs-lisp :results silent
+(locate-user-emacs-file "places" ".emacs-places")
+#+END_SRC
+は ~/.emacs.d/places があるならばそのファイルを、
+なければ ~/.emacs-places を見ます。
+
+
+#+BEGIN_EXAMPLE
+server.el.gz:(locate-user-emacs-file "server/")
+saveplace.el.gz:(locate-user-emacs-file "places" ".emacs-places")
+emulation/viper.el.gz:(locate-user-emacs-file "viper" ".viper")
+shadowfile.el.gz:(locate-user-emacs-file "shadows" ".shadows"))))
+shadowfile.el.gz:(locate-user-emacs-file "shadow_todo" ".shadow_todo"))))
+net/quickurl.el.gz:(locate-user-emacs-file "quickurls" ".quickurls")
+emulation/vip.el.gz:(locate-user-emacs-file "vip" ".vip")
+net/newst-backend.el.gz:(locate-user-emacs-file "newsticker/" ".newsticker/")
+net/tramp-cache.el.gz:80: (expand-file-name (tramp-compat-funcall 'locate-user-emacs-file "tramp")))
+savehist.el.gz:(locate-user-emacs-file "history" ".emacs-history")
+completion.el.gz:(locate-user-emacs-file "completions" ".completions")
+strokes.el.gz:(locate-user-emacs-file "strokes" ".strokes")
+play/gamegrid.el.gz:(locate-user-emacs-file "games/")
+calendar/timeclock.el.gz:(locate-user-emacs-file "timelog" ".timelog")
+calendar/todo-mode.el.gz:(locate-user-emacs-file "todo/")
+calendar/todo-mode.el.gz:(locate-user-emacs-file "todo-do" ".todo-do"))))
+calendar/todo-mode.el.gz:(locate-user-emacs-file "todo-do" ".todo-do")))
+calendar/todo-mode.el.gz:(locate-user-emacs-file "todo-done" ".todo-done")))
+emacs-lisp/package.el.gz:(locate-user-emacs-file "elpa")
+eshell/eshell.el.gz:(locate-user-emacs-file "eshell/" ".eshell/")
+term/x-win.el.gz:(locate-user-emacs-file basename
+term/x-win.el.gz:125- (concat ".emacs-" basename))))
+image-dired.el.gz:(locate-user-emacs-file "image-dired/")
+obsolete/otodo-mode.el.gz:(locate-user-emacs-file "todo-do" ".todo-do")
+obsolete/otodo-mode.el.gz:(locate-user-emacs-file "todo-done" ".todo-done")
+obsolete/otodo-mode.el.gz:(locate-user-emacs-file "todo-top" ".todo-top")
+cedet/semantic/db-file.el.gz:(locate-user-emacs-file "semanticdb" ".semanticdb")
+cedet/srecode/map.el.gz:(locate-user-emacs-file "srecode-map.el" ".srecode/srecode-map")
+cedet/ede/base.el.gz:(locate-user-emacs-file "ede-projects.el" ".projects.ede")
+ido.el.gz:(locate-user-emacs-file "ido.last" ".ido.last")
+progmodes/octave.el.gz:(locate-user-emacs-file (format "init_%s.m" n) (format ".emacs-%s" n)))
+progmodes/idlwave.el.gz:(locate-user-emacs-file "idlwave" ".idlwave")
+filesets.el.gz:(locate-user-emacs-file "filesets-cache.el")
+calc/calc.el.gz:(locate-user-emacs-file "calc.el" ".calc.el")
+abbrev.el.gz:(locate-user-emacs-file "abbrev_defs" ".abbrev_defs")
+url/url.el.gz:(locate-user-emacs-file "url/" ".url/")
+startup.el.gz:(locate-user-emacs-file "elpa"))
+type-break.el.gz:(locate-user-emacs-file "type-break" ".type-break")
+bookmark.el.gz:(locate-user-emacs-file "bookmarks" ".emacs.bmk"))
+international/kkc.el.gz:(locate-user-emacs-file "kkcrc" ".kkcrc")
+textmodes/remember.el.gz:(locate-user-emacs-file "notes" ".notes")
+recentf.el.gz:(locate-user-emacs-file "recentf" ".recentf")
+tutorial.el.gz:(locate-user-emacs-file "tutorial/"))
+thumbs.el.gz:(locate-user-emacs-file "thumbs")
+ps-bdf.el.gz:(locate-user-emacs-file "bdfcache.el" ".bdfcache.el")
+#+END_EXAMPLE
+
+これを機にホームディレクトリの掃除をしてみてはいかがでしょうか？
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

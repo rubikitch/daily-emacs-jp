@@ -1,0 +1,63 @@
+#+BLOG: rubikitch
+#+POSTID: 1842
+#+DATE: [2015-07-20 Mon 16:46]
+#+PERMALINK: gnupack1305
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, gnupack, Emacs 24.5, 
+#+DESCRIPTION: gnupack 13.05-2015.07.19は展開するだけでCygwin 2.1.0とEmacs 24.5が使えるパッケージです。今回はRubyでのエラーを解決しました。
+#+MYTAGS: Emacs 24.5 windows, Emacs24.5 cygwin, Emacs24.5 gnupack, 
+#+TITLE: 【gnupack 13.05リリース】Cygwin2.1.0化＆Rubyでのエラーを解決
+#+begin: org2blog-tags
+#+TAGS: Emacs 24.5 windows, Emacs24.5 cygwin, Emacs24.5 gnupack, , Emacs, gnupack, Emacs 24.5, , 
+#+end:
+http://d.hatena.ne.jp/ksugita0510/
+
+展開するだけで簡単にCygwin＆Emacs 24.5が使える
+gnupackですが、13.05にバージョンアップしました。
+
+Cygwinは7/19時点での最新版である2.1.0になりました。
+
+また、Rubyでエラーがでる問題も解決しました。
+
+#+BEGIN_EXAMPLE
+hi 2015/06/30 22:45 しばらく前の記事にコメント失礼します。
+便利なツールをご提供いただき、とても感謝しております。
+
+普段から「gnupack-devel」を使用しているのですが、
+このバージョンから Cygwin 上で「irb」を実行すると以下のエラーが発生します。
+
+ご対応いただけると幸いです。
+
+<internal:gem_prelude>:1:in `require': cannot load such file -- rubygems.rb (LoadError)
+from <internal:gem_prelude>:1:in `<compiled>'
+
+hoge1 2015/07/13 06:39 gnupack_devel-13.04-2015.06.27を使わせてもらってます。
+emacsのeshellにてrubyを実行すると、以下が出て実行できませんでした。
+
+<internal:gem_prelude>:1:in `require': cannot load such file -- rubygems.rb (LoadError)
+from <internal:gem_prelude>:1:in `<compiled>'
+
+ちなみに、「gnupack_devel-12.03-2015.02.01」で同じことをしてた時は、無事に実行できてました。
+
+「■[gnupack] gnupack 13.02-2015.05.24 リリース」のコメント欄に
+irbのエラーの件が記載されてます。問題の根本は同じなのかな。
+
+ご参考まで。
+
+ksugita0510 2015/07/19 13:16 コメントありがとうございます。
+
+遅れましたが、不足分のパッケージを取り込んだ最新版をリリースしました。
+gnupack 13.05で上記問題が解決できるか確認ください。
+
+hoge1 2015/07/19 22:40 早急なご対応ありがとうございます。
+rubyのNG状況が解決したことを確認しました。
+
+これからも便利に使わせて頂きます。ありがとうございました。
+
+#+END_EXAMPLE
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

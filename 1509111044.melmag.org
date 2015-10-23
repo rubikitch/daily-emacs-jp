@@ -1,0 +1,30 @@
+#+BLOG: rubikitch
+#+POSTID: 1973
+#+DATE: [2015-09-11 Fri 10:44]
+#+PERMALINK: melmag
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: メルマガ,
+#+DESCRIPTION: るびきち塾メルマガ『Emacsの鬼るびきちのココだけの話#198』の予告
+#+TITLE: 【メルマガ#198】文書が文書を解析する…とは
+#+MYTAGS: 
+#+begin: org2blog-tags
+#+TAGS: , メルマガ,, 
+#+end:
+今週は、本サイトのカラーテーマの記事を通してorg文書の底力を示します。
+
+http://rubikitch.com/2015/09/03/ample-theme/
+の「以下のカラーテーマが定義されています。」にて
+列挙されているテーマは手で書いているのではなく、
+元となるorg文書を解析して自動で求めています。
+
+随時更新される文書や同じ形式の文書を何度も書く場合において、
+自動更新部分を定義することは、大きく手間を削減してくれます。
+
+文書をorg形式で書くメリットは、
+場合によってこのような高度な機能も使えることです。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

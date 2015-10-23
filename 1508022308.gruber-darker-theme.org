@@ -1,0 +1,200 @@
+#+BLOG: rubikitch
+#+POSTID: 1871
+#+DATE: [2015-08-02 Sun 23:08]
+#+PERMALINK: gruber-darker-theme
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, theme
+#+EL_PKG_NAME: gruber-darker-theme
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, color-theme, カラーテーマ
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: BBEditのグレーなカラーテーマの移植版
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージgruber-darker-themeの紹介
+#+MYTAGS: package:gruber-darker-theme, emacs 使い方, emacs コマンド, emacs, gruber-darker-theme, gruber-darker-theme.el, emacs lisp gruber-darker-theme, elisp gruber-darker-theme, emacs melpa gruber-darker-theme, emacs gruber-darker-theme 使い方, emacs gruber-darker-theme 設定, emacs パッケージ gruber-darker-theme, emacs gruber-darker-theme スクリーンショット, color-theme, カラーテーマ
+#+TAGS: package:gruber-darker-theme, emacs 使い方, emacs コマンド, emacs, gruber-darker-theme, gruber-darker-theme.el, emacs lisp gruber-darker-theme, elisp gruber-darker-theme, emacs melpa gruber-darker-theme, emacs gruber-darker-theme 使い方, emacs gruber-darker-theme 設定, emacs パッケージ gruber-darker-theme, emacs gruber-darker-theme スクリーンショット, color-theme, カラーテーマ, Emacs, theme, gruber-darker-theme.el
+#+TITLE: emacs gruber-darker-theme.el : BBEditのグレーなカラーテーマの移植版 | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>gruber-darker-theme</td></tr>
+<tr><td>概要(原文)</td><td>Gruber Darker color theme for Emacs 24.</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/rexim/gruber-darker-theme">https://github.com/rexim/gruber-darker-theme</a></td></tr>
+<tr><td>バージョン</td><td>20141010.105</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:gruber-darker-theme/">package:gruber-darker-theme</a> </td></tr>
+</table>
+<br />
+#+END_HTML
+*gruber-darker-theme.el* は、[[http://daringfireball.net/projects/bbcolors/schemes/][BBEditのGruber Darkテーマ]]
+をEmacsに移植したものです。
+
+# (save-window-excursion (async-shell-command "emacs-test -eval '(load-theme (quote gruber-darker) t)'"))
+以下のパッケージに対応しています。
+- AUCTeX
+- Calendar
+- Compilation
+- Custom
+- Diff
+- Dired
+- Ebrowse
+- Egg
+- EShell
+- Font Lock
+- Flymake
+- Flyspell
+- Helm
+- Ido
+- Info
+- Jabber
+- Line Highlighting
+- Linum
+- Magit
+- Message
+- Mode Line
+- Org Mode
+- isearch
+- Sh
+- Show Paren
+- Slime
+- Tuareg
+- Speedbar
+- Whitespace
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_theme_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150802231045.png]]
+Fig1: emacs-lisp-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150802231050.png]]
+Fig2: magit
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150802231056.png]]
+Fig3: grep
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150802231100.png]]
+Fig4: outline-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150802231105.png]]
+Fig5: org-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150802231110.png]]
+Fig6: dired
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150802231115.png]]
+Fig7: web-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150802231121.png]]
+Fig8: markdown-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150802231127.png]]
+Fig9: helm
+
+
+[[http://i.imgur.com/8dY71hX.png][本家スクリーンショット]]
+** gruber-darker-theme インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install gruber-darker-theme
+
+
+#+end:
+** 概要                                                             :noexport:
+*gruber-darker-theme.el* は、[[http://daringfireball.net/projects/bbcolors/schemes/][BBEditのGruber Darkテーマ]]
+をEmacsに移植したものです。
+
+# (save-window-excursion (async-shell-command "emacs-test -eval '(load-theme (quote gruber-darker) t)'"))
+以下のパッケージに対応しています。
+- AUCTeX
+- Calendar
+- Compilation
+- Custom
+- Diff
+- Dired
+- Ebrowse
+- Egg
+- EShell
+- Font Lock
+- Flymake
+- Flyspell
+- Helm
+- Ido
+- Info
+- Jabber
+- Line Highlighting
+- Linum
+- Magit
+- Message
+- Mode Line
+- Org Mode
+- isearch
+- Sh
+- Show Paren
+- Slime
+- Tuareg
+- Speedbar
+- Whitespace
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_theme_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150802231045.png]]
+Fig10: emacs-lisp-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150802231050.png]]
+Fig11: magit
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150802231056.png]]
+Fig12: grep
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150802231100.png]]
+Fig13: outline-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150802231105.png]]
+Fig14: org-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150802231110.png]]
+Fig15: dired
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150802231115.png]]
+Fig16: web-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150802231121.png]]
+Fig17: markdown-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150802231127.png]]
+Fig18: helm
+
+
+[[http://i.imgur.com/8dY71hX.png][本家スクリーンショット]]
+
+** 設定
+#+BEGIN_SRC fundamental
+(load-theme 'gruber-darker t)
+#+END_SRC
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ emacs -Q -f package-initialize -eval '(load-theme (quote gruber-darker) t)'
+#+END_EXAMPLE
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

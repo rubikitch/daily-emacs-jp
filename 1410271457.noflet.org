@@ -1,0 +1,132 @@
+#+BLOG: rubikitch
+#+POSTID: 522
+#+DATE: [2014-10-27 Mon 14:57]
+#+PERMALINK: noflet
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, Emacs Lisp,
+#+EL_PKG_NAME: noflet
+#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs パッケージ %p, emacs lisp flet, emacs lisp labels, emacs lisp cl-flet, emacs-lisp cl-labels, emacs lisp dflet, relate:dflet, package:cl-lib, emacs defadvice, emacs アドバイス
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール  使い方
+#+EL_TITLE0: 関数内でローカル関数を定義する最強の方法
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージnofletの紹介
+#+MYTAGS: package:noflet, emacs 使い方, emacs コマンド, emacs, emacs lisp noflet, elisp noflet, emacs melpa noflet, emacs noflet 使い方, emacs パッケージ noflet, emacs lisp flet, emacs lisp labels, emacs lisp cl-flet, emacs-lisp cl-labels, emacs lisp dflet, relate:dflet, package:cl-lib, emacs defadvice, emacs アドバイス
+#+TITLE: emacs noflet.el : 関数内でローカル関数を定義する最強の方法 | MELPA Emacs Lisp Elisp パッケージ インストール  使い方
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>noflet</td></tr>
+<tr><td>概要(原文)</td><td>locally override functions</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/nicferrier/emacs-noflet">https://github.com/nicferrier/emacs-noflet</a></td></tr>
+<tr><td>バージョン</td><td>20141102.654</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:noflet/">package:noflet</a> <a href="http://rubikitch.com/tag/package:dflet/">package:dflet</a></td></tr>
+</table>
+<br />
+#+END_HTML
+*noflet* は *flet* の強力版で、ローカル関数を定義するマクロです。
+
+Emacs Lispにおけるローカル関数といえば、
+*cl-flet* 、 *cl-labels* 、 *cl-letf* 、 *dflet* (要 *el-x* パッケージ)
+を使う方法があります。
+
+しかし、ローカル関数で元の関数を再定義する場合、
+退避する必要があるのでコードがぐちゃぐちゃになってしまいます。
+
+その問題を解決するのが *noflet* マクロです。
+
+noflet内での関数定義においては
+変数 *this-fn* が元の関数定義を保持しているので、
+#+BEGIN_EXAMPLE
+(funcall this-fn 引数...)
+#+END_EXAMPLE
+という形で元の関数にアクセスできます。
+
+関数ローカルな *アドバイス* みたいなものともいえます。
+
+というわけで、関数が呼び出している関数の挙動が
+気に入らない場合はローカルで上書きしちゃってください。
+
+なお、インデントを正しくしてくれるコードもあるのですが、
+僕の環境(Emacs 24.4)では正しくインデントしてくれませんでした。
+** noflet インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install noflet
+
+
+#+end:
+** 概要                                                             :noexport:
+*noflet* は *flet* の強力版で、ローカル関数を定義するマクロです。
+
+Emacs Lispにおけるローカル関数といえば、
+*cl-flet* 、 *cl-labels* 、 *cl-letf* 、 *dflet* (要 *el-x* パッケージ)
+を使う方法があります。
+
+しかし、ローカル関数で元の関数を再定義する場合、
+退避する必要があるのでコードがぐちゃぐちゃになってしまいます。
+
+その問題を解決するのが *noflet* マクロです。
+
+noflet内での関数定義においては
+変数 *this-fn* が元の関数定義を保持しているので、
+#+BEGIN_EXAMPLE
+(funcall this-fn 引数...)
+#+END_EXAMPLE
+という形で元の関数にアクセスできます。
+
+関数ローカルな *アドバイス* みたいなものともいえます。
+
+というわけで、関数が呼び出している関数の挙動が
+気に入らない場合はローカルで上書きしちゃってください。
+
+なお、インデントを正しくしてくれるコードもあるのですが、
+僕の環境(Emacs 24.4)では正しくインデントしてくれませんでした。
+
+** 使用例
+dfletやcl-letfといった旧来の書き方と比較してみてください。
+
+いかにすんなりと記述できるかがわかります。
+
+#+BEGIN: include :file "/r/sync/junk/141027/141027144718.noflet.el"
+#+BEGIN_SRC fundamental
+(require 'noflet)
+;;; 元の関数呼び出し
+(defun hoge (x) (+ x 100))
+(defun fuga (x) (+ (hoge x) 1000))
+(hoge 9)                              ; => 109
+(fuga 9)                              ; => 1109
+;;; hogeを元の関数の結果に1足したものに置き換える
+(noflet ((hoge (x) (1+ (funcall this-fn x))))
+  (fuga 9))               ; => 1110
+;;; hogeを引数そのものを返すように置き換える
+(noflet ((hoge (x) x))
+  (fuga 9))                      ; => 1009
+;;; dflet(元のflet)で元の名前で呼ぶと
+;;; 再帰呼び出しになって無限ループになるので退避する必要ある
+(let ((orig-hoge (symbol-function 'hoge)))
+  (dflet ((hoge (x) (1+ (funcall orig-hoge x))))
+    (fuga 9)))                           ; => 1110
+;;; cl-letfでも書けるが面倒
+(cl-letf ((orig-hoge (symbol-function 'hoge))
+          ((symbol-function 'hoge)
+           (lambda (x) (1+ (funcall orig-hoge x)))))
+  (fuga 9))                             ; => 1110
+
+;;; 参考:cl-fletではhogeで元の関数を呼んでしまう
+(cl-flet ((hoge (x) (1+ (hoge x))))
+  (fuga 9))                    ; => 1109
+;;; nolexfletはcl-fletの別名だがインデントを調節してくれる
+(nolexflet ((hoge (x) (1+ (hoge x))))
+  (fuga 9))                    ; => 1109
+#+END_SRC
+
+#+END:
+
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

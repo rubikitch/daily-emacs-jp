@@ -1,0 +1,98 @@
+#+BLOG: rubikitch
+#+POSTID: 541
+#+DATE: [2014-11-01 Sat 08:14]
+#+PERMALINK: github-browse-file
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs
+#+EL_PKG_NAME: github-browse-file
+#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, github emacs ブラウザ, browse-url, relate:magit, relate:orgit, relate:git-link
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方
+#+EL_TITLE0: 【githubファン必見】今開いているgithubなソースコードをブラウザで閲覧する！
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージgithub-browse-fileの紹介
+#+MYTAGS: package:github-browse-file, emacs 使い方, emacs コマンド, emacs, emacs lisp github-browse-file, elisp github-browse-file, emacs melpa github-browse-file, emacs github-browse-file 使い方, emacs github-browse-file 設定, emacs パッケージ github-browse-file, github emacs ブラウザ, browse-url, relate:magit, relate:orgit, relate:git-link
+#+TAGS: package:github-browse-file, emacs 使い方, emacs コマンド, emacs, emacs lisp github-browse-file, elisp github-browse-file, emacs melpa github-browse-file, emacs github-browse-file 使い方, emacs github-browse-file 設定, emacs パッケージ github-browse-file, github emacs ブラウザ, browse-url, relate:magit, relate:orgit, relate:git-link, Emacs, github, github-browse-file.el, github, M-x github-browse-file, git blame, M-x github-browse-file-blame, magit, M-x magit-status, magit-status-mode, github-browse-file.el, github, M-x github-browse-file, git blame, M-x github-browse-file-blame, magit, M-x magit-status, magit-status-mode
+#+TITLE: emacs github-browse-file.el : 【githubファン必見】今開いているgithubなソースコードをブラウザで閲覧する！ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>github-browse-file</td></tr>
+<tr><td>概要(原文)</td><td>View the file you're editing on GitHub</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/osener/github-browse-file">https://github.com/osener/github-browse-file</a></td></tr>
+<tr><td>バージョン</td><td>20150411.1223</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:github-browse-file/">package:github-browse-file</a> <a href="http://rubikitch.com/tag/package:magit/">package:magit</a> <a href="http://rubikitch.com/tag/package:orgit/">package:orgit</a> <a href="http://rubikitch.com/tag/package:git-link/">package:git-link</a></td></tr>
+</table>
+<br />
+#+END_HTML
+*github* はソースコードの色付けがしてあったりして、
+ソースコードを読むのにも便利ですね。
+
+*github-browse-file.el* は、今開いているファイルの
+*github* のページをブラウザで開きます。
+
+もしあなたがgithubにホストされているソースコードを開いているならば、
+*M-x github-browse-file* 一発でgithubに飛んでくれます。
+
+以下の設定を加えれば、今見ている行に自動的に飛んでいきます。
+
+*git blame* 相当の表示が見たければ *M-x github-browse-file-blame* を
+実行してください。
+
+C-uを付けるとHEADを見に行きます。
+
+
+*magit* にも対応しています。
+
+*M-x magit-status* (メジャーモードが *magit-status-mode*)で
+M-x github-browse-fileを実行したら
+treeディレクトリを開いてくれます。
+** github-browse-file インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install github-browse-file
+
+
+#+end:
+** 概要                                                             :noexport:
+*github* はソースコードの色付けがしてあったりして、
+ソースコードを読むのにも便利ですね。
+
+*github-browse-file.el* は、今開いているファイルの
+*github* のページをブラウザで開きます。
+
+もしあなたがgithubにホストされているソースコードを開いているならば、
+*M-x github-browse-file* 一発でgithubに飛んでくれます。
+
+以下の設定を加えれば、今見ている行に自動的に飛んでいきます。
+
+*git blame* 相当の表示が見たければ *M-x github-browse-file-blame* を
+実行してください。
+
+C-uを付けるとHEADを見に行きます。
+
+
+*magit* にも対応しています。
+
+*M-x magit-status* (メジャーモードが *magit-status-mode*)で
+M-x github-browse-fileを実行したら
+treeディレクトリを開いてくれます。
+
+** 設定 [[http://rubikitch.com/f/141101081020.github-browse-file.el][141101081020.github-browse-file.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/141101/141101081020.github-browse-file.el"
+#+BEGIN_SRC fundamental
+(setq github-browse-file-show-line-at-point t)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/141101081020.github-browse-file.el
+$ emacs -Q -f package-initialize -l 141101081020.github-browse-file.el
+#+END_EXAMPLE
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

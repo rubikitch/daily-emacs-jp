@@ -1,0 +1,162 @@
+#+BLOG: rubikitch
+#+POSTID: 606
+#+DATE: [2014-11-22 Sat 03:43]
+#+PERMALINK: helm-bm
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, helm,
+#+EL_PKG_NAME: helm-bm
+#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, relate:helm, relate:bm, package:bm, emacs anything bm, M-x anything-bm-list, emacs マーク, emacs ブックマーク, relate:migemo, relate:helm-migemo
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: 複数のバッファ間の「目に見えるブックマーク」を一覧・検索・移動する最強設定！Migemo対応
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージhelm-bmの紹介
+#+MYTAGS: package:helm-bm, emacs 使い方, emacs コマンド, emacs, emacs lisp helm-bm, elisp helm-bm, emacs melpa helm-bm, emacs helm-bm 使い方, emacs helm-bm 設定, emacs パッケージ helm-bm, emacs helm-bm スクリーンショット, relate:helm, relate:bm, package:bm, emacs anything bm, M-x anything-bm-list, emacs マーク, emacs ブックマーク, relate:migemo, relate:helm-migemo
+#+TITLE: emacs helm-bm.el : 複数のバッファ間の「目に見えるブックマーク」を一覧・検索・移動する最強設定！Migemo対応 | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>helm-bm</td></tr>
+<tr><td>概要(原文)</td><td>helm sources for bm.el</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/yasuyk/helm-bm">https://github.com/yasuyk/helm-bm</a></td></tr>
+<tr><td>バージョン</td><td>20131224.705</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:helm-bm/">package:helm-bm</a> <a href="http://rubikitch.com/tag/package:helm/">package:helm</a> <a href="http://rubikitch.com/tag/package:bm/">package:bm</a> <a href="http://rubikitch.com/tag/package:migemo/">package:migemo</a> <a href="http://rubikitch.com/tag/package:helm-migemo/">package:helm-migemo</a></td></tr>
+</table>
+<br />
+#+END_HTML
+[[http://rubikitch.com/2014/11/21/bm/][昨日は「目に見えるブックマーク」としてbm.elを紹介しました]] が、
+今日はその *helmインターフェース* です。
+
+*M-x bm-toggle* 、 *M-x bm-previous*, *M-x bm-next* があれば
+カレントバッファ内の移動は不自由しません。
+
+実は *M-x bm-show-all* という全bmを一覧するコマンドがありますが、
+/今ならやっぱりhelmだよねー！/
+ということで *helm-bm.el* を紹介します。
+
+実はanything.el時代に *M-x anything-bm-list* があったのですが、
+helmでは削除されていたので、MELPAで探して見付けたのでした。
+
+しかも大幅にパワーアップして帰ってきました。
+
+かつて自分が作ったものがより優れたものに
+置き換わるのは嬉しい限りです。
+
+とにかくhelm化されることで快適に検索できるようになります。
+
+なので、bmの用途が広がり、
+現在位置を記憶する以外にも
+/その行の『内容』を記憶させる/
+という目的にも使えるようになります。
+
+快適設定も紹介します。
+** helm-bm インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install helm-bm
+
+
+#+end:
+** 概要                                                             :noexport:
+[[http://rubikitch.com/2014/11/21/bm/][昨日は「目に見えるブックマーク」としてbm.elを紹介しました]] が、
+今日はその *helmインターフェース* です。
+
+*M-x bm-toggle* 、 *M-x bm-previous*, *M-x bm-next* があれば
+カレントバッファ内の移動は不自由しません。
+
+実は *M-x bm-show-all* という全bmを一覧するコマンドがありますが、
+/今ならやっぱりhelmだよねー！/
+ということで *helm-bm.el* を紹介します。
+
+実はanything.el時代に *M-x anything-bm-list* があったのですが、
+helmでは削除されていたので、MELPAで探して見付けたのでした。
+
+しかも大幅にパワーアップして帰ってきました。
+
+かつて自分が作ったものがより優れたものに
+置き換わるのは嬉しい限りです。
+
+とにかくhelm化されることで快適に検索できるようになります。
+
+なので、bmの用途が広がり、
+現在位置を記憶する以外にも
+/その行の『内容』を記憶させる/
+という目的にも使えるようになります。
+
+快適設定も紹介します。
+
+** 設定 [[http://rubikitch.com/f/141122044603.helm-bm.el][141122044603.helm-bm.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/141122/141122044603.helm-bm.el"
+#+BEGIN_SRC fundamental
+;;; bm.el初期設定
+(setq-default bm-buffer-persistence nil)
+(setq bm-restore-repository-on-load t)
+(require 'bm)
+(add-hook 'find-file-hook 'bm-buffer-restore)
+(add-hook 'kill-buffer-hook 'bm-buffer-save)
+(add-hook 'after-save-hook 'bm-buffer-save)
+(add-hook 'after-revert-hook 'bm-buffer-restore)
+(add-hook 'vc-before-checkin-hook 'bm-buffer-save)
+(add-hook 'kill-emacs-hook '(lambda nil
+                              (bm-buffer-save-all)
+                              (bm-repository-save)))
+(global-set-key (kbd "M-[") 'bm-previous)
+(global-set-key (kbd "M-]") 'bm-next)
+
+;;; helm-bm.el設定
+(require 'helm-bm)
+;; migemoくらいつけようね
+(push '(migemo) helm-source-bm)
+;; annotationはあまり使わないので仕切り線で表示件数減るの嫌
+(setq helm-source-bm (delete '(multiline) helm-source-bm))
+
+(defun bm-toggle-or-helm ()
+  "2回連続で起動したらhelm-bmを実行させる"
+  (interactive)
+  (bm-toggle)
+  (when (eq last-command 'bm-toggle-or-helm)
+    (helm-bm)))
+(global-set-key (kbd "M-SPC") 'bm-toggle-or-helm)
+
+;;; これがないとemacs -Qでエラーになる。おそらくバグ。
+(require 'compile)
+#+END_SRC
+
+#+END:
+
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/141122044603.helm-bm.el
+$ emacs -Q -f package-initialize -l 141122044603.helm-bm.el
+#+END_EXAMPLE
+
+提供するコマンドは *M-x helm-bm* のみです。
+
+アクションは以下のものです。
+
+- その場所に移動(デフォルト)
+- bmを削除(C-SPCで候補をマークすることで複数可)
+- annotation(bmでつけられるコメント)を編集
+- カレントバッファ内の全bmを削除(候補とは無関係)
+- 全バッファの全bmを削除(候補とは無関係)
+
+デフォルトの設定から、3点を改良しました。
+
+- [[http://rubikitch.com/2014/08/20/migemo/][Migemo]] に対応させた
+- 表示件数を増やした
+- M-SPC M-SPCで起動させた
+
+初期設定ではM-SPCにM-x bm-toggleを割り当てていましたが、
+2回連続で実行すると元の状態に戻ります。
+
+そこで、2回連続M-SPCを押すと *M-x helm-bm* を
+起動させるようにすると、かなり快適になります。
+
+
+http://rubikitch.com/f/20141122050546.png
+Fig1: bmをhelm + migemoで絞り込み！

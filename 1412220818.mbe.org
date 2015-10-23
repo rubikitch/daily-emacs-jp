@@ -1,0 +1,206 @@
+#+BLOG: rubikitch
+#+POSTID: 770
+#+DATE: [2014-12-22 Mon 08:18]
+#+PERMALINK: mbe
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, Emacs Lisp, 
+#+EL_PKG_NAME: mbe
+#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs lisp scheme, elisp syntax-rules, elisp syntax-case, elisp srfi 46, elisp R6RS, elisp パターンマッチ
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 
+#+EL_TITLE0: Scheme風パターンマッチをEmacs Lispで実現するライブラリ！
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージmbeの紹介
+#+MYTAGS: package:mbe, emacs 使い方, emacs コマンド, emacs, emacs lisp mbe, elisp mbe, emacs melpa mbe, emacs mbe 使い方, emacs mbe 設定, emacs パッケージ mbe, emacs lisp scheme, elisp syntax-rules, elisp syntax-case, elisp srfi 46, elisp R6RS, elisp パターンマッチ
+#+TITLE: emacs mbe.el : Scheme風パターンマッチをEmacs Lispで実現するライブラリ！ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>mbe</td></tr>
+<tr><td>概要(原文)</td><td>Macros by Example</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/ijp/mbe.el">https://github.com/ijp/mbe.el</a></td></tr>
+<tr><td>バージョン</td><td>20141112.1042</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:mbe/">package:mbe</a> </td></tr>
+</table>
+<br />
+#+END_HTML
+*mbe.el* は *Scheme* の *パターンマッチ* のようなことができます。
+
+*SRFI 46* / *R6RS* スタイルのパターンが使えます。
+#+BEGIN_EXAMPLE
+(<pattern> ...)
+(<pattern> <pattern> ... . <pattern>)
+(<pattern> ... <pattern> <ellipsis>)
+(<pattern> ... <ellipsis> <pattern> ...)
+(<pattern> ... <ellipsis> <pattern> ... . <pattern>)
+#+END_EXAMPLE
+** mbe インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install mbe
+
+
+#+end:
+** 概要                                                             :noexport:
+*mbe.el* は *Scheme* の *パターンマッチ* のようなことができます。
+
+*SRFI 46* / *R6RS* スタイルのパターンが使えます。
+#+BEGIN_EXAMPLE
+(<pattern> ...)
+(<pattern> <pattern> ... . <pattern>)
+(<pattern> ... <pattern> <ellipsis>)
+(<pattern> ... <ellipsis> <pattern> ...)
+(<pattern> ... <ellipsis> <pattern> ... . <pattern>)
+#+END_EXAMPLE
+** パターンマッチ結果をローカル変数にするmbe-bind
+パターンマッチを行うマクロは *mbe-bind* です。
+
+#+BEGIN_SRC emacs-lisp :results silent
+(mbe-bind Patパターン
+  値
+  フォーム...)
+#+END_SRC
+
+の書式になります。
+
+*** 使用例 [[http://rubikitch.com/f/141222083004.el][141222083004.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/141222/141222083004.el"
+#+BEGIN_SRC fundamental
+;;; これは単純なパターンでaとbにはそれぞれ1と2が入る
+(mbe-bind
+ (a b)
+ '(1 2)
+ a                                    ; => 1
+ b                                    ; => 2
+ )
+;;; シンボル...は直前のパターンの繰り返し
+;;; b ...でリストの残りを表す
+(mbe-bind
+ (a b ...)
+ '(1 2 3 4 5)
+ a                                    ; => 1
+ b                                    ; => (2 3 4 5)
+ )
+;;; パターン (a b) の繰り返しを表す暗黙のループ
+(mbe-bind
+ ((a b) ...)
+ '((a 1) (b 2) (c 3))
+ a                                      ; => (a b c)
+ b                                      ; => (1 2 3)
+ )
+;;; ネストした...
+;;; aは最初の要素、bは残りの要素になる
+(mbe-bind
+ ((a b ...) ...)
+ '((a 1 "alpha" "beta") (b 2) (c 3 "gamma"))
+ a                           ; => (a b c)
+ b                           ; => ((1 "alpha" "beta") (2) (3 "gamma"))
+ )
+;;; 最後の3 2 1がマッチしている
+(mbe-bind
+ (a b c ... 3 2 1)
+ '(7 6 5 4 3 2 1)
+ a                                      ; => 7
+ b                                      ; => 6
+ c                                      ; => (5 4)
+ )
+;;; dとeは最後の2要素になる
+(mbe-bind
+ (a b c ... d e)
+ '(1 2 3 4 5 6 7 8 9)
+ a                                      ; => 1
+ b                                      ; => 2
+ c                                      ; => (3 4 5 6 7)
+ d                                      ; => 8
+ e                                      ; => 9
+ )
+;;; リストの最後のコンスセルのcdrはnilなのでfはnil
+(mbe-bind
+ (a b c ... d e . f)
+ '(1 2 3 4 5 6 7 8 9)
+ a                                      ; => 1
+ b                                      ; => 2
+ c                                      ; => (3 4 5 6 7)
+ d                                      ; => 8
+ e                                      ; => 9
+ f                                      ; => nil
+ )
+;;; 最後のコンスセルが9
+(mbe-bind
+ (a b c ... d e . f)
+ '(1 2 3 4 5 6 7 8 . 9)
+ a                                      ; => 1
+ b                                      ; => 2
+ c                                      ; => (3 4 5 6)
+ d                                      ; => 7
+ e                                      ; => 8
+ f                                      ; => 9
+ )
+#+END_SRC
+
+#+END:
+
+** パターンマッチを使ってマクロを記述する
+*mbe-defrules* マクロはSchemeの *syntax-rules* や
+*syntax-case* のような形でマクロを定義します。
+
+パターンマッチの方法はmbe-bindと同じです。
+*** incfを定義 [[http://rubikitch.com/f/141222084410.el][141222084410.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/141222/141222084410.el"
+#+BEGIN_SRC fundamental
+(mbe-defrules my-incf
+  ;; 引数が1つのときは1足す
+  ((var) (setq var (+ var 1)))
+  ;; 引数が2つのときはby足す
+  ((var by) (setq var (+ var by))))
+(let ((a 0) (b 0))
+  (incf a)                              ; => 1
+  (incf a 10)                           ; => 11
+  a                                     ; => 11
+  (my-incf b)                           ; => 1
+  (my-incf b 10)                        ; => 11
+  b                                     ; => 11
+  )
+#+END_SRC
+
+#+END:
+
+*** pushを定義 [[http://rubikitch.com/f/141222084700.el][141222084700.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/141222/141222084700.el"
+#+BEGIN_SRC fundamental
+;;; 冗長な記法
+(mbe-defrules my-push1
+  ((newelt place) (setq place (cons newelt place))))
+;;; 引数の形式が1つなのでシンプルな記法でよい
+(mbe-defrule my-push2 (newelt place)
+  (setq place (cons newelt place)))
+(let (x y z)
+  (push 1 x)                            ; => (1)
+  x                                     ; => (1)
+  (my-push1 1 y)                        ; => (1)
+  y                                     ; => (1)
+  (my-push2 1 z)                        ; => (1)
+  z                                     ; => (1)
+  )
+#+END_SRC
+
+#+END:
+
+*** letを定義 [[http://rubikitch.com/f/141222084905.el][141222084905.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/141222/141222084905.el"
+#+BEGIN_SRC fundamental
+(mbe-defrule mylet (((var val) ...) body ...)
+  (funcall (lambda (var ...) body ...) val ...))
+(mylet ((a 1) (b 2))
+  a                               ; => 1
+  b                               ; => 2
+  (+ a b))                        ; => 3
+#+END_SRC
+
+#+END:
+
+

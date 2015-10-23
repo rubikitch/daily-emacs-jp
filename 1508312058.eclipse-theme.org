@@ -1,0 +1,160 @@
+#+BLOG: rubikitch
+#+POSTID: 1938
+#+DATE: [2015-08-31 Mon 20:58]
+#+PERMALINK: eclipse-theme
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, theme
+#+EL_PKG_NAME: eclipse-theme
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, color-theme, カラーテーマ
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: Eclipse circa 2010似のライトなカラーテーマ
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージeclipse-themeの紹介
+#+MYTAGS: package:eclipse-theme, emacs 使い方, emacs コマンド, emacs, eclipse-theme, eclipse-theme.el, emacs lisp eclipse-theme, elisp eclipse-theme, emacs melpa eclipse-theme, emacs eclipse-theme 使い方, emacs eclipse-theme 設定, emacs パッケージ eclipse-theme, emacs eclipse-theme スクリーンショット, color-theme, カラーテーマ
+#+TAGS: package:eclipse-theme, emacs 使い方, emacs コマンド, emacs, eclipse-theme, eclipse-theme.el, emacs lisp eclipse-theme, elisp eclipse-theme, emacs melpa eclipse-theme, emacs eclipse-theme 使い方, emacs eclipse-theme 設定, emacs パッケージ eclipse-theme, emacs eclipse-theme スクリーンショット, color-theme, カラーテーマ, Emacs, theme, eclipse-theme.el
+#+TITLE: emacs eclipse-theme.el : Eclipse circa 2010似のライトなカラーテーマ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>eclipse-theme</td></tr>
+<tr><td>概要(原文)</td><td>Theme based on Eclipse circa 2010</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/abo-abo/eclipse-theme">https://github.com/abo-abo/eclipse-theme</a></td></tr>
+<tr><td>バージョン</td><td>20150703.310</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:eclipse-theme/">package:eclipse-theme</a> </td></tr>
+</table>
+<br />
+#+END_HTML
+*eclipse-theme.el* は、Eclipse circa 2010似のカラーテーマです。
+
+# (save-window-excursion (async-shell-command "emacs-test -eval '(load-theme (quote eclipse) t)'"))
+以下のパッケージに対応しています。
+- compilation-warning
+- font-lock
+- org
+- mode-line
+- hl-line
+- isearch
+- link
+- helm
+- ivy
+- swiper
+- hydra
+- powerline
+- magit
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_theme_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150831210015.png]]
+Fig1: emacs-lisp-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150831210021.png]]
+Fig2: magit
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150831210024.png]]
+Fig3: grep
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150831210028.png]]
+Fig4: outline-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150831210031.png]]
+Fig5: org-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150831210035.png]]
+Fig6: dired
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150831210038.png]]
+Fig7: web-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150831210042.png]]
+Fig8: markdown-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150831210047.png]]
+Fig9: helm
+** eclipse-theme インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install eclipse-theme
+
+
+#+end:
+** 概要                                                             :noexport:
+*eclipse-theme.el* は、Eclipse circa 2010似のカラーテーマです。
+
+# (save-window-excursion (async-shell-command "emacs-test -eval '(load-theme (quote eclipse) t)'"))
+以下のパッケージに対応しています。
+- compilation-warning
+- font-lock
+- org
+- mode-line
+- hl-line
+- isearch
+- link
+- helm
+- ivy
+- swiper
+- hydra
+- powerline
+- magit
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_theme_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150831210015.png]]
+Fig10: emacs-lisp-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150831210021.png]]
+Fig11: magit
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150831210024.png]]
+Fig12: grep
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150831210028.png]]
+Fig13: outline-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150831210031.png]]
+Fig14: org-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150831210035.png]]
+Fig15: dired
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150831210038.png]]
+Fig16: web-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150831210042.png]]
+Fig17: markdown-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150831210047.png]]
+Fig18: helm
+
+** 設定
+#+BEGIN_SRC fundamental
+(load-theme 'eclipse t)
+#+END_SRC
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ emacs -Q -f package-initialize -eval '(load-theme (quote eclipse) t)'
+#+END_EXAMPLE
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

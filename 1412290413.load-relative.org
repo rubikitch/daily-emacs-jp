@@ -1,0 +1,143 @@
+#+BLOG: rubikitch
+#+POSTID: 818
+#+DATE: [2014-12-29 Mon 04:13]
+#+PERMALINK: load-relative
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs
+#+EL_PKG_NAME: load-relative
+#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, require_relative, __FILE__
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 
+#+EL_TITLE0: 【Emacs Lisper即導入推奨】相対パスによるrequire-relativeとパス指定なしで使えるprovide-me
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージload-relativeの紹介
+#+MYTAGS: package:load-relative, emacs 使い方, emacs コマンド, emacs, emacs lisp load-relative, elisp load-relative, emacs melpa load-relative, emacs load-relative 使い方, emacs load-relative 設定, emacs パッケージ load-relative, require_relative, __FILE__
+#+TAGS: package:load-relative, emacs 使い方, emacs コマンド, emacs, emacs lisp load-relative, elisp load-relative, emacs melpa load-relative, emacs load-relative 使い方, emacs load-relative 設定, emacs パッケージ load-relative, require_relative, __FILE__, Emacs, FILE, require_relative, require-relative, load-relative, FILE, provide-me, FILE, require_relative, require-relative, load-relative, FILE, provide-me, require, provide
+#+TITLE: emacs load-relative.el : 【Emacs Lisper即導入推奨】相対パスによるrequire-relativeとパス指定なしで使えるprovide-me | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>load-relative</td></tr>
+<tr><td>概要(原文)</td><td>relative file load (within a multi-file Emacs package)</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/rocky/emacs-load-relative">https://github.com/rocky/emacs-load-relative</a></td></tr>
+<tr><td>バージョン</td><td>20141216.1331</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:load-relative/">package:load-relative</a> </td></tr>
+</table>
+<br />
+#+END_HTML
+
+他言語を使っていると、ついその機能が羨しく思ったりするものです。
+
+このパッケージはRubyの
+- *FILE*
+- *require_relative*
+をEmacs Lispに移植したものです。
+
+このパッケージを導入するだけで、
+自分自身をrequireすることなく以下の関数・マクロが使えます。
+
+- *require-relative*
+- *load-relative*
+- *FILE*
+- *provide-me*
+
+autoloadに感謝あるのみです。
+** load-relative インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install load-relative
+
+
+#+end:
+** 概要                                                             :noexport:
+
+他言語を使っていると、ついその機能が羨しく思ったりするものです。
+
+このパッケージはRubyの
+- *FILE*
+- *require_relative*
+をEmacs Lispに移植したものです。
+
+このパッケージを導入するだけで、
+自分自身をrequireすることなく以下の関数・マクロが使えます。
+
+- *require-relative*
+- *load-relative*
+- *FILE*
+- *provide-me*
+
+autoloadに感謝あるのみです。
+
+** __FILE__
+#+BEGIN_SRC emacs-lisp :results silent
+(__FILE__)
+#+END_SRC
+
+で現在読み込んでいるファイル名を返します。
+
+** require-relative
+#+BEGIN_SRC emacs-lisp :results silent
+(require-relative "foo")
+#+END_SRC
+
+でカレントディレクトリのfoo.elを *require* します。
+
+シンボルではなくて文字列を使うことに注意してください。
+
+** load-relative
+require-relativeの *load* 版です。
+
+#+BEGIN_SRC emacs-lisp :results silent
+(load-relative '("foo" "bar"))
+#+END_SRC
+
+とリストを取ることもできます。
+
+** provide-me
+通常のprovideは自分自身のbasenameを指定する必要がありますが、
+#+BEGIN_SRC emacs-lisp :results silent
+(provide-me)
+#+END_SRC
+
+と書くだけで *provide* に展開してくれます！
+
+それならば、安心してファイル名を変更できますね！！
+
+** 使用例
+以下のファイル fuga.el と hoge.el を用意してください。
+
+#+BEGIN_SRC emacs-lisp :results silent
+;;; fuga.el
+(setq fuga 1)
+(provide-me)
+#+END_SRC
+
+#+BEGIN_SRC emacs-lisp :results silent
+;;; hoge.el
+(require-relative "fuga")
+(defun test ()
+  (interactive)
+  (message "fuga = %s\n(featurep 'fuga) = %S\n(featurep 'hoge) = %S"
+           fuga (featurep 'fuga) (featurep 'hoge)))
+(provide-me)
+#+END_SRC
+
+このようにEmacsを起動し、M-x testを実行すると
+
+#+BEGIN_EXAMPLE
+$ emacs -Q -f package-initialize -l hoge.el
+#+END_EXAMPLE
+
+ちゃんとrequireされていることがわかります。
+
+#+BEGIN_EXAMPLE
+fuga = 1
+(featurep 'fuga) = t
+(featurep 'hoge) = t
+#+END_EXAMPLE
+
+

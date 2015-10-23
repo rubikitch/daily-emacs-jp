@@ -1,0 +1,536 @@
+#+BLOG: rubikitch
+#+POSTID: 1176
+#+DATE: [2015-02-19 Thu 06:25]
+#+PERMALINK: ignoramus
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs
+#+EL_PKG_NAME: ignoramus
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs 無視するファイル, emacs 非表示にするファイル, emacs 設定集, relate:vc, relate:grep, relate:shell, relate:comint, relate:nav, relate:ido, relate:eshell, relate:dired, relate:projectile, relate:speedbar, relate:pcomplete
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 
+#+EL_TITLE0: 【設定集】多くのパッケージで「無視(非表示に)するファイル」の設定を統一化する！
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージignoramusの紹介
+#+MYTAGS: package:ignoramus, emacs 使い方, emacs コマンド, emacs, ignoramus, ignoramus.el, emacs lisp ignoramus, elisp ignoramus, emacs melpa ignoramus, emacs ignoramus 使い方, emacs ignoramus 設定, emacs パッケージ ignoramus, emacs 無視するファイル, emacs 非表示にするファイル, emacs 設定集, relate:vc, relate:grep, relate:shell, relate:comint, relate:nav, relate:ido, relate:eshell, relate:dired, relate:projectile, relate:speedbar, relate:pcomplete
+#+TAGS: package:ignoramus, emacs 使い方, emacs コマンド, emacs, ignoramus, ignoramus.el, emacs lisp ignoramus, elisp ignoramus, emacs melpa ignoramus, emacs ignoramus 使い方, emacs ignoramus 設定, emacs パッケージ ignoramus, emacs 無視するファイル, emacs 非表示にするファイル, emacs 設定集, relate:vc, relate:grep, relate:shell, relate:comint, relate:nav, relate:ido, relate:eshell, relate:dired, relate:projectile, relate:speedbar, relate:pcomplete, Emacs, ignoramus.el, ignoramus.el, ファイル名補完, completion-ignored-extensions, vc, vc-directory-exclusion-list, grep, grep-find-ignored-files, grep-find-ignored-directories, shell, shell-completion-fignore, comint, comint-completion-fignore, nav, nav-boring-file-regexps, ido, ido-ignore-directories, ido-ignore-files, eshell, eshell-cmpl-file-ignore, eshell-cmpl-dir-ignore, dired, dired-garbage-files-regexp, dired-omit-extensions, dired-omit-files, projectile, projectile-ignored-extension-p, speedbar, speedbar-directory-unshown-regexp, speedbar-file-unshown-regexp, pcomplete, pcomplete-dir-ignore, pcomplete-file-ignore, ignoramus-known-actions, M-x find-function
+#+TITLE: emacs ignoramus.el : 【設定集】多くのパッケージで「無視(非表示に)するファイル」の設定を統一化する！ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>ignoramus</td></tr>
+<tr><td>概要(原文)</td><td>Ignore backups, build files, et al.</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/rolandwalker/ignoramus">https://github.com/rolandwalker/ignoramus</a></td></tr>
+<tr><td>バージョン</td><td>20150216.1342</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:ignoramus/">package:ignoramus</a> <a href="http://rubikitch.com/tag/package:vc/">package:vc</a> <a href="http://rubikitch.com/tag/package:grep/">package:grep</a> <a href="http://rubikitch.com/tag/package:shell/">package:shell</a> <a href="http://rubikitch.com/tag/package:comint/">package:comint</a> <a href="http://rubikitch.com/tag/package:nav/">package:nav</a> <a href="http://rubikitch.com/tag/package:ido/">package:ido</a> <a href="http://rubikitch.com/tag/package:eshell/">package:eshell</a> <a href="http://rubikitch.com/tag/package:dired/">package:dired</a> <a href="http://rubikitch.com/tag/package:projectile/">package:projectile</a> <a href="http://rubikitch.com/tag/package:speedbar/">package:speedbar</a> <a href="http://rubikitch.com/tag/package:pcomplete/">package:pcomplete</a></td></tr>
+</table>
+<br />
+#+END_HTML
+今回紹介するelispは地味だけど「縁の下の力持ち」というのに相応しいです。
+
+Emacsにおいて「無視すべきファイル・ディレクトリ」というのがありますよね。
+
+たとえば、ファイルを開く場合にバックアップファイルや
+コンパイルされたバイナリなどを開きたいとは思いません。
+
+Emacsには数々のパッケージがありますが、
+各パッケージごとに「無視すべき対象」を個別に設定する必要があり、
+とても面倒です。
+
+そこで *ignoramus.el* を使って、それらを統一してしまいましょう。
+
+ignoramus.elの特徴は、以下の3つです。
+- 無視すべき対象の設定がものすごく多い
+- 多くのパッケージに対応している
+- 新しいパッケージに簡単に対応させられる
+** ignoramus インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install ignoramus
+
+
+#+end:
+** 概要                                                             :noexport:
+今回紹介するelispは地味だけど「縁の下の力持ち」というのに相応しいです。
+
+Emacsにおいて「無視すべきファイル・ディレクトリ」というのがありますよね。
+
+たとえば、ファイルを開く場合にバックアップファイルや
+コンパイルされたバイナリなどを開きたいとは思いません。
+
+Emacsには数々のパッケージがありますが、
+各パッケージごとに「無視すべき対象」を個別に設定する必要があり、
+とても面倒です。
+
+そこで *ignoramus.el* を使って、それらを統一してしまいましょう。
+
+ignoramus.elの特徴は、以下の3つです。
+- 無視すべき対象の設定がものすごく多い
+- 多くのパッケージに対応している
+- 新しいパッケージに簡単に対応させられる
+
+** 対応パッケージと設定される変数
+(ignoramus-setup) を実行すると、以下の変数が設定されます。
+
+- *ファイル名補完*
+  - *completion-ignored-extensions*
+- *vc*
+  - *vc-directory-exclusion-list*
+- *grep*
+  - *grep-find-ignored-files*
+  - *grep-find-ignored-directories*
+- *shell*
+  - *shell-completion-fignore*
+- *comint*
+  - *comint-completion-fignore*
+- *nav*
+  - *nav-boring-file-regexps*
+- *ido*
+  - *ido-ignore-directories*
+  - *ido-ignore-files*
+- *eshell*
+  - *eshell-cmpl-file-ignore*
+  - *eshell-cmpl-dir-ignore*
+- *dired*
+  - *dired-garbage-files-regexp*
+  - *dired-omit-extensions*
+  - *dired-omit-files*
+- *projectile*
+  - *projectile-ignored-extension-p* 関数を定義
+- *speedbar*
+  - *speedbar-directory-unshown-regexp*
+  - *speedbar-file-unshown-regexp*
+- *pcomplete*
+  - *pcomplete-dir-ignore*
+  - *pcomplete-file-ignore*
+** 新しいパッケージに対応させるには
+
+ignoramus-do-ignore-ACTION 関数を定義し、
+*ignoramus-known-actions* にACTIONを追加します。
+
+#+BEGIN_SRC emacs-lisp :results silent
+(require 'ignoramus)
+(defun ignoramus-do-ignore-ACTION ()
+  (setq ACTION-directory-exclusion-list ignoramus-file-basename-exact-names))
+(push 'ACTION ignoramus-known-actions)
+(ignoramus-setup)
+#+END_SRC
+
+関数の内容は *M-x find-function* で
+ignoramus-do-ignore-vc などの定義を参考にしてください。
+
+
+
+** デフォルトの設定(抜粋)
+ものすごい多いです！！
+
+設定を追加したければ、
+#+BEGIN_SRC emacs-lisp :results silent
+(push ".hoge" 'ignoramus-file-basename-endings)
+#+END_SRC
+などのようにしてください。
+
+#+BEGIN_SRC emacs-lisp :results silent
+(defcustom ignoramus-file-basename-endings
+  '(
+    ".386"                                    ; compiled binary
+    ".a"                                      ; compiled binary
+    ".acn"                                    ; latex
+    ".acr"                                    ; latex
+    ".alg"                                    ; latex
+    ".ap_"                                    ; android
+    ".apk"                                    ; android
+    "_archive"                                ; emacs org-mode
+    ".asv"                                    ; matlab
+    "-autoloads.el"                           ; emacs package.el
+    ".aux"                                    ; latex
+    ".bak"                                    ; generic
+    ".bbl"                                    ; bibtex
+    ".beam"                                   ; erlang
+    ".bin"                                    ; compiled binary
+    ".blg"                                    ; bibtex
+    ".cgo1.go"                                ; go
+    ".cgo2.c"                                 ; go
+    ".chi"                                    ; haskell
+    ".chi.h"                                  ; haskell
+    ".class"                                  ; java compiled
+    ".com"                                    ; compiled binary
+    ".cp"                                     ; texinfo
+    ".cps"                                    ; texinfo
+    ".d64fsl"                                 ; LISP
+    ".dcu"                                    ; delphi
+    ".dep"                                    ; make
+    ".dex"                                    ; android
+    ".dfsl"                                   ; LISP
+    ".dll"                                    ; compiled binary
+    ".drc"                                    ; delphi
+    ".drv"                                    ; compiled binary
+    ".dvi"                                    ; latex
+    ".dx32fsl"                                ; LISP
+    ".dx64fsl"                                ; LISP
+    ".dxl"                                    ; LISP
+    ".dylib"                                  ; compiled binary
+    ".ear"                                    ; java
+    ".elc"                                    ; emacs
+    ".esproj"                                 ; espresso
+    "-Ex.R"                                   ; R
+    ".exe"                                    ; compiled binary
+    ".fas"                                    ; LISP
+    ".fasl"                                   ; LISP
+    ".fdb_latexmk"                            ; latex
+    ".fmx"                                    ; oracle
+    ".fn"                                     ; texinfo
+    ".fns"                                    ; texinfo
+    ".fsl"                                    ; LISP
+    ".fx32fsl"                                ; LISP
+    ".fx64fsl"                                ; LISP
+    ".gcda"                                   ; gcov
+    ".gcno"                                   ; gcov
+    ".gcov"                                   ; gcov
+    ".glg"                                    ; latex
+    ".glo"                                    ; latex
+    ".gls"                                    ; latex
+    ".gmo"                                    ; gettext
+    ".hi"                                     ; haskell
+    ".identcache"                             ; delphi
+    ".ilg"                                    ; latex
+    ".ilk"                                    ; visualstudio
+    ".iml"                                    ; intellij
+    ".ind"                                    ; latex
+    ".ipr"                                    ; intellij
+    ".ist"                                    ; latex
+    ".iws"                                    ; intellij
+    ".jar"                                    ; java
+    ".ky"                                     ; texinfo
+    ".kys"                                    ; texinfo
+    ".la"                                     ; libtool
+    ".lai"                                    ; libtool
+    ".launch"                                 ; eclipse
+    ".lbin"                                   ; compiled binary
+    ".lib"                                    ; LISP
+    ".lnk"                                    ; ms-windows
+    ".lo"                                     ; libtool
+    ".lock"                                   ; generic
+    ".lof"                                    ; latex
+    ".lot"                                    ; latex
+    ".lx32fsl"                                ; LISP
+    ".lx64fsl"                                ; LISP
+    ".maf"                                    ; latex
+    ".mem"                                    ; LISP
+    ".min.js"                                 ; minified js
+    "-min.js"                                 ; minified js
+    ".mmx"                                    ; oracle
+    ".mo"                                     ; gettext
+    ".moved-aside"                            ; xcode
+    ".mtc"                                    ; latex
+    ".mtc0"                                   ; latex
+    ".nav"                                    ; latex
+    ".nlo"                                    ; latex
+    ".o"                                      ; compiled binary
+    ".obj"                                    ; compiled binary
+    ".opensdf"                                ; visualstudio
+    ".orig"                                   ; patch
+    ".p64fsl"                                 ; LISP
+    ".pdfsync"                                ; latex
+    ".pfsl"                                   ; LISP
+    ".pg"                                     ; texinfo
+    ".pgs"                                    ; texinfo
+    ".pid"                                    ; various
+    ".pidb"                                   ; monodevelop
+    ".plt"                                    ; erlang
+    ".plx"                                    ; oracle
+    ".pot"                                    ; django
+    ".psess"                                  ; visualstudio
+    ".Publish.xml"                            ; visualstudio
+    ".pyc"                                    ; python
+    ".pyd"                                    ; python
+    ".pydevproject"                           ; eclipse
+    ".pyo"                                    ; python
+    ".rbc"                                    ; ruby
+    ".rej"                                    ; patch
+    ".sassc"                                  ; sass
+    ".scc"                                    ; visualstudio
+    ".sdf"                                    ; visualstudio
+    ".seed"                                   ; node
+    ".sln.docstates"                          ; visualstudio
+    ".slo"                                    ; compiled binary
+    ".snm"                                    ; latex
+    ".so"                                     ; shared library
+    ".sparcf"                                 ; LISP
+    ".sublime-project"                        ; sublimetext
+    ".sublime-workspace"                      ; sublimetext
+    ".suo"                                    ; visualstudio
+    ".swo"                                    ; vim
+    ".swp"                                    ; vim
+    ".sx32fsl"                                ; LISP
+    ".sx64fsl"                                ; LISP
+    ".synctex.gz"                             ; latex
+    ".ttc"                                    ; template toolkit
+    ".tfm"                                    ; latex
+    ".tmproj"                                 ; textmate
+    ".tmproject"                              ; textmate
+    ".toc"                                    ; latex
+    ".tp"                                     ; texinfo
+    ".tps"                                    ; texinfo
+    ".ufsl"                                   ; LISP
+    ".un~"                                    ; vim
+    ".vr"                                     ; texinfo
+    ".vrb"                                    ; latex
+    ".vrs"                                    ; texinfo
+    ".vsp"                                    ; visualstudio
+    ".vspscc"                                 ; visualstudio
+    ".vssscc"                                 ; visualstudio
+    ".vxd"                                    ; ms-windows driver
+    ".war"                                    ; java
+    ".wx32fsl"                                ; LISP
+    ".wx64fsl"                                ; LISP
+    ".x86f"                                   ; LISP
+    ".xdy"                                    ; latex
+    ".zwc"                                    ; zsh
+    "~"                                       ; emacs
+;;  ".fmt"                                    ; latex
+;;  ".idx"                                    ; latex
+;;  ".log"                                    ; database
+;;  ".out"                                    ; latex
+;;  ".map"                                    ; various
+;;  ".ln"                                     ; ms-windows
+    )
+  "List of file endings to ignore.
+
+These are not regular expressions, but literal strings which
+occur at the ends of file names to ignore."
+  :type '(repeat string)
+  :group 'ignoramus-patterns)
+
+(defcustom ignoramus-file-basename-beginnings
+  '(
+    ".#"                                   ; emacs
+    "core."                                ; unix
+    "._"                                   ; thumbnails
+    "_cgo_export."                         ; go
+    )
+  "List of file beginnings to ignore.
+
+These are not regular expressions, but literal strings which
+occur at the beginnings of file or directory names to ignore.
+
+The string to match comprises only the last element of a
+fully-qualified pathname."
+  :type '(repeat string)
+  :group 'ignoramus-patterns)
+
+(defcustom ignoramus-file-basename-exact-names
+  '(
+    "$RECYCLE.BIN"                         ; ms-windows
+    ".AppleDouble"                         ; OS X
+    ".DS_Store"                            ; OS X
+    ".DocumentRevisions-V100"              ; OS X
+    ".LSOverride"                          ; OS X
+    ".Rhistory"                            ; R
+    ".Spotlight-V100"                      ; OS X
+    ".TemporaryItems"                      ; OS X
+    ".Trashes"                             ; OS X
+    ".actionScriptProperties"              ; actionscript
+    ".apt_generated"                       ; gwt
+    ".bdfcache.el"                         ; emacs ps-bdf
+    ".build"                               ; perl
+    ".buildpath"                           ; eclipse
+    ".builds"                              ; visualstudio
+    ".bzr"                                 ; bazaar
+    ".cdv"                                 ; codeville
+    ".classpath"                           ; eclipse
+    ".com.apple.timemachine.donotpresent"  ; OS X
+    ".com.apple.timemachine.supported"     ; OS X
+    ".coverage"                            ; python
+    ".cproject"                            ; eclipse
+    ".directory"                           ; KDE
+    ".dropbox"                             ; dropbox
+    ".dropbox.cache"                       ; dropbox
+    ".emacs-places"                        ; emacs saveplace
+    ".emacs.desktop"                       ; emacs desktop.el
+    ".emacs.desktop.lock"                  ; emacs desktop.el
+    ".eunit"                               ; erlang
+    ".externalToolBuilders"                ; eclipse
+    ".flexProperties"                      ; actionscript
+    ".fseventsd"                           ; OS X
+    ".git"                                 ; git
+    ".hg"                                  ; mercurial
+    ".idea"                                ; various
+    ".idlwave"                             ; emacs idlwave
+    ".ido.last"                            ; emacs ido-mode
+    ".kkcrc"                               ; emacs kkc Kana Kanji converter
+    ".last_cover_stats"                    ; perl
+    ".lein-deps-sum"                       ; leiningen
+    ".loadpath"                            ; eclipse
+    ".netrwhist"                           ; vim
+    ".notes"                               ; emacs org-mode / remember.el
+    ".org-id-locations"                    ; emacs org-mode
+    ".pc"                                  ; quilt
+    ".project"                             ; eclipse
+    ".projectile"                          ; emacs projectile
+    ".prove"                               ; perl
+    ".puppet-bak"                          ; puppet
+    ".quickurls"                           ; emacs quickurl
+    ".recentf"                             ; emacs recentf
+    ".redcar"                              ; redcar
+    ".rspec"                               ; rails
+    ".sass-cache"                          ; sass
+    ".scala_dependencies"                  ; scala
+    ".shadow_todo"                         ; emacs shadowfile
+    ".shadows"                             ; emacs shadowfile
+    ".strokes"                             ; emacs strokes.el
+    ".svn"                                 ; subversion
+    ".timelog"                             ; emacs timeclock
+    ".todo-do"                             ; emacs todo-mode
+    ".todo-done"                           ; emacs todo-mode
+    ".todo-top"                            ; emacs todo-mode
+    ".tox"                                 ; python
+    ".type-break"                          ; emacs type-break
+    ".vip"                                 ; emacs viper-mode
+    ".viper"                               ; emacs viper-mode
+    ".wmncach.el"                          ; emacs WoMan
+    ".yardoc"                              ; yard
+    "_MTN"                                 ; monotone
+    "__history"                            ; delphi
+    "_bdfcache.el"                         ; emacs ps-bdf
+    "_build"                               ; perl
+    "_cgo_defun.c"                         ; go
+    "_cgo_gotypes.go"                      ; go
+    "_darcs"                               ; darcs
+    "_obj"                                 ; go
+    "_sgbak"                               ; vault
+    "_site"                                ; jekyll
+    "_test"                                ; go
+    "_testmain.go"                         ; go
+    "_yardoc"                              ; yard
+    "aclocal.m4"                           ; automake
+    "auto-save-list"                       ; emacs
+    "autom4te.cache"                       ; autoconf
+    "bin-debug"                            ; various
+    "bin-release"                          ; various
+    "blib"                                 ; perl
+    "build"                                ; various
+    "Build"                                ; various
+    "Build.bat"                            ; perl
+    "COMMIT_EDITMSG"                       ; git
+    "cmake_install.cmake"                  ; cmake
+    "CMakeCache.txt"                       ; cmake
+    "CMakeFiles"                           ; cmake
+    "cover_db"                             ; perl
+    "cscope.csd"                           ; cscope
+    "cscope.files"                         ; cscope
+    "cscope.inc"                           ; cscope
+    "cscope.lst"                           ; cscope
+    "cscope.out"                           ; cscope
+    "cscope.out.po"                        ; cscope
+    "cscope.tmplist"                       ; cscope
+    "CVS"                                  ; CVS
+    "Debug"                                ; various
+    "debug"                                ; various
+    "depcomp"                              ; automake
+    "DerivedData"                          ; xcode
+    "Desktop.ini"                          ; ms-windows
+    "ehthumbs.db"                          ; ms-windows
+    "GHI_ISSUE"                            ; git ghi
+    "git-rebase-todo"                      ; git
+    "gwt-unitCache"                        ; gwt
+    "gwt_bree"                             ; gwt
+    "install-sh"                           ; automake
+    "install_manifest.txt"                 ; cmake
+    "InstalledFiles"                       ; ruby
+    "Makefile.in"                          ; automake
+    "Makefile.old"                         ; perl
+    "MCVS"                                 ; meta-CVS
+    "META.yml"                             ; perl
+    "MERGE_MSG"                            ; git
+    "minimal-session-saver-data.el"        ; emacs minimal-session-saver
+    "MYMETA.yml"                           ; perl
+    "nbbuild"                              ; netbeans
+    "nbdist"                               ; netbeans
+    "nosetests.xml"                        ; python
+    "nytprof"                              ; perl
+    "nytprof.out"                          ; perl
+    "perltidy.ERR"                         ; perl
+    "pm_to_blib"                           ; perl
+    "Profile"                              ; various
+    "profile"                              ; various
+    "RCS"                                  ; RCS
+    "Release"                              ; various
+    "release"                              ; various
+    "SCCS"                                 ; SCCS
+    "Session.vim"                          ; vim
+    "slprj"                                ; matlab
+    "SQUASH_MSG"                           ; git
+    "TAGS"                                 ; ctags/etags
+    "TAG_EDITMSG"                          ; git
+    "tags"                                 ; ctags/etags
+    "TestResult"                           ; visualstudio
+    "testresult"                           ; visualstudio
+    "Thumbs.db"                            ; ms-windows
+    "tmtags"                               ; textmate
+    "xcuserdata"                           ; xcode
+    "xhtml-loader.rnc"                     ; emacs nxhtml
+    "{arch}"                               ; arch - todo is this correct?
+    "~.dep"                                ; xcode
+    "~.dot"                                ; xcode
+    "~.nib"                                ; xcode
+    "~.plst"                               ; xcode
+    "test.out"                             ; generic testing
+    "test_out"                             ; generic testing
+    "test.output"                          ; generic testing
+    "test_output"                          ; generic testing
+    )
+  "List of exact filenames to ignore.
+
+These are not regular expressions, but literal strings which
+exactly match a file or directory name to ignore.
+
+The string to match comprises only the last element of a
+fully-qualified pathname."
+  :type '(repeat string)
+  :group 'ignoramus-patterns)
+
+(defcustom ignoramus-file-basename-regexps
+  '(
+    "\\`#.*#\\'"                           ; emacs
+    "\\`.*\\.mex[^.]*\\'"                  ; matlab
+    "\\`Icon.?\\'"                         ; OS X thumbnails
+    "\\`\\..*\\.sw[a-z]\\'"                ; vim
+    "\\`\\.yas.*\\.el\\'"                  ; emacs yasnippet
+    "\\`\\..*~undo-tree~\\'"               ; emacs undo-tree
+    "\\`bzr_log\\.[[:alnum:]]+\\'"         ; emacs
+    "\\`hg-editor-[[:alnum:]]+\\.txt\\'"   ; emacs
+    "\\`svn-commit\\.tmp\\'"               ; emacs
+    "\\`zshecl[0-9]+\\'"                   ; zsh
+    "\\`bash-fc-[0-9]+\\'"                 ; bash
+    "\\.\\(BACKUP\\|LOCAL\\|BASE\\|REMOTE\\)\\.[0-9]\\{3,\\}" ; git
+    )
+  "List of regexps matching filenames to ignore.
+
+The string to match comprises only the last element of a
+fully-qualified pathname."
+  :type '(repeat regexp)
+  :group 'ignoramus-patterns)
+#+END_SRC
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+** 設定 [[http://rubikitch.com/f/150219065230.ignoramus.el][150219065230.ignoramus.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/150219/150219065230.ignoramus.el"
+#+BEGIN_SRC fundamental
+(require 'dired-x)
+(require 'ignoramus)
+(ignoramus-setup)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/150219065230.ignoramus.el
+$ emacs -Q -f package-initialize -l 150219065230.ignoramus.el
+#+END_EXAMPLE

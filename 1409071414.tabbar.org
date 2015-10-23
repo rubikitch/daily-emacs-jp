@@ -1,0 +1,129 @@
+#+BLOG: rubikitch
+#+POSTID: 314
+#+DATE: [2014-09-07 Sun 14:14]
+#+PERMALINK: tabbar
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs
+#+EL_PKG_NAME: tabbar
+#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, relate:elscreen, relate:ace-jump-buffer, relate:helm, emacs ace-jump-buffer.el, emacs helm.el, emacs バッファ切り替え, emacs elscreen 乗り変え, emacs タブエディタ,
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: Emacsをタブエディタ化し、バッファを俯瞰する
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージtabbarの紹介
+#+MYTAGS: package:tabbar, emacs 使い方, emacs コマンド, emacs, emacs lisp tabbar, elisp tabbar, emacs melpa tabbar, emacs tabbar 使い方, emacs tabbar 設定, emacs パッケージ tabbar, emacs tabbar スクリーンショット, relate:elscreen, relate:ace-jump-buffer, relate:helm, emacs ace-jump-buffer.el, emacs helm.el, emacs バッファ切り替え, emacs elscreen 乗り変え, emacs タブエディタ,
+#+TITLE: emacs tabbar.el : Emacsをタブエディタ化し、バッファを俯瞰する | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>tabbar</td></tr>
+<tr><td>概要(原文)</td><td>No description available.</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/dholm/tabbar">https://github.com/dholm/tabbar</a></td></tr>
+<tr><td>バージョン</td><td>20141109.143</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:tabbar/">package:tabbar</a> <a href="http://rubikitch.com/tag/package:elscreen/">package:elscreen</a> <a href="http://rubikitch.com/tag/package:ace-jump-buffer/">package:ace-jump-buffer</a> <a href="http://rubikitch.com/tag/package:helm/">package:helm</a></td></tr>
+</table>
+<br />
+#+END_HTML
+[[http://rubikitch.com/2014/09/05/elscreen/][この前elscreenを紹介したばかりだが、]]
+対抗馬といわれているtabbar.elも見てみましょう。
+
+始めに言っておきますが、 *elscreen.el* とは別物です。
+
+tabbar.elではバッファ一覧を表示するのに対し、
+elscreen.elではウィンドウ構成一覧を表示します。
+
+これはバッファリストを *header-line* に並べて
+順次切り替えられるようにするものです。
+** tabbar インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install tabbar
+
+
+#+end:
+** 概要                                                             :noexport:
+[[http://rubikitch.com/2014/09/05/elscreen/][この前elscreenを紹介したばかりだが、]]
+対抗馬といわれているtabbar.elも見てみましょう。
+
+始めに言っておきますが、 *elscreen.el* とは別物です。
+
+tabbar.elではバッファ一覧を表示するのに対し、
+elscreen.elではウィンドウ構成一覧を表示します。
+
+これはバッファリストを *header-line* に並べて
+順次切り替えられるようにするものです。
+
+** 設定 [[http://rubikitch.com/f/140907152621.tabbar.el][140907152621.tabbar.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/140907/140907152621.tabbar.el"
+#+BEGIN_SRC fundamental
+(tabbar-mode 1)
+;; タブ上でマウスホイール操作無効
+(tabbar-mwheel-mode -1)
+;; グループ化しない
+(setq tabbar-buffer-groups-function nil)
+;; 画像を使わないことで軽量化する
+(setq tabbar-use-images nil)
+;; キーに割り当てる
+(global-set-key (kbd "M-<right>") 'tabbar-forward-tab)
+(global-set-key (kbd "M-<left>") 'tabbar-backward-tab)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/140907152621.tabbar.el
+$ emacs -Q -f package-initialize -l 140907152621.tabbar.el
+#+END_EXAMPLE
+
+tabbarシンプルに使うのならば、グループは使わなくてよいです。
+
+この設定ではM-←とM-→でタブ(バッファ)を切り替えられます。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+http://rubikitch.com/f/20140907165736.png
+Fig1: タブをheader-lineに表示する！
+** APELはもう使われていない
+軽くぐぐったところ、
+APELに依存しているから乗り換えた
+という記事をちょくちょく見掛けます。
+
+現在MELPAで入手できるelscreen.elでは、
+とっくのとうにAPELとの依存関係は断ち切っています。
+
+https://github.com/shosti/elscreen/commit/9dab9fb8b594e120982b39663c66699f6d057971
+
+#+BEGIN_EXAMPLE
+9dab9fb8b594e120982b39663c66699f6d057971
+Author: Emanuel Evans <emanuel.evans@gmail.com>
+Date:   Wed Apr 11 14:44:03 2012 -0400
+
+    Remove dependency on alist
+
+    Get rid of APEL
+
+#+END_EXAMPLE
+
+情報というのは刻一刻と変化します。
+
+その記事はいつ書かれたものかを見ましょう。
+
+
+** 総評
+バッファリストを常に表示して俯瞰できるようにしたい方は
+導入しても損はありません。
+
+ただ、たくさんのバッファを開いていると、
+当然header-lineはうるさくなります。
+
+おまけに、C-x 3で左右分割すると表示できる領域が
+すぐに狹くなってしまいます。
+
+バッファを俯瞰して切り替える方法ならば、
+[[http://rubikitch.com/2014/08/09/ace-jump-buffer/][ace-jump-buffer.el]] や *helm* を使うこともできます。
+
+そう考えると僕的にはタブエディタ化は[[http://rubikitch.com/2014/09/05/elscreen/][elscreen]] の方をおすすめします。

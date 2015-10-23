@@ -1,0 +1,71 @@
+#+POSTID: 82
+#+DATE: [2014-08-09 Sat 10:45]
+#+PERMALINK: package-initialize
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t
+#+ISPAGE: t
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, Emacs Lisp,
+#+DESCRIPTION:
+#+MYTAGS: パッケージ, ELPA, MELPA, Marmalade, package-install, package-refresh-contents, list-packages, package-list-packages, Emacs パッケージ インストール, Emacs パッケージ 設定, package.el, emacs package.el
+#+TAGS: パッケージ, ELPA, MELPA, Marmalade, package-install, package-refresh-contents, list-packages, package-list-packages, Emacs パッケージ インストール, Emacs パッケージ 設定, package.el, emacs package.el, Emacs, Emacs Lisp,,
+#+TITLE: パッケージの初期設定
+** package.elの設定
+Emacs24からパッケージシステムが標準添付されるようになり、
+Emacs Lispプログラムのインストールが一気に楽になりました。
+
+パッケージに依存しているパッケージも同時にインストールしてくれます。
+
+たとえば、helm-agパッケージをインストールするとき、
+依存パッケージのhelmもインストールします。
+
+
+ただし、以下の設定を加える必要があります。
+
+#+BEGIN: include :file "/r/sync/book/sd-emacs-rensai/init-package.el"
+#+BEGIN_SRC fundamental
+(package-initialize)
+(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
+(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
+#+END_SRC
+
+#+END:
+
+以後、パッケージをインストールするには
+M-x list-packages
+から選択するか、
+M-x package-refresh-contents
+の後に
+M-x package-initialize パッケージ名
+を実行すればよいです。
+
+package-refresh-contentsは、パッケージの情報を
+最新状態にするコマンドです。
+
+Emacs起動中にパッケージが更新されていたということがあるので、
+インストールする前には実行しておいてください。
+
+なお、複数のパッケージをたて続けにインストールする場合は省けます。
+** auto-install.elの設定
+とはいえ、必ずしもパッケージに登録されているとは限りません。
+
+URL指定やEmacsWikiからもインストールできるようにしておくと楽です。
+
+M-x package-install auto-install
+
+を実行して auto-install.el をインストールして、設定を加えてください。
+
+#+BEGIN_SRC fundamental
+(require 'auto-install)
+(auto-install-compatibility-setup)
+#+END_SRC
+
+以後、以下のコマンドが使えるようになります。
+
+M-x install-elisp URL
+M-x install-elisp-from-emacswiki EmacsWikiのページ名
+M-x install-elisp-from-gist gist-id
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

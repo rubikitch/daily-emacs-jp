@@ -1,0 +1,26 @@
+#+BLOG: rubikitch
+#+POSTID: 2083
+#+DATE: [2015-10-16 Fri 16:20]
+#+PERMALINK: melmag
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: メルマガ,
+#+DESCRIPTION: るびきち塾メルマガ『Emacsの鬼るびきちのココだけの話#203』の予告
+#+TITLE: 【メルマガ#203】超高速helmクローンの登場
+#+MYTAGS: 
+#+begin: org2blog-tags
+#+TAGS: , メルマガ,, 
+#+end:
+今回紹介する「Emacs的ソフトウェア」はhelmクローンです。
+
+helmはかつてanythingという名前でEmacs界に大きな影響を与え、
+今でもMELPAダウンロードランキング3位と大人気です。
+
+この素晴らしきインターフェースを端末へと移植したものがいくつかあります。
+
+それらと実際のhelmを徹底的に比較検討したいと思います。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

@@ -1,0 +1,131 @@
+#+BLOG: rubikitch
+#+POSTID: 175
+#+DATE: [2014-08-16 Sat 11:44]
+#+PERMALINK: smart-mode-line
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs
+#+EL_PKG_NAME: smart-mode-line
+#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, emacs モードライン カスタマイズ, emacs mode-line カスタマイズ, emacs modeline カスタマイズ,
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: smart-mode-lineでモードライン革命！
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージsmart-mode-lineの紹介
+#+MYTAGS: package:smart-mode-line, emacs 使い方, emacs コマンド, emacs, emacs lisp smart-mode-line, elisp smart-mode-line, emacs melpa smart-mode-line, emacs smart-mode-line 使い方, emacs smart-mode-line 設定, emacs パッケージ smart-mode-line, emacs smart-mode-line スクリーンショット, emacs モードライン カスタマイズ, emacs mode-line カスタマイズ, emacs modeline カスタマイズ,
+#+TITLE: emacs smart-mode-line.el : smart-mode-lineでモードライン革命！ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>smart-mode-line</td></tr>
+<tr><td>概要(原文)</td><td>A color coded smart mode-line.</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/Bruce-Connor/smart-mode-line">https://github.com/Bruce-Connor/smart-mode-line</a></td></tr>
+<tr><td>バージョン</td><td>20141219.448</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:smart-mode-line/">package:smart-mode-line</a> </td></tr>
+</table>
+<br />
+#+END_HTML
+smart-mode-line.elは *mode-line* をかっこよくします！
+
+大きな特徴としては、以下の特徴があります。
+
+- カラフルになる
+- 編集中のファイル名でディレクトリも表示される
+- パスの短縮記法が使える
+- 非表示のマイナーモードを設定できる
+- GUIでカスタマイズできる
+
+
+*sml/replacer-regexp-list* はファイル名の短縮ができます。
+
+この設定では
+
+~/junk/140816/140816115603.txt
+が
+:J:140816115603.txt
+のように表示されます。
+
+カスタマイズは
+M-x sml/customize
+で行えます。
+
+いろいろカスタマイズして自分だけのかっこいい *モードライン* を作ってください。
+** smart-mode-line インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install smart-mode-line
+
+
+#+end:
+** 概要                                                             :noexport:
+smart-mode-line.elは *mode-line* をかっこよくします！
+
+大きな特徴としては、以下の特徴があります。
+
+- カラフルになる
+- 編集中のファイル名でディレクトリも表示される
+- パスの短縮記法が使える
+- 非表示のマイナーモードを設定できる
+- GUIでカスタマイズできる
+
+
+*sml/replacer-regexp-list* はファイル名の短縮ができます。
+
+この設定では
+
+~/junk/140816/140816115603.txt
+が
+:J:140816115603.txt
+のように表示されます。
+
+カスタマイズは
+M-x sml/customize
+で行えます。
+
+いろいろカスタマイズして自分だけのかっこいい *モードライン* を作ってください。
+** 設定 [[http://rubikitch.com/f/140816084228.smart-mode-line.1.el][140816084228.smart-mode-line.1.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/140816/140816084228.smart-mode-line.1.el"
+#+BEGIN_SRC fundamental
+(require 'smart-mode-line)
+;;; この変数を定義しておかないとエラーになるバグあり
+(setq sml/active-background-color "gray60")
+;;; 桁番号も表示させる
+(column-number-mode 1)
+;;; 読み込み専用バッファは%で表示
+(setq sml/read-only-char "%%")
+;;; 修正済みバッファは*で表示
+(setq sml/modified-char "*")
+;;; helm-modeとauto-complete-modeのモードライン表示を隠す
+(setq sml/hidden-modes '(" Helm" " AC"))
+;;; これがないと表示がはみでる
+(setq sml/extra-filler -10)
+;;; sml/replacer-regexp-listはモードラインでのファイル名表示方法を制御
+(add-to-list 'sml/replacer-regexp-list '("^.+/junk/[0-9]+/" ":J:") t)
+;;; これを入れないとsmart-mode-lineを読み込むたびに
+;;; Loading a theme can run Lisp code.  Really load? (y or n)
+;;; と聞いてくる。
+(setq sml/no-confirm-load-theme t)
+(sml/setup)
+(sml/apply-theme 'respectful)
+;;; その他のthemeを設定
+;;(sml/apply-theme 'dark)
+;;(sml/apply-theme 'light)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/140816084228.smart-mode-line.1.el
+$ emacs -Q -f package-initialize -l 140816084228.smart-mode-line.1.el
+#+END_EXAMPLE
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+http://rubikitch.com/f/20140816120634.png
+Fig1: ビフォー
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+http://rubikitch.com/f/20140816120326.png
+Fig2: アフター

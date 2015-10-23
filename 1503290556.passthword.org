@@ -1,0 +1,167 @@
+#+BLOG: rubikitch
+#+POSTID: 1392
+#+DATE: [2015-03-29 Sun 05:56]
+#+PERMALINK: passthword
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs
+#+EL_PKG_NAME: passthword
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, relate:id-manager, relate:ido, パスワード管理, GNOME Keyring, Password Manager, Form Filler, Password Management, ロボフォーム, KeePass, Roboform, SplashID, 1Password, パスワード管理ソフト ID Manager, relate:auth-source, relate:org-password-manager
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: idoベースの超シンプルなパスワードマネージャー
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージpassthwordの紹介
+#+MYTAGS: package:passthword, emacs 使い方, emacs コマンド, emacs, passthword, passthword.el, emacs lisp passthword, elisp passthword, emacs melpa passthword, emacs passthword 使い方, emacs passthword 設定, emacs パッケージ passthword, emacs passthword スクリーンショット, relate:id-manager, relate:ido, パスワード管理, GNOME Keyring, Password Manager, Form Filler, Password Management, ロボフォーム, KeePass, Roboform, SplashID, 1Password, パスワード管理ソフト ID Manager, relate:auth-source, relate:org-password-manager
+#+TAGS: package:passthword, emacs 使い方, emacs コマンド, emacs, passthword, passthword.el, emacs lisp passthword, elisp passthword, emacs melpa passthword, emacs passthword 使い方, emacs passthword 設定, emacs パッケージ passthword, emacs passthword スクリーンショット, relate:id-manager, relate:ido, パスワード管理, GNOME Keyring, Password Manager, Form Filler, Password Management, ロボフォーム, KeePass, Roboform, SplashID, 1Password, パスワード管理ソフト ID Manager, relate:auth-source, relate:org-password-manager, Emacs, passthword.el, ~/.emacs.d/passthword.gpg, EPG, パスフレーズ, helm, ido, C-u M-x passthword, M-x passthword, kill-ring, C-SPC, M-x passthword-delete, ~/.emacs.d/passthword.gpg, EPG, パスフレーズ, helm, ido, C-u M-x passthword, M-x passthword, kill-ring, C-SPC, M-x passthword-delete
+#+TITLE: emacs passthword.el : idoベースの超シンプルなパスワードマネージャー | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>passthword</td></tr>
+<tr><td>概要(原文)</td><td>Simple password manager</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/pidu/passthword">https://github.com/pidu/passthword</a></td></tr>
+<tr><td>バージョン</td><td>20141201.123</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:passthword/">package:passthword</a> <a href="http://rubikitch.com/tag/package:id-manager/">package:id-manager</a> <a href="http://rubikitch.com/tag/package:ido/">package:ido</a> <a href="http://rubikitch.com/tag/package:auth-source/">package:auth-source</a> <a href="http://rubikitch.com/tag/package:org-password-manager/">package:org-password-manager</a></td></tr>
+</table>
+<br />
+#+END_HTML
+*passthword.el* は、[[http://rubikitch.com/2014/09/28/id-manager/][id-manager.el(レビュー)]] 同様、
+Emacsで各サービスのパスワードを管理するものです。
+
+同じように *~/.emacs.d/passthword.gpg* に
+たくさんのパスワードを *EPG* で暗号化されたファイルに保存します。
+
+そのファイルをEmacsで初めてアクセス場合は
+*パスフレーズ* を訊かれます。
+
+いわばマスターパスワードのようなもので、
+これさえ覚えていればすべてのパスワードにアクセスできます。
+
+だからセキュリティは保たれます。
+
+id-manager.elでは *helm* インターフェースになっていますが、
+こちらは *ido* を使っています。
+
+コードの実行数は90行と、とても短く理解しやすいです。
+
+*C-u M-x passthword* でパスワードを登録し、
+*M-x passthword* でパスワードを *kill-ring* に登録します。
+
+他のアプリケーションにも貼り付けられます。
+
+パスワードを登録するとき
+1. サービスの説明(description)
+2. ユーザ名
+3. パスワード
+
+の順番に設定します。
+
+また、パスワード設定時に *C-SPC* を押せば
+ランダムパスワードを生成します。
+
+アカウントの削除は *M-x passthword-delete* です。
+
+id-manager.elはパスワード登録時にwidgetを使っていますが、
+シンプルにミニバッファで完結したいならば
+あえてpassthword.elを使うという手もあります。
+** passthword インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install passthword
+
+
+#+end:
+** 概要                                                             :noexport:
+*passthword.el* は、[[http://rubikitch.com/2014/09/28/id-manager/][id-manager.el(レビュー)]] 同様、
+Emacsで各サービスのパスワードを管理するものです。
+
+同じように *~/.emacs.d/passthword.gpg* に
+たくさんのパスワードを *EPG* で暗号化されたファイルに保存します。
+
+そのファイルをEmacsで初めてアクセス場合は
+*パスフレーズ* を訊かれます。
+
+いわばマスターパスワードのようなもので、
+これさえ覚えていればすべてのパスワードにアクセスできます。
+
+だからセキュリティは保たれます。
+
+id-manager.elでは *helm* インターフェースになっていますが、
+こちらは *ido* を使っています。
+
+コードの実行数は90行と、とても短く理解しやすいです。
+
+*C-u M-x passthword* でパスワードを登録し、
+*M-x passthword* でパスワードを *kill-ring* に登録します。
+
+他のアプリケーションにも貼り付けられます。
+
+パスワードを登録するとき
+1. サービスの説明(description)
+2. ユーザ名
+3. パスワード
+
+の順番に設定します。
+
+また、パスワード設定時に *C-SPC* を押せば
+ランダムパスワードを生成します。
+
+アカウントの削除は *M-x passthword-delete* です。
+
+id-manager.elはパスワード登録時にwidgetを使っていますが、
+シンプルにミニバッファで完結したいならば
+あえてpassthword.elを使うという手もあります。
+
+** パスワードを得る
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150329061511.png]]
+Fig1: M-x passthwordでパスワードファイルを開くときにパスフレーズを訊かれる
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150329061522.png]]
+Fig2: descriptionで登録されたサービスをidoで選択
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150329061530.png]]
+Fig3: 選択したらキルリングに登録される
+
+** パスワードを登録する
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150329061558.png]]
+Fig4: C-u M-x passthwordで新しいサービスを登録
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150329061603.png]]
+Fig5: ユーザ名を入力
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150329061617.png]]
+Fig6: パスワードを入力
+
+** 設定 [[http://rubikitch.com/f/150329061904.passthword.el][150329061904.passthword.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/150329/150329061904.passthword.el"
+#+BEGIN_SRC fundamental
+;;; これを入れないと毎回パスフレーズを訊かれてうざいw
+(setq epa-file-cache-passphrase-for-symmetric-encryption t)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/150329061904.passthword.el
+$ emacs -Q -f package-initialize -l 150329061904.passthword.el
+#+END_EXAMPLE
+
+# /r/sync/screenshots/20150329061511.png http://rubikitch.com/wp-content/uploads/2015/03/wpid-20150329061511.png
+# /r/sync/screenshots/20150329061522.png http://rubikitch.com/wp-content/uploads/2015/03/wpid-20150329061522.png
+# /r/sync/screenshots/20150329061530.png http://rubikitch.com/wp-content/uploads/2015/03/wpid-20150329061530.png
+# /r/sync/screenshots/20150329061558.png http://rubikitch.com/wp-content/uploads/2015/03/wpid-20150329061558.png
+# /r/sync/screenshots/20150329061603.png http://rubikitch.com/wp-content/uploads/2015/03/wpid-20150329061603.png
+# /r/sync/screenshots/20150329061617.png http://rubikitch.com/wp-content/uploads/2015/03/wpid-20150329061617.png

@@ -1,0 +1,42 @@
+#+BLOG: rubikitch
+#+POSTID: 106
+#+DATE: [2014-08-09 Sat 10:04]
+#+PERMALINK: test
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs
+#+EL_PKG_NAME: helm-ag
+#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: FILLIT
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージhelm-agの紹介
+#+MYTAGS: package:helm-ag, emacs 使い方, emacs コマンド, emacs, emacs lisp helm-ag, elisp helm-ag, emacs melpa helm-ag, emacs helm-ag 使い方, emacs helm-ag 設定, emacs パッケージ helm-ag, emacs helm-ag スクリーンショット
+#+TITLE: emacs helm-ag.el : FILLIT | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>helm-ag</td></tr>
+<tr><td>概要(原文)</td><td>the silver searcher with helm interface</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/syohex/emacs-helm-ag">https://github.com/syohex/emacs-helm-ag</a></td></tr>
+<tr><td>バージョン</td><td>20141211.530</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:helm-ag/">package:helm-ag</a> </td></tr>
+</table>
+<br />
+#+END_HTML
+ok
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+** helm-ag インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install helm-ag
+
+
+#+end:
+** 概要                                                             :noexport:
+ok
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

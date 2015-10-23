@@ -1,0 +1,88 @@
+#+BLOG: rubikitch
+#+POSTID: 1416
+#+DATE: [2015-04-03 Fri 09:26]
+#+PERMALINK: helm-migmeo-match-part
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, helm, 
+#+DESCRIPTION: 
+#+MYTAGS: package:helm-migemo, package:migemo, package:helm, relate:helm, relate:migemo, helm migemo 動かない, helm 日本語 マッチしない, helm match-part, helm migemo
+#+TITLE: helm-migemo上でmatch-partが効かないのを修正
+#+begin: org2blog-tags
+#+TAGS: package:helm-migemo, package:migemo, package:helm, relate:helm, relate:migemo, helm migemo 動かない, helm 日本語 マッチしない, helm match-part, helm migemo, Emacs, helm, , helm, match-part, migemo, match-part
+#+end:
+[[http://rubikitch.com/2014/12/19/helm-migemo/][helm-migemo.el(レビュー)]] は、 *helm* で[[http://rubikitch.com/2014/08/20/migemo/][Migemo(レビュー)]] を使うことで
+ローマ字で日本語文字列の候補選択を行う日本人必携のパッケージです。
+
+しかし、 *match-part* 属性という表示文字列の一部にマッチさせる機能に
+helm-migemo.elとhelm.elが対応していないので
+[[http://rubikitch.com/2014/10/30/nadvice/][Emacs24.4標準のnadvice.el]] で修正しました。
+
+なお、この修正が必要なのは以下のように
+*migemo* 属性と *match-part* 属性を併用している
+情報源を定義している場合のみです。
+
+#+BEGIN_SRC emacs-lisp :results silent
+(defvar helm-source-foo
+  '((name . "foo")
+    (match-part . helm-foo-match-part)
+    (migemo)
+    ...))
+#+END_SRC
+
+helmパッケージに入っている情報源ではこのケースはないので、
+自分で情報源を作っている人で困ったら以下のファイルをrequireしてください。
+
+#+BEGIN_SRC emacs-lisp :results silent
+(require 'mylisp-helm-migemo-match-part-fix)
+#+END_SRC
+
+
+
+** 設定 [[http://rubikitch.com/f/mylisp-helm-migemo-match-part-fix.el][mylisp-helm-migemo-match-part-fix.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/emacs/init.d/mylisp-helm-migemo-match-part-fix.el"
+#+BEGIN_SRC fundamental
+(require 'helm)
+(require 'helm-migemo)
+
+(defvar helm-match-part-use-migemo nil)
+(defun helm-search-from-candidate-buffer--migemo-p (pattern get-line-fn search-fns
+                                                            limit start-point match-part-fn source)
+  (setq helm-match-part-use-migemo (assq 'migemo source)))
+(advice-add 'helm-search-from-candidate-buffer :before 'helm-search-from-candidate-buffer--migemo-p)
+
+;;; REDEFINED
+(defun helm-search-match-part--use-migemo (candidate pattern match-part-fn)
+  "Match PATTERN only on part of CANDIDATE returned by MATCH-PART-FN.
+Because `helm-search-match-part' maybe called even if unspecified
+in source (negation), MATCH-PART-FN default to `identity' to match whole candidate.
+When using fuzzy matching and negation (i.e \"!\"), this function is always called."
+  (let ((part (funcall match-part-fn candidate))
+        (match-fn (if helm-match-part-use-migemo
+                      (lambda (re str) (helm-string-match-with-migemo str re))
+                    'string-match))
+        (fuzzy-regexp (cadr (gethash 'helm-pattern helm--fuzzy-regexp-cache))))
+    (if (string-match " " pattern)
+        (cl-loop for i in (split-string pattern) always
+                 (if (string-match "\\`!" i)
+                     (not (funcall match-fn (substring i 1) part))
+                     (funcall match-fn i part)))
+        (if (string-match "\\`!" pattern)
+            (not (funcall match-fn (if helm--in-fuzzy
+                                   ;; Fuzzy regexp have already been
+                                   ;; computed with substring 1.
+                                   fuzzy-regexp
+                                   (substring 1 pattern))
+                               part))
+            (funcall match-fn (if helm--in-fuzzy fuzzy-regexp pattern)
+                          part)))))
+(advice-add 'helm-search-match-part :override 'helm-search-match-part--use-migemo)
+(provide 'mylisp-helm-migemo-match-part-fix)
+#+END_SRC
+
+#+END:
+
+

@@ -1,0 +1,32 @@
+#+BLOG: rubikitch
+#+POSTID: 1742
+#+DATE: [2015-06-12 Fri 11:14]
+#+PERMALINK: melmag
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: メルマガ,
+#+DESCRIPTION: るびきち塾メルマガ『Emacsの鬼るびきちのココだけの話#185』の予告
+#+TITLE: 【メルマガ#185】コメント、コメント、コメント
+#+MYTAGS: 
+#+begin: org2blog-tags
+#+TAGS: , メルマガ,, 
+#+end:
+今回のメルマガは、優れたコメントについてです。
+
+我々は、コードにはコメントをつけよと教育されてきましたが、
+コメントには善し悪しが存在します。
+
+有用なコメントを書くのは重要ですが、
+不要なコメント、それどころか間違ったコメントも存在します。
+
+まず、コメントの本来の目的に立ち帰ります。
+
+そして、悪いコメントを撲滅する方法について
+具体的なelispプログラムを通して解説します。
+
+最後に、elisp流コメントの作法についても触れます。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

@@ -1,0 +1,152 @@
+#+BLOG: rubikitch
+#+POSTID: 1305
+#+DATE: [2015-03-15 Sun 08:40]
+#+PERMALINK: ivy
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs
+#+EL_PKG_NAME: ivy
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, relate:swiper, relate:helm,  emacs ido helm, ,  helm, , relate:ido-ubiquitous, relate:ido-vertical-mode, completing-read, emacs 絞り込み, emacs 候補選択, relate:ido, 
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: 【ido-vertical-mode風味】候補選択の新実装
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージivyの紹介
+#+MYTAGS: package:ivy, emacs 使い方, emacs コマンド, emacs, ivy, ivy.el, emacs lisp ivy, elisp ivy, emacs melpa ivy, emacs ivy 使い方, emacs ivy 設定, emacs パッケージ ivy, emacs ivy スクリーンショット, relate:swiper, relate:helm,  emacs ido helm, ,  helm, , relate:ido-ubiquitous, relate:ido-vertical-mode, completing-read, emacs 絞り込み, emacs 候補選択, relate:ido, 
+#+TAGS: package:ivy, emacs 使い方, emacs コマンド, emacs, ivy, ivy.el, emacs lisp ivy, elisp ivy, emacs melpa ivy, emacs ivy 使い方, emacs ivy 設定, emacs パッケージ ivy, emacs ivy スクリーンショット, relate:swiper, relate:helm,  emacs ido helm, ,  helm, , relate:ido-ubiquitous, relate:ido-vertical-mode, completing-read, emacs 絞り込み, emacs 候補選択, relate:ido, , Emacs, 候補選択, helm, ido, ivy.el, helm, ido, ivy.el
+#+TITLE: emacs ivy.el : 【ido-vertical-mode風味】候補選択の新実装 | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>ivy</td></tr>
+<tr><td>概要(原文)</td><td>Incremental Vertical completYon</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/abo-abo/swiper">https://github.com/abo-abo/swiper</a></td></tr>
+<tr><td>バージョン</td><td>20150316.923</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:ivy/">package:ivy</a> <a href="http://rubikitch.com/tag/package:swiper/">package:swiper</a> <a href="http://rubikitch.com/tag/package:helm/">package:helm</a> <a href="http://rubikitch.com/tag/package:ido-ubiquitous/">package:ido-ubiquitous</a> <a href="http://rubikitch.com/tag/package:ido-vertical-mode/">package:ido-vertical-mode</a> <a href="http://rubikitch.com/tag/package:ido/">package:ido</a></td></tr>
+</table>
+<br />
+#+END_HTML
+Emacsでの *候補選択* は *helm* や *ido* がメジャーだと思いますが、
+またまた新しい実装が出てきました。
+
+バッファ・ファイル選択のインターフェースとしても
+[[http://rubikitch.com/2015/02/15/lusty-explorer/][lusty-explorer.el(レビュー)]] もありますし、
+Emacs愛好家はオレオレインターフェースを作りたがるものです。
+
+*ivy.el* はhelmや[[http://rubikitch.com/2015/01/06/ido-vertical-mode/][ido-vertical-mode.el(レビュー)]] のように
+縦方向の候補を並べ、絞り込み検索により候補選択をします。
+
+使い方は非常に自然でhelmやido-vertical-modeとほぼ変わりません。
+
+3/10に誕生したばかりのまったく新しいelispで、
+現時点では荒削りな印象は拭えません。
+
+スペースで絞り込み検索ができるといっても、
+単にスペースに「.*」をくっつけた正規表現を作成するだけです。
+
+「foo bar」は「foo.*bar」になるので「foo x bar」にはマッチしますが、
+「bar x foo」にはマッチしません。
+
+idoのあいまいマッチでは「foobar」とスペース抜きでも
+「foo x bar」にマッチします。
+
+helmならば真の絞り込み検索なので双方にマッチします。
+
+今後の開発により、どのように進化するのかが楽しみであります。
+
+ivyを使ったアプリケーションとして、
+一覧付き正規表現isearchの[[http://rubikitch.com/2015/03/18/swiper/][swiper.el(レビュー)]] があります。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+[[file:/r/sync/screenshots/20150315085637.png]]
+Fig1: ivy-readの初期画面
+
+[[file:/r/sync/screenshots/20150315085644.png]]
+Fig2: ivy-readでの絞り込み
+
+[[file:/r/sync/screenshots/20150315085806.png]]
+Fig3: ido-vertical-modeの初期画面
+
+[[file:/r/sync/screenshots/20150315085810.png]]
+Fig4: ido-vertical-modeでの絞り込み
+
+** ivy インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install ivy
+
+
+#+end:
+** 概要                                                             :noexport:
+Emacsでの *候補選択* は *helm* や *ido* がメジャーだと思いますが、
+またまた新しい実装が出てきました。
+
+バッファ・ファイル選択のインターフェースとしても
+[[http://rubikitch.com/2015/02/15/lusty-explorer/][lusty-explorer.el(レビュー)]] もありますし、
+Emacs愛好家はオレオレインターフェースを作りたがるものです。
+
+*ivy.el* はhelmや[[http://rubikitch.com/2015/01/06/ido-vertical-mode/][ido-vertical-mode.el(レビュー)]] のように
+縦方向の候補を並べ、絞り込み検索により候補選択をします。
+
+使い方は非常に自然でhelmやido-vertical-modeとほぼ変わりません。
+
+3/10に誕生したばかりのまったく新しいelispで、
+現時点では荒削りな印象は拭えません。
+
+スペースで絞り込み検索ができるといっても、
+単にスペースに「.*」をくっつけた正規表現を作成するだけです。
+
+「foo bar」は「foo.*bar」になるので「foo x bar」にはマッチしますが、
+「bar x foo」にはマッチしません。
+
+idoのあいまいマッチでは「foobar」とスペース抜きでも
+「foo x bar」にマッチします。
+
+helmならば真の絞り込み検索なので双方にマッチします。
+
+今後の開発により、どのように進化するのかが楽しみであります。
+
+ivyを使ったアプリケーションとして、
+一覧付き正規表現isearchの[[http://rubikitch.com/2015/03/18/swiper/][swiper.el(レビュー)]] があります。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+[[file:/r/sync/screenshots/20150315085637.png]]
+Fig1: ivy-readの初期画面
+
+[[file:/r/sync/screenshots/20150315085644.png]]
+Fig2: ivy-readでの絞り込み
+
+[[file:/r/sync/screenshots/20150315085806.png]]
+Fig3: ido-vertical-modeの初期画面
+
+[[file:/r/sync/screenshots/20150315085810.png]]
+Fig4: ido-vertical-modeでの絞り込み
+
+
+** 設定 [[http://rubikitch.com/f/150315083615.ivy.el][150315083615.ivy.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/150315/150315083615.ivy.el"
+#+BEGIN_SRC fundamental
+(require 'ivy)
+;;; 使用例
+;; (ivy-read "ivy test: " '("for example" "test" "helm" "ivy"))
+;; (ido-completing-read "ivy test: " '("for example" "test" "helm" "ivy"))
+;; (ivy-read "ivy test: " (directory-files "/"))
+;; (ido-completing-read "ivy test: " (directory-files "/"))
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/150315083615.ivy.el
+$ emacs -Q -f package-initialize -l 150315083615.ivy.el
+#+END_EXAMPLE
+
+# /r/sync/screenshots/20150315085637.png http://rubikitch.com/wp-content/uploads/2015/03/wpid-20150315085637.png
+# /r/sync/screenshots/20150315085644.png http://rubikitch.com/wp-content/uploads/2015/03/wpid-20150315085644.png
+# /r/sync/screenshots/20150315085806.png http://rubikitch.com/wp-content/uploads/2015/03/wpid-20150315085806.png
+# /r/sync/screenshots/20150315085810.png http://rubikitch.com/wp-content/uploads/2015/03/wpid-20150315085810.png

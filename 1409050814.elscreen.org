@@ -1,0 +1,172 @@
+#+BLOG: rubikitch
+#+POSTID: 289
+#+DATE: [2014-09-05 Fri 08:14]
+#+PERMALINK: elscreen
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs
+#+EL_PKG_NAME: elscreen
+#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, emacs screen, emacs window-configuration, emacs ウィンドウ構成, emacs windows.el, emacs escreen.el, emacs gnu screen, emacs tmux, helm elscreen, relate:helm, relate:windows, emacs タブエディタ, relate:tabbar, emacs ウィンドウ構成, emacs ウィンドウ構成 保存 復元, relate:eyebrowse, relate:0blayout, relate:persp-mode, relate:perspective, relate:spaces, relate:windows, relate:state
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: Emacsをタブエディタ＋GNU Screen(Tmux)化してしまえ！ウィンドウ構成管理の重鎮
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージelscreenの紹介
+#+MYTAGS: package:elscreen, emacs 使い方, emacs コマンド, emacs, emacs lisp elscreen, elisp elscreen, emacs melpa elscreen, emacs elscreen 使い方, emacs elscreen 設定, emacs パッケージ elscreen, emacs elscreen スクリーンショット, emacs screen, emacs window-configuration, emacs ウィンドウ構成, emacs windows.el, emacs escreen.el, emacs gnu screen, emacs tmux, helm elscreen, relate:helm, relate:windows, emacs タブエディタ, relate:tabbar, emacs ウィンドウ構成, emacs ウィンドウ構成 保存 復元, relate:eyebrowse, relate:0blayout, relate:persp-mode, relate:perspective, relate:spaces, relate:windows, relate:state
+#+TAGS: package:elscreen, emacs 使い方, emacs コマンド, emacs, emacs lisp elscreen, elisp elscreen, emacs melpa elscreen, emacs elscreen 使い方, emacs elscreen 設定, emacs パッケージ elscreen, emacs elscreen スクリーンショット, emacs screen, emacs window-configuration, emacs ウィンドウ構成, emacs windows.el, emacs escreen.el, emacs gnu screen, emacs tmux, helm elscreen, relate:helm, relate:windows, emacs タブエディタ, relate:tabbar, emacs ウィンドウ構成, emacs ウィンドウ構成 保存 復元, relate:eyebrowse, relate:0blayout, relate:persp-mode, relate:perspective, relate:spaces, relate:windows, relate:state, Emacs, elscreen.el, windows.el, タブエディタ, header-line, windows.el, タブエディタ, header-line, WL:Message
+#+TITLE: emacs elscreen.el : Emacsをタブエディタ＋GNU Screen(Tmux)化してしまえ！ウィンドウ構成管理の重鎮 | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>elscreen</td></tr>
+<tr><td>概要(原文)</td><td>Emacs window session manager</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/knu/elscreen">https://github.com/knu/elscreen</a></td></tr>
+<tr><td>バージョン</td><td>20140421.414</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:elscreen/">package:elscreen</a> <a href="http://rubikitch.com/tag/package:helm/">package:helm</a> <a href="http://rubikitch.com/tag/package:windows/">package:windows</a> <a href="http://rubikitch.com/tag/package:tabbar/">package:tabbar</a> <a href="http://rubikitch.com/tag/package:eyebrowse/">package:eyebrowse</a> <a href="http://rubikitch.com/tag/package:0blayout/">package:0blayout</a> <a href="http://rubikitch.com/tag/package:persp-mode/">package:persp-mode</a> <a href="http://rubikitch.com/tag/package:perspective/">package:perspective</a> <a href="http://rubikitch.com/tag/package:spaces/">package:spaces</a> <a href="http://rubikitch.com/tag/package:windows/">package:windows</a> <a href="http://rubikitch.com/tag/package:state/">package:state</a></td></tr>
+</table>
+<br />
+#+END_HTML
+*elscreen.el* は古くからあるウィンドウ構成管理Emacs Lispです。
+
+Emacsはたくさんのタスクを同時にこなせるので、
+ウィンドウ構成の管理は重要になってきます。
+
+Emacsを使っていると、ウィンドウ構成が変化していきます。
+
+たとえば、文章やコードを書いているときにメールを見ると、
+メール用のウィンドウ構成になります。
+
+Twitterを見ていると、Twitter用のウィンドウ構成になります。
+
+そこから再び文章・コードのウィンドウ構成に戻すには手間がかかります。
+
+そこでウィンドウ構成管理Emacs Lispのelscreenの出番です。
+
+僕は初心者時代から *windows.el* を使ってきていましたが、
+今はこのelscreenに乗り換えています。
+
+elscreenを使うと、Emacsは *タブエディタ* に化けます。
+
+管理しているウィンドウ構成が *header-line* に書かれて、
+わかりやすく切り替えられます。
+
+
+タブの表示方法は細かく設定できるので、
+設定方法にデフォルトの設定を書きました。
+
+自由に変更して試してみてください。
+** elscreen インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install elscreen
+
+
+#+end:
+** 概要                                                             :noexport:
+*elscreen.el* は古くからあるウィンドウ構成管理Emacs Lispです。
+
+Emacsはたくさんのタスクを同時にこなせるので、
+ウィンドウ構成の管理は重要になってきます。
+
+Emacsを使っていると、ウィンドウ構成が変化していきます。
+
+たとえば、文章やコードを書いているときにメールを見ると、
+メール用のウィンドウ構成になります。
+
+Twitterを見ていると、Twitter用のウィンドウ構成になります。
+
+そこから再び文章・コードのウィンドウ構成に戻すには手間がかかります。
+
+そこでウィンドウ構成管理Emacs Lispのelscreenの出番です。
+
+僕は初心者時代から *windows.el* を使ってきていましたが、
+今はこのelscreenに乗り換えています。
+
+elscreenを使うと、Emacsは *タブエディタ* に化けます。
+
+管理しているウィンドウ構成が *header-line* に書かれて、
+わかりやすく切り替えられます。
+
+
+タブの表示方法は細かく設定できるので、
+設定方法にデフォルトの設定を書きました。
+
+自由に変更して試してみてください。
+** 設定 [[http://rubikitch.com/f/140905083429.elscreen.el][140905083429.elscreen.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/140905/140905083429.elscreen.el"
+#+BEGIN_SRC fundamental
+;;; プレフィクスキーはC-z
+(setq elscreen-prefix-key (kbd "C-z"))
+(elscreen-start)
+;;; タブの先頭に[X]を表示しない
+(setq elscreen-tab-display-kill-screen nil)
+;;; header-lineの先頭に[<->]を表示しない
+(setq elscreen-tab-display-control nil)
+;;; バッファ名・モード名からタブに表示させる内容を決定する(デフォルト設定)
+(setq elscreen-buffer-to-nickname-alist
+      '(("^dired-mode$" .
+         (lambda ()
+           (format "Dired(%s)" dired-directory)))
+        ("^Info-mode$" .
+         (lambda ()
+           (format "Info(%s)" (file-name-nondirectory Info-current-file))))
+        ("^mew-draft-mode$" .
+         (lambda ()
+           (format "Mew(%s)" (buffer-name (current-buffer)))))
+        ("^mew-" . "Mew")
+        ("^irchat-" . "IRChat")
+        ("^liece-" . "Liece")
+        ("^lookup-" . "Lookup")))
+(setq elscreen-mode-to-nickname-alist
+      '(("[Ss]hell" . "shell")
+        ("compilation" . "compile")
+        ("-telnet" . "telnet")
+        ("dict" . "OnlineDict")
+        ("*WL:Message*" . "Wanderlust")))
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/140905083429.elscreen.el
+$ emacs -Q -f package-initialize -l 140905083429.elscreen.el
+#+END_EXAMPLE
+
+** 使い方
+使い方はGNU Screenに準拠しています。
+
+他にも、新しいelscreenでファイル・バッファ・diredを開くコマンドもあります。
+| C-z C-c | 新しいelscreenを作る                 |
+| C-z C-k | 現在のelscreenを削除する             |
+| C-z M-k | 現在のelscreenをバッファごと削除する |
+| C-z K   | ほかの全elscreenを削除する！         |
+| C-z C-n | 次のelscreenを選択                   |
+| C-z C-p | 前のelscreenを選択                   |
+| C-z C-a | 直前に選択したelscreenを選択         |
+|---------+--------------------------------------|
+| C-z C-f | 新しいelscreenでファイルを開く       |
+| C-z b   | 新しいelscreenでバッファを開く       |
+| C-z d   | 新しいelscreenでdiredを開く          |
+
+** helmから新しいelscreenでバッファを開く
+elscreenはそのままでも *helm* と連携ができます。
+
+helmでバッファを選択するとき、5番目のアクションに
+Display buffer in Elscreen
+という項目があります。
+
+バッファを選択して<f5>を押せばそのバッファを
+新しいelscreenで開けます。
+
+
+なお、今週のメルマガではこのelscreenを
+まったく新しく超簡単な操作性に生まれ変わらせます。
+
+お楽しみに！
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+http://rubikitch.com/f/20140905085218.png
+Fig1: elscreenでタブエディタ化

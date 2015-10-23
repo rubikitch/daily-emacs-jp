@@ -1,0 +1,171 @@
+#+BLOG: rubikitch
+#+POSTID: 463
+#+DATE: [2014-10-14 Tue 12:14]
+#+PERMALINK: company
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs
+#+EL_PKG_NAME: company
+#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, relate:yasnippet, relate:auto-complete
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: Emacs版IntelliSenseの先駆者が息を吹き返している件！Simple is best！
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージcompanyの紹介
+#+MYTAGS: package:company, emacs 使い方, emacs コマンド, emacs, emacs lisp company, elisp company, emacs melpa company, emacs company 使い方, emacs company 設定, emacs パッケージ company, emacs company スクリーンショット, relate:yasnippet, relate:auto-complete
+#+TITLE: emacs company.el : Emacs版IntelliSenseの先駆者が息を吹き返している件！Simple is best！ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>company</td></tr>
+<tr><td>概要(原文)</td><td>Modular text completion framework</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/company-mode/company-mode">https://github.com/company-mode/company-mode</a></td></tr>
+<tr><td>バージョン</td><td>20141216.409</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:company/">package:company</a> <a href="http://rubikitch.com/tag/package:yasnippet/">package:yasnippet</a> <a href="http://rubikitch.com/tag/package:auto-complete/">package:auto-complete</a></td></tr>
+</table>
+<br />
+#+END_HTML
+*company.el* は一言で言うとEmacs版 *IntelliSense* (*インテリセンス*) です。
+
+キーをタイプした時点で自動的に補完候補が出てきて、
+ミスタイプを減らして入力効率を上げる優れた *補完機能* です。
+
+同種のものに日本では *auto-complete.el* が有名ですが、
+company.elの方が先に登場しています。
+
+2年前に *Dmitry Gutov* 氏が原作者 *Nikolaj Schumacher* 氏から
+メンテナを引き継ぎだ後、とても活発に開発されています。
+
+MELPAのRSSを見ていてもかなり更新が目立っているので取り上げました。
+
+auto-completeと性能的にはほぼ互角という印象ですが、
+ソースコードが短く、独自の補完関数が関数1つで書ける手軽さが
+company.elの魅力です。
+
+デフォルトでは自動的に補完候補がポップアップしますが、
+#+BEGIN_SRC emacs-lisp :results silent
+(setq company-idle-delay nil)
+#+END_SRC
+を指定すると手動補完になり、 *M-x company-complete* で補完します。
+
+どのように補完するかは
+(auto-completeでいうsource、companyではbackend)
+*company-backends* 変数で指定します。
+
+個人的にはあまりにも頻繁に自動補完がポップアップするのは煩わしいので、
+自動補完は限られた場面のみで、手動補完をメインに使っていきたいです。
+
+自動補完はついつい忘れがちなもの…
+たとえば *ドメイン特化言語* の語彙だったり、
+*yasnippet* の略語に使いたいところです。
+
+デフォルトではファイル名も自動補完されるので、
+ファイル数が多いディレクトリで固まることもあります。
+
+どうあれ、奥が深いパッケージなので
+時間かけて落とし所を見つけていきたいです。
+** company インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install company
+
+
+#+end:
+** 概要                                                             :noexport:
+*company.el* は一言で言うとEmacs版 *IntelliSense* (*インテリセンス*) です。
+
+キーをタイプした時点で自動的に補完候補が出てきて、
+ミスタイプを減らして入力効率を上げる優れた *補完機能* です。
+
+同種のものに日本では *auto-complete.el* が有名ですが、
+company.elの方が先に登場しています。
+
+2年前に *Dmitry Gutov* 氏が原作者 *Nikolaj Schumacher* 氏から
+メンテナを引き継ぎだ後、とても活発に開発されています。
+
+MELPAのRSSを見ていてもかなり更新が目立っているので取り上げました。
+
+auto-completeと性能的にはほぼ互角という印象ですが、
+ソースコードが短く、独自の補完関数が関数1つで書ける手軽さが
+company.elの魅力です。
+
+デフォルトでは自動的に補完候補がポップアップしますが、
+#+BEGIN_SRC emacs-lisp :results silent
+(setq company-idle-delay nil)
+#+END_SRC
+を指定すると手動補完になり、 *M-x company-complete* で補完します。
+
+どのように補完するかは
+(auto-completeでいうsource、companyではbackend)
+*company-backends* 変数で指定します。
+
+個人的にはあまりにも頻繁に自動補完がポップアップするのは煩わしいので、
+自動補完は限られた場面のみで、手動補完をメインに使っていきたいです。
+
+自動補完はついつい忘れがちなもの…
+たとえば *ドメイン特化言語* の語彙だったり、
+*yasnippet* の略語に使いたいところです。
+
+デフォルトではファイル名も自動補完されるので、
+ファイル数が多いディレクトリで固まることもあります。
+
+どうあれ、奥が深いパッケージなので
+時間かけて落とし所を見つけていきたいです。
+** 設定 [[http://rubikitch.com/f/141014122338.company.el][141014122338.company.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/141014/141014122338.company.el"
+#+BEGIN_SRC fundamental
+(global-company-mode 1)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/141014122338.company.el
+$ emacs -Q -f package-initialize -l 141014122338.company.el
+#+END_EXAMPLE
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+http://rubikitch.com/f/20141014123207.png
+Fig1: EmacsでIntelliSenseを実現！
+
+** バックエンドを定義する
+company.elに書かれているサンプルのバックエンド(やや改変)を解説します。
+
+このバックエンドはfooの後に
+- foobar
+- foobaz
+- foobarbaz
+を補完します。
+
+#+BEGIN_SRC emacs-lisp :results silent
+(defun company-my-backend (command &optional arg &rest ignored)
+  (interactive (list 'interactive))
+  (pcase command
+    (`interactive (company-begin-backend 'company-my-backend))
+    (`prefix (when (looking-back "foo\\>")
+              (match-string 0)))
+    (`candidates (list "foobar" "foobaz" "foobarbaz"))
+    (`meta (format "This value is named %s" arg))))
+#+END_SRC
+
+バックエンドを実行するとき、最初に引数prefixが渡され、
+そのバックエンドが有効かどうかを見極めます。
+
+ここではカーソル直前がfooのとき(whenとlooking-back)に有効で、
+prefixが渡されたときの返り値fooを返します。
+
+そして、有効なときに引数candidatesが渡され、補完候補を返します。
+
+metaは、それぞれの候補の説明をエコーエリアに表示します。
+
+さらに、このバックエンド自体がコマンドになっていて、
+コマンドとして実行した場合は引数interactiveを渡すようにしています。
+
+このコマンドをテンプレートとして使えば
+手軽に独自のバックエンドを作れます。
+
+たった1つの関数で閉じている設計が素敵ですね！

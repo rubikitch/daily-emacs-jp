@@ -1,0 +1,130 @@
+#+BLOG: rubikitch
+#+POSTID: 1250
+#+DATE: [2015-03-06 Fri 05:09]
+#+PERMALINK: yatemplate
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs
+#+EL_PKG_NAME: yatemplate
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, package:yasnippet, relate:yasnippet, auto-insert yasnippet, auto-insert-mode yasnippet
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 
+#+EL_TITLE0: 【新規ファイル作成支援】auto-insertのテンプレートをyasnippetに進化させる
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージyatemplateの紹介
+#+MYTAGS: package:yatemplate, emacs 使い方, emacs コマンド, emacs, yatemplate, yatemplate.el, emacs lisp yatemplate, elisp yatemplate, emacs melpa yatemplate, emacs yatemplate 使い方, emacs yatemplate 設定, emacs パッケージ yatemplate, package:yasnippet, relate:yasnippet, auto-insert yasnippet, auto-insert-mode yasnippet
+#+TAGS: package:yatemplate, emacs 使い方, emacs コマンド, emacs, yatemplate, yatemplate.el, emacs lisp yatemplate, elisp yatemplate, emacs melpa yatemplate, emacs yatemplate 使い方, emacs yatemplate 設定, emacs パッケージ yatemplate, package:yasnippet, relate:yasnippet, auto-insert yasnippet, auto-insert-mode yasnippet, Emacs, auto-insert-mode, yasnippet.el, yatemplate.el, auto-insert-alist, snippet-mode, auto-insert-alist, auto-insert-mode, yasnippet.el, yatemplate.el, auto-insert-alist, snippet-mode, auto-insert-alist
+#+TITLE: emacs yatemplate.el : 【新規ファイル作成支援】auto-insertのテンプレートをyasnippetに進化させる | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>yatemplate</td></tr>
+<tr><td>概要(原文)</td><td>File templates with yasnippet</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/mineo/yatemplate">https://github.com/mineo/yatemplate</a></td></tr>
+<tr><td>バージョン</td><td>20150303.1502</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:yatemplate/">package:yatemplate</a> <a href="http://rubikitch.com/tag/package:yasnippet/">package:yasnippet</a></td></tr>
+</table>
+<br />
+#+END_HTML
+
+*auto-insert-mode* は新規ファイル作成時に
+決まった内容のテンプレートを用意したり、
+特定の関数を実行できたりします。
+
+一方で *yasnippet.el* はいまや鉄板の強力テンプレートです。
+
+しかし、yasnippet.el登場後8年くらいたつにもかかわらず
+なぜか両者を組み合わせる機能がないです。
+
+*yatemplate.el* を使えば、auto-insertのテンプレートをyasnippetにできます。
+
+使い方は簡単で、 ~/.emacs.d/templates/ 以下に
+決められたファイル名でyasnippetファイルを配置するだけです。
+
+ファイル名は1つのコロンで区切られていて、
+「番号:正規表現」と指定します。
+
+番号は *auto-insert-alist* へ追加する順序を指定するために必要です。
+
+たとえば
+- ~/.emacs.d/templates/00:test_.*.py
+- ~/.emacs.d/templates/01:.*.py
+というyatemplateファイルがあったとき、
+test_*.py の方が優先されます。
+
+
+開発して日が浅いため(2/28から)まだ荒削りなので設定で対処しています。
+- yatemplateファイルを *snippet-mode* にする
+- yatemplateファイル追加時に即 *auto-insert-alist* に反映させる
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+** yatemplate インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install yatemplate
+
+
+#+end:
+** 概要                                                             :noexport:
+
+*auto-insert-mode* は新規ファイル作成時に
+決まった内容のテンプレートを用意したり、
+特定の関数を実行できたりします。
+
+一方で *yasnippet.el* はいまや鉄板の強力テンプレートです。
+
+しかし、yasnippet.el登場後8年くらいたつにもかかわらず
+なぜか両者を組み合わせる機能がないです。
+
+*yatemplate.el* を使えば、auto-insertのテンプレートをyasnippetにできます。
+
+使い方は簡単で、 ~/.emacs.d/templates/ 以下に
+決められたファイル名でyasnippetファイルを配置するだけです。
+
+ファイル名は1つのコロンで区切られていて、
+「番号:正規表現」と指定します。
+
+番号は *auto-insert-alist* へ追加する順序を指定するために必要です。
+
+たとえば
+- ~/.emacs.d/templates/00:test_.*.py
+- ~/.emacs.d/templates/01:.*.py
+というyatemplateファイルがあったとき、
+test_*.py の方が優先されます。
+
+
+開発して日が浅いため(2/28から)まだ荒削りなので設定で対処しています。
+- yatemplateファイルを *snippet-mode* にする
+- yatemplateファイル追加時に即 *auto-insert-alist* に反映させる
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+** 設定 [[http://rubikitch.com/f/150306045100.yatemplate.el][150306045100.yatemplate.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/150306/150306045100.yatemplate.el"
+#+BEGIN_SRC fundamental
+(yatemplate-fill-alist)
+(auto-insert-mode 1)
+(defun find-file-hook--yatemplate ()
+  "yatemplateのsnippetのテストができるようにするためにsnippet-modeにする"
+  (when (string-match "emacs.*/templates/" buffer-file-name)
+    (let ((mode major-mode))
+      (snippet-mode)
+      (setq-local yas--guessed-modes (list mode)))))
+(add-hook 'find-file-hook 'find-file-hook--yatemplate)
+(defun after-save-hook--yatemplate ()
+  "yatemplateファイル保存後、auto-insert-alistに反映させる"
+  (when (string-match "emacs.*/templates/" buffer-file-name)
+    (yatemplate-fill-alist)))
+(add-hook 'after-save-hook 'after-save-hook--yatemplate)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/150306045100.yatemplate.el
+$ emacs -Q -f package-initialize -l 150306045100.yatemplate.el
+#+END_EXAMPLE

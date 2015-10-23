@@ -1,0 +1,65 @@
+#+BLOG: rubikitch
+#+POSTID: 131
+#+DATE: [2014-08-12 Tue 09:42]
+#+PERMALINK: vline
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs
+#+EL_PKG_NAME: vline
+#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, emacs 現在桁 ハイライト, emacs column highlight, emacs column-highlight-mode, emacs col-highlight, relate:col-highlight
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: 大きい表のレイアウトもバッチリ！vlineは現在桁を教えてくれるヨ
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージvlineの紹介
+#+MYTAGS: package:vline, emacs 使い方, emacs コマンド, emacs, emacs lisp vline, elisp vline, emacs melpa vline, emacs vline 使い方, emacs vline 設定, emacs パッケージ vline, emacs vline スクリーンショット, emacs 現在桁 ハイライト, emacs column highlight, emacs column-highlight-mode, emacs col-highlight, relate:col-highlight
+#+TITLE: emacs vline.el : 大きい表のレイアウトもバッチリ！vlineは現在桁を教えてくれるヨ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>vline</td></tr>
+<tr><td>概要(原文)</td><td>show vertical line (column highlighting) mode.</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="http://www.emacswiki.org/vline.el">http://www.emacswiki.org/vline.el</a></td></tr>
+<tr><td>バージョン</td><td>20120108.1245</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:vline/">package:vline</a> <a href="http://rubikitch.com/tag/package:col-highlight/">package:col-highlight</a></td></tr>
+</table>
+<br />
+#+END_HTML
+*vline.el* は *現在桁をハイライト* して教えてくれます。
+
+同種のパッケージに *col-highlight.el* もあります。
+
+*org-mode* 等で大きい表を編集するときに見やすくなりますね。
+** vline インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install vline
+
+
+#+end:
+** 概要                                                             :noexport:
+*vline.el* は *現在桁をハイライト* して教えてくれます。
+
+同種のパッケージに *col-highlight.el* もあります。
+
+*org-mode* 等で大きい表を編集するときに見やすくなりますね。
+** 設定 [[http://rubikitch.com/f/140812093758.vline.el][140812093758.vline.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/140812/140812093758.vline.el"
+#+BEGIN_SRC fundamental
+(vline-global-mode 1)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/140812093758.vline.el
+$ emacs -Q -f package-initialize -l 140812093758.vline.el
+#+END_EXAMPLE
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+http://rubikitch.com/f/20140812094847.png
+Fig1: 縦棒が入る

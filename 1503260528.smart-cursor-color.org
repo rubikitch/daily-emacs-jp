@@ -1,0 +1,119 @@
+#+BLOG: rubikitch
+#+POSTID: 1371
+#+DATE: [2015-03-26 Thu 05:28]
+#+PERMALINK: smart-cursor-color
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs
+#+EL_PKG_NAME: smart-cursor-color
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, emacs スマートカーソルカラー, emacs iTerm2, 背景色に最適なカーソル色を動的に選ぶ, カーソルの色を背景とか選択した文字色に応じて見やすい色, 
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: 【iTerm2風味】カーソルの背景色を文字色に合わせて見やすくする
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージsmart-cursor-colorの紹介
+#+MYTAGS: package:smart-cursor-color, emacs 使い方, emacs コマンド, emacs, smart-cursor-color, smart-cursor-color.el, emacs lisp smart-cursor-color, elisp smart-cursor-color, emacs melpa smart-cursor-color, emacs smart-cursor-color 使い方, emacs smart-cursor-color 設定, emacs パッケージ smart-cursor-color, emacs smart-cursor-color スクリーンショット, emacs スマートカーソルカラー, emacs iTerm2, 背景色に最適なカーソル色を動的に選ぶ, カーソルの色を背景とか選択した文字色に応じて見やすい色, 
+#+TAGS: package:smart-cursor-color, emacs 使い方, emacs コマンド, emacs, smart-cursor-color, smart-cursor-color.el, emacs lisp smart-cursor-color, elisp smart-cursor-color, emacs melpa smart-cursor-color, emacs smart-cursor-color 使い方, emacs smart-cursor-color 設定, emacs パッケージ smart-cursor-color, emacs smart-cursor-color スクリーンショット, emacs スマートカーソルカラー, emacs iTerm2, 背景色に最適なカーソル色を動的に選ぶ, カーソルの色を背景とか選択した文字色に応じて見やすい色, , Emacs, smart cursor color, smart-cursor-color.el, hl-line.el, global-hl-line-mode, hl-line-mode, 動作しません, smart-cursor-color.el, hl-line.el, global-hl-line-mode, hl-line-mode, 動作しません
+#+TITLE: emacs smart-cursor-color.el : 【iTerm2風味】カーソルの背景色を文字色に合わせて見やすくする | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>smart-cursor-color</td></tr>
+<tr><td>概要(原文)</td><td>Change cursor color dynamically</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/7696122/smart-cursor-color">https://github.com/7696122/smart-cursor-color</a></td></tr>
+<tr><td>バージョン</td><td>20141124.919</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:smart-cursor-color/">package:smart-cursor-color</a> </td></tr>
+</table>
+<br />
+#+END_HTML
+Mac OS Xの端末 [[http://www.iterm2.com/#/section/home][iTerm2]] には *smart cursor color* という機能があり、
+カーソルの背景色と文字色を合わせてくれるため、文字が読みやすいです。
+
+*smart-cursor-color.el* はそれをEmacsで実装します。
+
+なかなかよさげなので、僕はレビュー直後に即導入しました。
+
+#+BEGIN_QUOTE
+Smart Cursor Color
+
+When using a block cursor, it's hard to pick a cursor color that's visible against every background color. If you enable Smart cursor color (under Preferences > Profiles > Colors) then the cursor color will be dynamically chosen to be visible against the text it is over and the adjacent cells.
+#+END_QUOTE
+
+ただし、カーソル行をハイライトする標準機能
+*hl-line.el* との相性問題があります。
+
+*global-hl-line-mode* は問題ありませんが、
+単体の *hl-line-mode* を使っている場合は *動作しません* 。
+
+すでに使っている日本人もいるようです。
+http://xoyip.hatenablog.com/entry/2014/08/02/200000
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150326052815.png]]
+Fig1: 有効にするとカーソル背景色が文字色に！
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150326052821.png]]
+Fig2: 動的に色が変わる
+** smart-cursor-color インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install smart-cursor-color
+
+
+#+end:
+** 概要                                                             :noexport:
+Mac OS Xの端末 [[http://www.iterm2.com/#/section/home][iTerm2]] には *smart cursor color* という機能があり、
+カーソルの背景色と文字色を合わせてくれるため、文字が読みやすいです。
+
+*smart-cursor-color.el* はそれをEmacsで実装します。
+
+なかなかよさげなので、僕はレビュー直後に即導入しました。
+
+#+BEGIN_QUOTE
+Smart Cursor Color
+
+When using a block cursor, it's hard to pick a cursor color that's visible against every background color. If you enable Smart cursor color (under Preferences > Profiles > Colors) then the cursor color will be dynamically chosen to be visible against the text it is over and the adjacent cells.
+#+END_QUOTE
+
+ただし、カーソル行をハイライトする標準機能
+*hl-line.el* との相性問題があります。
+
+*global-hl-line-mode* は問題ありませんが、
+単体の *hl-line-mode* を使っている場合は *動作しません* 。
+
+すでに使っている日本人もいるようです。
+http://xoyip.hatenablog.com/entry/2014/08/02/200000
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150326052815.png]]
+Fig1: 有効にするとカーソル背景色が文字色に！
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150326052821.png]]
+Fig2: 動的に色が変わる
+
+** 設定 [[http://rubikitch.com/f/150326051455.smart-cursor-color.el][150326051455.smart-cursor-color.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/150326/150326051455.smart-cursor-color.el"
+#+BEGIN_SRC fundamental
+(smart-cursor-color-mode 1)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/150326051455.smart-cursor-color.el
+$ emacs -Q -f package-initialize -l 150326051455.smart-cursor-color.el
+#+END_EXAMPLE
+
+# /r/sync/screenshots/20150326052815.png http://rubikitch.com/wp-content/uploads/2015/03/wpid-20150326052815.png
+# /r/sync/screenshots/20150326052821.png http://rubikitch.com/wp-content/uploads/2015/03/wpid-20150326052821.png

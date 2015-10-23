@@ -1,0 +1,54 @@
+#+BLOG: rubikitch
+#+POSTID: 1348
+#+DATE: [2015-03-20 Fri 08:42]
+#+PERMALINK: melmag
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: メルマガ,
+#+DESCRIPTION: るびきち塾メルマガ『Emacsの鬼るびきちのココだけの話#173』の予告
+#+TITLE: 【メルマガ#173】集中力を保ちつつ健康にEmacsを使おう
+#+MYTAGS: 
+#+begin: org2blog-tags
+#+TAGS: , メルマガ,, 
+#+end:
+今回のメルマガは、集中力を保ちつつ、
+手や指に負担をかけないでEmacsを使う方法をお話します。
+
+Emacsはその鬼畜なキーバインドにより、
+開発者のストールマンさえも肘を痛めています。
+
+しかし、我々は同じ過ちを繰り返さないためには、
+先人の過ちから学び取ることが必要です。
+
+たしかに普段の操作においてEmacsは
+Ctrlを多用するので指に負担がかかってしまいます。
+
+そういう意味でCtrlを酷使しないVimにちょっと嫉妬してしまいます(笑)
+
+Vimもそれなりに使えるのならば、EvilでVimをエミュレートできます。
+
+しかし、僕みたいにEmacsガチガチな人にとっては苦しいです。
+
+でも、Emacsを使っている間、ずっと編集しているのでしょうか？
+
+そうではありませんよね。
+
+文字を閲覧している時間も長いはずです。
+
+そういうときこそ、普段酷使している指を休ませるチャンスです。
+
+
+また、当たり前のことですがある程度の時間作業をしたら
+適宜休憩を入れることがとても重要です。
+
+夢中になっていると休憩するのを忘れてしまいがちですが、
+ここは強制的にでも休憩した方がいいです。
+
+長時間作業をしていたらガス欠を早めるだけだからです。
+
+Emacsで休憩時間管理をするあまり知られてないelispも紹介します。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

@@ -1,0 +1,48 @@
+#+BLOG: rubikitch
+#+POSTID: 1963
+#+DATE: [2015-09-08 Tue 04:46]
+#+PERMALINK: twittering-mode-fav-retweet
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, 
+#+DESCRIPTION: twittering-status-formatを設定すれば可能
+#+MYTAGS: package:twittering-mode, Emacs Twitter, Twitter ふぁぼ, favorites, like, Twitter retweet, favorite_count, retweet_count
+#+TITLE: Emacs twittering-modeでFavorite/Retweetを含め1行表示させる設定
+#+begin: org2blog-tags
+#+TAGS: package:twittering-mode, Emacs Twitter, Twitter ふぁぼ, favorites, like, Twitter retweet, favorite_count, retweet_count, Emacs, , twittering-mode.el, twittering-status-format
+#+end:
+EmacsでTwitterするには *twittering-mode.el* が定番です。
+
+比較的新しいtwittering-modeでは、
+*twittering-status-format* を変更することで
+各ツイートのFavorite/Retweetを表示させられます。
+
+#+BEGIN_SRC emacs-lisp :results silent
+(setq twittering-status-format
+      (concat
+       ;; 年月日表示
+       " %C{%Y/%m/%d %H:%M:%S} %s "
+       ;; FAV数
+       "%FACE[font-lock-warning-face]{%FIELD-IF-NONZERO[✶%d]{favorite_count}}"
+       ;; RT数
+       "%FACE[font-lock-warning-face]{%FIELD-IF-NONZERO[↺%d]{retweet_count}}"
+       " > %T // by %S from %f%L%r%R"))
+#+END_SRC
+
+この設定では以下のように1行でツイートが表示されます。
+
+#+BEGIN_EXAMPLE
+ 2015/09/07 21:20:03 rubikitch ✶1↺1 > (ツイート内容) // by るびきち＠日刊Emacs from twmode [Emacs on Debian]
+#+END_EXAMPLE
+
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150908045547.png]]
+Fig1: 1行表示 with FAV/RT
+
+ヒントをくださった @myuhe さんに感謝です。

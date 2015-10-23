@@ -1,0 +1,41 @@
+#+BLOG: rubikitch
+#+POSTID: 1293
+#+DATE: [2015-03-13 Fri 06:51]
+#+PERMALINK: melmag
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: メルマガ,
+#+DESCRIPTION: るびきち塾メルマガ『Emacsの鬼るびきちのココだけの話#172』の予告
+#+TITLE: 速さが足りない！
+#+MYTAGS: 
+#+begin: org2blog-tags
+#+TAGS: , メルマガ,, 
+#+end:
+
+今回のメルマガは、Emacsを高速化させるノウハウ集です。
+
+効率厨、スピード狂ならばすでにやっているかもしれませんが…
+
+まずはEmacsの起動時間を短縮させましょう。
+
+特に2つの方法は大して導入コストがかからず、
+すぐに実践でき、しかも効果絶大な方法です。
+
+
+また、普段使うEmacsは動作が機敏な方が快適に決まっています。
+
+バッファ内検索を超高速に行う知られざるelispがあります。
+
+かなり有用にもかかわららず、MELPAに登録されていないので
+知っている人はかなり少ないかと思われます。
+
+最後に、Emacs24.4で初登場した起動時間短縮用マクロ、
+そしてスタイリッシュinit.el記述マクロを紹介します。
+
+与えられたツールを有効活用して、
+あなたのEmacsを機敏にしてください。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

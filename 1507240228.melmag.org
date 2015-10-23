@@ -1,0 +1,25 @@
+#+BLOG: rubikitch
+#+POSTID: 1851
+#+DATE: [2015-07-24 Fri 02:28]
+#+PERMALINK: melmag
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: メルマガ,
+#+DESCRIPTION: るびきち塾メルマガ『Emacsの鬼るびきちのココだけの話#191』の予告
+#+TITLE: 【メルマガ#191】最強のメディアプレイヤー
+#+MYTAGS: 
+#+begin: org2blog-tags
+#+TAGS: , メルマガ,, 
+#+end:
+今回は最強のメディアプレイヤーを紹介します。
+
+少なくともGNU/Linuxならばこれを使っていれば問題ありません。
+
+導入時に僕のちょっとした打ち明け話があったりします(笑)
+
+僕の意外な一面が見られるかもしれません。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

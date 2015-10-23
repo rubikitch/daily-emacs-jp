@@ -1,0 +1,126 @@
+#+BLOG: rubikitch
+#+POSTID: 1635
+#+DATE: [2015-05-11 Mon 04:20]
+#+PERMALINK: splitjoin
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs
+#+EL_PKG_NAME: splitjoin
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs vim splitjoin, Rubyの一行コードを複数行コードに変換, 1行のコードを文脈的に同じ意味の複数行のコードに相互変換, ruby 後置if 変換, ruby 後置記法 変換, emacs vim backend_if, relate:ruby-mode, relate:coffee-mode
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 
+#+EL_TITLE0: 【Vimより移植】1行コードと複数行コードを相互変換する(Ruby, CoffeeScript対応)
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージsplitjoinの紹介
+#+MYTAGS: package:splitjoin, emacs 使い方, emacs コマンド, emacs, splitjoin, splitjoin.el, emacs lisp splitjoin, elisp splitjoin, emacs melpa splitjoin, emacs splitjoin 使い方, emacs splitjoin 設定, emacs パッケージ splitjoin, emacs vim splitjoin, Rubyの一行コードを複数行コードに変換, 1行のコードを文脈的に同じ意味の複数行のコードに相互変換, ruby 後置if 変換, ruby 後置記法 変換, emacs vim backend_if, relate:ruby-mode, relate:coffee-mode
+#+TAGS: package:splitjoin, emacs 使い方, emacs コマンド, emacs, splitjoin, splitjoin.el, emacs lisp splitjoin, elisp splitjoin, emacs melpa splitjoin, emacs splitjoin 使い方, emacs splitjoin 設定, emacs パッケージ splitjoin, emacs vim splitjoin, Rubyの一行コードを複数行コードに変換, 1行のコードを文脈的に同じ意味の複数行のコードに相互変換, ruby 後置if 変換, ruby 後置記法 変換, emacs vim backend_if, relate:ruby-mode, relate:coffee-mode, Emacs, splitjoin.el, M-x splitjoin, Ruby, ruby-mode, CoffeeScript, coffee-mode, enh-ruby-mode, M-x splitjoin, Ruby, ruby-mode, CoffeeScript, coffee-mode, enh-ruby-mode
+#+TITLE: emacs splitjoin.el : 【Vimより移植】1行コードと複数行コードを相互変換する(Ruby, CoffeeScript対応) | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>splitjoin</td></tr>
+<tr><td>概要(原文)</td><td>Transition between multiline and single-line code</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/syohex/emacs-splitjoin">https://github.com/syohex/emacs-splitjoin</a></td></tr>
+<tr><td>バージョン</td><td>20150505.732</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:splitjoin/">package:splitjoin</a> <a href="http://rubikitch.com/tag/package:ruby-mode/">package:ruby-mode</a> <a href="http://rubikitch.com/tag/package:coffee-mode/">package:coffee-mode</a></td></tr>
+</table>
+<br />
+#+END_HTML
+*splitjoin.el* は[[https://github.com/AndrewRadev/splitjoin.vim][同名のVimプラグイン]] の移植です。
+
+提供しているコマンドは *M-x splitjoin* のみであり、
+同じ意味の1行のコードと複数行のコードを相互変換します。
+
+<2015-05-11 Mon> 時点では *Ruby* (*ruby-mode*) と
+ *CoffeeScript* (*coffee-mode*) に対応しています。
+
+*enh-ruby-mode* には対応していません。
+
+たとえばRubyの後置ifこんな感じになります。
+#+BEGIN_SRC ruby :results xmp silent
+doit if @flag
+# ↓↑ M-x splitjoin
+if @flag
+  doit
+end
+#+END_SRC
+
+
+
+本家では他にも以下の言語にも対応しています。
+
+- eRuby
+- Perl
+- Python
+- PHP
+- JavaScript
+- HTML
+- XML
+- CSS
+- SCSS
+- LESS
+- YAML
+- Lua
+- Go
+- Vimscript
+- TeX
+- C
+
+対応を熱望している方はぜひpull-reqを送ってみましょう。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+** splitjoin インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install splitjoin
+
+
+#+end:
+** 概要                                                             :noexport:
+*splitjoin.el* は[[https://github.com/AndrewRadev/splitjoin.vim][同名のVimプラグイン]] の移植です。
+
+提供しているコマンドは *M-x splitjoin* のみであり、
+同じ意味の1行のコードと複数行のコードを相互変換します。
+
+<2015-05-11 Mon> 時点では *Ruby* (*ruby-mode*) と
+ *CoffeeScript* (*coffee-mode*) に対応しています。
+
+*enh-ruby-mode* には対応していません。
+
+たとえばRubyの後置ifこんな感じになります。
+#+BEGIN_SRC ruby :results xmp silent
+doit if @flag
+# ↓↑ M-x splitjoin
+if @flag
+  doit
+end
+#+END_SRC
+
+
+
+本家では他にも以下の言語にも対応しています。
+
+- eRuby
+- Perl
+- Python
+- PHP
+- JavaScript
+- HTML
+- XML
+- CSS
+- SCSS
+- LESS
+- YAML
+- Lua
+- Go
+- Vimscript
+- TeX
+- C
+
+対応を熱望している方はぜひpull-reqを送ってみましょう。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

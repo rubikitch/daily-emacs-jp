@@ -1,0 +1,55 @@
+#+BLOG: rubikitch
+#+POSTID: 1219
+#+DATE: [2015-02-27 Fri 06:38]
+#+PERMALINK: melmag
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: メルマガ,
+#+DESCRIPTION: るびきち塾メルマガ『Emacsの鬼るびきちのココだけの話#170』の予告
+#+TITLE: helmとanythingをdired化しよう！
+#+MYTAGS: 
+#+begin: org2blog-tags
+#+TAGS: , メルマガ,, 
+#+end:
+まずあなたに謝らなければならないことがあります。
+
+「今月は自分ハック月間」
+と言っていましたが、今回はもっぱらEmacsな話題です。
+
+期待してたら、ごめんなさい。
+
+実は元々、今回分の自分ハックネタがあったのですが、
+タイミング的に来週に回した方がいいと判断したため、
+急遽変更させていただきました。
+
+その理由は来週になればわかります。
+
+今回はdiredの「!」をhelmとanythingに移植する話です。
+
+「!」はdired内でシェルコマンドを実行するコマンドで、
+汎用性が高いです。
+
+diredには無数のコマンドが登録されていますが、
+このコマンドさえ知っていれば事実上なんでもできます。
+
+ファイルのコピー・移動・削除はもちろんのこと
+メディアファイルを再生したり
+画像を表示したりするのも
+お手のものです。
+
+このコマンドは適切な制御文字を入れれば
+実行するシェルコマンドを細かく指定できます。
+
+実際に使ってみれば便利だと気付くはずです。
+
+helmとanythingもdired同様ファイルを一覧するのですが、
+なぜかこの機能が存在しないので、追加してしまいます。
+
+アクションにキーを割り当てる方法も紹介するので、
+今回のお話はhelm愛好家にはとても役立つはずです。
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

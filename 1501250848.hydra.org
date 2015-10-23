@@ -1,0 +1,177 @@
+#+BLOG: rubikitch
+#+POSTID: 1001
+#+DATE: [2015-01-25 Sun 08:48]
+#+PERMALINK: hydra
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs
+#+EL_PKG_NAME: hydra
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, relate:smartrep, emacs repeat, emacs smartrep, emacs 繰り返しコマンド, emacs プレフィクスキー 省略, プレフィクスキー, package:smartrep
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: 【smartrep別実装】同系統のコマンドを連続的に実行するときプレフィクスキーを省略する
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージhydraの紹介
+#+MYTAGS: package:hydra, emacs 使い方, emacs コマンド, emacs, hydra, hydra.el, emacs lisp hydra, elisp hydra, emacs melpa hydra, emacs hydra 使い方, emacs hydra 設定, emacs パッケージ hydra, emacs hydra スクリーンショット, relate:smartrep, emacs repeat, emacs smartrep, emacs 繰り返しコマンド, emacs プレフィクスキー 省略, プレフィクスキー, package:smartrep
+#+TAGS: package:hydra, emacs 使い方, emacs コマンド, emacs, hydra, hydra.el, emacs lisp hydra, elisp hydra, emacs melpa hydra, emacs hydra 使い方, emacs hydra 設定, emacs パッケージ hydra, emacs hydra スクリーンショット, relate:smartrep, emacs repeat, emacs smartrep, emacs 繰り返しコマンド, emacs プレフィクスキー 省略, プレフィクスキー, package:smartrep, Emacs, hydra.el, smartrep.el, smartrep.el, smartrep-read-event-loop
+#+TITLE: emacs hydra.el : 【smartrep別実装】同系統のコマンドを連続的に実行するときプレフィクスキーを省略する | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>hydra</td></tr>
+<tr><td>概要(原文)</td><td>Make bindings that stick around</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/abo-abo/hydra">https://github.com/abo-abo/hydra</a></td></tr>
+<tr><td>バージョン</td><td>20150124.1150</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:hydra/">package:hydra</a> <a href="http://rubikitch.com/tag/package:smartrep/">package:smartrep</a></td></tr>
+</table>
+<br />
+#+END_HTML
+*hydra.el* は、連続して操作するときにプレフィクスキーを
+キャンセルさせるためのelispです。
+
+日本人の間では *smartrep.el* が有名ですが、
+hydra.elも同様の機能を提供します。
+
+http://sheephead.homelinux.org/2011/12/19/6930/ ←smartrep.el作者のページ
+
+hydraとは大蛇、日本でいえば「やまたのおろち」のようなものですが、
+省略されたプレフィクスキー以降のキーを「頭」に例えています。
+
+それではsmartrepとhydraの両者を比較してみましょう。
+
+その結果は…
+** hydra インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install hydra
+
+
+#+end:
+** 概要                                                             :noexport:
+*hydra.el* は、連続して操作するときにプレフィクスキーを
+キャンセルさせるためのelispです。
+
+日本人の間では *smartrep.el* が有名ですが、
+hydra.elも同様の機能を提供します。
+
+http://sheephead.homelinux.org/2011/12/19/6930/ ←smartrep.el作者のページ
+
+hydraとは大蛇、日本でいえば「やまたのおろち」のようなものですが、
+省略されたプレフィクスキー以降のキーを「頭」に例えています。
+
+それではsmartrepとhydraの両者を比較してみましょう。
+
+その結果は…
+
+** 文字の大きさを調整する例 [[http://rubikitch.com/f/150125084412.smartrep.hydra.el][150125084412.smartrep.hydra.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/150125/150125084412.smartrep.hydra.el"
+#+BEGIN_SRC fundamental
+;;; smartrepの場合
+(require 'smartrep)
+(smartrep-define-key global-map "<f2>"
+  '(("g" . text-scale-increase)
+    ("l" . text-scale-decrease)))
+;;; smartrep管轄外のコマンドも定義できる
+(global-set-key (kbd "<f2> f") 'find-file)
+
+;;; hydra-createはautoloadされているのでrequire不要
+(global-set-key (kbd "<f3>") nil)
+(hydra-create "<f3>"
+  '(("g" text-scale-increase "zoom in")
+    ("l" text-scale-decrease "zoom out")))
+;;; hydra管轄外のコマンドも定義できる
+(global-set-key (kbd "<f3> f") 'find-file)
+#+END_SRC
+
+#+END:
+
+*** スクリーンショット
+<f2>(<f3>) gglを押した場合で比較しましょう。
+
+ # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+ [[file:/r/sync/screenshots/20150125090523.png]]
+ Fig1: smartrepはモードラインに発動中と表示
+ # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+ [[file:/r/sync/screenshots/20150125090543.png]]
+ Fig2: hydraはエコーエリアに使えるキーを表示
+
+** org-modeの例 [[http://rubikitch.com/f/150125085254.hydra.org.1.el][150125085254.hydra.org.1.el(以下のコードと同一)]]
+org-modeで前後の見出し行に移動するのに
+C-c C-n C-c C-n C-c C-p ... はかったるいので
+C-c C-n C-n C-p と操作できるようにします。
+
+smartrep/hydra両者の記述を比較します。
+#+BEGIN: include :file "/r/sync/junk/150125/150125085254.hydra.org.1.el"
+#+BEGIN_SRC fundamental
+(require 'org)
+;; smartrepの場合
+(require 'smartrep)
+(smartrep-define-key org-mode-map "C-c"
+  '(("C-n" . outline-next-visible-heading)
+    ("C-p" . outline-previous-visible-heading)))
+;; hydraの場合
+(hydra-create "C-c"
+  '(("C-n" outline-next-visible-heading "NextHead")
+    ("C-p" outline-previous-visible-heading "PrevHead"))
+  org-mode-map)
+#+END_SRC
+
+#+END:
+
+
+** 同じプレフィクスキーで別のグループを定義… [[http://rubikitch.com/f/150125090750.hydra.same.el][150125090750.hydra.same.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/150125/150125090750.hydra.same.el"
+#+BEGIN_SRC fundamental
+(require 'smartrep)
+(smartrep-define-key global-map "<f2>"
+  '(("g" . text-scale-increase)
+    ("l" . text-scale-decrease)))
+(smartrep-define-key global-map "<f2>"
+  '(("+" . text-scale-increase)
+    ("-" . text-scale-decrease)))
+;;; まだhydraではできない…
+(hydra-create "<f2>"
+  '(("g" text-scale-increase "zoom in")
+    ("l" text-scale-decrease "zoom out")))
+(hydra-create "<f2>"
+  '(("+" text-scale-increase "zoom in")
+    ("-" text-scale-decrease "zoom out")))
+#+END_SRC
+
+#+END:
+
+<f2> {g,l} と <f2> {+,-} というふうに
+共通のプレフィクスキー<f2>を使って別のsmartrepを作成することはできます。
+
+しかし、現段階でのhydraはこれができません。
+
+<f2> gを押したら後に定義された{+,-}の方を見てしまいます。
+
+ああ残念…
+** 結論
+smartrepではmode-lineのsmartrep発動中と表示するだけです。
+
+対してhydraでは使える「頭」を表示してくれるので、
+次に使えるキーが明確にわかります。
+
+その点ではhydraの方が優れていると思います。
+
+しかし、先程検証したように共通のプレフィクスキーで
+複数のhydraを作ることができない欠点があります。
+
+また、smartrepは *smartrep-read-event-loop* という関数を使えば、
+プレフィクスキーとは無関係にsmartrepを発動させられる強味があります。
+
+現時点ではsmartrepが優位ですが、
+キーを表示してくれる方がありがたいという方は
+hydraを使ってみてもいいでしょう。
+
+とはいえhydra.elは開発されてからたった5日なので、
+欠点は克服される可能性があります。
+
+# /r/sync/screenshots/20150125090523.png http://rubikitch.com/wp-content/uploads/2015/01/wpid-20150125090523.png
+# /r/sync/screenshots/20150125090543.png http://rubikitch.com/wp-content/uploads/2015/01/wpid-20150125090543.png

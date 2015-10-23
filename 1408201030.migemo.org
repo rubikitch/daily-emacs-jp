@@ -1,0 +1,121 @@
+#+BLOG: rubikitch
+#+POSTID: 186
+#+DATE: [2014-08-20 Wed 10:30]
+#+PERMALINK: migemo
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs
+#+EL_PKG_NAME: migemo
+#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, emacs cmigemo, emacs 日本語 検索, emacs 日本語 isearch, emacs 日本語 search, migemo
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: ローマ字で日本語検索する神ツールMigemoが更新されたよ！
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージmigemoの紹介
+#+MYTAGS: package:migemo, emacs 使い方, emacs コマンド, emacs, emacs lisp migemo, elisp migemo, emacs melpa migemo, emacs migemo 使い方, emacs migemo 設定, emacs パッケージ migemo, emacs migemo スクリーンショット, emacs cmigemo, emacs 日本語 検索, emacs 日本語 isearch, emacs 日本語 search, migemo
+#+TAGS: package:migemo, emacs 使い方, emacs コマンド, emacs, emacs lisp migemo, elisp migemo, emacs melpa migemo, emacs migemo 使い方, emacs migemo 設定, emacs パッケージ migemo, emacs migemo スクリーンショット, emacs cmigemo, emacs 日本語 検索, emacs 日本語 isearch, emacs 日本語 search, migemo, Emacs, 
+#+TITLE: emacs migemo.el : ローマ字で日本語検索する神ツールMigemoが更新されたよ！ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>migemo</td></tr>
+<tr><td>概要(原文)</td><td>Japanese incremental search through dynamic pattern expansion</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/emacs-jp/migemo">https://github.com/emacs-jp/migemo</a></td></tr>
+<tr><td>バージョン</td><td>20140823.2003</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:migemo/">package:migemo</a> </td></tr>
+</table>
+<br />
+#+END_HTML
+日本人でEmacsを使っていてMigemoを使っていないならば、
+/今すぐインストール/ してください。
+
+そう、今すぐです。
+
+Emacsのisearchは少ないタイプ数で目的地に到達してくれる
+優れたカーソル移動手段です。
+
+しかし日本語文字列の場合は、
+ローマ字から変換をする必要があるため、
+isearchの恩恵が受けられません。
+
+Migemoは漢字変換の手間を排除し、
+ローマ字を入力するだけで
+日本語文字列を検索してくれます。
+
+たとえば、C-s nihonで「日本」にカーソルが行きます。
+
+
+Migemoを使うには、cmigemoというバックエンドをインストールする必要があります。
+
+Debian系列ならば
+$ sudo apt-get install cmigemo
+でインストールできます。
+
+[[http://www.kaoriya.net/software/cmigemo/]]
+にWindowsバイナリやソースコードがあります。
+** migemo インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install migemo
+
+
+#+end:
+** 概要                                                             :noexport:
+日本人でEmacsを使っていてMigemoを使っていないならば、
+/今すぐインストール/ してください。
+
+そう、今すぐです。
+
+Emacsのisearchは少ないタイプ数で目的地に到達してくれる
+優れたカーソル移動手段です。
+
+しかし日本語文字列の場合は、
+ローマ字から変換をする必要があるため、
+isearchの恩恵が受けられません。
+
+Migemoは漢字変換の手間を排除し、
+ローマ字を入力するだけで
+日本語文字列を検索してくれます。
+
+たとえば、C-s nihonで「日本」にカーソルが行きます。
+
+
+Migemoを使うには、cmigemoというバックエンドをインストールする必要があります。
+
+Debian系列ならば
+$ sudo apt-get install cmigemo
+でインストールできます。
+
+[[http://www.kaoriya.net/software/cmigemo/]]
+にWindowsバイナリやソースコードがあります。
+** 設定 [[http://rubikitch.com/f/140820103842.el][140820103842.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/140820/140820103842.el"
+#+BEGIN_SRC fundamental
+(require 'migemo)
+(setq migemo-command "cmigemo")
+(setq migemo-options '("-q" "--emacs"))
+
+;; Set your installed path
+(setq migemo-dictionary "/usr/local/share/migemo/utf-8/migemo-dict")
+
+(setq migemo-user-dictionary nil)
+(setq migemo-regex-dictionary nil)
+(setq migemo-coding-system 'utf-8-unix)
+(load-library "migemo")
+(migemo-init)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/140820103842.el
+$ emacs -Q -f package-initialize -l 140820103842.el
+#+END_EXAMPLE
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+http://rubikitch.com/f/20140820103943.png
+Fig1: ローマ字で日本語検索！！

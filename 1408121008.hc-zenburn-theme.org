@@ -1,0 +1,161 @@
+#+BLOG: rubikitch
+#+POSTID: 139
+#+DATE: [2014-08-12 Tue 10:08]
+#+PERMALINK: hc-zenburn-theme
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, theme
+#+EL_PKG_NAME: hc-zenburn-theme
+#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, emacs color-theme, emacs theme org-mode, emacs theme ruby-mode, emacs theme magit, emacs theme grep
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: hc-zenburn-themeは暗い背景色の人におすすめのthemeだ
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージhc-zenburn-themeの紹介
+#+MYTAGS: package:hc-zenburn-theme, emacs 使い方, emacs コマンド, emacs, emacs lisp hc-zenburn-theme, elisp hc-zenburn-theme, emacs melpa hc-zenburn-theme, emacs hc-zenburn-theme 使い方, emacs hc-zenburn-theme 設定, emacs パッケージ hc-zenburn-theme, emacs hc-zenburn-theme スクリーンショット, emacs color-theme, emacs theme org-mode, emacs theme ruby-mode, emacs theme magit, emacs theme grep
+#+TITLE: emacs hc-zenburn-theme.el : hc-zenburn-themeは暗い背景色の人におすすめのthemeだ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>hc-zenburn-theme</td></tr>
+<tr><td>概要(原文)</td><td>An higher contrast version of the Hc-Zenburn theme.</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/edran/hc-zenburn-emacs">https://github.com/edran/hc-zenburn-emacs</a></td></tr>
+<tr><td>バージョン</td><td>20141031.355</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:hc-zenburn-theme/">package:hc-zenburn-theme</a> </td></tr>
+</table>
+<br />
+#+END_HTML
+コントラストが強化されたzenburn themeです。
+
+スクリーンショットを撮ったところ、背景色が明るいと見辛いようです。
+
+** hc-zenburn-theme インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install hc-zenburn-theme
+
+
+#+end:
+** 概要                                                             :noexport:
+コントラストが強化されたzenburn themeです。
+
+スクリーンショットを撮ったところ、背景色が明るいと見辛いようです。
+
+
+** 対応パッケージ
+hc-zenburn-themeに対応しているパッケージはこれです。
+
+例によってoccurで抜き出したものです。
+
+- compilation
+- grep
+- isearch
+- font lock
+- newsticker
+- ace-jump
+- android mode
+- anzu
+- auctex
+- auto-complete
+- company-mode
+- bm
+- clojure-test-mode
+- coq
+- ctable
+- diff
+- diff-hl
+- dim-autoload
+- dired+
+- ediff
+- egg
+- elfeed
+- emacs-w3m
+- erc
+- ert
+- eshell
+- flx
+- flycheck
+- flymake
+- flyspell
+- full-ack
+- git-gutter
+- git-gutter-fr
+- git-rebase-mode
+- gnus
+- guide-key
+- helm
+- hl-line-mode
+- hl-sexp
+- ido-mode
+- iedit-mode
+- jabber-mode
+- js2-mode
+- ledger-mode
+- linum-mode
+- macrostep
+- magit
+- message-mode
+- mew
+- mic-paren
+- mingus
+- nav
+- mu4e
+- mumamo
+- org-mode
+- outline
+- p4
+- perspective
+- powerline
+- proofgeneral
+- rainbow-delimiters
+- rcirc
+- rpm-mode
+- rst-mode
+- sh-mode
+- show-paren
+- smartparens
+- sml-mode-line
+- SLIME
+- speedbar
+- tabbar
+- term
+- undo-tree
+- volatile-highlights
+- web-mode
+- whitespace-mode
+- wanderlust
+- which-func-mode
+- yascroll
+- ansi-color
+- fill-column-indicator
+- vc-annotate
+
+** 設定 [[http://rubikitch.com/f/140812100816.hc-zenburn-theme.el][140812100816.hc-zenburn-theme.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/140812/140812100816.hc-zenburn-theme.el"
+#+BEGIN_SRC fundamental
+(load-theme 'hc-zenburn t)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/140812100816.hc-zenburn-theme.el
+$ emacs -Q -f package-initialize -l 140812100816.hc-zenburn-theme.el
+#+END_EXAMPLE
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+http://rubikitch.com/f/20140812101106.png
+Fig1: org-mode(背景色が暗い場合)
+
+http://rubikitch.com/f/20140812101125.png
+Fig2: grep(背景色が暗い場合)
+
+http://rubikitch.com/f/20140812101213.png
+Fig3: magit(背景色が明るい場合)
+
+http://rubikitch.com/f/20140812101232.png
+Fig4: ruby-mode(背景色が明るい場合)

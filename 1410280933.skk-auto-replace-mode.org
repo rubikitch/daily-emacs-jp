@@ -1,0 +1,98 @@
+#+BLOG: rubikitch
+#+POSTID: 525
+#+DATE: [2014-10-28 Tue 09:33]
+#+PERMALINK: skk-auto-replace-mode
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, SKK
+#+DESCRIPTION: skk-auto-replace-modeは確定後にカーソル以後に登場に同じ見出し語に対してquery-replaceします。
+#+MYTAGS: replate:skk, emacs SKK, DDSKK, emacs DDSKK, query-replace SKK, emacs SKK 校正, skk 変換 置換
+#+TAGS: replate:skk, emacs SKK, DDSKK, emacs DDSKK, query-replace SKK, emacs SKK 校正, skk 変換 置換, Emacs, SKK, 会議, セミナー, 議事録, SKK, query-replace, M-x skk-auto-replace-mode, マイナーモード, C-u C-SPC
+#+TITLE: 【SKK校正】emacs DDSKKで議事録の校正スピードを3倍にする方法
+*会議* や *セミナー* の *議事録* をPCを使って録るときには、
+リアルタイム性が求められます。
+
+とにかくスピード命で漢字変換など二の次です。
+
+おまけにミスタイプも多いのでひどいものです。
+
+そのため、議事録を録り終わった後は校正作業を必要とします。
+
+Emacsの *SKK* (DDSKK) で校正するとき、
+見出し語のひらがなに対して / を押すと
+▽が出てきて範囲を指定すると漢字変換できます。
+
+#+BEGIN_EXAMPLE
+わたしは
+↓「わ」の前で/
+▽わたしは
+↓「し」の後でスペース
+私は
+#+END_EXAMPLE
+
+長い議事録において毎回同じ見出し語を変換するのはとても面倒ですね。
+
+そこで、見出し語を/とスペースで変換した後に、
+カーソル以後にも同じ見出し語が登場したときに
+*query-replace* するようなコードを書きました。
+
+もちろん毎回有効にすると煩わしいので *M-x skk-auto-replace-mode*
+という *マイナーモード* としてon/off切り替えられるようにしています。
+
+置換開始位置に戻るには *C-u C-SPC* と押します。
+
+正直、なんでこれを早く作らなかったのかと後悔しています(笑)
+
+** 設定 [[http://rubikitch.com/f/mylisp-skk-replace.el][mylisp-skk-replace.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/emacs/init.d/mylisp-skk-replace.el"
+#+BEGIN_SRC fundamental
+(require 'skk)
+
+(define-minor-mode skk-auto-replace-mode
+  "同じ見出し語をquery-replaceする。議事録・セミナーメモ校正のためのモード。"
+  nil " SKK置換")
+(defvar skk-my-kakutei-key nil "")
+(defadvice skk-start-henkan (before auto-replace activate)
+  (and (eq skk-henkan-mode 'on)
+       (setq skk-my-kakutei-key (buffer-substring skk-henkan-start-point (point)))))
+;; (progn (ad-disable-advice 'skk-start-henkan 'before 'auto-replace) (ad-update 'skk-start-henkan))
+(defadvice skk-kakutei (after auto-replace activate)
+  (skk-replace-after-kakutei))
+;; (progn (ad-disable-advice 'skk-kakutei 'after 'auto-replace) (ad-update 'skk-kakutei))
+
+
+(defun skk-replace-after-kakutei ()
+  (interactive)
+  (when (and skk-auto-replace-mode
+             skk-my-kakutei-key)
+    (unwind-protect
+        (perform-replace
+         skk-my-kakutei-key (buffer-substring skk-henkan-start-point (point))
+         t nil nil)
+     (setq skk-my-kakutei-key nil))))
+
+(provide 'mylisp-skk-replace)
+#+END_SRC
+
+#+END:
+
+** 使用例
+効果がはっきりわかるように
+わざとくどい例文を用意しました(笑)
+
+#+BEGIN_EXAMPLE
+わたしはがっこうへいきました。
+がっこうはたのしいところです。
+なにがたのしいかというと、
+わたしのともだちがいっぱいいることです。
+#+END_EXAMPLE
+↓
+#+BEGIN_EXAMPLE
+私は学校へ行きました。
+学校は楽しいところです。
+なにが楽しいかというと、
+私のともだちがいっぱいいることです。
+#+END_EXAMPLE

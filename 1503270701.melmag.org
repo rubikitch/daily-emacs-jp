@@ -1,0 +1,39 @@
+#+BLOG: rubikitch
+#+POSTID: 1375
+#+DATE: [2015-03-27 Fri 07:01]
+#+PERMALINK: melmag
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: メルマガ,
+#+DESCRIPTION: るびきち塾メルマガ『Emacsの鬼るびきちのココだけの話#174』の予告
+#+TITLE: 【メルマガ#174】Emacsで暗記学習を攻略する！
+#+MYTAGS: 
+#+begin: org2blog-tags
+#+TAGS: , メルマガ,, 
+#+end:
+今回のメルマガはEmacsで暗記モノの勉強をする方法です。
+
+とはいえ、人間は忘れる動物なので覚えるのは大変です。
+
+そこで効果的な学習を支援する方法が
+アナログ・デジタル双方で考案されてきました。
+
+特に[[http://ankisrs.net/][Anki]] はオープンソースでスマホ含む
+多くのOSで対応している優れ物です。
+
+ここではあえてEmacsで行うことにします。
+
+Emacsで暗記支援する方法だけでなく、
+以下の補助的な内容も含まれています。
+
+- 大人が単語帳を使ってはいけない科学的根拠とは？
+- 30代からのおすすめ勉強法とは？
+- 知識が最も定着しやすい問題の作り方とは？
+- 英単語を簡単に登録する設定とは？
+- ブラウザから簡単にメモを取る方法とは？
+- 学習習慣をつける秘技とは？
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

@@ -1,0 +1,697 @@
+#+BLOG: rubikitch
+#+POSTID: 1940
+#+DATE: [2015-09-01 Tue 14:08]
+#+PERMALINK: sublime-themes
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, theme
+#+EL_PKG_NAME: sublime-themes
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, color-theme, カラーテーマ
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: Sublime Textから移植されたカラーテーマ集
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージsublime-themesの紹介
+#+MYTAGS: package:sublime-themes, emacs 使い方, emacs コマンド, emacs, sublime-themes, sublime-themes.el, emacs lisp sublime-themes, elisp sublime-themes, emacs melpa sublime-themes, emacs sublime-themes 使い方, emacs sublime-themes 設定, emacs パッケージ sublime-themes, emacs sublime-themes スクリーンショット, color-theme, カラーテーマ
+#+TAGS: package:sublime-themes, emacs 使い方, emacs コマンド, emacs, sublime-themes, sublime-themes.el, emacs lisp sublime-themes, elisp sublime-themes, emacs melpa sublime-themes, emacs sublime-themes 使い方, emacs sublime-themes 設定, emacs パッケージ sublime-themes, emacs sublime-themes スクリーンショット, color-theme, カラーテーマ, Emacs, theme, sublime-theme.el
+#+TITLE: emacs sublime-themes.el : Sublime Textから移植されたカラーテーマ集 | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>sublime-themes</td></tr>
+<tr><td>概要(原文)</td><td>A collection of themes based on Sublime Text</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/owainlewis/emacs-color-themes">https://github.com/owainlewis/emacs-color-themes</a></td></tr>
+<tr><td>バージョン</td><td>20150328.131</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:sublime-themes/">package:sublime-themes</a> </td></tr>
+</table>
+<br />
+#+END_HTML
+*sublime-theme.el* は、以下のパッケージに対応したカラーテーマ群です。
+- linum
+- mode-line
+- font-lock
+
+以下のカラーテーマが定義されています。
+#+begin: org2blog-sub-color-themes
+- brin
+- dorsey
+- fogus
+- graham
+- granger
+- hickey
+- junio
+- mccarthy
+- odersky
+- ritchie
+- spolsky
+- wilson
+
+#+end:
+** sublime-themes インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install sublime-themes
+
+
+#+end:
+** 概要                                                             :noexport:
+*sublime-theme.el* は、以下のパッケージに対応したカラーテーマ群です。
+- linum
+- mode-line
+- font-lock
+
+以下のカラーテーマが定義されています。
+#+begin: org2blog-sub-color-themes
+- brin
+- dorsey
+- fogus
+- graham
+- granger
+- hickey
+- junio
+- mccarthy
+- odersky
+- ritchie
+- spolsky
+- wilson
+
+#+end:
+
+** theme: brin
+*** スクリーンショット
+# (save-window-excursion (async-shell-command "emacs-test -eval '(load-theme (quote brin) t)'"))
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_theme_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150901141054.png]]
+Fig1: emacs-lisp-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150901141101.png]]
+Fig2: magit
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150901141105.png]]
+Fig3: grep
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150901141109.png]]
+Fig4: outline-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150901141113.png]]
+Fig5: org-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150901141117.png]]
+Fig6: dired
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150901141121.png]]
+Fig7: web-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150901141124.png]]
+Fig8: markdown-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150901141128.png]]
+Fig9: helm
+
+
+*** 設定
+#+BEGIN_SRC fundamental
+(load-theme 'brin t)
+#+END_SRC
+
+*** 実行方法
+#+BEGIN_EXAMPLE
+$ emacs -Q -f package-initialize -eval '(load-theme (quote brin) t)'
+#+END_EXAMPLE
+
+** theme: dorsey
+*** スクリーンショット
+# (save-window-excursion (async-shell-command "emacs-test -eval '(load-theme (quote dorsey) t)'"))
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_theme_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150901141208.png]]
+Fig10: emacs-lisp-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150901141214.png]]
+Fig11: magit
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150901141217.png]]
+Fig12: grep
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150901141221.png]]
+Fig13: outline-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150901141224.png]]
+Fig14: org-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150901141228.png]]
+Fig15: dired
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150901141231.png]]
+Fig16: web-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150901141234.png]]
+Fig17: markdown-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150901141236.png]]
+Fig18: helm
+
+
+*** 設定
+#+BEGIN_SRC fundamental
+(load-theme 'dorsey t)
+#+END_SRC
+
+*** 実行方法
+#+BEGIN_EXAMPLE
+$ emacs -Q -f package-initialize -eval '(load-theme (quote dorsey) t)'
+#+END_EXAMPLE
+
+** theme: fogus
+*** スクリーンショット
+# (save-window-excursion (async-shell-command "emacs-test -eval '(load-theme (quote fogus) t)'"))
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_theme_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150901141307.png]]
+Fig19: emacs-lisp-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150901141312.png]]
+Fig20: magit
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150901141315.png]]
+Fig21: grep
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150901141318.png]]
+Fig22: outline-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150901141322.png]]
+Fig23: org-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150901141325.png]]
+Fig24: dired
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150901141328.png]]
+Fig25: web-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150901141331.png]]
+Fig26: markdown-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150901141335.png]]
+Fig27: helm
+
+
+*** 設定
+#+BEGIN_SRC fundamental
+(load-theme 'fogus t)
+#+END_SRC
+
+*** 実行方法
+#+BEGIN_EXAMPLE
+$ emacs -Q -f package-initialize -eval '(load-theme (quote fogus) t)'
+#+END_EXAMPLE
+
+** theme: graham
+*** スクリーンショット
+# (save-window-excursion (async-shell-command "emacs-test -eval '(load-theme (quote graham) t)'"))
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_theme_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150901141354.png]]
+Fig28: emacs-lisp-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150901141359.png]]
+Fig29: magit
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150901141402.png]]
+Fig30: grep
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150901141404.png]]
+Fig31: outline-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150901141408.png]]
+Fig32: org-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150901141410.png]]
+Fig33: dired
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150901141413.png]]
+Fig34: web-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150901141416.png]]
+Fig35: markdown-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150901141420.png]]
+Fig36: helm
+
+
+*** 設定
+#+BEGIN_SRC fundamental
+(load-theme 'graham t)
+#+END_SRC
+
+*** 実行方法
+#+BEGIN_EXAMPLE
+$ emacs -Q -f package-initialize -eval '(load-theme (quote graham) t)'
+#+END_EXAMPLE
+
+** theme: granger
+*** スクリーンショット
+# (save-window-excursion (async-shell-command "emacs-test -eval '(load-theme (quote granger) t)'"))
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_theme_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150901141455.png]]
+Fig37: emacs-lisp-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150901141500.png]]
+Fig38: magit
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150901141502.png]]
+Fig39: grep
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150901141505.png]]
+Fig40: outline-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150901141508.png]]
+Fig41: org-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150901141510.png]]
+Fig42: dired
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150901141513.png]]
+Fig43: web-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150901141516.png]]
+Fig44: markdown-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150901141520.png]]
+Fig45: helm
+
+
+*** 設定
+#+BEGIN_SRC fundamental
+(load-theme 'granger t)
+#+END_SRC
+
+*** 実行方法
+#+BEGIN_EXAMPLE
+$ emacs -Q -f package-initialize -eval '(load-theme (quote granger) t)'
+#+END_EXAMPLE
+
+** theme: hickey
+*** スクリーンショット
+# (save-window-excursion (async-shell-command "emacs-test -eval '(load-theme (quote hickey) t)'"))
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_theme_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150901141550.png]]
+Fig46: emacs-lisp-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150901141554.png]]
+Fig47: magit
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150901141556.png]]
+Fig48: grep
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150901141559.png]]
+Fig49: outline-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150901141602.png]]
+Fig50: org-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150901141605.png]]
+Fig51: dired
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150901141607.png]]
+Fig52: web-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150901141610.png]]
+Fig53: markdown-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150901141614.png]]
+Fig54: helm
+
+
+*** 設定
+#+BEGIN_SRC fundamental
+(load-theme 'hickey t)
+#+END_SRC
+
+*** 実行方法
+#+BEGIN_EXAMPLE
+$ emacs -Q -f package-initialize -eval '(load-theme (quote hickey) t)'
+#+END_EXAMPLE
+
+** theme: junio
+*** スクリーンショット
+# (save-window-excursion (async-shell-command "emacs-test -eval '(load-theme (quote junio) t)'"))
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_theme_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150901141639.png]]
+Fig55: emacs-lisp-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150901141644.png]]
+Fig56: magit
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150901141647.png]]
+Fig57: grep
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150901141649.png]]
+Fig58: outline-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150901141652.png]]
+Fig59: org-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150901141655.png]]
+Fig60: dired
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150901141658.png]]
+Fig61: web-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150901141701.png]]
+Fig62: markdown-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150901141705.png]]
+Fig63: helm
+
+
+*** 設定
+#+BEGIN_SRC fundamental
+(load-theme 'junio t)
+#+END_SRC
+
+*** 実行方法
+#+BEGIN_EXAMPLE
+$ emacs -Q -f package-initialize -eval '(load-theme (quote junio) t)'
+#+END_EXAMPLE
+
+** theme: mccarthy
+*** スクリーンショット
+# (save-window-excursion (async-shell-command "emacs-test -eval '(load-theme (quote mccarthy) t)'"))
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_theme_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150901141731.png]]
+Fig64: emacs-lisp-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150901141735.png]]
+Fig65: magit
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150901141738.png]]
+Fig66: grep
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150901141740.png]]
+Fig67: outline-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150901141743.png]]
+Fig68: org-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150901141746.png]]
+Fig69: dired
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150901141749.png]]
+Fig70: web-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150901141752.png]]
+Fig71: markdown-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150901141757.png]]
+Fig72: helm
+
+
+*** 設定
+#+BEGIN_SRC fundamental
+(load-theme 'mccarthy t)
+#+END_SRC
+
+*** 実行方法
+#+BEGIN_EXAMPLE
+$ emacs -Q -f package-initialize -eval '(load-theme (quote mccarthy) t)'
+#+END_EXAMPLE
+
+** theme: odersky
+*** スクリーンショット
+# (save-window-excursion (async-shell-command "emacs-test -eval '(load-theme (quote odersky) t)'"))
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_theme_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150901141821.png]]
+Fig73: emacs-lisp-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150901141825.png]]
+Fig74: magit
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150901141828.png]]
+Fig75: grep
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150901141831.png]]
+Fig76: outline-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150901141834.png]]
+Fig77: org-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150901141837.png]]
+Fig78: dired
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150901141839.png]]
+Fig79: web-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150901141842.png]]
+Fig80: markdown-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150901141846.png]]
+Fig81: helm
+
+
+*** 設定
+#+BEGIN_SRC fundamental
+(load-theme 'odersky t)
+#+END_SRC
+
+*** 実行方法
+#+BEGIN_EXAMPLE
+$ emacs -Q -f package-initialize -eval '(load-theme (quote odersky) t)'
+#+END_EXAMPLE
+
+** theme: ritchie
+*** スクリーンショット
+# (save-window-excursion (async-shell-command "emacs-test -eval '(load-theme (quote ritchie) t)'"))
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_theme_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150901141917.png]]
+Fig82: emacs-lisp-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150901141921.png]]
+Fig83: magit
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150901141924.png]]
+Fig84: grep
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150901141927.png]]
+Fig85: outline-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150901141929.png]]
+Fig86: org-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150901141932.png]]
+Fig87: dired
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150901141935.png]]
+Fig88: web-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150901141938.png]]
+Fig89: markdown-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150901141942.png]]
+Fig90: helm
+
+
+*** 設定
+#+BEGIN_SRC fundamental
+(load-theme 'ritchie t)
+#+END_SRC
+
+*** 実行方法
+#+BEGIN_EXAMPLE
+$ emacs -Q -f package-initialize -eval '(load-theme (quote ritchie) t)'
+#+END_EXAMPLE
+
+** theme: spolsky
+*** スクリーンショット
+# (save-window-excursion (async-shell-command "emacs-test -eval '(load-theme (quote spolsky) t)'"))
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_theme_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150901142007.png]]
+Fig91: emacs-lisp-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150901142011.png]]
+Fig92: magit
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150901142014.png]]
+Fig93: grep
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150901142017.png]]
+Fig94: outline-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150901142020.png]]
+Fig95: org-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150901142023.png]]
+Fig96: dired
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150901142025.png]]
+Fig97: web-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150901142029.png]]
+Fig98: markdown-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150901142032.png]]
+Fig99: helm
+
+
+*** 設定
+#+BEGIN_SRC fundamental
+(load-theme 'spolsky t)
+#+END_SRC
+
+*** 実行方法
+#+BEGIN_EXAMPLE
+$ emacs -Q -f package-initialize -eval '(load-theme (quote spolsky) t)'
+#+END_EXAMPLE
+
+** theme: wilson
+*** スクリーンショット
+# (save-window-excursion (async-shell-command "emacs-test -eval '(load-theme (quote wilson) t)'"))
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_theme_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150901142055.png]]
+Fig100: emacs-lisp-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150901142059.png]]
+Fig101: magit
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150901142102.png]]
+Fig102: grep
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150901142105.png]]
+Fig103: outline-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150901142108.png]]
+Fig104: org-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150901142110.png]]
+Fig105: dired
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150901142113.png]]
+Fig106: web-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150901142116.png]]
+Fig107: markdown-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150901142120.png]]
+Fig108: helm
+
+
+*** 設定
+#+BEGIN_SRC fundamental
+(load-theme 'wilson t)
+#+END_SRC
+
+*** 実行方法
+#+BEGIN_EXAMPLE
+$ emacs -Q -f package-initialize -eval '(load-theme (quote wilson) t)'
+#+END_EXAMPLE
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

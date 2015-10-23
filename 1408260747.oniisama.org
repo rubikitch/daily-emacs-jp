@@ -1,0 +1,91 @@
+#+BLOG: rubikitch
+#+POSTID: 214
+#+DATE: [2014-08-26 Tue 07:47]
+#+PERMALINK: oniisama
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs
+#+EL_PKG_NAME: oniisama
+#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs 妹, emacs お兄様, emacs お兄ちゃん, emacs ネタ, elisp defadvice, elisp after-save-hook, emacs lisp defadvice, emacs lisp after-save-hook, emacs アドバイス, elisp アドバイス
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方
+#+EL_TITLE0: 【ネタ回】麗しき理想の妹をEmacsに召喚しよう
+#+EL_DOC: 麗しき理想の妹をあなたのEmacsに呼び出します
+#+EL_URL: https://github.com/yu-i9/oniisama
+#+EL_VERSION: ？
+#+begin: org2blog
+#+DESCRIPTION: Emacs Lispパッケージoniisamaの紹介
+#+MYTAGS: package:oniisama, emacs 使い方, emacs コマンド, emacs, emacs lisp oniisama, elisp oniisama, emacs  oniisama, emacs oniisama 使い方, emacs oniisama 設定, emacs パッケージ oniisama, emacs 妹, emacs お兄様, emacs お兄ちゃん, emacs ネタ, elisp defadvice, elisp after-save-hook, emacs lisp defadvice, emacs lisp after-save-hook, emacs アドバイス, elisp アドバイス
+#+TITLE: emacs oniisama.el : 【ネタ回】麗しき理想の妹をEmacsに召喚しよう |  Emacs Lisp Elisp パッケージ インストール 設定 使い方
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>oniisama</td></tr>
+<tr><td>概要(原文)</td><td>麗しき理想の妹をあなたのEmacsに呼び出します</td></tr>
+<tr><td>リポジトリ</td><td>まだパッケージに登録されていない</td></tr>
+<tr><td>サイト</td><td><a href="https://github.com/yu-i9/oniisama">https://github.com/yu-i9/oniisama</td></tr>
+<tr><td>Quelpa設定</td><td><code>nil</code></td></tr>
+<tr><td>バージョン</td><td>？</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:oniisama/">package:oniisama</a> </td></tr>
+</table>
+<br />
+#+END_HTML
+Twitterを見ていて爆笑してしまったのでブログで晒し上げ。
+
+かわいいかわいい妹…紳士たちの永遠の憧れですよね(笑)
+
+そんな願いを叶えるのがこのEmacs Lispプログラム！
+
+
+インストールしただけではなにもしないので安心してインストールしていいです。
+
+何をしているかというと、以下のタイミングで妹ちゃんにしゃべらせています。
+
+- *M-x newline* にafterアドバイスをかけることで改行後
+- *after-save-hook* でファイル保存後
+
+なお、このEmacs Lispのソースコード自体が
+アドバイスやafter-save-hookの例題になっているので、
+ソースコードを触りながらEmacs Lispの勉強の題材にしてください。
+** oniisama インストール
+これはまだパッケージ化されていないので、[[http://rubikitch.com/package-initialize/#sec-2][手動でインストール]] する必要があります。
+
+
+#+end:
+
+M-x install-elisp https://raw.githubusercontent.com/yu-i9/oniisama/master/oniisama.el
+** 概要                                                             :noexport:
+Twitterを見ていて爆笑してしまったのでブログで晒し上げ。
+
+かわいいかわいい妹…紳士たちの永遠の憧れですよね(笑)
+
+そんな願いを叶えるのがこのEmacs Lispプログラム！
+
+
+インストールしただけではなにもしないので安心してインストールしていいです。
+
+何をしているかというと、以下のタイミングで妹ちゃんにしゃべらせています。
+
+- *M-x newline* にafterアドバイスをかけることで改行後
+- *after-save-hook* でファイル保存後
+
+なお、このEmacs Lispのソースコード自体が
+アドバイスやafter-save-hookの例題になっているので、
+ソースコードを触りながらEmacs Lispの勉強の題材にしてください。
+** 使い方
+*M-x imouto* で妹ちゃんを召喚(アドバイス・after-save-hook有効化)します。
+
+*M-x urusaizo* でそれらを解除します。
+
+他にもこれらのコマンドで声をかけられます。
+- *M-x aishiteiruyo*
+- *M-x kireidayo*
+- *M-x tsukareta*
+- *M-x tsurai*
+
+どんなこと言ってくれるかはインストールしてからのお楽しみ
+ということであえてスクリーンショットは載せません(笑)
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

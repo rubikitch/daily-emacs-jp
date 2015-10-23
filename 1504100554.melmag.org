@@ -1,0 +1,45 @@
+#+BLOG: rubikitch
+#+POSTID: 1483
+#+DATE: [2015-04-10 Fri 05:54]
+#+PERMALINK: melmag
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: メルマガ,
+#+DESCRIPTION: るびきち塾メルマガ『Emacsの鬼るびきちのココだけの話#176』の予告
+#+TITLE: 【メルマガ#176】入塾者限定elisp徹底添削サービスやってます
+#+MYTAGS: 
+#+begin: org2blog-tags
+#+TAGS: , メルマガ,, 
+#+end:
+新年度2発目のメルマガは先週のelisp添削の続きです。
+
+この添削話は実に30通ものメールのやりとりで
+行われたものであり、先週だけでは到底触れられませんでした。
+
+プログラムの内容はpcsv.elでCSVファイルの処理し、
+2つの出力形式でバッファに出力するものです。
+
+以下は今回の内容の一部です。
+
+- elisp新時代の到来
+- elispによる簡単なデータ永続化
+- cl-lib.elによるCommon Lispマクロの使い方
+- より進んだ文字列処理
+- アナフォリックマクロ
+- etc.
+
+巷の解説のように
+「これはこういうものだ」
+だけでなく、コードのbefore/afterも含め
+「なぜ今これを使うべきか」
+についても触れています。
+
+添削はいつでも受け付けているので
+入塾者は気楽にメールください。
+
+→ http://www.mag2.com/m/0001373131.html
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

@@ -1,0 +1,29 @@
+#+BLOG: rubikitch
+#+POSTID: 1794
+#+DATE: [2015-07-03 Fri 12:58]
+#+PERMALINK: melmag
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: メルマガ,
+#+DESCRIPTION: るびきち塾メルマガ『Emacsの鬼るびきちのココだけの話#188』の予告
+#+TITLE: 【メルマガ#188】るびきちの座右の銘
+#+MYTAGS: 
+#+begin: org2blog-tags
+#+TAGS: , メルマガ,, 
+#+end:
+今回は僕の座右の銘を紹介します。
+
+コードは出てきませんが、Emacsにも関係します。
+
+Emacsどころか、現代社会のあらゆる事柄の
+判断基準として僕が使っている心構えです。
+
+これをあなたの座右の銘にすることで、
+現代社会に潜む罠を見抜くことができるようになります。
+
+あなたのお役に立てれば幸いです。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

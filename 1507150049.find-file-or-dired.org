@@ -1,0 +1,17 @@
+#+DATE: [2015-07-15 Wed 00:49]
+#+PERMALINK: find-file-or-dired
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, 
+#+DESCRIPTION: C-x dとC-x C-fを統合させる。
+#+MYTAGS: 
+#+TITLE: C-x C-fでワイルドカードを指定したらdiredを開くようにする
+#+begin: org2blog-tags
+#+end:
+もしかしたら同いことを考えている人がいるかもしれませんが、
+僕はC-x C-f
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

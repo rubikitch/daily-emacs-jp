@@ -1,0 +1,173 @@
+#+BLOG: rubikitch
+#+POSTID: 568
+#+DATE: [2014-11-10 Mon 07:31]
+#+PERMALINK: multiple-cursors
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs
+#+EL_PKG_NAME: multiple-cursors
+#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, emacs 複数行 カーソル, emacs 置換, emacs 正規表現置換, emacs 矩形編集, relate:phi-search, relate:visual-regexp-steroids
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: Emacsは忍者だった！置換とか矩形編集とか使ってんじゃねぇぇぇぇ！！最強設定を紹介
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージmultiple-cursorsの紹介
+#+MYTAGS: package:multiple-cursors, emacs 使い方, emacs コマンド, emacs, emacs lisp multiple-cursors, elisp multiple-cursors, emacs melpa multiple-cursors, emacs multiple-cursors 使い方, emacs multiple-cursors 設定, emacs パッケージ multiple-cursors, emacs multiple-cursors スクリーンショット, emacs 複数行 カーソル, emacs 置換, emacs 正規表現置換, emacs 矩形編集, relate:phi-search, relate:visual-regexp-steroids
+#+TAGS: package:multiple-cursors, emacs 使い方, emacs コマンド, emacs, emacs lisp multiple-cursors, elisp multiple-cursors, emacs melpa multiple-cursors, emacs multiple-cursors 使い方, emacs multiple-cursors 設定, emacs パッケージ multiple-cursors, emacs multiple-cursors スクリーンショット, emacs 複数行 カーソル, emacs 置換, emacs 正規表現置換, emacs 矩形編集, relate:phi-search, relate:visual-regexp-steroids, Emacs, Emacsは分身の術が使える忍者だった！, multiple-cursors.el, 正規表現置換, M-x mc/mark-all-dwim, multiple-cursors.el, 正規表現置換, M-x mc/mark-all-dwim, M-x string-rectangle, M-x mark-sexp
+#+TITLE: emacs multiple-cursors.el : Emacsは忍者だった！置換とか矩形編集とか使ってんじゃねぇぇぇぇ！！最強設定を紹介 | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>multiple-cursors</td></tr>
+<tr><td>概要(原文)</td><td>Multiple cursors for Emacs.</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/magnars/multiple-cursors.el">https://github.com/magnars/multiple-cursors.el</a></td></tr>
+<tr><td>バージョン</td><td>20150307.2322</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:multiple-cursors/">package:multiple-cursors</a> <a href="http://rubikitch.com/tag/package:phi-search/">package:phi-search</a> <a href="http://rubikitch.com/tag/package:visual-regexp-steroids/">package:visual-regexp-steroids</a></td></tr>
+</table>
+<br />
+#+END_HTML
+*Emacsは分身の術が使える忍者だった！*
+ということで、 *multiple-cursors.el* は
+カーソルを分身させるという恐しい拡張です。
+
+以前から注目していたのですが、当時はパソコンの性能が貧弱で動作が遅かったし、
+あまりに多機能すぎてどこから手をつければいいのかがわからなくて
+使いこなせないでいました。
+
+しかし、今回やっとツボを発見したので紹介しておきます。
+
+multiple-cursors.elは、カーソルを複数同時に
+動かすという離れ業をやってのけます！
+
+これにより、同じような行を一度に処理できます。
+
+たとえば、特定の単語を含む行に対して同じ編集処理をしたい場合、
+従来の方法ですと、 *正規表現置換* などの難解な方法を使わざるを得ませんでした。
+
+正規表現置換は高度な処理なので、
+[[http://rubikitch.com/2014/08/26/visual-regexp/][visual-regexp.el]] でかなり軽減できるものの、
+なかなか初級者には手が出ません。
+
+しかし、このmultiple-cursors.elを使えば、
+正規表現置換以上のことが直観的にできるようになります。
+
+multiple-cursors状態でC-SPCやC-yやC-wなどのコピペもできるので、
+もはや矩形編集コマンドなんていらなくなるんじゃないか!？
+というほどの破壊力を秘めています。
+
+このパッケージにはたくさんのコマンドが定義されていますが、
+今は *M-x mc/mark-all-dwim* だけ使っていれば、
+ほぼすべてのケースをまかなうことができるようになります。
+** multiple-cursors インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install multiple-cursors
+
+
+#+end:
+** 概要                                                             :noexport:
+*Emacsは分身の術が使える忍者だった！*
+ということで、 *multiple-cursors.el* は
+カーソルを分身させるという恐しい拡張です。
+
+以前から注目していたのですが、当時はパソコンの性能が貧弱で動作が遅かったし、
+あまりに多機能すぎてどこから手をつければいいのかがわからなくて
+使いこなせないでいました。
+
+しかし、今回やっとツボを発見したので紹介しておきます。
+
+multiple-cursors.elは、カーソルを複数同時に
+動かすという離れ業をやってのけます！
+
+これにより、同じような行を一度に処理できます。
+
+たとえば、特定の単語を含む行に対して同じ編集処理をしたい場合、
+従来の方法ですと、 *正規表現置換* などの難解な方法を使わざるを得ませんでした。
+
+正規表現置換は高度な処理なので、
+[[http://rubikitch.com/2014/08/26/visual-regexp/][visual-regexp.el]] でかなり軽減できるものの、
+なかなか初級者には手が出ません。
+
+しかし、このmultiple-cursors.elを使えば、
+正規表現置換以上のことが直観的にできるようになります。
+
+multiple-cursors状態でC-SPCやC-yやC-wなどのコピペもできるので、
+もはや矩形編集コマンドなんていらなくなるんじゃないか!？
+というほどの破壊力を秘めています。
+
+このパッケージにはたくさんのコマンドが定義されていますが、
+今は *M-x mc/mark-all-dwim* だけ使っていれば、
+ほぼすべてのケースをまかなうことができるようになります。
+
+** mc/mark-all-dwimの挙動
+このコマンドの挙動は次のようになっています。
+
+- 1行のregionが指定してある場合はそのregionの内容が対象になる
+- regionが指定されていない場合はそのsymbolが対象になる
+- 複数行のregionを指定してC-uを押せばその間の行が対象になる
+
+ありがたいことに、こんな感じで空気読んでくれます。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+** 設定 [[http://rubikitch.com/f/141110074452.multiple-cursors.el][141110074452.multiple-cursors.el(以下のコードと同一)]]
+mc/mark-all-dwimはautoloadされているので無設定で使えますが、
+さらに進んだ設定は、既存のコマンドと同じキーに割り当ててしまうことです。
+
+C-x r tは矩形を同じ文字列に置き換える *M-x string-rectangle* ですが、
+同じ桁の場合は単に同じ文字列を挿入するだけです。
+
+その場合だけmc/edit-linesを起動させるようにしても、
+同じ操作性で文字列を挿入できます。
+
+よって、C-x r tに組み込むのは合点がいきます。
+
+
+さらに、C-M-SPC (*M-x mark-sexp*) も拡張しましょう。
+
+C-u C-M-SPCは本来、4つのS式をマークしますが、
+C-M-SPCを4回叩くのと同じだし、めったに使いません。
+
+そこでC-u C-M-SPCをM-x mc/mark-all-dwimにしてしまいましょう。
+
+このようにしてしまえばデフォルト設定に自然と溶け込ませられます。
+
+特に記憶に負担をかけることもなく、
+この「イカれた」拡張を使いこなせるでしょう。
+
+#+BEGIN: include :file "/r/sync/junk/141110/141110074452.multiple-cursors.el"
+#+BEGIN_SRC fundamental
+(require 'multiple-cursors)
+(defun mc/edit-lines-or-string-rectangle (s e)
+  "C-x r tで同じ桁の場合にmc/edit-lines (C-u M-x mc/mark-all-dwim)"
+  (interactive "r")
+  (if (eq (save-excursion (goto-char s) (current-column))
+          (save-excursion (goto-char e) (current-column)))
+      (call-interactively 'mc/edit-lines)
+    (call-interactively 'string-rectangle)))
+(global-set-key (kbd "C-x r t") 'mc/edit-lines-or-string-rectangle)
+
+(defun mc/mark-all-dwim-or-mark-sexp (arg)
+  "C-u C-M-SPCでmc/mark-all-dwim, C-u C-u C-M-SPCでC-u M-x mc/mark-all-dwim"
+  (interactive "p")
+  (cl-case arg
+    (16 (mc/mark-all-dwim t))
+    (4 (mc/mark-all-dwim nil))
+    (1 (mark-sexp 1))))
+(global-set-key (kbd "C-M-SPC") 'mc/mark-all-dwim-or-mark-sexp)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/141110074452.multiple-cursors.el
+$ emacs -Q -f package-initialize -l 141110074452.multiple-cursors.el
+#+END_EXAMPLE
+http://rubikitch.com/f/20141110075238.png
+Fig1: C-u C-M-SPCで分身！
+
+http://rubikitch.com/f/20141110075302.png
+Fig2: 分身して書き換え！！

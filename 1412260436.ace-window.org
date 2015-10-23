@@ -1,0 +1,118 @@
+#+BLOG: rubikitch
+#+POSTID: 793
+#+DATE: [2014-12-26 Fri 04:36]
+#+PERMALINK: ace-window
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs
+#+EL_PKG_NAME: ace-window
+#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, relate:switch-window, emacs ウィンドウ 切り替え, emacs C-x o 改善, ウィンドウ切り替え, relate:owdriver, relate:win-switch, relate:window-numbering, relate:avy
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: C-x oをace-jump化しよう！注意点あり
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージace-windowの紹介
+#+MYTAGS: package:ace-window, emacs 使い方, emacs コマンド, emacs, emacs lisp ace-window, elisp ace-window, emacs melpa ace-window, emacs ace-window 使い方, emacs ace-window 設定, emacs パッケージ ace-window, emacs ace-window スクリーンショット, relate:switch-window, emacs ウィンドウ 切り替え, emacs C-x o 改善, ウィンドウ切り替え, relate:owdriver, relate:win-switch, relate:window-numbering
+#+TAGS: package:ace-window, emacs 使い方, emacs コマンド, emacs, emacs lisp ace-window, elisp ace-window, emacs melpa ace-window, emacs ace-window 使い方, emacs ace-window 設定, emacs パッケージ ace-window, emacs ace-window スクリーンショット, relate:switch-window, emacs ウィンドウ 切り替え, emacs C-x o 改善, ウィンドウ切り替え, relate:owdriver, relate:win-switch, relate:window-numbering, Emacs, ace-window.el, ace-jump-mode, M-x ace-window, switch-window.el, ace-window.el, ace-jump-mode, M-x ace-window, switch-window.el
+#+TITLE: emacs ace-window.el : C-x oをace-jump化しよう！注意点あり | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>ace-window</td></tr>
+<tr><td>概要(原文)</td><td>Quickly switch windows using `ace-jump-mode'.</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/abo-abo/ace-window">https://github.com/abo-abo/ace-window</a></td></tr>
+<tr><td>バージョン</td><td>20150225.1145</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:ace-window/">package:ace-window</a> <a href="http://rubikitch.com/tag/package:switch-window/">package:switch-window</a> <a href="http://rubikitch.com/tag/package:owdriver/">package:owdriver</a> <a href="http://rubikitch.com/tag/package:win-switch/">package:win-switch</a> <a href="http://rubikitch.com/tag/package:window-numbering/">package:window-numbering</a></td></tr>
+</table>
+<br />
+#+END_HTML
+<2015-02-21 Sat> [[http://rubikitch.com/2015/02/21/win-switch/][win-switch.elの方がもっと使いやすいです。]] 
+
+*ace-window.el* は *ace-jump-mode* を使ったウィンドウ選択です。
+
+Emacsのウィンドウは3分割以上していると
+とても使いづらいので、それを改善します。
+
+3分割以上しているときに、キーボードを押して
+ウィンドウを選択するものです。
+
+同種のものに [[http://rubikitch.com/2014/12/15/switch-window/][switch-window.el(レビュー)があります。]]
+
+ace-jump-modeが好きな人はきっと気に入るでしょう。
+
+C-x oを *M-x ace-window* に置き換えると、
+このように拡張されます。
+
+- C-x o :: ウィンドウを切り替える
+- C-u C-x o :: 現在のウィンドウと選択したウィンドウを入れ替える
+- C-u C-u C-x o :: 選択したウィンドウを削除する
+
+ウィンドウを入れ替えたり削除する機能は
+*switch-window.el* にはないですが、
+ace-window.elにも欠点があります。
+
+それはace-jump-modeの宿命ですがヒント文字が小さいことです。
+
+この欠点には目をつむって機能性のace-window.elを取るか、
+シンプルなswitch-window.elを取るかはあなた次第です。
+** ace-window インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install ace-window
+
+
+#+end:
+** 概要                                                             :noexport:
+<2015-05-20 Wed> 現在ではace-jump-modeは使わずに[[http://rubikitch.com/2015/05/20/avy/][avy.el]]を使っています。
+
+<2015-02-21 Sat> [[http://rubikitch.com/2015/02/21/win-switch/][win-switch.elの方がもっと使いやすいです。]] 
+
+*ace-window.el* は *ace-jump-mode* ライクなウィンドウ選択です。
+
+Emacsのウィンドウは3分割以上していると
+とても使いづらいので、それを改善します。
+
+3分割以上しているときに、キーボードを押して
+ウィンドウを選択するものです。
+
+同種のものに [[http://rubikitch.com/2014/12/15/switch-window/][switch-window.el(レビュー)があります。]]
+
+ace-jump-modeが好きな人はきっと気に入るでしょう。
+
+C-x oを *M-x ace-window* に置き換えると、
+このように拡張されます。
+
+- C-x o :: ウィンドウを切り替える
+- C-u C-x o :: 現在のウィンドウと選択したウィンドウを入れ替える
+- C-u C-u C-x o :: 選択したウィンドウを削除する
+
+ウィンドウを入れ替えたり削除する機能は
+*switch-window.el* にはないですが、
+ace-window.elにも欠点があります。
+
+それはace-jump-modeの宿命ですがヒント文字が小さいことです。
+
+この欠点には目をつむって機能性のace-window.elを取るか、
+シンプルなswitch-window.elを取るかはあなた次第です。
+
+** 設定 [[http://rubikitch.com/f/141226044425.ace-window.1.el][141226044425.ace-window.1.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/141226/141226044425.ace-window.1.el"
+#+BEGIN_SRC fundamental
+(global-set-key (kbd "C-x o") 'ace-window)
+(setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/141226044425.ace-window.1.el
+$ emacs -Q -f package-initialize -l 141226044425.ace-window.1.el
+#+END_EXAMPLE
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+http://rubikitch.com/f/20141226044630.png
+Fig1: ace-jump-modeでウィンドウ選択
+

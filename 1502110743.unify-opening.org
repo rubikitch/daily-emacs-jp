@@ -1,0 +1,134 @@
+#+BLOG: rubikitch
+#+POSTID: 1112
+#+DATE: [2015-02-11 Wed 07:43]
+#+PERMALINK: unify-opening
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, helm, org-mode, Emacs 24.4, 
+#+EL_PKG_NAME: unify-opening
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, relate:org, relate:helm, relate:mu4e, relate:dired, dired, relate:openwith, relate:dired-open, dired コマンド, dired コマンド登録, dired シェルコマンド, dired ファイル 関連付け, dired アプリケーション 関連付け, dired open, dired 拡張子 アプリケーション 関連付け, dired 拡張子 コマンド, dired 拡張子, relate:runner
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: 【アプリケーション関連付け】org-mode,helm,mu4eでのファイルの開き方をdiredに統一する！
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージunify-openingの紹介
+#+MYTAGS: package:unify-opening, emacs 使い方, emacs コマンド, emacs, unify-opening, unify-opening.el, emacs lisp unify-opening, elisp unify-opening, emacs melpa unify-opening, emacs unify-opening 使い方, emacs unify-opening 設定, emacs パッケージ unify-opening, emacs unify-opening スクリーンショット, relate:org, relate:helm, relate:mu4e, relate:dired, dired, relate:openwith, relate:dired-open, dired コマンド, dired コマンド登録, dired シェルコマンド, dired ファイル 関連付け, dired アプリケーション 関連付け, dired open, dired 拡張子 アプリケーション 関連付け, dired 拡張子 コマンド, dired 拡張子, relate:runner
+#+TAGS: package:unify-opening, emacs 使い方, emacs コマンド, emacs, unify-opening, unify-opening.el, emacs lisp unify-opening, elisp unify-opening, emacs melpa unify-opening, emacs unify-opening 使い方, emacs unify-opening 設定, emacs パッケージ unify-opening, emacs unify-opening スクリーンショット, relate:org, relate:helm, relate:mu4e, relate:dired, dired, relate:openwith, relate:dired-open, dired コマンド, dired コマンド登録, dired シェルコマンド, dired ファイル 関連付け, dired アプリケーション 関連付け, dired open, dired 拡張子 アプリケーション 関連付け, dired 拡張子 コマンド, dired 拡張子, relate:runner, Emacs, helm, org-mode, Emacs 24.4, , org-file-apps, dired-guess-shell-alist-default, dired-guess-shell-alist-user, helm-external-programs-associations, unify-opening.el, org-file-apps, dired-guess-shell-alist-default, dired-guess-shell-alist-user, helm-external-programs-associations, unify-opening.el
+#+TITLE: emacs unify-opening.el : 【アプリケーション関連付け】org-mode,helm,mu4eでのファイルの開き方をdiredに統一する！ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>unify-opening</td></tr>
+<tr><td>概要(原文)</td><td>Make everything use the same mechanism to open files</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/DamienCassou/unify-opening">https://github.com/DamienCassou/unify-opening</a></td></tr>
+<tr><td>バージョン</td><td>20150206.439</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:unify-opening/">package:unify-opening</a> <a href="http://rubikitch.com/tag/package:org/">package:org</a> <a href="http://rubikitch.com/tag/package:helm/">package:helm</a> <a href="http://rubikitch.com/tag/package:mu4e/">package:mu4e</a> <a href="http://rubikitch.com/tag/package:dired/">package:dired</a> <a href="http://rubikitch.com/tag/package:openwith/">package:openwith</a> <a href="http://rubikitch.com/tag/package:dired-open/">package:dired-open</a> <a href="http://rubikitch.com/tag/package:runner/">package:runner</a></td></tr>
+</table>
+<br />
+#+END_HTML
+特定のファイルに対してはEmacsではなくて
+外部アプリケーションを使いたいことはよくあります。
+
+たとえば、org-modeでの file: のリンクを開き方は
+*org-file-apps* という変数で設定します。
+
+たとえば、画像ファイルをxzgvという画像ビューワで開きたいのなら、
+#+BEGIN_SRC emacs-lisp :results silent
+(add-to-list 'org-file-apps '("bmp$" . "xzgv %s"))
+(add-to-list 'org-file-apps '("png$" . "xzgv %s"))
+(add-to-list 'org-file-apps '("jpe?g$" . "xzgv %s"))
+#+END_SRC
+というエントリを加えます。
+
+一方、diredで「!」を実行したときのデフォルトのアプリケーションは
+*dired-guess-shell-alist-default* と
+*dired-guess-shell-alist-user* で決定されます。
+
+helmで「Open file with default tool」というアクションを
+実行するときに使うアプリケーションは
+*helm-external-programs-associations* で設定します。
+
+このように、パッケージごとに同じような設定をする必要があるのは無駄です。
+
+そこで *unify-opening.el* はorg-modeとhelmとmu4e(メーラ)
+で使う外部アプリケーションをdiredのものに統一します。
+
+つまり、dired-guess-shell-alist-*を使うということです。
+
+unify-opening.elはrequireしただけで挙動が変更される設定集です。
+
+diredで使うアプリケーションといえば[[http://rubikitch.com/2015/01/13/runner-3/][runner.el(レビュー)]]
+がありますが、これと併用することをおすすめします。
+
+runner.elで設定してしまえば、それが使われます。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+** unify-opening インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install unify-opening
+
+
+#+end:
+** 概要                                                             :noexport:
+特定のファイルに対してはEmacsではなくて
+外部アプリケーションを使いたいことはよくあります。
+
+たとえば、org-modeでの file: のリンクを開き方は
+*org-file-apps* という変数で設定します。
+
+たとえば、画像ファイルをxzgvという画像ビューワで開きたいのなら、
+#+BEGIN_SRC emacs-lisp :results silent
+(add-to-list 'org-file-apps '("bmp$" . "xzgv %s"))
+(add-to-list 'org-file-apps '("png$" . "xzgv %s"))
+(add-to-list 'org-file-apps '("jpe?g$" . "xzgv %s"))
+#+END_SRC
+というエントリを加えます。
+
+一方、diredで「!」を実行したときのデフォルトのアプリケーションは
+*dired-guess-shell-alist-default* と
+*dired-guess-shell-alist-user* で決定されます。
+
+helmで「Open file with default tool」というアクションを
+実行するときに使うアプリケーションは
+*helm-external-programs-associations* で設定します。
+
+このように、パッケージごとに同じような設定をする必要があるのは無駄です。
+
+そこで *unify-opening.el* はorg-modeとhelmとmu4e(メーラ)
+で使う外部アプリケーションをdiredのものに統一します。
+
+つまり、dired-guess-shell-alist-*を使うということです。
+
+unify-opening.elはrequireしただけで挙動が変更される設定集です。
+
+diredで使うアプリケーションといえば[[http://rubikitch.com/2015/01/13/runner-3/][runner.el(レビュー)]]
+がありますが、これと併用することをおすすめします。
+
+runner.elで設定してしまえば、それが使われます。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+** 設定 [[http://rubikitch.com/f/150211080449.unify-opening.el][150211080449.unify-opening.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/150211/150211080449.unify-opening.el"
+#+BEGIN_SRC fundamental
+;;; 画像ファイルをemacsではなくて外部アプリケーションで開く場合はこの設定が必要
+(require 'cl-lib)
+(setq auto-mode-alist
+      (cl-delete-if (lambda (x) (equal (cdr x) 'image-mode))
+                    auto-mode-alist))
+
+(require 'runner nil t)                ;インストールされているなら使う
+(require 'unify-opening)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/150211080449.unify-opening.el
+$ emacs -Q -f package-initialize -l 150211080449.unify-opening.el
+#+END_EXAMPLE

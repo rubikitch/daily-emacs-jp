@@ -1,0 +1,158 @@
+#+BLOG: rubikitch
+#+POSTID: 1324
+#+DATE: [2015-03-18 Wed 05:26]
+#+PERMALINK: swiper
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs
+#+EL_PKG_NAME: swiper
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, emacs isearch, emacs 正規表現検索, relate:re-builder, relate:helm-swoop, relate:isearch, relate:ivy, relate:helm, re-builder isearch, emacs helm-occur, anything-c-moccur, emacs occur, relate:visual-regexp, relate:loccur
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: 一覧付き正規表現isearch！C-u C-sを置き換えろ
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージswiperの紹介
+#+MYTAGS: package:swiper, emacs 使い方, emacs コマンド, emacs, swiper, swiper.el, emacs lisp swiper, elisp swiper, emacs melpa swiper, emacs swiper 使い方, emacs swiper 設定, emacs パッケージ swiper, emacs swiper スクリーンショット, emacs isearch, emacs 正規表現検索, relate:re-builder, relate:helm-swoop, relate:isearch, relate:ivy, relate:helm, re-builder isearch, emacs helm-occur, anything-c-moccur, emacs occur, relate:visual-regexp, relate:loccur
+#+TAGS: package:swiper, emacs 使い方, emacs コマンド, emacs, swiper, swiper.el, emacs lisp swiper, elisp swiper, emacs melpa swiper, emacs swiper 使い方, emacs swiper 設定, emacs パッケージ swiper, emacs swiper スクリーンショット, emacs isearch, emacs 正規表現検索, relate:re-builder, relate:helm-swoop, relate:isearch, relate:ivy, relate:helm, re-builder isearch, emacs helm-occur, anything-c-moccur, emacs occur, relate:visual-regexp, relate:loccur, Emacs, swiper.el, helm, helm-swoop.el, swiper.el, M-x occur, M-x re-builder, M-x swiper, swiper.el, helm, helm-swoop.el, swiper.el, M-x occur, M-x re-builder, M-x swiper
+#+TITLE: emacs swiper.el : 一覧付き正規表現isearch！C-u C-sを置き換えろ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>swiper</td></tr>
+<tr><td>概要(原文)</td><td>Isearch with an overview. Oh, man!</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/abo-abo/swiper">https://github.com/abo-abo/swiper</a></td></tr>
+<tr><td>バージョン</td><td>20150612.840</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:swiper/">package:swiper</a> <a href="http://rubikitch.com/tag/package:re-builder/">package:re-builder</a> <a href="http://rubikitch.com/tag/package:helm-swoop/">package:helm-swoop</a> <a href="http://rubikitch.com/tag/package:isearch/">package:isearch</a> <a href="http://rubikitch.com/tag/package:ivy/">package:ivy</a> <a href="http://rubikitch.com/tag/package:helm/">package:helm</a> <a href="http://rubikitch.com/tag/package:visual-regexp/">package:visual-regexp</a> <a href="http://rubikitch.com/tag/package:loccur/">package:loccur</a></td></tr>
+</table>
+<br />
+#+END_HTML
+3/10に登場したばかりのこのelispは、活発に開発されていてアツいです！
+
+*swiper.el* は正規表現isearchに一覧を付加するものです。
+
+同じ目的では *helm* を使った[[http://rubikitch.com/2014/12/25/helm-swoop/][helm-swoop.el(大々的レビュー)]] が鉄板です。
+
+しかし、 *helm-swoop.el* は[[http://rubikitch.com/2014/12/19/helm-migemo/][Migemoに対応]] している上、
+スペースに絞り込み検索の意味を持たせています。
+
+対して *swiper.el* は純粋に正規表現isearchに一覧を付けた感じです。
+
+とはいえ *M-x occur* のように別ウィンドウで一覧するわけではなく、
+エコーエリアに謙虚に一覧します。
+
+正規表現の括弧に色を付けることもできるので、
+その点においてはhelm-swoop.elよりも *M-x re-builder* 感覚です。
+
+helmのようにウィンドウを分割しない上、
+操作感覚は通常の正規表現isearchと変わりません。
+
+そこで本設定では正規表現isearchの置き換えとしてC-u C-sで
+*M-x swiper* を起動させるようにしました。
+
+ちょっと正規表現検索をしたいならばswiperを
+行の絞り込み検索がしたいならばhelm-swoop
+というふうに住み分けるといいでしょう。
+
+候補選択は [[http://rubikitch.com/2015/03/15/ivy/][ivy.el(レビュー)]] のインターフェースです。
+
+どうせ一覧isearchなのだから、置換と連携できたらなと思います。
+
+現状で正規表現置換をするならば、[[http://rubikitch.com/2014/08/26/visual-regexp/][visual-regexp.el(レビュー)]] がいいです。
+
+今後の発展が楽しみです。
+
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+[[file:/r/sync/screenshots/20150318055401.png]]
+Fig1: C-u C-sを押してswiperを起動
+
+[[file:/r/sync/screenshots/20150318055504.png]]
+Fig2: defunと入力して全関数を一覧
+
+[[file:/r/sync/screenshots/20150318055616.png]]
+Fig3: 正規表現を入力
+** swiper インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install swiper
+
+
+#+end:
+** 概要                                                             :noexport:
+3/10に登場したばかりのこのelispは、活発に開発されていてアツいです！
+
+*swiper.el* は正規表現isearchに一覧を付加するものです。
+
+同じ目的では *helm* を使った[[http://rubikitch.com/2014/12/25/helm-swoop/][helm-swoop.el(大々的レビュー)]] が鉄板です。
+
+しかし、 *helm-swoop.el* は[[http://rubikitch.com/2014/12/19/helm-migemo/][Migemoに対応]] している上、
+スペースに絞り込み検索の意味を持たせています。
+
+対して *swiper.el* は純粋に正規表現isearchに一覧を付けた感じです。
+
+とはいえ *M-x occur* のように別ウィンドウで一覧するわけではなく、
+エコーエリアに謙虚に一覧します。
+
+正規表現の括弧に色を付けることもできるので、
+その点においてはhelm-swoop.elよりも *M-x re-builder* 感覚です。
+
+helmのようにウィンドウを分割しない上、
+操作感覚は通常の正規表現isearchと変わりません。
+
+そこで本設定では正規表現isearchの置き換えとしてC-u C-sで
+*M-x swiper* を起動させるようにしました。
+
+ちょっと正規表現検索をしたいならばswiperを
+行の絞り込み検索がしたいならばhelm-swoop
+というふうに住み分けるといいでしょう。
+
+候補選択は [[http://rubikitch.com/2015/03/15/ivy/][ivy.el(レビュー)]] のインターフェースです。
+
+どうせ一覧isearchなのだから、置換と連携できたらなと思います。
+
+現状で正規表現置換をするならば、[[http://rubikitch.com/2014/08/26/visual-regexp/][visual-regexp.el(レビュー)]] がいいです。
+
+今後の発展が楽しみです。
+
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+[[file:/r/sync/screenshots/20150318055401.png]]
+Fig4: C-u C-sを押してswiperを起動
+
+[[file:/r/sync/screenshots/20150318055504.png]]
+Fig5: defunと入力して全関数を一覧
+
+[[file:/r/sync/screenshots/20150318055616.png]]
+Fig6: 正規表現を入力
+
+** 設定 [[http://rubikitch.com/f/150318051516.swiper.1.el][150318051516.swiper.1.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/150318/150318051516.swiper.1.el"
+#+BEGIN_SRC fundamental
+(defun isearch-forward-or-swiper (use-swiper)
+  (interactive "P")
+  (let (current-prefix-arg)
+    (call-interactively (if use-swiper 'swiper 'isearch-forward))))
+(global-set-key (kbd "C-s") 'isearch-forward-or-swiper)
+;;; バックエンドのivyがスペースを".*"に置換してしまうため、無効にする
+;;; これをしないと純粋に正規表現isearchの置き換えにならない
+(require 'ivy)
+(fset 'ivy--regex 'identity)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/150318051516.swiper.1.el
+$ emacs -Q -f package-initialize -l 150318051516.swiper.1.el
+#+END_EXAMPLE
+
+# /r/sync/screenshots/20150318055401.png http://rubikitch.com/wp-content/uploads/2015/03/wpid-20150318055401.png
+# /r/sync/screenshots/20150318055504.png http://rubikitch.com/wp-content/uploads/2015/03/wpid-20150318055504.png
+# /r/sync/screenshots/20150318055616.png http://rubikitch.com/wp-content/uploads/2015/03/wpid-20150318055616.png

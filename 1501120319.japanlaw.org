@@ -1,0 +1,131 @@
+#+BLOG: rubikitch
+#+POSTID: 911
+#+DATE: [2015-01-12 Mon 03:19]
+#+PERMALINK: japanlaw
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs
+#+EL_PKG_NAME: japanlaw
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, 法律, 日本国憲法, 憲法, 法学, 法学科, 民法, 刑法, w3m, 法令データ提供システム, 電子政府の総合窓口, e-Gov, 政令, 勅令, 府令, 省令, 規則, Emacs 電子六法, 電子六法, 六法全書
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: 【六法全書】日本の法律をEmacsで読む(要w3m)
+#+EL_URL: http://d.hatena.ne.jp/mhayashi1120/20130327/1364387156
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージjapanlawの紹介
+#+MYTAGS: package:japanlaw, emacs 使い方, emacs コマンド, emacs, japanlaw, japanlaw.el, emacs lisp japanlaw, elisp japanlaw, emacs melpa japanlaw, emacs japanlaw 使い方, emacs japanlaw 設定, emacs パッケージ japanlaw, emacs japanlaw スクリーンショット, 法律, 日本国憲法, 憲法, 法学, 法学科, 民法, 刑法, w3m, 法令データ提供システム, 電子政府の総合窓口, e-Gov, 政令, 勅令, 府令, 省令, 規則, Emacs 電子六法, 電子六法, 六法全書
+#+TAGS: package:japanlaw, emacs 使い方, emacs コマンド, emacs, japanlaw, japanlaw.el, emacs lisp japanlaw, elisp japanlaw, emacs melpa japanlaw, emacs japanlaw 使い方, emacs japanlaw 設定, emacs パッケージ japanlaw, emacs japanlaw スクリーンショット, 法律, 日本国憲法, 憲法, 法学, 法学科, 民法, 刑法, w3m, 法令データ提供システム, 電子政府の総合窓口, e-Gov, 政令, 勅令, 府令, 省令, 規則, Emacs 電子六法, 電子六法, 六法全書, Emacs, japanlaw.el, libxml2, shr, M-x japanlaw, libxml2, shr, M-x japanlaw
+#+TITLE: emacs japanlaw.el : 【六法全書】日本の法律をEmacsで読む(要w3m) | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>japanlaw</td></tr>
+<tr><td>概要(原文)</td><td>Japan law from law.e-gov.go.jp</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>サイト</td><td><a href="http://d.hatena.ne.jp/mhayashi1120/20130327/1364387156">http://d.hatena.ne.jp/mhayashi1120/20130327/1364387156</td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/mhayashi1120/japanlaw.el">https://github.com/mhayashi1120/japanlaw.el</a></td></tr>
+<tr><td>バージョン</td><td>20150110.1816</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:japanlaw/">package:japanlaw</a> </td></tr>
+</table>
+<br />
+#+END_HTML
+*japanlaw.el* は、日本の法律をEmacsで読むためのものです。
+
+[[http://law.e-gov.go.jp/][法令データ提供システム｜電子政府の総合窓口e-Gov イーガブ]] のデータを 
+参照し、[[http://w3m.sourceforge.net/][テキストブラウザW3M ]] で整形し、Emacsで読めるようにします。
+
+[[http://www.ne.jp/asahi/alpha/kazu/laws.html][原作者の日本語サイト]] ではAPELとrevive.elが必要とされていましたが、
+現在はそれらに依存はしていません。
+
+必要なのはw3mのインストールのみです。
+
+しかし、Emacs 24.4になるとEmacsのみで
+HTML解析(*libxml2* と *shr*)できるので
+そのうちw3mへの依存もなくなるかもしれません。
+
+使い方は *M-x japanlaw* を実行し、
+SPCでカテゴリを開いたり閉じたりします。
+
+[[file:/r/sync/screenshots/20150112033449.png]]
+Fig1: M-x japanlaw
+
+[[file:/r/sync/screenshots/20150112033455.png]]
+Fig2: SPCで憲法を開く
+
+たとえば日本国憲法を見たい場合は、
+「+ 憲法」でSPCを押し、
+「- 日本国憲法（昭和二十一年十一月三日憲法）」でSPCです。
+
+すると日本国憲法の本文が出てきます。
+
+[[file:/r/sync/screenshots/20150112033507.png]]
+Fig3: さらにSPCで本文を表示
+
+pとnで条ごとに移動(「第一条」→「第二条」のように)できます。
+
+他の法律や用語への参照はリンクになっていて、
+TABでリンクに移動し、SPCで辿ります。
+
+ブラウザの操作性とは少し違和感のあるキーバインドだと思います。
+
+コマンドはとてもたくさん用意されているので、
+「?」で一覧します。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+** japanlaw インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install japanlaw
+
+
+#+end:
+** 概要                                                             :noexport:
+*japanlaw.el* は、日本の法律をEmacsで読むためのものです。
+
+[[http://law.e-gov.go.jp/][法令データ提供システム｜電子政府の総合窓口e-Gov イーガブ]] のデータを 
+参照し、[[http://w3m.sourceforge.net/][テキストブラウザW3M ]] で整形し、Emacsで読めるようにします。
+
+[[http://www.ne.jp/asahi/alpha/kazu/laws.html][原作者の日本語サイト]] ではAPELとrevive.elが必要とされていましたが、
+現在はそれらに依存はしていません。
+
+必要なのはw3mのインストールのみです。
+
+しかし、Emacs 24.4になるとEmacsのみで
+HTML解析(*libxml2* と *shr*)できるので
+そのうちw3mへの依存もなくなるかもしれません。
+
+使い方は *M-x japanlaw* を実行し、
+SPCでカテゴリを開いたり閉じたりします。
+
+[[file:/r/sync/screenshots/20150112033449.png]]
+Fig1: M-x japanlaw
+
+[[file:/r/sync/screenshots/20150112033455.png]]
+Fig2: SPCで憲法を開く
+
+たとえば日本国憲法を見たい場合は、
+「+ 憲法」でSPCを押し、
+「- 日本国憲法（昭和二十一年十一月三日憲法）」でSPCです。
+
+すると日本国憲法の本文が出てきます。
+
+[[file:/r/sync/screenshots/20150112033507.png]]
+Fig3: さらにSPCで本文を表示
+
+pとnで条ごとに移動(「第一条」→「第二条」のように)できます。
+
+他の法律や用語への参照はリンクになっていて、
+TABでリンクに移動し、SPCで辿ります。
+
+ブラウザの操作性とは少し違和感のあるキーバインドだと思います。
+
+コマンドはとてもたくさん用意されているので、
+「?」で一覧します。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+** 参考サイト
+- [[http://d.hatena.ne.jp/mhayashi1120/20130327/1364387156][Emacs 電子六法 laws.el を fork - まにっき]]
+- [[http://centergaeshi.net/?p=619]]
+- [[http://www.ne.jp/asahi/alpha/kazu/laws.html][Emacs 電子六法]]

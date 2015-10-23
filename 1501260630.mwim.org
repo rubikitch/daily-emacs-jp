@@ -1,0 +1,124 @@
+#+BLOG: rubikitch
+#+POSTID: 1009
+#+DATE: [2015-01-26 Mon 06:30]
+#+PERMALINK: mwim
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs
+#+EL_PKG_NAME: mwim
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, relate:sequential-command, emacs 行頭 インデント, emacs 行末 コメント, 
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: コードの先頭・末尾を認識したC-a/C-eを定義する
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージmwimの紹介
+#+MYTAGS: package:mwim, emacs 使い方, emacs コマンド, emacs, mwim, mwim.el, emacs lisp mwim, elisp mwim, emacs melpa mwim, emacs mwim 使い方, emacs mwim 設定, emacs パッケージ mwim, emacs mwim スクリーンショット, relate:sequential-command, emacs 行頭 インデント, emacs 行末 コメント, 
+#+TAGS: package:mwim, emacs 使い方, emacs コマンド, emacs, mwim, mwim.el, emacs lisp mwim, elisp mwim, emacs melpa mwim, emacs mwim 使い方, emacs mwim 設定, emacs パッケージ mwim, emacs mwim スクリーンショット, relate:sequential-command, emacs 行頭 インデント, emacs 行末 コメント, , Emacs, mwim.el, M-x mwim-beginning-of-code-or-line, M-x mwim-end-of-code-or-line, M-x mwim-beginning-of-line-or-code, M-x mwim-end-of-line-or-code, M-x mwim-beginning-of-code-or-line, M-x mwim-end-of-code-or-line, M-x mwim-beginning-of-line-or-code, M-x mwim-end-of-line-or-code
+#+TITLE: emacs mwim.el : コードの先頭・末尾を認識したC-a/C-eを定義する | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>mwim</td></tr>
+<tr><td>概要(原文)</td><td>Move to the beginning/end of line or code</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/alezost/mwim.el">https://github.com/alezost/mwim.el</a></td></tr>
+<tr><td>バージョン</td><td>20150111.603</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:mwim/">package:mwim</a> <a href="http://rubikitch.com/tag/package:sequential-command/">package:sequential-command</a></td></tr>
+</table>
+<br />
+#+END_HTML
+*mwim.el* はコードの先頭・末尾を認識するC-aとC-eです。
+
+*M-x mwim-beginning-of-code-or-line* は、
+1. コードの先頭(行頭からインデントを飛ばした位置)
+2. 行頭
+に移動します。
+
+*M-x mwim-end-of-code-or-line* は、
+1. コードの末尾(行末からスペースとコメントを飛ばした位置)
+2. 行末
+に移動します。
+
+これらのコマンドは最初にコードの先頭か末尾に移動し、
+さらに同じキーを押すと、行頭・行末に移動します。
+
+行頭・行末→コードの先頭・末尾と挙動を入れ替えたバージョン
+*M-x mwim-beginning-of-line-or-code* と
+*M-x mwim-end-of-line-or-code* も用意しています。
+
+好きな方をC-aとC-eに割り当ててください。
+
+昔作った [[http://d.hatena.ne.jp/rubikitch/20090219/sequential_command][sequential-command.el(旧ブログ)]]  の具体化のひとつとも言えます。
+** mwim インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install mwim
+
+
+#+end:
+** 概要                                                             :noexport:
+*mwim.el* はコードの先頭・末尾を認識するC-aとC-eです。
+
+*M-x mwim-beginning-of-code-or-line* は、
+1. コードの先頭(行頭からインデントを飛ばした位置)
+2. 行頭
+に移動します。
+
+*M-x mwim-end-of-code-or-line* は、
+1. コードの末尾(行末からスペースとコメントを飛ばした位置)
+2. 行末
+に移動します。
+
+これらのコマンドは最初にコードの先頭か末尾に移動し、
+さらに同じキーを押すと、行頭・行末に移動します。
+
+行頭・行末→コードの先頭・末尾と挙動を入れ替えたバージョン
+*M-x mwim-beginning-of-line-or-code* と
+*M-x mwim-end-of-line-or-code* も用意しています。
+
+好きな方をC-aとC-eに割り当ててください。
+
+昔作った [[http://d.hatena.ne.jp/rubikitch/20090219/sequential_command][sequential-command.el(旧ブログ)]]  の具体化のひとつとも言えます。
+
+** 設定 [[http://rubikitch.com/f/150126062722.mwim.1.el][150126062722.mwim.1.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/150126/150126062722.mwim.1.el"
+#+BEGIN_SRC fundamental
+(global-set-key (kbd "C-a") 'mwim-beginning-of-code-or-line)
+(global-set-key (kbd "C-e") 'mwim-end-of-code-or-line)
+;; (global-set-key (kbd "C-a") 'mwim-beginning-of-line-or-code)
+;; (global-set-key (kbd "C-e") 'mwim-end-of-line-or-code)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/150126062722.mwim.1.el
+$ emacs -Q -f package-initialize -l 150126062722.mwim.1.el
+#+END_EXAMPLE
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+[[file:/r/sync/screenshots/20150126062937.png]]
+Fig1: スタート地点
+
+[[file:/r/sync/screenshots/20150126062942.png]]
+Fig2: C-aでコードの先頭
+
+[[file:/r/sync/screenshots/20150126062946.png]]
+Fig3: もう一度C-aで行頭
+
+[[file:/r/sync/screenshots/20150126062958.png]]
+Fig4: Fig1でC-eを押すとコードの末尾
+
+[[file:/r/sync/screenshots/20150126063003.png]]
+Fig5: もう一度押すと行頭
+
+
+# /r/sync/screenshots/20150126062937.png http://rubikitch.com/wp-content/uploads/2015/01/wpid-20150126062937.png
+# /r/sync/screenshots/20150126062942.png http://rubikitch.com/wp-content/uploads/2015/01/wpid-20150126062942.png
+# /r/sync/screenshots/20150126062946.png http://rubikitch.com/wp-content/uploads/2015/01/wpid-20150126062946.png
+# /r/sync/screenshots/20150126062958.png http://rubikitch.com/wp-content/uploads/2015/01/wpid-20150126062958.png
+# /r/sync/screenshots/20150126063003.png http://rubikitch.com/wp-content/uploads/2015/01/wpid-20150126063003.png

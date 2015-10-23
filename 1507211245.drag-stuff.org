@@ -1,0 +1,97 @@
+#+BLOG: rubikitch
+#+POSTID: 1844
+#+DATE: [2015-07-21 Tue 12:45]
+#+PERMALINK: drag-stuff
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs
+#+EL_PKG_NAME: drag-stuff
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, relate:smart-shift, emacs 行をずらす, 
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: 行・region・単語をキーボードでドラッグする(ずらす)
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージdrag-stuffの紹介
+#+MYTAGS: package:drag-stuff, emacs 使い方, emacs コマンド, emacs, drag-stuff, drag-stuff.el, emacs lisp drag-stuff, elisp drag-stuff, emacs melpa drag-stuff, emacs drag-stuff 使い方, emacs drag-stuff 設定, emacs パッケージ drag-stuff, emacs drag-stuff スクリーンショット, relate:smart-shift, emacs 行をずらす, 
+#+TAGS: package:drag-stuff, emacs 使い方, emacs コマンド, emacs, drag-stuff, drag-stuff.el, emacs lisp drag-stuff, elisp drag-stuff, emacs melpa drag-stuff, emacs drag-stuff 使い方, emacs drag-stuff 設定, emacs パッケージ drag-stuff, emacs drag-stuff スクリーンショット, relate:smart-shift, emacs 行をずらす, , Emacs, drag-stuff.el
+#+TITLE: emacs drag-stuff.el : 行・region・単語をキーボードでドラッグする(ずらす) | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>drag-stuff</td></tr>
+<tr><td>概要(原文)</td><td>Drag stuff (lines, words, region, etc...) around</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/rejeep/drag-stuff">https://github.com/rejeep/drag-stuff</a></td></tr>
+<tr><td>バージョン</td><td>20150717.532</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:drag-stuff/">package:drag-stuff</a> <a href="http://rubikitch.com/tag/package:smart-shift/">package:smart-shift</a></td></tr>
+</table>
+<br />
+#+END_HTML
+*drag-stuff.el* は、行、region、単語を矢印キーで移動します。
+
+org-modeでM-up/M-downすると段落やサブツリーを移動しますが、
+それと似たようなものです。
+
+デフォルトではMetaキーを押しながら上下左右キーに設定されていますが、
+それだとメジャーモードと干渉するのでここではMeta+Shiftに設定しておきます。
+
+たとえば文章を書いているときに、文の順序を入れ替えたりするときに便利でしょう。
+
+類似品に[[http://rubikitch.com/2014/12/01/smart-shift/][smart-shift.el(レビュー)]] がありますが、
+そちらはC-cを押したら放して上下左右と操作します。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150721125401.png]]
+Fig1: この状態から
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150721125409.png]]
+Fig2: M-S-downで行をずらす
+** drag-stuff インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install drag-stuff
+
+
+#+end:
+** 概要                                                             :noexport:
+*drag-stuff.el* は、行、region、単語を矢印キーで移動します。
+
+org-modeでM-up/M-downすると段落やサブツリーを移動しますが、
+それと似たようなものです。
+
+デフォルトではMetaキーを押しながら上下左右キーに設定されていますが、
+それだとメジャーモードと干渉するのでここではMeta+Shiftに設定しておきます。
+
+たとえば文章を書いているときに、文の順序を入れ替えたりするときに便利でしょう。
+
+類似品に[[http://rubikitch.com/2014/12/01/smart-shift/][smart-shift.el(レビュー)]] がありますが、
+そちらはC-cを押したら放して上下左右と操作します。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150721125401.png]]
+Fig3: この状態から
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150721125409.png]]
+Fig4: M-S-downで行をずらす
+
+** 設定 [[http://rubikitch.com/f/150721125140.drag-stuff.el][150721125140.drag-stuff.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/150721/150721125140.drag-stuff.el"
+#+BEGIN_SRC fundamental
+(setq drag-stuff-modifier '(meta shift))
+(drag-stuff-global-mode t)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/150721125140.drag-stuff.el
+$ emacs -Q -f package-initialize -l 150721125140.drag-stuff.el
+#+END_EXAMPLE

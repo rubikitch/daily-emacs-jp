@@ -1,0 +1,59 @@
+#+BLOG: rubikitch
+#+POSTID: 1030
+#+DATE: [2015-01-30 Fri 05:31]
+#+PERMALINK: melmag
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: メルマガ, 
+#+DESCRIPTION: 
+#+MYTAGS: 
+#+TITLE: helmの原点へ立ち帰ろう
+#+begin: org2blog-tags
+#+TAGS: , メルマガ, , 
+#+end:
+今回のメルマガはhelmのおさらいと
+あまり知られていないであろう機能をお話します。
+
+helmは前身anything時代から数えると実に8年にもなります。
+
+もうすっかりおなじみの存在になったことでしょう。
+
+登場時は世界中のEmacsユーザを熱狂させたanythingも、
+数年後にはすっかり当たり前のものになり、
+helmとなった今でも殊更話題になっているわけではありません。
+
+今や誰もが持っているスマートフォンも、
+かつては携帯電話とPDAに分かれており、
+それぞれが画期的な発明でした。
+
+かつては固定電話や公衆電話が当たり前だったのが、
+いつでもどこでも電話できる携帯電話が登場しました。
+
+昔のコンピュータは部屋中を占めるほど巨大なもので、
+パソコンでさえもkg単位の重さがあるけれど、
+PDAは数百グラムの手のひらサイズのコンピュータとして登場しました。
+
+スマートフォンはその両者を兼ね備えた超ハイテク機器です。
+
+歴史を振り返ってみると、
+スマートフォンってすごいと思いませんか？
+
+当たり前の存在になってしまったら、
+それに対して感謝の気持ちというものが薄れてきます。
+
+そのうち視野も狹くなり、
+特定の機能のみしか使わなくなってしまいます。
+
+それではもったいなさすぎですよね。
+
+今一度、helmの原点に立ち返って
+helmの思想を振り返り、
+もっとhelmを使いこなしてみませんか？
+
+「Emacsの支配者」の実力、とくと御覧あれ！
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

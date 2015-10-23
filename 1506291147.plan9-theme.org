@@ -1,0 +1,236 @@
+#+BLOG: rubikitch
+#+POSTID: 1783
+#+DATE: [2015-06-29 Mon 11:47]
+#+PERMALINK: plan9-theme
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, theme, 
+#+EL_PKG_NAME: plan9-theme
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, color-theme, カラーテーマ
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: Plan9を模したクラシックなカラーテーマ
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージplan9-themeの紹介
+#+MYTAGS: package:plan9-theme, emacs 使い方, emacs コマンド, emacs, plan9-theme, plan9-theme.el, emacs lisp plan9-theme, elisp plan9-theme, emacs melpa plan9-theme, emacs plan9-theme 使い方, emacs plan9-theme 設定, emacs パッケージ plan9-theme, emacs plan9-theme スクリーンショット, color-theme, カラーテーマ
+#+TAGS: package:plan9-theme, emacs 使い方, emacs コマンド, emacs, plan9-theme, plan9-theme.el, emacs lisp plan9-theme, elisp plan9-theme, emacs melpa plan9-theme, emacs plan9-theme 使い方, emacs plan9-theme 設定, emacs パッケージ plan9-theme, emacs plan9-theme スクリーンショット, color-theme, カラーテーマ, Emacs, theme, , plan9-theme.el
+#+TITLE: emacs plan9-theme.el : Plan9を模したクラシックなカラーテーマ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>plan9-theme</td></tr>
+<tr><td>概要(原文)</td><td>A color theme for Emacs based on Plan9</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/john2x/plan9-theme.el">https://github.com/john2x/plan9-theme.el</a></td></tr>
+<tr><td>バージョン</td><td>20150625.605</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:plan9-theme/">package:plan9-theme</a> </td></tr>
+</table>
+<br />
+#+END_HTML
+*plan9-theme.el* は、[[http://plan9.bell-labs.com/plan9/screenshot.html][Plan 9]] を模倣したカラーテーマです。
+
+多くのパッケージに対応しています。
+
+- compilation
+- grep
+- isearch
+- font-lock
+- ledger-mode
+- ace-jump-mode
+- anzu
+- auto-complete
+- clojure-test-mode
+- diff
+- diff-hl
+- dired/dired+/dired-subtree
+- ediff
+- eshell
+- evil
+- flx
+- flycheck
+- flymake
+- flyspell
+- git-gutter
+- git-gutter-fringe
+- git-rebase-mode
+- guide-key
+- helm
+- highlight-symbol
+- hl-line-mode
+- hl-sexp
+- ido
+- indent-guide
+- js2-mode
+- linum-mode
+- magit
+- outline
+- rainbow-delimiters
+- structured-haskell-mode
+- show-paren
+- mode-line/sml-mode-line
+- SLIME
+- term
+- web-mode
+- whitespace-mode
+- which-func-mode
+- yascroll
+- Org
+- ansi-color
+- fill-column-indicator
+- highlight-parentheses
+- sml-mode-line
+- vc-annotate
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_theme_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150629114831.png]]
+Fig1: emacs-lisp-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150629114837.png]]
+Fig2: magit
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150629114843.png]]
+Fig3: grep
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150629114849.png]]
+Fig4: outline-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150629114852.png]]
+Fig5: org-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150629114856.png]]
+Fig6: dired
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150629114900.png]]
+Fig7: web-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150629114907.png]]
+Fig8: markdown-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150629114911.png]]
+Fig9: helm
+** plan9-theme インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install plan9-theme
+
+
+#+end:
+** 概要                                                             :noexport:
+*plan9-theme.el* は、[[http://plan9.bell-labs.com/plan9/screenshot.html][Plan 9]] を模倣したカラーテーマです。
+
+多くのパッケージに対応しています。
+
+- compilation
+- grep
+- isearch
+- font-lock
+- ledger-mode
+- ace-jump-mode
+- anzu
+- auto-complete
+- clojure-test-mode
+- diff
+- diff-hl
+- dired/dired+/dired-subtree
+- ediff
+- eshell
+- evil
+- flx
+- flycheck
+- flymake
+- flyspell
+- git-gutter
+- git-gutter-fringe
+- git-rebase-mode
+- guide-key
+- helm
+- highlight-symbol
+- hl-line-mode
+- hl-sexp
+- ido
+- indent-guide
+- js2-mode
+- linum-mode
+- magit
+- outline
+- rainbow-delimiters
+- structured-haskell-mode
+- show-paren
+- mode-line/sml-mode-line
+- SLIME
+- term
+- web-mode
+- whitespace-mode
+- which-func-mode
+- yascroll
+- Org
+- ansi-color
+- fill-column-indicator
+- highlight-parentheses
+- sml-mode-line
+- vc-annotate
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_theme_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150629114831.png]]
+Fig10: emacs-lisp-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150629114837.png]]
+Fig11: magit
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150629114843.png]]
+Fig12: grep
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150629114849.png]]
+Fig13: outline-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150629114852.png]]
+Fig14: org-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150629114856.png]]
+Fig15: dired
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150629114900.png]]
+Fig16: web-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150629114907.png]]
+Fig17: markdown-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150629114911.png]]
+Fig18: helm
+
+** 設定 [[http://rubikitch.com/f/150629114725.plan9-theme.el][150629114725.plan9-theme.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/150629/150629114725.plan9-theme.el"
+#+BEGIN_SRC fundamental
+(load-theme 'plan9 t)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/150629114725.plan9-theme.el
+$ emacs -Q -f package-initialize -l 150629114725.plan9-theme.el
+#+END_EXAMPLE

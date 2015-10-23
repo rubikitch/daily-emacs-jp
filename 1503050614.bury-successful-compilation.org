@@ -1,0 +1,97 @@
+#+BLOG: rubikitch
+#+POSTID: 1246
+#+DATE: [2015-03-05 Thu 06:14]
+#+PERMALINK: bury-successful-compilation-buffer
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs
+#+EL_PKG_NAME: bury-successful-compilation
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, , package:compile, compile, relate:smart-compile, relate:executable, relate:quickrun
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 
+#+EL_TITLE0: コンパイルが正常終了したときにウィンドウを自動で閉じるようにする
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージbury-successful-compilationの紹介
+#+MYTAGS: package:bury-successful-compilation, emacs 使い方, emacs コマンド, emacs, bury-successful-compilation, bury-successful-compilation.el, emacs lisp bury-successful-compilation, elisp bury-successful-compilation, emacs melpa bury-successful-compilation, emacs bury-successful-compilation 使い方, emacs bury-successful-compilation 設定, emacs パッケージ bury-successful-compilation, , package:compile, compile, relate:smart-compile, relate:executable, relate:quickrun
+#+TAGS: package:bury-successful-compilation, emacs 使い方, emacs コマンド, emacs, bury-successful-compilation, bury-successful-compilation.el, emacs lisp bury-successful-compilation, elisp bury-successful-compilation, emacs melpa bury-successful-compilation, emacs bury-successful-compilation 使い方, emacs bury-successful-compilation 設定, emacs パッケージ bury-successful-compilation, , package:compile, compile, relate:smart-compile, relate:executable, relate:quickrun, Emacs, compilation, M-x compile, bury-successful-compilation.el, M-x grep, M-x executable-interpret, M-x compile, M-x executable-interpret, M-x compile, bury-successful-compilation.el, M-x grep, M-x executable-interpret, M-x compile, M-x executable-interpret
+#+TITLE: emacs bury-successful-compilation.el : コンパイルが正常終了したときにウィンドウを自動で閉じるようにする | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>bury-successful-compilation</td></tr>
+<tr><td>概要(原文)</td><td>Bury the *compilation* buffer after successful compilation</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/EricCrosson/bury-successful-compilation">https://github.com/EricCrosson/bury-successful-compilation</a></td></tr>
+<tr><td>バージョン</td><td>20150303.924</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:bury-successful-compilation/">package:bury-successful-compilation</a> <a href="http://rubikitch.com/tag/package:smart-compile/">package:smart-compile</a> <a href="http://rubikitch.com/tag/package:executable/">package:executable</a> <a href="http://rubikitch.com/tag/package:quickrun/">package:quickrun</a></td></tr>
+</table>
+<br />
+#+END_HTML
+これは2/28に開発がスタートした新入りelispです。
+
+Emacsは *M-x compile* でコンパイルできます。
+
+しかし、コンパイルが正常終了したのにコンパイルウィンドウを
+手で閉じるのは面倒です。
+
+*bury-successful-compilation.el* を使えばコンパイルが
+正常終了したときに自動でウィンドウを閉じてくれます。
+
+あくまでもcompilationバッファのみ影響するので、
+*M-x grep* や *M-x executable-interpret* には影響ありません。
+
+正常終了したときは実行結果を見ない場合は *M-x compile* 、
+その都度実行結果を見たい場合は *M-x executable-interpret* と
+使い分けるといいです。
+
+標準のM-x compileが好きな人はおすすめです。
+
+全く新しいインターフェースならば [[http://rubikitch.com/2014/11/06/quickrun/][quickrun.el(レビュー)]] があります。
+** bury-successful-compilation インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install bury-successful-compilation
+
+
+#+end:
+** 概要                                                             :noexport:
+これは2/28に開発がスタートした新入りelispです。
+
+Emacsは *M-x compile* でコンパイルできます。
+
+しかし、コンパイルが正常終了したのにコンパイルウィンドウを
+手で閉じるのは面倒です。
+
+*bury-successful-compilation.el* を使えばコンパイルが
+正常終了したときに自動でウィンドウを閉じてくれます。
+
+あくまでもcompilationバッファのみ影響するので、
+*M-x grep* や *M-x executable-interpret* には影響ありません。
+
+正常終了したときは実行結果を見ない場合は *M-x compile* 、
+その都度実行結果を見たい場合は *M-x executable-interpret* と
+使い分けるといいです。
+
+標準のM-x compileが好きな人はおすすめです。
+
+全く新しいインターフェースならば [[http://rubikitch.com/2014/11/06/quickrun/][quickrun.el(レビュー)]] があります。
+
+** 設定 [[http://rubikitch.com/f/150305072024.bury-successful-compilation.el][150305072024.bury-successful-compilation.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/150305/150305072024.bury-successful-compilation.el"
+#+BEGIN_SRC fundamental
+;;; こういう名前だけど実はマイナーモードなのよw
+(bury-successful-compilation 1)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/150305072024.bury-successful-compilation.el
+$ emacs -Q -f package-initialize -l 150305072024.bury-successful-compilation.el
+#+END_EXAMPLE
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

@@ -1,0 +1,107 @@
+#+BLOG: rubikitch
+#+POSTID: 272
+#+DATE: [2014-09-02 Tue 07:41]
+#+PERMALINK: helm-quelpa
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, Emacs Lisp,
+#+DESCRIPTION:
+#+MYTAGS: package:quelpa, package:helm, relate:helm, emacs quelpa helm, emacs helm quelpa, emacs パッケージ helmインターフェース, emacs パッケージ README, emacs パッケージ 履歴, emacs パッケージ git log, emacs melpa README.md, emacs melpa README参照, emacs melpa 履歴, emacs melpa git log, emacs quelpa magit
+#+TAGS: package:quelpa, package:helm, relate:helm, emacs quelpa helm, emacs helm quelpa, emacs パッケージ helmインターフェース, emacs パッケージ README, emacs パッケージ 履歴, emacs パッケージ git log, emacs melpa README.md, emacs melpa README参照, emacs melpa 履歴, emacs melpa git log, emacs quelpa magit, Emacs, Emacs Lisp,, helmインターフェース, quelpa, magit, git log, dired, MELPA, helm quelpa
+#+TITLE: EmacsのMELPAパッケージのREADME.mdとgit logが見られる！新しいパッケージシステムquelpaのhelmインターフェースを試作してみた
+[[http://rubikitch.com/2014/09/01/quelpa/][昨日紹介した新しいパッケージシステムquelpa]] の *helmインターフェース* を書いてみました。
+
+*quelpa* でインストールしたパッケージにおいて以下のことができます。
+- README.md (README.org) を開く
+- *magit* を使って *git log* を見る
+- パッケージリポジトリを *dired* で開く
+- ソースファイルを開く
+
+このように、MELPAの欠点を補うことができます。
+
+もう少しquelpaを使ってみて、気に入ったら
+github と *MELPA* に上げときますね。
+** 設定 [[http://rubikitch.com/f/helm-quelpa.el][helm-quelpa.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/140902/helm-quelpa.el"
+#+BEGIN_SRC fundamental
+(require 'helm)
+(require 'quelpa)
+(require 'magit)
+
+(defvar helm-source-quelpa
+  '((name . "quelpa installed packages")
+    (candidates . helm-quelpa-candidates)
+    (display-to-real . intern)
+    (action ("View README or source" . helm-quelpa-view-readme-or-src)
+            ("Magit log" . helm-quelpa-magit-log)
+            ("Open directory" . helm-quelpa-open-dired)
+            ("Find source" . helm-quelpa-find-src))))
+
+(defun helm-quelpa-candidates ()
+  (mapcar 'car quelpa-cache))
+
+(defun helm-quelpa-interactive ()
+  (list (completing-read "Package: " (helm-quelpa-candidates) nil t)))
+
+(defun helm-quelpa-open-dired (package)
+  (interactive (helm-quelpa-interactive))
+  (dired (helm-quelpa-package-directory package)))
+(defun helm-quelpa-package-directory (package)
+  (expand-file-name (symbol-name package) quelpa-build-dir))
+
+(defun helm-quelpa-view-readme-or-src (package)
+  (interactive (helm-quelpa-interactive))
+  (cl-loop for file in (list "README.md" "README.org" (format "%s.el" package))
+           for path = (expand-file-name file (helm-quelpa-package-directory package))
+           when (file-exists-p path)
+           return (view-file path)))
+(defun helm-quelpa-view-readme-or-src (package)
+  (interactive (helm-quelpa-interactive))
+  ;; (directory-files "/r/.emacs.d/quelpa/build/tabbar/" t "^REA")
+  (condition-case _
+      (cl-loop with case-fold-search = t
+               for file in  (append (directory-files (helm-quelpa-package-directory package) t "^readme\\|^README\\|^Readme")
+                                    (list (expand-file-name (format "%s.el" package) (helm-quelpa-package-directory package))))
+               when (file-exists-p file)
+               return (view-file file))
+    (file-error (message "Readme not found"))))
+(defun helm-quelpa-find-src (package)
+  (interactive (helm-quelpa-interactive))
+  (find-file (expand-file-name (format "%s.el" package)
+                               (helm-quelpa-package-directory package))))
+
+(defun helm-quelpa-magit-log (package)
+  (interactive (helm-quelpa-interactive))
+  (let ((default-directory (helm-quelpa-package-directory package)))
+    (magit-status (helm-quelpa-package-directory package))
+    (magit-log)))
+
+(defun helm-quelpa (&rest args)
+  "Helm interface for installed quelpa packages.
+
+- View README
+- View git log
+- Open directory
+- Open source file
+"
+  (interactive)
+  (apply 'helm :sources 'helm-source-quelpa :buffer "*helm quelpa*" args))
+
+(defun qlpa (package)
+  (interactive (list (quelpa-interactive-candidate)))
+  (quelpa package :upgrade t)
+  (helm-quelpa-view-readme-or-src package))
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/helm-quelpa.el
+$ emacs -Q -f package-initialize -l helm-quelpa.el
+#+END_EXAMPLE
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

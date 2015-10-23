@@ -1,0 +1,129 @@
+#+BLOG: rubikitch
+#+POSTID: 797
+#+DATE: [2014-12-27 Sat 03:05]
+#+PERMALINK: hl-todo
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs
+#+EL_PKG_NAME: hl-todo
+#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, font-lock, font-lock-add-keywords, font-lock-remove-keywords, relate:fic-mode, relate:fic-ext-mode, relate:fixme-mode, relate:fixmee, relate:org, relate:hl-anything, relate:hi-lock
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: TODOやFIXMEなどの注目すべきキーワードをハイライトする
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージhl-todoの紹介
+#+MYTAGS: package:hl-todo, emacs 使い方, emacs コマンド, emacs, emacs lisp hl-todo, elisp hl-todo, emacs melpa hl-todo, emacs hl-todo 使い方, emacs hl-todo 設定, emacs パッケージ hl-todo, emacs hl-todo スクリーンショット, font-lock, font-lock-add-keywords, font-lock-remove-keywords, relate:fic-mode, relate:fic-ext-mode, relate:fixme-mode, relate:fixmee, relate:org, relate:hl-anything, relate:hi-lock
+#+TITLE: emacs hl-todo.el : TODOやFIXMEなどの注目すべきキーワードをハイライトする | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>hl-todo</td></tr>
+<tr><td>概要(原文)</td><td>highlight TODO keywords</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/tarsius/hl-todo">https://github.com/tarsius/hl-todo</a></td></tr>
+<tr><td>バージョン</td><td>20141224.1651</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:hl-todo/">package:hl-todo</a> <a href="http://rubikitch.com/tag/package:fic-mode/">package:fic-mode</a> <a href="http://rubikitch.com/tag/package:fic-ext-mode/">package:fic-ext-mode</a> <a href="http://rubikitch.com/tag/package:fixme-mode/">package:fixme-mode</a> <a href="http://rubikitch.com/tag/package:fixmee/">package:fixmee</a> <a href="http://rubikitch.com/tag/package:org/">package:org</a> <a href="http://rubikitch.com/tag/package:hl-anything/">package:hl-anything</a> <a href="http://rubikitch.com/tag/package:hi-lock/">package:hi-lock</a></td></tr>
+</table>
+<br />
+#+END_HTML
+
+*hl-todo.el* は、特定のキーワードに色をつけて目立つようにします。
+
+プログラム開発中においてTODOやFIXMEなどの
+注目キーワードを書くことがよくあります。
+
+これらを別な色にして目立たせることで、見逃しを防止します。
+
+なお、このコードは実質50行くらいの短いコードなので、
+font-lock関連のコードを書く際においての手頃な資料になります。
+
+類似品に
+- *fic-mode*
+- *fic-ext-mode*
+- *fixme-mode*
+- *fixmee*
+などがあります。
+
+これらと比較検討するのもおもしろいでしょう。
+
+<2014-12-28 Sun>追記
+一方で、任意のシンボルを永続的にハイライトする
+[[http://rubikitch.com/2014/12/28/hl-anything/][hl-anything.el(レビュー)]]もあります。
+
+
+** hl-todo インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install hl-todo
+
+
+#+end:
+** 概要                                                             :noexport:
+
+*hl-todo.el* は、特定のキーワードに色をつけて目立つようにします。
+
+プログラム開発中においてTODOやFIXMEなどの
+注目キーワードを書くことがよくあります。
+
+これらを別な色にして目立たせることで、見逃しを防止します。
+
+なお、このコードは実質50行くらいの短いコードなので、
+font-lock関連のコードを書く際においての手頃な資料になります。
+
+類似品に
+- *fic-mode*
+- *fic-ext-mode*
+- *fixme-mode*
+- *fixmee*
+などがあります。
+
+これらと比較検討するのもおもしろいでしょう。
+
+<2014-12-28 Sun>追記
+一方で、任意のシンボルを永続的にハイライトする
+[[http://rubikitch.com/2014/12/28/hl-anything/][hl-anything.el(レビュー)]]もあります。
+
+
+
+** 設定 [[http://rubikitch.com/f/141227030115.hl-todo.1.el][141227030115.hl-todo.1.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/141227/141227030115.hl-todo.1.el"
+#+BEGIN_SRC fundamental
+;;; キーワードの色を設定する
+;;; ただし、hl-todo.elを読み込む前あるいはcustomizeで設定すること
+(setq hl-todo-keyword-faces
+  '(("HOLD" . "#d0bf8f")
+    ("TODO" . "#cc9393")
+    ("NEXT" . "#dca3a3")
+    ("THEM" . "#dc8cc3")
+    ("PROG" . "#7cb8bb")
+    ("OKAY" . "#7cb8bb")
+    ("DONT" . "#5f7f5f")
+    ("FAIL" . "#8c5353")
+    ("DONE" . "#afd8af")
+    ("FIXME" . "#cc9393")
+    ("XXX"   . "#cc9393")
+    ("XXXX"  . "#cc9393")
+    ("???"   . "#cc9393")))
+;;; global-hl-todo-modeで有効にするメジャーモード(derived-mode)
+(setq hl-todo-activate-in-modes
+      '(prog-mode ruby-mode enh-ruby-mode))
+(global-hl-todo-mode 1)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/141227030115.hl-todo.1.el
+$ emacs -Q -f package-initialize -l 141227030115.hl-todo.1.el
+#+END_EXAMPLE
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+http://rubikitch.com/f/20141227031333.png
+Fig1: 緑背景
+
+http://rubikitch.com/f/20141227031339.png
+Fig2: 白背景
+

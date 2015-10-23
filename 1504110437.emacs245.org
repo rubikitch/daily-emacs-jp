@@ -1,0 +1,58 @@
+#+BLOG: rubikitch
+#+POSTID: 1489
+#+DATE: [2015-04-11 Sat 04:37]
+#+PERMALINK: emacs245
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, Emacs 24.5, 
+#+DESCRIPTION: Emacs24.5がリリースされました！！！バグフィクスなので安心してアップグレードできます。
+#+MYTAGS: 
+#+TITLE: たった今Emacs24.5リリース！バグフィクスです
+#+begin: org2blog-tags
+#+TAGS: , Emacs, Emacs 24.5, , 
+#+end:
+当初の予定から10日遅れながらも、たった今Emacs24.5がリリースされました。
+
+リリースされてから1時間後にこの記事を書いています。
+
+http://lists.gnu.org/archive/html/emacs-devel/2015-04/msg00581.html
+
+#+BEGIN_QUOTE
+Version 24.5 of the Emacs text editor is now available.
+
+For more information on Emacs, see:
+  http://www.gnu.org/software/emacs/
+
+You can retrieve the source from your nearest GNU mirror by using one
+of the following links:
+  http://ftpmirror.gnu.org/emacs/emacs-24.5.tar.xz
+  http://ftpmirror.gnu.org/emacs/emacs-24.5.tar.gz
+
+Or choose a mirror explicitly from the list at:
+  http://www.gnu.org/prep/ftp.html
+
+Mirrors may take some time to update; the main GNU ftp server is at:
+  http://ftp.gnu.org/gnu/emacs/
+
+
+Emacs 24.5 is mainly a bug-fix release, but for a summary of changes see
+the etc/NEWS file, which you can view from Emacs with `C-h n'.
+
+For the complete list of changes and the people who made them, see the
+various ChangeLog files in the source distribution.  For a summary
+of all the people who have contributed to Emacs, see the etc/AUTHORS file.
+#+END_QUOTE
+
+NEWSやChangeLogを見たところ、とくに変わっていません。
+
+ビルド方法などは以下の記事を参考にしてください。
+
+[[http://rubikitch.com/2015/03/30/emacs245-news/]]
+
+Emacsは僕の人生において欠かせないパートナーです。
+リリース作業お疲れ様です。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

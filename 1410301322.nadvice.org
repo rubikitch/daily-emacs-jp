@@ -1,0 +1,287 @@
+#+BLOG: rubikitch
+#+POSTID: 531
+#+DATE: [2014-10-30 Thu 13:22]
+#+PERMALINK: nadvice
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, Emacs Lisp, Emacs 24.4
+#+DESCRIPTION:
+#+MYTAGS: emacs アドバイス定義, emacs defadvice, package:advice, package:nadvice, 
+#+TAGS: emacs アドバイス定義, emacs defadvice, package:advice, package:nadvice, , Emacs, Emacs Lisp, Emacs 24.4, defadvice, アドバイス, advice.el, nadvice.el, ad-do-it, ad-return-value, advice-remove, ad-update, apply
+#+TITLE: 【関数再定義革命】Emacs 24.4ではdefadviceは時代遅れ！nadvice.elによる洗練された新しいアドバイス定義方法！！
+Emacs Lispの関数で再定義なしに挙動を変更するには
+古くから *defadvice* による *アドバイス* が使われていました。
+
+Emacs 24.4では古くから使われている *advice.el* に代わって
+*nadvice.el* がアドバイス定義をするようになりました。
+
+旧来のアドバイスはあまりにも複雑すぎました。
+
+しかも *ad-do-it* だの *ad-return-value* などという
+変数というかシンボルマクロというか…謎の代物を使うマクロでした。
+
+新しいアドバイスは関数で閉じているのでシンプルになりました。
+
+行数を見ても明らかです。
+- advice.el 3276行
+- nadvice.el 509行
+
+/行数実に1/6！/
+
+それでは、新旧アドバイスの挙動を比較してみましょう。
+
+アドバイスでの挙動を観察するには、
+実行経路と関数の戻り値を調べます。
+
+defadvice:startは、defadvice:1の返り値と実行経路を返します。
+
+defadvice:resetは、アドバイスをすべて解除します。
+
+** 旧来の方法 [[http://rubikitch.com/f/141030131228.defadvice.el][141030131228.defadvice.el(以下のコードと同一)]]
+それでは旧来のdefadviceの挙動を確認しましょう。
+
+#+BEGIN: include :file "/r/sync/junk/141030/141030131228.defadvice.el"
+#+BEGIN_SRC fundamental
+(defun defadvice:start ()
+  (let (lst)
+    `(:return ,(defadvice:1 256)
+      :route ,(nreverse lst))))
+(defun defadvice:reset ()
+  "`defadvice:1'にかけられたadviceを全部削除する"
+  (ad-disable-regexp "defadvice-test-")
+  (ad-update 'defadvice:1))
+
+;;; 元の挙動
+(defun defadvice:1 (x) (push `(original ,x) lst) 'original)
+(defadvice:reset)
+(defadvice:start)
+;; => (:return original :route
+;;             ((original 256)))
+
+;;; beforeアドバイス
+(defadvice defadvice:1 (before defadvice-test-before activate)
+  (push `(before ,x) lst)
+  'before)
+(defadvice:start)
+;; => (:return original :route
+;;             ((before 256)
+;;              (original 256)))
+
+;;; afterアドバイス
+(defadvice defadvice:1 (after defadvice-test-after activate)
+  (push `(after ,x) lst)
+  'after)
+(defadvice:start)
+;; => (:return original :route
+;;             ((before 256)
+;;              (original 256)
+;;              (after 256)))
+
+;;; aroundアドバイス
+(defadvice defadvice:1 (around defadvice-test-around activate)
+  (push `(around-1 ,x) lst)
+  ad-do-it
+  (push `(around-2 ,x) lst)
+  (setq ad-return-value 'around))
+(defadvice:start)
+;; => (:return around :route
+;;             ((before 256)
+;;              (around-1 256)
+;;              (original 256)
+;;              (around-2 256)
+;;              (after 256)))
+#+END_SRC
+
+#+END:
+** 新しい方法 [[http://rubikitch.com/f/141030111602.advice-add.el][141030111602.advice-add.el(以下のコードと同一)]]
+新しい方法では、 *advice-add* と *advice-remove* を使います。
+
+#+BEGIN_EXAMPLE
+(advice-add '関数名 場所 'アドバイス関数名)
+#+END_EXAMPLE
+
+新しい方法でアドバイスを定義するには、アドバイス関数を定義し、
+advice-addを呼び出します。
+
+場所は主にこの3つです。
+- :before
+- :after
+- :around
+
+#+BEGIN_EXAMPLE
+(advice-remove '関数名 'アドバイス関数名)
+#+END_EXAMPLE
+
+アドバイスを解除するには、advice-removeでアドバイス関数を指定するだけです。
+
+場所指定も *ad-update* も不要になったのは嬉しいですね。
+
+aroundアドバイスの定義は見違えるようにすっきりしました。
+
+ad-do-itの代わりに元の関数が変数になったことで、
+*apply* を使えばいいことになります。
+
+また、ad-return-valueを設定せずとも
+そのままアドバイス関数の返り値が
+関数の返り値になりました。
+
+
+#+BEGIN: include :file "/r/sync/junk/141030/141030111602.advice-add.el"
+#+BEGIN_SRC fundamental
+(defun advice:start ()
+  (let (lst)
+    `(:return ,(advice:1 256)
+      :route ,(nreverse lst))))
+(defun advice:reset ()
+  (dolist (where '(before after around override filter-return
+                          filter-args true false))
+    (advice-remove 'advice:1 (intern (format "advice:%s" where)))))
+
+;;; 元の挙動
+(defun advice:1 (x) (push `(original ,x) lst) 'original)
+(advice:reset)
+(advice:start)
+;; => (:return original :route
+;;             ((original 256)))
+
+;;; beforeアドバイス
+(defun advice:before (x) (push `(before ,x) lst) 'before)
+(advice-add 'advice:1 :before 'advice:before)
+(advice:start)
+;; => (:return original :route
+;;             ((before 256)
+;;              (original 256)))
+
+;;; afterアドバイス
+(defun advice:after (x) (push `(after ,x) lst) 'after)
+(advice-add 'advice:1 :after 'advice:after)
+(advice:start)
+;; => (:return original :route
+;;             ((before 256)
+;;              (original 256)
+;;              (after 256)))
+
+;;; aroundアドバイス
+(defun advice:around (orig-func &rest args)
+  (push `(around-1 ,args) lst)
+  (apply orig-func args)
+  (push `(around-2 ,args) lst)
+  'around)
+(advice-add 'advice:1 :around 'advice:around)
+(advice:start)
+;; => (:return around :route
+;;             ((around-1
+;;               (256))
+;;              (before 256)
+;;              (original 256)
+;;              (after 256)
+;;              (around-2
+;;               (256))))
+#+END_SRC
+
+#+END:
+
+結果を比較してわかるように、aroundの実行順序が変わりました。
+
+defadviceでは内側にくっついていますが、
+advice-addでは外側にくっついていることがわかります。
+** 他のアドバイス [[http://rubikitch.com/f/141030132213.advice-add.2.el][141030132213.advice-add.2.el(以下のコードと同一)]]
+新しいアドバイスでは、それ以外のアドバイスも定義できます。
+
+とはいっても、どれもaroundアドバイスで定義できるのですが、
+新しい語彙が増えることで、表現力が向上しました。
+
+- :override 純粋に関数再定義
+- :filter-return 返り値を加工
+- :filter-args 引数を加工
+- :before-while アドバイス関数の返り値が真のときに本体を実行
+- :before-until アドバイス関数の返り値がnilのときに本体を実行
+- :after-while 本体の戻り値が真のときにアドバイス関数を実行？
+- :after-until 本体の戻り値が偽のときにアドバイス関数を実行？
+
+:filter-argsの返り値は新しい引数リストを返す必要があります。
+
+#+BEGIN: include :file "/r/sync/junk/141030/141030132213.advice-add.2.el"
+#+BEGIN_SRC fundamental
+;;; overrideアドバイス
+(defun advice:override (x)
+  (push `(override ,x) lst)
+  'override)
+(advice:reset)
+(advice-add 'advice:1 :override 'advice:override)
+(advice:start)
+;; => (:return override :route
+;;             ((override 256)))
+
+;;; filter-returnアドバイス
+(defun advice:filter-return (x)
+  (intern (format "%s:filter-return" x)))
+(advice:reset)
+(advice-add 'advice:1 :filter-return 'advice:filter-return)
+(advice:start)
+;; => (:return original:filter-return :route
+;;             ((original 256)))
+
+;;; filter-argsアドバイス
+(defun advice:filter-args (args)
+  (list (* 2 (car args))))
+(advice:reset)
+(advice-add 'advice:1 :filter-args 'advice:filter-args)
+(advice:start)
+;; => (:return original :route
+;;             ((original 512)))
+
+;;; before-while/before-until/after-while/after-untilアドバイス
+(defun advice:true (x) (push `(true ,x) lst) t)
+(defun advice:false (x) (push `(false ,x) lst) nil)
+(advice:reset)
+(advice-add 'advice:1 :before-while 'advice:true)
+(advice:start)
+;; => (:return original :route
+;;             ((true 256)
+;;              (original 256)))
+(advice:reset)
+(advice-add 'advice:1 :before-while 'advice:false)
+(advice:start)
+;; => (:return nil :route
+;;             ((false 256)))
+(advice:reset)
+(advice:reset)
+(advice-add 'advice:1 :before-until 'advice:true)
+(advice:start)
+;; => (:return t :route
+;;             ((true 256)))
+(advice:reset)
+(advice-add 'advice:1 :before-until 'advice:false)
+(advice:start)
+;; => (:return original :route
+;;             ((false 256)
+;;              (original 256)))
+(advice:reset)
+(advice-add 'advice:1 :after-while 'advice:true)
+(advice:start)
+;; => (:return t :route
+;;             ((original 256)
+;;              (true 256)))
+(advice:reset)
+(advice-add 'advice:1 :after-while 'advice:false)
+(advice:start)
+;; => (:return nil :route
+;;             ((original 256)
+;;              (false 256)))
+(advice:reset)
+(advice-add 'advice:1 :after-until 'advice:true)
+(advice:start)
+;; => (:return original :route
+;;             ((original 256)))
+(advice:reset)
+(advice-add 'advice:1 :after-until 'advice:false)
+(advice:start)
+;; => (:return original :route
+;;             ((original 256)))
+#+END_SRC
+
+#+END:

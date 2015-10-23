@@ -1,0 +1,144 @@
+#+BLOG: rubikitch
+#+POSTID: 189
+#+DATE: [2014-08-21 Thu 13:27]
+#+PERMALINK: psession
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, Emacs Lisp,
+#+EL_PKG_NAME: psession
+#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p,emacs データ永続化, elisp データ永続化, elisp データ保存, emacs ウィンドウ構成 保存, emacs ウィンドウ構成 復元, relate:windows
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方  永続化
+#+EL_TITLE0: Emacsのデータ・バッファ・ウィンドウ構成を永続化(保存)し、再起動時に復元する方法
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージpsessionの紹介
+#+MYTAGS: package:psession, emacs 使い方, emacs コマンド, emacs, emacs lisp psession, elisp psession, emacs melpa psession, emacs psession 使い方, emacs psession 設定, emacs パッケージ psession,emacs データ永続化, elisp データ永続化, elisp データ保存, emacs ウィンドウ構成 保存, emacs ウィンドウ構成 復元, relate:windows
+#+TITLE: emacs psession.el : Emacsのデータ・バッファ・ウィンドウ構成を永続化(保存)し、再起動時に復元する方法 | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方  永続化
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>psession</td></tr>
+<tr><td>概要(原文)</td><td>Persistent save of elisp objects.</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/thierryvolpiatto/psession">https://github.com/thierryvolpiatto/psession</a></td></tr>
+<tr><td>バージョン</td><td>20140829.217</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:psession/">package:psession</a> <a href="http://rubikitch.com/tag/package:windows/">package:windows</a></td></tr>
+</table>
+<br />
+#+END_HTML
+psessoin.elを使えば、Emacs終了時に特定の変数を保存し、
+再起動時にそれらを復元します。
+
+保存・復元する内容は以下のものです。
+- 各種変数
+- 開いているファイルバッファ・diredバッファ
+- 終了時点のウィンドウ構成
+
+保存される場所は ~/.emacs.d/elisp-objects/ です。
+
+ちなみに、保存・復元するEmacs Lispは古くから *windows.el* があります。
+[[http://www.gentei.org/~yuuji/software/]]
+** psession インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install psession
+
+
+#+end:
+** 概要                                                             :noexport:
+psessoin.elを使えば、Emacs終了時に特定の変数を保存し、
+再起動時にそれらを復元します。
+
+保存・復元する内容は以下のものです。
+- 各種変数
+- 開いているファイルバッファ・diredバッファ
+- 終了時点のウィンドウ構成
+
+保存される場所は ~/.emacs.d/elisp-objects/ です。
+
+ちなみに、保存・復元するEmacs Lispは古くから *windows.el* があります。
+[[http://www.gentei.org/~yuuji/software/]]
+
+** 設定 [[http://rubikitch.com/f/140821132526.psession.el][140821132526.psession.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/140821/140821132526.psession.el"
+#+BEGIN_SRC fundamental
+(require 'dired)                        ;FIXME
+(psession-mode 1)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/140821132526.psession.el
+$ emacs -Q -f package-initialize -l 140821132526.psession.el
+#+END_EXAMPLE
+
+
+** 保存する変数をカスタマイズする
+保存する変数は psession-object-to-save-alist で設定します。
+このように定義されています。
+
+#+BEGIN_EXAMPLE
+(defcustom psession-object-to-save-alist
+  '((ioccur-history . "ioccur-history.el")
+    (extended-command-history . "extended-command-history.el")
+    (helm-external-command-history . "helm-external-command-history.el")
+    (helm-surfraw-engines-history . "helm-surfraw-engines-history.el")
+    (psession--save-buffers-alist . "psession-save-buffers-alist.el")
+    (helm-ff-history . "helm-ff-history.el")
+    (helm-grep-history . "helm-grep-history.el")
+    (kill-ring . "kill-ring.el")
+    (kill-ring-yank-pointer . "kill-ring-yank-pointer.el")
+    (register-alist . "register-alist.el")
+    (psession--winconf-alist . "psession-winconf-alist.el"))
+  "Alist of vars to save persistently.
+It is composed of (var_name . \"var_name.el\").
+Where \"var_name.el\" is the file where to save value of 'var_name."
+  :group 'psession
+  :type '(alist :key-type symbol :value-type string))
+#+END_EXAMPLE
+** オブジェクトを永続化する方法
+Emacs Lispのオブジェクトは簡単に永続化できます。
+
+永続化している関数はこれですが、これを見ればわかるように、
+
+- print-length
+- print-level
+- print-circle
+- print-quoted
+- print-escape-newlines
+- print-escape-nonascii
+- print-escape-multibyte
+を設定し、 *prin1* でファイルに書き出せば永続化できます。
+
+他にはバイトコンパイルし、setqを加え、バイトコンパイルし、
+バイトコンパイル前のソースを削除しています。
+
+#+BEGIN_EXAMPLE
+(defun psession--dump-object-to-file (obj file)
+  "Save symbol object OBJ to the byte compiled version of FILE.
+OBJ can be any lisp object, list, hash-table, etc...
+Windows configurations and markers are not supported.
+FILE must be an elisp file with ext \"*.el\" (NOT \"*.elc\").
+Loading the *.elc file will restitute object.
+That may not work with Emacs versions <=23.1 for hash tables."
+  (require 'cl-lib) ; Be sure we use the CL version of `eval-when-compile'.
+  (cl-assert (not (file-exists-p file)) nil
+             (format "dump-object-to-file: File `%s' already exists, please remove it." file))
+  (unwind-protect
+       (let ((print-length           nil)
+             (print-level            nil)
+             (print-circle           t)
+             (print-quoted           t)
+             (print-escape-newlines  t)
+             (print-escape-nonascii  t)
+             (print-escape-multibyte t))
+         (with-temp-file file
+           (prin1 `(setq ,obj (eval-when-compile ,obj)) (current-buffer)))
+         (byte-compile-file file)
+         (message "`%s' dumped to %sc" obj file))
+    (delete-file file)))
+#+END_EXAMPLE

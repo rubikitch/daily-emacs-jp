@@ -1,0 +1,103 @@
+#+BLOG: rubikitch
+#+POSTID: 320
+#+DATE: [2014-09-08 Mon 06:26]
+#+PERMALINK: dired-details
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs
+#+EL_PKG_NAME: dired-details
+#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, relate:dired-toggle, relate:dired, emacs find-dired, emacs dired カスタマイズ, emacs dired 表示, emacs dired ls, , emacs dired 便利, package:dired, dired-hide-details-mode, relate:dired-subtree, 
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: 【復活！】diredでファイル名以外を非表示にする！dired-toggle.elと合わせよう
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージdired-detailsの紹介
+#+MYTAGS: package:dired-details, emacs 使い方, emacs コマンド, emacs, emacs lisp dired-details, elisp dired-details, emacs melpa dired-details, emacs dired-details 使い方, emacs dired-details 設定, emacs パッケージ dired-details, emacs dired-details スクリーンショット, relate:dired-toggle, relate:dired, emacs find-dired, emacs dired カスタマイズ, emacs dired 表示, emacs dired ls, , emacs dired 便利, package:dired, dired-hide-details-mode, relate:dired-subtree, 
+#+TITLE: emacs dired-details.el : 【復活！】diredでファイル名以外を非表示にする！dired-toggle.elと合わせよう | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>dired-details</td></tr>
+<tr><td>概要(原文)</td><td>make file details hide-able in dired</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="http://www.emacswiki.org/dired-details.el">http://www.emacswiki.org/dired-details.el</a></td></tr>
+<tr><td>バージョン</td><td>20130824.1158</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:dired-details/">package:dired-details</a> <a href="http://rubikitch.com/tag/package:dired-toggle/">package:dired-toggle</a> <a href="http://rubikitch.com/tag/package:dired/">package:dired</a> <a href="http://rubikitch.com/tag/package:dired-subtree/">package:dired-subtree</a></td></tr>
+</table>
+<br />
+#+END_HTML
+diredでファイルのみを見たいときにパーミッションなどの情報があると
+横幅をとってしまって本当に邪魔ですよね。
+
+そこでdired-details.elの出番です。
+
+元の表示に戻すには「)」を、隠すには「(」を押します。
+
+<2014-12-22 Mon> [[http://rubikitch.com/2014/12/22/dired-subtree/][dired-subtree.el(レビュー記事)]] を使っている人は
+*M-x dired-hide-details-mode* に対応するまで dired-details.el を
+使ってください。
+
+<2014-10-30 Thu> Emacs 24.4では[[http://rubikitch.com/2014/10/23/emacs244-package-news/][M-x dired-hide-details-modeが標準]]
+になったのでdired-details.elはいらない子になりました…
+
+
+[[http://rubikitch.com/2014/09/08/dired-toggle/][dired-toggle.el]] と組み合わせるといい感じになります。
+
+dired-toggle.elは設定なしで使えるので、
+合わせてインストールしておきましょう。
+** dired-details インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install dired-details
+
+
+#+end:
+** 概要                                                             :noexport:
+diredでファイルのみを見たいときにパーミッションなどの情報があると
+横幅をとってしまって本当に邪魔ですよね。
+
+そこでdired-details.elの出番です。
+
+元の表示に戻すには「)」を、隠すには「(」を押します。
+
+<2014-12-22 Mon> [[http://rubikitch.com/2014/12/22/dired-subtree/][dired-subtree.el(レビュー記事)]] を使っている人は
+*M-x dired-hide-details-mode* に対応するまで dired-details.el を
+使ってください。
+
+<2014-10-30 Thu> Emacs 24.4では[[http://rubikitch.com/2014/10/23/emacs244-package-news/][M-x dired-hide-details-modeが標準]]
+になったのでdired-details.elはいらない子になりました…
+
+
+[[http://rubikitch.com/2014/09/08/dired-toggle/][dired-toggle.el]] と組み合わせるといい感じになります。
+
+dired-toggle.elは設定なしで使えるので、
+合わせてインストールしておきましょう。
+
+** 設定 [[http://rubikitch.com/f/140908062937.el][140908062937.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/140908/140908062937.el"
+#+BEGIN_SRC fundamental
+(require 'dired-details)
+(dired-details-install)
+(setq dired-details-hidden-string "")
+(setq dired-details-hide-link-targets nil)
+
+(defadvice find-dired-sentinel (after dired-details (proc state) activate)
+  "find-diredでもdired-detailsを使えるようにする"
+  (ignore-errors
+    (with-current-buffer (process-buffer proc)
+      (dired-details-activate))))
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/140908062937.el
+$ emacs -Q -f package-initialize -l 140908062937.el
+#+END_EXAMPLE
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+http://rubikitch.com/f/20140908063515.png
+Fig1: M-x dired-toggleと併用！

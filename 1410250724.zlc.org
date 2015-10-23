@@ -1,0 +1,119 @@
+#+BLOG: rubikitch
+#+POSTID: 516
+#+DATE: [2014-10-25 Sat 07:24]
+#+PERMALINK: zlc
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, Emacs 24.4,
+#+EL_PKG_NAME: zlc
+#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs zsh ミニバッファ 補完, emacs 補完, relate:helm, relate:anything
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方
+#+EL_TITLE0: 【Emacs 24.4対応】ミニバッファでzshの補完を実現する
+#+EL_URL: http://d.hatena.ne.jp/mooz/20101003/p1
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージzlcの紹介
+#+MYTAGS: package:zlc, emacs 使い方, emacs コマンド, emacs, emacs lisp zlc, elisp zlc, emacs melpa zlc, emacs zlc 使い方, emacs zlc 設定, emacs パッケージ zlc, emacs zsh ミニバッファ 補完, emacs 補完, relate:helm, relate:anything
+#+TITLE: emacs zlc.el : 【Emacs 24.4対応】ミニバッファでzshの補完を実現する | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>zlc</td></tr>
+<tr><td>概要(原文)</td><td>Provides zsh like completion system to Emacs</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>サイト</td><td><a href="http://d.hatena.ne.jp/mooz/20101003/p1">http://d.hatena.ne.jp/mooz/20101003/p1</td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/mooz/emacs-zlc">https://github.com/mooz/emacs-zlc</a></td></tr>
+<tr><td>バージョン</td><td>20141029.647</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:zlc/">package:zlc</a> <a href="http://rubikitch.com/tag/package:helm/">package:helm</a> <a href="http://rubikitch.com/tag/package:anything/">package:anything</a></td></tr>
+</table>
+<br />
+#+END_HTML
+
+*zsh* の補完って気がきいていて便利ですよね！
+
+TABを押したら補完候補が下に出てくるのは他のシェルと同じですが、
+再度押したら候補をメニュー選択できて、RETを押したらそれが確定されます。
+
+これをEmacsの*Completions*バッファで行おうというのが *zlc.el* です。
+
+zlc.elがEmacs 24.4に対応できてされてMELPAに登ってきたので紹介します。
+
+僕は *anything* / *helm* を使っていていますが、
+*M-x anything-find-files* / *M-x helm-find-files* の挙動は嫌いです。
+
+だって重いですから…
+
+なのでC-x C-fは標準の挙動で使っています。
+
+自分で最近作成したファイルならばたいてい *recentf* で拾えますし、
+開いたことがないファイルはzshの補完で拾えるくらいが丁度いいと感じています。
+
+Emacsもzsh大好きな人ならば絶対おすすめです！
+
+[[http://d.hatena.ne.jp/mooz/20101003/p1][作者の紹介ページ]] では画像もデモンストレーション動画もあります。
+
+
+
+
+
+** zlc インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install zlc
+
+
+#+end:
+** 概要                                                             :noexport:
+
+*zsh* の補完って気がきいていて便利ですよね！
+
+TABを押したら補完候補が下に出てくるのは他のシェルと同じですが、
+再度押したら候補をメニュー選択できて、RETを押したらそれが確定されます。
+
+これをEmacsの*Completions*バッファで行おうというのが *zlc.el* です。
+
+zlc.elがEmacs 24.4に対応できてされてMELPAに登ってきたので紹介します。
+
+僕は *anything* / *helm* を使っていていますが、
+*M-x anything-find-files* / *M-x helm-find-files* の挙動は嫌いです。
+
+だって重いですから…
+
+なのでC-x C-fは標準の挙動で使っています。
+
+自分で最近作成したファイルならばたいてい *recentf* で拾えますし、
+開いたことがないファイルはzshの補完で拾えるくらいが丁度いいと感じています。
+
+Emacsもzsh大好きな人ならば絶対おすすめです！
+
+[[http://d.hatena.ne.jp/mooz/20101003/p1][作者の紹介ページ]] では画像もデモンストレーション動画もあります。
+
+
+
+
+
+
+** 設定 [[http://rubikitch.com/f/141025072030.zlc.el][141025072030.zlc.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/141025/141025072030.zlc.el"
+#+BEGIN_SRC fundamental
+(zlc-mode 1)
+(let ((map minibuffer-local-map))
+  (define-key map (kbd "<down>")  'zlc-select-next-vertical)
+  (define-key map (kbd "<up>")    'zlc-select-previous-vertical)
+  (define-key map (kbd "<right>") 'zlc-select-next)
+  (define-key map (kbd "<left>")  'zlc-select-previous)
+  (define-key map (kbd "M-<tab>") 'zlc-select-previous)
+  (define-key map (kbd "M-TAB") 'zlc-select-previous))
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/141025072030.zlc.el
+$ emacs -Q -f package-initialize -l 141025072030.zlc.el
+#+END_EXAMPLE
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

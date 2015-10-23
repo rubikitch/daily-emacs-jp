@@ -1,0 +1,161 @@
+#+BLOG: rubikitch
+#+POSTID: 1094
+#+DATE: [2015-02-07 Sat 04:51]
+#+PERMALINK: scratch-palette
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs
+#+EL_PKG_NAME: scratch-palette
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, relate:scratch-pop, relate:org, relate:scratch-log, relate:archive-region, relate:bm, relate:helm-bm, scratch, relate:omni-scratch
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: ファイルごとに*scratch*のようなメモを取る
+#+EL_URL: http://hins11.jugem.jp/?eid=20
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージscratch-paletteの紹介
+#+MYTAGS: package:scratch-palette, emacs 使い方, emacs コマンド, emacs, scratch-palette, scratch-palette.el, emacs lisp scratch-palette, elisp scratch-palette, emacs melpa scratch-palette, emacs scratch-palette 使い方, emacs scratch-palette 設定, emacs パッケージ scratch-palette, emacs scratch-palette スクリーンショット, relate:scratch-pop, relate:org, relate:scratch-log, relate:archive-region, relate:bm, relate:helm-bm, scratch, relate:omni-scratch
+#+TAGS: package:scratch-palette, emacs 使い方, emacs コマンド, emacs, scratch-palette, scratch-palette.el, emacs lisp scratch-palette, elisp scratch-palette, emacs melpa scratch-palette, emacs scratch-palette 使い方, emacs scratch-palette 設定, emacs パッケージ scratch-palette, emacs scratch-palette スクリーンショット, relate:scratch-pop, relate:org, relate:scratch-log, relate:archive-region, relate:bm, relate:helm-bm, scratch, relate:omni-scratch, Emacs, org-mode, ChangeLogメモ, scratch-palette.el, M-x scratch-palette-popup, C-g, C-x C-s, C-x C-k, archive-region.el, org-mode, ChangeLogメモ, scratch-palette.el, M-x scratch-palette-popup, C-g, C-x C-s, C-x C-k, archive-region.el
+#+TITLE: emacs scratch-palette.el : ファイルごとに*scratch*のようなメモを取る | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>scratch-palette</td></tr>
+<tr><td>概要(原文)</td><td>make scratch buffer for each files</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>サイト</td><td><a href="http://hins11.jugem.jp/?eid=20">http://hins11.jugem.jp/?eid=20</td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/zk-phi/scratch-palette">https://github.com/zk-phi/scratch-palette</a></td></tr>
+<tr><td>バージョン</td><td>20150225.42</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:scratch-palette/">package:scratch-palette</a> <a href="http://rubikitch.com/tag/package:scratch-pop/">package:scratch-pop</a> <a href="http://rubikitch.com/tag/package:org/">package:org</a> <a href="http://rubikitch.com/tag/package:scratch-log/">package:scratch-log</a> <a href="http://rubikitch.com/tag/package:archive-region/">package:archive-region</a> <a href="http://rubikitch.com/tag/package:bm/">package:bm</a> <a href="http://rubikitch.com/tag/package:helm-bm/">package:helm-bm</a> <a href="http://rubikitch.com/tag/package:omni-scratch/">package:omni-scratch</a></td></tr>
+</table>
+<br />
+#+END_HTML
+Emacsでメモを取る方法は、ほんっとにたくさんあります。
+
+今では *org-mode* が主流だろうけど、
+同じ作者による[[http://rubikitch.com/2014/11/24/scratch-pop/][scratch-pop.el(レビュー)]] や
+[[http://rubikitch.com/2015/01/05/scratch-log/][scratch-log.el(レビュー)]] で*scratch*にメモる方法もあります。
+
+昔からある *ChangeLogメモ* は有名です。
+
+あまり知られていませんが[[http://rubikitch.com/2014/12/17/bm-repository-open/][bm.el+helm-bm.el(最強設定)]] でも
+annotation機能(未紹介)を使えばファイル内にメモを残せます。
+
+この *scratch-palette.el* は、各ファイルごとに*scratch*が
+あるようなイメージのメモです。
+
+*M-x scratch-palette-popup* で、メモをポップアップし、
+*C-g* 、 *C-x C-s* 、 *C-x C-k* (C-c C-kの方がよいかと…) で
+メモを閉じます。
+
+メモファイルは ~/.emacs.d/palette/ 以下に
+元のファイル名に対応するファイル名で
+保存されます。
+
+例:
+#+BEGIN_EXAMPLE
+/tmp/test.txt
+↓
+~/.emacs.d/palette/!tmp!test.txt
+#+END_EXAMPLE
+
+こういう方式のメモだと、メモをとったこと自体を忘れがちですが、
+ファイルを開いたときにメモが存在するときはお知らせしてくれます。
+
+[[http://hins11.jugem.jp/?eid=20][作者のページ]] からの引用。
+
+#+BEGIN_QUOTE
+ファイルにちょっとしたメモを貼っておくためのelisp。イメージは教科書に
+貼り付けたポストイット。
+
+(略)
+
+ちょっとしたTodoだったり、Changelogだったりをとっておくのに、便利かも
+しれません。もしくは、ある程度大きな領域をコメントアウトしたまま残して
+おく代わりにこちらに移動しておくとか、そんな使い方もあるかも知れません。
+#+END_QUOTE
+
+ポストイットならばbm.elのannotationが近いと思います。
+
+ある程度大きな領域を移動するのは、
+僕が昔作った *archive-region.el* (EmacsWikiにて)もあります。
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+[[file:/r/sync/screenshots/20150207051007.png]]
+Fig1: ファイルに対応するメモがポップアップ
+** scratch-palette インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install scratch-palette
+
+
+#+end:
+** 概要                                                             :noexport:
+Emacsでメモを取る方法は、ほんっとにたくさんあります。
+
+今では *org-mode* が主流だろうけど、
+同じ作者による[[http://rubikitch.com/2014/11/24/scratch-pop/][scratch-pop.el(レビュー)]] や
+[[http://rubikitch.com/2015/01/05/scratch-log/][scratch-log.el(レビュー)]] で*scratch*にメモる方法もあります。
+
+昔からある *ChangeLogメモ* は有名です。
+
+あまり知られていませんが[[http://rubikitch.com/2014/12/17/bm-repository-open/][bm.el+helm-bm.el(最強設定)]] でも
+annotation機能(未紹介)を使えばファイル内にメモを残せます。
+
+この *scratch-palette.el* は、各ファイルごとに*scratch*が
+あるようなイメージのメモです。
+
+*M-x scratch-palette-popup* で、メモをポップアップし、
+*C-g* 、 *C-x C-s* 、 *C-x C-k* (C-c C-kの方がよいかと…) で
+メモを閉じます。
+
+メモファイルは ~/.emacs.d/palette/ 以下に
+元のファイル名に対応するファイル名で
+保存されます。
+
+例:
+#+BEGIN_EXAMPLE
+/tmp/test.txt
+↓
+~/.emacs.d/palette/!tmp!test.txt
+#+END_EXAMPLE
+
+こういう方式のメモだと、メモをとったこと自体を忘れがちですが、
+ファイルを開いたときにメモが存在するときはお知らせしてくれます。
+
+[[http://hins11.jugem.jp/?eid=20][作者のページ]] からの引用。
+
+#+BEGIN_QUOTE
+ファイルにちょっとしたメモを貼っておくためのelisp。イメージは教科書に
+貼り付けたポストイット。
+
+(略)
+
+ちょっとしたTodoだったり、Changelogだったりをとっておくのに、便利かも
+しれません。もしくは、ある程度大きな領域をコメントアウトしたまま残して
+おく代わりにこちらに移動しておくとか、そんな使い方もあるかも知れません。
+#+END_QUOTE
+
+ポストイットならばbm.elのannotationが近いと思います。
+
+ある程度大きな領域を移動するのは、
+僕が昔作った *archive-region.el* (EmacsWikiにて)もあります。
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+[[file:/r/sync/screenshots/20150207051007.png]]
+Fig2: ファイルに対応するメモがポップアップ
+
+** 設定 [[http://rubikitch.com/f/150207045026.scratch-palette.el][150207045026.scratch-palette.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/150207/150207045026.scratch-palette.el"
+#+BEGIN_SRC fundamental
+(global-set-key (kbd "C-c s") 'scratch-palette-popup)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/150207045026.scratch-palette.el
+$ emacs -Q -f package-initialize -l 150207045026.scratch-palette.el
+#+END_EXAMPLE
+
+# /r/sync/screenshots/20150207051007.png http://rubikitch.com/wp-content/uploads/2015/02/wpid-20150207051007.png

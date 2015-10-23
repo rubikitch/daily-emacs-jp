@@ -1,0 +1,150 @@
+#+BLOG: rubikitch
+#+POSTID: 1766
+#+DATE: [2015-06-22 Mon 23:45]
+#+PERMALINK: railscasts-theme
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, theme
+#+EL_PKG_NAME: railscasts-theme
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, color-theme, カラーテーマ
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: railscastsのためのカラーテーマ
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージrailscasts-themeの紹介
+#+MYTAGS: package:railscasts-theme, emacs 使い方, emacs コマンド, emacs, railscasts-theme, railscasts-theme.el, emacs lisp railscasts-theme, elisp railscasts-theme, emacs melpa railscasts-theme, emacs railscasts-theme 使い方, emacs railscasts-theme 設定, emacs パッケージ railscasts-theme, emacs railscasts-theme スクリーンショット, color-theme, カラーテーマ
+#+TAGS: package:railscasts-theme, emacs 使い方, emacs コマンド, emacs, railscasts-theme, railscasts-theme.el, emacs lisp railscasts-theme, elisp railscasts-theme, emacs melpa railscasts-theme, emacs railscasts-theme 使い方, emacs railscasts-theme 設定, emacs パッケージ railscasts-theme, emacs railscasts-theme スクリーンショット, color-theme, カラーテーマ, Emacs, theme, railscasts-theme.el
+#+TITLE: emacs railscasts-theme.el : railscastsのためのカラーテーマ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>railscasts-theme</td></tr>
+<tr><td>概要(原文)</td><td>Railscasts color theme for GNU Emacs.</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/mikenichols/railscasts-theme">https://github.com/mikenichols/railscasts-theme</a></td></tr>
+<tr><td>バージョン</td><td>20150219.725</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:railscasts-theme/">package:railscasts-theme</a> </td></tr>
+</table>
+<br />
+#+END_HTML
+*railscasts-theme.el* は以下のパッケージに対応したカラーテーマです。
+- font-lock
+- enh-ruby-mode
+- show-paren
+- hl-line
+- flyimake
+- auto-highlight-symbol
+- speedbar
+- workgroups
+- rbenv
+- term
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_theme_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150622234613.png]]
+Fig1: emacs-lisp-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150622234619.png]]
+Fig2: magit
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150622234624.png]]
+Fig3: grep
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150622234629.png]]
+Fig4: outline-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150622234634.png]]
+Fig5: org-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150622234640.png]]
+Fig6: dired
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150622234650.png]]
+Fig7: web-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150622234655.png]]
+Fig8: markdown-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150622234701.png]]
+Fig9: helm
+** railscasts-theme インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install railscasts-theme
+
+
+#+end:
+** 概要                                                             :noexport:
+*railscasts-theme.el* は以下のパッケージに対応したカラーテーマです。
+- font-lock
+- enh-ruby-mode
+- show-paren
+- hl-line
+- flyimake
+- auto-highlight-symbol
+- speedbar
+- workgroups
+- rbenv
+- term
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_theme_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150622234613.png]]
+Fig10: emacs-lisp-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150622234619.png]]
+Fig11: magit
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150622234624.png]]
+Fig12: grep
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150622234629.png]]
+Fig13: outline-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150622234634.png]]
+Fig14: org-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150622234640.png]]
+Fig15: dired
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150622234650.png]]
+Fig16: web-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150622234655.png]]
+Fig17: markdown-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150622234701.png]]
+Fig18: helm
+
+** 設定 [[http://rubikitch.com/f/150622234543.railscasts-theme.el][150622234543.railscasts-theme.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/150622/150622234543.railscasts-theme.el"
+#+BEGIN_SRC fundamental
+(load-theme 'railscasts t nil)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/150622234543.railscasts-theme.el
+$ emacs -Q -f package-initialize -l 150622234543.railscasts-theme.el
+#+END_EXAMPLE

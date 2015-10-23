@@ -1,0 +1,53 @@
+#+BLOG: rubikitch
+#+POSTID: 1108
+#+DATE: [2015-02-10 Tue 07:02]
+#+PERMALINK: symon
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: 記事更新情報, 
+#+DESCRIPTION: symon.elがグラフィカルになり、表示情報をカスタマイズできるようになりました。
+#+MYTAGS: 
+#+TITLE: Emacsで動くシステムモニターsymonが大幅に進化！！
+#+begin: org2blog-tags
+#+TAGS: , 記事更新情報, , symon.el, symon--make-sparkline
+#+end:
+[[http://rubikitch.com/2015/02/01/symon/]]
+
+*symon.el* が初期レビュー時から大幅に進化しました。
+
+特筆すべきは、この二点です。
+- CPU使用量などがグラフで表示されるようになった
+- 表示情報を個別に指定できるようになった
+
+初期レビュー当時はリリースされてからわずか3日だったので、
+表示内容をカスタマイズできなかったのですが、
+あれから10日たち、中身がまったく別物になっていました。
+
+そのため記事も全面的に書き直しになりました。
+
+レビューにいたっては、コードをすべて読み鑑賞しました。
+
+どのようにグラフを表示させているのかを
+好奇心もって読みました。
+
+elispでグラフ画像を作成している *symon--make-sparkline* 関数は、
+まさに驚嘆です。
+
+[[file:/r/sync/screenshots/20150201084451.png]]
+Fig1: 古いスクリーンショット
+
+
+[[file:/r/sync/screenshots/20150210064924.png]]
+Fig2: 新しいスクリーンショット
+
+
+新しくなった記事へ→ [[http://rubikitch.com/2015/02/01/symon/]]
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+
+# /r/sync/screenshots/20150201084451.png http://rubikitch.com/wp-content/uploads/2015/02/wpid-201502010844512.png
+# /r/sync/screenshots/20150210064924.png http://rubikitch.com/wp-content/uploads/2015/02/wpid-201502100649241.png

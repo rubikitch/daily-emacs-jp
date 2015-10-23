@@ -1,0 +1,204 @@
+#+DATE: [2015-04-18 Sat 06:25]
+#+PERMALINK: ace-pinyin
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, Ruby, 
+#+EL_PKG_NAME: ace-pinyin
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, package:ace-jump-mode, relate:ace-jump-mode, relate:migemo, ace-jump-modeで日本語, ace-jump-mode migemo化, ace-jump-char-mode 中国語, ace-jump-modeを日本語で使う, ace-jump 日本語対応
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: 【念願のMigemo化】ace-jump-char-modeが日本語文字に対応！(元中国語)
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージace-pinyinの紹介
+#+MYTAGS: package:ace-pinyin, emacs 使い方, emacs コマンド, emacs, ace-pinyin, ace-pinyin.el, emacs lisp ace-pinyin, elisp ace-pinyin, emacs melpa ace-pinyin, emacs ace-pinyin 使い方, emacs ace-pinyin 設定, emacs パッケージ ace-pinyin, emacs ace-pinyin スクリーンショット, package:ace-jump-mode, relate:ace-jump-mode, relate:migemo, ace-jump-modeで日本語, ace-jump-mode migemo化, ace-jump-char-mode 中国語, ace-jump-modeを日本語で使う, ace-jump 日本語対応
+#+TAGS: package:ace-pinyin, emacs 使い方, emacs コマンド, emacs, ace-pinyin, ace-pinyin.el, emacs lisp ace-pinyin, elisp ace-pinyin, emacs melpa ace-pinyin, emacs ace-pinyin 使い方, emacs ace-pinyin 設定, emacs パッケージ ace-pinyin, emacs ace-pinyin スクリーンショット, package:ace-jump-mode, relate:ace-jump-mode, relate:migemo, ace-jump-modeで日本語, ace-jump-mode migemo化, ace-jump-char-mode 中国語, ace-jump-modeを日本語で使う, ace-jump 日本語対応, Emacs, Ruby, , 高速カーソル移動, M-x ace-jump-char-mode, ace-pinyin.el, ace-jump-char-modeを中国語文字に対応, pinyin, 高速カーソル移動, M-x ace-jump-char-mode, ace-pinyin.el, ace-jump-char-modeを中国語文字に対応, pinyin, ace-pinyin-jump-char, ace-pinyin--jump-impl, ace-pinyin--char-table, cmigemo
+#+TITLE: emacs ace-pinyin.el : 【念願のMigemo化】ace-jump-char-modeが日本語文字に対応！(元中国語) | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>ace-pinyin</td></tr>
+<tr><td>概要(原文)</td><td>Make `ace-jump-char-mode' capable of jumping to Chinese characters</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/cute-jumper/ace-pinyin">https://github.com/cute-jumper/ace-pinyin</a></td></tr>
+<tr><td>バージョン</td><td>20150413.905</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:ace-pinyin/">package:ace-pinyin</a> <a href="http://rubikitch.com/tag/package:ace-jump-mode/">package:ace-jump-mode</a> <a href="http://rubikitch.com/tag/package:migemo/">package:migemo</a></td></tr>
+</table>
+<br />
+#+END_HTML
+[[http://rubikitch.com/2014/10/09/ace-jump-mode/][ace-jump-mode.el(レビュー)]] は、画面内の任意の位置に
+少なくとも3ストロークで到達できるようにする
+画面内に特化した *高速カーソル移動* パッケージです。
+
+*M-x ace-jump-char-mode* は入力された文字をすべて
+ハイライトし、その場所に即移動できるようにします。
+
+しかし、日本人としては日本語に対応してほしいものです。
+
+そこで *ace-pinyin.el* の出番です。
+
+これは元々 *ace-jump-char-modeを中国語文字に対応* させるものですが、
+僕の目測通り、ひとつの変数を変更するだけでそのまま日本語文字に
+対応できることがわかりました。
+
+*pinyin* (ピンイン)とは、中国語のローマ字と思ってください。
+
+設定はa〜zに対応する多くの日本語文字の正規表現を定義しているため、
+とてつもなく長くなっています。
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150418063553.png]]
+Fig1: この状態でM-x ace-jump-char-modeの後にkを押すと…
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150418063601.png]]
+Fig2: か行に対応する日本語文字が移動対象になる
+** ace-pinyin インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install ace-pinyin
+
+
+#+end:
+** 概要                                                             :noexport:
+[[http://rubikitch.com/2014/10/09/ace-jump-mode/][ace-jump-mode.el(レビュー)]] は、画面内の任意の位置に
+少なくとも3ストロークで到達できるようにする
+画面内に特化した *高速カーソル移動* パッケージです。
+
+*M-x ace-jump-char-mode* は入力された文字をすべて
+ハイライトし、その場所に即移動できるようにします。
+
+しかし、日本人としては日本語に対応してほしいものです。
+
+そこで *ace-pinyin.el* の出番です。
+
+これは元々 *ace-jump-char-modeを中国語文字に対応* させるものですが、
+僕の目測通り、ひとつの変数を変更するだけでそのまま日本語文字に
+対応できることがわかりました。
+
+*pinyin* (ピンイン)とは、中国語のローマ字と思ってください。
+
+設定はa〜zに対応する多くの日本語文字の正規表現を定義しているため、
+とてつもなく長くなっています。
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150418063553.png]]
+Fig1: この状態でM-x ace-jump-char-modeの後にkを押すと…
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150418063601.png]]
+Fig2: か行に対応する日本語文字が移動対象になる
+
+** 設定 [[http://rubikitch.com/f/150418062221.ace-pinyin.el][150418062221.ace-pinyin.el(ダウンロードしてください)]]
+あまりに長いのでダウンロードしてください。
+
+#+BEGIN_SRC fundamental
+(require 'ace-pinyin)
+;;; echo a | cmigemo -q --emacs -d /usr/share/cmigemo/utf-8/migemo-dict
+;;; をa〜zで繰り返し、最初の[]の文字を取得することで生成
+(setq ace-pinyin--char-table
+  '(
+    "[母餅渉恤閔憐遽慌鰒蚫鮑]"
+    略))
+(global-set-key (kbd "C-:") 'ace-jump-char-mode)
+(ace-pinyin-global-mode 1)
+#+END_SRC
+
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/150418062221.ace-pinyin.el
+$ emacs -Q -f package-initialize -l 150418062221.ace-pinyin.el
+#+END_EXAMPLE
+
+** メカニズム
+*ace-jump-char-mode* を *ace-pinyin-jump-char* にすり替え、
+その中で *ace-pinyin--jump-impl* 関数を呼んでいます。
+
+元々ace-jump-mode.elは正規表現検索に対応しているので、
+アルファベットから中国語文字に対応する正規表現を作成すれば
+中国語文字に対応できることになります。
+
+その変換テーブルこそが *ace-pinyin--char-table* です。
+
+#+BEGIN_SRC emacs-lisp :results silent
+(defun ace-pinyin--build-regexp (query-char &optional prefix)
+  (let ((diff (- query-char ?a)))
+    (if (and (< diff 26) (>= diff 0))
+        (let ((regexp (nth diff ace-pinyin--char-table)))
+          (if prefix regexp (concat (format "[%c]\\|" query-char) regexp)))
+      (regexp-quote (make-string 1 query-char)))))
+
+(defun ace-pinyin--jump-impl (query-char &optional prefix)
+  "Basically copy the implementation of `ace-jump-char-mode'"
+  (if ace-jump-current-mode (ace-jump-done))
+  
+  (if (eq (ace-jump-char-category query-char) 'other)
+    (error "[AceJump] Non-printable character"))
+
+  ;; others : digit , alpha, punc
+  (setq ace-jump-query-char query-char)
+  (setq ace-jump-current-mode 'ace-jump-char-mode)
+  (ace-jump-do (ace-pinyin--build-regexp query-char prefix)))
+#+END_SRC
+
+変換テーブルはこのようになっています。
+
+#+BEGIN_SRC emacs-lisp :results silent
+;;; 本当はめちゃくちゃ長いから縮めている
+(defconst ace-pinyin--char-table
+  '("[阿啊呵腌嗄锕吖爱哀]" ; a に対応
+    "[把八吧巴爸罢拔叭芭]" ; b に対応
+    ...
+                           ; z に対応
+))
+#+END_SRC
+
+** 日本語化するにいたって
+ならば、 ace-pinyin--char-table を日本語文字に
+対応させればいいことになります。
+
+では、そのためにはどうやって日本語文字を集めるか…
+
+*cmigemo* を使います。
+
+$ echo a | cmigemo -q --emacs -d /usr/share/cmigemo/utf-8/migemo-dict
+を実行すればaに対応する正規表現がMigemoから得られます。
+
+結果は以下のようになります。
+
+#+BEGIN_EXAMPLE
+\([母餅渉恤閔憐遽慌鰒蚫鮑袷]\|廈\s-*門\|厦\s-  (略) \\)
+#+END_EXAMPLE
+
+そのうち、最初の [〜] に相当する部分を抜き出せば目的は達成できます。
+
+これらをa〜zで繰り返し、 ace-pinyin--char-table を定義すればいいです。
+
+そのためにRubyスクリプトを作りました。
+
+#+BEGIN_SRC ruby :results xmp silent
+# -*- coding: utf-8 -*-
+def char2migemo(char)
+  `echo #{char} | cmigemo -q --emacs -d /usr/share/cmigemo/utf-8/migemo-dict`
+end
+
+def ascii2jchar(char)
+  char2migemo(char)[/^\\\(\[(.+?)\]/, 1]
+end
+def output
+  tables = (?a..?z).map{|ch| format(%Q!    "[%s]"\n!, ascii2jchar(ch)) }.join
+  <<XXXX
+(setq ace-pinyin--char-table
+  '(
+#{tables}
+  ))
+XXXX
+end
+
+puts output
+#+END_SRC
+
+やはり僕の読みは正しかった…

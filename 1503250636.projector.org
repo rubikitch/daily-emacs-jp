@@ -1,0 +1,145 @@
+#+BLOG: rubikitch
+#+POSTID: 1367
+#+DATE: [2015-03-25 Wed 06:36]
+#+PERMALINK: projector
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs
+#+EL_PKG_NAME: projector
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, package:projectile, relate:projectile, package:ido, relate:ido, package:ido-occasional, relate:ido-occasional, ido, M-!をprojectileに対応させる, relate:alert, package:alert
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: 【M-!カイゼン】シェルコマンド履歴をido化し専用バッファで実行させる！projectile対応
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージprojectorの紹介
+#+MYTAGS: package:projector, emacs 使い方, emacs コマンド, emacs, projector, projector.el, emacs lisp projector, elisp projector, emacs melpa projector, emacs projector 使い方, emacs projector 設定, emacs パッケージ projector, emacs projector スクリーンショット, package:projectile, relate:projectile, package:ido, relate:ido, package:ido-occasional, relate:ido-occasional, ido, M-!をprojectileに対応させる, relate:alert, package:alert
+#+TAGS: package:projector, emacs 使い方, emacs コマンド, emacs, projector, projector.el, emacs lisp projector, elisp projector, emacs melpa projector, emacs projector 使い方, emacs projector 設定, emacs パッケージ projector, emacs projector スクリーンショット, package:projectile, relate:projectile, package:ido, relate:ido, package:ido-occasional, relate:ido-occasional, ido, M-!をprojectileに対応させる, relate:alert, package:alert, Emacs, M-!, ido, projector-always-background-regex, growlnotify, projectile, M-x projector-run-shell-command-current-directory, M-x projector-run-shell-command-project-root, projector.el, completing-read, ido, projector-always-background-regex, growlnotify, projectile, M-x projector-run-shell-command-current-directory, M-x projector-run-shell-command-project-root, projector.el, completing-read
+#+TITLE: emacs projector.el : 【M-!カイゼン】シェルコマンド履歴をido化し専用バッファで実行させる！projectile対応 | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>projector</td></tr>
+<tr><td>概要(原文)</td><td>Lightweight library for managing project/repository-aware shell and command buffers</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/waymondo/projector.el">https://github.com/waymondo/projector.el</a></td></tr>
+<tr><td>バージョン</td><td>20141121.1212</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:projector/">package:projector</a> <a href="http://rubikitch.com/tag/package:projectile/">package:projectile</a> <a href="http://rubikitch.com/tag/package:ido/">package:ido</a> <a href="http://rubikitch.com/tag/package:ido-occasional/">package:ido-occasional</a> <a href="http://rubikitch.com/tag/package:alert/">package:alert</a></td></tr>
+</table>
+<br />
+#+END_HTML
+*M-!* でシェルコマンドを実行していると、
+実行するコマンドがだいたい決まってくるものです。
+
+そこで、シェルコマンド履歴を *ido* インターフェースで選択してみませんか？
+
+さらにシェルコマンドの実行結果を従来の*Shell Command Output*ではなく
+現在のディレクトリ(プロジェクト)とコマンドごとに保存すると
+次回M-!で別のコマンドを実行しても前の実行結果は消えません。
+
+しかも、時間がかかるコマンドを
+*projector-always-background-regex* で設定しておけば
+自動的にバックグラウンドで実行してくれます。
+
+実行結果は [[http://rubikitch.com/2014/12/09/alert/][alert.el(レビュー)]] で表示されるので、
+*growlnotify* など好きな通知プログラムが使えます。
+(デフォルトはミニバッファに表示)
+
+*projectile* でプロジェクトを管理しているならば、
+プロジェクトルートでコマンドを実行できます。
+
+- *M-x projector-run-shell-command-current-directory* :: カレントディレクトリで実行
+- *M-x projector-run-shell-command-project-root* :: プロジェクトルートで実行
+
+C-uを付けて実行すると強制的にバックグラウンド実行になります。
+
+M-!をちょっとカイゼンしたいならば入れておいて損はありません。
+
+*projector.el* 本体はidoとは関係なく、
+単に *completing-read* でシェルコマンド履歴を呼んでいるので
+[[http://rubikitch.com/2015/02/23/ido-occasional/][ido-occasional.el(レビュー)]] でido化しています。
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150325065951.png]]
+Fig1: idoでコマンド履歴を選択
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150325070001.png]]
+Fig2: 実行結果は専用バッファで表示！
+** projector インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install projector
+
+
+#+end:
+** 概要                                                             :noexport:
+*M-!* でシェルコマンドを実行していると、
+実行するコマンドがだいたい決まってくるものです。
+
+そこで、シェルコマンド履歴を *ido* インターフェースで選択してみませんか？
+
+さらにシェルコマンドの実行結果を従来の*Shell Command Output*ではなく
+現在のディレクトリ(プロジェクト)とコマンドごとに保存すると
+次回M-!で別のコマンドを実行しても前の実行結果は消えません。
+
+しかも、時間がかかるコマンドを
+*projector-always-background-regex* で設定しておけば
+自動的にバックグラウンドで実行してくれます。
+
+実行結果は [[http://rubikitch.com/2014/12/09/alert/][alert.el(レビュー)]] で表示されるので、
+*growlnotify* など好きな通知プログラムが使えます。
+(デフォルトはミニバッファに表示)
+
+*projectile* でプロジェクトを管理しているならば、
+プロジェクトルートでコマンドを実行できます。
+
+- *M-x projector-run-shell-command-current-directory* :: カレントディレクトリで実行
+- *M-x projector-run-shell-command-project-root* :: プロジェクトルートで実行
+
+C-uを付けて実行すると強制的にバックグラウンド実行になります。
+
+M-!をちょっとカイゼンしたいならば入れておいて損はありません。
+
+*projector.el* 本体はidoとは関係なく、
+単に *completing-read* でシェルコマンド履歴を呼んでいるので
+[[http://rubikitch.com/2015/02/23/ido-occasional/][ido-occasional.el(レビュー)]] でido化しています。
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150325065951.png]]
+Fig1: idoでコマンド履歴を選択
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150325070001.png]]
+Fig2: 実行結果は専用バッファで表示！
+
+** 設定 [[http://rubikitch.com/f/150325061231.projector.1.el][150325061231.projector.1.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/150325/150325061231.projector.1.el"
+#+BEGIN_SRC fundamental
+(require 'projectile)                   ;使おうが使わまいが必要
+(require 'ido-occasional)
+;;; M-!を置き換え。projectile好きならば projector-run-shell-command-project-root でもよい
+(global-set-key (kbd "M-!") (with-ido-completion projector-run-shell-command-current-directory))
+;;; コマンドが正規表現にマッチしていれば自動でバックグラウンド実行になる
+(setq projector-always-background-regex '("^mysql.server\\.*" "^powder\\.*" "sleep"))
+;;; fix bug
+(defvaralias 'projector-command-history 'shell-command-history)
+(define-key minibuffer-local-completion-map " " nil)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/150325061231.projector.1.el
+$ emacs -Q -f package-initialize -l 150325061231.projector.1.el
+#+END_EXAMPLE
+
+# /r/sync/screenshots/20150325065951.png http://rubikitch.com/wp-content/uploads/2015/03/wpid-20150325065951.png
+# /r/sync/screenshots/20150325070001.png http://rubikitch.com/wp-content/uploads/2015/03/wpid-20150325070001.png

@@ -1,0 +1,111 @@
+#+BLOG: rubikitch
+#+POSTID: 2050
+#+DATE: [2015-10-04 Sun 17:01]
+#+PERMALINK: sane-term
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs
+#+EL_PKG_NAME: sane-term
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, , relate:term, relate:multi-term, terminal-emulator, M-x term, M-x ansi-term, ターミナルエミュレータ, 端末エミュレーター, xterm, mlterm, urxvt, rxvt-unicode, ratpoison, stumpwm, タイル型ウィンドウマネージャー, 端末, tty, rxvt
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 
+#+EL_TITLE0: 複数のM-x ansi-termを切替える
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージsane-termの紹介
+#+MYTAGS: package:sane-term, emacs 使い方, emacs コマンド, emacs, sane-term, sane-term.el, emacs lisp sane-term, elisp sane-term, emacs melpa sane-term, emacs sane-term 使い方, emacs sane-term 設定, emacs パッケージ sane-term, , relate:term, relate:multi-term, terminal-emulator, M-x term, M-x ansi-term, ターミナルエミュレータ, 端末エミュレーター, xterm, mlterm, urxvt, rxvt-unicode, ratpoison, stumpwm, タイル型ウィンドウマネージャー, 端末, tty, rxvt
+#+TAGS: package:sane-term, emacs 使い方, emacs コマンド, emacs, sane-term, sane-term.el, emacs lisp sane-term, elisp sane-term, emacs melpa sane-term, emacs sane-term 使い方, emacs sane-term 設定, emacs パッケージ sane-term, , relate:term, relate:multi-term, terminal-emulator, M-x term, M-x ansi-term, ターミナルエミュレータ, 端末エミュレーター, xterm, mlterm, urxvt, rxvt-unicode, ratpoison, stumpwm, タイル型ウィンドウマネージャー, 端末, tty, rxvt, Emacs, sane-term.el, M-x ansi-term, M-x sane-term, M-x sane-term-create, M-x ansi-term, M-x sane-term, M-x sane-term-create
+#+TITLE: emacs sane-term.el : 複数のM-x ansi-termを切替える | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>sane-term</td></tr>
+<tr><td>概要(原文)</td><td>Multi Term is crazy. This is not.</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/adamrt/sane-term">https://github.com/adamrt/sane-term</a></td></tr>
+<tr><td>バージョン</td><td>20150917.1602</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:sane-term/">package:sane-term</a> <a href="http://rubikitch.com/tag/package:term/">package:term</a> <a href="http://rubikitch.com/tag/package:multi-term/">package:multi-term</a></td></tr>
+</table>
+<br />
+#+END_HTML
+*sane-term.el* は *M-x ansi-term* というEmacs内で動くターミナルエミュレータを
+複数立ち上げて切替えられるようにします。
+
+*M-x sane-term* は、すでに端末が立ち上がっている場合はそれに切替え、
+立ち上がっていない場合は新しく立ち上げます。
+
+*M-x sane-term-create* は新しく端末を立ち上げます。
+
+本設定ではそれぞれC-x tとC-x Tに割り当てられています。
+
+M-x ansi-term内でもC-xはそのまま使えるので、
+もしEmacs内で端末を使いたければC-x系のキーに割り当てるとよいです。
+
+
+とはいえ、M-x ansi-termはスローすぎてあくびが出るほどなので、
+本物のターミナルエミュレータが使えるのならば、それを使うべきです。
+
+とくにrxvt-unicode(urxvt)は速いことで有名です。
+
+餅は餅屋といいます。
+elispで書かれたおもちゃよりも専門とするプログラムに任せるのが賢明です。
+
+ウィンドウ切替えが面倒？
+ratpoison、stumpwmなどキーボード志向の
+タイル型ウィンドウマネージャーを使えば
+デスクトップ全体があたかもEmacsであるかのように操作できるので快適です。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+** sane-term インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install sane-term
+
+
+#+end:
+** 概要                                                             :noexport:
+*sane-term.el* は *M-x ansi-term* というEmacs内で動くターミナルエミュレータを
+複数立ち上げて切替えられるようにします。
+
+*M-x sane-term* は、すでに端末が立ち上がっている場合はそれに切替え、
+立ち上がっていない場合は新しく立ち上げます。
+
+*M-x sane-term-create* は新しく端末を立ち上げます。
+
+本設定ではそれぞれC-x tとC-x Tに割り当てられています。
+
+M-x ansi-term内でもC-xはそのまま使えるので、
+もしEmacs内で端末を使いたければC-x系のキーに割り当てるとよいです。
+
+
+とはいえ、M-x ansi-termはスローすぎてあくびが出るほどなので、
+本物のターミナルエミュレータが使えるのならば、それを使うべきです。
+
+とくにrxvt-unicode(urxvt)は速いことで有名です。
+
+餅は餅屋といいます。
+elispで書かれたおもちゃよりも専門とするプログラムに任せるのが賢明です。
+
+ウィンドウ切替えが面倒？
+ratpoison、stumpwmなどキーボード志向の
+タイル型ウィンドウマネージャーを使えば
+デスクトップ全体があたかもEmacsであるかのように操作できるので快適です。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+
+** 設定 [[http://rubikitch.com/f/151004170711.sane-term.el][151004170711.sane-term.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/151004/151004170711.sane-term.el"
+#+BEGIN_SRC fundamental
+(global-set-key (kbd "C-x t") 'sane-term)
+(global-set-key (kbd "C-x T") 'sane-term-create)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/151004170711.sane-term.el
+$ emacs -Q -f package-initialize -l 151004170711.sane-term.el
+#+END_EXAMPLE

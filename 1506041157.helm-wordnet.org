@@ -1,0 +1,108 @@
+#+BLOG: rubikitch
+#+POSTID: 1717
+#+DATE: [2015-06-04 Thu 11:57]
+#+PERMALINK: helm-wordnet
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, helm
+#+EL_PKG_NAME: helm-wordnet
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, relate:define-word, emacs 英英辞典, emacs 辞書検索, emacs シソーラス
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: 【英英辞典】WordNet英英辞典をhelmで検索する
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージhelm-wordnetの紹介
+#+MYTAGS: package:helm-wordnet, emacs 使い方, emacs コマンド, emacs, helm-wordnet, helm-wordnet.el, emacs lisp helm-wordnet, elisp helm-wordnet, emacs melpa helm-wordnet, emacs helm-wordnet 使い方, emacs helm-wordnet 設定, emacs パッケージ helm-wordnet, emacs helm-wordnet スクリーンショット, relate:define-word, emacs 英英辞典, emacs 辞書検索, emacs シソーラス
+#+TAGS: package:helm-wordnet, emacs 使い方, emacs コマンド, emacs, helm-wordnet, helm-wordnet.el, emacs lisp helm-wordnet, elisp helm-wordnet, emacs melpa helm-wordnet, emacs helm-wordnet 使い方, emacs helm-wordnet 設定, emacs パッケージ helm-wordnet, emacs helm-wordnet スクリーンショット, relate:define-word, emacs 英英辞典, emacs 辞書検索, emacs シソーラス, Emacs, helm, helm-wordnet.el, M-x helm-wordnet, M-x helm-wordnet
+#+TITLE: emacs helm-wordnet.el : 【英英辞典】WordNet英英辞典をhelmで検索する | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>helm-wordnet</td></tr>
+<tr><td>概要(原文)</td><td>Helm interface to local wordnet dictionary</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/raghavgautam/helm-wordnet">https://github.com/raghavgautam/helm-wordnet</a></td></tr>
+<tr><td>バージョン</td><td>20150527.641</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:helm-wordnet/">package:helm-wordnet</a> <a href="http://rubikitch.com/tag/package:define-word/">package:define-word</a></td></tr>
+</table>
+<br />
+#+END_HTML
+*helm-wordnet.el* は、[[http://rubikitch.com/2015/05/24/define-word/][define-word.el(レビュー)]] 同様
+Emacsから英英辞典を索くelispです。
+
+こちらは[[http://wordnet.princeton.edu/][WordNet]] の英英辞典/シソーラスを検索します。
+
+関連語が充実しているのが特徴です。
+
+WordNetの辞書を検索するにはwnという専用のCLIプログラムがあり、
+helm-wordnet.elはwnをhelmで検索します。
+
+Debian系列ではaptでインストールします。
+#+BEGIN_EXAMPLE
+$ sudo apt-get install wordnet
+#+END_EXAMPLE
+
+使い方は簡単で *M-x helm-wordnet* の後に検索語を入力します。
+
+カーソルを上下させると1秒後に自動的にカーソル位置の単語の意味を表示します。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150604120508.png]]
+Fig1: M-x helm-wordnet helm
+
+
+** helm-wordnet インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install helm-wordnet
+
+
+#+end:
+** 概要                                                             :noexport:
+*helm-wordnet.el* は、[[http://rubikitch.com/2015/05/24/define-word/][define-word.el(レビュー)]] 同様
+Emacsから英英辞典を索くelispです。
+
+こちらは[[http://wordnet.princeton.edu/][WordNet]] の英英辞典/シソーラスを検索します。
+
+関連語が充実しているのが特徴です。
+
+WordNetの辞書を検索するにはwnという専用のCLIプログラムがあり、
+helm-wordnet.elはwnをhelmで検索します。
+
+Debian系列ではaptでインストールします。
+#+BEGIN_EXAMPLE
+$ sudo apt-get install wordnet
+#+END_EXAMPLE
+
+使い方は簡単で *M-x helm-wordnet* の後に検索語を入力します。
+
+カーソルを上下させると1秒後に自動的にカーソル位置の単語の意味を表示します。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150604120508.png]]
+Fig2: M-x helm-wordnet helm
+
+
+
+** 設定 [[http://rubikitch.com/f/150604120344.helm-wordnet.el][150604120344.helm-wordnet.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/150604/150604120344.helm-wordnet.el"
+#+BEGIN_SRC fundamental
+;;; index.nounなどの辞書があるディレクトリを設定する
+;;; Debianでは /usr/share/wordnet 以下に辞書がある
+(setq helm-wordnet-wordnet-location "/usr/share/wordnet")
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/150604120344.helm-wordnet.el
+$ emacs -Q -f package-initialize -l 150604120344.helm-wordnet.el
+#+END_EXAMPLE
+
+

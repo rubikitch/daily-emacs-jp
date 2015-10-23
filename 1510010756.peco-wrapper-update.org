@@ -1,0 +1,31 @@
+#+BLOG: rubikitch
+#+POSTID: 2038
+#+DATE: [2015-10-01 Thu 07:56]
+#+PERMALINK: peco-wrapper-update
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: 記事更新情報, 
+#+DESCRIPTION: 
+#+MYTAGS: 
+#+TITLE: 端末以外でpecoを使うスクリプトを更新
+#+begin: org2blog-tags
+#+TAGS: , 記事更新情報, , --xterm
+#+end:
+http://rubikitch.com/2015/09/29/peco-wrapper/
+
+<2015-10-01 Thu>スクリプトバグ修正・機能追加。
+- printfを使っていたため、入力を受け取りきれなかったバグを修正
+- 端末エミュレータを使っていても標準エラー出力を表示するように改良
+- 入力ファイルがある場合はfifoを使わないように改良
+- pecoのオプション解析をより厳密化するよう改良
+- =--xterm= オプションを追加
+
+使用例
+#+BEGIN_EXAMPLE
+$ peco --xterm='urxvt -fn xft:Ricty-80' /proc/meminfo
+#+END_EXAMPLE
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

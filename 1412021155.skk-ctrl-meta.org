@@ -1,0 +1,88 @@
+#+BLOG: rubikitch
+#+POSTID: 655
+#+DATE: [2014-12-02 Tue 11:55]
+#+PERMALINK: skk-ctrl-meta
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, SKK,
+#+DESCRIPTION: SKK(ddskk)のプログラム実行変換機能を使ってASCIIモードにすることなくEmacsのキーシーケンスを入力する。
+#+MYTAGS:
+#+TAGS: , Emacs, SKK, , SKK, ddskk, キーシーケンス, プログラム実行変換
+#+TITLE: SKK(ddskk)でEmacsのキーシーケンス(C-やM-など)を快適に入力する設定
+*SKK* (*ddskk*) でEmacsに関する文章を書いていると、
+Emacsの *キーシーケンス* を書くことがよくあります。
+
+しかし、そのまま入力しようとすると、
+わざわざ「l」でASCIIモードにする必要があり、
+面倒です。
+
+そこで、 *プログラム実行変換* 機能を使って
+「c」と「m」にEmacs Lisp式を単語登録してしまいます。
+
+以下の設定を追加してください。
+
+それから「/c」と押し、スペースを連打すると単語入力モードになるので、
+「(skk-henkan-C-)」と登録してください。
+
+そうすると、skk-henkan-C-関数が実行され、続きの入力を促されます。
+
+以後、「C-x C-c」と入力したければ、「/c SPC x c-c RET」と入力します。
+
+すると適切に大文字小文字変換され「C-x C-c」と変換されるようになり、
+しかも日本語入力状態なので引き続き日本語を入力できる状態になります。
+
+同様に「/m」についても「(skk-henkan-M-)」を登録してください。
+
+この方法を応用することで、SKKの変換時に任意のLisp式を実行できるので
+いろいろとおもしろいことができるでしょう。
+
+あとはあなたのアイデア次第です。
+
+** 設定 [[http://rubikitch.com/f/01skk-ctrl-meta.el][01skk-ctrl-meta.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/emacs/init.d/01skk-ctrl-meta.el"
+#+BEGIN_SRC fundamental
+(defun skk-henkan-C- ()
+  (concat "C-" (skk-henkan-ctrl-meta-conversion (read-string "C-"))))
+(defun skk-henkan-M- ()
+  (concat "M-" (skk-henkan-ctrl-meta-conversion (read-string "M-") 'meta)))
+(defun skk-henkan-M-x ()
+  (concat "M-x " (read-string "M-x ")))
+(defun skk-henkan-C-c ()
+  (concat "C-c " (skk-henkan-ctrl-meta-conversion (read-string "C-c "))))
+(defun skk-henkan-C-x ()
+  (concat "C-x " (skk-henkan-ctrl-meta-conversion (read-string "C-x "))))
+(defun skk-henkan-ctrl-meta-conversion (input &optional metap)
+  (if (and metap (string= "x" (substring input 0 1)))
+      input
+    (replace-regexp-in-string
+     "c-" "C-"
+     (replace-regexp-in-string
+      "m-" "M-"
+      (replace-regexp-in-string
+       "h-" "H-"
+       (replace-regexp-in-string
+        "ret" "RET"
+        (replace-regexp-in-string
+         "spc" "SPC"
+         (replace-regexp-in-string
+          "tab" "TAB"
+          (replace-regexp-in-string
+           "esc" "ESC"
+           (replace-regexp-in-string
+            "del" "DEL"
+            input))))))))))
+;;; (skk-henkan-M-)
+;;; (skk-henkan-C-)
+;;; (skk-henkan-C-c)
+#+END_SRC
+
+#+END:
+
+
+
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

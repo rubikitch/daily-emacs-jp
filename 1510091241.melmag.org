@@ -1,0 +1,31 @@
+#+BLOG: rubikitch
+#+POSTID: 2067
+#+DATE: [2015-10-09 Fri 12:41]
+#+PERMALINK: melmag
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: メルマガ,
+#+DESCRIPTION: るびきち塾メルマガ『Emacsの鬼るびきちのココだけの話#202』の予告
+#+TITLE: 【メルマガ#202】Emacs的なRSSアグリゲータ
+#+MYTAGS: 
+#+begin: org2blog-tags
+#+TAGS: , メルマガ,, 
+#+end:
+「Emacs的ソフトウェア」はシリーズものとして続きます。
+
+今回はEmacs的RSSアグリゲータです。
+
+RSSアグリゲータとして最低限の仕事のみをする小さなプログラムですが、
+プラグインでフックを記述することで自由自在に挙動を制御できます。
+
+僕はこれを8年以上愛用していますが、
+一時的におかしくなったことが数回くらいで
+とても安定しています。
+
+いろいろと設定をいじるのが好きなEmacsユーザならば
+おすすめの逸品です。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

@@ -1,0 +1,112 @@
+#+BLOG: rubikitch
+#+POSTID: 1224
+#+DATE: [2015-02-28 Sat 04:13]
+#+PERMALINK: hiwin
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs
+#+EL_PKG_NAME: hiwin
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, emacs ウィンドウ 色付け, Emacs ウィンドウ分割
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: 他のウィンドウに色を付け、選択中のウィンドウをわかりやすくする
+#+EL_URL: http://d.hatena.ne.jp/ksugita0510/20111223/p1
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージhiwinの紹介
+#+MYTAGS: package:hiwin, emacs 使い方, emacs コマンド, emacs, hiwin, hiwin.el, emacs lisp hiwin, elisp hiwin, emacs melpa hiwin, emacs hiwin 使い方, emacs hiwin 設定, emacs パッケージ hiwin, emacs hiwin スクリーンショット, emacs ウィンドウ 色付け, Emacs ウィンドウ分割
+#+TAGS: package:hiwin, emacs 使い方, emacs コマンド, emacs, hiwin, hiwin.el, emacs lisp hiwin, elisp hiwin, emacs melpa hiwin, emacs hiwin 使い方, emacs hiwin 設定, emacs パッケージ hiwin, emacs hiwin スクリーンショット, emacs ウィンドウ 色付け, Emacs ウィンドウ分割, Emacs, hiwin.el, M-x hiwin-deactivate, M-x customize-face modeline, M-x customize-face modeline-inactive, hiwin.el, M-x hiwin-deactivate, M-x customize-face modeline, M-x customize-face modeline-inactive
+#+TITLE: emacs hiwin.el : 他のウィンドウに色を付け、選択中のウィンドウをわかりやすくする | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>hiwin</td></tr>
+<tr><td>概要(原文)</td><td>Visible active window mode.</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>サイト</td><td><a href="http://d.hatena.ne.jp/ksugita0510/20111223/p1">http://d.hatena.ne.jp/ksugita0510/20111223/p1</td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/yoshida-mediba/hiwin-mode">https://github.com/yoshida-mediba/hiwin-mode</a></td></tr>
+<tr><td>バージョン</td><td>20150220.6</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:hiwin/">package:hiwin</a> </td></tr>
+</table>
+<br />
+#+END_HTML
+たくさんのウィンドウに分割している人は、
+どのウィンドウが選択されているのかわからなくなるかもしれません。
+
+そこで、 *hiwin.el* は選択されていないウィンドウすべてに
+色をつけることによって、選択中のウィンドウをよりわかりやすくします。
+
+これは昔からあるのですが、最近また更新されました。
+http://d.hatena.ne.jp/ksugita0510/20111223/p1
+に作者の紹介記事がありますが、
+*M-x hiwin-deactivate* で無効にできるようになっています。
+
+モードラインの色を調整することでもウィンドウを明示できます。
+
+*M-x customize-face modeline*
+*M-x customize-face modeline-inactive*
+
+それでも不十分な方は使ってみてください。
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+[[file:/r/sync/screenshots/20150228041339.png]]
+Fig1: こんな感じでウィンドウ全体に色がつく
+
+[[file:/r/sync/screenshots/20150228042501.png]]
+Fig2: 色がつくのは選択されていないウィンドウのみ
+
+** hiwin インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install hiwin
+
+
+#+end:
+** 概要                                                             :noexport:
+たくさんのウィンドウに分割している人は、
+どのウィンドウが選択されているのかわからなくなるかもしれません。
+
+そこで、 *hiwin.el* は選択されていないウィンドウすべてに
+色をつけることによって、選択中のウィンドウをよりわかりやすくします。
+
+これは昔からあるのですが、最近また更新されました。
+http://d.hatena.ne.jp/ksugita0510/20111223/p1
+に作者の紹介記事がありますが、
+*M-x hiwin-deactivate* で無効にできるようになっています。
+
+モードラインの色を調整することでもウィンドウを明示できます。
+
+*M-x customize-face modeline*
+*M-x customize-face modeline-inactive*
+
+それでも不十分な方は使ってみてください。
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+[[file:/r/sync/screenshots/20150228041339.png]]
+Fig1: こんな感じでウィンドウ全体に色がつく
+
+[[file:/r/sync/screenshots/20150228042501.png]]
+Fig2: 色がつくのは選択されていないウィンドウのみ
+
+
+** 設定 [[http://rubikitch.com/f/150228041228.hiwin.el][150228041228.hiwin.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/150228/150228041228.hiwin.el"
+#+BEGIN_SRC fundamental
+(hiwin-activate)                           ;; hiwin-modeを有効化
+(set-face-background 'hiwin-face "gray80") ;; 非アクティブウィンドウの背景色を設定
+^
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/150228041228.hiwin.el
+$ emacs -Q -f package-initialize -l 150228041228.hiwin.el
+#+END_EXAMPLE
+
+# /r/sync/screenshots/20150228041339.png http://rubikitch.com/wp-content/uploads/2015/02/wpid-20150228041339.png
+# /r/sync/screenshots/20150228042501.png http://rubikitch.com/wp-content/uploads/2015/02/wpid-20150228042501.png

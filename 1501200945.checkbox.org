@@ -1,0 +1,86 @@
+#+BLOG: rubikitch
+#+POSTID: 971
+#+DATE: [2015-01-20 Tue 09:45]
+#+PERMALINK: checkbox
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, org-mode, 
+#+EL_PKG_NAME: checkbox
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, org-mode checkbox, relate:org
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: org-modeのチェックボックス・TODOを任意のモードで使う
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージcheckboxの紹介
+#+MYTAGS: package:checkbox, emacs 使い方, emacs コマンド, emacs, checkbox, checkbox.el, emacs lisp checkbox, elisp checkbox, emacs melpa checkbox, emacs checkbox 使い方, emacs checkbox 設定, emacs パッケージ checkbox, emacs checkbox スクリーンショット, org-mode checkbox, relate:org
+#+TAGS: package:checkbox, emacs 使い方, emacs コマンド, emacs, checkbox, checkbox.el, emacs lisp checkbox, elisp checkbox, emacs melpa checkbox, emacs checkbox 使い方, emacs checkbox 設定, emacs パッケージ checkbox, emacs checkbox スクリーンショット, org-mode checkbox, relate:org, Emacs, org-mode, , checkbox.el, M-x checkbox-toggle, [x], checkbox-states, M-x checkbox-states, M-x checkbox-toggle, [x], checkbox-states, M-x checkbox-states
+#+TITLE: emacs checkbox.el : org-modeのチェックボックス・TODOを任意のモードで使う | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>checkbox</td></tr>
+<tr><td>概要(原文)</td><td>Quick manipulation of textual checkboxes</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/camdez/checkbox.el">https://github.com/camdez/checkbox.el</a></td></tr>
+<tr><td>バージョン</td><td>20141116.1658</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:checkbox/">package:checkbox</a> <a href="http://rubikitch.com/tag/package:org/">package:org</a></td></tr>
+</table>
+<br />
+#+END_HTML
+*checkbox.el* は、org-modeのチェックボックス機能を
+任意のメジャーモードで使えるように取り出したものです。
+
+org-modeは確かに多機能ですが、ひとつのメジャーモードであるため、
+他のモードから単体でその機能が使えるわけではありません。
+
+用意されているコマンドは *M-x checkbox-toggle* のみです。
+
+1. [ ] がないときはコメント文字を飛ばして [ ] を入力する
+2. [ ] があるときは [x] でチェックする
+3. =[x]= があるときは [ ] にする
+
+また、TODOキーワードの切り替え機能もあって、
+ファイルローカル変数 *checkbox-states* を
+#+BEGIN_EXAMPLE
+("TODO" "DONE" "WAITING")
+#+END_EXAMPLE
+などと設定しておけば、 *M-x checkbox-states* で
+TODOキーワードを切り替えられます。
+
+なお、そのときはチェックボックスは使えないようです。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+** checkbox インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install checkbox
+
+
+#+end:
+** 概要                                                             :noexport:
+*checkbox.el* は、org-modeのチェックボックス機能を
+任意のメジャーモードで使えるように取り出したものです。
+
+org-modeは確かに多機能ですが、ひとつのメジャーモードであるため、
+他のモードから単体でその機能が使えるわけではありません。
+
+用意されているコマンドは *M-x checkbox-toggle* のみです。
+
+1. [ ] がないときはコメント文字を飛ばして [ ] を入力する
+2. [ ] があるときは [x] でチェックする
+3. =[x]= があるときは [ ] にする
+
+また、TODOキーワードの切り替え機能もあって、
+ファイルローカル変数 *checkbox-states* を
+#+BEGIN_EXAMPLE
+("TODO" "DONE" "WAITING")
+#+END_EXAMPLE
+などと設定しておけば、 *M-x checkbox-states* で
+TODOキーワードを切り替えられます。
+
+なお、そのときはチェックボックスは使えないようです。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

@@ -1,0 +1,114 @@
+#+BLOG: rubikitch
+#+POSTID: 1863
+#+DATE: [2015-07-29 Wed 01:14]
+#+PERMALINK: ido-at-point
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, ido, helm, Emacs Lisp, 
+#+EL_PKG_NAME: ido-at-point
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, relate:ido, relate:helm, 
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: シンボル補完(M-TAB)をido/helmで行うようにする！
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージido-at-pointの紹介
+#+MYTAGS: package:ido-at-point, emacs 使い方, emacs コマンド, emacs, ido-at-point, ido-at-point.el, emacs lisp ido-at-point, elisp ido-at-point, emacs melpa ido-at-point, emacs ido-at-point 使い方, emacs ido-at-point 設定, emacs パッケージ ido-at-point, emacs ido-at-point スクリーンショット, relate:ido, relate:helm, 
+#+TAGS: package:ido-at-point, emacs 使い方, emacs コマンド, emacs, ido-at-point, ido-at-point.el, emacs lisp ido-at-point, elisp ido-at-point, emacs melpa ido-at-point, emacs ido-at-point 使い方, emacs ido-at-point 設定, emacs パッケージ ido-at-point, emacs ido-at-point スクリーンショット, relate:ido, relate:helm, , Emacs, ido, helm, Emacs Lisp, , ido-at-point.el
+#+TITLE: emacs ido-at-point.el : シンボル補完(M-TAB)をido/helmで行うようにする！ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>ido-at-point</td></tr>
+<tr><td>概要(原文)</td><td>ido-style completion-at-point</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/katspaugh/ido-at-point">https://github.com/katspaugh/ido-at-point</a></td></tr>
+<tr><td>バージョン</td><td>20141210.2314</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:ido-at-point/">package:ido-at-point</a> <a href="http://rubikitch.com/tag/package:ido/">package:ido</a> <a href="http://rubikitch.com/tag/package:helm/">package:helm</a></td></tr>
+</table>
+<br />
+#+END_HTML
+*ido-at-point.el* は、シンボル補完(M-TAB)をidoで行うものです。
+
+
+通常のEmacsの補完は古めかしくて使い勝手がいまいちですが、
+migemoが絡まない補完ではあいまいマッチで絞り込めるidoが
+かなり使いやすいと思います。
+
+Emacs Lispプログラミングのお供に。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150729011959.png]]
+Fig1: ここでM-TABを押すと補完候補がido選択できるようになる
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150729012005.png]]
+Fig2: 絞り込んで…
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150729012009.png]]
+Fig3: RETで確定！
+** ido-at-point インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install ido-at-point
+
+
+#+end:
+** 概要                                                             :noexport:
+*ido-at-point.el* は、シンボル補完(M-TAB)をidoで行うものです。
+
+
+通常のEmacsの補完は古めかしくて使い勝手がいまいちですが、
+migemoが絡まない補完ではあいまいマッチで絞り込めるidoが
+かなり使いやすいと思います。
+
+Emacs Lispプログラミングのお供に。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150729011959.png]]
+Fig4: ここでM-TABを押すと補完候補がido選択できるようになる
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150729012005.png]]
+Fig5: 絞り込んで…
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150729012009.png]]
+Fig6: RETで確定！
+
+** 設定 [[http://rubikitch.com/f/150729011240.el][150729011240.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/150729/150729011240.el"
+#+BEGIN_SRC fundamental
+(ido-at-point-mode 1)
+(setq ido-enable-flex-matching t)
+#+END_SRC
+
+#+END:
+
+もしhelmで補完したければ以下の設定を書き加えてください。
+
+僕はidoのままの方が使いやすいと思います。
+
+#+BEGIN_SRC emacs-lisp :results silent
+(require 'helm-mode)
+(defun ido-at-point-read (choices common)
+  (helm-comp-read "" choices
+                  :initial-input common
+                  :must-match t))
+
+#+END_SRC
+
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/150729011240.el
+$ emacs -Q -f package-initialize -l 150729011240.el
+#+END_EXAMPLE
+
+
+

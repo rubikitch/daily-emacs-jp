@@ -1,0 +1,67 @@
+#+BLOG: rubikitch
+#+POSTID: 1849
+#+DATE: [2015-07-23 Thu 15:35]
+#+PERMALINK: page-break-lines
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs
+#+EL_PKG_NAME: page-break-lines
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, relate:pp-c-l
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: 改ページ(^L)をわかりやすく表示する
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージpage-break-linesの紹介
+#+MYTAGS: package:page-break-lines, emacs 使い方, emacs コマンド, emacs, page-break-lines, page-break-lines.el, emacs lisp page-break-lines, elisp page-break-lines, emacs melpa page-break-lines, emacs page-break-lines 使い方, emacs page-break-lines 設定, emacs パッケージ page-break-lines, emacs page-break-lines スクリーンショット, relate:pp-c-l
+#+TAGS: package:page-break-lines, emacs 使い方, emacs コマンド, emacs, page-break-lines, page-break-lines.el, emacs lisp page-break-lines, elisp page-break-lines, emacs melpa page-break-lines, emacs page-break-lines 使い方, emacs page-break-lines 設定, emacs パッケージ page-break-lines, emacs page-break-lines スクリーンショット, relate:pp-c-l, Emacs, page-break-lines.el, M-x page-break-lines-mode, M-x global-page-break-lines-mode, M-x page-break-lines-mode, M-x global-page-break-lines-mode
+#+TITLE: emacs page-break-lines.el : 改ページ(^L)をわかりやすく表示する | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>page-break-lines</td></tr>
+<tr><td>概要(原文)</td><td>Display ugly ^L page breaks as tidy horizontal lines</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/purcell/page-break-lines">https://github.com/purcell/page-break-lines</a></td></tr>
+<tr><td>バージョン</td><td>20150226.817</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:page-break-lines/">package:page-break-lines</a> <a href="http://rubikitch.com/tag/package:pp-c-l/">package:pp-c-l</a></td></tr>
+</table>
+<br />
+#+END_HTML
+*page-break-lines.el* は、改ページ(^L, C-l)をわかりやすく表示します。
+
+*M-x page-break-lines-mode* は現在のバッファのみ、
+*M-x global-page-break-lines-mode* はEmacs全体に作用します。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150723153942.png]]
+Fig1: ^Lが
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150723153956.png]]
+Fig2: 横線として表示される
+** page-break-lines インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install page-break-lines
+
+
+#+end:
+** 概要                                                             :noexport:
+*page-break-lines.el* は、改ページ(^L, C-l)をわかりやすく表示します。
+
+*M-x page-break-lines-mode* は現在のバッファのみ、
+*M-x global-page-break-lines-mode* はEmacs全体に作用します。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150723153942.png]]
+Fig3: ^Lが
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150723153956.png]]
+Fig4: 横線として表示される
+

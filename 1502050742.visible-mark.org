@@ -1,0 +1,120 @@
+#+BLOG: rubikitch
+#+POSTID: 1079
+#+DATE: [2015-02-05 Thu 07:42]
+#+PERMALINK: visible-mark
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs
+#+EL_PKG_NAME: visible-mark
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, emacs マーク 可視化, emacs マーク 見える, relate:bm, relate:show-marks, マーク, mark, emacs 目に見えるマーク, 
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: マーク(C-SPC)を目に見えるようにする
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージvisible-markの紹介
+#+MYTAGS: package:visible-mark, emacs 使い方, emacs コマンド, emacs, visible-mark, visible-mark.el, emacs lisp visible-mark, elisp visible-mark, emacs melpa visible-mark, emacs visible-mark 使い方, emacs visible-mark 設定, emacs パッケージ visible-mark, emacs visible-mark スクリーンショット, emacs マーク 可視化, emacs マーク 見える, relate:bm, relate:show-marks, マーク, mark, emacs 目に見えるマーク, 
+#+TAGS: package:visible-mark, emacs 使い方, emacs コマンド, emacs, visible-mark, visible-mark.el, emacs lisp visible-mark, elisp visible-mark, emacs melpa visible-mark, emacs visible-mark 使い方, emacs visible-mark 設定, emacs パッケージ visible-mark, emacs visible-mark スクリーンショット, emacs マーク 可視化, emacs マーク 見える, relate:bm, relate:show-marks, マーク, mark, emacs 目に見えるマーク, , Emacs, visible-mark.el, M-x visible-mark-mode, M-x global-visible-mark-mode, C-u C-SPC, set-mark-command-repeat-pop, M-x customize-face visible-mark-face, visible-mark.el, M-x visible-mark-mode, M-x global-visible-mark-mode, C-u C-SPC, set-mark-command-repeat-pop, M-x customize-face visible-mark-face
+#+TITLE: emacs visible-mark.el : マーク(C-SPC)を目に見えるようにする | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>visible-mark</td></tr>
+<tr><td>概要(原文)</td><td>Make marks visible.</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://gitlab.com/iankelling/visible-mark.git">https://gitlab.com/iankelling/visible-mark.git</a></td></tr>
+<tr><td>バージョン</td><td>20140801.822</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:visible-mark/">package:visible-mark</a> <a href="http://rubikitch.com/tag/package:bm/">package:bm</a> <a href="http://rubikitch.com/tag/package:show-marks/">package:show-marks</a></td></tr>
+</table>
+<br />
+#+END_HTML
+通常のEmacsでC-SPCでマークしても、
+その位置がわかるようにはなっていません。
+
+一時的に場所を記憶する目的でマークしても、
+目に見えない以上、迷子になってしまうこともあります。
+
+そこで、 *visible-mark.el* を使うことでマークを可視化します。
+
+これはマイナーモードで実装されていて、
+*M-x visible-mark-mode* で個別バッファ、
+*M-x global-visible-mark-mode* ですべてのバッファで有効になります。
+
+マークを巡回するには、標準コマンドの *C-u C-SPC* を使います。
+
+*set-mark-command-repeat-pop* を t にすることで、
+C-uの後にC-SPCを連打することで過去のマークを遡れます。
+
+マークの色を変更するには
+*M-x customize-face visible-mark-face*
+を実行してください。
+
+[[http://rubikitch.com/2015/02/05/show-marks/][show-marks.el(レビュー)]] とも併用できます。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+[[file:/r/sync/screenshots/20150205075331.png]]
+Fig1: マークを明示
+
+** visible-mark インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install visible-mark
+
+
+#+end:
+** 概要                                                             :noexport:
+通常のEmacsでC-SPCでマークしても、
+その位置がわかるようにはなっていません。
+
+一時的に場所を記憶する目的でマークしても、
+目に見えない以上、迷子になってしまうこともあります。
+
+そこで、 *visible-mark.el* を使うことでマークを可視化します。
+
+これはマイナーモードで実装されていて、
+*M-x visible-mark-mode* で個別バッファ、
+*M-x global-visible-mark-mode* ですべてのバッファで有効になります。
+
+マークを巡回するには、標準コマンドの *C-u C-SPC* を使います。
+
+*set-mark-command-repeat-pop* を t にすることで、
+C-uの後にC-SPCを連打することで過去のマークを遡れます。
+
+マークの色を変更するには
+*M-x customize-face visible-mark-face*
+を実行してください。
+
+[[http://rubikitch.com/2015/02/05/show-marks/][show-marks.el(レビュー)]] とも併用できます。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+[[file:/r/sync/screenshots/20150205075331.png]]
+Fig1: マークを明示
+
+
+** 設定 [[http://rubikitch.com/f/150205074951.visible-mark.el][150205074951.visible-mark.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/150205/150205074951.visible-mark.el"
+#+BEGIN_SRC fundamental
+;;; C-u C-SPC C-SPC ...で過去のマークを遡れるようにする
+(setq set-mark-command-repeat-pop t)
+;;; 過去10個のマークを可視化する
+(setq visible-mark-max 10)
+;;; transient-mark-modeでC-SPC C-SPC、あるいはC-SPC C-gすると消えるバグ修正
+(defun visible-mark-move-overlays--avoid-disappear (&rest them)
+  (let ((mark-active t)) (apply them)))
+(advice-add 'visible-mark-move-overlays :around 'visible-mark-move-overlays--avoid-disappear)
+
+
+(global-visible-mark-mode 1)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/150205074951.visible-mark.el
+$ emacs -Q -f package-initialize -l 150205074951.visible-mark.el
+#+END_EXAMPLE
+
+# /r/sync/screenshots/20150205075331.png http://rubikitch.com/wp-content/uploads/2015/02/wpid-20150205075331.png

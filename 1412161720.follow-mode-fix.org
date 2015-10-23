@@ -1,0 +1,53 @@
+#+BLOG: rubikitch
+#+POSTID: 729
+#+DATE: [2014-12-16 Tue 17:20]
+#+PERMALINK: follow-mode-fix
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, Emacs 24.4, 
+#+DESCRIPTION: 
+#+MYTAGS: relate:multicolumn
+#+TAGS: relate:multicolumn, Emacs, Emacs 24.4, , M-x follow-mode
+#+TITLE: follow-modeで画面最下行が表示されないバグを修正
+ワイドディスプレイでEmacsするには *M-x follow-mode* と
+[[http://rubikitch.com/2014/12/10/multicolumn/][multicolumn.el(レビュー記事)]] が便利です。
+
+しかし、フォントの大きさによっては画面最下行が表示されない
+あるいはほとんど表示されない状態のことがあります。
+
+これでは困るのでこのアドバイスで修正しました。
+
+使い方はrequireするだけです。
+
+** 設定 [[http://rubikitch.com/f/mylisp-follow-last-line-fix.el][mylisp-follow-last-line-fix.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/emacs/init.d/mylisp-follow-last-line-fix.el"
+#+BEGIN_SRC fundamental
+(defun follow-calc-win-end--fixed (&optional win)
+  "Calculate the end position for window WIN.
+Return (END-POS END-OF-BUFFER).
+
+Actually, the position returned is the start of the line after
+the last fully-visible line in WIN.  If WIN is nil, the selected
+window is used."
+  (let* ((win (or win (selected-window)))
+	 (edges (window-inside-pixel-edges win))
+	 (ht (- (nth 3 edges) (nth 1 edges)))
+	 (last-line-pos (posn-point (posn-at-x-y 0 (1- ht) win))))
+    (if (pos-visible-in-window-p last-line-pos win)
+	(let ((end (save-excursion
+                     (goto-char (window-end win t))
+                     (forward-line -1)
+                     (point))))
+	  (list end (= (window-end win t) (point-max))))
+      (list last-line-pos nil))))
+(advice-add 'follow-calc-win-end :override 'follow-calc-win-end--fixed)
+
+(provide 'mylisp-follow-last-line-fix)
+#+END_SRC
+
+#+END:
+
+

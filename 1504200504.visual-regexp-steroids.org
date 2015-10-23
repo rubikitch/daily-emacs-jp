@@ -1,0 +1,127 @@
+#+BLOG: rubikitch
+#+POSTID: 1535
+#+DATE: [2015-04-20 Mon 05:04]
+#+PERMALINK: visual-regexp-steroids
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs
+#+EL_PKG_NAME: visual-regexp-steroids
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, relate:pcre2el, package:visual-regexp, relate:visual-regexp, relate:foreign-regexp, emacs 正規表現 複雑, emacs perl 正規表現, emacs python 正規表現, emacs PCRE, emacs 正規表現 カイゼン, emacs 正規表現置換, emacs replace-regexp, emacs query-replace-regexp, emacs C-M-%%, emacs 置換, emacs re-builder 置換, relate:re-builder, relate:phi-search, phi-replace, phi-replace-query, relate:multiple-cursors
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: 【正規表現革命】isearchや置換でPerl/Pythonの正規表現を使おうぜ！
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージvisual-regexp-steroidsの紹介
+#+MYTAGS: package:visual-regexp-steroids, emacs 使い方, emacs コマンド, emacs, visual-regexp-steroids, visual-regexp-steroids.el, emacs lisp visual-regexp-steroids, elisp visual-regexp-steroids, emacs melpa visual-regexp-steroids, emacs visual-regexp-steroids 使い方, emacs visual-regexp-steroids 設定, emacs パッケージ visual-regexp-steroids, emacs visual-regexp-steroids スクリーンショット, relate:pcre2el, package:visual-regexp, relate:visual-regexp, relate:foreign-regexp, emacs 正規表現 複雑, emacs perl 正規表現, emacs python 正規表現, emacs PCRE, emacs 正規表現 カイゼン, emacs 正規表現置換, emacs replace-regexp, emacs query-replace-regexp, emacs C-M-%, emacs 置換, emacs re-builder 置換, relate:re-builder, relate:phi-search, phi-replace, phi-replace-query, relate:multiple-cursors
+#+TAGS: package:visual-regexp-steroids, emacs 使い方, emacs コマンド, emacs, visual-regexp-steroids, visual-regexp-steroids.el, emacs lisp visual-regexp-steroids, elisp visual-regexp-steroids, emacs melpa visual-regexp-steroids, emacs visual-regexp-steroids 使い方, emacs visual-regexp-steroids 設定, emacs パッケージ visual-regexp-steroids, emacs visual-regexp-steroids スクリーンショット, relate:pcre2el, package:visual-regexp, relate:visual-regexp, relate:foreign-regexp, emacs 正規表現 複雑, emacs perl 正規表現, emacs python 正規表現, emacs PCRE, emacs 正規表現 カイゼン, emacs 正規表現置換, emacs replace-regexp, emacs query-replace-regexp, emacs C-M-%, emacs 置換, emacs re-builder 置換, relate:re-builder, relate:phi-search, phi-replace, phi-replace-query, relate:multiple-cursors, Emacs, visual-regexp-steroids.el, re-builder, M-x vr/mc-mark, visual-regexp-steroids.el, re-builder, M-x vr/mc-mark, PCRE
+#+TITLE: emacs visual-regexp-steroids.el : 【正規表現革命】isearchや置換でPerl/Pythonの正規表現を使おうぜ！ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>visual-regexp-steroids</td></tr>
+<tr><td>概要(原文)</td><td>Extends visual-regexp to support other regexp engines</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/benma/visual-regexp-steroids.el">https://github.com/benma/visual-regexp-steroids.el</a></td></tr>
+<tr><td>バージョン</td><td>20150411.416</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:visual-regexp-steroids/">package:visual-regexp-steroids</a> <a href="http://rubikitch.com/tag/package:pcre2el/">package:pcre2el</a> <a href="http://rubikitch.com/tag/package:visual-regexp/">package:visual-regexp</a> <a href="http://rubikitch.com/tag/package:foreign-regexp/">package:foreign-regexp</a> <a href="http://rubikitch.com/tag/package:re-builder/">package:re-builder</a> <a href="http://rubikitch.com/tag/package:phi-search/">package:phi-search</a> <a href="http://rubikitch.com/tag/package:multiple-cursors/">package:multiple-cursors</a></td></tr>
+</table>
+<br />
+#+END_HTML
+/「Emacsの正規表現はバックスラッシュだらけでうざい」/
+みんな思っていることでしょう。
+
+PerlやPythonを知っている人は当然これらの正規表現を使いたいはずです。
+
+*visual-regexp-steroids.el* はこの願いを叶えてくれます。
+
+しかも[[http://rubikitch.com/2014/08/26/visual-regexp/][visual-regexp.el(レビュー)]] ベースなので
+*re-builder* のように対話的に正規表現を組み立てられます。
+
+また、正規表現isearchもPerl/Pythonの正規表現が使えるようになります。
+
+[[http://rubikitch.com/2014/11/10/multiple-cursors/][multiple-cursors.el(レビュー)]] にも対応していて、
+*M-x vr/mc-mark* でPerl/Pythonの正規表現でマークできます。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150420052510.png]]
+Fig3: M-%でPerlの正規表現を入力すると
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150420052518.png]]
+Fig4: こんな感じで置換後の結果がわかる
+
+** visual-regexp-steroids インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install visual-regexp-steroids
+
+
+#+end:
+M-x package-install pcre2el
+** 概要                                                             :noexport:
+/「Emacsの正規表現はバックスラッシュだらけでうざい」/
+みんな思っていることでしょう。
+
+PerlやPythonを知っている人は当然これらの正規表現を使いたいはずです。
+
+*visual-regexp-steroids.el* はこの願いを叶えてくれます。
+
+しかも[[http://rubikitch.com/2014/08/26/visual-regexp/][visual-regexp.el(レビュー)]] ベースなので
+*re-builder* のように対話的に正規表現を組み立てられます。
+
+また、正規表現isearchもPerl/Pythonの正規表現が使えるようになります。
+
+[[http://rubikitch.com/2014/11/10/multiple-cursors/][multiple-cursors.el(レビュー)]] にも対応していて、
+*M-x vr/mc-mark* でPerl/Pythonの正規表現でマークできます。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150420052510.png]]
+Fig3: M-%でPerlの正規表現を入力すると
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150420052518.png]]
+Fig4: こんな感じで置換後の結果がわかる
+
+
+** Pythonの正規表現の方が得意
+本設定ではPythonをインストールしていない人のために
+[[http://rubikitch.com/2015/04/25/pcre2el/][pcre2el.el(レビュー)]]  というPerlの正規表現(*PCRE*) から
+Emacsの正規表現に変換するelispライブラリを使うようにしていますが、
+visual-regexp-steroids.elはPythonの正規表現の方を得意としています。
+
+なぜなら、Pythonの正規表現のスイッチI, M, S, Uを
+対話的に切り替えられるようになっているからです。
+
+IMSUは[[http://docs.python.org/library/re.html#re.I][Python正規表現のドキュメント]] を参照してください。
+
+
+
+** 設定 [[http://rubikitch.com/f/150420044640.visual-regexp-steroids.el][150420044640.visual-regexp-steroids.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/150420/150420044640.visual-regexp-steroids.el"
+#+BEGIN_SRC fundamental
+(require 'visual-regexp-steroids)
+(setq vr/engine 'python)                ;python regexpならばこれ
+;; (setq vr/engine 'pcre2el)               ;elispでPCREから変換
+(global-set-key (kbd "M-%") 'vr/query-replace)
+;; multiple-cursorsを使っているならこれで
+(global-set-key (kbd "C-c m") 'vr/mc-mark)
+;; 普段の正規表現isearchにも使いたいならこれを
+(global-set-key (kbd "C-M-r") 'vr/isearch-backward)
+(global-set-key (kbd "C-M-s") 'vr/isearch-forward)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/150420044640.visual-regexp-steroids.el
+$ emacs -Q -f package-initialize -l 150420044640.visual-regexp-steroids.el
+#+END_EXAMPLE
+
+# /r/sync/screenshots/20150420052510.png http://rubikitch.com/wp-content/uploads/2015/04/wpid-20150420052510.png
+# /r/sync/screenshots/20150420052518.png http://rubikitch.com/wp-content/uploads/2015/04/wpid-20150420052518.png

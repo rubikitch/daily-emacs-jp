@@ -1,0 +1,222 @@
+#+BLOG: rubikitch
+#+POSTID: 679
+#+DATE: [2014-12-08 Mon 02:09]
+#+PERMALINK: better-defaults
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs
+#+EL_PKG_NAME: better-defaults
+#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs 初期設定, emacs デフォルトの設定, package:ido, emacs ido flex match, ido 曖昧, emacs メニューバー, emacs スクロールバー, emacs ツールバー, emacs M-z, package:uniquify, package:saveplace, package:misc, zap-to-char, package:hippie-exp, hippie-expand, package:ibuffer, emacs 括弧 表示, emacs タブ インデント, emacs インデント, emacs クリップボード, pacakge:apropos, emacs マウス ペースト, package:ediff, ediff フレーム 使わない, emacs バックアップファイル ディレクトリ, package:migemo
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: 【初心者歓迎】Emacsのよりよい初期設定を日本語で全部解説！
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージbetter-defaultsの紹介
+#+MYTAGS: package:better-defaults, emacs 使い方, emacs コマンド, emacs, emacs lisp better-defaults, elisp better-defaults, emacs melpa better-defaults, emacs better-defaults 使い方, emacs better-defaults 設定, emacs パッケージ better-defaults, emacs 初期設定, emacs デフォルトの設定, package:ido, emacs ido flex match, ido 曖昧, emacs メニューバー, emacs スクロールバー, emacs ツールバー, emacs M-z, package:uniquify, package:saveplace, package:misc, zap-to-char, package:hippie-exp, hippie-expand, package:ibuffer, emacs 括弧 表示, emacs タブ インデント, emacs インデント, emacs クリップボード, pacakge:apropos, emacs マウス ペースト, package:ediff, ediff フレーム 使わない, emacs バックアップファイル ディレクトリ, package:migemo
+#+TITLE: emacs better-defaults.el : 【初心者歓迎】Emacsのよりよい初期設定を日本語で全部解説！ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>better-defaults</td></tr>
+<tr><td>概要(原文)</td><td>Fixing weird quirks and poor defaults</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/technomancy/better-defaults">https://github.com/technomancy/better-defaults</a></td></tr>
+<tr><td>バージョン</td><td>20140818.937</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:better-defaults/">package:better-defaults</a> </td></tr>
+</table>
+<br />
+#+END_HTML
+Emacsは歴史がある分、古めかしい設定に固執している点があります。
+
+ベテランはその挙動に慣れているから困らないだろうけど、
+新参者にとっては使いづらいです。
+
+そこで、 *better-defaults.el* は、よりよいデフォルト値を提供します。
+
+
+本記事では変更点すべてを日本語で解説します！
+
+- あいまいマッチの *ido-mode* が有効になる
+- *メニューバー* 、 *ツールバー* 、 *スクロールバー* を非表示にする
+- ファイルを閉じたとき、Emacs終了時に位置を保存する
+- M-/ をより高度な *M-x hippie-expand* に置き換える
+- C-x C-bを *M-x ibuffer* に置き換えてすぐに選択できるようにする
+- M-zを *M-x zap-up-to-char* に置き換えて対象文字を削除しないようにする
+- *isearch* は正規表現検索をデフォルトにする
+  - ただし、[[http://rubikitch.com/2014/08/20/migemo/][日本語ローマ字検索Migemo]] を使っているときは仇になるかも…
+- 対応する括弧を表示する
+- タブのインデントをしない
+- クリップボード・PRIMARYでコピー＆ペーストできるようにする
+- *apropos.el* で多くのシンボルを見付けるようにする
+- マウスのヤンクは現在位置に
+- ファイル保存時にファイル末尾に改行を入れる
+- ベルを鳴らさないようにする
+- *ediff* でフレームを使わない
+- *バックアップファイル* は ~/.emacs.d/backups/ 以下に作成
+** better-defaults インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install better-defaults
+
+
+#+end:
+
+インストールすると、 (package-initialize)
+の時点で有効になるので、説明を読んで理解してください。
+
+もちろん、一部だけをかいつまんで設定してもよいです。
+
+特に *Migemo* を使っている人は戸惑うかもしれません。
+
+** 概要                                                             :noexport:
+Emacsは歴史がある分、古めかしい設定に固執している点があります。
+
+ベテランはその挙動に慣れているから困らないだろうけど、
+新参者にとっては使いづらいです。
+
+そこで、 *better-defaults.el* は、よりよいデフォルト値を提供します。
+
+
+本記事では変更点すべてを日本語で解説します！
+
+- あいまいマッチの *ido-mode* が有効になる
+- *メニューバー* 、 *ツールバー* 、 *スクロールバー* を非表示にする
+- ファイルを閉じたとき、Emacs終了時に位置を保存する
+- M-/ をより高度な *M-x hippie-expand* に置き換える
+- C-x C-bを *M-x ibuffer* に置き換えてすぐに選択できるようにする
+- M-zを *M-x zap-up-to-char* に置き換えて対象文字を削除しないようにする
+- *isearch* は正規表現検索をデフォルトにする
+  - ただし、[[http://rubikitch.com/2014/08/20/migemo/][日本語ローマ字検索Migemo]] を使っているときは仇になるかも…
+- 対応する括弧を表示する
+- タブのインデントをしない
+- クリップボード・PRIMARYでコピー＆ペーストできるようにする
+- *apropos.el* で多くのシンボルを見付けるようにする
+- マウスのヤンクは現在位置に
+- ファイル保存時にファイル末尾に改行を入れる
+- ベルを鳴らさないようにする
+- *ediff* でフレームを使わない
+- *バックアップファイル* は ~/.emacs.d/backups/ 以下に作成
+
+** 内容
+これがすべてです。
+
+#+BEGIN_SRC emacs-lisp :results silent
+(progn
+  ;;; ido-mode
+  ;; C-x C-fやC-x bでファイルやバッファを開くとき
+  ;; 部分文字列を指定してC-s/C-rで選択できるようにする
+  (ido-mode t)
+  ;; あいまいマッチ
+  ;; 候補に "alpha", "beta", "gamma", "delta" があるときに
+  ;; "aa" → "alpha", "gamma"
+  ;; "ea" → "beta", "delta".
+  ;; つまり文字を飛び超えられる！
+  (setq ido-enable-flex-matching t)
+
+  ;;; メニューバー・ツールバー・スクロールバーを切る
+  (menu-bar-mode -1)
+  (when (fboundp 'tool-bar-mode)
+    (tool-bar-mode -1))
+  (when (fboundp 'scroll-bar-mode)
+    (scroll-bar-mode -1))
+
+  ;;; M-z (zap-to-char)の亜種、zap-up-to-charを使えるようにする
+  (autoload 'zap-up-to-char "misc"
+    "Kill up to, but not including ARGth occurrence of CHAR." t)
+
+  ;;; uniquify.el
+  ;; 違うディレクトリで同じファイル名のファイルを開いたときに
+  ;; バッファ名にディレクトリも付記するようにする
+  ;; Emacs 24.4ではデフォルト
+  (require 'uniquify)
+  ;; /foo/bar/mumble/name, /baz/quux/mumble/nameというファイルなら
+  ;; それぞれ bar/mumble/name, quux/mumble/name というバッファ名に
+  ;; ただし、Emacs 24.4デフォルトでは post-forward-angle-brackets
+  ;; に設定されるので name<bar/mumble>, name<quux/mumble> になる。
+  (setq uniquify-buffer-name-style 'forward)
+
+  ;;; saveplace.el
+  ;; ファイルを閉じたとき、次に開くときはその場所(point)から開く
+  (require 'saveplace)
+  (setq-default save-place t)
+
+  ;;; デフォルトのキーバインドをより高機能なコマンドに置き換える
+  ;; dabbrev-expand -> hippie-expand
+  ;; dabbrev以外にも様々な展開・補完ができるようになる
+  (global-set-key (kbd "M-/") 'hippie-expand)
+  ;; list-buffers -> ibuffer
+  ;; バッファメニューを高機能なibufferに！
+  ;; 何よりバッファメニューがカレントになる！！
+  (global-set-key (kbd "C-x C-b") 'ibuffer)
+  ;; zap-to-char -> zap-up-to-char
+  ;; zap-to-charはその文字までを削除するが
+  ;; zap-up-to-charはその文字の直前までを削除する
+  ;; その文字も削除したければ直後にC-dを押せばいい
+  (global-set-key (kbd "M-z") 'zap-up-to-char)
+
+  ;;; 普通のisearchと正規表現isearchのキーバインドを逆転
+  (global-set-key (kbd "C-s") 'isearch-forward-regexp)
+  (global-set-key (kbd "C-r") 'isearch-backward-regexp)
+  (global-set-key (kbd "C-M-s") 'isearch-forward)
+  (global-set-key (kbd "C-M-r") 'isearch-backward)
+
+  ;;; 対応する括弧を表示してくれる
+  (show-paren-mode 1)
+  ;;; タブでインデントしない
+  (setq-default indent-tabs-mode nil)
+  (setq
+   ;; クリップボードでコピー＆ペーストできるようにする
+   x-select-enable-clipboard t
+   ;; PRIMARY selectionを使う(Windowsでは対象外)
+   x-select-enable-primary t
+   ;; クリップボードでコピー・カットした文字列を
+   ;; キルリングにも保存させる
+   save-interprogram-paste-before-kill t
+   ;; M-x apropos等でより多くのシンボルを見つけるようにする
+   ;; ただし、ちょっと遅くなる
+   ;;
+   ;; M-x apropos-user-optionはすべての変数を
+   ;; M-x apropos-commandはすべての関数を
+   ;; M-x apropos-commandはすべてのシンボル(関数、変数、フェイス以外も)
+   ;; M-x apropos-valueは属性リストや関数内も
+   ;; M-x apropos-documentationはetc/DOC以外のすべての説明文字列も
+   apropos-do-all t
+   ;; マウスでyankしたとき、クリックした場所ではなくて現在位置を対象に
+   mouse-yank-at-point t
+   ;; 保存時にファイル末尾に改行を入れる
+   require-final-newline t
+   ;; エラー時などはベル音ではなくて画面を1回点滅させる
+   visible-bell t
+   ;; ediff時に新しいフレームを作らない(シンプルになる)
+   ediff-window-setup-function 'ediff-setup-windows-plain
+   ;; ~/.emacs.d/placesにファイル・位置情報を保存する
+   save-place-file (concat user-emacs-directory "places")
+   ;; バックアップファイルはカレントディレクトリではなく
+   ;; ~/.emacs.d/backups 以下に保存する
+   backup-directory-alist `(("." . ,(concat user-emacs-directory
+                                            "backups")))))
+#+END_SRC
+
+** Migemo使いはisearchをデフォルトに戻す
+#+BEGIN_SRC emacs-lisp :results silent
+(global-set-key (kbd "C-M-s") 'isearch-forward-regexp)
+(global-set-key (kbd "C-M-r") 'isearch-backward-regexp)
+(global-set-key (kbd "C-s") 'isearch-forward)
+(global-set-key (kbd "C-r") 'isearch-backward)
+#+END_SRC
+
+*text-mode* (*org-mode* 等も含む) で文章を書いているときのみ
+デフォルトに戻し、他(コード等)は正規表現isearchをデフォルトに
+するときはこのようにしよう。
+
+#+BEGIN_SRC emacs-lisp :results silent
+(define-key text-mode-map (kbd "C-M-s") 'isearch-forward-regexp)
+(define-key text-mode-map (kbd "C-M-r") 'isearch-backward-regexp)
+(define-key text-mode-map (kbd "C-s") 'isearch-forward)
+(define-key text-mode-map (kbd "C-r") 'isearch-backward)
+#+END_SRC
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

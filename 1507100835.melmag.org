@@ -1,0 +1,34 @@
+#+BLOG: rubikitch
+#+POSTID: 1817
+#+DATE: [2015-07-10 Fri 08:35]
+#+PERMALINK: melmag
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: メルマガ,
+#+DESCRIPTION: るびきち塾メルマガ『Emacsの鬼るびきちのココだけの話#189』の予告
+#+TITLE: 【メルマガ#189】テキスト処理の原点へ立ち帰る
+#+MYTAGS: 
+#+begin: org2blog-tags
+#+TAGS: , メルマガ,, 
+#+end:
+今回のメルマガは少し平易な内容です。
+
+Unix系OSでは昔からテキストファイルを
+簡易データベースとして使われています。
+
+/etc/passwdなどはgrepやawkを使えば、
+簡単にその中から情報を取り出せる形式です。
+
+これをEmacsでやってしまいましょうというのが今回の主題です。
+
+メモをこの形式で記録しておけば
+検索するときに付随する情報を呼び起こせるようになります。
+
+もしかしたら釈迦に説法かもしれませんが、
+マシンパワーが上がった今だからこそ
+この原始的な方法も役立ちます。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

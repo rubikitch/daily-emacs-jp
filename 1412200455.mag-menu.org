@@ -1,0 +1,219 @@
+#+BLOG: rubikitch
+#+POSTID: 752
+#+DATE: [2014-12-20 Sat 04:55]
+#+PERMALINK: mag-menu
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, Emacs Lisp, 
+#+EL_PKG_NAME: mag-menu
+#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, relate:magit, relate:ack-menu, relate:google-this, emacs メニュー, メニュー, menu, Emacs メニュー選択, emacs インターフェース, インターフェース, 
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: 最強magitメニューインターフェースライブラリ！Google検索の実例あり
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージmag-menuの紹介
+#+MYTAGS: package:mag-menu, emacs 使い方, emacs コマンド, emacs, emacs lisp mag-menu, elisp mag-menu, emacs melpa mag-menu, emacs mag-menu 使い方, emacs mag-menu 設定, emacs パッケージ mag-menu, emacs mag-menu スクリーンショット, relate:magit, relate:ack-menu, relate:google-this, emacs メニュー, メニュー, menu, Emacs メニュー選択, emacs インターフェース, インターフェース, 
+#+TITLE: emacs mag-menu.el : 最強magitメニューインターフェースライブラリ！Google検索の実例あり | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>mag-menu</td></tr>
+<tr><td>概要(原文)</td><td>Intuitive keyboard-centric menu system</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/chumpage/mag-menu">https://github.com/chumpage/mag-menu</a></td></tr>
+<tr><td>バージョン</td><td>20141218.2327</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:mag-menu/">package:mag-menu</a> <a href="http://rubikitch.com/tag/package:magit/">package:magit</a> <a href="http://rubikitch.com/tag/package:ack-menu/">package:ack-menu</a> <a href="http://rubikitch.com/tag/package:google-this/">package:google-this</a></td></tr>
+</table>
+<br />
+#+END_HTML
+MELPAダウンロードランキングNo.1は *magit* ですが、
+なぜこんなに人気が高いのでしょうか？
+
+その理由は、複雑きわまりないgitのほぼ全機能を
+非常に使いやすいメニューインターフェースで扱えることです。
+
+まだ使ったことのない人は使ってみてください。
+
+メニューの出来に驚くはずです。
+
+スイッチをonにしたら、そのスイッチの部分が
+赤くなって有効になったことがわかります。
+
+また、引数を入力したら、それがメニューに反映されます。
+
+つまり、すべてのコマンドラインオプションをメニューで操作でき、
+長いオプションも書いているからgitそのものも習得できるという
+一石二鳥、最強のメニューインターフェースといえます。
+
+http://rubikitch.com/f/20141220052055.png
+Fig1: 本家magit logのメニュー
+
+*mag-menu.el* はこの最強メニューインターフェースのみを
+一般化して利用するためのライブラリです。
+
+複雑なメニューを作る際には真っ先にこの *mag-menu* を思い出してください。
+
+magとはmagitの略です。
+
+ダウンロードランキングNo.1のエキスをあなたに！
+** mag-menu インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install mag-menu
+
+
+#+end:
+** 概要                                                             :noexport:
+MELPAダウンロードランキングNo.1は *magit* ですが、
+なぜこんなに人気が高いのでしょうか？
+
+その理由は、複雑きわまりないgitのほぼ全機能を
+非常に使いやすいメニューインターフェースで扱えることです。
+
+まだ使ったことのない人は使ってみてください。
+
+メニューの出来に驚くはずです。
+
+スイッチをonにしたら、そのスイッチの部分が
+赤くなって有効になったことがわかります。
+
+また、引数を入力したら、それがメニューに反映されます。
+
+つまり、すべてのコマンドラインオプションをメニューで操作でき、
+長いオプションも書いているからgitそのものも習得できるという
+一石二鳥、最強のメニューインターフェースといえます。
+
+http://rubikitch.com/f/20141220052055.png
+Fig1: 本家magit logのメニュー
+
+*mag-menu.el* はこの最強メニューインターフェースのみを
+一般化して利用するためのライブラリです。
+
+複雑なメニューを作る際には真っ先にこの *mag-menu* を思い出してください。
+
+magとはmagitの略です。
+
+ダウンロードランキングNo.1のエキスをあなたに！
+** 構成要素
+mag-menuの構成要素はこうなっています。
+- アクション
+- オプション
+  - スイッチ
+  - 引数
+
+スイッチはトグルするもので、引数は文字入力があるものです。
+
+アクション、スイッチ、引数ともに複数持てます。
+
+書式はこうなります。
+
+#+BEGIN_SRC emacs-lisp :results silent
+(mag-menu
+ '(名前
+   (actions
+    ("キー" "ラベル" アクション関数)
+    ...)
+   (switches
+    ("短いオプション" "ラベル" "長いオプション")
+    ...)
+   (arguments
+    ("短いオプション" "ラベル" "長いオプション" mag-menu-read-generic)
+    ...))
+ 任意のデフォルトオプション)
+#+END_SRC
+
+よって、一番簡単なメニューは複数のアクションを選択するものです。
+
+アクション関数は、オプションを引数にとります。
+
+引数の *mag-menu-read-generic* はミニバッファで
+引数を読み取るmag-menu側で用意されている関数なので、
+簡単のためにそのまま使うことにします。
+
+** 一番シンプルなメニュー [[http://rubikitch.com/f/141220044506.mag-menu.simple.el][141220044506.mag-menu.simple.el(以下のコードと同一)]]
+一番シンプルなメニューの実例を示します。
+
+アクション関数は、引数を無視して単にメッセージを表示するだけです。
+
+#+BEGIN: include :file "/r/sync/junk/141220/141220044506.mag-menu.simple.el"
+#+BEGIN_SRC fundamental
+;;; 単にメッセージを表示するだけのシンプルなメニュー
+(defun mag-menu-test ()
+  (interactive)
+  (mag-menu
+   '(test
+     (actions
+      ("c" "Commit" mag-menu-test-commit)
+      ("l" "Log" mag-menu-test-log)))))
+(defun mag-menu-test-commit (options)
+  (message "Commit"))
+(defun mag-menu-test-log (options)
+  (message "Log"))
+#+END_SRC
+
+#+END:
+
+http://rubikitch.com/f/20141220051408.png
+Fig2: 2択メニュー
+
+** Google検索の実例 [[http://rubikitch.com/f/141220041140.mag-menu.google.el][141220041140.mag-menu.google.el(以下のコードと同一)]]
+オプションを加えたら、一気に複雑になります。
+
+ここではGoogle検索をする例です。
+
+M-x google-menuでクエリを入力したらメニューが出てきます。
+
+#+BEGIN: include :file "/r/sync/junk/141220/141220041140.mag-menu.google.el"
+#+BEGIN_SRC fundamental
+(defun google-menu (query)
+  "Google検索のメニュー"
+  (interactive "sGoogle: ")
+  (mag-menu
+   '(google                             ;任意の名前
+     (actions
+      ("g" "検索！" google-menu-search) ;一番上はRETで実行可能
+      ("u" "URLを見る" google-menu-show-url)
+      ("o" "オプションを見る" google-menu-show-options))
+     (switches
+      ("j" "日本語のみ" "--only-japanese"))
+     (arguments                         ;オプション名は=で終わる
+      ("s" "期間" "--period=" mag-menu-read-generic)
+      ("Q" "検索語" "--query=" mag-menu-read-generic)))
+   `(("--only-japanese")
+     ("--period" . "y5")                ;ここでは=はつけない
+     ("--query" . ,query))))
+(defun google-menu-search (options)
+  "Google検索する"
+  (interactive)
+  (browse-url (google-menu-url options)))
+(defun google-menu-show-url (options)
+  "GoogleのURLを表示する"
+  (interactive)
+  (message "%s" (google-menu-url options)))
+(defun google-menu-show-options (options)
+  "オプションを表示する"
+  (interactive)
+  (message "%S" options))
+(defun google-menu-url (options)
+  "OPTIONSに応じてGooleのURLを求める"
+  (format "http://www.google.co.jp/search?q=%s&hl=ja&as_qdr=%s%s"
+          (url-hexify-string (assoc-default "--query" options))
+          (assoc-default "--period" options)
+          (if (assoc-default "--only-japanese" options)
+              "&lr=lang_ja"
+            "")))
+#+END_SRC
+
+#+END:
+
+http://rubikitch.com/f/20141220051733.png
+Fig3: Google検索を実装
+
+
+** もっと複雑な例
+もっと複雑な例はack-menuパッケージをインストールし、
+M-x find-function ack-menu で読んでみてください。
+
+→[[http://rubikitch.com/2014/12/20/ack-menu][ack-menuレビュー記事]]

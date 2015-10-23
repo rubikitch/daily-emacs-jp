@@ -1,0 +1,124 @@
+#+BLOG: rubikitch
+#+POSTID: 1995
+#+DATE: [2015-09-16 Wed 05:36]
+#+PERMALINK: edit-at-point
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs
+#+EL_PKG_NAME: edit-at-point
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, , relate:easy-kill, relate:omni-kill, relate:highlight-symbol
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 
+#+EL_TITLE0: カーソル位置のthing(単語・シンボル・行など)をcut/copy/pasteする
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージedit-at-pointの紹介
+#+MYTAGS: package:edit-at-point, emacs 使い方, emacs コマンド, emacs, edit-at-point, edit-at-point.el, emacs lisp edit-at-point, elisp edit-at-point, emacs melpa edit-at-point, emacs edit-at-point 使い方, emacs edit-at-point 設定, emacs パッケージ edit-at-point, , relate:easy-kill, relate:omni-kill, relate:highlight-symbol
+#+TAGS: package:edit-at-point, emacs 使い方, emacs コマンド, emacs, edit-at-point, edit-at-point.el, emacs lisp edit-at-point, elisp edit-at-point, emacs melpa edit-at-point, emacs edit-at-point 使い方, emacs edit-at-point 設定, emacs パッケージ edit-at-point, , relate:easy-kill, relate:omni-kill, relate:highlight-symbol, Emacs, edit-at-point.el
+#+TITLE: emacs edit-at-point.el : カーソル位置のthing(単語・シンボル・行など)をcut/copy/pasteする | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>edit-at-point</td></tr>
+<tr><td>概要(原文)</td><td>edit(copy,cut..) current things(word,symbol..) under cursor</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/enoson/edit-at-point.el">https://github.com/enoson/edit-at-point.el</a></td></tr>
+<tr><td>バージョン</td><td>20150716.624</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:edit-at-point/">package:edit-at-point</a> <a href="http://rubikitch.com/tag/package:easy-kill/">package:easy-kill</a> <a href="http://rubikitch.com/tag/package:omni-kill/">package:omni-kill</a> <a href="http://rubikitch.com/tag/package:highlight-symbol/">package:highlight-symbol</a></td></tr>
+</table>
+<br />
+#+END_HTML
+*edit-at-point.el* はカーソル位置のthingを編集するコマンド群です。
+
+thingはword/symbol/str/line/paren/defun、
+actionはcut/copy/delete/paste/dupで、
+総当たり的にコマンドが定義されています。
+
+たとえば単語をカットするコマンドはM-x edit-at-point-word-cutです。
+
+さすがに全コマンドをキーに割り当てるのは現実的ではないので、
+C-:でthingとactionを選択できるようにしておきました。
+
+それでも新しいキーバインドを消費することを考えたら
+M-wでまかなう [[http://rubikitch.com/2015/09/13/easy-kill/][easy-kill.el(レビュー)]] の方が使いやすいでしょう。
+
+作者はサンプルの設定でC-S-英字にすべてのコマンドを割り当てていますが、
+記憶に超絶負荷がかかるので本当に使いこなせているかは正直怪しいです。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+** edit-at-point インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install edit-at-point
+
+
+#+end:
+** 概要                                                             :noexport:
+*edit-at-point.el* はカーソル位置のthingを編集するコマンド群です。
+
+thingはword/symbol/str/line/paren/defun、
+actionはcut/copy/delete/paste/dupで、
+総当たり的にコマンドが定義されています。
+
+たとえば単語をカットするコマンドはM-x edit-at-point-word-cutです。
+
+さすがに全コマンドをキーに割り当てるのは現実的ではないので、
+C-:でthingとactionを選択できるようにしておきました。
+
+それでも新しいキーバインドを消費することを考えたら
+M-wでまかなう [[http://rubikitch.com/2015/09/13/easy-kill/][easy-kill.el(レビュー)]] の方が使いやすいでしょう。
+
+作者はサンプルの設定でC-S-英字にすべてのコマンドを割り当てていますが、
+記憶に超絶負荷がかかるので本当に使いこなせているかは正直怪しいです。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+** 設定 [[http://rubikitch.com/f/150916051458.edit-at-point.el][150916051458.edit-at-point.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/150916/150916051458.edit-at-point.el"
+#+BEGIN_SRC fundamental
+(require 'edit-at-point)
+(defvar edit-at-point-thing-alist
+  '(("w" . "word")
+    ("s" . "symbol")
+    ("S" . "str")
+    ("l" . "line")
+    ("p" . "paren")
+    ("d" . "defun")))
+(defvar edit-at-point-action-alist
+  '(("C-w" . "cut")
+    ("M-w" . "copy")
+    ("C-d" . "delete")
+    ("C-y" . "paste")
+    ("d" . "dup")))
+(defun edit-at-point-ensure-input (func)
+  (let (ans)
+    (while (progn (setq ans (funcall func))
+                  (not ans)))
+    ans))
+(defun edit-at-point-prompt (header alist)
+  (edit-at-point-ensure-input
+   (lambda ()
+     (assoc-default
+      (format-kbd-macro
+       (vector
+        (read-event
+         (format "%s :: %s" header
+                 (mapconcat (lambda (x) (format "%s:%s" (car x) (cdr x)))
+                            alist " ")))))
+      alist))))
+(defun edit-at-point-dispatch ()
+  (interactive)
+  (let* ((thing (edit-at-point-prompt "Edit at point" edit-at-point-thing-alist))
+         (action (edit-at-point-prompt "Action" edit-at-point-action-alist)))
+    (funcall (intern (format "edit-at-point-%s-%s" thing action)))))
+(global-set-key (kbd "C-:") 'edit-at-point-dispatch)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/150916051458.edit-at-point.el
+$ emacs -Q -f package-initialize -l 150916051458.edit-at-point.el
+#+END_EXAMPLE

@@ -1,0 +1,32 @@
+#+BLOG: rubikitch
+#+POSTID: 547
+#+DATE: [2014-11-03 Mon 08:45]
+#+PERMALINK: trace-org-emacs244
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, Emacs Lisp, Emacs 24.4, 記事更新情報
+#+DESCRIPTION:
+#+MYTAGS:
+#+TAGS: , Emacs, Emacs Lisp, Emacs 24.4, 記事更新情報, M-x trace-function, アドバイス, defadvice
+#+TITLE: 【Emacs 24.4対応】Emacs Lispのトレース(M-x trace-function)結果をorg-modeで表示
+[[http://rubikitch.com/2014/10/04/trace-org/][【デバッグ支援】Emacs Lispのトレース(M-x trace-function)結果をorg-modeでスパッと表示]] を
+Emacs 24.4に対応させました。
+
+*M-x trace-function* は、Emacs Lisp関数に *アドバイス* をかけることで
+トレースを行う標準コマンドです。
+
+アドバイスについては[[http://rubikitch.com/2014/10/30/nadvice/][Emacs 24.4でdefadviceに代わる新しい方法が導入]] されましたが、
+とはいえ皆が皆Emacs 24.4に移行しているわけではないので、
+旧来の *defadvice* を使用することにしました。
+
+変更点は、defadviceでの仮引数の残りを ＆rest にしたことです。
+
+仮引数をそのままコピーしていては、アドバイスをかける関数に引数が追加されると
+エラーになってしまうからです。
+
+必要な仮引数のみを使い、残りは＆restにすれば引数追加によるエラーは回避できます。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

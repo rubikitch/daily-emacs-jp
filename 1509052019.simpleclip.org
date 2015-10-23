@@ -1,0 +1,93 @@
+#+BLOG: rubikitch
+#+POSTID: 1953
+#+DATE: [2015-09-05 Sat 20:19]
+#+PERMALINK: simpleclip
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs
+#+EL_PKG_NAME: simpleclip
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: 【コピー＆ペースト】クリップボードとキルリングを独立させる
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージsimpleclipの紹介
+#+MYTAGS: package:simpleclip, emacs 使い方, emacs コマンド, emacs, simpleclip, simpleclip.el, emacs lisp simpleclip, elisp simpleclip, emacs melpa simpleclip, emacs simpleclip 使い方, emacs simpleclip 設定, emacs パッケージ simpleclip, emacs simpleclip スクリーンショット
+#+TAGS: package:simpleclip, emacs 使い方, emacs コマンド, emacs, simpleclip, simpleclip.el, emacs lisp simpleclip, elisp simpleclip, emacs melpa simpleclip, emacs simpleclip 使い方, emacs simpleclip 設定, emacs パッケージ simpleclip, emacs simpleclip スクリーンショット, Emacs, interprogram-cut-function, interprogram-paste-function, x-select-enable-clipboard, simpleclip.el, M-x simpleclip-copy, M-x simpleclip-cut, M-x simpleclip-paste, interprogram-cut-function, interprogram-paste-function, x-select-enable-clipboard, simpleclip.el, M-x simpleclip-copy, M-x simpleclip-cut, M-x simpleclip-paste
+#+TITLE: emacs simpleclip.el : 【コピー＆ペースト】クリップボードとキルリングを独立させる | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>simpleclip</td></tr>
+<tr><td>概要(原文)</td><td>Simplified access to the system clipboard</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/rolandwalker/simpleclip">https://github.com/rolandwalker/simpleclip</a></td></tr>
+<tr><td>バージョン</td><td>20150804.1010</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:simpleclip/">package:simpleclip</a> </td></tr>
+</table>
+<br />
+#+END_HTML
+Emacsのコピー＆ペースト機能は、以下の変数によって
+デフォルトではキルリングとクリップボードを融合しています。
+
+- *interprogram-cut-function*
+- *interprogram-paste-function*
+- *x-select-enable-clipboard*
+
+しかし、融合してしまったためにクリップボードの内容の変化によって
+C-yで貼り付けられる内容が変わってしまう事態になりました。
+
+*simpleclip.el* は、Emacsのキルリングと
+システムのクリップボードを分離させ、
+クリップボードのコピー＆ペーストコマンドを提供します。
+
+コピー(*M-x simpleclip-copy*)はs-c、C-<insert>、C-<insertchar>に
+カット(*M-x simpleclip-cut*)はs-x、S-<delete>に
+ペースト(*M-x simpleclip-paste*)はs-v、S-<insert>、S-<insertchar>に
+割り当てられています。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+** simpleclip インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install simpleclip
+
+
+#+end:
+** 概要                                                             :noexport:
+Emacsのコピー＆ペースト機能は、以下の変数によって
+デフォルトではキルリングとクリップボードを融合しています。
+
+- *interprogram-cut-function*
+- *interprogram-paste-function*
+- *x-select-enable-clipboard*
+
+しかし、融合してしまったためにクリップボードの内容の変化によって
+C-yで貼り付けられる内容が変わってしまう事態になりました。
+
+*simpleclip.el* は、Emacsのキルリングと
+システムのクリップボードを分離させ、
+クリップボードのコピー＆ペーストコマンドを提供します。
+
+コピー(*M-x simpleclip-copy*)はs-c、C-<insert>、C-<insertchar>に
+カット(*M-x simpleclip-cut*)はs-x、S-<delete>に
+ペースト(*M-x simpleclip-paste*)はs-v、S-<insert>、S-<insertchar>に
+割り当てられています。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+** 設定 [[http://rubikitch.com/f/150905202049.simpleclip.el][150905202049.simpleclip.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/150905/150905202049.simpleclip.el"
+#+BEGIN_SRC fundamental
+(simpleclip-mode 1)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/150905202049.simpleclip.el
+$ emacs -Q -f package-initialize -l 150905202049.simpleclip.el
+#+END_EXAMPLE

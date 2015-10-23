@@ -1,0 +1,240 @@
+#+BLOG: rubikitch
+#+POSTID: 1052
+#+DATE: [2015-02-01 Sun 08:45]
+#+PERMALINK: symon
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs
+#+EL_PKG_NAME: symon
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, emacs システムモニター, emacs CPU使用率, emacs メモリ使用量, emacs メモリ使用率, emacs battery, display-battery-mode
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: アイドル時にミニバッファにメモリ使用量・CPU使用率・バッテリ残量を表示するシステムモニター
+#+EL_URL: http://qiita.com/zk_phi/items/9576874a35a2affbefa8
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージsymonの紹介
+#+MYTAGS: package:symon, emacs 使い方, emacs コマンド, emacs, symon, symon.el, emacs lisp symon, elisp symon, emacs melpa symon, emacs symon 使い方, emacs symon 設定, emacs パッケージ symon, emacs symon スクリーンショット, emacs システムモニター, emacs CPU使用率, emacs メモリ使用量, emacs メモリ使用率, emacs battery, display-battery-mode
+#+TAGS: package:symon, emacs 使い方, emacs コマンド, emacs, symon, symon.el, emacs lisp symon, elisp symon, emacs melpa symon, emacs symon 使い方, emacs symon 設定, emacs パッケージ symon, emacs symon スクリーンショット, emacs システムモニター, emacs CPU使用率, emacs メモリ使用量, emacs メモリ使用率, emacs battery, display-battery-mode, Emacs, symon.el, グラフィカル, メモリ使用量, CPU使用率, バッテリ残量, symon-delay, symon-refresh-rate, symon-sparkline-height, symon-sparkline-width, symon-sparkline-ascent, symon-sparkline-thickness, symon.el, グラフィカル, メモリ使用量, CPU使用率, バッテリ残量, symon-delay, symon-refresh-rate, symon-sparkline-height, symon-sparkline-width, symon-sparkline-ascent, symon-sparkline-thickness, symon-monitors, define-symon-monitor, mode-line-format, symon-additional-info-format, symon-darwin-memory-monitor, symon-darwin-cpu-monitor, symon-darwin-network-rx-monitor, symon-darwin-network-tx-monitor, symon-monitors
+#+TITLE: emacs symon.el : アイドル時にミニバッファにメモリ使用量・CPU使用率・バッテリ残量を表示するシステムモニター | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>symon</td></tr>
+<tr><td>概要(原文)</td><td>tiny graphical system monitor</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>サイト</td><td><a href="http://qiita.com/zk_phi/items/9576874a35a2affbefa8">http://qiita.com/zk_phi/items/9576874a35a2affbefa8</td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/zk-phi/symon">https://github.com/zk-phi/symon</a></td></tr>
+<tr><td>バージョン</td><td>20150208.2114</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:symon/">package:symon</a> </td></tr>
+</table>
+<br />
+#+END_HTML
+<2015-02-10 Tue>更新
+1日のレビュー当初から大幅に進化し、
+グラフィカル化した上、表示内容をカスタマイズできるようになりました！！
+
+
+*symon.el* はEmacsで動く *グラフィカル* システムモニターです。
+
+GNU/LinuxとWindowsとCygwinに対応しています。
+
+現時点ではMac未対応ですが、
+コードを読めば対応できるようになっています。
+
+一定時間Emacsを操作しないと、図のように
+*メモリ使用量* 、 *CPU使用率* 、 *バッテリ残量* 、
+*受信・送信パケット量*(NEW) を表示します。
+
+デフォルトでは2秒間(*symon-delay*)操作しない場合に
+3秒間隔(*symon-refresh-rate*)で表示します。
+
+
+グラフの大きさについては、以下の変数を設定し、
+「実行方法」にあるように別のEmacsで表示テストをしてください。
+- *symon-sparkline-height*
+- *symon-sparkline-width*
+- *symon-sparkline-ascent*
+- *symon-sparkline-thickness*
+
+そしてお気に入りの設定を見付け次第、init.elに加えましょう。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+
+[[file:/r/sync/screenshots/20150201084451.png]]
+Fig3: 古いスクリーンショット
+
+
+[[file:/r/sync/screenshots/20150210064924.png]]
+Fig4: 新しいスクリーンショット
+
+
+
+** symon インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install symon
+
+
+#+end:
+** 概要                                                             :noexport:
+<2015-02-10 Tue>更新
+1日のレビュー当初から大幅に進化し、
+グラフィカル化した上、表示内容をカスタマイズできるようになりました！！
+
+
+*symon.el* はEmacsで動く *グラフィカル* システムモニターです。
+
+GNU/LinuxとWindowsとCygwinに対応しています。
+
+現時点ではMac未対応ですが、
+コードを読めば対応できるようになっています。
+
+一定時間Emacsを操作しないと、図のように
+*メモリ使用量* 、 *CPU使用率* 、 *バッテリ残量* 、
+*受信・送信パケット量*(NEW) を表示します。
+
+デフォルトでは2秒間(*symon-delay*)操作しない場合に
+3秒間隔(*symon-refresh-rate*)で表示します。
+
+
+グラフの大きさについては、以下の変数を設定し、
+「実行方法」にあるように別のEmacsで表示テストをしてください。
+- *symon-sparkline-height*
+- *symon-sparkline-width*
+- *symon-sparkline-ascent*
+- *symon-sparkline-thickness*
+
+そしてお気に入りの設定を見付け次第、init.elに加えましょう。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+
+[[file:/r/sync/screenshots/20150201084451.png]]
+Fig3: 古いスクリーンショット
+
+
+[[file:/r/sync/screenshots/20150210064924.png]]
+Fig4: 新しいスクリーンショット
+
+
+
+
+** 設定 [[http://rubikitch.com/f/150210061315.symon.el][150210061315.symon.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/150210/150210061315.symon.el"
+#+BEGIN_SRC fundamental
+(require 'symon)
+;;; 表示する情報
+(setq symon-monitors
+      ;; 現在時刻も追加！
+      (cons 'symon-current-time-monitor
+            (cond ((memq system-type '(gnu/linux cygwin))
+                   '(symon-linux-memory-monitor
+                     symon-linux-cpu-monitor
+                     symon-linux-network-rx-monitor
+                     symon-linux-network-tx-monitor))
+                  ((memq system-type '(windows-nt))
+                   '(symon-windows-memory-monitor
+                     symon-windows-cpu-monitor
+                     symon-windows-network-rx-monitor
+                     symon-windows-network-tx-monitor)))))
+
+;;; グラフの高さ(pixel)
+(setq symon-sparkline-height 20)
+;;; グラフの長さ(pixel)
+(setq symon-sparkline-width 80)
+;;; グラフの位置
+(setq symon-sparkline-ascent 100)
+;;; グラフの太さ
+(setq symon-sparkline-thickness 2)
+;; (symon-display)
+(symon-mode 1)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/150210061315.symon.el
+$ emacs -Q -f package-initialize -l 150210061315.symon.el
+#+END_EXAMPLE
+** 他の情報も表示したい
+<2015-02-10 Tue>全面的に書き換え
+
+システムモニターといえば、他の情報も表示したくなるかもしれません。
+
+表示内容は *symon-monitors* 変数で設定します。
+
+内容を定義するには *define-symon-monitor* マクロを使います。
+
+キーワードがいろいろ使えます。
+
+- index :: 見出し
+- unit :: 単位
+- sparkline :: グラフの表示
+- fetch :: 値(デフォルトで百分率)
+- setup :: 初期化処理(symon-mode有効時に実行)
+- cleanup :: 後片付け処理(symon-mode無効時に実行)
+- annotation :: 追加情報文字列
+- lower-bound :: fetchの最小値(デフォルト0)
+- upper-bound :: fetchの最大値(デフォルト100)
+
+GNU/Linuxでのバッテリ残量は以下のように定義されています。
+
+#+BEGIN_SRC emacs-lisp :results silent
+(define-symon-monitor symon-linux-battery-monitor
+  :index "BAT:" :unit "%" :sparkline t
+  :fetch (when battery-status-function
+           (read (cdr (assoc ?p (funcall battery-status-function))))))
+#+END_SRC
+
+一方、グラフを使わない情報についてはdisplayキーワードを使います。
+
+現在時刻を表示するモニタは以下のように定義されています。
+
+#+BEGIN_SRC emacs-lisp :results silent
+(define-symon-monitor symon-current-time-monitor
+  :display (format-time-string "%H:%M"))
+#+END_SRC
+
+このようにdisplayに書かれた内容を評価して表示します。
+
+よって、Emacsの状態をモニタするのは、上の例をパクればいいだけです。
+
+モードラインじゃ狭すぎて表示しきれない場合に対応できます。
+
+*mode-line-format* と同じフォーマットの変数
+*symon-additional-info-format* を用意し、設定すれば、
+第二のモードラインのように使えます。
+
+#+BEGIN_SRC emacs-lisp :results silent
+(defvar symon-additional-info-format nil)
+(define-symon-monitor symon-additional-info-monitor
+  :display (format-mode-line symon-additional-info-format))
+(push 'symon-additional-info-monitor symon-monitors)
+(setq symon-additional-info-format '("" (auto-fill-function "Fill")))
+#+END_SRC
+
+
+** 他のシステムに対応させるには
+<2015-02-10 Tue>全面的に書き換え
+
+Macにも対応させるには、
+- *symon-darwin-memory-monitor*
+- *symon-darwin-cpu-monitor*
+- *symon-darwin-network-rx-monitor*
+- *symon-darwin-network-tx-monitor*
+関数を定義し、
+*symon-monitors* 変数に
+#+BEGIN_SRC emacs-lisp :results silent
+((memq system-type '(darwin))
+ '(symon-darwin-memory-monitor
+   symon-darwin-cpu-monitor
+   symon-darwin-network-rx-monitor
+   symon-darwin-network-tx-monitor))
+#+END_SRC
+の項目を書き加えます。
+
+
+# /r/sync/screenshots/20150201084451.png http://rubikitch.com/wp-content/uploads/2015/02/wpid-201502010844511.png
+# /r/sync/screenshots/20150210064924.png http://rubikitch.com/wp-content/uploads/2015/02/wpid-20150210064924.png

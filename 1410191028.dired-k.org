@@ -1,0 +1,89 @@
+#+BLOG: rubikitch
+#+POSTID: 487
+#+DATE: [2014-10-19 Sun 10:28]
+#+PERMALINK: dired-k
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs
+#+EL_PKG_NAME: dired-k
+#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, relate:magit, relate:direx, relate:dired, package:dired, emacs git status, emacs zsh k,
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: dired/direxでサイズ・最終更新時刻・git statusで色をつける
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージdired-kの紹介
+#+MYTAGS: package:dired-k, emacs 使い方, emacs コマンド, emacs, emacs lisp dired-k, elisp dired-k, emacs melpa dired-k, emacs dired-k 使い方, emacs dired-k 設定, emacs パッケージ dired-k, emacs dired-k スクリーンショット, relate:magit, relate:direx, relate:dired, package:dired, emacs git status, emacs zsh k,
+#+TITLE: emacs dired-k.el : dired/direxでサイズ・最終更新時刻・git statusで色をつける | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>dired-k</td></tr>
+<tr><td>概要(原文)</td><td>highlight dired buffer by file size, modified time, git status</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/syohex/emacs-dired-k">https://github.com/syohex/emacs-dired-k</a></td></tr>
+<tr><td>バージョン</td><td>20141110.2035</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:dired-k/">package:dired-k</a> <a href="http://rubikitch.com/tag/package:magit/">package:magit</a> <a href="http://rubikitch.com/tag/package:direx/">package:direx</a> <a href="http://rubikitch.com/tag/package:dired/">package:dired</a></td></tr>
+</table>
+<br />
+#+END_HTML
+*dired-k.el* は、dired表示をカラフルにしてくれます。
+- ファイルサイズ
+- 最終更新時刻
+- gitの状態(コミットされた・変更済み・管理されていない)
+でそれぞれ色をつけてくれます。
+
+diredのgは本来再描画ですが、dired-kに割り当てれば
+再描画＋色付けをしてくれるので便利です。
+
+また、[[http://rubikitch.com/2014/10/18/direx/][昨日紹介したdirex.el]] にも対応しています。
+** dired-k インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install dired-k
+
+
+#+end:
+** 概要                                                             :noexport:
+*dired-k.el* は、dired表示をカラフルにしてくれます。
+- ファイルサイズ
+- 最終更新時刻
+- gitの状態(コミットされた・変更済み・管理されていない)
+でそれぞれ色をつけてくれます。
+
+diredのgは本来再描画ですが、dired-kに割り当てれば
+再描画＋色付けをしてくれるので便利です。
+
+また、[[http://rubikitch.com/2014/10/18/direx/][昨日紹介したdirex.el]] にも対応しています。
+
+** 設定 [[http://rubikitch.com/f/141019102632.dired-k.1.el][141019102632.dired-k.1.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/141019/141019102632.dired-k.1.el"
+#+BEGIN_SRC fundamental
+(require 'dired)
+(define-key dired-mode-map (kbd "g") 'dired-k)
+(add-hook 'dired-initial-position-hook 'dired-k)
+
+;;; direxを使う場合 / gitの状態のみ色付け
+(require 'direx-k)
+(global-set-key (kbd "C-\\") 'direx-project:jump-to-project-root-other-window)
+(define-key direx:direx-mode-map (kbd "K") 'direx-k)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/141019102632.dired-k.1.el
+$ emacs -Q -f package-initialize -l 141019102632.dired-k.1.el
+#+END_EXAMPLE
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+http://rubikitch.com/f/20141019102747.png
+Fig1: gを押してdired-kを表示させたところ
+
+http://rubikitch.com/f/20141019102813.png
+Fig2: そのときのgit status
+
+http://rubikitch.com/f/20141019103356.png
+Fig1: direxでもgitの状態で色付け

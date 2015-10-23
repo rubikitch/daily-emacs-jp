@@ -1,0 +1,174 @@
+#+BLOG: rubikitch
+#+POSTID: 181
+#+DATE: [2014-08-18 Mon 17:19]
+#+PERMALINK: deferred
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, Emacs Lisp,
+#+EL_PKG_NAME: deferred
+#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, emacs マルチスレッド, emacs 遅延処理, emacs marquee, emacs httpアクセス, emacs httpクライアント, emacs プロセス処理, emacs 並列処理, relate:async
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: Emacs Lispで疑似マルチスレッドプログラミング
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージdeferredの紹介
+#+MYTAGS: package:deferred, emacs 使い方, emacs コマンド, emacs, emacs lisp deferred, elisp deferred, emacs melpa deferred, emacs deferred 使い方, emacs deferred 設定, emacs パッケージ deferred, emacs deferred スクリーンショット, emacs マルチスレッド, emacs 遅延処理, emacs marquee, emacs httpアクセス, emacs httpクライアント, emacs プロセス処理, emacs 並列処理, relate:async
+#+TITLE: emacs deferred.el : Emacs Lispで疑似マルチスレッドプログラミング | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>deferred</td></tr>
+<tr><td>概要(原文)</td><td>Simple asynchronous functions for emacs lisp</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/kiwanami/emacs-deferred">https://github.com/kiwanami/emacs-deferred</a></td></tr>
+<tr><td>バージョン</td><td>20141208.1613</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:deferred/">package:deferred</a> <a href="http://rubikitch.com/tag/package:async/">package:async</a></td></tr>
+</table>
+<br />
+#+END_HTML
+deferred.elはEmacs Lispで疑似マルチスレッド
+プログラミングができるようにするライブラリです。
+
+非同期処理をしたいと思ったら、
+とりあえず手を出してみるべきです。
+
+具体的な使い方について知りたいならば、
+「使用例1」のコードを実際に実行してください。
+
+サンプルの内容がバッファに挿入されるので、
+式ごとにC-x C-eを押して確認してください。
+
+
+なお、使用例3のように内部でdeferredを使っている関数がある場合は、
+ファイルローカルな *lexical-binding* の設定を加え、
+letを *レキシカルスコープ* にしておいてください。
+
+関数marquee-stringがそれに該当し、
+strとdelayはレキシカルスコープでないと動作しません。
+
+ただし、レキシカルスコープがサポートされているのはEmacs24からなので、
+Emacs23以前を使っている方は *lexical-let* を使ってください。
+
+** deferred インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install deferred
+
+
+#+end:
+** 概要                                                             :noexport:
+deferred.elはEmacs Lispで疑似マルチスレッド
+プログラミングができるようにするライブラリです。
+
+非同期処理をしたいと思ったら、
+とりあえず手を出してみるべきです。
+
+具体的な使い方について知りたいならば、
+「使用例1」のコードを実際に実行してください。
+
+サンプルの内容がバッファに挿入されるので、
+式ごとにC-x C-eを押して確認してください。
+
+
+なお、使用例3のように内部でdeferredを使っている関数がある場合は、
+ファイルローカルな *lexical-binding* の設定を加え、
+letを *レキシカルスコープ* にしておいてください。
+
+関数marquee-stringがそれに該当し、
+strとdelayはレキシカルスコープでないと動作しません。
+
+ただし、レキシカルスコープがサポートされているのはEmacs24からなので、
+Emacs23以前を使っている方は *lexical-let* を使ってください。
+
+
+** 使用例1(サイトの内容をバッファに挿入) [[http://rubikitch.com/f/140818171638.el][140818171638.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/140818/140818171638.el"
+#+BEGIN_SRC fundamental
+(require 'deferred)
+(require 'url)
+(deferred:$
+  ;; URLの内容を取得し
+  (deferred:url-retrieve "https://raw.githubusercontent.com/kiwanami/emacs-deferred/master/deferred-samples.el")
+  (deferred:nextc it
+    (lambda (buf)
+      ;; bufはURLの内容(HTML)が入っている
+      ;; HTMLをカレントバッファに挿入！
+      (insert  (with-current-buffer buf (buffer-string)))
+      ;; ダウンロードに使ったバッファはいらないので削除
+      (kill-buffer buf))))
+#+END_SRC
+
+#+END:
+
+*** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/140818171638.el
+$ emacs -Q -f package-initialize -l 140818171638.el
+#+END_EXAMPLE
+
+http://rubikitch.com/f/20140818171856.png
+Fig1: URLの内容を非同期でカレントバッファに挿入
+** 使用例2(画像を縮小してカレントバッファに挿入) [[http://rubikitch.com/f/140818172125.el][140818172125.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/140818/140818172125.el"
+#+BEGIN_SRC fundamental
+(require 'deferred)
+(deferred:$
+  (deferred:process "wget" "-O" "a.jpg" "http://www.gnu.org/software/emacs/tour/images/splash.png")
+  (deferred:nextc it
+    (lambda (x) (deferred:process "convert" "a.jpg" "-resize" "100x100" "jpg:b.jpg")))
+  (deferred:nextc it
+    (lambda (x)
+      (insert-image (create-image (expand-file-name "b.jpg") 'jpeg nil)))))
+#+END_SRC
+
+#+END:
+
+*** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/140818172125.el
+$ emacs -Q -f package-initialize -l 140818172125.el
+#+END_EXAMPLE
+
+http://rubikitch.com/f/20140818172252.png
+Fig2: 画像を縮小して挿入
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+
+** 使用例3(文字列をスライドさせる) [[http://rubikitch.com/f/mylisp-marquee.el][mylisp-marquee.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/emacs/init.d/mylisp-marquee.el"
+#+BEGIN_SRC fundamental
+;;; -*- lexical-binding: t -*-
+(require 'deferred)
+(defvar marquee-deferred-chain nil)
+(defvar marquee-count 0)
+
+(defun marquee-string (str delay)
+  (setq marquee-count 0)
+  (setq marquee-deferred-chain
+        (deferred:loop 29999
+          (lambda (i)
+            (deferred:$
+              (deferred:next
+                (lambda ()
+                  (message "%s" (truncate-string-to-width (substring (concat str " " str " " str) (mod i (length str)))
+                                                          (- (frame-width) 1) 0))))
+              (deferred:wait (* 1000 delay)))))))
+
+;; (marquee-string "foobarbaz" 0.2)
+;; (marquee-cancel)
+(defun marquee-cancel ()
+  (interactive)
+  (when marquee-deferred-chain (deferred:cancel marquee-deferred-chain))
+  (setq marquee-deferred-chain nil))
+
+(provide 'mylisp-marquee)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/mylisp-marquee.el
+$ emacs -Q -f package-initialize -l mylisp-marquee.el -eval '(marquee-string "foobarbaz" 0.2)'
+#+END_EXAMPLE

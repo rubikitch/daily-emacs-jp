@@ -1,0 +1,187 @@
+#+BLOG: rubikitch
+#+POSTID: 360
+#+DATE: [2014-09-18 Thu 12:17]
+#+PERMALINK: async
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs
+#+EL_PKG_NAME: async
+#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs マルチスレッド, emacs 遅延処理 , emacs プロセス処理, emacs 並列処理, relate:deferred
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方
+#+EL_TITLE0: Emacs Lispで本物の並列処理ができた…だと!？その実態に迫る
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージasyncの紹介
+#+MYTAGS: package:async, emacs 使い方, emacs コマンド, emacs, emacs lisp async, elisp async, emacs melpa async, emacs async 使い方, emacs async 設定, emacs パッケージ async, emacs マルチスレッド, emacs 遅延処理 , emacs プロセス処理, emacs 並列処理, relate:deferred
+#+TITLE: emacs async.el : Emacs Lispで本物の並列処理ができた…だと!？その実態に迫る | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>async</td></tr>
+<tr><td>概要(原文)</td><td>Asynchronous processing in Emacs</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/jwiegley/emacs-async">https://github.com/jwiegley/emacs-async</a></td></tr>
+<tr><td>バージョン</td><td>20141224.2140</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:async/">package:async</a> <a href="http://rubikitch.com/tag/package:deferred/">package:deferred</a></td></tr>
+</table>
+<br />
+#+END_HTML
+*async.el* はEmacs Lispで *並列処理* を行うライブラリです。
+
+作者はEmacsの世界的権威 *John Wiegley* 氏。
+
+eshellや[[http://rubikitch.com/2014/09/09/use-package/][use-package.el]] 、[[http://rubikitch.com/2014/09/10/bind-key/][bind-key.el]] など
+多くのEmacs Lispをリリースしています。
+
+Emacs Lispでは並列処理が弱点と言われていますし、
+できないと思っている人もいるようですが、
+実はある方法を使えば可能なのです…
+
+確かにEmacs Lispという言語自体では
+並列処理の機能はないのですが、
+*プロセス* を使うという抜け道があります。
+
+M-x shellでシェルを動かしながら
+Emacsを動作させているのと同じです。
+
+async.elは新しいEmacsプロセスでS式を評価したり、
+S式を返す外部プログラムを起動したりすることで
+Emacs Lispで並列実行を行います。
+
+[[http://rubikitch.com/2014/08/18/deferred/][deferred.el]] でも並列処理をしますが、
+あれはタイマーによる疑似スレッドなので
+残念ながらせっかくのマルチコアが生きません。
+
+** async インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install async
+
+
+#+end:
+** 概要                                                             :noexport:
+*async.el* はEmacs Lispで *並列処理* を行うライブラリです。
+
+作者はEmacsの世界的権威 *John Wiegley* 氏。
+
+eshellや[[http://rubikitch.com/2014/09/09/use-package/][use-package.el]] 、[[http://rubikitch.com/2014/09/10/bind-key/][bind-key.el]] など
+多くのEmacs Lispをリリースしています。
+
+Emacs Lispでは並列処理が弱点と言われていますし、
+できないと思っている人もいるようですが、
+実はある方法を使えば可能なのです…
+
+確かにEmacs Lispという言語自体では
+並列処理の機能はないのですが、
+*プロセス* を使うという抜け道があります。
+
+M-x shellでシェルを動かしながら
+Emacsを動作させているのと同じです。
+
+async.elは新しいEmacsプロセスでS式を評価したり、
+S式を返す外部プログラムを起動したりすることで
+Emacs Lispで並列実行を行います。
+
+[[http://rubikitch.com/2014/08/18/deferred/][deferred.el]] でも並列処理をしますが、
+あれはタイマーによる疑似スレッドなので
+残念ながらせっかくのマルチコアが生きません。
+
+
+** async-start
+*async-start* 関数は新しいEmacsプロセスで評価するラムダ式と、
+実行終了時に評価する関数の2つを取り、並列実行をします。
+
+新しいEmacsプロセスは
+*emacs -Q -batch* により
+まっさらな環境で評価します。
+
+そのため、現在の変数の値をそのまま引き継ぐことはできません。
+
+そこで *async-inject-variables* で新しいEmacsに
+持ち込む変数を正規表現で指定します。
+
+返り値は、それらの変数を設定するsetqのS式です。
+
+たとえば、a=3を持ち込む場合は
+#+BEGIN_EXAMPLE
+(async-inject-variables "^a$")
+↓
+(setq a (quote 3))
+#+END_EXAMPLE
+となります。
+
+これを使う場合は *バッククォート* でラムダ式を作ります。
+
+変数を参照するには *レキシカルスコープ* が必要なので
+*lexical-let* や *lexical-binding* を使う必要があります。
+
+#+BEGIN_SRC emacs-lisp :results silent
+;;; -*- lexical-binding: t -*-
+(require 'async)
+;;; tmを後のlambdaで参照するためlexical-bindingが必要
+(let ((tm (float-time)))
+  (async-start
+   ;; What to do in the child process
+   (lambda ()
+     (message "This is a test")
+     (sleep-for 3)
+     222)
+
+   ;; What to do when it finishes
+   (lambda (result)
+     (message "Async process done, result should be 222: %s (%s sec)"
+              result (- (float-time) tm)))))
+;;; 誤例: nil  新プロセスでの (buffer-file-name) を評価してしまう
+(async-start
+ (lambda ()
+   (buffer-file-name))
+ (lambda (result)
+   (message "buffer-file-name: %s" result)))
+;;; バッククォートにより結果を渡すことでカレントバッファのbuffer-file-nameが返る
+(async-start
+ `(lambda ()
+    ,(buffer-file-name))
+ (lambda (result)
+   (message "buffer-file-name: %s" result)))
+;;; 変数custom-fileをプロセスに渡す→現在のcustom-fileが返る
+(async-start
+ `(lambda ()
+   ,(async-inject-variables "^custom-file$"))
+ (lambda (result)
+   (message "buffer-file-name: %s" custom-file)))
+#+END_SRC
+
+
+
+** async-start-process
+*async-start-process* 関数は、任意のプロセスを立ち上げ、
+その結果を *コールバック関数* に渡します。
+
+とくにプロセス名(第1引数)がemacsのとき、
+コールバックに渡される引数は
+そのプロセスの出力結果のS式です。
+
+これはなかなか興味深い機能で、S式を出力する外部プログラムを作成すれば、
+Emacs Lispで書くと遅い処理でもEmacsが止まることなく処理してくれるでしょう。
+
+たとえばアイドル時にカレントバッファのソースコードを解析して、
+その結果を変数に保持するようなこととかです。
+
+夢を見させてくれる機能ですが、やはりネックは
+現在の状態をいかにプロセスに渡すかでしょう。
+
+この例では簡単のためににechoでS式を出力させているだけです。
+
+#+BEGIN_SRC emacs-lisp :results silent
+;;; 単にプロセスが返る
+(async-start-process "hoge" "echo" (lambda (x) (message "ret:%S" x)) "(+ 1 2)")
+;;; プロセス名にemacsを指定すると、出力をS式とみなしてくれる→(+ 1 2)が返る
+(async-start-process "emacs" "echo" (lambda (x) (message "ret:%S" x)) "(+ 1 2)")
+;;; evalすると3が返る
+(async-start-process "emacs" "echo" (lambda (x) (message "ret:%S" (eval x))) "(+ 1 2)")
+#+END_SRC
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

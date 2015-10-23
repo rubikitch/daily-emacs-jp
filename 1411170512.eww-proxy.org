@@ -1,0 +1,68 @@
+#+BLOG: rubikitch
+#+POSTID: 587
+#+DATE: [2014-11-17 Mon 05:12]
+#+PERMALINK: eww-proxy
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, Emacs 24.4,
+#+DESCRIPTION: Emacsでプロキシを使うには環境変数http_proxyか変数url-proxy-servicesを設定する。eww等ネットワークアクセスをするelisp共通。
+#+MYTAGS: package:eww,
+#+TAGS: package:eww,, Emacs, Emacs 24.4,, eww, プロキシ, url-retrieve-synchronously, http_proxy, url-proxy-services, ファイヤーウォール, ローカルプロキシ, polipo, squid, adzapper, 広告避け
+#+TITLE: Emacsでproxyを使う設定 - この1行でewwもpackageも広告避けもバッチリ！
+Emacs 24.4になってEmacs標準添付のブラウザ *eww* が話題になっていますね。
+
+ewwは生まれたばかりで機能は少なく、これからの発展が楽しみです。
+
+とにかくレンダリングが速いので emacs-w3mから乗り換える予定です。
+
+そういえば、ewwで *プロキシ* を使う方法についてはまだ載っていませんね。
+
+M-x apropos RET eww-.+proxy で調べても見付かりません。
+
+結論を言うとewwでもプロキシは使えます。
+
+ewwは内部で *url-retrieve-synchronously* 関数を使っており、
+これのおかげでEmacsそのものがHTTPクライアントになっています。
+
+よって、url.elの層でプロキシを設定すればいいのです。
+
+そうすることでewwはもちろんのこと、
+package.elなど他のネットワークアクセスが
+伴うelispにも適用されます。
+
+方法は2つあります。
+
+- 環境変数 *http_proxy* を設定する
+- *url-proxy-services* 変数を設定する
+
+環境変数 http_proxy の設定は、
+Emacsから起動する外部プログラムにも
+波及するので前者がおすすめです。
+
+たとえば、プロキシサーバが 127.0.0.1:8338 のときは
+
+#+BEGIN_EXAMPLE
+$ http_proxy=http://localhost:8338 emacs
+#+END_EXAMPLE
+
+のようにEmacsを起動するか、init.elに
+
+#+BEGIN_SRC emacs-lisp :results silent
+(setq url-proxy-services '(("http" . "127.0.0.1:8338")))
+#+END_SRC
+
+の設定を加えます。
+
+
+*ファイヤーウォール* を抜けることはもちろんのこと、
+便利な *ローカルプロキシ* が使えます。
+
+例えば *polipo* (*squid*) + *adzapper* で *広告避け* できたりします。
+
+コアはシンプルに保ち、様々な機能はプロキシに
+丸投げするというewwの潔さは好感が持てます。
+
+願わくばフックを充実させてほしいなと…

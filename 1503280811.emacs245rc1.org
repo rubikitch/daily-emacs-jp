@@ -1,0 +1,33 @@
+#+BLOG: rubikitch
+#+POSTID: 1381
+#+DATE: [2015-03-28 Sat 08:11]
+#+PERMALINK: emacs245rc1
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, Emacs 24.5, 
+#+DESCRIPTION: 
+#+MYTAGS: 
+#+TITLE: Emacs 24.5 RC1出ました
+#+begin: org2blog-tags
+#+TAGS: , Emacs, Emacs 24.5, , 
+#+end:
+http://lists.gnu.org/archive/html/emacs-devel/2015-03/msg00825.html
+
+Emacs 24.5のリリースが近づいてきました。
+
+ということでRelease Candidate 1が出ました。
+
+どうやらDebianならば特に問題はないようです。
+
+#+BEGIN_QUOTE
+Running fine here on debian 7.0.6 and Mac OSX 10.10.2
+#+END_QUOTE
+
+試したい方はどうぞ。
+
+ftp://alpha.gnu.org/gnu/emacs/pretest/emacs-24.5-rc1.tar.xz
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

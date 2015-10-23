@@ -1,0 +1,231 @@
+#+BLOG: rubikitch
+#+POSTID: 1063
+#+DATE: [2015-02-02 Mon 05:33]
+#+PERMALINK: helm-add-actions
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, helm, Emacs Lisp, 
+#+DESCRIPTION: 
+#+MYTAGS: emacs, helm, helm アクション 追加, package:helm, relate:anything
+#+TITLE: 【旧式！150706まで】emacs helmにアクション・キーバインドを超簡単に追加する方法！
+#+begin: org2blog-tags
+#+TAGS: emacs, helm, helm アクション 追加, package:helm, relate:anything, Emacs, helm, Emacs Lisp, , helm, helm-make-source, helm-setup-user-source, helm-source-add-action-to-source-if, helm-add-action-to-source, helm-add-action-to-source-if, helm-add-action-to-source, helm-add-action-to-source-if, helm-setup-user-source, helm-type-attributes, Stat, M-x helm-mini, M-x helm-recentf
+#+end:
+<2015-07-15 Wed> /150707以降のバージョンではアクションが追加できません！！！！！/
+→http://rubikitch.com/2015/07/15/helm-add-actions
+
+*helm* はEmacsにオブジェクト指向化をもたらす偉大なるパッケージです。
+
+候補の集合とアクションが独立しているため、
+組み合わせによってはコマンドでは用意されていないことも
+できるようになります。
+
+helmの強さは複数の情報源と複数のアクション、
+そしてそれらを絞り込み検索できるところです。
+
+helmはデフォルトの状態でもたくさんのアクションが用意されていますが、
+ユーザ側で簡単に追加できるようになっていないのが残念です。
+
+そこで、簡単にアクションとキーバインドを追加できるような
+elispを書いてみました。
+
+** EIEIO化された情報源
+数ヶ月前から *EIEIO* (Emacs LispによるCLOS風オブジェクト指向)
+で書かれるようになったため、情報源の定義がかなり複雑になりました。
+
+いまや情報源は2種類の表現方法があります。
+- EIEIOのクラス
+- anything時代から使われている従来の連想リスト
+
+今ではEIEIOのクラスを定義し、
+*helm-make-source* 関数にて連想リスト形式に変換するようになっています。
+
+そのせいでユーザ観点ではいたずらに複雑になってしまいました。
+
+情報源クラスの定義をユーザが変更するには
+*helm-setup-user-source* メソッドを定義します。
+
+アクションを追加するにはその中で
+*helm-source-add-action-to-source-if* を使います。
+
+そのため、ロードの順番によっては
+再び情報源の変数をセットする必要があったりと
+かなりやっかいなことになってしまいました。
+
+普通のEmacsユーザは絶対ハマッてしまいます。
+
+というか、たかだかアクションを追加したいだけの
+普通の人にEIEIOを強要させるのもアレですね。
+
+一方で、連想リストによる情報源については
+*helm-add-action-to-source* と
+*helm-add-action-to-source-if* を使います。
+
+もうぐちゃぐちゃですよね。
+** 単一情報源についてはrequire→helm-add-action-to-source
+結論を言うと、単一情報源のアクションを追加するには、
+requireで情報源の定義をロードした上で
+*helm-add-action-to-source* で追加するのが楽です。
+
+#+BEGIN_SRC emacs-lisp :results silent
+(require 'helm)
+;;; お試し情報源
+(defvar helm-source-test
+  '((name . "test")
+    (candidates "aaa" "bbb")
+    (action ("foo" . foo))))
+;;; アクションbarを追加
+(helm-add-action-to-source "bar" 'bar helm-source-test)
+;;; 実際にhelmで実行させる。
+;;; TABを押せば確かにbarが追加されていることがわかる
+(helm :sources 'helm-source-test)
+#+END_SRC
+
+そもそも条件を満たさない限りアクションは使わないので、
+*helm-add-action-to-source-if* で除外するよりも
+無条件に追加した方が動作確認が楽だと思います。
+** typeに対応するアクションは mylisp-helm-add-actions.el を使う
+helmでアクションを追加したい場合、
+たいていの場合はtype(型)について追加したいでしょう。
+
+そうすることで共通してオレオレアクションが使えるのですから！
+
+しかし、<2015-02-02 Mon>現在のhelmは
+typeのアクションに対し *helm-setup-user-source* を
+呼んでくれない不具合があります。
+
+おまけに、 *helm-type-attributes* を変更しても
+情報源に反映されないようになってしまいました。
+
+せめて連想リストにtypeを吐き出してくれたら、
+アクションを追加するプラグインを書けるのですが、
+それすらできないなんて、本当に迷惑この上ないです。
+
+そこをなんとか読み解き、ユーザ側でアクションを追加できるようにしました。
+** キーバインドを簡単に設定
+helmは情報源ごとにキーマップを設定できるようになっていますが、
+現状のhelmでは気楽にアクションのキーバインドを設定できません。
+
+このように、いたずらに冗長かつ無駄な記述にあふれています。
+
+#+BEGIN_SRC emacs-lisp :results silent
+(defvar helm-find-files-map
+  (let ((map (make-sparse-keymap)))
+    (set-keymap-parent map helm-map)
+    ;; 略
+    (define-key map (kbd "C-c @")         'helm-ff-run-insert-org-link)
+    (define-key map (kbd "C-c r")         'helm-ff-run-find-file-as-root)
+    ;; 略
+    map))
+;;; helm-files.elだけでこれらのコマンドが30近く並んでいる
+;;; helm全体では60個も…
+(defun helm-ff-run-insert-org-link ()
+  (interactive)
+  (with-helm-alive-p
+    (helm-quit-and-execute-action 'helm-files-insert-as-org-link)))
+(defun helm-ff-run-find-file-as-root ()
+  (interactive)
+  (with-helm-alive-p
+    (helm-quit-and-execute-action 'helm-find-file-as-root)))
+#+END_SRC
+
+それならば単純にアクションをそのままキーに
+割り当てるという発想ができないのでしょうか？
+
+#+BEGIN_SRC emacs-lisp :results silent
+(helm-define-action-key helm-find-files-map (kbd "C-c @") 'helm-files-insert-as-org-link)
+(helm-define-action-key helm-find-files-map (kbd "C-c r") 'helm-find-file-as-root)
+#+END_SRC
+
+このようにたった2行で済むんですから。
+
+ちょっとは冗長性を排除するように努力しましょうよ、ねぇ？
+
+
+
+**  [[http://rubikitch.com/f/mylisp-helm-add-actions.el][mylisp-helm-add-actions.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/emacs/init.d/mylisp-helm-add-actions.el"
+#+BEGIN_SRC fundamental
+;;; -*- lexical-binding: t -*-
+(require 'helm)
+;;; それぞれの型に対する追加アクション
+(defvar helm-user-actions-type-file nil)
+(defvar helm-user-actions-type-buffer nil)
+(defvar helm-user-actions-type-command nil)
+(defvar helm-user-actions-type-function nil)
+(defun helm-source-add-user-actions (source user-actions)
+  (oset source :action
+        (append (oref source :action)
+                (cl-loop with orig = (oref source :action)
+                         for (name . action) in user-actions
+                         unless (member name orig)
+                         append (helm-make-actions name action)))))
+(defmethod helm-setup-user-source ((source helm-type-file))
+  (helm-source-add-user-actions source (helm-user-actions-type 'file)))
+(defmethod helm-setup-user-source ((source helm-type-buffer))
+  (helm-source-add-user-actions source (helm-user-actions-type 'buffer)))
+(defmethod helm-setup-user-source ((source helm-type-command))
+  (helm-source-add-user-actions source (helm-user-actions-type 'command)))
+(defmethod helm-setup-user-source ((source helm-type-function))
+  (helm-source-add-user-actions source (helm-user-actions-type 'function)))
+;;; 型に対して追加アクションを読まないバグを修正！
+(dolist (type '(file buffer function command))
+  (advice-add (intern (format "helm-actions-from-type-%s" type))
+              :around `(lambda (&rest them)
+                        (append (apply them)
+                                (helm-user-actions-type ',type)))))
+(defun helm-user-actions-type (type)
+  (symbol-value (intern (format "helm-user-actions-type-%s" type))))
+
+;;; キーバインドの設定
+(defun helm-define-action-key (keymap key def)
+  "アクションをキーバインドに設定"
+  (define-key keymap key
+    (lambda ()
+      (interactive)
+      (with-helm-alive-p
+        (helm-quit-and-execute-action def)))))
+
+(provide 'mylisp-helm-add-actions)
+#+END_SRC
+
+#+END:
+
+** type:fileに対しアクション「Stat」を追加する例 [[http://rubikitch.com/f/150202071912.helm-add-actions.stat.el][150202071912.helm-add-actions.stat.el(以下のコードと同一)]]
+file型に対してstatを実行するアクションを追加し、
+C-c C-sでも実行できるようにする例です。
+
+helm-filesを読み込むタイミングに注意です。
+
+強引なEIEIO化の弊害です(泣)
+
+#+BEGIN: include :file "/r/sync/junk/150202/150202071912.helm-add-actions.stat.el"
+#+BEGIN_SRC fundamental
+(require 'mylisp-helm-add-actions)
+
+(defun file-do-stat (filename)
+  (interactive "FStat File: ")
+  (shell-command (format "stat %s" (shell-quote-argument filename))
+                 "*Stat*"))
+;;; helm-files.elロード前に設定を行う必要がある
+(setq helm-user-actions-type-file
+      '(("Stat" . file-do-stat)))
+;;; helm-generic-files-mapを変更するためにhelm-files.el
+;;; (実際はhelm-locate.el)をロードする
+(require 'helm-files)
+(helm-define-action-key helm-generic-files-map (kbd "C-c C-s") 'file-do-stat)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/150202071912.helm-add-actions.stat.el http://rubikitch.com/f/mylisp-helm-add-actions.el
+$ emacs -Q -f package-initialize -l mylisp-helm-add-actions.el -l 150202071912.helm-add-actions.stat.el
+#+END_EXAMPLE
+
+*M-x helm-mini* とか *M-x helm-recentf* の後に
+TABなりC-c C-sなり押すことで確認できます。

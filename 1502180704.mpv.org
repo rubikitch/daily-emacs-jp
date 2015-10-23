@@ -1,0 +1,228 @@
+#+BLOG: rubikitch
+#+POSTID: 1171
+#+DATE: [2015-02-18 Wed 07:04]
+#+PERMALINK: mpv
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, org-mode
+#+EL_PKG_NAME: mpv
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, emacs mplayer, emacs mpv, emacs メディアプレイヤー, セミナー音声 メモ, オーディオブック メモ, セミナー メモ, emacs テープ書き起こし
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: 【mpv＋org-mode】オーディオブックやセミナー音声(動画)から時間情報付きでメモを取れ！
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージmpvの紹介
+#+MYTAGS: package:mpv, emacs 使い方, emacs コマンド, emacs, mpv, mpv.el, emacs lisp mpv, elisp mpv, emacs melpa mpv, emacs mpv 使い方, emacs mpv 設定, emacs パッケージ mpv, emacs mpv スクリーンショット, emacs mplayer, emacs mpv, emacs メディアプレイヤー, セミナー音声 メモ, オーディオブック メモ, セミナー メモ, emacs テープ書き起こし
+#+TAGS: package:mpv, emacs 使い方, emacs コマンド, emacs, mpv, mpv.el, emacs lisp mpv, elisp mpv, emacs melpa mpv, emacs mpv 使い方, emacs mpv 設定, emacs パッケージ mpv, emacs mpv スクリーンショット, emacs mplayer, emacs mpv, emacs メディアプレイヤー, セミナー音声 メモ, オーディオブック メモ, セミナー メモ, emacs テープ書き起こし, Emacs, org-mode, mplayer, mpv.el, EMMS, mpg123.el, オーディオブック, セミナー, mpv-pause, mpv-kill, mpv-seek-forward, mpv-speed-increase, mpv-insert-playback-position, mpv-seek-to-position-at-point, C-c C-l, mplayer, mpv.el, EMMS, mpg123.el, オーディオブック, セミナー, mpv-pause, mpv-kill, mpv-seek-forward, mpv-speed-increase, mpv-insert-playback-position, mpv-seek-to-position-at-point, C-c C-l, --input-unix-socket
+#+TITLE: emacs mpv.el : 【mpv＋org-mode】オーディオブックやセミナー音声(動画)から時間情報付きでメモを取れ！ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>mpv</td></tr>
+<tr><td>概要(原文)</td><td>control mpv for easy note-taking</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/kljohann/mpv.el">https://github.com/kljohann/mpv.el</a></td></tr>
+<tr><td>バージョン</td><td>20150218.118</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:mpv/">package:mpv</a> </td></tr>
+</table>
+<br />
+#+END_HTML
+
+[[http://mpv.io/][mpv(本家サイト)]]  というメディアプレイヤーは
+Unix系OSを中心に使われている *mplayer* *mplayer2* のforkです。
+
+GNU/Linux、Windows、Mac、FreeBSD、NetBSDに対応しています。
+
+*mpv.el* はmpvをEmacsから操作するelispです。
+
+こう言うと *EMMS* や *mpg123.el* のようなEmacs上のメディアプレイヤーと
+思われがちですが、mpv.elの本当の目的は音声や動画からメモを取ることです。
+
+今は数多くの *オーディオブック* や *セミナー* の音声・動画がありますが、
+重要な部分をメモすると早く頭に入ります。
+
+mpv.elは以下の機能を提供します。
+
+- mpvの操作
+  - *mpv-pause* - 一時停止
+  - *mpv-kill* - 停止
+  - *mpv-seek-forward* *mpv-seek-backward* - 再生位置を移動
+  - *mpv-speed-increase* *mpv-speed-decrease* - 再生速度を調整
+  - *mpv-insert-playback-position* - 現在の再生時間を挿入
+  - *mpv-seek-to-position-at-point* - カーソル位置の再生時間へ移動
+- org-modeとの連携
+  - *C-c C-l* で mpv: のリンクを挿入
+  - M-RETで再生位置を自動挿入
+  - 再生位置(h:mm:ss)上でC-c C-oを押すとその再生位置に移動
+
+本設定では[[https://github.com/kljohann/mpv.el/wiki][Wiki]] に書いているものを書き加え、ちょっと改良しています。
+- H-SPCで一時停止
+- H-bで5秒戻る
+- リンク挿入後に「0:00:00」と挿入して、スムーズにM-RETできるようにした
+
+mpvのバージョンが古いと動かないので新しいものにしてください。
+
+mplayer(mplayer2)と共存できますがIPCがしっかりしているので、
+僕はmplayer2から乗り換えようと思っています。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+** mpv インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install mpv
+
+
+#+end:
+** 概要                                                             :noexport:
+
+[[http://mpv.io/][mpv(本家サイト)]]  というメディアプレイヤーは
+Unix系OSを中心に使われている *mplayer* *mplayer2* のforkです。
+
+GNU/Linux、Windows、Mac、FreeBSD、NetBSDに対応しています。
+
+*mpv.el* はmpvをEmacsから操作するelispです。
+
+こう言うと *EMMS* や *mpg123.el* のようなEmacs上のメディアプレイヤーと
+思われがちですが、mpv.elの本当の目的は音声や動画からメモを取ることです。
+
+今は数多くの *オーディオブック* や *セミナー* の音声・動画がありますが、
+重要な部分をメモすると早く頭に入ります。
+
+mpv.elは以下の機能を提供します。
+
+- mpvの操作
+  - *mpv-pause* - 一時停止
+  - *mpv-kill* - 停止
+  - *mpv-seek-forward* *mpv-seek-backward* - 再生位置を移動
+  - *mpv-speed-increase* *mpv-speed-decrease* - 再生速度を調整
+  - *mpv-insert-playback-position* - 現在の再生時間を挿入
+  - *mpv-seek-to-position-at-point* - カーソル位置の再生時間へ移動
+- org-modeとの連携
+  - *C-c C-l* で mpv: のリンクを挿入
+  - M-RETで再生位置を自動挿入
+  - 再生位置(h:mm:ss)上でC-c C-oを押すとその再生位置に移動
+
+本設定では[[https://github.com/kljohann/mpv.el/wiki][Wiki]] に書いているものを書き加え、ちょっと改良しています。
+- H-SPCで一時停止
+- H-bで5秒戻る
+- リンク挿入後に「0:00:00」と挿入して、スムーズにM-RETできるようにした
+
+mpvのバージョンが古いと動かないので新しいものにしてください。
+
+mplayer(mplayer2)と共存できますがIPCがしっかりしているので、
+僕はmplayer2から乗り換えようと思っています。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+** 設定 [[http://rubikitch.com/f/150218060806.mpv.el][150218060806.mpv.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/150218/150218060806.mpv.el"
+#+BEGIN_SRC fundamental
+(require 'mpv)
+;;; Wiki(https://github.com/kljohann/mpv.el/wiki)より
+;;; C-c C-lでmpv:を選択したらmvpのリンクを補完付きで入力できる
+(org-add-link-type "mpv" #'mpv-play-and-prepare-memo)
+(defun mpv-play-and-prepare-memo (path)
+  (mpv-play path)
+  (kill-new "- 0:00:00 :: start\n"))
+(defun org-mpv-complete-link (&optional arg)
+  (replace-regexp-in-string
+   "file:" "mpv:"
+   (org-file-complete-link arg)
+   t t))
+
+;;; 再生位置をM-RETで挿入させる
+(defun org-timer-item--mpv-insert-playback-position (fun &rest args)
+  "When no org timer is running but mpv is alive, insert playback position."
+  (if (and
+       (not org-timer-start-time)
+       (mpv-live-p))
+      (mpv-insert-playback-position t)
+    (apply fun args)))
+(advice-add 'org-timer-item :around
+            #'org-timer-item--mpv-insert-playback-position)
+
+;;; 0:01:02のような文字列でC-c C-oしたらその位置にジャンプさせる
+(add-hook 'org-open-at-point-functions #'mpv-seek-to-position-at-point)
+
+;;; 表示されてる時間の3秒前に飛ぶように再定義
+(defun mpv-seek-to-position-at-point ()
+  "Jump to playback position as inserted by `mpv-insert-playback-position'.
+
+This can be used with the `org-open-at-point-functions' hook."
+  (interactive)
+  (save-excursion
+    (skip-chars-backward ":[:digit:]" (point-at-bol))
+    (when (looking-at "[0-9]+:[0-9]\\{2\\}:[0-9]\\{2\\}")
+      (let ((secs (max 0 (- (org-timer-hms-to-secs (match-string 0)) 3))))
+        (when (>= secs 0)
+          (mpv--enqueue `("seek" ,secs "absolute") #'ignore)
+)))))
+
+(global-set-key (kbd "H-SPC") 'mpv-pause)
+(global-set-key (kbd "H-b") 'mpv-seek-backward)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/150218060806.mpv.el
+$ emacs -Q -f package-initialize -l 150218060806.mpv.el
+#+END_EXAMPLE
+
+
+** バージョン0.7.3以上を！
+mpvのバージョンが古いと動きません！
+
+Debian GNU/Linuxのtestingだと0.6.2ですが、mpv.elで使っている
+*--input-unix-socket* オプションがサポートされていません。
+
+#+BEGIN_EXAMPLE
+$ mpv --input-unix-socket=/tmp/s foo.mp3
+Error parsing option input-unix-socket (option not found)
+Setting commandline option --input-unix-socket=/tmp/s failed.
+
+Exiting... (Fatal error)
+#+END_EXAMPLE
+
+<2015-02-18 Wed>時点では0.8.0が最新ですが、sidの0.7.3でも動作します。
+
+#+BEGIN_EXAMPLE
+$ wget http://ftp.jp.debian.org/debian/pool/main/m/mpv/mpv_0.7.3-1_amd64.deb
+$ sudo dpkg -i mpv_0.7.3-1_amd64.deb 
+#+END_EXAMPLE
+
+testingからは依存関係にハマることなくインストールできました。
+
+もしかしたらこれより古いバージョンでも動作するかもしれません。
+
+** 音声・動画からメモを取る方法
+[[file:/r/sync/screenshots/20150218074857.png]]
+Fig1: C-c C-l後にmpvと入力
+
+[[file:/r/sync/screenshots/20150218074910.png]]
+Fig2: すると補完付きでメディアファイル名を入力できる
+
+[[file:/r/sync/screenshots/20150218074919.png]]
+Fig3: RET RETでリンクを挿入
+
+[[file:/r/sync/screenshots/20150218074941.png]]
+Fig4: この時点でC-yを押すと0:00:00が貼り付けられる
+
+[[file:/r/sync/screenshots/20150218074950.png]]
+Fig5: M-RETでその再生位置でメモを取る
+
+[[file:/r/sync/screenshots/20150218074958.png]]
+Fig6: 以下同様
+
+再生位置にカーソルを合わせてC-c C-oすると、
+その位置にジャンプします。
+
+# /r/sync/screenshots/20150218074857.png http://rubikitch.com/wp-content/uploads/2015/02/wpid-20150218074857.png
+# /r/sync/screenshots/20150218074910.png http://rubikitch.com/wp-content/uploads/2015/02/wpid-20150218074910.png
+# /r/sync/screenshots/20150218074919.png http://rubikitch.com/wp-content/uploads/2015/02/wpid-20150218074919.png
+# /r/sync/screenshots/20150218074941.png http://rubikitch.com/wp-content/uploads/2015/02/wpid-20150218074941.png
+# /r/sync/screenshots/20150218074950.png http://rubikitch.com/wp-content/uploads/2015/02/wpid-20150218074950.png
+# /r/sync/screenshots/20150218074958.png http://rubikitch.com/wp-content/uploads/2015/02/wpid-20150218074958.png

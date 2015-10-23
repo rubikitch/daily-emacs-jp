@@ -1,0 +1,222 @@
+#+BLOG: rubikitch
+#+POSTID: 1643
+#+DATE: [2015-05-13 Wed 05:04]
+#+PERMALINK: iterator
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, Emacs Lisp, 
+#+EL_PKG_NAME: iterator
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, elisp 外部イテレータ, elisp enumerator, elisp 無限リスト, elisp 循環リスト
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: Emacs Lispで外部イテレータを実現する
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージiteratorの紹介
+#+MYTAGS: package:iterator, emacs 使い方, emacs コマンド, emacs, iterator, iterator.el, emacs lisp iterator, elisp iterator, emacs melpa iterator, emacs iterator 使い方, emacs iterator 設定, emacs パッケージ iterator, elisp 外部イテレータ, elisp enumerator, elisp 無限リスト, elisp 循環リスト
+#+TAGS: package:iterator, emacs 使い方, emacs コマンド, emacs, iterator, iterator.el, emacs lisp iterator, elisp iterator, emacs melpa iterator, emacs iterator 使い方, emacs iterator 設定, emacs パッケージ iterator, elisp 外部イテレータ, elisp enumerator, elisp 無限リスト, elisp 循環リスト, Emacs, Emacs Lisp, , iterator.el, Enumerator, 外部イテレータ, iterator:next, helm, helm-iter-list, helm-iter-next, Enumerator, 外部イテレータ, iterator:next, helm, helm-iter-list, helm-iter-next
+#+TITLE: emacs iterator.el : Emacs Lispで外部イテレータを実現する | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>iterator</td></tr>
+<tr><td>概要(原文)</td><td>A library to create and use elisp iterators objects.</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/thierryvolpiatto/iterator">https://github.com/thierryvolpiatto/iterator</a></td></tr>
+<tr><td>バージョン</td><td>20150321.2125</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:iterator/">package:iterator</a> </td></tr>
+</table>
+<br />
+#+END_HTML
+*iterator.el* はRubyの *Enumerator* のような
+*外部イテレータ* を実現します。
+
+#+BEGIN_SRC ruby :results xmp silent
+# Rubyにて
+# 外部イテレータとして使う
+i = [1,2,3].to_enum             # => #<Enumerator: [1, 2, 3]:each>
+i.next                          # => 1
+i.next                          # => 2
+i.next                          # => 3
+i.next rescue $!
+# => #<StopIteration: iteration reached an end>
+# 循環リスト
+i = [1,2].cycle                 # => #<Enumerator: [1, 2]:cycle>
+i.next                          # => 1
+i.next                          # => 2
+i.next                          # => 1
+i.next                          # => 2
+#+END_SRC
+
+
+イテレータオブジェクト(クロージャ)を作成する関数は多いですが、
+<2015-05-13 Wed>時点では *iterator:next* で
+次の要素を得るくらいしかできません。
+
+#+BEGIN_SRC emacs-lisp :results silent
+;;; リストからなるイテレータ
+(let ((iter (iterator:list '(1 2 3))))
+  (iterator:next iter)                  ; => 1
+  (iterator:next iter)                  ; => 2
+  (iterator:next iter)                  ; => 3
+  (iterator:next iter)                  ; => nil
+  )
+;;; 指定された要素の次の要素から繰り返す
+(let ((iter (iterator:sub-next '(1 2 3 4) 2)))
+  (iterator:next iter)                  ; => 3
+  (iterator:next iter)                  ; => 4
+  (iterator:next iter)                  ; => nil
+  )
+;;; 指定された要素の前の要素から逆順で繰り返す
+(let ((iter (iterator:sub-prec '(1 2 3 4) 2)))
+  (iterator:next iter)                  ; => 1
+  (iterator:next iter)                  ; => nil
+  )
+;;; 循環リストのイテレータ
+(let ((iter (iterator:circular '(1 2 3))))
+  (iterator:next iter)                  ; => 1
+  (iterator:next iter)                  ; => 2
+  (iterator:next iter)                  ; => 3
+  (iterator:next iter)                  ; => 1
+  (iterator:next iter)                  ; => 2
+  )
+;;; 指定された要素の次の要素から繰り返す(循環リスト)
+(let ((iter (iterator:sub-next-circular '(1 2 3) 2)))
+  (iterator:next iter)                  ; => 3
+  (iterator:next iter)                  ; => 1
+  (iterator:next iter)                  ; => 2
+  (iterator:next iter)                  ; => 3
+  (iterator:next iter)                  ; => 1
+  )
+;;; 指定された要素の前の要素から逆順で繰り返す(循環リスト)
+(let ((iter (iterator:sub-prec-circular '(1 2 3) 2)))
+  (iterator:next iter)                  ; => 1
+  (iterator:next iter)                  ; => 3
+  (iterator:next iter)                  ; => 2
+  (iterator:next iter)                  ; => 1
+  (iterator:next iter)                  ; => 3
+  )
+;;; リストに関数を適用したイテレータ
+(let ((iter (iterator:apply-fun-on-list 'sqrt '(1 2 3))))
+  (iterator:next iter)                  ; => 1.0
+  (iterator:next iter)                  ; => 1.4142135623730951
+  (iterator:next iter)                  ; => 1.7320508075688772
+  (iterator:next iter)                  ; => nil
+  )
+;;; 指定された数の要素だけ取り出すイテレータ
+(let ((iter (iterator:scroll-list '(1 2 3 4 5) 3)))
+  (iterator:next iter)                  ; => (1 2 3)
+  (iterator:next iter)                  ; => (2 3 4)
+  (iterator:next iter)                  ; => (3 4 5)
+  (iterator:next iter)                  ; => (4 5)
+  (iterator:next iter)                  ; => (5)
+  (iterator:next iter)                  ; => nil
+  )
+
+#+END_SRC
+
+ちなみに、 *helm* でも *helm-iter-list* / *helm-iter-next* という名前で
+外部イテレータがこっそり使われています。
+
+それらをライブラリに追い出したとも言えます。
+** iterator インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install iterator
+
+
+#+end:
+** 概要                                                             :noexport:
+*iterator.el* はRubyの *Enumerator* のような
+*外部イテレータ* を実現します。
+
+#+BEGIN_SRC ruby :results xmp silent
+# Rubyにて
+# 外部イテレータとして使う
+i = [1,2,3].to_enum             # => #<Enumerator: [1, 2, 3]:each>
+i.next                          # => 1
+i.next                          # => 2
+i.next                          # => 3
+i.next rescue $!
+# => #<StopIteration: iteration reached an end>
+# 循環リスト
+i = [1,2].cycle                 # => #<Enumerator: [1, 2]:cycle>
+i.next                          # => 1
+i.next                          # => 2
+i.next                          # => 1
+i.next                          # => 2
+#+END_SRC
+
+
+イテレータオブジェクト(クロージャ)を作成する関数は多いですが、
+<2015-05-13 Wed>時点では *iterator:next* で
+次の要素を得るくらいしかできません。
+
+#+BEGIN_SRC emacs-lisp :results silent
+;;; リストからなるイテレータ
+(let ((iter (iterator:list '(1 2 3))))
+  (iterator:next iter)                  ; => 1
+  (iterator:next iter)                  ; => 2
+  (iterator:next iter)                  ; => 3
+  (iterator:next iter)                  ; => nil
+  )
+;;; 指定された要素の次の要素から繰り返す
+(let ((iter (iterator:sub-next '(1 2 3 4) 2)))
+  (iterator:next iter)                  ; => 3
+  (iterator:next iter)                  ; => 4
+  (iterator:next iter)                  ; => nil
+  )
+;;; 指定された要素の前の要素から逆順で繰り返す
+(let ((iter (iterator:sub-prec '(1 2 3 4) 2)))
+  (iterator:next iter)                  ; => 1
+  (iterator:next iter)                  ; => nil
+  )
+;;; 循環リストのイテレータ
+(let ((iter (iterator:circular '(1 2 3))))
+  (iterator:next iter)                  ; => 1
+  (iterator:next iter)                  ; => 2
+  (iterator:next iter)                  ; => 3
+  (iterator:next iter)                  ; => 1
+  (iterator:next iter)                  ; => 2
+  )
+;;; 指定された要素の次の要素から繰り返す(循環リスト)
+(let ((iter (iterator:sub-next-circular '(1 2 3) 2)))
+  (iterator:next iter)                  ; => 3
+  (iterator:next iter)                  ; => 1
+  (iterator:next iter)                  ; => 2
+  (iterator:next iter)                  ; => 3
+  (iterator:next iter)                  ; => 1
+  )
+;;; 指定された要素の前の要素から逆順で繰り返す(循環リスト)
+(let ((iter (iterator:sub-prec-circular '(1 2 3) 2)))
+  (iterator:next iter)                  ; => 1
+  (iterator:next iter)                  ; => 3
+  (iterator:next iter)                  ; => 2
+  (iterator:next iter)                  ; => 1
+  (iterator:next iter)                  ; => 3
+  )
+;;; リストに関数を適用したイテレータ
+(let ((iter (iterator:apply-fun-on-list 'sqrt '(1 2 3))))
+  (iterator:next iter)                  ; => 1.0
+  (iterator:next iter)                  ; => 1.4142135623730951
+  (iterator:next iter)                  ; => 1.7320508075688772
+  (iterator:next iter)                  ; => nil
+  )
+;;; 指定された数の要素だけ取り出すイテレータ
+(let ((iter (iterator:scroll-list '(1 2 3 4 5) 3)))
+  (iterator:next iter)                  ; => (1 2 3)
+  (iterator:next iter)                  ; => (2 3 4)
+  (iterator:next iter)                  ; => (3 4 5)
+  (iterator:next iter)                  ; => (4 5)
+  (iterator:next iter)                  ; => (5)
+  (iterator:next iter)                  ; => nil
+  )
+
+#+END_SRC
+
+ちなみに、 *helm* でも *helm-iter-list* / *helm-iter-next* という名前で
+外部イテレータがこっそり使われています。
+
+それらをライブラリに追い出したとも言えます。

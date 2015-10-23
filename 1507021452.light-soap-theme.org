@@ -1,0 +1,174 @@
+#+BLOG: rubikitch
+#+POSTID: 1792
+#+DATE: [2015-07-02 Thu 14:52]
+#+PERMALINK: light-soap-theme
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, theme
+#+EL_PKG_NAME: light-soap-theme
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, color-theme, カラーテーマ
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: 白背景なカラーテーマ
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージlight-soap-themeの紹介
+#+MYTAGS: package:light-soap-theme, emacs 使い方, emacs コマンド, emacs, light-soap-theme, light-soap-theme.el, emacs lisp light-soap-theme, elisp light-soap-theme, emacs melpa light-soap-theme, emacs light-soap-theme 使い方, emacs light-soap-theme 設定, emacs パッケージ light-soap-theme, emacs light-soap-theme スクリーンショット, color-theme, カラーテーマ
+#+TAGS: package:light-soap-theme, emacs 使い方, emacs コマンド, emacs, light-soap-theme, light-soap-theme.el, emacs lisp light-soap-theme, elisp light-soap-theme, emacs melpa light-soap-theme, emacs light-soap-theme 使い方, emacs light-soap-theme 設定, emacs パッケージ light-soap-theme, emacs light-soap-theme スクリーンショット, color-theme, カラーテーマ, Emacs, theme, light-soap-theme.el
+#+TITLE: emacs light-soap-theme.el : 白背景なカラーテーマ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>light-soap-theme</td></tr>
+<tr><td>概要(原文)</td><td>Emacs 24 theme with a light background.</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/mswift42/light-soap-theme">https://github.com/mswift42/light-soap-theme</a></td></tr>
+<tr><td>バージョン</td><td>20150607.745</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:light-soap-theme/">package:light-soap-theme</a> </td></tr>
+</table>
+<br />
+#+END_HTML
+*light-soap-theme.el* は、白い背景のカラーテーマです。
+
+以下のパッケージに対応しています。
+
+- font-lock
+- show-paren
+- mode-line
+- org
+- latex
+- ido
+- gnus
+- mu4e
+- ffap
+- js2-mode
+- auto-complete
+- info
+- icomplete
+- undo-tree
+- slime
+- magit
+- rainbow-delimiters
+- web-mode
+- jde
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_theme_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150702145308.png]]
+Fig1: emacs-lisp-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150702145313.png]]
+Fig2: magit
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150702145318.png]]
+Fig3: grep
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150702145322.png]]
+Fig4: outline-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150702145326.png]]
+Fig5: org-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150702145330.png]]
+Fig6: dired
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150702145334.png]]
+Fig7: web-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150702145340.png]]
+Fig8: markdown-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150702145345.png]]
+Fig9: helm
+** light-soap-theme インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install light-soap-theme
+
+
+#+end:
+** 概要                                                             :noexport:
+*light-soap-theme.el* は、白い背景のカラーテーマです。
+
+以下のパッケージに対応しています。
+
+- font-lock
+- show-paren
+- mode-line
+- org
+- latex
+- ido
+- gnus
+- mu4e
+- ffap
+- js2-mode
+- auto-complete
+- info
+- icomplete
+- undo-tree
+- slime
+- magit
+- rainbow-delimiters
+- web-mode
+- jde
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_theme_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150702145308.png]]
+Fig10: emacs-lisp-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150702145313.png]]
+Fig11: magit
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150702145318.png]]
+Fig12: grep
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150702145322.png]]
+Fig13: outline-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150702145326.png]]
+Fig14: org-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150702145330.png]]
+Fig15: dired
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150702145334.png]]
+Fig16: web-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150702145340.png]]
+Fig17: markdown-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150702145345.png]]
+Fig18: helm
+
+** 設定 [[http://rubikitch.com/f/150702145225.light-soap-theme.el][150702145225.light-soap-theme.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/150702/150702145225.light-soap-theme.el"
+#+BEGIN_SRC fundamental
+(load-theme 'light-soap t)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/150702145225.light-soap-theme.el
+$ emacs -Q -f package-initialize -l 150702145225.light-soap-theme.el
+#+END_EXAMPLE

@@ -1,0 +1,33 @@
+#+BLOG: rubikitch
+#+POSTID: 387
+#+DATE: [2014-09-25 Thu 11:47]
+#+PERMALINK: crawler-book-errata
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: 著書,
+#+DESCRIPTION:
+#+MYTAGS: Rubyによるクローラー開発技法, ruby クローラー 正誤, ruby 正規表現 最短マッチ
+#+TAGS: Rubyによるクローラー開発技法, ruby クローラー 正誤, ruby 正規表現 最短マッチ, 著書,,
+#+TITLE: 『Rubyによるクローラー開発技法』第1章正誤
+るびきちです。
+
+[[http://rubikitch.com/2014/08/03/ruby-crawler-book/][『Rubyによるクローラー開発技法』]] をお買上ありがとうございます。
+
+執筆に対しては何重にもチェックし万全を期しましたが、
+誤植が見付かってしまいました。
+
+心からお詫び申し上げます。
+
+#+BEGIN_QUOTE
+p20
+誤　"abc123"[/(.?+).+/,1]    # => "a"
+↓
+正　"abc123"[/(.+?).+/,1]    # => "a"
+#+END_QUOTE
+
+御指摘頂いた [[http://twitter.com/thayato][@thayatoさん]] ありがとうございます。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

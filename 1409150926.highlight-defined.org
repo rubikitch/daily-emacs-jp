@@ -1,0 +1,71 @@
+#+BLOG: rubikitch
+#+POSTID: 350
+#+DATE: [2014-09-15 Mon 09:26]
+#+PERMALINK: highlight-defined
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, Emacs Lisp,
+#+EL_PKG_NAME: highlight-defined
+#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, relate:hl-defined, relate:highlight-symbol
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット, emacs lisp プログラミング, emacs lisp font-lock, emacs lisp 色付け
+#+EL_TITLE0: 【ミス撲滅】Emacs Lispのソースコードで既知のシンボルに色をつける
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージhighlight-definedの紹介
+#+MYTAGS: package:highlight-defined, emacs 使い方, emacs コマンド, emacs, emacs lisp highlight-defined, elisp highlight-defined, emacs melpa highlight-defined, emacs highlight-defined 使い方, emacs highlight-defined 設定, emacs パッケージ highlight-defined, emacs highlight-defined スクリーンショット, relate:hl-defined, relate:highlight-symbol
+#+TAGS: package:highlight-defined, emacs 使い方, emacs コマンド, emacs, emacs lisp highlight-defined, elisp highlight-defined, emacs melpa highlight-defined, emacs highlight-defined 使い方, emacs highlight-defined 設定, emacs パッケージ highlight-defined, emacs highlight-defined スクリーンショット, relate:hl-defined, relate:highlight-symbol, Emacs, Emacs Lisp,, highlight-defined.el, M-x customize-group highlight-defined, M-x customize-group highlight-defined
+#+TITLE: emacs highlight-defined.el : 【ミス撲滅】Emacs Lispのソースコードで既知のシンボルに色をつける | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット, emacs lisp プログラミング, emacs lisp font-lock, emacs lisp 色付け
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>highlight-defined</td></tr>
+<tr><td>概要(原文)</td><td>Syntax highlighting of known Elisp symbols</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/Fanael/highlight-defined">https://github.com/Fanael/highlight-defined</a></td></tr>
+<tr><td>バージョン</td><td>20141225.730</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:highlight-defined/">package:highlight-defined</a> <a href="http://rubikitch.com/tag/package:hl-defined/">package:hl-defined</a> <a href="http://rubikitch.com/tag/package:highlight-symbol/">package:highlight-symbol</a></td></tr>
+</table>
+<br />
+#+END_HTML
+*highlight-defined.el* は、定義されている
+Emacs Lispシンボルをハイライトするものです。
+
+これにより未定義シンボルをミスタイプで
+うっかり使ってしまうことを防げます。
+
+文字色のカスタマイズは
+*M-x customize-group highlight-defined*
+で行ってください。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+http://rubikitch.com/f/20140915092906.png
+Fig1: ビフォー
+
+http://rubikitch.com/f/20140915092521.png
+Fig2: アフター
+** highlight-defined インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install highlight-defined
+
+
+#+end:
+** 概要                                                             :noexport:
+*highlight-defined.el* は、定義されている
+Emacs Lispシンボルをハイライトするものです。
+
+これにより未定義シンボルをミスタイプで
+うっかり使ってしまうことを防げます。
+
+文字色のカスタマイズは
+*M-x customize-group highlight-defined*
+で行ってください。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+http://rubikitch.com/f/20140915092906.png
+Fig3: ビフォー
+
+http://rubikitch.com/f/20140915092521.png
+Fig4: アフター

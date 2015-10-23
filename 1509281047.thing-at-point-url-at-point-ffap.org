@@ -1,0 +1,61 @@
+#+BLOG: rubikitch
+#+POSTID: 2026
+#+DATE: [2015-09-28 月 10:47]
+#+PERMALINK: thing-at-point-url-at-point-ffap
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, 
+#+DESCRIPTION: 
+#+MYTAGS: ffap, thingatpt, thing-at-point--bounds-of-well-formed-url, ffapでURLを得る, カーソル位置のURL, ポイントのURL, ffap-guesser, relate:ffap, relate:thingatpt
+#+TITLE: ffap等でURLの末尾の「'」を取り除く
+#+begin: org2blog-tags
+#+TAGS: ffap, thingatpt, thing-at-point--bounds-of-well-formed-url, ffapでURLを得る, カーソル位置のURL, ポイントのURL, ffap-guesser, relate:ffap, relate:thingatpt, Emacs, , 
+#+end:
+ffap下( (ffap-bindings) 実行後)において
+''で囲まれたURL内でC-x C-fを実行すると
+URLの末尾に「'」がついてしまいます。
+
+確かにURL内に「'」を含めることはできますが、
+末尾のそれは意図した動作ではないでしょう。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150928110757.png]]
+Fig1: 「'」までがURLとみなされる
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150928110822.png]]
+Fig2: 「'」はURLとみなされない
+
+カーソル位置のURLはffap-guesserが見ていますが、
+その内部ではthingatpt.el内の
+thing-at-point--bounds-of-well-formed-url 関数が絡んでいます。
+
+以下の設定を加えればこの現象はなおります。
+
+** 設定 [[http://rubikitch.com/f/mylisp-thingatpt-fix.el][mylisp-thingatpt-fix.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/emacs/init.d/mylisp-thingatpt-fix.el"
+#+BEGIN_SRC fundamental
+(require 'thingatpt)
+(defun thing-at-point--bounds-of-well-formed-url--strip-last-apostrophe (&rest them)
+  (let ((orig (apply them)))
+    (if (memq (char-before (cdr orig)) '(?'))
+        (cons (car orig) (1- (cdr orig)))
+      orig)))
+(advice-add 'thing-at-point--bounds-of-well-formed-url :around
+            'thing-at-point--bounds-of-well-formed-url--strip-last-apostrophe)
+;;; 'http://rubikitch.com/'
+;;; The URL is http://rubikitch.com/.
+(provide 'mylisp-thingatpt-fix)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/mylisp-thingatpt-fix.el
+$ emacs -Q -f package-initialize -l mylisp-thingatpt-fix.el
+#+END_EXAMPLE

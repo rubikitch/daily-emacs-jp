@@ -1,0 +1,158 @@
+#+BLOG: rubikitch
+#+POSTID: 424
+#+DATE: [2014-10-04 Sat 08:17]
+#+PERMALINK: trace-org
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, Emacs Lisp,
+#+DESCRIPTION: M-x trace-functionは結果表示が見辛い問題がある。結果をorg-modeで表示することで関数呼び出しのデバッグを効率化する設定
+#+MYTAGS: package:trace, package:org, relate:org, emacs eval-defun C-M-x, emacs trace-function edebug, emacs untrace-all, emacs トレース, emacs トレーサ, emacs trace.el, emacs lisp 関数 トレース, emacs, package:edebug, emacs lisp, emacs lisp 関数 返り値 引数, eamcs lisp デバッグ, emacs lisp trace org-mode, 結果表示 org-mode, emacs トレーサ 改善
+#+TAGS: package:trace, package:org, relate:org, emacs eval-defun C-M-x, emacs trace-function edebug, emacs untrace-all, emacs トレース, emacs トレーサ, emacs trace.el, emacs lisp 関数 トレース, emacs, package:edebug, emacs lisp, emacs lisp 関数 返り値 引数, eamcs lisp デバッグ, emacs lisp trace org-mode, 結果表示 org-mode, emacs トレーサ 改善, Emacs, Emacs Lisp,, デバッグ, M-x trace-function, org-mode, trace-output, pp
+#+TITLE: 【デバッグ支援】Emacs Lispのトレース(M-x trace-function)結果をorg-modeでスパッと表示
+[[http://rubikitch.com/2014/10/01/eval-defun-or-trace-function/][この前はC-u C-u C-M-xでトレーサにかける設定を示しましたが、]]
+今日もトレーサについてです。
+
+<2014-11-03 Mon>Emacs 24.4に対応させました。
+
+Emacs Lispの *デバッグ* ではトレーサ(*M-x trace-function*) が超強力です。
+
+しかし、その表示が見辛いという大きな欠点があるため、
+どうしても使うのに二の足を踏んでしまいます。
+
+ここで示す設定を加えることで
+トレーサの結果を必要な部分だけ
+わかりやすく表示するので
+使い勝手が格段と向上します。
+
+そのためデバッグが円滑に進みます。
+
+トレーサ表示の問題点は以下の通りです。
+
+- いつ、その関数が呼ばれたのかという情報がない
+- トレーサを呼び出したコマンドに関する一連のトレースのみが取り出せない
+- 該当部分のトレースを見付けることが困難
+- バックトレースがないので、どのような経緯で呼ばれたかも不明
+
+これらの問題はトレース結果を *org-mode* で表示することですべて解決します。
+
+** 設定 [[http://rubikitch.com/f/50trace-org.el][50trace-org.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/emacs/init.d/50trace-org.el"
+#+BEGIN_SRC fundamental
+(require 'trace)
+(require 'org)
+
+;;;; trace-functionの結果をorg-modeで表示する設定
+(defadvice trace-function-internal (before trace-org-mode (function buffer &rest _) activate)
+  "view-modeのままでも書き込みできるようにする"
+  (with-current-buffer (get-buffer-create (or buffer trace-buffer))
+    (set (make-local-variable 'inhibit-read-only) t)))
+
+;;; display
+(defun display-buffer-trace-output (buffer alist)
+  "*trace-output*をorg-mode/view-modeで先程のトレース結果を画面上部で表示"
+  (let (display-buffer-alist) (display-buffer buffer))
+  (with-selected-window (get-buffer-window buffer)
+    (org-mode)
+    (org-hide-block-all)
+    (view-mode 1)
+    (org-overview)
+    (ignore-errors
+      (goto-char (point-max))
+      (call-interactively 'previous-line) ;avoid warning
+      (org-show-subtree)
+      (recenter 0))
+    (selected-window)))
+
+(add-to-list 'display-buffer-alist
+             `(,(rx (or "*trace-output"))
+               display-buffer-trace-output))
+
+;;; 連続したトレースをまとめて表示する
+(defvar trace-entry-last-time (float-time))
+(defvar trace-session-duration 2
+  "ひとまとまりのtraceを表示する時間単位")
+
+(defadvice trace-entry-message (after add-time-and-backtrace (function &rest _) activate)
+  "trace結果をorg形式に整形"
+  (let ((btbuf (generate-new-buffer " trace-backtrace"))
+        (bt (with-output-to-string (backtrace))))
+    (with-current-buffer btbuf
+      (insert bt)
+      (goto-char 1))
+    (setq ad-return-value
+         (format "%s** %s\n[[elisp:(view-buffer \"%s\")]]\n%s\n"
+                 (if (<= trace-session-duration (- (float-time) trace-entry-last-time))
+                     (format "* Session %s\n" (format-time-string "%X"))
+                   "")
+                 function
+                 ;; (with-output-to-string (backtrace))
+                 (buffer-name btbuf)
+                 ad-return-value)))
+  (setq trace-entry-last-time (float-time)))
+(setq trace-separator "\n")
+
+(defun org-ctrl-c-ctrl-c-hook--trace-pp-sexp ()
+  (when (and (string= "*trace-output*" (buffer-name))
+             (string-match "^[|0-9]+ " (thing-at-point 'line)))
+    (pp-display-expression (read (concat "(" (thing-at-point 'line) ")"))
+                           "*pp*")
+    t))
+(add-hook 'org-ctrl-c-ctrl-c-hook 'org-ctrl-c-ctrl-c-hook--trace-pp-sexp)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/50trace-org.el
+$ emacs -Q -f package-initialize -l 50trace-org.el
+#+END_EXAMPLE
+
+たとえば、以下のコードにおいて
+M-x hoge 10 200
+を実行すると
+
+#+BEGIN: include :file "/r/sync/junk/141004/141004082615.hoge.el"
+#+BEGIN_SRC fundamental
+(defun hoge--a (x)
+  (* 2 x))
+(defun hoge--b (x)
+  (* 3 x))
+(defun hoge (x y)
+  (interactive "nX: \nnY: ")
+  (message "a=%d b=%d" (hoge--a x) (hoge--b y)))
+(trace-function 'hoge--a)
+(trace-function 'hoge--b)
+#+END_SRC
+
+#+END:
+
+このように表示されます。
+
+#+INCLUDE: trace-output.txt src
+
+
+BEGIN_EXAMPLEのところでTABを押すと、
+その時点でのバックトレースが見られます。
+
+#+BEGIN_EXAMPLE
+  backtrace()
+  trace-entry-message(hoge--a 1 ((x 10 required)))
+  hoge--a(10)
+  (message "a=%d b=%d" (hoge--a x) (hoge--b y))
+  hoge(10 200)
+  ad-Orig-call-interactively(hoge t nil)
+  call-interactively(hoge record nil)
+  command-execute(hoge record)
+  execute-extended-command(nil "hoge")
+  ad-Orig-call-interactively(execute-extended-command t nil)
+  call-interactively(execute-extended-command nil nil)
+#+END_EXAMPLE
+
+時間情報を加えたことで、再度M-x hogeを実行すると、
+その実行に関するトレースのみが表示されます。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

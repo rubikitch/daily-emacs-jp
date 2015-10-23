@@ -1,0 +1,83 @@
+#+BLOG: rubikitch
+#+POSTID: 1712
+#+DATE: [2015-06-02 Tue 09:21]
+#+PERMALINK: helm-commandlinefu
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, helm
+#+EL_PKG_NAME: helm-commandlinefu
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, emacs commandlinefu, シェルコマンドの具体的な使い方を調べる, 
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: 【お助けマン】シェルコマンドの使い方をサクッと検索！
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージhelm-commandlinefuの紹介
+#+MYTAGS: package:helm-commandlinefu, emacs 使い方, emacs コマンド, emacs, helm-commandlinefu, helm-commandlinefu.el, emacs lisp helm-commandlinefu, elisp helm-commandlinefu, emacs melpa helm-commandlinefu, emacs helm-commandlinefu 使い方, emacs helm-commandlinefu 設定, emacs パッケージ helm-commandlinefu, emacs helm-commandlinefu スクリーンショット, emacs commandlinefu, シェルコマンドの具体的な使い方を調べる, 
+#+TAGS: package:helm-commandlinefu, emacs 使い方, emacs コマンド, emacs, helm-commandlinefu, helm-commandlinefu.el, emacs lisp helm-commandlinefu, elisp helm-commandlinefu, emacs melpa helm-commandlinefu, emacs helm-commandlinefu 使い方, emacs helm-commandlinefu 設定, emacs パッケージ helm-commandlinefu, emacs helm-commandlinefu スクリーンショット, emacs commandlinefu, シェルコマンドの具体的な使い方を調べる, , Emacs, helm, helm-commandlinefu.el, M-x helm-commandlinefu-search, helm-commandlinefu.el, M-x helm-commandlinefu-search
+#+TITLE: emacs helm-commandlinefu.el : 【お助けマン】シェルコマンドの使い方をサクッと検索！ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>helm-commandlinefu</td></tr>
+<tr><td>概要(原文)</td><td>Search and browse commandlinefu.com from helm</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/xuchunyang/helm-commandlinefu">https://github.com/xuchunyang/helm-commandlinefu</a></td></tr>
+<tr><td>バージョン</td><td>20150531.614</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:helm-commandlinefu/">package:helm-commandlinefu</a> </td></tr>
+</table>
+<br />
+#+END_HTML
+多くのUnixコマンドには多数のオプションがあり、
+manを読んだだけでは具体的な使い方がわからないことも多々あります。
+
+http://www.commandlinefu.com/ は世界中のユーザから
+シェルコマンドの具体的な使用例を集めたデータベースサイトです。
+
+*helm-commandlinefu.el* は、Emacsの中からcommandlinefuにアクセスし、
+表示されたコマンドを実行したり、コピーしたりできます。
+
+*M-x helm-commandlinefu-search* は、クエリを検索します。
+
+表示されたコマンドに対し以下のようなアクションがあります。
+
+- RET, <f1> :: 実行する
+- <f2> :: キルリングに入れる(コピー)
+- <f3> :: そのページをブラウザで開く
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150602093723.png]]
+Fig1: M-x helm-commandlinefu-search wget google
+** helm-commandlinefu インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install helm-commandlinefu
+
+
+#+end:
+** 概要                                                             :noexport:
+多くのUnixコマンドには多数のオプションがあり、
+manを読んだだけでは具体的な使い方がわからないことも多々あります。
+
+http://www.commandlinefu.com/ は世界中のユーザから
+シェルコマンドの具体的な使用例を集めたデータベースサイトです。
+
+*helm-commandlinefu.el* は、Emacsの中からcommandlinefuにアクセスし、
+表示されたコマンドを実行したり、コピーしたりできます。
+
+*M-x helm-commandlinefu-search* は、クエリを検索します。
+
+表示されたコマンドに対し以下のようなアクションがあります。
+
+- RET, <f1> :: 実行する
+- <f2> :: キルリングに入れる(コピー)
+- <f3> :: そのページをブラウザで開く
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150602093723.png]]
+Fig2: M-x helm-commandlinefu-search wget google
+

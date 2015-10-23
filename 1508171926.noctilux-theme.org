@@ -1,0 +1,212 @@
+#+BLOG: rubikitch
+#+POSTID: 1905
+#+DATE: [2015-08-17 Mon 19:26]
+#+PERMALINK: noctilux-theme
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, theme
+#+EL_PKG_NAME: noctilux-theme
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, color-theme, カラーテーマ
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: 多くのパッケージに対応したダークなカラーテーマ
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージnoctilux-themeの紹介
+#+MYTAGS: package:noctilux-theme, emacs 使い方, emacs コマンド, emacs, noctilux-theme, noctilux-theme.el, emacs lisp noctilux-theme, elisp noctilux-theme, emacs melpa noctilux-theme, emacs noctilux-theme 使い方, emacs noctilux-theme 設定, emacs パッケージ noctilux-theme, emacs noctilux-theme スクリーンショット, color-theme, カラーテーマ
+#+TAGS: package:noctilux-theme, emacs 使い方, emacs コマンド, emacs, noctilux-theme, noctilux-theme.el, emacs lisp noctilux-theme, elisp noctilux-theme, emacs melpa noctilux-theme, emacs noctilux-theme 使い方, emacs noctilux-theme 設定, emacs パッケージ noctilux-theme, emacs noctilux-theme スクリーンショット, color-theme, カラーテーマ, Emacs, theme, noctilux-theme.el
+#+TITLE: emacs noctilux-theme.el : 多くのパッケージに対応したダークなカラーテーマ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>noctilux-theme</td></tr>
+<tr><td>概要(原文)</td><td>Dark theme inspired by LightTable</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/sjrmanning/noctilux-theme">https://github.com/sjrmanning/noctilux-theme</a></td></tr>
+<tr><td>バージョン</td><td>20150723.747</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:noctilux-theme/">package:noctilux-theme</a> </td></tr>
+</table>
+<br />
+#+END_HTML
+*noctilux-theme.el* は、[[http://www.lighttable.com/][Light Table]]にインスパイアされた
+ダークなカラーテーマです。
+
+
+
+# (save-window-excursion (async-shell-command "emacs-test -eval '(load-theme (quote noctilux) t)'"))
+以下のパッケージに対応しています。
+- hl-line
+- isearch
+- link
+- mode-line
+- comint
+- compilation
+- diff
+- ido
+- emacs-wiki
+- eshell
+- font-lock
+- helm
+- info
+- org
+- table
+- outline
+- speedbar
+- show-paren
+- widgets
+- bm
+- Flymake
+- column-marker
+- jabber
+- git-gutter
+- gnus
+- magit
+- message
+- parenface
+- rainbow-delimiters
+- slime
+- smart-mode-line
+- whitespace
+- rcirc
+- ERC
+- evil
+- company-mode
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_theme_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150817192920.png]]
+Fig1: emacs-lisp-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150817192926.png]]
+Fig2: magit
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150817192930.png]]
+Fig3: grep
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150817192934.png]]
+Fig4: outline-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150817192938.png]]
+Fig5: org-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150817192943.png]]
+Fig6: dired
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150817192947.png]]
+Fig7: web-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150817192951.png]]
+Fig8: markdown-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150817192955.png]]
+Fig9: helm
+** noctilux-theme インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install noctilux-theme
+
+
+#+end:
+** 概要                                                             :noexport:
+*noctilux-theme.el* は、[[http://www.lighttable.com/][Light Table]]にインスパイアされた
+ダークなカラーテーマです。
+
+
+
+# (save-window-excursion (async-shell-command "emacs-test -eval '(load-theme (quote noctilux) t)'"))
+以下のパッケージに対応しています。
+- hl-line
+- isearch
+- link
+- mode-line
+- comint
+- compilation
+- diff
+- ido
+- emacs-wiki
+- eshell
+- font-lock
+- helm
+- info
+- org
+- table
+- outline
+- speedbar
+- show-paren
+- widgets
+- bm
+- Flymake
+- column-marker
+- jabber
+- git-gutter
+- gnus
+- magit
+- message
+- parenface
+- rainbow-delimiters
+- slime
+- smart-mode-line
+- whitespace
+- rcirc
+- ERC
+- evil
+- company-mode
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_theme_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150817192920.png]]
+Fig10: emacs-lisp-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150817192926.png]]
+Fig11: magit
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150817192930.png]]
+Fig12: grep
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150817192934.png]]
+Fig13: outline-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150817192938.png]]
+Fig14: org-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150817192943.png]]
+Fig15: dired
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150817192947.png]]
+Fig16: web-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150817192951.png]]
+Fig17: markdown-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150817192955.png]]
+Fig18: helm
+
+** 設定
+#+BEGIN_SRC fundamental
+(load-theme 'noctilux t)
+#+END_SRC
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ emacs -Q -f package-initialize -eval '(load-theme (quote noctilux) t)'
+#+END_EXAMPLE
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

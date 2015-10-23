@@ -1,0 +1,152 @@
+#+BLOG: rubikitch
+#+POSTID: 398
+#+DATE: [2014-09-28 Sun 12:39]
+#+PERMALINK: id-manager
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs Lisp,  Emacs, helm
+#+EL_PKG_NAME: id-manager
+#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, relate:helm, , パスワード管理, GNOME Keyring, Password Manager, Form Filler, Password Management, ロボフォーム, KeePass, Roboform, SplashID, 1Password, パスワード管理ソフト ID Manager, relate:passthword, relate:auth-source
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方
+#+EL_TITLE0: Emacs/helmでパスワード一元管理！Emacs Lispからパスワードにアクセスする方法
+#+EL_DOC: id-password management
+#+EL_URL: https://github.com/kiwanami/emacs-id-manager/
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージid-managerの紹介
+#+MYTAGS: package:id-manager, emacs 使い方, emacs コマンド, emacs, emacs lisp id-manager, elisp id-manager, emacs melpa id-manager, emacs id-manager 使い方, emacs id-manager 設定, emacs パッケージ id-manager, relate:helm, , パスワード管理, GNOME Keyring, Password Manager, Form Filler, Password Management, ロボフォーム, KeePass, Roboform, SplashID, 1Password, パスワード管理ソフト ID Manager, relate:passthword, relate:auth-source
+#+TAGS: package:id-manager, emacs 使い方, emacs コマンド, emacs, emacs lisp id-manager, elisp id-manager, emacs melpa id-manager, emacs id-manager 使い方, emacs id-manager 設定, emacs パッケージ id-manager, relate:helm, , パスワード管理, GNOME Keyring, Password Manager, Form Filler, Password Management, ロボフォーム, KeePass, Roboform, SplashID, 1Password, パスワード管理ソフト ID Manager, relate:passthword, relate:auth-source, Emacs Lisp,  Emacs, helm, id-manager.el, LastPass, セキュリティ, anything.el, helm.el, LastPass, セキュリティ, anything.el, helm.el, Ruby クローラー
+#+TITLE: emacs id-manager.el : Emacs/helmでパスワード一元管理！Emacs Lispからパスワードにアクセスする方法 | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>id-manager</td></tr>
+<tr><td>概要(原文)</td><td>id-password management</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>サイト</td><td><a href="https://github.com/kiwanami/emacs-id-manager/">https://github.com/kiwanami/emacs-id-manager/</td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/kiwanami/emacs-id-manager">https://github.com/kiwanami/emacs-id-manager</a></td></tr>
+<tr><td>Quelpa設定</td><td><code>(quelpa '(id-manager :repo "kiwanami/emacs-id-manager" :fetcher github))</code></td></tr>
+<tr><td>バージョン</td><td>20150115.1619</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:id-manager/">package:id-manager</a> <a href="http://rubikitch.com/tag/package:helm/">package:helm</a> <a href="http://rubikitch.com/tag/package:passthword/">package:passthword</a> <a href="http://rubikitch.com/tag/package:auth-source/">package:auth-source</a></td></tr>
+</table>
+<br />
+#+END_HTML
+*id-manager.el* は、Emacsで各サービスのパスワードを管理するものです。
+
+同じ目的のツールとしてブラウザの拡張に *LastPass* などがありますが、
+クラウドに全パスワードを保存するということは、
+パスワードを預けたサーバがクラックされると
+全てのパスワードがダダ漏れになってしまうリスクがあります。
+
+そこでローカルファイルにパスワードを暗号化して保存しておく方法もあります。
+
+また、Emacs LispからID・パスワードにアクセスできるので、
+パスワードを平文で設定する必要がなくなり、
+*セキュリティ* が保たれます。
+
+
+詳しくは開発者の記事を見てください。
+
+http://d.hatena.ne.jp/kiwanami/20110221/1298293727
+
+なお、最新版では *anything.el* ではなくて *helm.el* との連携になっています。
+
+helmとともに楽々パスワード管理を楽しんでください。
+** id-manager インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install id-manager
+
+
+#+end:
+[[http://rubikitch.com/2014/09/01/quelpa/][quelpa]] は一度入れておくと楽チンです。
+** 概要                                                             :noexport:
+*id-manager.el* は、Emacsで各サービスのパスワードを管理するものです。
+
+同じ目的のツールとしてブラウザの拡張に *LastPass* などがありますが、
+クラウドに全パスワードを保存するということは、
+パスワードを預けたサーバがクラックされると
+全てのパスワードがダダ漏れになってしまうリスクがあります。
+
+そこでローカルファイルにパスワードを暗号化して保存しておく方法もあります。
+
+また、Emacs LispからID・パスワードにアクセスできるので、
+パスワードを平文で設定する必要がなくなり、
+*セキュリティ* が保たれます。
+
+
+詳しくは開発者の記事を見てください。
+
+http://d.hatena.ne.jp/kiwanami/20110221/1298293727
+
+なお、最新版では *anything.el* ではなくて *helm.el* との連携になっています。
+
+helmとともに楽々パスワード管理を楽しんでください。
+
+** 設定 [[http://rubikitch.com/f/140928130442.id-manager.el][140928130442.id-manager.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/140928/140928130442.id-manager.el"
+#+BEGIN_SRC fundamental
+(quelpa '(id-manager :repo "kiwanami/emacs-id-manager" :fetcher github))
+(require 'id-manager)
+(setq epa-file-cache-passphrase-for-symmetric-encryption t)
+(setq epa-file-select-keys 'silent)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/140928130442.id-manager.el
+$ emacs -Q -f package-initialize -l 140928130442.id-manager.el
+#+END_EXAMPLE
+
+** id-managerに保存したID・パスワードにLispでアクセスする
+id-managerのデータベースは
+#+BEGIN_SRC emacs-lisp :results silent
+(idm-load-db)
+#+END_SRC
+で得られます。
+
+これはデータそのものではなくて関数オブジェクトになっています。
+
+そこから特定のアカウント名のIDとパスワードを得るには、
+この関数にシンボルgetとアカウント名を渡します。
+
+返り値は構造体で、それぞれ
+- idm-record-account-id
+- idm-record-password
+でアクセスできます。
+
+つまり、
+データベース関数オブジェクト→構造体→ID・パスワード
+の3段階になります。
+
+たとえば .idm-db.gpg (をデコードした内容)に以下の行があるとき、
+
+#+BEGIN_EXAMPLE
+test1	testuser	testpass	2012/11/27	test1
+#+END_EXAMPLE
+
+- アカウント名: test1
+- ID: testuser
+- Password: testpass
+- メモ: test1
+
+となります。
+
+#+BEGIN_SRC emacs-lisp :results silent
+(let ((record (funcall (idm-load-db) 'get "test1")))
+  (idm-record-account-id record)        ; => "testuser"
+  (idm-record-password record)          ; => "testpass"
+  )
+#+END_SRC
+
+ちなみに今日、自分のクレジットカード使用履歴を見るための
+*Ruby クローラー* を作りました。
+
+クレジットカードのサイトのパスワードはid-managerで管理されていて、
+クローラーにIDとパスワードをEmacsから渡すための学びです。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

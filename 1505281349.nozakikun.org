@@ -1,0 +1,92 @@
+#+BLOG: rubikitch
+#+POSTID: 1693
+#+DATE: [2015-05-28 Thu 13:49]
+#+PERMALINK: nozakikun
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Ruby
+#+DESCRIPTION: 
+#+MYTAGS: 
+#+TITLE: 【ネタ】Rubyで解く月刊少女野崎くんED「ウラオモテ・フォーチュン」
+#+begin: org2blog-tags
+#+TAGS: , Ruby, 
+#+end:
+Twitterでのぼってきてツボったので。
+
+Emacs Lispで解いてみたというのならばRubyで解いてみましょう。
+
+http://furandon-pig.hatenablog.com/entry/2014/07/28/012735
+
+
+#+BEGIN_QUOTE
+キライの ハンタイの ハンタイの ハンタイの ハンタイの
+そのさらにハンタイの
+キモチを伝えるのって 何だか難しい
+
+#+BEGIN_SRC emacs-lisp :results silent
+(setq キライの nil)
+
+(defun ハンタイの(p) (not p))
+(defun そのさらにハンタイの(p) (not p))
+(defun キモチを伝えるのって(p) (if p 'スキ 'キライ))
+(defun 何だか難しい(p) p)
+(defun ハンタイは？(p) (if (not p) 'スキ 'キライ))
+
+(何だか難しい
+ (キモチを伝えるのって
+  (そのさらにハンタイの
+   (ハンタイの
+    (ハンタイの
+     (ハンタイの
+      (ハンタイの キライの))))))) ; => スキ
+#+END_SRC
+
+キライの
+ハンタイの ハンタイの ハンタイの ハンタイの ハンタイの ハンタイの
+ハンタイは？
+
+#+BEGIN_SRC emacs-lisp :results silent
+(ハンタイは？
+ (ハンタイの
+  (ハンタイの
+   (ハンタイの
+    (ハンタイの
+     (ハンタイの
+      (ハンタイの キライの))))))) ; => スキ
+#+END_SRC
+
+略
+日本語は後置演算子なのか……と変なことに気がついてしまいました。
+#+END_QUOTE
+
+Rubyで書くとそのまんまになるんですがね(笑)
+
+**  [[http://rubikitch.com/f/150528134445.rb][150528134445.rb(以下のコードと同一)]]
+ewwやw3m以外では長すぎて表示しきれないので、
+まともなブラウザの方はリンクで見てください。
+
+#+BEGIN: include :file "/r/sync/junk/150528/150528134445.rb"
+#+BEGIN_SRC fundamental
+# -*- coding: utf-8 -*-
+class Object
+  def ハンタイの() !self end
+  def そのさらにハンタイの() !self end
+  def キモチを伝えるのって() self ? :スキ : :キライ end
+  def 何だか難しい() self end
+  def ハンタイは？ () !self ? :スキ : :キライ end
+end
+
+キライの=false
+キライの.ハンタイの.ハンタイの.ハンタイの.ハンタイの.そのさらにハンタイの.キモチを伝えるのって.何だか難しい
+# => :スキ
+キライの.ハンタイの.ハンタイの.ハンタイの.ハンタイの.ハンタイの.ハンタイの.ハンタイは？
+# => :スキ
+#+END_SRC
+
+#+END:
+
+
+[[http://rubikitch.com/2015/05/30/dash-threading-macro/][続き→(Emacs Lispでも語順を保存してみた)]]

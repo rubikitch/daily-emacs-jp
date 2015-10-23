@@ -1,0 +1,33 @@
+#+BLOG: rubikitch
+#+POSTID: 1760
+#+DATE: [2015-06-19 Fri 17:25]
+#+PERMALINK: melmag
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: メルマガ,
+#+DESCRIPTION: るびきち塾メルマガ『Emacsの鬼るびきちのココだけの話#186』の予告
+#+TITLE: 【メルマガ#186】diffとpatchと
+#+MYTAGS: 
+#+begin: org2blog-tags
+#+TAGS: , メルマガ,, 
+#+end:
+今回はdiffとpatchのお話です。
+
+両者とも古くから使われているプログラムです。
+
+前半では今一度両プログラムを振り返ってみます。
+
+patchプログラムはかなり賢く、
+パッチ作成後に変更されても柔軟に対処してくれます。
+
+それでも完璧ではないので、
+メルマガではpatchプログラムを
+「誤動作」させてみます。
+
+後半ではEmacsでパッチファイルを扱う方法です。
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

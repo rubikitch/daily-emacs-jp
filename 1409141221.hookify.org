@@ -1,0 +1,97 @@
+#+BLOG: rubikitch
+#+POSTID: 347
+#+DATE: [2014-09-14 Sun 12:21]
+#+PERMALINK: hookify
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs
+#+EL_PKG_NAME: hookify
+#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs フック 設定 解除, emacs ファイル保存後, emacs コマンド実行後
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方
+#+EL_TITLE0: ファイル保存後やコマンド実行後などに自動的に実行するアクションを即席で設定する！バッファローカルフックを設定・解除するコマンド
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージhookifyの紹介
+#+MYTAGS: package:hookify, emacs 使い方, emacs コマンド, emacs, emacs lisp hookify, elisp hookify, emacs melpa hookify, emacs hookify 使い方, emacs hookify 設定, emacs パッケージ hookify, emacs フック 設定 解除, emacs ファイル保存後, emacs コマンド実行後
+#+TITLE: emacs hookify.el : ファイル保存後やコマンド実行後などに自動的に実行するアクションを即席で設定する！バッファローカルフックを設定・解除するコマンド | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>hookify</td></tr>
+<tr><td>概要(原文)</td><td>Interactive commands to create temporary hooks</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/Silex/hookify">https://github.com/Silex/hookify</a></td></tr>
+<tr><td>バージョン</td><td>20141216.1409</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:hookify/">package:hookify</a> </td></tr>
+</table>
+<br />
+#+END_HTML
+*hookify.el* は、 *バッファローカルなフック* を
+手軽に設定するコマンドです。
+
+ソースコードはめちゃくちゃ短いです。
+
+実質10行程度なので仕組みが気になるならば、
+M-x *find-function* hookifyで読んでみるとよいです。
+
+使い方は *M-x hookify* を実行します。
+
+そしてフック名とそこで実行するLisp式を入力します。
+
+たったこれだけで一時的に使えるフックが定義できます。
+
+フックを解除するにはC-u M-x hookify→フック名→Lisp式で、
+そのLisp式のフックを解除します。
+
+そのときはM-pで履歴からたどってください。
+
+ある程度Emacsに慣れている人がステップアップするにはおすすめです。
+** hookify インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install hookify
+
+
+#+end:
+** 概要                                                             :noexport:
+*hookify.el* は、 *バッファローカルなフック* を
+手軽に設定するコマンドです。
+
+ソースコードはめちゃくちゃ短いです。
+
+実質10行程度なので仕組みが気になるならば、
+M-x *find-function* hookifyで読んでみるとよいです。
+
+使い方は *M-x hookify* を実行します。
+
+そしてフック名とそこで実行するLisp式を入力します。
+
+たったこれだけで一時的に使えるフックが定義できます。
+
+フックを解除するにはC-u M-x hookify→フック名→Lisp式で、
+そのLisp式のフックを解除します。
+
+そのときはM-pで履歴からたどってください。
+
+ある程度Emacsに慣れている人がステップアップするにはおすすめです。
+** 使用例
+*after-save-hook* で保存後にシェルコマンドを実行したりとか、
+*post-command-hook* でデバッグに利用するのが便利です。
+
+ファイルを保存した後に *nginxを再起動* するには、
+#+BEGIN_EXAMPLE
+M-x hookify after-save-hook RET
+  (shell-command "systemctl restart nginx")
+#+END_EXAMPLE
+
+ファイルを保存した後に ~/backup.txt に *バックアップ* するには、
+
+#+BEGIN_EXAMPLE
+M-x hookify after-save-hook RET
+  (copy-file (buffer-file-name) "~/backup.txt")
+#+END_EXAMPLE
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

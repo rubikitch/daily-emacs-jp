@@ -1,0 +1,126 @@
+#+BLOG: rubikitch
+#+POSTID: 738
+#+DATE: [2014-12-18 Thu 06:06]
+#+PERMALINK: writeroom-mode
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs
+#+EL_PKG_NAME: writeroom-mode
+#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, WriteRoom, WriteRoom OS X, 超集中, WriteRoom iPhone, emacs 物書き, emacs ライティング, ライティング, relate:tabula-rasa, relate:olivetti
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: 余計な装飾一切排除！物書きするときは執筆部屋にひきこもれ！！Mac iPhoneからの移植
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージwriteroom-modeの紹介
+#+MYTAGS: package:writeroom-mode, emacs 使い方, emacs コマンド, emacs, emacs lisp writeroom-mode, elisp writeroom-mode, emacs melpa writeroom-mode, emacs writeroom-mode 使い方, emacs writeroom-mode 設定, emacs パッケージ writeroom-mode, emacs writeroom-mode スクリーンショット, WriteRoom, WriteRoom OS X, 超集中, WriteRoom iPhone, emacs 物書き, emacs ライティング, ライティング, relate:tabula-rasa, relate:olivetti
+#+TAGS: package:writeroom-mode, emacs 使い方, emacs コマンド, emacs, emacs lisp writeroom-mode, elisp writeroom-mode, emacs melpa writeroom-mode, emacs writeroom-mode 使い方, emacs writeroom-mode 設定, emacs パッケージ writeroom-mode, emacs writeroom-mode スクリーンショット, WriteRoom, WriteRoom OS X, 超集中, WriteRoom iPhone, emacs 物書き, emacs ライティング, ライティング, relate:tabula-rasa, relate:olivetti, Emacs, writeroom-mode.el, WriteRoom, M-x writeroom-mode, WriteRoom, M-x writeroom-mode
+#+TITLE: emacs writeroom-mode.el : 余計な装飾一切排除！物書きするときは執筆部屋にひきこもれ！！Mac iPhoneからの移植 | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>writeroom-mode</td></tr>
+<tr><td>概要(原文)</td><td>Minor mode for distraction-free writing</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/joostkremers/writeroom-mode">https://github.com/joostkremers/writeroom-mode</a></td></tr>
+<tr><td>バージョン</td><td>20150302.1431</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:writeroom-mode/">package:writeroom-mode</a> <a href="http://rubikitch.com/tag/package:tabula-rasa/">package:tabula-rasa</a> <a href="http://rubikitch.com/tag/package:olivetti/">package:olivetti</a></td></tr>
+</table>
+<br />
+#+END_HTML
+*writeroom-mode.el* は、Mac OS XやiOSの *WriteRoom* を
+Emacsに移植したものです。
+
+<2014-12-19 Fri> [[http://rubikitch.com/2014/12/19/tabula-rasa][同種ツールtabula-rasaも紹介しました。]] 
+
+本家は有料ですが、こっちの方はもちろん無料です(笑)
+
+*M-x writeroom-mode* は邪魔な装飾を一切排除し、
+執筆に集中するためのマイナーモードです。
+
+有効にすると、以下のような効果になります。
+
+- フルスクリーン
+- 透過を無効
+- メニューバー無効
+- ツールバー無効
+- スクロールバー無効
+- C-x 1 (その他のウィンドウを削除)
+- fringe無効
+- モードライン無効！
+- 文章を画面中央にもっていく
+- 上下のマージンも設定できる(オプション)
+
+スクリーンショットを見ればわかりますが
+モードラインすら吹っ飛ばした画面は圧巻です。
+
+http://rubikitch.com/f/20141218063135.png
+Fig1: 邪魔な装飾一切排除！集中せよ集中せよ！
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+http://rubikitch.com/f/20141218063306.png
+Fig1: 上下のマージンを設定したとき
+
+** writeroom-mode インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install writeroom-mode
+
+
+#+end:
+** 概要                                                             :noexport:
+*writeroom-mode.el* は、Mac OS XやiOSの *WriteRoom* を
+Emacsに移植したものです。
+
+<2014-12-19 Fri> [[http://rubikitch.com/2014/12/19/tabula-rasa][同種ツールtabula-rasaも紹介しました。]] 
+
+本家は有料ですが、こっちの方はもちろん無料です(笑)
+
+*M-x writeroom-mode* は邪魔な装飾を一切排除し、
+執筆に集中するためのマイナーモードです。
+
+有効にすると、以下のような効果になります。
+
+- フルスクリーン
+- 透過を無効
+- メニューバー無効
+- ツールバー無効
+- スクロールバー無効
+- C-x 1 (その他のウィンドウを削除)
+- fringe無効
+- モードライン無効！
+- 文章を画面中央にもっていく
+- 上下のマージンも設定できる(オプション)
+
+スクリーンショットを見ればわかりますが
+モードラインすら吹っ飛ばした画面は圧巻です。
+
+http://rubikitch.com/f/20141218063135.png
+Fig1: 邪魔な装飾一切排除！集中せよ集中せよ！
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+http://rubikitch.com/f/20141218063306.png
+Fig1: 上下のマージンを設定したとき
+
+
+** 設定 [[http://rubikitch.com/f/141218060415.writeroom-mode.1.el][141218060415.writeroom-mode.1.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/141218/141218060415.writeroom-mode.1.el"
+#+BEGIN_SRC fundamental
+(require 'writeroom-mode)
+;; 有効にするメジャーモード
+(setq writeroom-major-modes '(text-mode org-mode))
+;; 横幅を80桁に設定
+(setq writeroom-width 80)
+;; ;; 上のマージンを100に設定
+;; (setq writeroom-border-width 100)
+;; ;; その際以下の設定が必要
+;; (push 'writeroom-toggle-internal-border-width
+;;       writeroom-global-effects)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/141218060415.writeroom-mode.1.el
+$ emacs -Q -f package-initialize -l 141218060415.writeroom-mode.1.el
+#+END_EXAMPLE

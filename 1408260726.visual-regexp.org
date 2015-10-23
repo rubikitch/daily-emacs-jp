@@ -1,0 +1,113 @@
+#+BLOG: rubikitch
+#+POSTID: 206
+#+DATE: [2014-08-26 Tue 07:26]
+#+PERMALINK: visual-regexp
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs
+#+EL_PKG_NAME: visual-regexp
+#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, emacs 正規表現置換, emacs replace-regexp, emacs query-replace-regexp, emacs C-M-%%, emacs 置換, emacs re-builder 置換, relate:re-builder, relate:phi-search, phi-replace, phi-replace-query, relate:visual-regexp-steroids
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: 【正規表現置換革命】今すぐ導入して置き換えろ！re-builderのように対話的に確認しながら正規表現を構成して置換する
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージvisual-regexpの紹介
+#+MYTAGS: package:visual-regexp, emacs 使い方, emacs コマンド, emacs, emacs lisp visual-regexp, elisp visual-regexp, emacs melpa visual-regexp, emacs visual-regexp 使い方, emacs visual-regexp 設定, emacs パッケージ visual-regexp, emacs visual-regexp スクリーンショット, emacs 正規表現置換, emacs replace-regexp, emacs query-replace-regexp, emacs C-M-%, emacs 置換, emacs re-builder 置換, relate:re-builder, relate:phi-search, phi-replace, phi-replace-query, relate:visual-regexp-steroids
+#+TAGS: package:visual-regexp, emacs 使い方, emacs コマンド, emacs, emacs lisp visual-regexp, elisp visual-regexp, emacs melpa visual-regexp, emacs visual-regexp 使い方, emacs visual-regexp 設定, emacs パッケージ visual-regexp, emacs visual-regexp スクリーンショット, emacs 正規表現置換, emacs replace-regexp, emacs query-replace-regexp, emacs C-M-%, emacs 置換, emacs re-builder 置換, relate:re-builder, relate:phi-search, phi-replace, phi-replace-query, relate:visual-regexp-steroids, Emacs, 
+#+TITLE: emacs visual-regexp.el : 【正規表現置換革命】今すぐ導入して置き換えろ！re-builderのように対話的に確認しながら正規表現を構成して置換する | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>visual-regexp</td></tr>
+<tr><td>概要(原文)</td><td>A regexp/replace command for Emacs with interactive visual feedback</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/benma/visual-regexp.el">https://github.com/benma/visual-regexp.el</a></td></tr>
+<tr><td>バージョン</td><td>20150329.954</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:visual-regexp/">package:visual-regexp</a> <a href="http://rubikitch.com/tag/package:re-builder/">package:re-builder</a> <a href="http://rubikitch.com/tag/package:phi-search/">package:phi-search</a> <a href="http://rubikitch.com/tag/package:visual-regexp-steroids/">package:visual-regexp-steroids</a></td></tr>
+</table>
+<br />
+#+END_HTML
+<2015-04-20 Mon> [[http://rubikitch.com/2015/04/20/visual-regexp-steroids][visual-regexp-steroidsでPerl/Pythonの正規表現にも対応します。]] 
+<2015-04-06 Mon> 類似品: [[http://rubikitch.com/2014/11/11/phi-search/][phi-search付属のM-x phi-replace-query]] 
+
+これはほんとやばいEmacs Lispです！
+
+正規表現置換、使っていますか？
+
+もっと早く知っておきたかったと
+正直、後悔の念でいっぱいです。
+
+C-M-% (query-replace-regexp)、
+この狂気に満ちたキーバインドのコマンドですが、
+そのままだと使いづらいですよね。
+
+Emacsの正規表現自体イカれているので、
+正規表現に慣れている人であっても
+100%正しくマッチさせることはできません。
+
+そこで、M-x re-builderで正規表現を対話的に
+構築してから置換するという方法もあります。
+
+しかし、これではわざわざ正規表現をコピーする手間がかかります。
+
+そこで、これらを合体させたvisual-regexp.elです。
+
+何も言いません、とにかく今すぐM-%を置き換えてください。
+
+あれほど難解な正規表現置換が一気に
+身近な存在になること請け合いです。
+** visual-regexp インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install visual-regexp
+
+
+#+end:
+** 概要                                                             :noexport:
+<2015-04-20 Mon> [[http://rubikitch.com/2015/04/20/visual-regexp-steroids][visual-regexp-steroidsでPerl/Pythonの正規表現にも対応します。]] 
+<2015-04-06 Mon> 類似品: [[http://rubikitch.com/2014/11/11/phi-search/][phi-search付属のM-x phi-replace-query]] 
+
+これはほんとやばいEmacs Lispです！
+
+正規表現置換、使っていますか？
+
+もっと早く知っておきたかったと
+正直、後悔の念でいっぱいです。
+
+C-M-% (query-replace-regexp)、
+この狂気に満ちたキーバインドのコマンドですが、
+そのままだと使いづらいですよね。
+
+Emacsの正規表現自体イカれているので、
+正規表現に慣れている人であっても
+100%正しくマッチさせることはできません。
+
+そこで、M-x re-builderで正規表現を対話的に
+構築してから置換するという方法もあります。
+
+しかし、これではわざわざ正規表現をコピーする手間がかかります。
+
+そこで、これらを合体させたvisual-regexp.elです。
+
+何も言いません、とにかく今すぐM-%を置き換えてください。
+
+あれほど難解な正規表現置換が一気に
+身近な存在になること請け合いです。
+** 設定 [[http://rubikitch.com/f/140826073253.visual-regexp.el][140826073253.visual-regexp.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/140826/140826073253.visual-regexp.el"
+#+BEGIN_SRC fundamental
+(global-set-key (kbd "M-%") 'vr/query-replace)
+#+END_SRC
+
+#+END:
+** 使い方
+使い方は通常の置換とまったく変わりません。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+http://rubikitch.com/f/20140826073752.png
+Fig1: マッチ部分がハイライト！
+
+http://rubikitch.com/f/20140826073800.png
+Fig2: 置換文字列を入力したところ

@@ -1,0 +1,217 @@
+#+BLOG: rubikitch
+#+POSTID: 617
+#+DATE: [2014-11-24 Mon 14:35]
+#+PERMALINK: ddskk-152
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, Emacs 24.4, Emacs 25.0, SKK
+#+DESCRIPTION: ddskk 15.2本日リリース
+#+MYTAGS: ddskk, ddskk 15.2, ddskk15.2 インストール, emacs24.4, emacs25
+#+TAGS: ddskk, ddskk 15.2, ddskk15.2 インストール, emacs24.4, emacs25, Emacs, Emacs 24.4, Emacs 25.0, SKK, NTEmacs 24.4, インラインパッチ
+#+TITLE: ddskk 15.2本日リリース！Emacs 24.4以降の方はアップグレードしてください
+本日、ddskk 15.2がリリースされました。
+
+http://openlab.ring.gr.jp/skk/maintrunk/ddskk-15.2.tar.gz
+
+Emacs 24.4、Emacs 25を使っている人はアップグレードしてください。
+
+Windowsでの *NTEmacs 24.4* 向けに調整してあります。
+
+#+BEGIN_EXAMPLE
+$ wget -O- http://openlab.ring.gr.jp/skk/maintrunk/ddskk-15.2.tar.gz | tar xzvf  -
+$ cd ddskk-15.2
+$ make
+$ make install
+#+END_EXAMPLE
+
+** SKKはおすすめ！
+
+ddskkはEmacsを使っているならばぜひとも
+おすすめしたい日本語入力システムです。
+
+最大の理由がEmacs Lispのみで書かれているため
+Emacsが動くすべてのOSで動作することです。
+
+WindowsやMacでの *インラインパッチ* とかそういう問題とは無縁です。
+
+実際WindowsでEmacsを使っていた頃も
+SKKだったのでIMEは一切使いませんでした。
+
+#+BEGIN_QUOTE
+ 2014/11/12 23:35:08 kai2nenobu > Cygwin Emacsはつらみの塊。 RT
+ @192agur2: CygwinでGUIのEmacs使いてぇ→X11?はぁ→setupにないやんけ!→
+ 最新版setup手に入れる→X11入った→GUIで動いた→日本語入力くそやんけ!→
+ もうNTEmacsでええわ // by Tsuenobu Kai from KeySnail [Tokyo, Japan]
+
+ 2014/11/23 20:11:31 rubikitch > SKK一筋18年の俺に隙はなかった。 >>RT
+ // by るびきち＠日刊Emacs from twmode [Emacs on Debian]
+
+ 2014/11/24 02:22:10 rubikitch > ですです！Windowsを使っていたときにも
+ のすごい助かりました。かつては日本語化されてないOSでも RT: @rubikitch
+ クロスプラットフォームって意味でも Emacs 上で動く SKK (今だと DDSKK)
+ はオススメなんですよね. (via @cocoatomo) // by るびきち＠日刊Emacs
+ from twmode [Emacs on Debian]
+
+#+END_QUOTE
+
+また、変換を自分でコントロールしているので、
+文節区切りミスと無縁になれますし、
+手紙を書いているような感覚で入力できるのも風情があります。
+
+** NEWS.ja抜粋
+*** インストール
+
+make what-where の実行時に Emacs のバージョンを表示するようにしました。
+
+*** GNU Emacs 25 対応を進めました
+
+**** tooltip-set-param() の利用廃止
+tooltip-set-param() が obsolute されたため、skk-put-alist() を使用するように変更しました。
+
+*** GNU Emacs 24 対応を進めました
+
+**** coding tag の明示
+
+2013-06-11 international/mule-conf.el (file-coding-system-alist): Use utf-8
+as default for Elisp files.
+DDSKK-15.1 には coding tag を明示していないファイルが残っていたため
+emack trunk (24.3.50) でインストールが中断されてしまう。
+すべてのファイルに coding tag を明示しました。
+
+**** NTEmacs 24.4 向けの調整
+
+ディレクトリ構成変更に対応しました。
+
+- Changes in Emacs 24.4 on Non-Free Operating Systems
+  - The procedure for building Emacs on MS-Windows has changed.
+      It is now built by running the same configure script as on all other
+      platforms.  This requires the MSYS environment and MinGW development
+      tools.  See the updated instructions in nt/INSTALL for details.
+
+      Using the Posix configure script and Makefiles also means a change in
+      the directory structure of the Emacs installation on Windows.  It is
+      now the same as on GNU and Unix systems.
+
+#+BEGIN_EXAMPLE
+   .../bin
+      /libexec
+              /emacs
+                    /VERSION
+                            /i686-pc-mingw32 (or x86_64-pc-mingw32)
+                              => cmdproxy.exe and hexl.exe (auxiliary programs)
+      /share
+            /applications
+            /emacs
+                  /VERSION
+                          /etc       ;; data files                    | SKK.tut, skk.xpm
+                          /lisp      ;; version-specific Lisp files
+                          /site-lisp ;; version-specific Lisp files   | skk*.el
+                  /site-lisp         ;; version-independent site-lisp
+            /icons
+            /info                    ;; Info docs                     | skk.info
+            /man
+      /var
+#+END_EXAMPLE
+
+**** isearch-other-control-char 及び isearch-other-meta-char の廃止
+
+これら関数は GNU Emacs 24.3 まで (GNU Emacs 24.4 からは廃止されている)
+
+**** アノテーションを eww で表示することが可能に
+
+変数 skk-annotation-browser-function にシンボル 'eww-browse-url を指定す
+ることで、アノテーションを eww で表示することが可能です。
+もちろん、従前どおりシンボル 'browse-url も可能です。
+
+*** cdb 形式辞書の取り扱い
+
+**** skk2cdb.py を main/etc/ から tools/ へ移しました。
+
+**** ターゲット cdb を main/Makefile から dic/Makefile へ移しました。
+
+*** 装飾
+
+**** 候補バッファ
+
+新たに skk-candidate-buffer-background-color-odd を定義しました。
+
+新たに skk-candidate-buffer-display-fringes を定義しました。
+
+**** インライン
+
+新たに skk-inline-show-background-color-odd を定義しました。
+
+*** 動作
+
+**** 半角数字(ASCII) 又は全角数字(JISX0208)の直後の句読点
+
+変数 skk-use-auto-kutouten を non-nil と設定すると、ポイント直前の文字種
+に応じて句読点を動的に変更します。
+
+| かなモード | ASCII | JISX0208 |
+| 長音(ー)   | -     | `−'     |
+| 句点(。)   | .     | `．'     |
+| 読点(、)   | ,     | `，'     |
+
+**** `$' タイプ時の動作
+
+従前、`$' をタイプすると、関数 skk-display-code-for-char-at-point を実行
+しましたが、変数 skk-display-code-method を nil と設定すると、タイプされ
+た文字をバッファに挿入します。
+
+**** リージョンを括弧で囲む
+新たな変数 skk-use-auto-enclose-pair-of-region を定義しました。
+
+*** skk-version() の日本語表示
+
+新たな変数 skk-version-codename-ja を追加しました。これが non-nil であれ
+は、skk-version() を評価したときのコードネームを日本語で表示します。
+
+*** Ruby 1.9 対応
+
+bayesian/bskk の Ruby 1.9 対応を進めました。
+
+*** show-mode
+
+**** skk-dcomp.el 依存の廃止
+
+これまで skk-dcomp-multiple-show() を使用していたが、準用する形で
+skk-show-mode-inline-1() を実装した。
+
+**** 背景色の設定
+
+新たに skk-show-mode-inline-face を定義しました。
+
+*** NICOLA
+
+新たなキーバインドを定義しました。
+詳細は ML (NICOLA-DDSKK の接頭語接尾語とabbrev-mode)
+http://mail.ring.gr.jp/skk/201403/msg00000.html を参照のこと。
+
+*** Colemak 配列
+
+nicola-colemak を追加しました。
+
+*** その他バグ修正など
+
+**** XEmacs における modeline
+
+GNU Emacs 24.3 からフェイス modeline が廃止されたため DDSKK 15.1 で
+は mode-line へ統一したところ。しかし XEmacs は modeline のままであ
+ることから、これらの対策として マクロ skk-facep を導入した。
+
+**** mode-line-format を nil とした場合の対策
+
+**** チュートリアル実行中に skk-show-mode が起動してしまうことを防いだ
+
+**** minibuffer におけるかな漢字変換の対策
+
+これまでの DDSKK は minibuffer でも skk-dcomp-multiple-show() しようとして
+エラーが生じていたため、この対策を行いました。
+
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

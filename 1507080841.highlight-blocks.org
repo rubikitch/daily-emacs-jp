@@ -1,0 +1,67 @@
+#+BLOG: rubikitch
+#+POSTID: 1813
+#+DATE: [2015-07-08 Wed 08:41]
+#+PERMALINK: highlight-blocks
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs
+#+EL_PKG_NAME: highlight-blocks
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: 現在のブロックに色をつけて明示化する
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージhighlight-blocksの紹介
+#+MYTAGS: package:highlight-blocks, emacs 使い方, emacs コマンド, emacs, highlight-blocks, highlight-blocks.el, emacs lisp highlight-blocks, elisp highlight-blocks, emacs melpa highlight-blocks, emacs highlight-blocks 使い方, emacs highlight-blocks 設定, emacs パッケージ highlight-blocks, emacs highlight-blocks スクリーンショット
+#+TAGS: package:highlight-blocks, emacs 使い方, emacs コマンド, emacs, highlight-blocks, highlight-blocks.el, emacs lisp highlight-blocks, elisp highlight-blocks, emacs melpa highlight-blocks, emacs highlight-blocks 使い方, emacs highlight-blocks 設定, emacs パッケージ highlight-blocks, emacs highlight-blocks スクリーンショット, Emacs, highlight-blocks.el, M-x highlight-blocks-now, M-x highlight-blocks-mode, M-x highlight-blocks-now, M-x highlight-blocks-mode
+#+TITLE: emacs highlight-blocks.el : 現在のブロックに色をつけて明示化する | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>highlight-blocks</td></tr>
+<tr><td>概要(原文)</td><td>Highlight the blocks point is in</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/Fanael/highlight-blocks">https://github.com/Fanael/highlight-blocks</a></td></tr>
+<tr><td>バージョン</td><td>20150701.1106</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:highlight-blocks/">package:highlight-blocks</a> </td></tr>
+</table>
+<br />
+#+END_HTML
+*highlight-blocks.el* は、現在のブロックの背景色に色をつけます。
+
+階層が深くなればなるほど、背景色が濃くなります。
+
+*M-x highlight-blocks-now* は、現在位置をハイライトします。
+
+*M-x highlight-blocks-mode* は、カーソルが移動すれば自動的に
+ハイライトされるマイナーモードです。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150708084924.png]]
+Fig1: こんな感じ！
+** highlight-blocks インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install highlight-blocks
+
+
+#+end:
+** 概要                                                             :noexport:
+*highlight-blocks.el* は、現在のブロックの背景色に色をつけます。
+
+階層が深くなればなるほど、背景色が濃くなります。
+
+*M-x highlight-blocks-now* は、現在位置をハイライトします。
+
+*M-x highlight-blocks-mode* は、カーソルが移動すれば自動的に
+ハイライトされるマイナーモードです。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150708084924.png]]
+Fig2: こんな感じ！
+

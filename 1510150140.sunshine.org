@@ -1,0 +1,105 @@
+#+BLOG: rubikitch
+#+POSTID: 2081
+#+DATE: [2015-10-15 Thu 01:40]
+#+PERMALINK: sunshine
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs
+#+EL_PKG_NAME: sunshine
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, 天気予報, 日付を英語表記する, format-time-string, 
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: Emacsで天気予報を見る
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージsunshineの紹介
+#+MYTAGS: package:sunshine, emacs 使い方, emacs コマンド, emacs, sunshine, sunshine.el, emacs lisp sunshine, elisp sunshine, emacs melpa sunshine, emacs sunshine 使い方, emacs sunshine 設定, emacs パッケージ sunshine, emacs sunshine スクリーンショット, 天気予報, 日付を英語表記する, format-time-string, 
+#+TAGS: package:sunshine, emacs 使い方, emacs コマンド, emacs, sunshine, sunshine.el, emacs lisp sunshine, elisp sunshine, emacs melpa sunshine, emacs sunshine 使い方, emacs sunshine 設定, emacs パッケージ sunshine, emacs sunshine スクリーンショット, 天気予報, 日付を英語表記する, format-time-string, , Emacs, sunshine.el, sunshine-appid, sunshine-location, system-time-locale, M-x sunshine-forecast, M-x sunshine-quick-forecast, sunshine-appid, sunshine-location, system-time-locale, M-x sunshine-forecast, M-x sunshine-quick-forecast
+#+TITLE: emacs sunshine.el : Emacsで天気予報を見る | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>sunshine</td></tr>
+<tr><td>概要(原文)</td><td>Provide weather and forecast information.</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/aaronbieber/sunshine.el">https://github.com/aaronbieber/sunshine.el</a></td></tr>
+<tr><td>バージョン</td><td>20151013.614</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:sunshine/">package:sunshine</a> </td></tr>
+</table>
+<br />
+#+END_HTML
+*sunshine.el* を使えばEmacsで手軽に天気予報が見られます。
+
+準備としてOpenWeatherMapのAPIを使うので、 [[http://openweathermap.org/appid][OpenWeatherMap. Aplication ID]] のページから「Sign Up」をクリックしてAPPIDを取得してください。
+任意のユーザ名、メールアドレス、パスワードを入力するだけですぐに取得できます。
+すると、「API key」が表示されるので、 *sunshine-appid* に貼り付けてしてください。
+そして、お住まいの場所を *sunshine-location* に設定してください。
+
+なお、日付のフォーマットがハードコーディングされていて日本語で表示すると表がずれてしまいます。
+本設定では *system-time-locale* で日付を英語表記することでそれに対処しています。
+
+ただ、この程度の表示ならば[[http://weather.yahoo.co.jp/weather/][Yahoo!天気・災害]] のピンポイント天気をEWWで表示させれば十分でしょう。
+僕はピンポイント天気とアメダス実況のページをスクレイピングして一覧するスクリプトを自作しています。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151015015347.png]]
+Fig1: *M-x sunshine-forecast* で天気予報を表示
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151015015426.png]]
+Fig2: *M-x sunshine-quick-forecast* でミニバッファに天気予報を表示
+
+** sunshine インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install sunshine
+
+
+#+end:
+** 概要                                                             :noexport:
+*sunshine.el* を使えばEmacsで手軽に天気予報が見られます。
+
+準備としてOpenWeatherMapのAPIを使うので、 [[http://openweathermap.org/appid][OpenWeatherMap. Aplication ID]] のページから「Sign Up」をクリックしてAPPIDを取得してください。
+任意のユーザ名、メールアドレス、パスワードを入力するだけですぐに取得できます。
+すると、「API key」が表示されるので、 *sunshine-appid* に貼り付けてしてください。
+そして、お住まいの場所を *sunshine-location* に設定してください。
+
+なお、日付のフォーマットがハードコーディングされていて日本語で表示すると表がずれてしまいます。
+本設定では *system-time-locale* で日付を英語表記することでそれに対処しています。
+
+ただ、この程度の表示ならば[[http://weather.yahoo.co.jp/weather/][Yahoo!天気・災害]] のピンポイント天気をEWWで表示させれば十分でしょう。
+僕はピンポイント天気とアメダス実況のページをスクレイピングして一覧するスクリプトを自作しています。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151015015347.png]]
+Fig3: *M-x sunshine-forecast* で天気予報を表示
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151015015426.png]]
+Fig4: *M-x sunshine-quick-forecast* でミニバッファに天気予報を表示
+
+
+** 設定 [[http://rubikitch.com/f/151015014130.sunshine.1.el][151015014130.sunshine.1.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/151015/151015014130.sunshine.1.el"
+#+BEGIN_SRC fundamental
+;;; API Key (APPID)をセットする
+(setq sunshine-appid "11111111111111111111111111111111")
+;;; 摂氏温度で表示
+(setq sunshine-units 'metric)
+;;; 場所
+(setq sunshine-location "Tokyo,Japan")
+;;; 日付を英語表記
+(setq system-time-locale "C")
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/151015014130.sunshine.1.el
+$ emacs -Q -f package-initialize -l 151015014130.sunshine.1.el
+#+END_EXAMPLE

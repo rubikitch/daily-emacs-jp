@@ -1,0 +1,28 @@
+#+BLOG: rubikitch
+#+POSTID: 1072
+#+DATE: [2015-02-03 Tue 05:15]
+#+PERMALINK: backup-each-save
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: 記事更新情報, 
+#+DESCRIPTION: 
+#+MYTAGS: 
+#+TITLE: backup-each-saveとauto-save-buffers-enhanced記事更新
+#+begin: org2blog-tags
+#+TAGS: , 記事更新情報, , 
+#+end:
+[[http://rubikitch.com/2015/02/03/real-auto-save/][real-auto-save.el]] をレビューしたことに伴い、
+同じ機能を提供する [[http://rubikitch.com/2014/11/23/auto-save-buffers-enhanced/][auto-save-buffers-enhanced.el]] とリンクしました。
+
+また、自動バックアップの [[http://rubikitch.com/2014/11/02/backup-each-save/][backup-each-save.el]] もこれらとリンクしました。
+
+僕は自動保存＋自動バックアップを組み合わせていますが、
+上書きや停電などのデータが消える恐怖から解放されて
+安心して日々の作業をしています。
+
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

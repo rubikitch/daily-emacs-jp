@@ -1,0 +1,276 @@
+#+BLOG: rubikitch
+#+POSTID: 1821
+#+DATE: [2015-07-12 Sun 09:38]
+#+PERMALINK: helm-core
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, helm
+#+EL_PKG_NAME: helm-core
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 設定, emacs パッケージ %p, package:helm, relate:helm
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 
+#+EL_TITLE0: helmはhelm-coreとhelmの2パッケージに分裂しました
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージhelm-coreの紹介
+#+MYTAGS: package:helm-core, emacs 使い方, emacs コマンド, emacs, helm-core, helm-core.el, emacs lisp helm-core, elisp helm-core, emacs melpa helm-core, emacs helm-core 設定, emacs パッケージ helm-core, package:helm, relate:helm
+#+TAGS: package:helm-core, emacs 使い方, emacs コマンド, emacs, helm-core, helm-core.el, emacs lisp helm-core, elisp helm-core, emacs melpa helm-core, emacs helm-core 設定, emacs パッケージ helm-core, package:helm, relate:helm, Emacs, helm, 
+#+TITLE: emacs helm-core.el : helmはhelm-coreとhelmの2パッケージに分裂しました | MELPA Emacs Lisp Elisp パッケージ インストール 設定 
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>helm-core</td></tr>
+<tr><td>概要(原文)</td><td>Helm is an Emacs incremental and narrowing framework</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/emacs-helm/helm">https://github.com/emacs-helm/helm</a></td></tr>
+<tr><td>バージョン</td><td>20150711.302</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:helm-core/">package:helm-core</a> <a href="http://rubikitch.com/tag/package:helm/">package:helm</a></td></tr>
+</table>
+<br />
+#+END_HTML
+大人気インクリメンタル絞り込み検索フレームワーク[[http://rubikitch.com/category/helm/][helm(カテゴリ)]] は、
+昨日のコミットにより2つのパッケージに分裂しました。
+
+- helm-core -  helmフレームワークの中核
+- helm - helmにバンドルされているhelmコマンド群
+
+helm-coreは以下のファイルで構成されています。
+
+- helm.el - 本体
+- helm-source.el - 情報源を定義するためのクラス
+- helm-match-plugin.el - 絞り込み検索プラグイン
+- helm-lib.el - helmコマンドを定義するときに使える便利な関数・マクロ
+
+これにより、新しいhelmコマンドをパッケージ化するときに、
+helm-coreパッケージに依存するように設定できます。
+
+従来のようにhelmパッケージに依存させた場合でも、
+helm-coreパッケージを見てくれるので動作上問題はありません。
+
+https://github.com/emacs-helm/helm/commit/fc5234b
+#+BEGIN_EXAMPLE
+fc5234bad8201eb7dd3df947ba1785ce3690f388
+Author: Thierry Volpiatto <thierry.volpiatto@gmail.com>
+Date:   Sat Jul 11 08:04:09 2015 +0200
+
+    Prepare pkg file for separation of packages.
+    
+    * helm-core-pkg.el: New.
+    * helm-pkg.el: Add helm-core as dependencie.
+
+2 files changed, 14 insertions(+), 1 deletion(-)
+ helm-core-pkg.el | 12 ++++++++++++
+ helm-pkg.el      |  3 ++-
+
+	New        helm-core-pkg.el
+diff --git a/helm-core-pkg.el b/helm-core-pkg.el
+new file mode 100644
+index 0000000..72592d3
+--- /dev/null
++++ b/helm-core-pkg.el
+@@ -0,0 +1,12 @@
++;;; helm-pkg.el --- define helm for package.el
++
++(define-package "helm-core" "1.7.4"
++  "Helm is an Emacs incremental and narrowing framework"
++  '((emacs "24")
++    (cl-lib "0.5")
++    (async "1.3"))
++  :url "https://emacs-helm.github.io/helm/")
++
++;; Local Variables:
++;; no-byte-compile: t
++;; End:
+	Modified   helm-pkg.el
+diff --git a/helm-pkg.el b/helm-pkg.el
+index 0288b9c..c34f236 100644
+--- a/helm-pkg.el
++++ b/helm-pkg.el
+@@ -4,7 +4,8 @@
+   "Helm is an Emacs incremental and narrowing framework"
+   '((emacs "24")
+     (cl-lib "0.5")
+-    (async "1.3"))
++    (async "1.3")
++    (helm-core "1.7.4"))
+   :url "https://emacs-helm.github.io/helm/")
+ 
+ ;; Local Variables:
+
+[back]
+
+#+END_EXAMPLE
+
+https://github.com/emacs-helm/helm/commit/6b24742
+#+BEGIN_EXAMPLE
+6b247420a6da95a6f8f0970cfa78e6741d940b83
+Author: Thierry Volpiatto <thierry.volpiatto@gmail.com>
+Date:   Sat Jul 11 14:13:39 2015 +0200
+
+    * README.md: Update about helm-core.
+
+1 file changed, 14 insertions(+)
+ README.md | 14 ++++++++++++++
+
+	Modified   README.md
+diff --git a/README.md b/README.md
+index a0f5384..f64b1fe 100644
+--- a/README.md
++++ b/README.md
+@@ -118,6 +118,20 @@ _Note:_ After upgrading from the emacs packaging system you should restart emacs
+ 
+ `Only the extensions present in the github emacs-helm organisation are supported.`
+ 
++## Install and use only helm-core package
++
++Third party helm packages can use only helm-core package if they don't need more helm libraries
++for their packages. It is available at http://melpa.org/.
++
++All you need to add in your packages is
++
++     (require 'helm)
++
++This will provide the necessary code to build and run helm sources with multiple regexp matching
++or fuzzy matching.
++
++See [wiki](https://github.com/emacs-helm/helm/wiki#developpingusinghelmframework) for more infos.
++
+ ## Alternate install warning
+ 
+ Some people are installing `helm` with their own config using diverses `require`, `autoload`
+
+[back]
+
+#+END_EXAMPLE
+
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+** helm-core インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install helm-core
+
+
+#+end:
+** 概要                                                             :noexport:
+大人気インクリメンタル絞り込み検索フレームワーク[[http://rubikitch.com/category/helm/][helm(カテゴリ)]] は、
+昨日のコミットにより2つのパッケージに分裂しました。
+
+- helm-core -  helmフレームワークの中核
+- helm - helmにバンドルされているhelmコマンド群
+
+helm-coreは以下のファイルで構成されています。
+
+- helm.el - 本体
+- helm-source.el - 情報源を定義するためのクラス
+- helm-match-plugin.el - 絞り込み検索プラグイン
+- helm-lib.el - helmコマンドを定義するときに使える便利な関数・マクロ
+
+これにより、新しいhelmコマンドをパッケージ化するときに、
+helm-coreパッケージに依存するように設定できます。
+
+従来のようにhelmパッケージに依存させた場合でも、
+helm-coreパッケージを見てくれるので動作上問題はありません。
+
+https://github.com/emacs-helm/helm/commit/fc5234b
+#+BEGIN_EXAMPLE
+fc5234bad8201eb7dd3df947ba1785ce3690f388
+Author: Thierry Volpiatto <thierry.volpiatto@gmail.com>
+Date:   Sat Jul 11 08:04:09 2015 +0200
+
+    Prepare pkg file for separation of packages.
+    
+    * helm-core-pkg.el: New.
+    * helm-pkg.el: Add helm-core as dependencie.
+
+2 files changed, 14 insertions(+), 1 deletion(-)
+ helm-core-pkg.el | 12 ++++++++++++
+ helm-pkg.el      |  3 ++-
+
+	New        helm-core-pkg.el
+diff --git a/helm-core-pkg.el b/helm-core-pkg.el
+new file mode 100644
+index 0000000..72592d3
+--- /dev/null
++++ b/helm-core-pkg.el
+@@ -0,0 +1,12 @@
++;;; helm-pkg.el --- define helm for package.el
++
++(define-package "helm-core" "1.7.4"
++  "Helm is an Emacs incremental and narrowing framework"
++  '((emacs "24")
++    (cl-lib "0.5")
++    (async "1.3"))
++  :url "https://emacs-helm.github.io/helm/")
++
++;; Local Variables:
++;; no-byte-compile: t
++;; End:
+	Modified   helm-pkg.el
+diff --git a/helm-pkg.el b/helm-pkg.el
+index 0288b9c..c34f236 100644
+--- a/helm-pkg.el
++++ b/helm-pkg.el
+@@ -4,7 +4,8 @@
+   "Helm is an Emacs incremental and narrowing framework"
+   '((emacs "24")
+     (cl-lib "0.5")
+-    (async "1.3"))
++    (async "1.3")
++    (helm-core "1.7.4"))
+   :url "https://emacs-helm.github.io/helm/")
+ 
+ ;; Local Variables:
+
+[back]
+
+#+END_EXAMPLE
+
+https://github.com/emacs-helm/helm/commit/6b24742
+#+BEGIN_EXAMPLE
+6b247420a6da95a6f8f0970cfa78e6741d940b83
+Author: Thierry Volpiatto <thierry.volpiatto@gmail.com>
+Date:   Sat Jul 11 14:13:39 2015 +0200
+
+    * README.md: Update about helm-core.
+
+1 file changed, 14 insertions(+)
+ README.md | 14 ++++++++++++++
+
+	Modified   README.md
+diff --git a/README.md b/README.md
+index a0f5384..f64b1fe 100644
+--- a/README.md
++++ b/README.md
+@@ -118,6 +118,20 @@ _Note:_ After upgrading from the emacs packaging system you should restart emacs
+ 
+ `Only the extensions present in the github emacs-helm organisation are supported.`
+ 
++## Install and use only helm-core package
++
++Third party helm packages can use only helm-core package if they don't need more helm libraries
++for their packages. It is available at http://melpa.org/.
++
++All you need to add in your packages is
++
++     (require 'helm)
++
++This will provide the necessary code to build and run helm sources with multiple regexp matching
++or fuzzy matching.
++
++See [wiki](https://github.com/emacs-helm/helm/wiki#developpingusinghelmframework) for more infos.
++
+ ## Alternate install warning
+ 
+ Some people are installing `helm` with their own config using diverses `require`, `autoload`
+
+[back]
+
+#+END_EXAMPLE
+
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

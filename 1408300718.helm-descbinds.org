@@ -1,0 +1,108 @@
+#+BLOG: rubikitch
+#+POSTID: 251
+#+DATE: [2014-08-30 Sat 07:18]
+#+PERMALINK: helm-descbinds
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs
+#+EL_PKG_NAME: helm-descbinds
+#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, relate:helm, relate:guide-key, emacs describe-key helm, emacs describe-bindings helm, emacs find-function helm,emacs describe-key anything, emacs describe-bindings anything, emacs find-function anything, emacs キー操作, Emacs キーバインド, Emacs キーが覚えられない
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: キーバインドを絞り込み検索！helmを使えばもう迷わない
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージhelm-descbindsの紹介
+#+MYTAGS: package:helm-descbinds, emacs 使い方, emacs コマンド, emacs, emacs lisp helm-descbinds, elisp helm-descbinds, emacs melpa helm-descbinds, emacs helm-descbinds 使い方, emacs helm-descbinds 設定, emacs パッケージ helm-descbinds, emacs helm-descbinds スクリーンショット, relate:helm, relate:guide-key, emacs describe-key helm, emacs describe-bindings helm, emacs find-function helm,emacs describe-key anything, emacs describe-bindings anything, emacs find-function anything, emacs キー操作, Emacs キーバインド, Emacs キーが覚えられない
+#+TITLE: emacs helm-descbinds.el : キーバインドを絞り込み検索！helmを使えばもう迷わない | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>helm-descbinds</td></tr>
+<tr><td>概要(原文)</td><td>Yet Another `describe-bindings' with `helm'.</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/emacs-helm/helm-descbinds">https://github.com/emacs-helm/helm-descbinds</a></td></tr>
+<tr><td>バージョン</td><td>20140122.2158</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:helm-descbinds/">package:helm-descbinds</a> <a href="http://rubikitch.com/tag/package:helm/">package:helm</a> <a href="http://rubikitch.com/tag/package:guide-key/">package:guide-key</a></td></tr>
+</table>
+<br />
+#+END_HTML
+キーバインドを調べるとき
+<f1> bかプレフィクスキーの後にC-hを押しますよね。
+
+でも、キー一覧の*Help*バッファを見るには
+わざわざC-x oでウィンドウを切り替えてスクロールするか
+延々とC-M-vをしていく必要があり、面倒です。
+
+そこで、<f1> bに絞り込み検索機能をつけたのがhelm-descbinds.elです。
+
+その名のとおり、helmのインターフェースでキーを検索してくれます。
+
+helmは *anything.el* の後継の絞り込み検索フレームワークです。
+
+絞り込み検索した後RETを押せばそのコマンドが実行できます。
+
+RETの代わりに<f2>で *describe-key* (コマンドの説明)、
+<f3>で *find-function-on-key* (コマンドの定義にジャンプ)
+の機能も呼べます。
+
+
+
+
+とにかくこれは入れておきましょう。
+
+*guide-key.el* と併用すればもうキーバインドで迷子になることはありません。
+** helm-descbinds インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install helm-descbinds
+
+
+#+end:
+** 概要                                                             :noexport:
+キーバインドを調べるとき
+<f1> bかプレフィクスキーの後にC-hを押しますよね。
+
+でも、キー一覧の*Help*バッファを見るには
+わざわざC-x oでウィンドウを切り替えてスクロールするか
+延々とC-M-vをしていく必要があり、面倒です。
+
+そこで、<f1> bに絞り込み検索機能をつけたのがhelm-descbinds.elです。
+
+その名のとおり、helmのインターフェースでキーを検索してくれます。
+
+helmは *anything.el* の後継の絞り込み検索フレームワークです。
+
+絞り込み検索した後RETを押せばそのコマンドが実行できます。
+
+RETの代わりに<f2>で *describe-key* (コマンドの説明)、
+<f3>で *find-function-on-key* (コマンドの定義にジャンプ)
+の機能も呼べます。
+
+
+
+
+とにかくこれは入れておきましょう。
+
+*guide-key.el* と併用すればもうキーバインドで迷子になることはありません。
+** 設定 [[http://rubikitch.com/f/140830072000.helm-descbinds.el][140830072000.helm-descbinds.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/140830/140830072000.helm-descbinds.el"
+#+BEGIN_SRC fundamental
+(helm-descbinds-install)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/140830072000.helm-descbinds.el
+$ emacs -Q -f package-initialize -l 140830072000.helm-descbinds.el
+#+END_EXAMPLE
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+http://rubikitch.com/f/20140830072114.png
+Fig1: C-x C-h
+
+http://rubikitch.com/f/20140830072122.png
+Fig2: アクション

@@ -1,0 +1,138 @@
+#+BLOG: rubikitch
+#+POSTID: 698
+#+DATE: [2014-12-10 Wed 04:32]
+#+PERMALINK: multicolumn
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs
+#+EL_PKG_NAME: multicolumn
+#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, package:follow, emacs 表示行数, emacs follow-mode 改善, follow-mode, 
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: 【ワイドディスプレイ支援】follow-modeで表示行数を何倍にも増やす方法＋α
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージmulticolumnの紹介
+#+MYTAGS: package:multicolumn, emacs 使い方, emacs コマンド, emacs, emacs lisp multicolumn, elisp multicolumn, emacs melpa multicolumn, emacs multicolumn 使い方, emacs multicolumn 設定, emacs パッケージ multicolumn, emacs multicolumn スクリーンショット, package:follow, emacs 表示行数, emacs follow-mode 改善, follow-mode, 
+#+TITLE: emacs multicolumn.el : 【ワイドディスプレイ支援】follow-modeで表示行数を何倍にも増やす方法＋α | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>multicolumn</td></tr>
+<tr><td>概要(原文)</td><td>Creating and managing multiple side-by-side windows.</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/Lindydancer/multicolumn">https://github.com/Lindydancer/multicolumn</a></td></tr>
+<tr><td>バージョン</td><td>20141111.1349</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:multicolumn/">package:multicolumn</a> </td></tr>
+</table>
+<br />
+#+END_HTML
+
+multicolumn.elは、昨今の *ワイドディスプレイ* を有効活用するelispです。
+
+ワイドディスプレイといえば、
+Emacs標準機能の *M-x follow-mode* を
+思い浮かべる方がいるでしょう。
+
+そう、multicolumn.elはfollow-modeをもうちょっと使いやすくするものです。
+
+*follow-mode* とは、左右分割したウィンドウに
+前のウィンドウで表示されている内容の続きを表示することで
+疑似的に超縦長ディスプレイを実現させます。
+
+長いコードを1画面に治める様は圧巻です！
+
+作者は2つのディスプレイにそれぞれ6分割ウィンドウを用意し、
+888行のコードを一瞥しているらしいです…(スゴイ
+
+いろいろなコマンドが用意されていますが、使いこなすには
+/たった2つのコマンドを覚えれば十分です！/
+
+ウィンドウ構成を管理する独自コードが書かれていますが、
+*winner-mode* を使ってしまえばそんなの不要です。
+
+C-x 4プレフィクスキーにいくつかのコマンドが用意されていますが、
+それについても操作性の観点から不要です。
+** multicolumn インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install multicolumn
+
+
+#+end:
+** 概要                                                             :noexport:
+
+multicolumn.elは、昨今の *ワイドディスプレイ* を有効活用するelispです。
+
+ワイドディスプレイといえば、
+Emacs標準機能の *M-x follow-mode* を
+思い浮かべる方がいるでしょう。
+
+そう、multicolumn.elはfollow-modeをもうちょっと使いやすくするものです。
+
+*follow-mode* とは、左右分割したウィンドウに
+前のウィンドウで表示されている内容の続きを表示することで
+疑似的に超縦長ディスプレイを実現させます。
+
+長いコードを1画面に治める様は圧巻です！
+
+作者は2つのディスプレイにそれぞれ6分割ウィンドウを用意し、
+888行のコードを一瞥しているらしいです…(スゴイ
+
+いろいろなコマンドが用意されていますが、使いこなすには
+/たった2つのコマンドを覚えれば十分です！/
+
+ウィンドウ構成を管理する独自コードが書かれていますが、
+*winner-mode* を使ってしまえばそんなの不要です。
+
+C-x 4プレフィクスキーにいくつかのコマンドが用意されていますが、
+それについても操作性の観点から不要です。
+
+** 設定 [[http://rubikitch.com/f/141210042347.multicolumn.1.el][141210042347.multicolumn.1.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/141210/141210042347.multicolumn.1.el"
+#+BEGIN_SRC fundamental
+(multicolumn-global-mode 1)
+(setq multicolumn-min-width 72)
+(define-key multicolumn-map (kbd "C-x 4 4")
+  'multicolumn-delete-other-windows-and-split-with-follow-mode)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/141210042347.multicolumn.1.el
+$ emacs -Q -f package-initialize -l 141210042347.multicolumn.1.el
+#+END_EXAMPLE
+** C-x 3をカイゼン
+*M-x multicolumn-global-mode* でマイナーモードを有効にすれば、
+C-x 3が *M-x multicolumn-delete-other-windows-and-split*
+に変更されます。
+
+元来C-x 3はただ左右分割するだけですが、
+予め定められた桁数 (*multicolumn-min-width*) によって
+一気に左右分割しまくります。
+
+初期値は72です。
+
+たとえば桁数が220 (*(frame-width)* の値) のとき、
+一気に3分割されます。
+
+また、数引数で分割数を指定できます。
+
+C-4 C-x 3で3分割というふうにです。
+** 分割後にfollow-modeにする
+もうひとつ重要なコマンドが
+*M-x multicolumn-delete-other-windows-and-split-with-follow-mode*
+で、ウィンドウを分割した後、そのバッファをfollow-modeにします。
+
+長い…
+
+本設定ではC-x 4 4に割り当てています。
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+http://rubikitch.com/f/20141210050410.png
+Fig1: C-x 4 4でウィンドウが分割されてfollow-modeに！
+

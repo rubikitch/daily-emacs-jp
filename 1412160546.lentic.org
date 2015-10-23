@@ -1,0 +1,19 @@
+#+BLOG: rubikitch
+#+POSTID: 722
+#+DATE: [2014-12-16 Tue 05:46]
+#+PERMALINK: lentic
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: 記事更新情報, 
+#+DESCRIPTION: 
+#+MYTAGS: linked-buffer, lentic
+#+TAGS: linked-buffer, lentic, 記事更新情報, , 
+#+TITLE: linked-buffer→lenticと改名されました
+[[http://rubikitch.com/2014/09/06/linked-buffer/][linked-buffer.el(レビュー記事)]]  はlentic.elへと改名されました。
+
+linked-bufferというパッケージは消滅しているので注意してください。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

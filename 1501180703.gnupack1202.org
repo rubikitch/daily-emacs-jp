@@ -1,0 +1,51 @@
+#+BLOG: rubikitch
+#+POSTID: 966
+#+DATE: [2015-01-18 Sun 07:03]
+#+PERMALINK: gnupack1202
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, gnupack, Emacs 24.4, 
+#+DESCRIPTION: 
+#+MYTAGS: 
+#+TITLE: 展開するだけで使えるCygwin Emacsのgnupack 12.02がリリースされました
+#+begin: org2blog-tags
+#+TAGS: , Emacs, gnupack, Emacs 24.4, , Cygwin
+#+end:
+http://d.hatena.ne.jp/ksugita0510/20150117/p1
+
+[[http://rubikitch.com/2015/01/16/gnupack1201/][2日前、gnupack 12.01の記事を書きましたが、]]
+早くも12.02がリリースされました。
+
+変更点は以下のようになっています。(引用)
+
+#+BEGIN_QUOTE
+ - 共有サーバ上のファイルへの関連付けが動作するよう機能改善
+
+  emacs startupプログラムで，「\\server_name\file_path」のような
+  共有サーバ上のファイルに対するファイル関連付けが正しく動作するように
+  改修しました．
+
+ - 一部の /etcファイルでシンボリックリンクが参照できない問題を修正
+
+  cygwinにおけるドライブの prefixを「/cygdrive」から「/」に変更している
+  影響でリンク切れを起こしていた
+  /etc/{hosts,protocols,services,networks}の
+  シンボリックリンクを修正しました．
+#+END_QUOTE
+
+12.01にてemacsclientが正常に使えるようになったのは
+かなり嬉しい変更でしたが、
+今回はほんとにマイナーチェンジという印象です。
+
+共有サーバを使っていなかったり
+/etc/hosts などのシンボリックリンクが問題にならないのであれば
+特に更新する必要はないかもしれません。
+
+もう3回目ですが、gnupackの12.XXからは
+*Cygwin* 版のEmacsになりましたので、注意してください。
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

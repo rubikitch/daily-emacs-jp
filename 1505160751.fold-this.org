@@ -1,0 +1,148 @@
+#+BLOG: rubikitch
+#+POSTID: 1654
+#+DATE: [2015-05-16 Sat 07:51]
+#+PERMALINK: fold-this
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs
+#+EL_PKG_NAME: fold-this
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, relate:hideif, relate:hideshow, relate:view, relate:hide-comnt
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: 【コードリーディング支援】region/S式を一時的に隠すシンプルなコマンド
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージfold-thisの紹介
+#+MYTAGS: package:fold-this, emacs 使い方, emacs コマンド, emacs, fold-this, fold-this.el, emacs lisp fold-this, elisp fold-this, emacs melpa fold-this, emacs fold-this 使い方, emacs fold-this 設定, emacs パッケージ fold-this, emacs fold-this スクリーンショット, relate:hideif, relate:hideshow, relate:view, relate:hide-comnt
+#+TAGS: package:fold-this, emacs 使い方, emacs コマンド, emacs, fold-this, fold-this.el, emacs lisp fold-this, elisp fold-this, emacs melpa fold-this, emacs fold-this 使い方, emacs fold-this 設定, emacs パッケージ fold-this, emacs fold-this スクリーンショット, relate:hideif, relate:hideshow, relate:view, relate:hide-comnt, Emacs, org-mode, outline-mode, fold-this.el, M-x fold-this, M-x fold-this-all, M-x fold-this--this-or-all, view-mode, outline-mode, fold-this.el, M-x fold-this, M-x fold-this-all, M-x fold-this--this-or-all, view-mode
+#+TITLE: emacs fold-this.el : 【コードリーディング支援】region/S式を一時的に隠すシンプルなコマンド | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>fold-this</td></tr>
+<tr><td>概要(原文)</td><td>Just fold this region please</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/magnars/fold-this.el">https://github.com/magnars/fold-this.el</a></td></tr>
+<tr><td>バージョン</td><td>20150601.342</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:fold-this/">package:fold-this</a> <a href="http://rubikitch.com/tag/package:hideif/">package:hideif</a> <a href="http://rubikitch.com/tag/package:hideshow/">package:hideshow</a> <a href="http://rubikitch.com/tag/package:view/">package:view</a> <a href="http://rubikitch.com/tag/package:hide-comnt/">package:hide-comnt</a></td></tr>
+</table>
+<br />
+#+END_HTML
+Emacsでは *org-mode* や *outline-mode* などで見られるように
+特定の範囲を隠したりできます。
+
+これらは隠す範囲を予め計算しているのですが、
+この *fold-this.el* はregionを隠すものです。
+
+余計な部分を一時的に隠すことで要点が明確になり、
+コードを理解する助けになります。
+
+元々
+*M-x fold-this* でregionを隠し、
+*M-x fold-this-all* でregionの文字列すべてを隠すようになっていますが、
+本設定では *M-x fold-this--this-or-all* を定義して
+これらをひとまとめにしています。
+
+*view-mode* のfに割り当てていて、以下の挙動にしています。
+
+- regionが有効のときはそのregionを隠す
+- regionが設定されてないときは現在のS式を隠す
+- C-u fでバッファ内の同一region/S式をすべて隠す
+
+隠された部分は「..」と表示され、
+その部分でRETかC-gを押せば元に戻ります。
+
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150516081605.png]]
+Fig1: このバッファをview-modeにして
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150516081616.png]]
+Fig2: fを押すとそのS式が隠れる
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150516081632.png]]
+Fig3: regionを指定し
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150516081640.png]]
+Fig4: C-u fで該当部分が全部隠れる
+** fold-this インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install fold-this
+
+
+#+end:
+** 概要                                                             :noexport:
+Emacsでは *org-mode* や *outline-mode* などで見られるように
+特定の範囲を隠したりできます。
+
+これらは隠す範囲を予め計算しているのですが、
+この *fold-this.el* はregionを隠すものです。
+
+余計な部分を一時的に隠すことで要点が明確になり、
+コードを理解する助けになります。
+
+元々
+*M-x fold-this* でregionを隠し、
+*M-x fold-this-all* でregionの文字列すべてを隠すようになっていますが、
+本設定では *M-x fold-this--this-or-all* を定義して
+これらをひとまとめにしています。
+
+*view-mode* のfに割り当てていて、以下の挙動にしています。
+
+- regionが有効のときはそのregionを隠す
+- regionが設定されてないときは現在のS式を隠す
+- C-u fでバッファ内の同一region/S式をすべて隠す
+
+隠された部分は「..」と表示され、
+その部分でRETかC-gを押せば元に戻ります。
+
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150516081605.png]]
+Fig5: このバッファをview-modeにして
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150516081616.png]]
+Fig6: fを押すとそのS式が隠れる
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150516081632.png]]
+Fig7: regionを指定し
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150516081640.png]]
+Fig8: C-u fで該当部分が全部隠れる
+** 設定 [[http://rubikitch.com/f/50fold-this.el][50fold-this.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/emacs/init.d/50fold-this.el"
+#+BEGIN_SRC fundamental
+;;; この設定を入れるとEmacsを終了してもfoldが持続する
+;; (setq fold-this-persistent-folds t)
+(defun fold-this--this-or-all (all)
+  (interactive "P")
+  (let ((x (bounds-of-thing-at-point 'sexp))
+        (rap (region-active-p)))
+    (funcall (if all 'fold-this-all 'fold-this)
+             (if rap (region-beginning) (car x))
+             (if rap (region-end) (cdr x))))
+  (message (substitute-command-keys "To unfold all, try \\[fold-this-unfold-all]")))
+(with-eval-after-load "view"
+  (define-key view-mode-map (kbd "f") 'fold-this--this-or-all))
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/50fold-this.el
+$ emacs -Q -f package-initialize -l 50fold-this.el
+#+END_EXAMPLE

@@ -1,0 +1,151 @@
+#+BLOG: rubikitch
+#+POSTID: 1987
+#+DATE: [2015-09-14 Mon 14:38]
+#+PERMALINK: which-key
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs
+#+EL_PKG_NAME: which-key
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, emacs describe-key, emacs describe-bindings, emacs キー操作, Emacs キーバインド, Emacs キーが覚えられない, Emacs one-key.el, emacs descbinds, emacs C-h b, emacs f1 b, emacs popwin, relate:helm-descbinds, emacs org-mode キー, emacs outline-minor-mode キー, relate:org, emacs rectangle, emacs register, emacs レジスタ, relate:guide-key
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: 【guide-key改】次のキー操作をよりわかりやすく教えてくれるぞ！
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージwhich-keyの紹介
+#+MYTAGS: package:which-key, emacs 使い方, emacs コマンド, emacs, which-key, which-key.el, emacs lisp which-key, elisp which-key, emacs melpa which-key, emacs which-key 使い方, emacs which-key 設定, emacs パッケージ which-key, emacs which-key スクリーンショット, emacs describe-key, emacs describe-bindings, emacs キー操作, Emacs キーバインド, Emacs キーが覚えられない, Emacs one-key.el, emacs descbinds, emacs C-h b, emacs f1 b, emacs popwin, relate:helm-descbinds, emacs org-mode キー, emacs outline-minor-mode キー, relate:org, emacs rectangle, emacs register, emacs レジスタ, relate:guide-key
+#+TAGS: package:which-key, emacs 使い方, emacs コマンド, emacs, which-key, which-key.el, emacs lisp which-key, elisp which-key, emacs melpa which-key, emacs which-key 使い方, emacs which-key 設定, emacs パッケージ which-key, emacs which-key スクリーンショット, emacs describe-key, emacs describe-bindings, emacs キー操作, Emacs キーバインド, Emacs キーが覚えられない, Emacs one-key.el, emacs descbinds, emacs C-h b, emacs f1 b, emacs popwin, relate:helm-descbinds, emacs org-mode キー, emacs outline-minor-mode キー, relate:org, emacs rectangle, emacs register, emacs レジスタ, relate:guide-key, Emacs, org-mode, helm-descbinds.el, org-mode, helm-descbinds.el, describe-key
+#+TITLE: emacs which-key.el : 【guide-key改】次のキー操作をよりわかりやすく教えてくれるぞ！ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>which-key</td></tr>
+<tr><td>概要(原文)</td><td>Display available keybindings in popup</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/justbur/emacs-which-key">https://github.com/justbur/emacs-which-key</a></td></tr>
+<tr><td>バージョン</td><td>20150908.331</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:which-key/">package:which-key</a> <a href="http://rubikitch.com/tag/package:helm-descbinds/">package:helm-descbinds</a> <a href="http://rubikitch.com/tag/package:org/">package:org</a> <a href="http://rubikitch.com/tag/package:guide-key/">package:guide-key</a></td></tr>
+</table>
+<br />
+#+END_HTML
+guide-key.elはプレフィクスキーの次のキー操作を
+ポップアップで教えてくれるEmacs Lispです。
+
+Emacsには無数にキーが定義されていて、すべてを把握することはほぼ不可能です。
+
+そこで、プレフィクスキーまで押しても次なんだったかな…
+と思うことはよくありますね。
+
+特にC-x rのregister/rectangle系はものすごい多いです。
+
+これを救ってくれるのがwhich-key.elなのです。
+
+メジャーモードやマイナーモードにも対応していて、
+たとえば *org-mode* のC-c C-xでも問題ありません。
+
+
+これを使わないとわざわざ<f1> bなどで
+キーバインドを調べる必要があって面倒です。
+
+一定時間(デフォルトで1秒)以内に操作すればポップアップしないので、
+毎回ポップアップされる煩わしさはありません。
+
+which-key.elはguide-key.elの改良から始まったので、
+使っている人は乗り換えてみてはいかがでしょうか？
+
+*helm-descbinds.el* と組み合わせると
+キーバインドに悩むことはなくなるでしょう。
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150914150609.png]]
+Fig1: ミニバッファに表示
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150914150646.png]]
+Fig2: 右端に表示
+
+** which-key インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install which-key
+
+
+#+end:
+** 概要                                                             :noexport:
+guide-key.elはプレフィクスキーの次のキー操作を
+ポップアップで教えてくれるEmacs Lispです。
+
+Emacsには無数にキーが定義されていて、すべてを把握することはほぼ不可能です。
+
+そこで、プレフィクスキーまで押しても次なんだったかな…
+と思うことはよくありますね。
+
+特にC-x rのregister/rectangle系はものすごい多いです。
+
+これを救ってくれるのがwhich-key.elなのです。
+
+メジャーモードやマイナーモードにも対応していて、
+たとえば *org-mode* のC-c C-xでも問題ありません。
+
+
+これを使わないとわざわざ<f1> bなどで
+キーバインドを調べる必要があって面倒です。
+
+一定時間(デフォルトで1秒)以内に操作すればポップアップしないので、
+毎回ポップアップされる煩わしさはありません。
+
+which-key.elはguide-key.elの改良から始まったので、
+使っている人は乗り換えてみてはいかがでしょうか？
+
+*helm-descbinds.el* と組み合わせると
+キーバインドに悩むことはなくなるでしょう。
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150914150609.png]]
+Fig3: ミニバッファに表示
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150914150646.png]]
+Fig4: 右端に表示
+
+
+** guide-keyとの違い
+1. popwin.elを使っていない
+2. C-hで次のページを見せてくれる
+3. より軽快な動作
+4. M-x customize-group which-keyによる豊富なカスタマイズオプション
+5. 多くのカラーテーマに合うようデフォルトの設定
+
+Emacs24.3で導入された新しい表示方法により
+popwin.elへの依存がなくなりました。
+
+Emacs標準の方法に回帰したことで、見通しがよくなりました。
+
+また、C-hで次のページを見せてくれるので、
+次にとりうるキーがすべてわかります。
+
+何度もC-hを押しまくった後は *describe-key* を呼んでくれます。
+
+よって、[[http://rubikitch.com/2014/08/30/helm-descbinds/][helm-descbinds.el(レビュー)]] と併用すれば、
+最後はhelmインターフェースでコマンドを選択できます。
+
+** 設定 [[http://rubikitch.com/f/150914145920.which-key.el][150914145920.which-key.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/150914/150914145920.which-key.el"
+#+BEGIN_SRC fundamental
+;;; 3つの表示方法どれか1つ選ぶ
+(which-key-setup-side-window-bottom)    ;ミニバッファ
+;; (which-key-setup-side-window-right)     ;右端
+;; (which-key-setup-side-window-right-bottom) ;両方使う
+
+(which-key-mode 1)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/150914145920.which-key.el
+$ emacs -Q -f package-initialize -l 150914145920.which-key.el
+#+END_EXAMPLE

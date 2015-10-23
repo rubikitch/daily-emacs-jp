@@ -1,0 +1,93 @@
+#+BLOG: rubikitch
+#+POSTID: 375
+#+DATE: [2014-09-22 Mon 15:40]
+#+PERMALINK: pandoc
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs,
+#+DESCRIPTION:
+#+MYTAGS: emacs, haskell, ドキュメント変換,reStructuredText,docbook, haddock, html, json, latex, markdown,markdown_github,markdown_mmd, markdown_phpextra, markdown_strict, mediawiki,native, opml, org, rst, textileasciidoc, beamer, context, docbook, docx, dzslides,epub, epub3,fb2, html, html5, icml, json, latex, man, markdown,markdown_github, markdown_mmd, markdown_phpextra,markdown_strict, mediawiki, native, odt, opendocument, opml,org, pdf*, plain, revealjs, rst, rtf, s5, slideous, slidy,texinfo, textile
+#+TAGS: emacs, haskell, ドキュメント変換,reStructuredText,docbook, haddock, html, json, latex, markdown,markdown_github,markdown_mmd, markdown_phpextra, markdown_strict, mediawiki,native, opml, org, rst, textileasciidoc, beamer, context, docbook, docx, dzslides,epub, epub3,fb2, html, html5, icml, json, latex, man, markdown,markdown_github, markdown_mmd, markdown_phpextra,markdown_strict, mediawiki, native, odt, opendocument, opml,org, pdf*, plain, revealjs, rst, rtf, s5, slideous, slidy,texinfo, textile, Emacs,, Pandoc, Markdown, org-mode, orgフォーマット
+#+TITLE: 万能ドキュメント変換器Pandocいいね！org-modeにも対応
+*Pandoc* は多種多様なフォーマットに対応した
+ドキュメント変換ソフトウェアです。
+
+[[http://rubikitch.com/2014/10/07/pandoc-2/][→{2014-10-07 Tue}続報！もっと正しく快適にorg文書に変換しよう]]
+
+[[http://rubikitch.com/tag/pandoc/][→Pandoc関連記事]]
+
+現在主流の軽量マークアップ言語 *Markdown* をはじめとして、
+Emacsユーザにとって嬉しい *org-mode* にも対応しています。
+
+orgフォーマットの入出力ができるとはいえ
+できたてほやほやなので、まだ完璧ではありません。
+
+#+BEGIN_EXAMPLE
+$ pandoc --help
+Input formats:  docbook, haddock, html, json, latex, markdown,
+                markdown_github,
+                markdown_mmd, markdown_phpextra, markdown_strict, mediawiki,
+                native, opml, org, rst, textile
+Output formats: asciidoc, beamer, context, docbook, docx, dzslides,
+                epub, epub3,
+                fb2, html, html5, icml, json, latex, man, markdown,
+                markdown_github, markdown_mmd, markdown_phpextra,
+                markdown_strict, mediawiki, native, odt, opendocument, opml,
+                org, pdf*, plain, revealjs, rst, rtf, s5, slideous, slidy,
+                texinfo, textile
+                [*for pdf output, use latex or beamer and -o FILENAME.pdf]
+Options:
+  -f FORMAT, -r FORMAT  --from=FORMAT, --read=FORMAT
+  -t FORMAT, -w FORMAT  --to=FORMAT, --write=FORMAT
+  -o FILENAME           --output=FILENAME
+略
+#+END_EXAMPLE
+
+標準入出力も使えるので、前処理・後処理も自由自在です。
+
+たとえば、サイトを *orgフォーマット* に変換するにはこのようにします。
+
+#+BEGIN_EXAMPLE
+$ curl -s URL | pandoc -f html -t org
+標準出力に変換結果
+$ curl -s URL | pandoc -f html -o output.org
+output.orgに出力
+#+END_EXAMPLE
+
+とりあえず、URLをorgに変換するEmacsコマンドを書いてみました。
+
+#+BEGIN_SRC emacs-lisp :results silent
+(defun toorg (url)
+  (interactive "sConvert site to org (URL): ")
+  (switch-to-buffer (format "*toorg: %s" url))
+  (buffer-disable-undo)
+  (erase-buffer)
+  (shell-command
+   (format "curl -s %s | pandoc -f html -t org" (shell-quote-argument url))
+   (current-buffer))
+  (save-excursion
+    (while (re-search-forward "\\\\\\\\$" nil t)
+      (replace-match "")))
+  (org-mode)
+  (view-mode 1))
+#+END_SRC
+
+M-x toorg の後にURLを指定すれば、org変換結果をバッファに出力します。
+
+とりあえず興味があれば、
+[[http://qiita.com/sky_y/items/80bcd0f353ef5b8980ee][HTML - 多様なフォーマットに対応！ドキュメント変換ツールPandocを知ろう - Qiita]]
+がまとまってて詳しいです。
+
+また、マニュアルが日本に全訳されていて、現時点で新しいです。
+[[http://sky-y.github.io/site-pandoc-jp/users-guide/][Pandoc ユーザーズガイド 日本語版]]
+
+PandocはHaskellで書かれています。
+
+Haskellはいつか始めてみようと思ったまま
+きっかけが見付からず何年も過ぎてしまいました。
+
+ドキュメント変換は昔から興味があるテーマなので
+これをきっかけにHaskellにも手を出してみたいです。

@@ -1,0 +1,306 @@
+#+BLOG: rubikitch
+#+POSTID: 2101
+#+DATE: [2015-10-21 Wed 08:28]
+#+PERMALINK: state
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, Emacs Lisp, 
+#+EL_PKG_NAME: state
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, relate:shell-pop, relate:eshell, relate:twittering-mode, relate:term, relate:ansi-term, relate:gnus, relate:mew, relate:erc, relate:ielm, relate:matlab-mode, relate:python, relate:inf-ruby, workspace, emacs ワークスペース, relate:elscreen, relate:persp-mode, relate:perspective, relate:0blayout, relate:windows, relate:spaces, relate:eyebrowse, eshellを次々に切替える, メールを読んでから復帰する, replで試行錯誤する, 
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 
+#+EL_TITLE0: 【shell-pop一般化】一時的に特定の状態(shell/mew/gnus/*Messages*等)に切替え、同じキーで復帰する
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージstateの紹介
+#+MYTAGS: package:state, emacs 使い方, emacs コマンド, emacs, state, state.el, emacs lisp state, elisp state, emacs melpa state, emacs state 使い方, emacs state 設定, emacs パッケージ state, relate:shell-pop, relate:eshell, relate:twittering-mode, relate:term, relate:ansi-term, relate:gnus, relate:mew, relate:erc, relate:ielm, relate:matlab-mode, relate:python, relate:inf-ruby, workspace, emacs ワークスペース, relate:elscreen, relate:persp-mode, relate:perspective, relate:0blayout, relate:windows, relate:spaces, relate:eyebrowse, eshellを次々に切替える, メールを読んでから復帰する, replで試行錯誤する, 
+#+TAGS: package:state, emacs 使い方, emacs コマンド, emacs, state, state.el, emacs lisp state, elisp state, emacs melpa state, emacs state 使い方, emacs state 設定, emacs パッケージ state, relate:shell-pop, relate:eshell, relate:twittering-mode, relate:term, relate:ansi-term, relate:gnus, relate:mew, relate:erc, relate:ielm, relate:matlab-mode, relate:python, relate:inf-ruby, workspace, emacs ワークスペース, relate:elscreen, relate:persp-mode, relate:perspective, relate:0blayout, relate:windows, relate:spaces, relate:eyebrowse, eshellを次々に切替える, メールを読んでから復帰する, replで試行錯誤する, , Emacs, Emacs Lisp, , state.el, shell-pop.el, M-x shell, eshell, term, ansi-term, M-x shell-pop, state-define-state, shell-pop.el, M-x shell, eshell, term, ansi-term, M-x shell-pop, state-define-state, scratch, scratch, Messages, Messages, ansi-term (dotemacs), ansi-term (dotemacs), ansi-term (dotemacs), ansi-term (dotemacs), ansi-term (dotemacs), ansi-term, ansi-term, ansi-term, ielm, MATLAB, Python, ruby
+#+TITLE: emacs state.el : 【shell-pop一般化】一時的に特定の状態(shell/mew/gnus/*Messages*等)に切替え、同じキーで復帰する | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>state</td></tr>
+<tr><td>概要(原文)</td><td>Quick navigation between workspaces</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/thisirs/state">https://github.com/thisirs/state</a></td></tr>
+<tr><td>バージョン</td><td>20150714.1015</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:state/">package:state</a> <a href="http://rubikitch.com/tag/package:shell-pop/">package:shell-pop</a> <a href="http://rubikitch.com/tag/package:eshell/">package:eshell</a> <a href="http://rubikitch.com/tag/package:twittering-mode/">package:twittering-mode</a> <a href="http://rubikitch.com/tag/package:term/">package:term</a> <a href="http://rubikitch.com/tag/package:ansi-term/">package:ansi-term</a> <a href="http://rubikitch.com/tag/package:gnus/">package:gnus</a> <a href="http://rubikitch.com/tag/package:mew/">package:mew</a> <a href="http://rubikitch.com/tag/package:erc/">package:erc</a> <a href="http://rubikitch.com/tag/package:ielm/">package:ielm</a> <a href="http://rubikitch.com/tag/package:matlab-mode/">package:matlab-mode</a> <a href="http://rubikitch.com/tag/package:python/">package:python</a> <a href="http://rubikitch.com/tag/package:inf-ruby/">package:inf-ruby</a> <a href="http://rubikitch.com/tag/package:elscreen/">package:elscreen</a> <a href="http://rubikitch.com/tag/package:persp-mode/">package:persp-mode</a> <a href="http://rubikitch.com/tag/package:perspective/">package:perspective</a> <a href="http://rubikitch.com/tag/package:0blayout/">package:0blayout</a> <a href="http://rubikitch.com/tag/package:windows/">package:windows</a> <a href="http://rubikitch.com/tag/package:spaces/">package:spaces</a> <a href="http://rubikitch.com/tag/package:eyebrowse/">package:eyebrowse</a></td></tr>
+</table>
+<br />
+#+END_HTML
+*state.el* は同じキーで状態を行き来する設定を行うライブラリです。
+「Quick navigation between workspaces」と書いてありますが、[[http://rubikitch.com/2014/09/05/elscreen/][elscreen.el(レビュー)]] のようにウィンドウ構成に番号や名前をつけるものではありません。
+むしろ[[http://rubikitch.com/2015/06/16/shell-pop/][shell-pop.el(レビュー)]] を一般化したものです。
+
+state.elを理解するためには、まずshell-pop.elを試してください。
+
+#+BEGIN_QUOTE
+*shell-pop.el* はシェルバッファをサッと取り出せるようにします。
+
+*M-x shell* 以外にも *eshell* 、 *term* 、 *ansi-term* に対応しています。
+エントリポイントは *M-x shell-pop* のみです。
+
+このコマンドはシェルバッファをポップアップするだけでなく、
+シェルバッファを閉じて元のウィンドウ構成に戻すときにも使います。
+#+END_QUOTE
+
+shell-pop.elの設定でM-x shell-popをC-c cに割り当てているので、
+C-c cでshellを開き、shellから元のバッファに戻るのもC-c cです。
+
+shell-pop的にはshellバッファは一種の特別な状態であり、サッとshellを開きシェルコマンドを実行し、サッと元の状態に戻れることに意味があります。
+
+これをshell以外にも一般化しようとするのがstate.elです。
+使い方はstate-global-modeを有効にした上で *state-define-state* で「状態」を定義します。
+
+
+** state インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install state
+
+
+#+end:
+** 概要                                                             :noexport:
+*state.el* は同じキーで状態を行き来する設定を行うライブラリです。
+「Quick navigation between workspaces」と書いてありますが、[[http://rubikitch.com/2014/09/05/elscreen/][elscreen.el(レビュー)]] のようにウィンドウ構成に番号や名前をつけるものではありません。
+むしろ[[http://rubikitch.com/2015/06/16/shell-pop/][shell-pop.el(レビュー)]] を一般化したものです。
+
+state.elを理解するためには、まずshell-pop.elを試してください。
+
+#+BEGIN_QUOTE
+*shell-pop.el* はシェルバッファをサッと取り出せるようにします。
+
+*M-x shell* 以外にも *eshell* 、 *term* 、 *ansi-term* に対応しています。
+エントリポイントは *M-x shell-pop* のみです。
+
+このコマンドはシェルバッファをポップアップするだけでなく、
+シェルバッファを閉じて元のウィンドウ構成に戻すときにも使います。
+#+END_QUOTE
+
+shell-pop.elの設定でM-x shell-popをC-c cに割り当てているので、
+C-c cでshellを開き、shellから元のバッファに戻るのもC-c cです。
+
+shell-pop的にはshellバッファは一種の特別な状態であり、サッとshellを開きシェルコマンドを実行し、サッと元の状態に戻れることに意味があります。
+
+これをshell以外にも一般化しようとするのがstate.elです。
+使い方はstate-global-modeを有効にした上で *state-define-state* で「状態」を定義します。
+
+
+
+** 設定例にみる使い方のパターン
+state-define-state は多くのキーワード引数を取るのですが、キーワードをひとつひとつ解説しても理解しづらいでしょう。
+こういうのは例を見て実際に使ってみて理解するのが一番です。
+そのため多くの設定例を示しました。
+- *scratch*に切り替え
+- *Messages*に切り替え
+- eshellに切り替え(shell-popエミュレート)
+- twittering-modeに切り替え
+- Emacsの設定ファイルを編集
+- M-x ansi-termを開く(shell-popエミュレート)
+- Emacsの設定用のansi-termを開く
+- gnus/mewでメールを読む
+- ercでircをする
+- M-x ielm(elisp用repl)を開く
+- matlab, python, rubyのreplを開く
+適宜アレンジして自分用の設定を見出してみてください。
+
+すると、いくつかのパターンがあることに気付くでしょう。
+
+key, switchパターンは無条件にバッファを切替えます。
+
+key, in, create(switch)パターンはshell-popのように特定の状態への移行と復元をします。
+inで指定された条件を満たしていれば、その状態にいることになります。
+このパターンにおいてはcreateとswitchはどちらを指定してもよいです。
+
+key, exist, in, switch, createパターンは再利用つきの状態移行・復元です。
+ここでswitchとcreateの違いが出てきます。
+existを満たすならばswitchが実行され、そうでないならばcreateが実行されます。
+existは大抵はバッファの存在チェックになるでしょう。
+
+boundが含まれていれば、実行前にS式で示された条件あるいは状態のときに切替える状態を定義します。
+これにより同じキーで条件に合わせて別な状態に切替えられます。
+emacs状態から専用のansi-termを立ち上げるemacs-term状態、それ以外のときは普通のansi-termを立ち上げるterm状態を定義しています。
+また、言語に応じてそれに対応するreplを立ち上げる状態も定義しています。
+
+keepはkeyを連続で押したときに実行するコマンド・関数を指定します。
+eshell/ercのバッファを次々と切替えるようにしています。
+
+
+inやswitchなどのキーワードは本来S式を取りますが、文字列を指定した場合は特別な挙動をとります。
+詳細は state-define-state の定義を見てください。
+
+こういう抽象度の高いライブラリを使いこなすのは、Emacs上級者への一歩です。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+** 設定 [[http://rubikitch.com/f/151021073616.state.el][151021073616.state.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/151021/151021073616.state.el"
+#+BEGIN_SRC fundamental
+;;; stateのプレフィクスキーをC-M-sにする
+;;; これはstate.elが読み込まれる/state-global-modeを有効にする前に設定
+(setq state-keymap-prefix (kbd "C-M-s"))
+;;; マイナーモードを有効にする
+(state-global-mode 1)
+
+;;; [scratch state]C-M-s sで *scratch* に切替える
+(state-define-state
+ scratch
+ :key "s"
+ :switch "*scratch*")
+
+;;; [messages state]C-M-s mで *Messages* に切替える
+(state-define-state
+ messages
+ :key "m"
+ :switch "*Messages*")
+
+;;; [twit state]C-M-s tでtwittering-modeに切替える
+(state-define-state
+ twit
+ :key "t"
+ ;; この条件を満たすときにtwit stateとみなす
+ :in (and (require 'twittering-mode nil t) (twittering-buffer-p))
+ ;; (twit) でtwittering-modeにする
+ :switch twit)
+
+;;; [emacs state]C-M-s eでEmacs設定ファイルを編集する
+(state-define-state
+ emacs
+ :key "e"
+ ;; ~/.emacs.d/initから始まるファイル (~/.emacs.d/init*) を開いているときemacs stateとみなす
+ ;; :inが文字列で:existが指定されていないとき:inで指定されたファイルのうち
+ ;; 最も最近指定されたバッファに切替える
+ :in "~/.emacs.d/init"
+ ;; どれも見付からないときは init.el を開く
+ :create (find-file "~/.emacs.d/init.el"))
+
+;;; バッファが表示中ならばそれに切替え、それ以外は別ウィンドウで表示
+(defun state-switch-buffer-other-window (buf)
+  (if (get-buffer-window buf)
+      (select-window (get-buffer-window buf))
+    (switch-to-buffer-other-window buf)))
+
+;;; [emacs-term state]emacs stateにてC-M-s zで専用のansi-termを開く
+(state-define-state
+ emacs-term
+ :key "z"
+ ;; emacs stateから呼ばれたらこれを使う
+ :bound emacs
+ ;; *ansi-term (dotemacs)* バッファが存在するならば:switchで切替える
+ :exist (get-buffer "*ansi-term (dotemacs)*")
+ ;; *ansi-term (dotemacs)* 内ならば emacs-term state
+ :in (equal (buffer-name) "*ansi-term (dotemacs)*")
+ ;; バッファが存在するときに切替える方法
+ :switch (state-switch-buffer-other-window "*ansi-term (dotemacs)*")
+ ;; バッファが存在しないときはこれで作成する
+ :create (ansi-term "/bin/zsh" "ansi-term (dotemacs)"))
+
+;;; [term state]emacs state以外にてC-M-s zでansi-termを開く
+(state-define-state
+ term
+ :key "z"
+ :exist (get-buffer "*ansi-term*")
+ :in (equal (buffer-name) "*ansi-term*")
+ :switch (state-switch-buffer-other-window "*ansi-term*")
+ :create (ansi-term "/bin/zsh"))
+
+;;; [gnus state]C-M-s gでgnusを開く
+(state-define-state
+ gnus
+ :key "g"
+ :in (memq major-mode
+           '(message-mode
+             gnus-group-mode
+             gnus-summary-mode
+             gnus-article-mode))
+ :create gnus)
+;;; [mew state]C-M-s Mでmewを開く
+(state-define-state
+ mew
+ :key "M"
+ :exist (cl-some (lambda (b) (eq 'mew-summary-mode (buffer-local-value 'major-mode b)))
+                 (buffer-list))
+ :in (string-match "^mew-" (symbol-name major-mode))
+ :create (progn (delete-other-windows) (mew)))
+;;; [erc state]C-M-s iでircを開く
+(state-define-state
+ erc
+ :key "i"
+ :in (memq (current-buffer)
+           (erc-buffer-list))
+ :switch (erc-start-or-switch 1)
+ ;; C-M-s i i ... で次々とercバッファに切替える
+ :keep (erc-track-switch-buffer 0))
+
+(defun erc-start-or-switch (arg)
+  "Connect to ERC, or switch to last active buffer"
+  (interactive "P")
+  (if (and (get-buffer "irc.freenode.net:6667")
+           (erc-server-process-alive (get-buffer "irc.freenode.net:6667")))
+      (erc-track-switch-buffer 1)
+    (when (or arg (y-or-n-p "Start ERC? "))
+      (erc :server "irc.freenode.net"
+           :port 6667
+           :nick "thisirs"
+           :password (secrets-get-secret "Default" "NickServ")))))
+
+;;; [eshell state]C-M-s rでeshellに切替える。shell-pop的な挙動。
+;;; C-M-s r r ...で次々とeshellバッファを切替える
+(state-define-state
+ eshell
+ ;; sでもいいが、scratchで使われているので…
+ :key "r"
+ :in (string-prefix-p eshell-buffer-name (buffer-name))
+ ;; :create→:switchの順番で呼ばれるので:switchでもよい
+ :create eshell
+ :keep eshell-next-buffer)
+(defun eshell-next-buffer (&optional previous)
+  (interactive)
+  (let ((bufs (funcall (if previous 'reverse 'identity) (eshell-buffer-names))))
+    (switch-to-buffer (or (cadr (member (buffer-name) bufs))
+                          (car bufs)))))
+
+
+;;; 専用のrepl stateを定義するマクロ
+(defmacro state-define-repl (name key buffer-name from create)
+  `(state-define-state
+    ,name
+    ;; :boundがS式の場合はその条件を満たす専用のstateに切替える
+    :bound ,from
+    :key ,key
+    :exist (get-buffer ,buffer-name)
+    :in (equal (buffer-name) ,buffer-name)
+    ;; :existを満たすならば切替える
+    :switch (state-switch-buffer-other-window ,buffer-name)
+    ;; :existを満たさないなら作成する
+    :create (progn
+              (switch-to-buffer-other-window (current-buffer))
+              ,create)))
+(put 'state-define-repl 'lisp-indent-function 3)
+
+;;; [elisp-repl state]emacs-lisp-modeにてC-M-s jでielm
+(state-define-repl elisp-repl "j" "*ielm*"
+  (eq major-mode 'emacs-lisp-mode)
+  (ielm))
+;;; [matlab-repl]matlab-modeにてC-M-s jでmatlab-shell
+(state-define-repl matlab-repl "j" "*MATLAB*"
+  (eq major-mode 'matlab-mode)
+  (matlab-shell))
+;;; [python-repl]python-modeにてC-M-s jでrun-python
+(state-define-repl python-repl "j" "*Python*"
+  (eq major-mode 'python-mode)
+  (run-python "/usr/bin/python2.7"))
+;;; [ruby-repl]ruby-modeにてC-M-s jでinf-ruby
+(state-define-repl ruby-repl "j" "*ruby*"
+  (eq major-mode 'ruby-mode)
+  (inf-ruby))
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/151021073616.state.el
+$ emacs -Q -f package-initialize -l 151021073616.state.el
+#+END_EXAMPLE

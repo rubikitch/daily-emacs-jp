@@ -1,0 +1,111 @@
+#+BLOG: rubikitch
+#+POSTID: 594
+#+DATE: [2014-11-19 Wed 04:15]
+#+PERMALINK: eww-nocolor
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, Emacs 24.4, eww, Emacs Lisp, 
+#+DESCRIPTION: Emacs組み込みブラウザewwで文字色・背景色を反映させないadvice。
+#+MYTAGS: package:eww, relate:w3m
+#+TAGS: package:eww, relate:w3m, Emacs, Emacs 24.4, eww, Emacs Lisp, , eww, Webブラウザ, emacs-w3m, M-x eww-enable-color
+#+TITLE: Emacs24.4組み込みブラウザewwで目の疲れを1/10にする方法
+Emacs 24.4からは *eww* という *Webブラウザ* が標準添付されました。
+
+*emacs-w3m* の数倍高速に動作するので、
+WindowsはもちろんのことUnix系OSでも利用価値があります。
+
+WebブラウザはWindows, Mac, GNU/Linuxともに
+FirefoxやGoogle Chromeといった鉄板が存在するのに、
+なぜあえてemacsでもブラウザを作る必要があるのか
+について考える必があります。
+
+Webブラウザは十分なスペックのマシンがあれば遅くはありません。
+
+普段のネットサーフィンならば普通のブラウザを使えばいいです。
+
+でもなぜEmacsで？
+
+僕は2つの目的があると考えています。
+
+- 長い文章をじっくり読む
+- Webを参考・引用しながら編集する
+
+この2つの目的ならばEmacs上でWebブラウザを開発する価値は十分にあります。
+
+この観点でいけば、Emacs上のWebブラウザがどうあるべきか明確になります。
+
+ewwはなるべくサイトに忠実にレンダリングしていますが、
+Emacsで動作させるという観点からは、
+デザインに忠実である必要はありません。
+
+とくに色の使い方はサイトそれぞれであり、好みは人それぞれです。
+
+大事なのはEmacs本体との親和性です。
+
+僕にとって多くのサイトは眩しい色使いなので
+Firefoxを長時間使うと目が疲れます。
+
+そのためテキストブラウザw3mで普段はネットサーフィンしています。
+
+
+そう考えるとewwで文字色・背景色を反映するのはちょっとどうかなと思います。
+
+Emacsの素晴しさは、ほぼ一定の背景色と
+文字色(ときに色変えあり)なことです。
+
+おかげさまで眩しい色にチカチカさせられることなく、
+文章やコードに集中できるのです。
+
+僕の環境では背景が黒で文字色がgreen3です。
+
+しかもモニタの設定でブルーライトを削減しています。
+
+だから長時間作業でも目が疲れません。
+
+それではewwから文字色・背景色の反映を抑制させましょう。
+
+必要な場合は反映させられるようにもしておきます。
+
+デフォルトでは反映させないようにしておいて、
+*M-x eww-enable-color* で反映させられるようにします。
+
+[[http://rubikitch.com/2014/10/30/nadvice/][Emacs 24.4での新しいアドバイス定義方法]] を使っています。
+
+** 設定 [[http://rubikitch.com/f/50eww-color.el][50eww-color.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/emacs/init.d/50eww-color.el"
+#+BEGIN_SRC fundamental
+(require 'eww)
+;;; [2014-11-17 Mon]背景・文字色を無効化する
+(defvar eww-disable-colorize t)
+(defun shr-colorize-region--disable (orig start end fg &optional bg &rest _)
+  (unless eww-disable-colorize
+    (funcall orig start end fg)))
+(advice-add 'shr-colorize-region :around 'shr-colorize-region--disable)
+(advice-add 'eww-colorize-region :around 'shr-colorize-region--disable)
+(defun eww-disable-color ()
+  "ewwで文字色を反映させない"
+  (interactive)
+  (setq-local eww-disable-colorize t)
+  (eww-reload))
+(defun eww-enable-color ()
+  "ewwで文字色を反映させる"
+  (interactive)
+  (setq-local eww-disable-colorize nil)
+  (eww-reload))
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/50eww-color.el
+$ emacs -Q -f package-initialize -l 50eww-color.el
+#+END_EXAMPLE
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+
+** 参考
+- [[http://rubikitch.com/2015/09/10/keysnail-nocolor][Firefox/KeySnailで色設定を無効にする方法]]

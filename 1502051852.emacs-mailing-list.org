@@ -1,0 +1,70 @@
+#+BLOG: rubikitch
+#+POSTID: 1085
+#+DATE: [2015-02-05 Thu 18:52]
+#+PERMALINK: emacs-mailing-list
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, Emacs Lisp, 
+#+DESCRIPTION: EmacsのMLをブラウザで開くM-x emacs-develなどを定義する
+#+MYTAGS: Emacs 開発を追い掛ける, Emacs 開発, emacs-devel ブラウザで開く, emacs-devel rss, emacs-devel atom, 
+#+TITLE: 【開発状況を追い掛けたい人へ】EmacsのメーリングリストをEmacsから開く！
+#+begin: org2blog-tags
+#+TAGS: Emacs 開発を追い掛ける, Emacs 開発, emacs-devel ブラウザで開く, emacs-devel rss, emacs-devel atom, , Emacs, Emacs Lisp, , メーリングリスト, fset, emacs-devel, bug-gnu-emacs, emacs-bug-tracker, emacs-buildstatus, emacs-diffs, emacs-elpa-diffs, gnu-emacs-sources, help-emacs-windows, help-gnu-emacs, info-gnu-emacs, レキシカルクロージャ, lexical-binding
+#+end:
+今月のEmacsの *メーリングリスト* をブラウザで開く短いコードです。
+
+メーリングリストに登録したいものの、
+メールが多すぎて追いきれない人向けです。
+
+URLに日付が含まれていて直接ブックマークできないので
+Emacsから開くようにしています。
+
+本当はRSSで読みたいんですけどね…ないものはしゃーない。
+
+たぶん、どこかに落ちてそうですが、
+こんなのは自作した方が早いのでさくっと書きました。
+
+*fset* 関数を使い、以下のコマンドを一括して定義します。
+
+- M-x *emacs-devel*
+- M-x *bug-gnu-emacs*
+- M-x *emacs-bug-tracker*
+- M-x *emacs-buildstatus*
+- M-x *emacs-diffs*
+- M-x *emacs-elpa-diffs*
+- M-x *gnu-emacs-sources*
+- M-x *help-emacs-windows*
+- M-x *help-gnu-emacs*
+- M-x *info-gnu-emacs*
+
+*レキシカルクロージャ* を使っているので
+*lexical-binding* = t です。
+
+** 設定 [[http://rubikitch.com/f/mylisp-emacs-ml.el][mylisp-emacs-ml.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/emacs/init.d/mylisp-emacs-ml.el"
+#+BEGIN_SRC fundamental
+;;; -*- lexical-binding: t -*-
+(defun open-emacs-ml (name)
+  (browse-url (format "http://lists.gnu.org/archive/html/%s/%s/"
+                      name (format-time-string "%Y-%m"))))
+(dolist (ml '(emacs-devel bug-gnu-emacs emacs-bug-tracker emacs-buildstatus emacs-diffs
+                          emacs-elpa-diffs gnu-emacs-sources help-emacs-windows
+                          help-gnu-emacs info-gnu-emacs))
+  (fset ml (lambda () (interactive) (open-emacs-ml ml)))) 
+
+(provide 'mylisp-emacs-ml)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/mylisp-emacs-ml.el
+$ emacs -Q -f package-initialize -l mylisp-emacs-ml.el
+#+END_EXAMPLE
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

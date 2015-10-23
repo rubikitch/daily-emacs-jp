@@ -1,0 +1,86 @@
+#+BLOG: rubikitch
+#+POSTID: 1918
+#+DATE: [2015-08-23 Sun 16:32]
+#+PERMALINK: dired-open
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, dired, 
+#+EL_PKG_NAME: dired-open
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, relate:runner, relate:openwith
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 
+#+EL_TITLE0: diredから画像・メディアファイルやPDFなどを開く
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージdired-openの紹介
+#+MYTAGS: package:dired-open, emacs 使い方, emacs コマンド, emacs, dired-open, dired-open.el, emacs lisp dired-open, elisp dired-open, emacs melpa dired-open, emacs dired-open 使い方, emacs dired-open 設定, emacs パッケージ dired-open, relate:runner, relate:openwith
+#+TAGS: package:dired-open, emacs 使い方, emacs コマンド, emacs, dired-open, dired-open.el, emacs lisp dired-open, elisp dired-open, emacs melpa dired-open, emacs dired-open 使い方, emacs dired-open 設定, emacs パッケージ dired-open, relate:runner, relate:openwith, Emacs, dired, , dired-open.el, dired-open.el
+#+TITLE: emacs dired-open.el : diredから画像・メディアファイルやPDFなどを開く | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>dired-open</td></tr>
+<tr><td>概要(原文)</td><td>Open files from dired using using custom actions</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/Fuco1/dired-hacks">https://github.com/Fuco1/dired-hacks</a></td></tr>
+<tr><td>バージョン</td><td>20150819.948</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:dired-open/">package:dired-open</a> <a href="http://rubikitch.com/tag/package:runner/">package:runner</a> <a href="http://rubikitch.com/tag/package:openwith/">package:openwith</a></td></tr>
+</table>
+<br />
+#+END_HTML
+diredでRETを押すと、普通はファイルをEmacsで開きます。
+
+しかしメディアファイルや画像ファイルをバイナリとして
+開きたいことは稀です。
+
+*dired-open.el* を使えば、ファイルごとに
+開くアプリケーションを指定できます。
+
+あとはRETで開くだけです。
+
+C-u RETで元の挙動(Emacsで開く)になります。
+** dired-open インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install dired-open
+
+
+#+end:
+** 概要                                                             :noexport:
+diredでRETを押すと、普通はファイルをEmacsで開きます。
+
+しかしメディアファイルや画像ファイルをバイナリとして
+開きたいことは稀です。
+
+*dired-open.el* を使えば、ファイルごとに
+開くアプリケーションを指定できます。
+
+あとはRETで開くだけです。
+
+C-u RETで元の挙動(Emacsで開く)になります。
+
+** 設定 [[http://rubikitch.com/f/150823163317.dired-open.1.el][150823163317.dired-open.1.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/150823/150823163317.dired-open.1.el"
+#+BEGIN_SRC fundamental
+(require 'dired-open)
+(setq dired-open-extensions
+      '(("exe" . "wine") ("docx" . "libreoffice")
+        ("doc" . "libreoffice") ("xlsx" . "libreoffice")
+        ("xls" . "libreoffice")
+        ("mp3" . "mpv")
+        ("mp4" . "mpv")
+        ("flv" . "mpv")
+        ))
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/150823163317.dired-open.1.el
+$ emacs -Q -f package-initialize -l 150823163317.dired-open.1.el
+#+END_EXAMPLE
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

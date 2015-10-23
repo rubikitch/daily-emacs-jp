@@ -1,0 +1,138 @@
+#+BLOG: rubikitch
+#+POSTID: 597
+#+DATE: [2014-11-20 Thu 04:38]
+#+PERMALINK: eww-weblio
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, Emacs 24.4, Emacs 25.0, eww
+#+DESCRIPTION: ewwで快適に国語辞典やWikipediaなどを一括検索するWeblioを索く
+#+MYTAGS: Emacs24.4, Emacs25, emacs eww Wikipedia, emacs eww Weblio, package:eww, relate:emacs-w3m,
+#+TAGS: Emacs24.4, Emacs25, emacs eww Wikipedia, emacs eww Weblio, package:eww, relate:emacs-w3m,, Emacs, Emacs 24.4, Emacs 25.0, eww, eww, テキストブラウザ, Wikipedia, 串刺し検索, M-x weblio, read-string, eww-render--after, eww-set-start-at, M-x wikipedia, 英和辞典, 英辞郎 on the Web
+#+TITLE: Emacs+ewwで国語辞典・類語辞典・Wikipedia串刺し検索Weblioを快適一発検索！Emacs24.4/Emacs25両対応
+ども、最近 *eww* にお熱な、るびきちです。
+
+15年にもわたるw3m(端末)使いの僕ですが、
+emacs-w3m の遅さには辟易としてきました。
+
+Emacsでのブラウジングでemacs-w3mに代わるものとして
+ewwに一目惚れしました。
+
+/とにかく速い！/
+
+ただ、今のところ機能はシンプルそのものなので、
+欲しい機能があったら独自で追加する必要があります。
+
+Emacsでのブラウジングでぜひとも欲しい機能は、
+レンダリング後にすぐに欲しい情報が見られることです。
+
+この機能さえあれば、取ってつけたような
+Emacsインターフェースなんかなくても十分快適です。
+
+多くのサイトは無駄な装飾に凝っているため、
+ewwなどの *テキストブラウザ* で閲覧したときに、
+本文がかなり下の方に表示されてしまいます。
+
+そのため、欲しい情報を見つけるのに
+わざわざスクロールする必要がります。
+
+適切な位置まで自動で移動してくれれば、
+とても快適になりますよね！
+
+僕はオンライン国語辞典・類語辞典サイトとして
+[[http://www.weblio.jp/][Weblio]] を愛用しています。
+
+国語辞典や *Wikipedia* など様々な辞書を *串刺し検索* できるのが嬉しいです。
+
+ただ、ewwで表示させると
+#+BEGIN_QUOTE
+ Weblio 辞書 >
+#+END_QUOTE
+
+の行までスクロールさせないと意味が表示できません。
+
+そこで、表示開始位置を設定し、簡単に検索できるように
+*M-x weblio* を定義しました。
+
+
+** 設定 [[http://rubikitch.com/f/141120042304.eww-weblio.el][141120042304.eww-weblio.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/141120/141120042304.eww-weblio.el"
+#+BEGIN_SRC fundamental
+(require 'eww)
+(defvar eww-data)
+(defun eww-current-url ()
+  "バージョン間の非互換を吸収する。"
+  (if (boundp 'eww-current-url)
+      eww-current-url                   ;emacs24.4
+    (plist-get eww-data :url)))         ;emacs25
+
+(defun eww-set-start-at (url-regexp search-regexp)
+  "URL-REGEXPにマッチするURLにて、SEARCH-REGEXPの行から表示させる"
+  (when (string-match url-regexp (eww-current-url))
+    (goto-char (point-min))
+    (when (re-search-forward search-regexp nil t)
+      (recenter 0))))
+
+(defun region-or-read-string (prompt &optional initial history default inherit)
+  "regionが指定されているときはその文字列を取得し、それ以外では`read-string'を呼ぶ。"
+  (if (not (region-active-p))
+      (read-string prompt initial history default inherit)
+    (prog1
+        (buffer-substring-no-properties (region-beginning) (region-end))
+      (deactivate-mark)
+      (message ""))))
+
+(defun eww-render--after (&rest _)
+  (eww-set-start-at "www.weblio.jp" "^ *Weblio 辞書")
+  ;; 他のサイトの設定も同様に追加できる
+  )
+(advice-add 'eww-render :after 'eww-render--after)
+
+;;; weblio
+(defun weblio (str)
+  (interactive (list
+                (region-or-read-string "Weblio: ")))
+  (eww-browse-url (format "http://www.weblio.jp/content/%s"
+                      (upcase (url-hexify-string str)))))
+;;; wikipedia
+(defun wikipedia (str)
+  (interactive (list
+                (region-or-read-string "Wikipedia: ")))
+  (eww-browse-url (format "http://ja.wikipedia.org/wiki/%s"
+                      (upcase (url-hexify-string str)))))
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/141120042304.eww-weblio.el
+$ emacs -Q -f package-initialize -l 141120042304.eww-weblio.el
+#+END_EXAMPLE
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+** region-or-read-string関数
+*region-or-read-string* 関数は、
+- regionがあるときにはその文字列
+- それ以外では *read-string* によるミニバッファで文字列入力
+する関数です。
+
+** 他のサイトに対応させる
+今回はWeblioを例にしましたが、
+オンラインマニュアルやその他の辞書サイトにも簡単に対応できます。
+
+やることは、
+1. M-x weblioの関数をパクる
+2. (必要あれば) *eww-render--after* に
+   *eww-set-start-at* でURLと行の正規表現を設定する
+
+例として *M-x wikipedia* も定義しましたが、
+スクロールする必要がないので、eww-set-start-at の設定は不要です。
+
+ネット最強の *英和辞典* である *英辞郎 on the Web* にも対応できますが、
+利用規約によりスクレイピング等を禁止しているのでおすすめできません。
+
+グレーゾーンゆえ自己責任でお願いします。

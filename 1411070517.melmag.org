@@ -1,0 +1,59 @@
+#+BLOG: rubikitch
+#+POSTID: 555
+#+DATE: [2014-11-07 Fri 05:17]
+#+PERMALINK: melmag
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: メルマガ,
+#+DESCRIPTION:
+#+MYTAGS:
+#+TAGS: , メルマガ,, ソースコード検索エンジン, M-x grep, milkode, インデックス付きgrep
+#+TITLE: Emacsユーザ歓喜！grep型検索エンジンを使おう
+今回のメルマガはシンプルなgrepタイプの
+*ソースコード検索エンジン* についてです。
+
+今回紹介する検索エンジンは、
+- インデックス作成
+- grep形式の出力
+という機能しかありません。
+
+ほんっとうにシンプルで、学習コストはかかりません。
+
+Emacsユーザにとってはgrep -n形式(ファイル名:行番号:内容)は
+親しみが持てる出力形式です。
+
+なぜなら、 *M-x grep* などを使えば該当行に直接ジャンプできるのですから。
+
+わざわざ専用のEmacs Lispを書かなくてもEmacsで便利に使えるという強味です。
+
+まさにEmacsユーザのための検索エンジンといえるでしょう。
+
+多くのオプションとWebインターフェースを
+持っている *milkode* とは真逆の潔さです。
+
+絞り込み検索できない代わりに正規表現が指定できます。
+
+「小さい道具を組み合わせる」というUnixの哲学があるので
+絞り込み検索機能が備わっていなくても問題はありません。
+
+絞り込み検索がどうしても欲しいならば、
+各自でスクリプトを書けばいい話です。
+
+使い勝手としては通常のgrepとほとんど変わらず、
+まさに *インデックス付きgrep* という感じです。
+
+インデックスファイルは大きくないので
+容易にファイルキャッシュに収まり、
+インデックスのおかげで検索ファイルが絞り込まれるので、
+ボトルネックとなるI/O待ちを削減できます。
+
+SSD未搭載のコンピュータでは特に威力を発揮します。
+
+僕は潔さに惚れてmilkodeから乗り換えました。
+
+お楽しみに。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

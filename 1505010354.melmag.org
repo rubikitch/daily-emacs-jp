@@ -1,0 +1,35 @@
+#+BLOG: rubikitch
+#+POSTID: 1595
+#+DATE: [2015-05-01 Fri 03:54]
+#+PERMALINK: melmag
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: メルマガ,
+#+DESCRIPTION: るびきち塾メルマガ『Emacsの鬼るびきちのココだけの話#179』の予告
+#+TITLE: 【メルマガ#179】大量行動するために真っ先にやっておくべきこと
+#+MYTAGS: 
+#+begin: org2blog-tags
+#+TAGS: , メルマガ,, 
+#+end:
+今回も前回に引き続き大量行動の秘密をお話します。
+
+心が乱される瞬間に何が起こっているのか
+ということにも触れます。
+
+また、僕がやっている非常識レベルな行動も
+こっそり暴露しますね。
+
+最後に物事がうまくいくか、うまくいかないかを
+決定づける最も大きな要因を解き明かし、
+うまくいくようになるための
+脳科学的『魔法』もお伝えします。
+
+今回もEmacsとは直接関係ありませんが、
+fundamentalな事柄なので不変の真実です。
+
+もちろんEmacsユーザにとっても有用なお話です。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

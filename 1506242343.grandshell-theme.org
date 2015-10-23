@@ -1,0 +1,250 @@
+#+BLOG: rubikitch
+#+POSTID: 1770
+#+DATE: [2015-06-24 Wed 23:43]
+#+PERMALINK: grandshell-theme
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, theme
+#+EL_PKG_NAME: grandshell-theme
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, color-theme, カラーテーマ
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: 真っ黒背景で多くのパッケージに対応しているカラーテーマ
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージgrandshell-themeの紹介
+#+MYTAGS: package:grandshell-theme, emacs 使い方, emacs コマンド, emacs, grandshell-theme, grandshell-theme.el, emacs lisp grandshell-theme, elisp grandshell-theme, emacs melpa grandshell-theme, emacs grandshell-theme 使い方, emacs grandshell-theme 設定, emacs パッケージ grandshell-theme, emacs grandshell-theme スクリーンショット, color-theme, カラーテーマ
+#+TAGS: package:grandshell-theme, emacs 使い方, emacs コマンド, emacs, grandshell-theme, grandshell-theme.el, emacs lisp grandshell-theme, elisp grandshell-theme, emacs melpa grandshell-theme, emacs grandshell-theme 使い方, emacs grandshell-theme 設定, emacs パッケージ grandshell-theme, emacs grandshell-theme スクリーンショット, color-theme, カラーテーマ, Emacs, theme, grandshell-theme.el
+#+TITLE: emacs grandshell-theme.el : 真っ黒背景で多くのパッケージに対応しているカラーテーマ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>grandshell-theme</td></tr>
+<tr><td>概要(原文)</td><td>Dark color theme for Emacs > 24 with intensive colors.</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/steckerhalter/grandshell-theme">https://github.com/steckerhalter/grandshell-theme</a></td></tr>
+<tr><td>バージョン</td><td>20150404.501</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:grandshell-theme/">package:grandshell-theme</a> </td></tr>
+</table>
+<br />
+#+END_HTML
+*grandshell-theme.el* は 真っ黒背景なカラーテーマです。
+
+多くのパッケージに対応しています。
+
+- isearch
+- mode-line
+- which-func
+- show-paren
+- font-lock
+- auto-complete
+- auto-dim-other-buffers
+- clojure
+- company
+- compilation
+- diff
+- diff-hl
+- dired+
+- ediff
+- eldoc
+- erb
+- erc
+- eshell
+- eval-sexp-fu
+- fic-mode
+- flycheck
+- flymake
+- git-gutter
+- git-gutter-fringe
+- gnus
+- grep
+- helm
+- highlight-symbol
+- icomplete
+- ido
+- jabber
+- js2-mode
+- js3-mode
+- linum
+- magit
+- markdown-mode
+- mark-multiple
+- message-mode
+- mic-paren
+- mmm-mode
+- nrepl-eval-sexp-fu
+- nxml
+- org
+- outline
+- parenface
+- powerline
+- rainbow-delimiters
+- regex-tool
+- sh-script
+- shr
+- slime
+- smart-mode-line
+- term
+- undo-tree
+- web-mode
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_theme_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150625000706.png]]
+Fig1: emacs-lisp-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150625000711.png]]
+Fig2: magit
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150625000715.png]]
+Fig3: grep
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150625000718.png]]
+Fig4: outline-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150625000722.png]]
+Fig5: org-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150625000726.png]]
+Fig6: dired
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150625000729.png]]
+Fig7: web-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150625000853.png]]
+Fig8: markdown-mode
+
+
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150625000742.png]]
+Fig9: helm
+** grandshell-theme インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install grandshell-theme
+
+
+#+end:
+** 概要                                                             :noexport:
+*grandshell-theme.el* は 真っ黒背景なカラーテーマです。
+
+多くのパッケージに対応しています。
+
+- isearch
+- mode-line
+- which-func
+- show-paren
+- font-lock
+- auto-complete
+- auto-dim-other-buffers
+- clojure
+- company
+- compilation
+- diff
+- diff-hl
+- dired+
+- ediff
+- eldoc
+- erb
+- erc
+- eshell
+- eval-sexp-fu
+- fic-mode
+- flycheck
+- flymake
+- git-gutter
+- git-gutter-fringe
+- gnus
+- grep
+- helm
+- highlight-symbol
+- icomplete
+- ido
+- jabber
+- js2-mode
+- js3-mode
+- linum
+- magit
+- markdown-mode
+- mark-multiple
+- message-mode
+- mic-paren
+- mmm-mode
+- nrepl-eval-sexp-fu
+- nxml
+- org
+- outline
+- parenface
+- powerline
+- rainbow-delimiters
+- regex-tool
+- sh-script
+- shr
+- slime
+- smart-mode-line
+- term
+- undo-tree
+- web-mode
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_theme_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150625000706.png]]
+Fig10: emacs-lisp-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150625000711.png]]
+Fig11: magit
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150625000715.png]]
+Fig12: grep
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150625000718.png]]
+Fig13: outline-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150625000722.png]]
+Fig14: org-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150625000726.png]]
+Fig15: dired
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150625000729.png]]
+Fig16: web-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150625000853.png]]
+Fig17: markdown-mode
+
+
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150625000742.png]]
+Fig18: helm
+
+** 設定 [[http://rubikitch.com/f/150625000630.grandshell-theme.el][150625000630.grandshell-theme.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/150625/150625000630.grandshell-theme.el"
+#+BEGIN_SRC fundamental
+(load-theme 'grandshell t)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/150625000630.grandshell-theme.el
+$ emacs -Q -f package-initialize -l 150625000630.grandshell-theme.el
+#+END_EXAMPLE

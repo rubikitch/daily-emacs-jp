@@ -1,0 +1,130 @@
+#+DATE: [2015-01-22 Thu 16:08]
+#+PERMALINK: el-init
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs
+#+EL_PKG_NAME: el-init
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p , relate:init-loader, relate:use-package, emacs init-loader 改善, emacs init.el 分割, .emacs 分割, init.el 依存関係, 
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 
+#+EL_TITLE0: 【次世代init.el分割管理】Emacs界のSystemd到来か！？
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージel-initの紹介
+#+MYTAGS: package:el-init, emacs 使い方, emacs コマンド, emacs, el-init, el-init.el, emacs lisp el-init, elisp el-init, emacs melpa el-init, emacs el-init 使い方, emacs el-init 設定, emacs パッケージ el-init, emacs el-init , relate:init-loader, relate:use-package, emacs init-loader 改善, emacs init.el 分割, .emacs 分割, init.el 依存関係, 
+#+TAGS: package:el-init, emacs 使い方, emacs コマンド, emacs, el-init, el-init.el, emacs lisp el-init, elisp el-init, emacs melpa el-init, emacs el-init 使い方, emacs el-init 設定, emacs パッケージ el-init, emacs el-init , relate:init-loader, relate:use-package, emacs init-loader 改善, emacs init.el 分割, .emacs 分割, init.el 依存関係, , Emacs, init.el, .emacs, init-loader, el-init, .emacs, init-loader, el-init
+#+TITLE: emacs el-init.el : 【次世代init.el分割管理】Emacs界のSystemd到来か！？ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>el-init</td></tr>
+<tr><td>概要(原文)</td><td>A loader inspired by init-loader</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/HKey/el-init">https://github.com/HKey/el-init</a></td></tr>
+<tr><td>バージョン</td><td>20150122.0</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:el-init/">package:el-init</a> <a href="http://rubikitch.com/tag/package:init-loader/">package:init-loader</a> <a href="http://rubikitch.com/tag/package:use-package/">package:use-package</a></td></tr>
+</table>
+<br />
+#+END_HTML
+Emacsの初期設定ファイル *init.el* (*.emacs*) は
+ヘビーユーザであればあるほど肥大化していきます。
+
+肥大化した状態でひとつのファイルにまとめておいては
+管理が困難になります。
+
+ただでさえでかいファイルなのに、
+パッケージごとに設定がまとまってないと
+なおさら管理を困難にします。
+
+そこで設定を管理するパッケージが現れました。
+
+1. [[http://rubikitch.com/2014/09/09/use-package/][use-package(レビュー)]] のようにパッケージの設定を1つのS式にするもの
+2. *init-loader* のように分割されたファイルを一度に読み込むもの
+
+前者のように整理して書けば可読性が上がり、
+設定を追加すべき場所が明確になります。
+
+*el-init* は後者に属します。
+
+もちろん両者は併用できます。
+
+GNU/Linuxの起動に例えれば
+スクリプトの起動順序を指定するinit-loaderがSysVinitで、
+依存関係を指定するel-initがUpstart/Systemdみたいなものです。
+** el-init インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install el-init
+
+
+#+end:
+** 概要                                                             :noexport:
+Emacsの初期設定ファイル *init.el* (*.emacs*) は
+ヘビーユーザであればあるほど肥大化していきます。
+
+肥大化した状態でひとつのファイルにまとめておいては
+管理が困難になります。
+
+ただでさえでかいファイルなのに、
+パッケージごとに設定がまとまってないと
+なおさら管理を困難にします。
+
+そこで設定を管理するパッケージが現れました。
+
+1. [[http://rubikitch.com/2014/09/09/use-package/][use-package(レビュー)]] のようにパッケージの設定を1つのS式にするもの
+2. *init-loader* のように分割されたファイルを一度に読み込むもの
+
+前者のように整理して書けば可読性が上がり、
+設定を追加すべき場所が明確になります。
+
+*el-init* は後者に属します。
+
+もちろん両者は併用できます。
+
+GNU/Linuxの起動に例えれば
+スクリプトの起動順序を指定するinit-loaderがSysVinitで、
+依存関係を指定するel-initがUpstart/Systemdみたいなものです。
+
+** init-loaderは単純だが…
+init-loaderは単純に ~/.emacs.d/inits/[0-9][0-9]*.el と
+プラットフォーム依存のファイルをまとめて読み込むだけです。
+
+順番は最初の2つの数字の大小で決定され、
+どのファイルがどのタイミングで読み込まれるのかが
+単純明快です。
+
+一番最初に読み込んでほしいファイルのファイル名は 00 から始め、
+一番最後は 99 から始め、その他は 50 前後から始めればいいです。
+
+一枚岩のinit.elからinit-loader方式に移行するには、
+~/.emacs.d/inits/50allinit.el にinit.elをコピーし、
+init.elをinit-loaderを起動するよう書き換えれば
+とりあえず動いてしまいます。
+
+その後に細かく分割していけばいいです。
+
+しかし、依存関係が絡んでくると途端にややこしいことになり、
+番号を調整するためにファイルをリネームする必要が出てきます。
+
+しかも他のファイルからその設定ファイルを読み込むときには
+番号付きでそのファイルを指定する必要があります。
+
+当然、番号を変更したら指定している行も変更する必要があり、
+困ったことになってしまいます。
+
+複数台のコンピュータで使っていると、
+すべての設定を使わない場合もあるので
+この管理法は行き詰まってしまいます。
+
+おまけに、設定ファイルをバイトコンパイルしている人は
+.elをリネームしたら、.elcもリネームする必要があります。
+
+もちろん、単一のコンピュータで、かつ
+バイトコンパイルしないならばinit-loaderで十分です。
+** el-initはよりよい方法を提案する
+
+
+
+ # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

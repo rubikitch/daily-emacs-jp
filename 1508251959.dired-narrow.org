@@ -1,0 +1,97 @@
+#+BLOG: rubikitch
+#+POSTID: 1926
+#+DATE: [2015-08-25 Tue 19:59]
+#+PERMALINK: dired-narrow
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, dired
+#+EL_PKG_NAME: dired-narrow
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, relate:dired-filter, relate:phi-search-dired, dired ファイル名でフィルタリング, dired 表示するファイルを絞り込む, dired 絞り込み検索,dired ファイル名でフィルタリング, dired 正規表現にマッチするファイルをマーク, 
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: diredでファイル名を絞り込み検索する
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージdired-narrowの紹介
+#+MYTAGS: package:dired-narrow, emacs 使い方, emacs コマンド, emacs, dired-narrow, dired-narrow.el, emacs lisp dired-narrow, elisp dired-narrow, emacs melpa dired-narrow, emacs dired-narrow 使い方, emacs dired-narrow 設定, emacs パッケージ dired-narrow, emacs dired-narrow スクリーンショット, relate:dired-filter, relate:phi-search-dired, dired ファイル名でフィルタリング, dired 表示するファイルを絞り込む, dired 絞り込み検索,dired ファイル名でフィルタリング, dired 正規表現にマッチするファイルをマーク, 
+#+TAGS: package:dired-narrow, emacs 使い方, emacs コマンド, emacs, dired-narrow, dired-narrow.el, emacs lisp dired-narrow, elisp dired-narrow, emacs melpa dired-narrow, emacs dired-narrow 使い方, emacs dired-narrow 設定, emacs パッケージ dired-narrow, emacs dired-narrow スクリーンショット, relate:dired-filter, relate:phi-search-dired, dired ファイル名でフィルタリング, dired 表示するファイルを絞り込む, dired 絞り込み検索,dired ファイル名でフィルタリング, dired 正規表現にマッチするファイルをマーク, , Emacs, dired, dired-narrow.el, M-x dired-narrow-regexp, M-x dired-narrow, M-x dired-narrow-fuzzy, revert-buffer, dired-narrow.el, M-x dired-narrow-regexp, M-x dired-narrow, M-x dired-narrow-fuzzy, revert-buffer
+#+TITLE: emacs dired-narrow.el : diredでファイル名を絞り込み検索する | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>dired-narrow</td></tr>
+<tr><td>概要(原文)</td><td>Live-narrowing of search results for dired</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/Fuco1/dired-hacks">https://github.com/Fuco1/dired-hacks</a></td></tr>
+<tr><td>バージョン</td><td>20150819.948</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:dired-narrow/">package:dired-narrow</a> <a href="http://rubikitch.com/tag/package:dired-filter/">package:dired-filter</a> <a href="http://rubikitch.com/tag/package:phi-search-dired/">package:phi-search-dired</a></td></tr>
+</table>
+<br />
+#+END_HTML
+diredで特定のファイル名のみを表示させるパッケージはいくつかあります。
+
+[[http://rubikitch.com/2015/04/05/phi-search-dired/][phi-search-dired.el(レビュー)]] や [[http://rubikitch.com/2015/04/07/dired-filter/][dired-filter.el(レビュー)]] もそうですが、
+この *dired-narrow.el* もそうです。
+
+*M-x dired-narrow-regexp* で正規表現にマッチするファイル名のみを
+diredのバッファに表示します。
+
+文字列マッチの *M-x dired-narrow* と
+あいまいマッチの *M-x dired-narrow-fuzzy* もあります。
+
+絞り込みをキャンセルし元のdiredバッファに戻すにはg(*revert-buffer*)を使います。
+
+
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150825200542.png]]
+Fig1: 元のdiredバッファ
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150825200556.png]]
+Fig2: M-x dired-narrow-regexp dired-r
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150825200604.png]]
+Fig3: さらにM-x dired-narrow-regexp rainbow
+** dired-narrow インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install dired-narrow
+
+
+#+end:
+** 概要                                                             :noexport:
+diredで特定のファイル名のみを表示させるパッケージはいくつかあります。
+
+[[http://rubikitch.com/2015/04/05/phi-search-dired/][phi-search-dired.el(レビュー)]] や [[http://rubikitch.com/2015/04/07/dired-filter/][dired-filter.el(レビュー)]] もそうですが、
+この *dired-narrow.el* もそうです。
+
+*M-x dired-narrow-regexp* で正規表現にマッチするファイル名のみを
+diredのバッファに表示します。
+
+文字列マッチの *M-x dired-narrow* と
+あいまいマッチの *M-x dired-narrow-fuzzy* もあります。
+
+絞り込みをキャンセルし元のdiredバッファに戻すにはg(*revert-buffer*)を使います。
+
+
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150825200542.png]]
+Fig4: 元のdiredバッファ
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150825200556.png]]
+Fig5: M-x dired-narrow-regexp dired-r
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150825200604.png]]
+Fig6: さらにM-x dired-narrow-regexp rainbow
+

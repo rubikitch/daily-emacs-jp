@@ -1,0 +1,28 @@
+#+BLOG: rubikitch
+#+POSTID: 1950
+#+DATE: [2015-09-04 Fri 15:37]
+#+PERMALINK: melmag
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: メルマガ,
+#+DESCRIPTION: るびきち塾メルマガ『Emacsの鬼るびきちのココだけの話#197』の予告
+#+TITLE: 【メルマガ#197】カラーテーマ紹介記事の舞台裏
+#+MYTAGS: 
+#+begin: org2blog-tags
+#+TAGS: , メルマガ,, 
+#+end:
+最近日刊Emacsで増えているカラーテーマの記事ですが、
+とても簡単に作成することができます。
+
+その舞台裏を今回のメルマガでお話します。
+
+以下の内容が含まれています。
+
+- 複数の機能をひとまとめにするコマンドを定義する意外な方法
+- フォントの大きさを変更するコマンド
+- ウィンドウの上下・左右分割を切替えるコマンド
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

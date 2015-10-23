@@ -1,0 +1,114 @@
+#+DATE: [2015-06-11 Thu 15:08]
+#+PERMALINK: avy-move-line-thing
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, Emacs Lisp, org-mode, 
+#+POSTID: 1737
+#+DESCRIPTION: 
+#+MYTAGS: relate:avy, relate:org, relate:thingatpt, package:avy, package:org
+#+TITLE: 【文章作成支援】行移動・org-modeのM-↑/M-↓を開始・終了行指定できるようにしてみた
+#+begin: org2blog-tags
+#+TAGS: relate:avy, relate:org, relate:thingatpt, package:avy, package:org, Emacs, Emacs Lisp, org-mode, , avy--line, M-x avy-move-line-thing
+#+end:
+[[http://rubikitch.com/2015/06/10/org-element-at-point][昨日、org-elementをthing-at-pointで扱えるようにしてみた]] けど、
+今日はその続きで、M-↑/M-↓を行指定でやれるようにしてみます。
+
+というのは、これらのコマンドは現在の要素(subtree/段落など)を
+1つずつ上下に移動するものであり、多くの要素を繰り返し入れ替えるには
+面倒だからです。
+
+行指定ということならば、ace-jump-modeの汎用版ともいえる[[http://rubikitch.com/2015/05/20/avy/][avy.el(レビュー)]] を
+使うことにしました。
+
+画面内の特定の場所を指定するならばぜひとも使いたいインターフェースです。
+
+*avy--line* 関数は目的行を尋ね、位置とウィンドウのコンスセルを返します。
+
+これを使って *M-x avy-move-line-thing* を作りました。
+
+移動元・移動先を指定し、行・region・要素(org-mode)を移動するコマンドです。
+
+文章を書く前にアイデアを集め、それを順番に並べ変えるときに
+このコマンドを愛用しています。
+
+
+
+
+#+BEGIN_SRC emacs-lisp :results silent
+(require 'org-element)
+(require 'avy)
+
+(defun org-element-at-point-bounds ()
+  (let ((e (org-element-at-point)))
+    (cons (org-element-property :begin e) (org-element-property :end e))))
+(put 'org-element 'bounds-of-thing-at-point 'org-element-at-point-bounds)
+
+(defun avy-move-line-thing ()
+  "移動元・移動先を指定し、行・region・要素(org-mode)を移動する。"
+  (interactive)
+  (let* ((avy-handler-function
+          (lambda (char)
+            (if (eq char ?\C-m)
+                (throw 'done (list (point-at-bol)))
+              (avy-handler-default char))))
+         (from (unless (region-active-p)
+                 (message "From: ")
+                 (car (avy--line))))
+         (to (progn (message "To: ")
+                    (set-marker (make-marker) (car (avy--line)))))
+         bot content)
+    (setq bot (if (region-active-p)
+                  (cons (region-beginning) (region-end))
+                (goto-char from)
+                (bounds-of-thing-at-point
+                 (if (derived-mode-p 'org-mode) 'org-element 'line))))
+    (setq content (buffer-substring (car bot) (cdr bot)))
+    (delete-region (car bot) (cdr bot))
+    (goto-char to)
+    (insert content)))
+#+END_SRC
+
+以下のorg文書を例にすると
+
+#+BEGIN_EXAMPLE
+,* 1
+one
+,* 2
+two
+,* 3
+three
+#+END_EXAMPLE
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150611152159.png]]
+Fig1: dを指定し
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150611152209.png]]
+Fig2: aを指定すれば
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150611152214.png]]
+Fig3: 入れ替わる
+
+org-mode以外でも
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150611152256.png]]
+Fig4: s→aを指定すると
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150611152301.png]]
+Fig5: 入れ替わる
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150611152548.png]]
+Fig6: regionを指定し、aを指定すれば
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150611152554.png]]
+Fig7: 入れ替わる！
+

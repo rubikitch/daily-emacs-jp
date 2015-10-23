@@ -1,0 +1,98 @@
+#+BLOG: rubikitch
+#+POSTID: 716
+#+DATE: [2014-12-15 Mon 07:49]
+#+PERMALINK: switch-window
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs
+#+EL_PKG_NAME: switch-window
+#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, emacs ウィンドウ 切り替え, emacs C-x o 改善, ウィンドウ切り替え, relate:owdriver, relate:ace-window, relate:win-switch, relate:window-numbering
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: ウィンドウをたくさん分割する人必携！C-x oを連発せずに直接ウィンドウを切り替える
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージswitch-windowの紹介
+#+MYTAGS: package:switch-window, emacs 使い方, emacs コマンド, emacs, emacs lisp switch-window, elisp switch-window, emacs melpa switch-window, emacs switch-window 使い方, emacs switch-window 設定, emacs パッケージ switch-window, emacs switch-window スクリーンショット, emacs ウィンドウ 切り替え, emacs C-x o 改善, ウィンドウ切り替え, relate:owdriver, relate:ace-window, relate:win-switch, relate:window-numbering
+#+TAGS: package:switch-window, emacs 使い方, emacs コマンド, emacs, emacs lisp switch-window, elisp switch-window, emacs melpa switch-window, emacs switch-window 使い方, emacs switch-window 設定, emacs パッケージ switch-window, emacs switch-window スクリーンショット, emacs ウィンドウ 切り替え, emacs C-x o 改善, ウィンドウ切り替え, relate:owdriver, relate:ace-window, relate:win-switch, relate:window-numbering, Emacs, visual, switch-window.el, C-x o, M-x switch-window, other-window, switch-window.el, C-x o, M-x switch-window, other-window
+#+TITLE: emacs switch-window.el : ウィンドウをたくさん分割する人必携！C-x oを連発せずに直接ウィンドウを切り替える | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>switch-window</td></tr>
+<tr><td>概要(原文)</td><td>A *visual* way to choose a window to switch to</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/dimitri/switch-window">https://github.com/dimitri/switch-window</a></td></tr>
+<tr><td>バージョン</td><td>20150114.215</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:switch-window/">package:switch-window</a> <a href="http://rubikitch.com/tag/package:owdriver/">package:owdriver</a> <a href="http://rubikitch.com/tag/package:ace-window/">package:ace-window</a> <a href="http://rubikitch.com/tag/package:win-switch/">package:win-switch</a> <a href="http://rubikitch.com/tag/package:window-numbering/">package:window-numbering</a></td></tr>
+</table>
+<br />
+#+END_HTML
+<2015-02-21 Sat> [[http://rubikitch.com/2015/02/21/win-switch/][win-switch.elの方がもっと使いやすいです。]] 
+
+*switch-window.el* は *C-x o* をカイゼンするものです。
+
+使い方は簡単で、C-x oを *M-x switch-window* に置き換え、
+通常通り使うだけです。
+
+2分割のときはそのまま他方のウィンドウに切り替えるのですが、
+3分割以上のときはasdf〜とヒント文字がつき、
+それを選択することで目的のウィンドウに切り替えます。
+
+とはいえ、3分割以上をしない人とか、
+*other-window* をC-tのように1ストロークに割り当てている人は
+あまり恩恵を感じないかもしれません。
+
+よくウィンドウを分割する人は [[http://rubikitch.com/2014/09/11/owdriver/][owdriver.elも使ってみるといいです]] 。
+
+同種のものに[[http://rubikitch.com/2014/10/09/ace-jump-mode/][ace-jump-mode(レビュー)]] を使った
+[[http://rubikitch.com/2014/12/26/ace-window/][ace-window.el(レビュー)]] があります。
+** switch-window インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install switch-window
+
+
+#+end:
+** 概要                                                             :noexport:
+<2015-02-21 Sat> [[http://rubikitch.com/2015/02/21/win-switch/][win-switch.elの方がもっと使いやすいです。]] 
+
+*switch-window.el* は *C-x o* をカイゼンするものです。
+
+使い方は簡単で、C-x oを *M-x switch-window* に置き換え、
+通常通り使うだけです。
+
+2分割のときはそのまま他方のウィンドウに切り替えるのですが、
+3分割以上のときはasdf〜とヒント文字がつき、
+それを選択することで目的のウィンドウに切り替えます。
+
+とはいえ、3分割以上をしない人とか、
+*other-window* をC-tのように1ストロークに割り当てている人は
+あまり恩恵を感じないかもしれません。
+
+よくウィンドウを分割する人は [[http://rubikitch.com/2014/09/11/owdriver/][owdriver.elも使ってみるといいです]] 。
+
+同種のものに[[http://rubikitch.com/2014/10/09/ace-jump-mode/][ace-jump-mode(レビュー)]] を使った
+[[http://rubikitch.com/2014/12/26/ace-window/][ace-window.el(レビュー)]] があります。
+
+** 設定 [[http://rubikitch.com/f/141215074846.switch-window.el][141215074846.switch-window.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/141215/141215074846.switch-window.el"
+#+BEGIN_SRC fundamental
+(setq switch-window-shortcut-style 'qwerty)
+(global-set-key (kbd "C-x o") 'switch-window)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/141215074846.switch-window.el
+$ emacs -Q -f package-initialize -l 141215074846.switch-window.el
+#+END_EXAMPLE
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+http://rubikitch.com/f/20141215075328.png
+Fig1: 多分割されていても
+http://rubikitch.com/f/20141215075650.png
+Fig2: ヒント文字でワンタッチ切り替え！
+

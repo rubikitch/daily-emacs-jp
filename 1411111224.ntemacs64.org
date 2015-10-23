@@ -1,0 +1,104 @@
+#+BLOG: rubikitch
+#+POSTID: 572
+#+DATE: [2014-11-11 Tue 12:24]
+#+PERMALINK: ntemacs64
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION: NTEmacs64 (Windows 64bit版Emacs)の24.4が出ました。画像表示、サウンド、IMEパッチ、EWW動作！
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, Emacs 24.4, gnupack, NTEmacs64
+#+DESCRIPTION:
+#+MYTAGS: Emacs, NTEmacs64, NTEmacs, emacs windows, emacs 24.4 windows, emacs eww windows, emacs libxml2 windows, package:eww, eww, emacs windows インストール, emacs windows 設定
+#+TAGS: Emacs, NTEmacs64, NTEmacs, emacs windows, emacs 24.4 windows, emacs eww windows, emacs libxml2 windows, package:eww, eww, emacs windows インストール, emacs windows 設定, Emacs, Emacs 24.4,, M-x eww
+#+TITLE: 【Windowsユーザ待望】Windows用Emacs 24.4バイナリキターーーーーー（゜∀゜）ーーーーーー！！gnupack対応！
+https://github.com/chuntaro/NTEmacs64
+
+ついにWindows用Emacs 24.4のバイナリが来ました！
+
+公式ではWindows 64bit版のバイナリは提供されていないので、
+64bit版はここから入手してください。
+
+corei7に最適化ビルドされています。
+
+画像表示もできますし、libxml2のDLLも同梱されているので、
+elisp＋libxml2で書かれた組み込みテキストブラウザ *M-x eww* も動作します。
+
+emacs-w3mがうまく動かなくて肩身の狭い思いをした日々も、今日でさよならです。
+
+IMEパッチを適用したビルドも同梱されています。
+
+ダウンロード・インストールはこちらから↓
+https://github.com/chuntaro/NTEmacs64/archive/master.zip
+
+<2014-11-21 Fri>追記: gnupack環境でも使えます。詳しくなったURLに更新。
+http://blechmusik.hatenablog.jp/entry/2014/11/14/002259
+
+<2014-12-31 Wed>追記: 32bit版ですがgnupack 12.00が出ました。
+[[http://rubikitch.com/2014/12/31/gnupack12/]]
+
+<2015-04-15 Wed>追記: Emacs 24.5に対応しました
+http://rubikitch.com/2015/04/15/ntemacs64-emacs245/
+
+** WindowsでEmacsを動かすにあたって
+Emacsはスクリプト言語のように拡張ライブラリでガンガン拡張できるわけではなく、
+外部プログラムを援用するポリシーを採っています。
+
+これはソフトウェアのインストール・管理が簡単なUnix系OSならば正しいのですが、
+Windowsではまさに地獄の宴に他なりません。
+
+Windowsにおいては外部プログラム絡みが地雷になります。
+
+Unix系のプログラムには様々なビルドがあるのも混乱の原因です。
+
+Cygwin, MinGW, nativeとバイナリが多種に渡る上、
+[[http://millkeyweb.com/win-chocolatey/][Chocolatey]] くらいしかパッケージシステムがなく、
+インストール・管理がものすごい大変になるからです。
+
+よって、外部プログラムに依存するelispをWindowsで動かすのは困難です。
+
+ここで視点を変えてみてください。
+
+「Windowsだと動かない部分がある」
+という事実に目を向けるのではなくて、
+「Windowsでも動いている部分がある」
+という事実に目を向けてください。
+
+『Emacsテクニックバイブル』執筆や、実際にWindows機を使った経験から、
+Emacs Lispのみで書かれているものに対してはWindowsでもだいたい動くことが
+わかっています。
+
+様々な編集コマンド、
+helm(anything)、
+eshell、
+dired、
+org-mode…
+
+これらは普通にWindowsでも動くではありませんか！
+
+
+Emacs 24.4で標準添付となった組み込みブラウザewwも
+そのままWindowsで動きます。
+
+Emacsでブラウザといえば長らくemacs-w3mでしたが
+w3mに依存せずともブラウザとして仕事してくれます。
+
+eww-browse-url関数を使えば任意にURLを開いてくれます。
+
+これを使えばプログラミング言語のオンラインマニュアルも楽勝で参照できます。
+
+http://rubikitch.com/2014/11/08/help-me-rubikitch-san 参照
+
+これってすごいことだと思いませんか？
+
+Windowsで使うコツとして現時点で言えることは、
+- あまり設定に凝らない
+- Unix系OSと同じように動かすことはあきらめる
+- 外部プログラムに依存するEmacs Lispには極力手を出さない
+ということです。
+
+Emacs的に不自由なWindows環境で動かす以上、
+無駄な苦労をするのは仕方ないです。
+
+そういうものだと割切ってください。
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

@@ -1,0 +1,74 @@
+#+BLOG: rubikitch
+#+POSTID: 622
+#+DATE: [2014-11-25 Tue 10:43]
+#+PERMALINK: eww-image
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, Emacs 24.4, Emacs 25.0, eww
+#+DESCRIPTION:
+#+MYTAGS: テキストブラウザ
+#+TAGS: テキストブラウザ, Emacs, Emacs 24.4, Emacs 25.0, eww, shr-put-image-function, shr-put-image-alt, M-x eww-disable-images, M-x eww-enable-images
+#+TITLE: Emacs24.4/Emacs25のewwで画像を非表示にする方法！よりテキストブラウザらしく
+Emacs組み込みWebブラウザewwは、デフォルトで画像も表示します。
+
+しかし、文字情報を参考にしながら編集する場合においては
+画像が邪魔になるときがあります。
+
+また、多数のアニメーションgifが用いられているページは
+ewwだと耐え難いほど重くなります。
+
+例: http://tuhdo.github.io/helm-projectile.html
+
+画像表示は、ewwのHTMLレンダリングバックエンドshr.elでなされます。
+
+*shr-put-image-function* は画像をレンダリングする関数を指定する
+変数で、この変数を設定することで画像の表示方法を変更できます。
+
+ここではalt文字列のみを表示する *shr-put-image-alt* 関数を用意して、
+shr-put-image-function に指定できるようにします。
+
+*M-x eww-disable-images* は画像非表示にし、
+*M-x eww-enable-images* は画像表示にします。
+
+** 設定 [[http://rubikitch.com/f/mylisp-eww-image.el][mylisp-eww-image.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/emacs/init.d/mylisp-eww-image.el"
+#+BEGIN_SRC fundamental
+(require 'eww)
+
+(defun eww-disable-images ()
+  "ewwで画像表示させない"
+  (interactive)
+  (setq-local shr-put-image-function 'shr-put-image-alt)
+  (eww-reload))
+(defun eww-enable-images ()
+  "ewwで画像表示させる"
+  (interactive)
+  (setq-local shr-put-image-function 'shr-put-image)
+  (eww-reload))
+(defun shr-put-image-alt (spec alt &optional flags)
+  (insert alt))
+
+(provide 'mylisp-eww-image)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/mylisp-eww-image.el
+$ emacs -Q -f package-initialize -l mylisp-eww-image.el
+#+END_EXAMPLE
+
+** 最初から画像を非表示にするには
+最初から画像非表示にするには、以下の設定を加えます。
+
+#+BEGIN_SRC emacs-lisp :results silent
+(defun eww-mode-hook--disable-image ()
+  (setq-local shr-put-image-function 'shr-put-image-alt))
+(add-hook 'eww-mode-hook 'eww-mode-hook--disable-image)
+#+END_SRC
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

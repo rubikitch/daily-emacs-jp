@@ -1,0 +1,108 @@
+#+BLOG: rubikitch
+#+POSTID: 1861
+#+DATE: [2015-07-28 Tue 03:33]
+#+PERMALINK: eyebrowse
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs
+#+EL_PKG_NAME: eyebrowse
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, relate:elscreen, relate:persp-mode, relate:perspective, relate:spaces, relate:windows, relate:0blayout, relate:state
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: ウィンドウ構成を保存・切替える新しくシンプルな実装
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージeyebrowseの紹介
+#+MYTAGS: package:eyebrowse, emacs 使い方, emacs コマンド, emacs, eyebrowse, eyebrowse.el, emacs lisp eyebrowse, elisp eyebrowse, emacs melpa eyebrowse, emacs eyebrowse 使い方, emacs eyebrowse 設定, emacs パッケージ eyebrowse, emacs eyebrowse スクリーンショット, relate:elscreen, relate:persp-mode, relate:perspective, relate:spaces, relate:windows, relate:0blayout, relate:state
+#+TAGS: package:eyebrowse, emacs 使い方, emacs コマンド, emacs, eyebrowse, eyebrowse.el, emacs lisp eyebrowse, elisp eyebrowse, emacs melpa eyebrowse, emacs eyebrowse 使い方, emacs eyebrowse 設定, emacs パッケージ eyebrowse, emacs eyebrowse スクリーンショット, relate:elscreen, relate:persp-mode, relate:perspective, relate:spaces, relate:windows, relate:0blayout, relate:state, Emacs, eyebrowse.el, eyebrowse.el
+#+TITLE: emacs eyebrowse.el : ウィンドウ構成を保存・切替える新しくシンプルな実装 | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>eyebrowse</td></tr>
+<tr><td>概要(原文)</td><td>Easy window config switching</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/wasamasa/eyebrowse">https://github.com/wasamasa/eyebrowse</a></td></tr>
+<tr><td>バージョン</td><td>20151008.1142</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:eyebrowse/">package:eyebrowse</a> <a href="http://rubikitch.com/tag/package:elscreen/">package:elscreen</a> <a href="http://rubikitch.com/tag/package:persp-mode/">package:persp-mode</a> <a href="http://rubikitch.com/tag/package:perspective/">package:perspective</a> <a href="http://rubikitch.com/tag/package:spaces/">package:spaces</a> <a href="http://rubikitch.com/tag/package:windows/">package:windows</a> <a href="http://rubikitch.com/tag/package:0blayout/">package:0blayout</a> <a href="http://rubikitch.com/tag/package:state/">package:state</a></td></tr>
+</table>
+<br />
+#+END_HTML
+ウィンドウ構成を切替えるパッケージといえば
+windows.elや[[http://rubikitch.com/2014/09/05/elscreen/][elscreen.el(レビュー)]] が有名ですが、
+この *eyebrowse.el* も同系統のものです。
+
+マイナーモードeyebrowse-modeを有効にしたら
+「¬_¬」とモードラインに表示され、
+機能が使えるようになります。
+
+デフォルトではC-c C-wがプレフィクスキーになっていますが、
+これはメジャーモードで使われる可能性があるので規約違反です。
+
+本設定ではプレフィクスキーをC-c wに変更しています。
+
+C-c w 0〜C-c w 9で番号に対応するウィンドウ構成を切替え、
+C-M-,とC-M-.で前後に切替えられるようにしました。
+
+
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150728034832.png]]
+Fig1: マイナーモード有効になり、ウィンドウ構成を切替えられる
+** eyebrowse インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install eyebrowse
+
+
+#+end:
+** 概要                                                             :noexport:
+ウィンドウ構成を切替えるパッケージといえば
+windows.elや[[http://rubikitch.com/2014/09/05/elscreen/][elscreen.el(レビュー)]] が有名ですが、
+この *eyebrowse.el* も同系統のものです。
+
+マイナーモードeyebrowse-modeを有効にしたら
+「¬_¬」とモードラインに表示され、
+機能が使えるようになります。
+
+デフォルトではC-c C-wがプレフィクスキーになっていますが、
+これはメジャーモードで使われる可能性があるので規約違反です。
+
+本設定ではプレフィクスキーをC-c wに変更しています。
+
+C-c w 0〜C-c w 9で番号に対応するウィンドウ構成を切替え、
+C-M-,とC-M-.で前後に切替えられるようにしました。
+
+
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150728034832.png]]
+Fig2: マイナーモード有効になり、ウィンドウ構成を切替えられる
+
+** 設定 [[http://rubikitch.com/f/150728033129.eyebrowse.el][150728033129.eyebrowse.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/150728/150728033129.eyebrowse.el"
+#+BEGIN_SRC fundamental
+;;; eyebrowse-modeの前にプレフィクスキーを指定する!
+(setq eyebrowse-keymap-prefix (kbd "C-c w"))
+;;; キーバインドを有効にする
+(eyebrowse-mode 1)
+;;; 新しくキーバインドを設定するにはeyebrowse-modeの後に書く
+;;; C-M-.とC-M-,で前後のウィンドウ構成, C-c w dでウィンドウ構成削除
+(define-key eyebrowse-mode-map (kbd "C-M-.") 'eyebrowse-next-window-config)
+(define-key eyebrowse-mode-map (kbd "C-M-,") 'eyebrowse-prev-window-config)
+(define-key eyebrowse-mode-map (kbd "C-c w d") 'eyebrowse-close-window-config)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/150728033129.eyebrowse.el
+$ emacs -Q -f package-initialize -l 150728033129.eyebrowse.el
+#+END_EXAMPLE

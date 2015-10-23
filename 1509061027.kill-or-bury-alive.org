@@ -1,0 +1,128 @@
+#+BLOG: rubikitch
+#+POSTID: 1955
+#+DATE: [2015-09-06 Sun 10:27]
+#+PERMALINK: kill-or-bury-alive
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs
+#+EL_PKG_NAME: kill-or-bury-alive
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs バッファを削除する, バッファ削除, バッファを非表示にする
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 
+#+EL_TITLE0: バッファは殺すよりも生き埋めにしよう
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージkill-or-bury-aliveの紹介
+#+MYTAGS: package:kill-or-bury-alive, emacs 使い方, emacs コマンド, emacs, kill-or-bury-alive, kill-or-bury-alive.el, emacs lisp kill-or-bury-alive, elisp kill-or-bury-alive, emacs melpa kill-or-bury-alive, emacs kill-or-bury-alive 使い方, emacs kill-or-bury-alive 設定, emacs パッケージ kill-or-bury-alive, emacs バッファを削除する, バッファ削除, バッファを非表示にする
+#+TAGS: package:kill-or-bury-alive, emacs 使い方, emacs コマンド, emacs, kill-or-bury-alive, kill-or-bury-alive.el, emacs lisp kill-or-bury-alive, elisp kill-or-bury-alive, emacs melpa kill-or-bury-alive, emacs kill-or-bury-alive 使い方, emacs kill-or-bury-alive 設定, emacs パッケージ kill-or-bury-alive, emacs バッファを削除する, バッファ削除, バッファを非表示にする, Emacs, M-x bury-buffer, kill-or-bury-alive.el, M-x kill-or-bury-alive, kill-or-bury-alive-must-die-list, M-x bury-buffer, kill-or-bury-alive.el, M-x kill-or-bury-alive, kill-or-bury-alive-must-die-list
+#+TITLE: emacs kill-or-bury-alive.el : バッファは殺すよりも生き埋めにしよう | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>kill-or-bury-alive</td></tr>
+<tr><td>概要(原文)</td><td>Precise control over buffer killing in Emacs</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/mrkkrp/kill-or-bury-alive">https://github.com/mrkkrp/kill-or-bury-alive</a></td></tr>
+<tr><td>バージョン</td><td>20150723.703</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:kill-or-bury-alive/">package:kill-or-bury-alive</a> </td></tr>
+</table>
+<br />
+#+END_HTML
+今見ているバッファを視界から消すには、
+普通ならばC-x kでバッファを削除しますよね。
+
+しかし、現在のコンピュータは大量のメモリを積んでいます。
+
+将来、わずかながらでも再びそのバッファを見る可能性があることを考えると、
+バッファを削除するのは馬鹿馬鹿しくなってきます。
+
+そこで、C-x kに *M-x bury-buffer* を割り当てている人もいます。
+
+bury-bufferは、バッファを削除するのではなく、
+バッファリストの最後尾に移動するコマンドです。
+
+そうすることでバッファ選択の選択肢に登りにくくなります。
+
+いわば生き埋めにするような状態です。
+
+とはいえ、すべてのバッファを生き埋めにするのではなく、
+本当に削除したいバッファを指定したくなるときもあります。
+
+そこで *kill-or-bury-alive.el* の出番です。
+
+*M-x kill-or-bury-alive* をC-x kに割り当て直せば、
+普段はbury-bufferを使用し、C-uをつければ削除します。
+
+M-x kill-or-bury-aliveを制御する重要な変数は
+*kill-or-bury-alive-must-die-list* で、
+削除するバッファの正規表現、またはメジャーモードを指定します。
+
+バッファがあまりにも増えすぎてしまった場合はどうします？
+素直にEmacsを再起動してください。
+
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+** kill-or-bury-alive インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install kill-or-bury-alive
+
+
+#+end:
+** 概要                                                             :noexport:
+今見ているバッファを視界から消すには、
+普通ならばC-x kでバッファを削除しますよね。
+
+しかし、現在のコンピュータは大量のメモリを積んでいます。
+
+将来、わずかながらでも再びそのバッファを見る可能性があることを考えると、
+バッファを削除するのは馬鹿馬鹿しくなってきます。
+
+そこで、C-x kに *M-x bury-buffer* を割り当てている人もいます。
+
+bury-bufferは、バッファを削除するのではなく、
+バッファリストの最後尾に移動するコマンドです。
+
+そうすることでバッファ選択の選択肢に登りにくくなります。
+
+いわば生き埋めにするような状態です。
+
+とはいえ、すべてのバッファを生き埋めにするのではなく、
+本当に削除したいバッファを指定したくなるときもあります。
+
+そこで *kill-or-bury-alive.el* の出番です。
+
+*M-x kill-or-bury-alive* をC-x kに割り当て直せば、
+普段はbury-bufferを使用し、C-uをつければ削除します。
+
+M-x kill-or-bury-aliveを制御する重要な変数は
+*kill-or-bury-alive-must-die-list* で、
+削除するバッファの正規表現、またはメジャーモードを指定します。
+
+バッファがあまりにも増えすぎてしまった場合はどうします？
+素直にEmacsを再起動してください。
+
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+** 設定 [[http://rubikitch.com/f/150906103640.kill-or-bury-alive.el][150906103640.kill-or-bury-alive.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/150906/150906103640.kill-or-bury-alive.el"
+#+BEGIN_SRC fundamental
+(global-set-key (kbd "C-x k") 'kill-or-bury-alive)
+(setq kill-or-bury-alive-must-die-list
+      '("\\.\\(jpg\\|png\\|gif\\|bmp\\)$" ;画像は削除する
+        ;; shellやeshellのバッファは削除する
+        shell-mode eshell-mode
+        ))
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/150906103640.kill-or-bury-alive.el
+$ emacs -Q -f package-initialize -l 150906103640.kill-or-bury-alive.el
+#+END_EXAMPLE

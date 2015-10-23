@@ -1,0 +1,273 @@
+#+BLOG: rubikitch
+#+POSTID: 1334
+#+DATE: [2015-03-19 Thu 05:33]
+#+PERMALINK: sd1409-migemo-ace-jump-mode-dabbrev
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, SKK, 
+#+DESCRIPTION: エディタ選びで最初に注目するのは、やはり「どれだけ効率的に文章・コードを書けるか」ですよね。今回は「isearch＋Migemo(＋ace-jump-mode)」を使った高速なカーソル移動、「dabbrev-expand」、「hippie-expand」を使った強力な入力支援を紹介します。
+#+MYTAGS: package:ace-jump-mode, package:ddskk, package:ace-jump-mode, package:hippie-exp, package:dabbrev, package:migemo, hippie-expand, ace-jump-mode, cmigemo, migemo.el
+#+TITLE: #5 カーソル移動と入力支援でスピードアップ！ (Software Design 2014年9月号掲載記事) Emacs Migemo ace-jump-mode dabbrev hippie-exp
+#+begin: org2blog-tags
+#+TAGS: package:ace-jump-mode, package:ddskk, package:ace-jump-mode, package:hippie-exp, package:dabbrev, package:migemo, hippie-expand, ace-jump-mode, cmigemo, migemo.el, Emacs, SKK, , helm, 文字入力の一元化, カーソル移動, 効率的な文字入力, 変数名, 関数名, シンボル, 文字列リテラル, 対応する括弧の末尾, S式, インクリメンタルサーチ, isearch, 正規表現isearch, 正規表現, メタ文字, 漢字変換, 漢字変換なしでローマ字で日本語文字列をisearch, Migemo, cmigemo, migemo.el, 入力支援機能, dabbrev, M-/, 補完, SKK, ファイル名補完, hippie-expand-try-functions-list, try-complete-file-name-partially, try-complete-file-name, try-expand-line, try-expand-list, 単語登録, 英字変換
+#+end:
+Software Design連載記事を掲載します。
+
+株式会社技術評論社の許可を得て掲載しています。
+草稿なので細かい部分は実際の記事とは異なることがあります。
+
+1. 2014/05 [[http://rubikitch.com/2014/08/28/sd1405/][なぜEmacsをお勧めするのか？]]
+2. 2014/06 [[http://rubikitch.com/2014/09/04/sd1406/][スマートにEmacsを始めるための小さいけど重要なコツ]]
+3. 2014/07 [[http://rubikitch.com/2014/10/05/sd1407/][反復練習に勝るものなし -- 打鍵すべし！設定書くべし！]]
+4. 2014/09 [[http://rubikitch.com/2015/03/16/sd1408-ddskk/][SKK＋AZIKで快適・効率的な日本語入力を！]]
+
+今回はカーソル移動の基礎、
+isearch、Migemoによるローマ字isearch、
+ace-jump-mode.elによる高速画面内移動、
+dabbrev-expand/hippie-expandによる入力支援がテーマです。
+
+本サイトのレビュー記事もあります。
+- [[http://rubikitch.com/2014/08/20/migemo/][Migemo(cmigemo+migemo.el)]]
+  - 多くのelispで対応しています→ [[http://rubikitch.com/tag/migemo][tag:migemo]]
+- [[http://rubikitch.com/2014/10/09/ace-jump-mode/][ace-jump-mode.el]]
+  - ace-jump-modeを使った応用例→ [[http://rubikitch.com/tag/ace-jump-mode/][tag:ace-jump-mode]]
+- *helm* ユーザならば断然 [[http://rubikitch.com/2014/12/25/helm-swoop/][helm-swoop.el (Emacs Advent Calendar 2014記事)]]
+* カーソル移動
+　ども、Emacsと熱愛状態にあるるびきちです。「Emacsの恩恵は *文字入力の一元化* にある」という路線で本連載は進めていっています。今回はテキストエディタの本質である *カーソル移動* と *効率的な文字入力* について触れていきます。本記事を読んで設定していけば、Emacs以外で文章を書くことが本当に馬鹿らしくなってきますので楽しみにしててください。
+** 基本
+　まずはカーソル移動についてです。カーソル移動の最小単位は文字・行です。C-b(←)、C-f(→)、C-p(↑)、C-n(↓)はもう無意識で使えていますか？マウスやカーソルキーを使っていない時点でメモ帳やブラウザのtextareaなどただのおもちゃレベルで、相手になりません。
+
+　その次は単語単位の移動になります。M-b(←)、M-f(→)というふうに、Ctrl→Metaに変わっただけですが、少し離れた位置にカーソルを移動させる場合に重宝してきます。C-a(行頭)、C-e(行末)も大事なコマンドです。
+
+　プログラミング言語を編集する場合は、単語とは別に「まとまり」単位で動いて欲しいことがあります。 *変数名* や *関数名* といった *シンボル* 、 *文字列リテラル* 、 *対応する括弧の末尾* など、自然言語における「単語」とは違ってプログラミング言語的に意味する構成要素があります。たとえば、Emacs Lispで「find-file」という文字列がある場合、単語としては2語ですが、Emacs Lispとしては1つのシンボル(名前)です。その構成要素を「 *S式* 」といいます。S式単位の移動はC-M-b(←)、C-M-f(→)です。
+
+　S式はLisp由来の概念で、Emacs Lispには特によくなじんでいます。他の(非Lisp系でさえも)プログラミング言語でもシンボルや括弧に囲まれたものはS式とみなされます。S式という概念を詳しく説明するのは本稿から外れてしまうのでこれくらいにしておきますが、コーディングにおいてC-M-bとC-M-fは基本的なカーソル移動手段なので感覚を身に付けておいてください。
+
+** インクリメンタルサーチ
+　Emacsでのカーソル移動コマンドは強力ですが、到達したい場所が離れている場合は、それだけでは力不足です。離れた場所にでもすぐに到達できるようにするためには、移動したい場所の文字列を指定して、エディタに探してもらう「検索」という機能が必要となります。
+
+　Emacsでの検索は *インクリメンタルサーチ* (*isearch*)が採用されています。普通の検索は検索文字列を入力した後に検索を始めますが、isearchは検索文字列をタイプするたびに検索します。そのおかげで最小限のタイプ数で到達したい場所へとカーソルを移動してくれます。だからこそEmacsにおいてisearchは重要なカーソル移動コマンドです。少し離れた場所に移動する場合はisearch、これは鉄板です。邪魔なダイアログボックスが現れないこともありがたいです。
+
+　isearchは前方(カーソル以降)にはC-s、後方(カーソル以前)にはC-rを使います。1ストロークの押しやすいキーに割り当ててあることから、多用されるべき機能であることが見て取れます。
+
+　isearchをしていて目的の場所に到達したときはRETを押して終了します。C-fなどの他のカーソル移動コマンドでもisearchを抜けられます。
+
+　isearch一発で目的の場所に到達するとは限りません。その場合に採れる選択肢は2つです。さらに検索文字列を入力するか、同じ文字列を検索するかです。同じ文字列を検索するにはisearch中にC-s(前方)かC-r(後方)を使います。
+
+　isearch終了後に最後に検索した文字列を再検索するにはC-s C-sあるいはC-r C-rを使います。
+
+　C-uを前置すると *正規表現isearch* になります。つまり、前方はC-u C-s、後方はC-u C-rです。 *正規表現* とは文字列のパターンを記述するミニ言語で、あらゆる分野で使われています。正規表現についてはかなり奥が深く、それだけで一冊の本になっているほどです。ですが、最小限の正規表現を知っておくだけでEmacsで日常的な編集はまかなえます。
+
+　正規表現で使われる文字は「 *メタ文字* 」と「それ以外の文字」に分かれます。メタ文字とは、パターンを表現するために特別な意味を持つ文字です。メタ文字以外の文字はその文字そのものにマッチします。Emacsの正規表現はややクセがあり、「(」と「)」と「|」はそれぞれバックスラッシュをつけて「\(」、「\)」、「\|」とします。
+
+　たとえば、後方にある「C-x」と「C-f」を検索するときには正規表現isearchを使います。C-u C-rの後に文字通り「C-.」を入力します。メタ文字「.」は改行以外の文字にマッチするので、この場合xとfにマッチします。厳密には「C-[xf]」を指定すべきですが、「.」を使った方が手軽です。その分余計な文字にもマッチしてしまうので、臨機応変に対処してください。
+
+表:主な正規表現のメタ文字
+| メタ文字  | 意味                                       |
+|-----------+--------------------------------------------|
+| .         | 改行以外のすべての文字                     |
+| *         | 直前の表現が 0 回以上                      |
+| +         | 直前の表現が 1 回以上                      |
+| ?         | 直前の表現が 0 回か 1 回                   |
+| [ ... ]   | 文字クラス（どれかの文字に一致）           |
+| [^ ... ]  | 否定文字クラス（どらかの文字に一致しない） |
+| ^         | 行頭                                       |
+| $         | 行末                                       |
+| \｜       | \｜で区切られた表現のうちどれか            |
+| \( ... \) | グルーピング                               |
+
+** Migemoでローマ字で日本語をisearch
+　isearchはカーソル移動においては不可欠ですが、日本語とは相性がよくないです。なぜなら、 *日本語文字列を検索* するには、わざわざ *漢字変換* をする必要があるからです。漢字変換するくらいならカーソル移動コマンドをそのまま使った方が早いくらいです。漢直入力を使わない限り、日本語と漢字変換は切っても切れない関係であり、大きなハンデとなっています。
+
+　 *漢字変換なしでローマ字で日本語文字列をisearch* できたらいいなと思いませんか？その願望を叶えてくれる神ツールが *Migemo* です。Migemoは元々、内部処理を担当するRubyスクリプトmigemoとEmacsインターフェースのmigemo.elの2つで構成されています。今のRubyではmigemoは動かないので、内部処理はＣ言語で書かれたcmigemoを使います。よって、必要なのは *cmigemo* と *migemo.el* です。
+
+　Debian系列のGNU/Linuxならば両者ともパッケージ化されているのでインストールは簡単です。「sudo apt-get install cmigemo migemo-el」を実行するだけで、初期設定までしてくれて、そのまま使えます。多くのGNU/Linuxはパッケージシステムがあるため、インストール・設定・管理がとても楽です。
+
+　パッケージ化されていない場合はcmigemoとmigemo.elは別個でインストールし、初期設定も行う必要があります。Macは「brew install cmigemo」で、Windowsは http://www.kaoriya.net/software/cmigemo/ からcmigemoのバイナリを取ってきます。
+
+　migemo.elはMELPAに登録されています。初期設定でHEREと書かれた部分は環境に合わせて書き換えてください。インストールが終われば、init.elに設定を書き加えてください。
+
+M-x package-refresh-contents
+M-x package-install migemo
+
+==== パッケージを使うための初期設定
+#+BEGIN_SRC emacs-lisp
+(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
+(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
+(package-initialize)
+#+END_SRC
+====
+
+==== migemo.elからcmigemoを使う初期設定
+#+BEGIN_SRC emacs-lisp
+(when (locate-library "migemo")
+  (setq migemo-command "/usr/local/bin/cmigemo") ; HERE cmigemoバイナリ
+  (setq migemo-options '("-q" "--emacs"))
+  (setq migemo-dictionary "/usr/local/share/migemo/utf-8/migemo-dict") ; HERE Migemo辞書
+  (setq migemo-user-dictionary nil)
+  (setq migemo-regex-dictionary nil)
+  (setq migemo-coding-system 'utf-8-unix)
+  (load-library "migemo")
+  (migemo-init))
+#+END_SRC
+====
+
+　Migemoをインストールしたら、Emacsを再起動してローマ字で日本語文字列を検索してください。たとえば「C-s niho」で「日本語」に到達できるようになります。実際に使ってみれば感動すること請け合いです。
+** ace-jump-mode
+　isearchは強力なカーソル移動方法ですが、もう一つ便利なカーソル移動コマンドを紹介しておきます。 *M-x ace-jump-word-mode* は画面内の任意の単語開始位置に3ストローク以内でジャンプするコマンドです。isearchはカレントバッファ全体が走査対象ですが、ace-jump-word-modeは画面内の移動に特化しています。isearchでは検索文字列が多数マッチしたときに何度もC-sやC-rを押す必要があって手間がかかりますが、ace-jump-word-modeはそんな問題とはおさらばできます。また、ウィンドウが分割されていたとしても、画面に表示されているのであればウィンドウ切り替えなしで即ジャンプできます。筆者は導入後あっさり魅了されました。
+
+M-x package-install ace-jump-mode
+でインストールし、以下の初期設定を行います。筆者はC-oに割り当てていますが、ここではC-:に割り当てています。
+
+====
+(require 'ace-jump-mode)
+(setq ace-jump-mode-gray-background nil)
+(setq ace-jump-word-mode-use-query-char nil)
+(setq ace-jump-mode-move-keys
+      (append "asdfghjkl;:]qwertyuiop@zxcvbnm,." nil))
+(global-set-key (kbd "C-:") 'ace-jump-word-mode)
+====
+
+　使い方は簡単です。C-:を押したら単語の先頭に赤文字が表示されるので、移動したい場所の赤文字をタイプしてください。
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/ace-jump-mode-10.png]]
+↓
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/ace-jump-mode-11.png]]
+* 入力支援機能
+　後半はEmacsの強力な *入力支援機能* をいくつか紹介します。特に *dabbrev* はこれなしでは生きていけないほど超強力です。
+** dabbrev-expand
+　入力支援機能のうちに真っ先に紹介しておきたいのがこのdabbrev機能です。dabbrevとは *動的略語展開* のことで、長い文字列を補ってくれるものです。
+
+　Emacsを使っていると、どうしても同じ単語を何度も打ち込むことが多くなりますね。でも、毎回馬鹿正直にタイプすると、時間がかかる上に、タイプミスが起こりやすくなってしまいます。
+
+　そこで、長い単語を入力するときは先頭の数文字をタイプしてから *M-/* を押してみましょう。たとえばinterの後にM-/を押してみると、internet、interesting、interactive、intervalなどの単語に *補完* されます。もし望みの単語でなければ繰り返しM-/を押してください。もし、行きすぎてしまったときはC-/で戻してください。
+
+　M-/がどのように補完されるかは状況に依存します。連続で押していくと、以下の場所から探索されます。
+1. カレントバッファのカーソル位置に一番近い単語
+2. カーソル位置から離れた単語
+3. 他のバッファ
+
+　これは言葉で説明するよりも、実際に手を動かしてください。これを知ると本当に世界が変わります。初めて使ったときには、まるで魔法でもかかっているのかのように適切に補完してくれることに驚くことでしょう。文章入力でもプログラミングでもあらゆる局面で使えます。
+
+　プログラミングにおいては言語固有の補完を使うのが普通ですが、一部の言語では正確な補完候補を求めるのが困難なケースがあります。たとえばRubyプログラミングで補完すべきメソッド名がわかっている場合は補完コマンドを使うのではなくてM-/で済ませてしまいます。
+
+　ただ、日本語においては単語の間に空白を入れないために相性が悪いです。お使いの日本語入力システムでカバーしてください。 *SKK* は過去に入力した見出し語を補完できるので便利です。dabbrevは英文やコーディングに絶大な威力を発揮します。
+
+　M-/を多用するようになると、そのうち打ちづらく感じてくることでしょう。押しやすいキーに各自割り当てると快適になります。この設定例ではC-@に割り当てています。
+
+==== キー割り当て例
+(global-set-key (kbd "C-@") 'dabbrev-expand)
+====
+
+** hippie-expand
+　dabbrev-expandはきわめて強力なコマンドですが、この進化形といえるコマンドが標準で存在します。 *M-x hippie-expand* です。M-/では開かれているバッファの中が補完候補になりますが、hippie-expandでは入力中のファイル名だったり、Emacs Lispのシンボルだったり、キルリングの中身からも走査してくれます。
+# *ファイル名補完*
+　hippie-expandはとても賢く、入力の状況に応じて空気を読んでくれます。特にファイル名を入力しているときには先頭数文字だけ入力すれば適切な補完してくれるありがたいコマンドです。
+
+　使い方はM-/と同じで、数文字タイプしてから実行し、望みに結果と異なるときには再実行します。
+
+　本稿ではdabbrev-expandと同じC-@に割り当てていますが、dabbrev-expandに慣れてからhippie-expandに乗り換えればいいです。
+
+==== キー割り当て例
+(global-set-key (kbd "C-@") 'hippie-expand)
+====
+
+　変数 *hippie-expand-try-functions-list* はhippie-expandでどのように補完するかを細かく指定できます。補完の方法はtryから始まる関数で指定してあり、デフォルトでは以下のような設定になっています。上から順番に関数を実行していき、実際に補完が行われたときにhippie-expandの実行は終了します。好みに応じて削除したり順番を入れ替えたりできます。hippie-expandを実行すると「Using try-expand-dabbrev」などと表示されますが、どの補完が働いたのかを示しています。
+
+==== デフォルトの設定
+#+BEGIN_SRC emacs-lisp
+(setq hippie-expand-try-functions-list
+      '(try-complete-file-name-partially   ; ファイル名の一部
+        try-complete-file-name             ; ファイル名全体
+        try-expand-all-abbrevs             ; 略語展開(よりよい方法がある今はあまり使われない)
+        try-expand-list                    ; 括弧に囲まれた内容(役立たない)
+        try-expand-line                    ; 行そのもの(役立たない)
+        try-expand-dabbrev                 ; カレントバッファでdabbrev
+        try-expand-dabbrev-all-buffers     ; すべてのバッファでdabbrev
+        try-expand-dabbrev-from-kill       ; キルリングの中からdabbrev
+        try-complete-lisp-symbol-partially ; Emacs Lispシンボルの一部(役立たない)
+        try-complete-lisp-symbol))         ; Emacs Lispシンボル全体(役立たない)
+#+END_SRC
+====
+
+　ファイル名入力中にhippie-expandを実行すると、最初に *try-complete-file-name-partially* が働き、最低限の補完が行われます。そして、再実行すると *try-complete-file-name* が働いて存在するファイル名が実行するたびに出てくるようになります。たとえば、SD1404.pdfとSD1405.pdfが存在するときは、SDの後にhippie-expandを実行するとSD140と補完されます。その後はファイル名の一部を入力するか、再びhippie-expandを実行するかで挙動が変わってきます。
+
+==== 実行例
+#+BEGIN_EXAMPLE
+SD
+↓hippie-expand
+SD140
+↓5を入力してhippie-expand
+SD1405.pdf
+
+SD
+↓hippie-expand
+SD140
+↓hippie-expand
+SD1404.pdf
+↓hippie-expand
+SD1405.pdf
+#+END_EXAMPLE
+====
+
+　 *try-expand-line* は同じ行を入力しようとします。たとえば「ab cd」という行が存在したときに「a」の後にhippie-expandを実行すると「ab cd」が出てきます。
+
+　 *try-expand-list* は括弧に囲まれた内容を入力しようとします。たとえば「(a b)」とどこかに書いてあるときに「(a」が「(a b)」になります。
+
+　hippie-expandはdabbrevにファイル名補完が付いたものとして使われることが多いと思われます。筆者の経験上、 try-expand-lineと try-expand-listのお世話になったことがありません。しかもdabbrevよりも先に実行されるのでdabbrevのつもりでhippie-expandを実行したら思わぬ結果に戸惑ってしまいます。
+
+　また、dabbrevの下にEmacs Lispシンボル補完が設定されていますが、Emacs Lispファイル以外でEmacs Lispシンボルを入力することは滅多にありません。ChangeLogなどでシンボルを入力することはありますが、そのシンボルはdabbrevの時点で補完できます。なぜなら、そのシンボルが書かれているEmacs Lispファイルをすでに開いているからです。
+
+　一般に多機能ということは余計なものが含まれていたり、想定とは異なる挙動をしてしまうことが多々あります。自分の理解を超えた機能というのは必要ありません。筆者はhippie-expandのデフォルトの設定は複雑すぎると考えています。ファイル名補完＋dabbrevで十分でしょう。
+
+==== 筆者推奨のhippie-expandの設定
+#+BEGIN_SRC emacs-lisp
+(setq hippie-expand-try-functions-list
+      '(try-complete-file-name-partially
+        try-complete-file-name
+        try-expand-dabbrev
+        try-expand-dabbrev-all-buffers
+        try-expand-dabbrev-from-kill))
+#+END_SRC
+====
+
+** SKKを使う
+　dabbrev-expandやその進化形のhippie-expandは強力ですが日本語は苦手としています。日本語入力においては独自のノウハウがあります。
+
+　[[http://rubikitch.com/2015/03/16/sd1408-ddskk/][先月紹介した日本語入力システムSKK]] は単語変換だからこそ独自のメリットが存在します。特筆すべきはすぐに使える単語登録と英字変換です。SKK辞書は品詞情報がないため、見出し語と変換結果のテーブルに過ぎません。つまり、好き勝手に *単語登録* しまくれるのです。
+
+　そして、 *英字変換* は英数字を見出し語にできることです。たとえば、「code→コード」のような変換が行えます。「/code」を変換すればコードと出てきます。
+
+　この2つを組み合わせれば現在書いている文章に頻出する単語を登録してすぐに出せるようになります。たとえば、「日本語入力」という単語が頻出する場合には「/n」で出せるように単語登録してしまえばいいのです。SKKでは真っ先に変換候補として出るのが最近使った単語なので、こういう単語登録は邪魔にはなりません。使わなくなった単語登録は候補の後ろへ追いやられるだけです。一時的に使う入力短縮のために積極的に単語登録できるのがSKKの強みのひとつです。もちろんURLやメールアドレスを単語登録することだってできます。
+
+　さらに以下の設定を加えると、見出し語入力中に最後に入力した見出し語が表示されるようになります。最後に「日本語」と入力したときに再び「Ni」と入力したとき別な色で「にほんご」と出てきます。そのまま変換したいときはM-SPCを押します。これを知っているだけでもかなりタイプ数を減らせます。
+
+==== 最後の見出し語を表示させる
+#+BEGIN_SRC emacs-lisp
+(setq skk-dcomp-activate t)
+#+END_SRC
+====
+
+* 終わりに
+　今回はカーソル移動と文字入力というテキストエディタの基本機能を快適に使うお話でした。少し難しすぎましたか？入力支援機能は、もっともっと高度で便利なものが存在しますが、今回はシンプルなものを取り上げました。それでもにMigemoとdabbrevには驚かれるかと思います。
+
+　筆者はEmacsの週刊メルマガを書いています。Emacsをもっともっと便利に使いたい、将来的にはEmacsの達人になりたいのならば登録お願いします。http://www.mag2.com/m/0001373131.html Happy Emacsing！
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+
+# ace-jump-0.bmp">ace-jump-0.bmp</a><br  /> ↓<br  /> <a href="ace-jump-2.bmp http://rubikitch.com/wp-content/uploads/2015/03/wpid-a-hreface-jump-2.bmp
+
+# /r/sync/screenshots/ace-jump-0.png http://rubikitch.com/wp-content/uploads/2015/03/wpid-ace-jump-0.png
+# /r/sync/screenshots/ace-jump-2.png http://rubikitch.com/wp-content/uploads/2015/03/wpid-ace-jump-2.png
+
+# /r/sync/screenshots/ace-jump-10.png http://rubikitch.com/wp-content/uploads/2015/03/wpid-ace-jump-10.png
+# /r/sync/screenshots/ace-jump-11.png http://rubikitch.com/wp-content/uploads/2015/03/wpid-ace-jump-11.png
+
+# /r/sync/screenshots/ace-jump-mode-10.png http://rubikitch.com/wp-content/uploads/2015/03/wpid-ace-jump-mode-10.png
+# /r/sync/screenshots/ace-jump-mode-11.png http://rubikitch.com/wp-content/uploads/2015/03/wpid-ace-jump-mode-11.png

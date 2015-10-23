@@ -1,0 +1,81 @@
+#+BLOG: rubikitch
+#+POSTID: 883
+#+DATE: [2015-01-08 Thu 08:22]
+#+PERMALINK: wimpy-del
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs
+#+EL_PKG_NAME: wimpy-del
+#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, kill-region, emacs C-w, region, cut, kill, copy, 大きなregion
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: 【弱虫C-w】一定文字数以上killするときに尋ねる
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージwimpy-delの紹介
+#+MYTAGS: package:wimpy-del, emacs 使い方, emacs コマンド, emacs, emacs lisp wimpy-del, elisp wimpy-del, emacs melpa wimpy-del, emacs wimpy-del 使い方, emacs wimpy-del 設定, emacs パッケージ wimpy-del, emacs wimpy-del スクリーンショット, kill-region, emacs C-w, region, cut, kill, copy, 大きなregion
+#+TAGS: package:wimpy-del, emacs 使い方, emacs コマンド, emacs, emacs lisp wimpy-del, elisp wimpy-del, emacs melpa wimpy-del, emacs wimpy-del 使い方, emacs wimpy-del 設定, emacs パッケージ wimpy-del, emacs wimpy-del スクリーンショット, kill-region, emacs C-w, region, cut, kill, copy, 大きなregion, Emacs, wimpy-del.el, wimpy-del.el
+#+TITLE: emacs wimpy-del.el : 【弱虫C-w】一定文字数以上killするときに尋ねる | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>wimpy-del</td></tr>
+<tr><td>概要(原文)</td><td>Require confirmation for large region deletion.</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="http://www.emacswiki.org/wimpy-del.el">http://www.emacswiki.org/wimpy-del.el</a></td></tr>
+<tr><td>バージョン</td><td>20150105.109</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:wimpy-del/">package:wimpy-del</a> </td></tr>
+</table>
+<br />
+#+END_HTML
+大きなregionを削除するのは怖いですよね。
+
+そこで *wimpy-del.el* はC-wを「弱虫バージョン」に置き換えます。
+
+一定以上(2000)の文字数を削除するときは尋ねるようになります。
+
+
+** wimpy-del インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install wimpy-del
+
+
+#+end:
+** 概要                                                             :noexport:
+大きなregionを削除するのは怖いですよね。
+
+そこで *wimpy-del.el* はC-wを「弱虫バージョン」に置き換えます。
+
+一定以上(2000)の文字数を削除するときは尋ねるようになります。
+
+
+
+** 設定 [[http://rubikitch.com/f/150108082028.el][150108082028.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/150108/150108082028.el"
+#+BEGIN_SRC fundamental
+;;; 2000文字以上killしたときに本当にkillするか尋ねる
+(setq wimpy-delete-size 2000)
+(global-set-key (kbd "C-w") 'kill-region-wimpy)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/150108082028.el
+$ emacs -Q -f package-initialize -l 150108082028.el
+#+END_EXAMPLE
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+[[file:/r/sync/screenshots/20150108082545.png]]
+Fig1: 大きいregionに対してC-wすると尋ねる
+
+[[file:/r/sync/screenshots/20150108082548.png]]
+Fig2: 怖いからやーめた！
+
+
+# /r/sync/screenshots/20150108082545.png http://rubikitch.com/wp-content/uploads/2015/01/wpid-20150108082545.png
+# /r/sync/screenshots/20150108082548.png http://rubikitch.com/wp-content/uploads/2015/01/wpid-20150108082548.png

@@ -1,0 +1,135 @@
+#+BLOG: rubikitch
+#+POSTID: 1748
+#+DATE: [2015-06-14 Sun 20:11]
+#+PERMALINK: atom-one-dark-theme
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, theme
+#+EL_PKG_NAME: atom-one-dark-theme
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, atom.io, color-theme, カラーテーマ
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: 出来立てほやほやなダークなカラーテーマ
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージatom-one-dark-themeの紹介
+#+MYTAGS: package:atom-one-dark-theme, emacs 使い方, emacs コマンド, emacs, atom-one-dark-theme, atom-one-dark-theme.el, emacs lisp atom-one-dark-theme, elisp atom-one-dark-theme, emacs melpa atom-one-dark-theme, emacs atom-one-dark-theme 使い方, emacs atom-one-dark-theme 設定, emacs パッケージ atom-one-dark-theme, emacs atom-one-dark-theme スクリーンショット, atom.io, color-theme, カラーテーマ
+#+TAGS: package:atom-one-dark-theme, emacs 使い方, emacs コマンド, emacs, atom-one-dark-theme, atom-one-dark-theme.el, emacs lisp atom-one-dark-theme, elisp atom-one-dark-theme, emacs melpa atom-one-dark-theme, emacs atom-one-dark-theme 使い方, emacs atom-one-dark-theme 設定, emacs パッケージ atom-one-dark-theme, emacs atom-one-dark-theme スクリーンショット, atom.io, color-theme, カラーテーマ, Emacs, theme, atom-one-dark-theme.el
+#+TITLE: emacs atom-one-dark-theme.el : 出来立てほやほやなダークなカラーテーマ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>atom-one-dark-theme</td></tr>
+<tr><td>概要(原文)</td><td>Atom One Dark color theme</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/jonathanchu/atom-one-dark-theme">https://github.com/jonathanchu/atom-one-dark-theme</a></td></tr>
+<tr><td>バージョン</td><td>20150608.1952</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:atom-one-dark-theme/">package:atom-one-dark-theme</a> </td></tr>
+</table>
+<br />
+#+END_HTML
+*atom-one-dark-theme.el* はAtomの同名のテーマの移植版です。
+
+開発して間がないので設定は少ないです。
+
+-  mode-line
+-  isearch
+-  diff-hl
+-  dired-mode
+-  flx-ido
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_theme_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150614200931.png]]
+Fig1: emacs-lisp-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150614200937.png]]
+Fig2: magit
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150614200946.png]]
+Fig3: grep
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150614200958.png]]
+Fig4: outline-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150614201017.png]]
+Fig5: org-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150614201026.png]]
+Fig6: dired
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150614201031.png]]
+Fig7: web-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150614201038.png]]
+Fig8: markdown-mode with powerline
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150614201044.png]]
+Fig9: helm
+** atom-one-dark-theme インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install atom-one-dark-theme
+
+
+#+end:
+** 概要                                                             :noexport:
+*atom-one-dark-theme.el* はAtomの同名のテーマの移植版です。
+
+開発して間がないので設定は少ないです。
+
+-  mode-line
+-  isearch
+-  diff-hl
+-  dired-mode
+-  flx-ido
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_theme_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150614200931.png]]
+Fig10: emacs-lisp-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150614200937.png]]
+Fig11: magit
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150614200946.png]]
+Fig12: grep
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150614200958.png]]
+Fig13: outline-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150614201017.png]]
+Fig14: org-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150614201026.png]]
+Fig15: dired
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150614201031.png]]
+Fig16: web-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150614201038.png]]
+Fig17: markdown-mode with powerline
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150614201044.png]]
+Fig18: helm
+

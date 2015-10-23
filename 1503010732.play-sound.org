@@ -1,0 +1,53 @@
+#+BLOG: rubikitch
+#+POSTID: 1227
+#+DATE: [2015-03-01 Sun 07:32]
+#+PERMALINK: play-sound
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, 
+#+DESCRIPTION: 
+#+MYTAGS: play-sound, play-sound-file, relate:clipmon, mplayer, emacs サウンド, emacs mp3 再生, emacs wav 再生
+#+TITLE: Emacsの音声再生機能を強化する
+#+begin: org2blog-tags
+#+TAGS: play-sound, play-sound-file, relate:clipmon, mplayer, emacs サウンド, emacs mp3 再生, emacs wav 再生, Emacs, , サウンド機能, play-sound-file, play-sound, mp3, ogg, play-sound-external-command
+#+end:
+Emacsには *サウンド機能* があります。
+
+外部プレイヤーを使わないでも音声を再生できます。
+
+しかしライブラリを使わないで独自にwav解析ルーチンを持っているので、
+wavファイルしか再生できない貧弱仕様です。
+
+おまけに再生中はEmacsが固まります(苦笑)
+
+なので僕はこの機能を無効にしています。
+
+けれどもあるライブラリで *play-sound-file* という関数が
+使われているので急遽定義することにしました。
+
+Emacsの標準関数 *play-sound* はwavしか再生できませんが、
+再定義版では外部プレイヤー次第で *mp3* や *ogg* など
+どんなファイルも再生できます。
+
+このコードでは[[http://mplayerhq.hu/][MPlayer(本家)]] を使っていますが、
+他のプレイヤーを使う場合は *play-sound-external-command* を
+変更してください。 
+
+
+
+** コード [[http://rubikitch.com/f/150301073615.play-sound.el][150301073615.play-sound.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/150301/150301073615.play-sound.el"
+#+BEGIN_SRC fundamental
+(defvar play-sound-external-command '("mplayer" "-really-quiet"))
+(defun play-sound (sound)
+  (apply 'call-process
+         `(,(car play-sound-external-command) nil nil nil
+           ,@(cdr play-sound-external-command)
+           ,(file-truename (plist-get (cdr sound) :file)))))
+#+END_SRC
+
+#+END:
+

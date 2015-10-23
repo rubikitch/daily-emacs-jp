@@ -1,0 +1,88 @@
+#+BLOG: rubikitch
+#+POSTID: 745
+#+DATE: [2014-12-19 Fri 07:59]
+#+PERMALINK: helm-buffers-sort-transformer
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, helm, 
+#+DESCRIPTION: helmでバッファ順を正しくするには helm-buffers-sort-transformer を無効にする
+#+MYTAGS: package:helm, relate:helm-projectile, relate:anything, helm バッファ選択 並び順
+#+TAGS: package:helm, relate:helm-projectile, relate:anything, helm バッファ選択 並び順, Emacs, helm, , anything.el, helm.el, M-x helm-mini, filtered-candidate-transformer, helm-buffers-sort-transformer, M-x helm-projectile, ibuffer
+#+TITLE: helmでバッファ名が奇妙な並び順になるのを修正
+みなさん、helm使ってますかー？
+
+*anything.el* が *helm.el* に改名されてからはや3年になりますが、
+今尚anything.elの方がいいと言ってくれる人がいるのは
+嬉しい限りです。
+
+anything.elは個人的に使い続けているため、今後とも
+最新のEmacsでも動くような状態には保っておきますが
+anything.elはもう機能拡張しません。
+
+時代の流れには逆らえないもので、
+候補選択フレームワークのトレンドは
+anything.elからhelm.elに
+完全移行してしまいました。
+
+helm.elは過激に変更しているのでanything.elとは
+挙動が変わってしまった点もあります。
+
+特にストレスなのが、バッファ選択です。
+
+*M-x helm-mini* でバッファを選択するために
+クエリを入力しても、変な順番に並んでしまいます。
+
+この原因は、type:bufferの *filtered-candidate-transformer* に
+*helm-buffers-sort-transformer* という関数が入っているからです。
+
+これはバッファの順番をバッファ名の長さにソートする関数です。
+
+type:bufferにて定義されているので、M-x helm-mini以外にも
+*M-x helm-projectile* など、バッファを選択する情報源すべてに影響します。
+
+正直、作者は何考えているのかわかりません(苦笑)。
+
+ハードコーディングされているのでカスタマイズではどうしようもありません。
+
+[[http://d.hatena.ne.jp/a_bicky/20140125/1390647299][a_bickyさんも同じストレスを抱えていますが、]]
+彼はパッチとフォークで対処してします。
+
+こちらは本家helmを使いたい人向けです。
+
+** 検証方法
+M-x anything-miniとM-x helm-miniの挙動の違いを確かめるために、
+[[http://rubikitch.com/2014/11/09/mykie/][コマンドマルチプレクサmykie.el]] でC-x C-zに割り当てましょう。
+
+#+BEGIN_SRC emacs-lisp :results silent
+(mykie:global-set-key "C-x C-z"
+  :default helm-mini
+  :C-u! anything-mini
+  :C-u*2 ibuffer)
+#+END_SRC
+
+- C-x C-z :: helm-mini
+- C-u C-x C-z :: anything-mini
+- C-u C-u C-x C-z :: ibuffer
+
+このようになります。
+
+*ibuffer* で/ mを使い、メジャーモードでフィルタをかけます(例:org-mode)。
+
+そして、anything-miniとhelm-miniを使って
+orgと入力してください。
+
+アドバイスをかける前後で挙動の違いを確認してください。
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+
+** とっとと潰せ！
+こんな関数はアドバイスで潰してしまいましょう。
+
+#+BEGIN_SRC emacs-lisp :results silent
+(defadvice helm-buffers-sort-transformer (around ignore activate)
+  (setq ad-return-value (ad-get-arg 0)))
+#+END_SRC
+
+これでbuffer-list順に並ぶようになります。

@@ -1,0 +1,47 @@
+#+BLOG: rubikitch
+#+POSTID: 167
+#+DATE: [2014-08-14 Thu 16:38]
+#+PERMALINK: SD-wrong-package
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: 著書,
+#+DESCRIPTION: Software Design 9月号連載記事の誤りについて
+#+MYTAGS: 技術評論社 Software Design るびきち流Emacs超入門, Emacs 連載, Software Design Emacs 連載, 正誤表
+#+TAGS: 技術評論社 Software Design るびきち流Emacs超入門, Emacs 連載, Software Design Emacs 連載, 正誤表, 著書,,
+#+TITLE: 【正誤】Software Design 9月号連載記事の誤りについて
+ども、るびきちです。
+
+[[http://gihyo.jp/magazine/SD/][技術評論社Software Design]] にて
+連載記事『るびきち流Emacs超入門』
+を執筆させていただいています。
+
+8/18発売の9月号に誤りがありましたので、修正させてください。
+
+p122のリスト1
+「非公式Emacs Lispパッケージ(MELPA・Marmalade)を使うための初期設定」
+はエラーになります。
+
+3行目の(package-initialize)を1行目に移動してください。
+
+誤
+#+BEGIN_SRC
+(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
+(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
+(package-initialize)
+#+END_SRC
+
+↓
+
+正
+#+BEGIN_SRC
+(package-initialize)
+(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
+(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
+#+END_SRC
+
+読者の皆様には大変御迷惑をおかけいたしました。
+
+今後はこのようなミスのないように気をつけます。

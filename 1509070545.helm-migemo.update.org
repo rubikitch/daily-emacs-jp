@@ -1,0 +1,31 @@
+#+BLOG: rubikitch
+#+POSTID: 1960
+#+DATE: [2015-09-07 Mon 05:45]
+#+PERMALINK: update
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: 記事更新情報, 
+#+DESCRIPTION: 
+#+MYTAGS: 
+#+TITLE: helm-migemoが動かなくなったので対処しました
+#+begin: org2blog-tags
+#+TAGS: , 記事更新情報, , 
+#+end:
+[[http://rubikitch.com/2014/12/19/helm-migemo/]]
+
+helmの
+https://github.com/emacs-helm/helm/commit/b26db37
+のコミットにおいてhelm-match-plugin.el→helm-multi-match.el
+というファイル名変更がなされましたが、同時に関数名も変更されました。
+
+そのためhelm-migemoが動作しなくなってしまいました。
+
+取り急ぎdefaliasを2つ追加することで対処しました。
+
+また、「補足」についても追記しました。
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

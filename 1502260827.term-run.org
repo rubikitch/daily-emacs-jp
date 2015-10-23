@@ -1,0 +1,82 @@
+#+BLOG: rubikitch
+#+POSTID: 1217
+#+DATE: [2015-02-26 Thu 08:27]
+#+PERMALINK: term-run
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs
+#+EL_PKG_NAME: term-run
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, emacs term-mode 引数, emacs ターミナルエミュレータ シェルコマンド, 
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: Emacs内蔵ターミナルエミュレータで任意のシェルコマンドを実行する
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージterm-runの紹介
+#+MYTAGS: package:term-run, emacs 使い方, emacs コマンド, emacs, term-run, term-run.el, emacs lisp term-run, elisp term-run, emacs melpa term-run, emacs term-run 使い方, emacs term-run 設定, emacs パッケージ term-run, emacs term-run スクリーンショット, emacs term-mode 引数, emacs ターミナルエミュレータ シェルコマンド, 
+#+TAGS: package:term-run, emacs 使い方, emacs コマンド, emacs, term-run, term-run.el, emacs lisp term-run, elisp term-run, emacs melpa term-run, emacs term-run 使い方, emacs term-run 設定, emacs パッケージ term-run, emacs term-run スクリーンショット, emacs term-mode 引数, emacs ターミナルエミュレータ シェルコマンド, , Emacs, M-x term, M-x term-run-shell-command, term-mode, M-x shell, M-x eshell, zsh, term-mode, M-x term-run-shell-command, term-mode, M-x shell, M-x eshell, zsh, term-mode
+#+TITLE: emacs term-run.el : Emacs内蔵ターミナルエミュレータで任意のシェルコマンドを実行する | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>term-run</td></tr>
+<tr><td>概要(原文)</td><td>Run arbitrary command in terminal buffer</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/10sr/term-run-el">https://github.com/10sr/term-run-el</a></td></tr>
+<tr><td>バージョン</td><td>20150224.2322</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:term-run/">package:term-run</a> </td></tr>
+</table>
+<br />
+#+END_HTML
+Emacsには *M-x term* というターミナルエミュレータがあります。
+
+そこではzshやirbなどのシェル系コマンドを実行できるのですが、
+なぜかプログラムの引数は取ってくれません。
+
+そこで *M-x term-run-shell-command* は
+*term-mode* で任意のシェルコマンドを実行します。
+
+*M-x shell* や *M-x eshell* は対話的なコマンドも実行できますが、
+w3mやalsamixerなどの画面指向のプログラムは実行できません。
+
+*zsh* をM-x eshellで実行してもzshの本来の操作性が殺されるので、
+zshを本領発揮させるには *term-mode* を使う必要があります。
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+[[file:/r/sync/screenshots/20150226084217.png]]
+Fig1: M-x term-run-shell-command w3m http://rubikitch.com/
+
+
+# /r/sync/screenshots/20150226084217.png http://rubikitch.com/wp-content/uploads/2015/02/wpid-20150226084217.png
+** term-run インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install term-run
+
+
+#+end:
+** 概要                                                             :noexport:
+Emacsには *M-x term* というターミナルエミュレータがあります。
+
+そこではzshやirbなどのシェル系コマンドを実行できるのですが、
+なぜかプログラムの引数は取ってくれません。
+
+そこで *M-x term-run-shell-command* は
+*term-mode* で任意のシェルコマンドを実行します。
+
+*M-x shell* や *M-x eshell* は対話的なコマンドも実行できますが、
+w3mやalsamixerなどの画面指向のプログラムは実行できません。
+
+*zsh* をM-x eshellで実行してもzshの本来の操作性が殺されるので、
+zshを本領発揮させるには *term-mode* を使う必要があります。
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+[[file:/r/sync/screenshots/20150226084217.png]]
+Fig1: M-x term-run-shell-command w3m http://rubikitch.com/
+
+
+# /r/sync/screenshots/20150226084217.png http://rubikitch.com/wp-content/uploads/2015/02/wpid-20150226084217.png

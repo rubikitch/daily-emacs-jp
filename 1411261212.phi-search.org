@@ -1,0 +1,21 @@
+#+BLOG: rubikitch
+#+POSTID: 629
+#+DATE: [2014-11-26 Wed 12:12]
+#+PERMALINK: phi-search
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: 記事更新情報
+#+DESCRIPTION:
+#+MYTAGS: phi-search.el
+#+TAGS: phi-search.el, 記事更新情報,
+#+TITLE: phi-search.elのバグ修正により無設定で使えるようになりました
+[[http://rubikitch.com/2014/11/11/phi-search/][emacs phi-search.el : multiple-cursorsでisearchできるよ！]]
+
+レビュー当時はキーマップにバグがあり、
+with-eval-after-loadを使った設定で修正していましたが、
+修正リリースされたことで、設定不要で使えるようになりました。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

@@ -1,0 +1,105 @@
+#+BLOG: rubikitch
+#+POSTID: 506
+#+DATE: [2014-10-23 Thu 13:45]
+#+PERMALINK: emacs244-package-news
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, Emacs 24.4,
+#+DESCRIPTION: M-x cua-rectangle-mark-mode, M-x dired-hide-details-mode, M-:でeldoc, icompleteがパワーアップ, iswitchbがobsoleteに, M-s .でシンボルisearch, M-- M-%とM-- C-M-%で後方置換
+#+MYTAGS: Emacs 24.4, Emacs 24.4 編集コマンド, Emacs 24.4 新機能, Emacs 24.4 変更点, Emacs 24.4 標準パッケージ 更新, package:cua, relate:dired-details, relate:eldoc-eval, package:ido, package:icomplete, package:iswitchb, package:isearch, package:replace, package:eldoc
+#+TAGS: Emacs 24.4, Emacs 24.4 編集コマンド, Emacs 24.4 新機能, Emacs 24.4 変更点, Emacs 24.4 標準パッケージ 更新, package:cua, relate:dired-details, relate:eldoc-eval, package:ido, package:icomplete, package:iswitchb, package:isearch, package:replace, package:eldoc, Emacs, Emacs 24.4,, rectangle-mark-mode, cua.el, M-x cua-rectangle-mark-mode, cua-mode, M-x cua-selection-mode, dired-details.el, M-:, eldoc, eldoc-eval.el, ido.el, iswitchb.el, isearch, C-M-% (query-replace-regexp)
+#+TITLE: Emacs 24.4でパワーアップした標準パッケージたち
+[[http://rubikitch.com/2014/10/22/emacs244-edit-changes/][昨日は標準の編集コマンドたちが便利になったことを紹介]] しましたが、
+今日は標準のパッケージの成長ぶりを紹介します。
+
+まあ昨日の続きということで。
+** 概要 :TOC:
+     - [[#cua-modeの矩形編集が独立して使える！][cua-modeの矩形編集が独立して使える！]]
+     - [[#diredでファイル名のみ表示できるようになった！][diredでファイル名のみ表示できるようになった！]]
+     - [[#m-でeldocが使える！][M-:でeldocが使える！]]
+     - [[#icomplete-modeがidoiswitchbっぽくなった！][icomplete-modeがido/iswitchbっぽくなった！]]
+     - [[#iswitchbがobsoleteに…][iswitchbがobsoleteに…]]
+     - [[#シンボルisearch][シンボルisearch]]
+     - [[#後方置換][後方置換]]
+
+** cua-modeの矩形編集が独立して使える！
+[[http://rubikitch.com/2014/10/22/emacs244-edit-changes/][昨日]] 、 *C-x SPC*  (*rectangle-mark-mode*)
+というコマンドが加わったことを紹介しましたが、
+*cua.el* の方も負けていません。
+
+*M-x cua-rectangle-mark-mode* が使えるようになりました。
+
+*cua-mode* の矩形編集はもともと強力ですが、
+以前は *M-x cua-selection-mode* からしか使えませんでしたし、
+これでもcua-modeの(Emacs的に)変則的な影響が出ました。
+
+M-x cua-rectangle-mark-modeを使えばcua-modeのクセもなくなります。
+
+独立して使えるようになったのは大きいですね。
+
+cua-modeに嫌悪感を持つ人でも、役立ちます。
+
+C-x SPCも同じような機能ですが、こちらに置き換えてもいいです。
+
+#+BEGIN_SRC emacs-lisp :results silent
+(global-set-key (kbd "C-x SPC") 'cua-rectangle-mark-mode)
+#+END_SRC
+
+他のパッケージとバッティングしやすいので僕はアンチCUAです。
+
+** diredでファイル名のみ表示できるようになった！
+*M-x dired-hide-details-mode* は [[http://rubikitch.com/2014/09/08/dired-details/][dired-details.el]] と同様に
+diredでファイル名のみ表示するマイナーモードです。
+これがあれば *dired-details.el* はもう必要ないでしょう。
+
+dired-details.elと合わせるにはこう設定します。
+
+#+BEGIN_SRC emacs-lisp :results silent
+(require 'dired)
+(define-key dired-mode-map (kbd "(") 'dired-hide-details-mode)
+(define-key dired-mode-map (kbd ")") 'dired-hide-details-mode)
+#+END_SRC
+
+** M-:でeldocが使える！
+
+#+BEGIN_SRC emacs-lisp :results silent
+(add-hook 'eval-expression-minibuffer-setup-hook 'eldoc-mode)
+#+END_SRC
+
+を設定すれば *M-:* でも *eldoc* が使えます。
+
+*eldoc-eval.el* が提供していた機能が標準機能になりました。
+
+** icomplete-modeがido/iswitchbっぽくなった！
+*M-x icomplete-mode* を使えば、 *ido.el* / *iswitchb.el* のようになります。
+
+M-xやC-x C-fやC-x bで候補がミニバッファにずらずら出てきます。
+
+ido/iswitchbとは異なり、C-s/C-rではなくC-,とC-.で選択します。
+
+** iswitchbがobsoleteに…
+iswitchbがobsoleteになってしまいました…
+
+ido/icompleteに完全に置き換わったということです。
+
+かつてお世話になったパッケージがobsoleteになるのは悲しいものです。
+
+** シンボルisearch
+*M-s . (isearch-forward-symbol-at-point)* は
+現在のシンボルを *isearch* します。
+
+現在のシンボルを検索するパッケージはいろいろとありますが、
+標準機能になったのは嬉しいですね。
+
+** 後方置換
+*M-% (query-replace)* や *C-M-% (query-replace-regexp)*
+による置換は普通はカーソル後が対象でした。
+
+Emacs 24.4において M-- を前置すると、カーソル前が置換対象になります。
+
+地味な豆知識でした。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

@@ -1,0 +1,93 @@
+#+BLOG: rubikitch
+#+POSTID: 1253
+#+DATE: [2015-03-07 Sat 03:21]
+#+PERMALINK: echo-bell
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs
+#+EL_PKG_NAME: echo-bell
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, emacs ビープ音, emacs visible-bell, emacs ビープ音 消す, emacs ビープ音 鳴らさない, emacs ビープ音 画面フラッシュ, emacs ビープ音 視覚化
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: 【visible-bell++】ビープ音の代わりにちょっとオシャレにお知らせ
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージecho-bellの紹介
+#+MYTAGS: package:echo-bell, emacs 使い方, emacs コマンド, emacs, echo-bell, echo-bell.el, emacs lisp echo-bell, elisp echo-bell, emacs melpa echo-bell, emacs echo-bell 使い方, emacs echo-bell 設定, emacs パッケージ echo-bell, emacs echo-bell スクリーンショット, emacs ビープ音, emacs visible-bell, emacs ビープ音 消す, emacs ビープ音 鳴らさない, emacs ビープ音 画面フラッシュ, emacs ビープ音 視覚化
+#+TAGS: package:echo-bell, emacs 使い方, emacs コマンド, emacs, echo-bell, echo-bell.el, emacs lisp echo-bell, elisp echo-bell, emacs melpa echo-bell, emacs echo-bell 使い方, emacs echo-bell 設定, emacs パッケージ echo-bell, emacs echo-bell スクリーンショット, emacs ビープ音, emacs visible-bell, emacs ビープ音 消す, emacs ビープ音 鳴らさない, emacs ビープ音 画面フラッシュ, emacs ビープ音 視覚化, Emacs, ビープ音, visible-bell, echo-bell.el, echo-bell-mode, ring-bell-function, echo-bell, ビープ音, visible-bell, echo-bell.el, echo-bell-mode, ring-bell-function, echo-bell
+#+TITLE: emacs echo-bell.el : 【visible-bell++】ビープ音の代わりにちょっとオシャレにお知らせ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>echo-bell</td></tr>
+<tr><td>概要(原文)</td><td>Show visual bell at right in mode line.</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="http://www.emacswiki.org/echo-bell.el">http://www.emacswiki.org/echo-bell.el</a></td></tr>
+<tr><td>バージョン</td><td>20150302.1436</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:echo-bell/">package:echo-bell</a> </td></tr>
+</table>
+<br />
+#+END_HTML
+
+*ビープ音* はうるさくて鳴らせない環境ってありますよね。
+
+そういう場合は *visible-bell* を t に設定すればいいのですが、
+それでは味気ありません。
+
+そこで、 *echo-bell.el* はエコーエリアの右端に
+"♪♪♪♪♪♪♪♪♪" と表示することで少しだけ彩ります。
+
+小さいelispなので手軽に試せます。
+
+*echo-bell-mode* は、 *ring-bell-function* を
+ *echo-bell* に変更するだけです。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+[[file:/r/sync/screenshots/20150307032543.png]]
+Fig1: こんな感じで表示されるよ
+** echo-bell インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install echo-bell
+
+
+#+end:
+** 概要                                                             :noexport:
+
+*ビープ音* はうるさくて鳴らせない環境ってありますよね。
+
+そういう場合は *visible-bell* を t に設定すればいいのですが、
+それでは味気ありません。
+
+そこで、 *echo-bell.el* はエコーエリアの右端に
+"♪♪♪♪♪♪♪♪♪" と表示することで少しだけ彩ります。
+
+小さいelispなので手軽に試せます。
+
+*echo-bell-mode* は、 *ring-bell-function* を
+ *echo-bell* に変更するだけです。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+[[file:/r/sync/screenshots/20150307032543.png]]
+Fig1: こんな感じで表示されるよ
+
+** 設定 [[http://rubikitch.com/f/150307031956.echo-bell.el][150307031956.echo-bell.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/150307/150307031956.echo-bell.el"
+#+BEGIN_SRC fundamental
+(setq echo-bell-string "♪♪♪♪♪♪♪♪♪") ;表示文字列
+(setq echo-bell-background "Aquamarine") ;背景色
+(setq echo-bell-delay 0.4)              ;表示時間
+(echo-bell-mode 1)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/150307031956.echo-bell.el
+$ emacs -Q -f package-initialize -l 150307031956.echo-bell.el
+#+END_EXAMPLE
+
+# /r/sync/screenshots/20150307032543.png http://rubikitch.com/wp-content/uploads/2015/03/wpid-20150307032543.png

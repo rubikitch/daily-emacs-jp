@@ -1,0 +1,119 @@
+#+BLOG: rubikitch
+#+POSTID: 284
+#+DATE: [2014-09-04 Thu 17:34]
+#+PERMALINK: ruby-crawler-book
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Ruby, 著書,
+#+DESCRIPTION: 佐々木拓郎さんとの共著『Rubyによるクローラー開発技法』が増刷されました。ありがとうございます。即席クローラーの作り方も。
+#+MYTAGS: Rubyによるクローラー開発技法,, Ruby, 著書, Ruby, 佐々木拓郎, SBクリエイティブ, クローラー, Ruby メタプログラミング, Ruby クラス 継承, Ruby サブクラス, Ruby スクレイピング, ruby crawler
+#+TAGS: Rubyによるクローラー開発技法,, Ruby, 著書, Ruby, 佐々木拓郎, SBクリエイティブ, クローラー, Ruby メタプログラミング, Ruby クラス 継承, Ruby サブクラス, Ruby スクレイピング, ruby crawler, Ruby, 著書,, Anemone, curl, Parallel, Class#inherited, フック
+#+TITLE: 『Rubyによるクローラー開発技法』増刷決定！Amazon 1位なう！！個人用即席クローラーの作り方
+[[http://rubikitch.com/2014/08/03/ruby-crawler-book/][新刊『Rubyによるクローラー開発技法』]] が8/25に発売されましたが、
+わずか10日で増刷のお知らせが届きました。
+
+http://www.amazon.co.jp/dp/4797380357
+
+たくさんの方々に買っていただき、とても嬉しいです。
+
+本当にありがとうございます。
+
+現在AmazonのRuby・プログラミング部門で1位です！
+
+http://rubikitch.com/f/20140904173917.png
+Fig1: Amazon1位！
+
+クローラーというと、最初はマニアックなイメージがあり、
+クローラー開発技法って地味だなぁと思っていました。
+
+ところがフタをあけてみると驚いたことに
+ランキング上位をキープし続けていました。
+
+ネットの活用が必須になる中、クローラー開発技法は
+世の中に求められているのだとひしひしと感じました。
+
+** 個人用即席クローラー
+ちなみに出版後、僕はちょっとした個人用クローラーを作りました。
+
+まぐまぐのメルマガの読者数や、
+はてなブックマーク数や、
+サイトのアクセス数
+を出力するものです。
+
+とはいえ簡単な情報収集なので *Anemone* などは使わず、
+*curl* でダウンロードして、正規表現で情報抽出するものです。
+
+たとえば ログインページが example.com/login.php でフォームを入力し、
+ログインした後に example.com/page-after-login.php を開くのは
+以下のコマンドを実行します。
+
+
+#+BEGIN_EXAMPLE
+$ curl -c /tmp/cookie -F name1=value1 -F name2=value2 http://example.com/login.php
+$ curl -s -b /tmp/cookie http://example.com/page-after-login.php
+#+END_EXAMPLE
+
+あとは、下のコマンドの出力結果のHTMLを解析すればいいだけです。
+
+*Parallel* を使い複数のサイトを同時にアクセスすることで
+高速化を図っています。
+
+概略を載せると、こんな感じになります。
+
+予め
+$ sudo gem install nokogiri parallel
+を実行してgemをインストールしておきましょう。
+
+#+begin_src fundamental
+#!/usr/local/bin/ruby
+require 'nokogiri'
+require 'parallel'
+
+class Site
+  def self.inherited(subclass)
+    (@subclasses||=[]) << subclass
+  end
+
+  def self.doit
+    Parallel.each(@subclasses) {|c| puts c.new}
+  end
+end
+
+class FooSite < Site
+  def title() "タイトル" end
+  def parse
+    # ダウンロードして抽出したデータを返す
+  end
+  def to_s
+    # 整形して表示する
+    "#{title}: #{parse}\n"
+  end
+end
+
+class BarSite < Site
+  # 同様
+end
+
+Site.doit
+#+end_src
+
+ちょっとトリッキーですが、
+*Class#inherited* というメソッドは、
+サブクラスが登録されたときに実行されます。
+
+Emacsでいうと *フック* に当たるものだと考えてください。
+
+Site.inheritedにてサブクラスを @subclasses に登録し、
+Site.doit でそれらのオブジェクトを生成して出力しています。
+
+こうすることで、新しいサイトを追加するには
+サブクラスとto_sメソッドするだけで済みます。
+
+/楽チン！/
+
+クローラーは情報収集の時間を短縮してくれるので、
+情報収集に時間がかかっているプログラマはぜひとも
+本書を読んでみてください。

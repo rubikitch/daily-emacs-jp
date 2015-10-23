@@ -1,0 +1,149 @@
+#+BLOG: rubikitch
+#+POSTID: 759
+#+DATE: [2014-12-20 Sat 15:34]
+#+PERMALINK: initsplit
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, Emacs Lisp, 
+#+EL_PKG_NAME: initsplit
+#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs カスタマイズ, M-x customize, M-x customize-group, カスタマイズ 変数 別ファイル
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 
+#+EL_TITLE0: M-x customizeの結果(custom-file)を変数名別に分ける
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージinitsplitの紹介
+#+MYTAGS: package:initsplit, emacs 使い方, emacs コマンド, emacs, emacs lisp initsplit, elisp initsplit, emacs melpa initsplit, emacs initsplit 使い方, emacs initsplit 設定, emacs パッケージ initsplit, emacs カスタマイズ, M-x customize, M-x customize-group, カスタマイズ 変数 別ファイル
+#+TITLE: emacs initsplit.el : M-x customizeの結果(custom-file)を変数名別に分ける | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>initsplit</td></tr>
+<tr><td>概要(原文)</td><td>code to split customizations into different files</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/dabrahams/initsplit">https://github.com/dabrahams/initsplit</a></td></tr>
+<tr><td>バージョン</td><td>20141219.1629</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:initsplit/">package:initsplit</a> </td></tr>
+</table>
+<br />
+#+END_HTML
+*initsplit.el* は、M-x customize等によるGUIでのカスタマイズ結果を
+変数名別のファイルに分けます。
+
+本来ならば *custom-file* にすべてのカスタマイズ結果が書き出されますが、
+これを使うことで、特定のパッケージに関するカスタマイズ結果を
+別のファイルに追い出し、見通しを良くします。
+
+このように使います。
+
+#+BEGIN_SRC emacs-lisp :results silent
+(load "initsplit")
+;; カスタマイズ結果のファイルをバイトコンパイルする
+(setq custom-file "~/.emacs.d/settings.el")
+;; orgとgnusのカスタマイズは別々のファイルに保存する
+(setq initsplit-customizations-alist
+  '(("^gnus-" "~/.emacs.d/gnus-settings.el")
+    ("^org-" "~/.emacs.d/org-settings.el")))
+(add-hook 'after-save-hook 'initsplit-byte-compile-files t)
+
+;; 全カスタマイズファイルを読み込む
+(load custom-file)
+(load "~/.emacs.d/gnus-settings.el")
+(load "~/.emacs.d/org-settings.el")
+#+END_SRC
+** initsplit インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install initsplit
+
+
+#+end:
+** 概要                                                             :noexport:
+*initsplit.el* は、M-x customize等によるGUIでのカスタマイズ結果を
+変数名別のファイルに分けます。
+
+本来ならば *custom-file* にすべてのカスタマイズ結果が書き出されますが、
+これを使うことで、特定のパッケージに関するカスタマイズ結果を
+別のファイルに追い出し、見通しを良くします。
+
+このように使います。
+
+#+BEGIN_SRC emacs-lisp :results silent
+(load "initsplit")
+;; カスタマイズ結果のファイルをバイトコンパイルする
+(setq custom-file "~/.emacs.d/settings.el")
+;; orgとgnusのカスタマイズは別々のファイルに保存する
+(setq initsplit-customizations-alist
+  '(("^gnus-" "~/.emacs.d/gnus-settings.el")
+    ("^org-" "~/.emacs.d/org-settings.el")))
+(add-hook 'after-save-hook 'initsplit-byte-compile-files t)
+
+;; 全カスタマイズファイルを読み込む
+(load custom-file)
+(load "~/.emacs.d/gnus-settings.el")
+(load "~/.emacs.d/org-settings.el")
+#+END_SRC
+
+** テストファイル [[http://rubikitch.com/f/initsplit-test.el][initsplit-test.el(以下のコードと同一)]]
+どのような動作をするのかがわかりにくいかもしれないので、
+パッケージの方でテストファイルが添付してあります。
+
+以下の変数を定義し、ファイルに分けます。
+
+- custom-file
+- mac-command-modifier
+- initsplit-customizations-alist
+- apple
+- boy
+- cat
+- dog
+
+#+BEGIN: include :file "/r/sync/emacs/quelpa/build/initsplit/initsplit-test.el"
+#+BEGIN_SRC fundamental
+(message "testing")
+(setq debug-on-error t)
+(add-to-list 'load-path (file-name-directory load-file-name))
+(custom-set-variables
+ '(custom-file "/tmp/settings.el")
+ '(mac-command-modifier 'meta)
+ '(initsplit-customizations-alist
+   '(("\\`a" "/tmp/a-settings.el")
+     ("\\`b" "/tmp/b-settings.el")
+     ("\\`[ac]" "/tmp/c-settings.el")
+     ("\\`d" "/tmp/a-settings.el")))
+ )
+(require 'initsplit)
+
+(defgroup test nil "")
+
+(dolist (symbol '(apple boy cat dog))
+  (eval `(defcustom ,symbol nil "doc" :group 'test))
+  (set symbol t)
+  (put symbol 'saved-value '(t)))
+
+(custom-save-all)
+(kill-emacs)
+(customize-group "test")
+
+;; expectations:
+;; a-settings.el: apple, dog
+;; b-settings.el: boy
+;; c-settings.el: cat
+#+END_SRC
+
+#+END:
+
+
+init.elを別ファイルに退避し、
+initsplit-test.elをinit.elにして読み込むと、
+以下のファイルが書き出されて終了します。
+
+- /tmp/a-settings.el :: apple, dog
+- /tmp/b-settings.el :: boy
+- /tmp/c-settings.el :: cat
+- /tmp/settings.el :: それ以外
+
+これを見てわかるように、カスタマイズ結果をファイルに分けたら、
+すべてのファイルを読み込む必要があることです。
+

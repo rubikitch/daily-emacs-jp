@@ -1,0 +1,25 @@
+#+BLOG: rubikitch
+#+POSTID: 2002
+#+DATE: [2015-09-18 Fri 09:21]
+#+PERMALINK: melmag
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: メルマガ,
+#+DESCRIPTION: るびきち塾メルマガ『Emacsの鬼るびきちのココだけの話#199』の予告
+#+TITLE: 【メルマガ#199】現代elispのテキスト処理
+#+MYTAGS: 
+#+begin: org2blog-tags
+#+TAGS: , メルマガ,, 
+#+end:
+先週はorg-modeのdynamic blockの使い方を示しました。
+
+そして今週は文書を解析する手っ取り早い方法を示します。
+
+旧来の方法だと面倒だったのが、今やあっけなく記述できるのです！
+
+今回はelisp寄りの話になりますが、できるだけ読みやすくするよう配慮しました。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

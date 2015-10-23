@@ -1,0 +1,121 @@
+#+BLOG: rubikitch
+#+POSTID: 108
+#+DATE: [2014-08-11 Mon 02:50]
+#+PERMALINK: helm-avoid-find-files
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs
+#+EL_PKG_NAME: helm
+#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, emacs helm-mode, emacs helm-find-files, emacs helm read-file-name, emacs helm completing-read
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット read-file-name
+#+EL_TITLE0: クッソ重いhelm版read-file-nameを回避し、新規ファイルを楽に開く方法
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージhelmの紹介
+#+MYTAGS: package:helm, emacs 使い方, emacs コマンド, emacs, emacs lisp helm, elisp helm, emacs melpa helm, emacs helm 使い方, emacs helm 設定, emacs パッケージ helm, emacs helm スクリーンショット, emacs helm-mode, emacs helm-find-files, emacs helm read-file-name, emacs helm completing-read
+#+TITLE: emacs helm.el : クッソ重いhelm版read-file-nameを回避し、新規ファイルを楽に開く方法 | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット read-file-name
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>helm</td></tr>
+<tr><td>概要(原文)</td><td>Helm is an Emacs incremental and narrowing framework</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/emacs-helm/helm">https://github.com/emacs-helm/helm</a></td></tr>
+<tr><td>バージョン</td><td>20141227.639</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:helm/">package:helm</a> </td></tr>
+</table>
+<br />
+#+END_HTML
+helm版read-file-nameを標準のEmacsのものに戻す設定です。
+
+helmは僕がメンテナンスしているanythingの後継
+といえるすごい便利なパッケージですが、
+いささかおせっかいな感が否めません。
+
+helmは部分集合から特定のオブジェクトを取り出すのには
+とてもすばらしいインターフェースなのですが、
+helm版ファイル名選択(Fig1)がすごい使いづらいと思います。
+
+超高速SSDを積んでいるi7機でさえファイル名選択が出るのがもたつくことがある上、
+TABでファイル名補完ができないとか、俺に言わせれば /ありえないです。/
+
+既存ファイルを開く場合は多少便利かもしれないですが、
+新規ファイルを開くときは余計なお世話に他ならないです。
+
+既存ファイルは必殺 *anything-filelist* があるので十分！
+
+しかもhelm版completing-readを使うとあろうことか
+/勝手にhelm-modeが有効になって/
+/クッソ重いファイル選択を強要される始末！/
+
+コイツだけ無効にしたくてもなかなか困難で、
+adviceでhelm-modeをコントロールして
+helm-modeの一部をコピペすることで回避…
+
+/なんてこったい！/
+** helm インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install helm
+
+
+#+end:
+** 概要                                                             :noexport:
+helm版read-file-nameを標準のEmacsのものに戻す設定です。
+
+helmは僕がメンテナンスしているanythingの後継
+といえるすごい便利なパッケージですが、
+いささかおせっかいな感が否めません。
+
+helmは部分集合から特定のオブジェクトを取り出すのには
+とてもすばらしいインターフェースなのですが、
+helm版ファイル名選択(Fig1)がすごい使いづらいと思います。
+
+超高速SSDを積んでいるi7機でさえファイル名選択が出るのがもたつくことがある上、
+TABでファイル名補完ができないとか、俺に言わせれば /ありえないです。/
+
+既存ファイルを開く場合は多少便利かもしれないですが、
+新規ファイルを開くときは余計なお世話に他ならないです。
+
+既存ファイルは必殺 *anything-filelist* があるので十分！
+
+しかもhelm版completing-readを使うとあろうことか
+/勝手にhelm-modeが有効になって/
+/クッソ重いファイル選択を強要される始末！/
+
+コイツだけ無効にしたくてもなかなか困難で、
+adviceでhelm-modeをコントロールして
+helm-modeの一部をコピペすることで回避…
+
+/なんてこったい！/
+** 設定 [[http://rubikitch.com/f/140811024627.helm.avoid-find-files.el][140811024627.helm.avoid-find-files.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/140811/140811024627.helm.avoid-find-files.el"
+#+BEGIN_SRC fundamental
+(require 'helm)
+(require 'helm-mode)
+(defadvice helm-mode (around avoid-read-file-name activate)
+  (let ((read-file-name-function read-file-name-function)
+        (completing-read-function completing-read-function))
+    ad-do-it))
+(setq completing-read-function 'my-helm-completing-read-default)
+(defun my-helm-completing-read-default (&rest _)
+  (apply (cond ;; [2014-08-11 Mon]helm版のread-file-nameは重いからいらない
+          ((eq (nth 1 _) 'read-file-name-internal)
+           'completing-read-default)
+          (t
+           'helm--completing-read-default))
+         _))
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/140811024627.helm.avoid-find-files.el
+$ emacs -Q -f package-initialize -l 140811024627.helm.avoid-find-files.el
+#+END_EXAMPLE
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+http://rubikitch.com/f/20140811025824.png
+Fig1: helm-mode有効時にC-x C-fを押したときに現れる犯人！

@@ -1,0 +1,186 @@
+#+BLOG: rubikitch
+#+POSTID: 1936
+#+DATE: [2015-08-30 Sun 17:16]
+#+PERMALINK: warm-night-theme
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, theme
+#+EL_PKG_NAME: warm-night-theme
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, color-theme, カラーテーマ
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: 暖色を使ったダークなカラーテーマ
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージwarm-night-themeの紹介
+#+MYTAGS: package:warm-night-theme, emacs 使い方, emacs コマンド, emacs, warm-night-theme, warm-night-theme.el, emacs lisp warm-night-theme, elisp warm-night-theme, emacs melpa warm-night-theme, emacs warm-night-theme 使い方, emacs warm-night-theme 設定, emacs パッケージ warm-night-theme, emacs warm-night-theme スクリーンショット, color-theme, カラーテーマ
+#+TAGS: package:warm-night-theme, emacs 使い方, emacs コマンド, emacs, warm-night-theme, warm-night-theme.el, emacs lisp warm-night-theme, elisp warm-night-theme, emacs melpa warm-night-theme, emacs warm-night-theme 使い方, emacs warm-night-theme 設定, emacs パッケージ warm-night-theme, emacs warm-night-theme スクリーンショット, color-theme, カラーテーマ, Emacs, theme, warm-night-theme.el
+#+TITLE: emacs warm-night-theme.el : 暖色を使ったダークなカラーテーマ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>warm-night-theme</td></tr>
+<tr><td>概要(原文)</td><td>Emacs 24 theme with a dark background.</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/mswift42/warm-night-theme">https://github.com/mswift42/warm-night-theme</a></td></tr>
+<tr><td>バージョン</td><td>20150607.741</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:warm-night-theme/">package:warm-night-theme</a> </td></tr>
+</table>
+<br />
+#+END_HTML
+*warm-night-theme.el* は以下のパッケージに対応しています。
+- font-lock
+- evil
+- hl-line
+- isearch
+- show-paren
+- mode-line
+- link
+- org
+- font-latex
+- ido
+- gnus
+- mu4e
+- ffap
+- js2
+- auto-complete
+- info
+- icomplete+
+- undo-tree
+- slime
+- rainbow-delimiters
+- magit
+- term
+- helm
+- company
+- web-mode
+- jde
+- ace-jump-mode
+# (save-window-excursion (async-shell-command "emacs-test -eval '(load-theme (quote warm-night) t)'"))
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_theme_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150830171914.png]]
+Fig1: emacs-lisp-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150830171919.png]]
+Fig2: magit
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150830171923.png]]
+Fig3: grep
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150830171926.png]]
+Fig4: outline-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150830171930.png]]
+Fig5: org-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150830171933.png]]
+Fig6: dired
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150830171936.png]]
+Fig7: web-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150830171939.png]]
+Fig8: markdown-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150830171944.png]]
+Fig9: helm
+** warm-night-theme インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install warm-night-theme
+
+
+#+end:
+** 概要                                                             :noexport:
+*warm-night-theme.el* は以下のパッケージに対応しています。
+- font-lock
+- evil
+- hl-line
+- isearch
+- show-paren
+- mode-line
+- link
+- org
+- font-latex
+- ido
+- gnus
+- mu4e
+- ffap
+- js2
+- auto-complete
+- info
+- icomplete+
+- undo-tree
+- slime
+- rainbow-delimiters
+- magit
+- term
+- helm
+- company
+- web-mode
+- jde
+- ace-jump-mode
+# (save-window-excursion (async-shell-command "emacs-test -eval '(load-theme (quote warm-night) t)'"))
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_theme_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150830171914.png]]
+Fig10: emacs-lisp-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150830171919.png]]
+Fig11: magit
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150830171923.png]]
+Fig12: grep
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150830171926.png]]
+Fig13: outline-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150830171930.png]]
+Fig14: org-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150830171933.png]]
+Fig15: dired
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150830171936.png]]
+Fig16: web-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150830171939.png]]
+Fig17: markdown-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150830171944.png]]
+Fig18: helm
+
+** 設定
+#+BEGIN_SRC fundamental
+(load-theme 'warm-night t)
+#+END_SRC
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ emacs -Q -f package-initialize -eval '(load-theme (quote warm-night) t)'
+#+END_EXAMPLE
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

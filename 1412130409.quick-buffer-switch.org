@@ -1,0 +1,141 @@
+#+BLOG: rubikitch
+#+POSTID: 710
+#+DATE: [2014-12-13 Sat 04:09]
+#+PERMALINK: quick-buffer-switch
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, helm, 
+#+EL_PKG_NAME: quick-buffer-switch
+#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, completing-read helm
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: 条件(特定のメジャーモードなど)を満たすバッファを即選択する！helmとともに
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージquick-buffer-switchの紹介
+#+MYTAGS: package:quick-buffer-switch, emacs 使い方, emacs コマンド, emacs, emacs lisp quick-buffer-switch, elisp quick-buffer-switch, emacs melpa quick-buffer-switch, emacs quick-buffer-switch 使い方, emacs quick-buffer-switch 設定, emacs パッケージ quick-buffer-switch, emacs quick-buffer-switch スクリーンショット, completing-read helm
+#+TITLE: emacs quick-buffer-switch.el : 条件(特定のメジャーモードなど)を満たすバッファを即選択する！helmとともに | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>quick-buffer-switch</td></tr>
+<tr><td>概要(原文)</td><td>Quick switch to file or dir buffers.</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/renard/quick-buffer-switch">https://github.com/renard/quick-buffer-switch</a></td></tr>
+<tr><td>バージョン</td><td>20141112.252</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:quick-buffer-switch/">package:quick-buffer-switch</a> </td></tr>
+</table>
+<br />
+#+END_HTML
+
+*quick-buffer-switch.el* は、特定の条件を満たす
+ファイルやディレクトリを容易に開くことのできるパッケージです。
+
+たとえばdiredだけ、emacs-lisp-modeだけ、
+org-modeだけといった具合です。
+
+ただ、単体では正直使いやすくありません。
+
+なぜなら、候補選択は通常の *completing-read* が使われているため、
+ミニバッファで補完という原始的なインターフェースだからです。
+
+幸いなことにcompleting-readのインターフェースは
+別なものにすりかえることができます。
+
+現時点ではhelmが良いでしょう。
+
+helmもインストールして
+#+BEGIN_SRC emacs-lisp :results silent
+(helm-mode 1)
+#+END_SRC
+を加えればhelmのインターフェースで選択できます。
+** quick-buffer-switch インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install quick-buffer-switch
+
+
+#+end:
+helm推奨です。
+M-x package-install helm
+
+** 概要                                                             :noexport:
+
+*quick-buffer-switch.el* は、特定の条件を満たす
+ファイルやディレクトリを容易に開くことのできるパッケージです。
+
+たとえばdiredだけ、emacs-lisp-modeだけ、
+org-modeだけといった具合です。
+
+ただ、単体では正直使いやすくありません。
+
+なぜなら、候補選択は通常の *completing-read* が使われているため、
+ミニバッファで補完という原始的なインターフェースだからです。
+
+幸いなことにcompleting-readのインターフェースは
+別なものにすりかえることができます。
+
+現時点ではhelmが良いでしょう。
+
+helmもインストールして
+#+BEGIN_SRC emacs-lisp :results silent
+(helm-mode 1)
+#+END_SRC
+を加えればhelmのインターフェースで選択できます。
+
+** 設定 [[http://rubikitch.com/f/141213035150.quick-buffer-switch.1.el][141213035150.quick-buffer-switch.1.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/141213/141213035150.quick-buffer-switch.1.el"
+#+BEGIN_SRC fundamental
+(require 'quick-buffer-switch)
+(setq qbs-prefix-key "C-x C-c") ;プレフィクスキー、C-x C-cは潰していいよね
+(qbs-init)
+(helm-mode 1)                      ;helmなどを入れないと使いづらい
+(qbs-add-predicates                ;カスタマイズするときに囲む必要ある
+ ;; M-x qbs-ruby-modeを定義
+ (make-qbs:predicate
+    :name 'ruby-mode   ;名前
+    :shortcut "r"      ;C-x C-c rに割り当て
+    ;; enh-ruby-modeかruby-modeかつファイルバッファ
+    :test '(and (memq major-mode '(enh-ruby-mode ruby-mode))
+                qbs:buffer-file-name)))
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/141213035150.quick-buffer-switch.1.el
+$ emacs -Q -f package-initialize -l 141213035150.quick-buffer-switch.1.el
+#+END_EXAMPLE
+
+
+** 最初に使えるコマンド
+このようにいろいろな条件が予め定義されています。
+
+けれどもこれらは覚える必要はなく、
+使うものを適宜キーに割り当てたり
+自分で定義した方がよいでしょう。
+
+| C-x C-c C-h | 隠しバッファ               |M-x qbs-hidden-buffer 
+| C-x C-c C-/ | 正規表現で絞り込み         |M-x qbs-matching-regexp
+| C-x C-c C-d | dired                      |M-x qbs-directory
+| C-x C-c C-f | ファイル                   |M-x qbs-file-name
+| C-x C-c f   | ファイル                   |M-x qbs-file-buffer
+| C-x C-c C-c | ファイルかディレクトリ     |M-x qbs-file-or-directory
+| C-x C-c C-o | org-mode                   |M-x qbs-org-mode
+| C-x C-c C-e | ERC                        |M-x qbs-erc
+| C-x C-c C-g | Magit                      |M-x qbs-magit
+| C-x C-c C-v | vcsh                       |M-x qbs-vcsh
+| C-x C-c C-l | emacs-lisp-mode            |M-x qbs-emacs-lisp-mode
+| C-x C-c C-i | HelpかInfo                 |M-x qbs-help-buffer
+| C-x C-c C-b | ファイル・ディレクトリ以外 |M-x qbs-not-file-nor-directory
+| C-x C-c C-p | プロセスバッファ           |M-x qbs-with-process
+| C-x C-c C-v | shell-mode/term-mode       |M-x qbs-terminal
+| C-x C-c C-r | リモートファイル           |M-x qbs-remote
+
+本設定ではqbs-ruby-modeをC-x C-c rに割り当てる例を示しました。
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+http://rubikitch.com/f/20141213043511.png
+Fig1: helmインターフェースでRubyのバッファを選択！
+

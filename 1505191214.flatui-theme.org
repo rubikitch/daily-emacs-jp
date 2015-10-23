@@ -1,0 +1,240 @@
+#+BLOG: rubikitch
+#+POSTID: 1663
+#+DATE: [2015-05-19 Tue 12:14]
+#+PERMALINK: flatui-theme
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, theme, 
+#+EL_PKG_NAME: flatui-theme
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: FlatUIで決められた色を使ったカラーテーマ
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージflatui-themeの紹介
+#+MYTAGS: package:flatui-theme, emacs 使い方, emacs コマンド, emacs, flatui-theme, flatui-theme.el, emacs lisp flatui-theme, elisp flatui-theme, emacs melpa flatui-theme, emacs flatui-theme 使い方, emacs flatui-theme 設定, emacs パッケージ flatui-theme, emacs flatui-theme スクリーンショット
+#+TAGS: package:flatui-theme, emacs 使い方, emacs コマンド, emacs, flatui-theme, flatui-theme.el, emacs lisp flatui-theme, elisp flatui-theme, emacs melpa flatui-theme, emacs flatui-theme 使い方, emacs flatui-theme 設定, emacs パッケージ flatui-theme, emacs flatui-theme スクリーンショット, Emacs, theme, , flatui-theme.el, flatui-theme.el
+#+TITLE: emacs flatui-theme.el : FlatUIで決められた色を使ったカラーテーマ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>flatui-theme</td></tr>
+<tr><td>概要(原文)</td><td>A color theme for Emacs based on flatuicolors.com</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/john2x/flatui-theme.el">https://github.com/john2x/flatui-theme.el</a></td></tr>
+<tr><td>バージョン</td><td>20150226.512</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:flatui-theme/">package:flatui-theme</a> </td></tr>
+</table>
+<br />
+#+END_HTML
+FlatUIというデザインは以下の色を使っています。
+
+*flatui-theme.el* はこれをEmacsのカラーテーマに移植したものです。
+
+同じ作者により[[https://github.com/john2x/flatui.vim][Vim版]] も作られています。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150519121759.png]]
+Fig1: http://flatuicolors.com/ で色を見られる
+
+以下のパッケージに対応しています。
+- compilation
+- grep
+- isearch
+- font lock
+- ledger
+- [[http://rubikitch.com/2014/10/09/ace-jump-mode/][ace-jump]]
+- anzu
+- [[http://rubikitch.com/2014/11/05/auto-complete/][auto-complete]]
+- clojure-test-mode
+- diff
+- diff-hl
+- dired/dired+/[[http://rubikitch.com/2014/12/22/dired-subtree/][dired-subtree]]
+- ediff
+- eshell
+- evil
+- [[http://rubikitch.com/2015/01/29/flx-ido/][flx]]
+- flycheck
+- flymake
+- flyspell
+- git-gutter
+- git-gutter-fr
+- git-rebase-mode
+- [[http://rubikitch.com/2014/08/30/guide-key/][guide-key]]
+- [[http://rubikitch.com/category/helm/][helm]]
+- highlight-symbol
+- hl-line-mode
+- hl-sexp
+- [[http://rubikitch.com/category/ido/][ido-mode]]
+- indent-guide
+- js2-mode
+- linum-mode
+- magit
+- outline
+- rainbow-delimiters
+- structured-haskell-mode
+- show-paren
+- mode-line/sml-mode-line
+- SLIME
+- term
+- [[http://rubikitch.com/2014/08/24/web-mode/][web-mode]]
+- whitespace-mode
+- which-func-mode
+- yascroll
+- ansi-color
+- fill-column-indicator
+- highlight-parentheses
+- vc-annotate
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150519122732.png]]
+Fig2: outline-mode / region
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150519122752.png]]
+Fig3: emacs-lisp-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150519122804.png]]
+Fig4: c-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150519122817.png]]
+Fig5: grep
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150519122848.png]]
+Fig6: ace-jump-char-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150519122914.png]]
+Fig7: eshell
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150519122951.png]]
+Fig8: org-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150519123018.png]]
+Fig9: 
+
+
+** flatui-theme インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install flatui-theme
+
+
+#+end:
+** 概要                                                             :noexport:
+FlatUIというデザインは以下の色を使っています。
+
+*flatui-theme.el* はこれをEmacsのカラーテーマに移植したものです。
+
+同じ作者により[[https://github.com/john2x/flatui.vim][Vim版]] も作られています。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150519121759.png]]
+Fig10: http://flatuicolors.com/ で色を見られる
+
+以下のパッケージに対応しています。
+- compilation
+- grep
+- isearch
+- font lock
+- ledger
+- [[http://rubikitch.com/2014/10/09/ace-jump-mode/][ace-jump]]
+- anzu
+- [[http://rubikitch.com/2014/11/05/auto-complete/][auto-complete]]
+- clojure-test-mode
+- diff
+- diff-hl
+- dired/dired+/[[http://rubikitch.com/2014/12/22/dired-subtree/][dired-subtree]]
+- ediff
+- eshell
+- evil
+- [[http://rubikitch.com/2015/01/29/flx-ido/][flx]]
+- flycheck
+- flymake
+- flyspell
+- git-gutter
+- git-gutter-fr
+- git-rebase-mode
+- [[http://rubikitch.com/2014/08/30/guide-key/][guide-key]]
+- [[http://rubikitch.com/category/helm/][helm]]
+- highlight-symbol
+- hl-line-mode
+- hl-sexp
+- [[http://rubikitch.com/category/ido/][ido-mode]]
+- indent-guide
+- js2-mode
+- linum-mode
+- magit
+- outline
+- rainbow-delimiters
+- structured-haskell-mode
+- show-paren
+- mode-line/sml-mode-line
+- SLIME
+- term
+- [[http://rubikitch.com/2014/08/24/web-mode/][web-mode]]
+- whitespace-mode
+- which-func-mode
+- yascroll
+- ansi-color
+- fill-column-indicator
+- highlight-parentheses
+- vc-annotate
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150519122732.png]]
+Fig11: outline-mode / region
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150519122752.png]]
+Fig12: emacs-lisp-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150519122804.png]]
+Fig13: c-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150519122817.png]]
+Fig14: grep
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150519122848.png]]
+Fig15: ace-jump-char-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150519122914.png]]
+Fig16: eshell
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150519122951.png]]
+Fig17: org-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150519123018.png]]
+Fig18: 
+
+
+
+** 設定 [[http://rubikitch.com/f/150519121401.flatui-theme.el][150519121401.flatui-theme.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/150519/150519121401.flatui-theme.el"
+#+BEGIN_SRC fundamental
+(load-theme 'flatui t)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/150519121401.flatui-theme.el
+$ emacs -Q -f package-initialize -l 150519121401.flatui-theme.el
+#+END_EXAMPLE

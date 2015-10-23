@@ -1,0 +1,190 @@
+#+BLOG: rubikitch
+#+POSTID: 1101
+#+DATE: [2015-02-09 Mon 07:01]
+#+PERMALINK: helm-ag
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, helm
+#+EL_PKG_NAME: helm-ag
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, package:projectile, relate:projectile, relate:anything-grep, package:helm, anything-grep helm, helm ag 検索
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: anything-grepのhelm版！最初は粗く検索、あとはどんどん絞り込め！projectile対応
+#+EL_URL: http://d.hatena.ne.jp/syohex/20130302/1362182193
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージhelm-agの紹介
+#+MYTAGS: package:helm-ag, emacs 使い方, emacs コマンド, emacs, helm-ag, helm-ag.el, emacs lisp helm-ag, elisp helm-ag, emacs melpa helm-ag, emacs helm-ag 使い方, emacs helm-ag 設定, emacs パッケージ helm-ag, emacs helm-ag スクリーンショット, package:projectile, relate:projectile, relate:anything-grep, package:helm, anything-grep helm, helm ag 検索
+#+TAGS: package:helm-ag, emacs 使い方, emacs コマンド, emacs, helm-ag, helm-ag.el, emacs lisp helm-ag, elisp helm-ag, emacs melpa helm-ag, emacs helm-ag 使い方, emacs helm-ag 設定, emacs パッケージ helm-ag, emacs helm-ag スクリーンショット, package:projectile, relate:projectile, relate:anything-grep, package:helm, anything-grep helm, helm ag 検索, Emacs, helm, grep, ag, the silver searcher, anything-grep.el, helm-ag.el, helm-grep, M-x helm-do-grep, grep -n形式, helm-ag-base-command, ag, grep, csearch, pt, helm-ag-insert-at-point, M-x helm-ag, backward-kill-sexp, helm-ag, projectile, M-x projectile-helm-ag, M-x helm-ag-dot-emacs, grep, ag, the silver searcher, anything-grep.el, helm-ag.el, helm-grep, M-x helm-do-grep, grep -n形式, helm-ag-base-command, ag, grep, csearch, pt, helm-ag-insert-at-point, M-x helm-ag, backward-kill-sexp, helm-ag, projectile, M-x projectile-helm-ag, M-x helm-ag-dot-emacs
+#+TITLE: emacs helm-ag.el : anything-grepのhelm版！最初は粗く検索、あとはどんどん絞り込め！projectile対応 | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>helm-ag</td></tr>
+<tr><td>概要(原文)</td><td>the silver searcher with helm interface</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>サイト</td><td><a href="http://d.hatena.ne.jp/syohex/20130302/1362182193">http://d.hatena.ne.jp/syohex/20130302/1362182193</td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/syohex/emacs-helm-ag">https://github.com/syohex/emacs-helm-ag</a></td></tr>
+<tr><td>バージョン</td><td>20150210.126</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:helm-ag/">package:helm-ag</a> <a href="http://rubikitch.com/tag/package:projectile/">package:projectile</a> <a href="http://rubikitch.com/tag/package:anything-grep/">package:anything-grep</a></td></tr>
+</table>
+<br />
+#+END_HTML
+これは重大なelispを見逃していました。
+
+僕は *grep* や *ag* (*the silver searcher*) による絞り込み検索に、
+昔作った *anything-grep.el* (EmacsWikiにあるよ)を使っていました。
+
+helmにそれに相当するものはないかなーと思っていたのですが、
+まさに *helm-ag.el* でした。
+
+名前からして *helm-grep* のag版だろうなと
+タカをくくってたのがいけませんでした。
+
+*M-x helm-do-grep* はgrepのコマンドラインオプションを
+helmのクエリで入力する方式なので気に入らないのです。
+
+helmなんだから絞り込み検索したいんですが…
+
+というわけでhelm-ag.elは灯台下暗しという教訓を教えてくれました。
+
+
+helm-ag.elは名前とはうらはらに、 *grep -n形式* の出力をする
+検索プログラムをhelmインターフェースで絞り込みます。
+
+よって、 *helm-ag-base-command* をカスタマイズ次第で
+以下のプログラムに対応できます。
+
+- *ag* --nocolor --nogroup (デフォルト)
+- *grep* -rn (とりあえず動作確認したいだけの人は再帰grepで)
+- *csearch* -n ([[https://code.google.com/p/codesearch/][codesearch]] という検索エンジン)
+- *pt* --nocolor --nogroup (Shift_JIS, EUC-JP対応ag相当。未確認)
+
+*helm-ag-insert-at-point* を設定すれば、
+現在位置のシンボルをデフォルトのクエリにしてくれます。
+
+この状態で *M-x helm-ag* を C-M-g に割り当て、
+*backward-kill-sexp* をC-M-kに割り当てれば、
+C-M-g C-M-kで他のクエリを入力できるようになり快適です。
+
+*helm-ag* の引数は検索対象のディレクトリなので、
+*projectile* などのプロジェクトを扱うパッケージと
+容易に連携できます。(*M-x projectile-helm-ag*)
+
+.emacs.d以下を検索する *M-x helm-ag-dot-emacs* も定義しました。
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+[[file:/r/sync/screenshots/20150209074711.png]]
+Fig1: M-x helm-ag-dot-emacsでdefstructと入力
+
+[[file:/r/sync/screenshots/20150209074715.png]]
+Fig2: defstructの検索結果が出てくる
+
+[[file:/r/sync/screenshots/20150209074744.png]]
+Fig3: funcで絞り込む
+
+作者のページ→ http://d.hatena.ne.jp/syohex/20130302/1362182193
+
+** helm-ag インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install helm-ag
+
+
+#+end:
+** 概要                                                             :noexport:
+これは重大なelispを見逃していました。
+
+僕は *grep* や *ag* (*the silver searcher*) による絞り込み検索に、
+昔作った *anything-grep.el* (EmacsWikiにあるよ)を使っていました。
+
+helmにそれに相当するものはないかなーと思っていたのですが、
+まさに *helm-ag.el* でした。
+
+名前からして *helm-grep* のag版だろうなと
+タカをくくってたのがいけませんでした。
+
+*M-x helm-do-grep* はgrepのコマンドラインオプションを
+helmのクエリで入力する方式なので気に入らないのです。
+
+helmなんだから絞り込み検索したいんですが…
+
+というわけでhelm-ag.elは灯台下暗しという教訓を教えてくれました。
+
+
+helm-ag.elは名前とはうらはらに、 *grep -n形式* の出力をする
+検索プログラムをhelmインターフェースで絞り込みます。
+
+よって、 *helm-ag-base-command* をカスタマイズ次第で
+以下のプログラムに対応できます。
+
+- *ag* --nocolor --nogroup (デフォルト)
+- *grep* -rn (とりあえず動作確認したいだけの人は再帰grepで)
+- *csearch* -n ([[https://code.google.com/p/codesearch/][codesearch]] という検索エンジン)
+- *pt* --nocolor --nogroup (Shift_JIS, EUC-JP対応ag相当。未確認)
+
+*helm-ag-insert-at-point* を設定すれば、
+現在位置のシンボルをデフォルトのクエリにしてくれます。
+
+この状態で *M-x helm-ag* を C-M-g に割り当て、
+*backward-kill-sexp* をC-M-kに割り当てれば、
+C-M-g C-M-kで他のクエリを入力できるようになり快適です。
+
+*helm-ag* の引数は検索対象のディレクトリなので、
+*projectile* などのプロジェクトを扱うパッケージと
+容易に連携できます。(*M-x projectile-helm-ag*)
+
+.emacs.d以下を検索する *M-x helm-ag-dot-emacs* も定義しました。
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+[[file:/r/sync/screenshots/20150209074711.png]]
+Fig1: M-x helm-ag-dot-emacsでdefstructと入力
+
+[[file:/r/sync/screenshots/20150209074715.png]]
+Fig2: defstructの検索結果が出てくる
+
+[[file:/r/sync/screenshots/20150209074744.png]]
+Fig3: funcで絞り込む
+
+作者のページ→ http://d.hatena.ne.jp/syohex/20130302/1362182193
+
+
+** 設定 [[http://rubikitch.com/f/150209063222.helm-ag.el][150209063222.helm-ag.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/150209/150209063222.helm-ag.el"
+#+BEGIN_SRC fundamental
+;;; ag以外の検索コマンドも使える
+;; (setq helm-ag-base-command "grep -rin")
+;; (setq helm-ag-base-command "csearch -n")
+;; (setq helm-ag-base-command "pt --nocolor --nogroup")
+;;; 現在のシンボルをデフォルトのクエリにする
+(setq helm-ag-insert-at-point 'symbol)
+;;; C-M-gはちょうどあいてる
+(global-set-key (kbd "C-M-g") 'helm-ag)
+(global-set-key (kbd "C-M-k") 'backward-kill-sexp) ;推奨
+
+(defun helm-ag-dot-emacs ()
+  ".emacs.d以下を検索"
+  (interactive)
+  (helm-ag "~/.emacs.d/"))
+(require 'projectile nil t)
+(defun helm-projectile-ag ()
+  "Projectileと連携"
+  (interactive)
+  (helm-ag (projectile-project-root)))
+;; (helm-ag "~/.emacs.d/")
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/150209063222.helm-ag.el
+$ emacs -Q -f package-initialize -l 150209063222.helm-ag.el
+#+END_EXAMPLE
+
+# /r/sync/screenshots/20150209074711.png http://rubikitch.com/wp-content/uploads/2015/02/wpid-20150209074711.png
+# /r/sync/screenshots/20150209074715.png http://rubikitch.com/wp-content/uploads/2015/02/wpid-20150209074715.png
+# /r/sync/screenshots/20150209074744.png http://rubikitch.com/wp-content/uploads/2015/02/wpid-20150209074744.png

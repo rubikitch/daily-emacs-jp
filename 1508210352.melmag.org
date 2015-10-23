@@ -1,0 +1,26 @@
+#+BLOG: rubikitch
+#+POSTID: 1913
+#+DATE: [2015-08-21 Fri 03:52]
+#+PERMALINK: melmag
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: メルマガ,
+#+DESCRIPTION: るびきち塾メルマガ『Emacsの鬼るびきちのココだけの話#195』の予告
+#+TITLE: 【メルマガ#195】関数呼び出しグラフを描こう
+#+MYTAGS: 
+#+begin: org2blog-tags
+#+TAGS: , メルマガ,, 
+#+end:
+今回は前回紹介した関数呼び出しの関係を
+明示するelispを使った応用編です。
+
+関数呼び出しのグラフを何通りか画像化し、
+それを選択できるようにしてみます。
+
+このようなアプローチがあることも
+知っておくとよいでしょう。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

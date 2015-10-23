@@ -1,0 +1,117 @@
+#+BLOG: rubikitch
+#+POSTID: 575
+#+DATE: [2014-11-12 Wed 06:05]
+#+PERMALINK: eww-lnum
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs 24.4, Emacs,
+#+EL_PKG_NAME: eww-lnum
+#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, emacs eww Hit-a-Hint, emacs ブラウザ Hit-a-Hint, emacs eww キーボード操作, emacs eww conkeror, relate:eww, relate:ace-link, eww Hit-a-Hint
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: 組み込みブラウザewwでHit-a-Hintしようぜ
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージeww-lnumの紹介
+#+MYTAGS: package:eww-lnum, emacs 使い方, emacs コマンド, emacs, emacs lisp eww-lnum, elisp eww-lnum, emacs melpa eww-lnum, emacs eww-lnum 使い方, emacs eww-lnum 設定, emacs パッケージ eww-lnum, emacs eww-lnum スクリーンショット, emacs eww Hit-a-Hint, emacs ブラウザ Hit-a-Hint, emacs eww キーボード操作, emacs eww conkeror, relate:eww, relate:ace-link, eww Hit-a-Hint
+#+TAGS: package:eww-lnum, emacs 使い方, emacs コマンド, emacs, emacs lisp eww-lnum, elisp eww-lnum, emacs melpa eww-lnum, emacs eww-lnum 使い方, emacs eww-lnum 設定, emacs パッケージ eww-lnum, emacs eww-lnum スクリーンショット, emacs eww Hit-a-Hint, emacs ブラウザ Hit-a-Hint, emacs eww キーボード操作, emacs eww conkeror, relate:eww, relate:ace-link, eww Hit-a-Hint, Emacs 24.4, Emacs,, eww-lnum.el, Hit-a-Hint, M-x eww-lnum-follow, M-x eww-lnum-universal, eww-lnum.el, Hit-a-Hint, M-x eww-lnum-follow, M-x eww-lnum-universal
+#+TITLE: emacs eww-lnum.el : 組み込みブラウザewwでHit-a-Hintしようぜ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>eww-lnum</td></tr>
+<tr><td>概要(原文)</td><td>Conkeror-like functionality for eww</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/m00natic/eww-lnum">https://github.com/m00natic/eww-lnum</a></td></tr>
+<tr><td>バージョン</td><td>20150102.712</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:eww-lnum/">package:eww-lnum</a> <a href="http://rubikitch.com/tag/package:eww/">package:eww</a> <a href="http://rubikitch.com/tag/package:ace-link/">package:ace-link</a></td></tr>
+</table>
+<br />
+#+END_HTML
+
+*eww-lnum.el* は、 [[http://rubikitch.com/2014/10/21/emacs244-2/][Emacs 24.4で標準添付]]  となったWebブラウザewwで
+*Hit-a-Hint* を行うパッケージです。
+
+<2014-12-30 Tue> 文字がずれるので [[http://rubikitch.com/2014/12/30/ace-link/][ace-link(レビュー)をおすすめします。]]
+
+MozillaでEmacsを模倣したブラウザ [[http://conkeror.org/][Conkeror]] 的とも言えます。
+
+*M-x eww-lnum-follow* (fに割り当て)を実行すると、リンクに番号が付き、
+その番号を押すことでリンクを辿れるようになります。
+
+*M-x eww-lnum-universal* (Fに割り当て)はいわゆる右クリックに相当する機能で、
+様々なアクションを選択できます。
+
+- 保存
+- curlでダウンロード
+- URLコピー
+- 別ブラウザで開く
+
+<2014-12-04 Thu>更新
+表示されないヒントがある不具合を修正した設定を載せました。
+[[http://rubikitch.com/2014/12/04/eww-lnum-bugfix/][スクリーンショット参照]]
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+http://rubikitch.com/f/20141112061349.png
+Fig1: fまたはFでHit-a-Hint状態！
+
+http://rubikitch.com/f/20141112061402.png
+Fig2: Fを押したときに出てくるアクション
+** eww-lnum インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install eww-lnum
+
+
+#+end:
+** 概要                                                             :noexport:
+
+*eww-lnum.el* は、 [[http://rubikitch.com/2014/10/21/emacs244-2/][Emacs 24.4で標準添付]]  となったWebブラウザewwで
+*Hit-a-Hint* を行うパッケージです。
+
+<2014-12-30 Tue> 文字がずれるので [[http://rubikitch.com/2014/12/30/ace-link/][ace-link(レビュー)をおすすめします。]]
+
+MozillaでEmacsを模倣したブラウザ [[http://conkeror.org/][Conkeror]] 的とも言えます。
+
+*M-x eww-lnum-follow* (fに割り当て)を実行すると、リンクに番号が付き、
+その番号を押すことでリンクを辿れるようになります。
+
+*M-x eww-lnum-universal* (Fに割り当て)はいわゆる右クリックに相当する機能で、
+様々なアクションを選択できます。
+
+- 保存
+- curlでダウンロード
+- URLコピー
+- 別ブラウザで開く
+
+<2014-12-04 Thu>更新
+表示されないヒントがある不具合を修正した設定を載せました。
+[[http://rubikitch.com/2014/12/04/eww-lnum-bugfix/][スクリーンショット参照]]
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+http://rubikitch.com/f/20141112061349.png
+Fig1: fまたはFでHit-a-Hint状態！
+
+http://rubikitch.com/f/20141112061402.png
+Fig2: Fを押したときに出てくるアクション
+** 設定 [[http://rubikitch.com/f/141112061310.eww-lnum.el][141112061310.eww-lnum.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/141112/141112061310.eww-lnum.el"
+#+BEGIN_SRC fundamental
+(with-eval-after-load "eww"
+  (define-key eww-mode-map "f" 'eww-lnum-follow)
+  (define-key eww-mode-map "F" 'eww-lnum-universal))
+(defun eww-lnum-read-interactive--not-truncate-lines (&rest them)
+  (let ((truncate-lines nil))
+    (apply them)))
+(advice-add 'eww-lnum-read-interactive :around
+            'eww-lnum-read-interactive--not-truncate-lines)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/141112061310.eww-lnum.el
+$ emacs -Q -f package-initialize -l 141112061310.eww-lnum.el
+#+END_EXAMPLE

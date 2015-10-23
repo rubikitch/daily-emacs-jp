@@ -1,0 +1,142 @@
+#+BLOG: rubikitch
+#+POSTID: 330
+#+DATE: [2014-09-10 Wed 11:30]
+#+PERMALINK: bind-key
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs
+#+EL_PKG_NAME: bind-key
+#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs define-key, emacs global-set-key, emacs global-unset-key, emacs local-set-key, emacs global-unset-key, emacs key-binding, emacs キーバインド, emacs キー割り当て, emacs キー操作, emacs kbd, relate:use-package
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方
+#+EL_TITLE0: define-keyを直接書くのは時代遅れ！Emacsの重鎮が行っているスタイリッシュキー割り当て管理術！
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージbind-keyの紹介
+#+MYTAGS: package:bind-key, emacs 使い方, emacs コマンド, emacs, emacs lisp bind-key, elisp bind-key, emacs melpa bind-key, emacs bind-key 使い方, emacs bind-key 設定, emacs パッケージ bind-key, emacs define-key, emacs global-set-key, emacs global-unset-key, emacs local-set-key, emacs global-unset-key, emacs key-binding, emacs キーバインド, emacs キー割り当て, emacs キー操作, emacs kbd, relate:use-package
+#+TITLE: emacs bind-key.el : define-keyを直接書くのは時代遅れ！Emacsの重鎮が行っているスタイリッシュキー割り当て管理術！ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>bind-key</td></tr>
+<tr><td>概要(原文)</td><td>A simple way to manage personal keybindings</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/jwiegley/use-package">https://github.com/jwiegley/use-package</a></td></tr>
+<tr><td>バージョン</td><td>20141220.1645</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:bind-key/">package:bind-key</a> <a href="http://rubikitch.com/tag/package:use-package/">package:use-package</a></td></tr>
+</table>
+<br />
+#+END_HTML
+John Wiegley氏謹製 *bind-key.el* はキー割り当ての
+設定関数 *define-key* を完全に置き換えます。
+
+昨日紹介した[[http://rubikitch.com/2014/09/09/use-package/][use-package.el]] の内部で使われています。
+
+これを使うことで以下のメリットがあります。
+
+- 移行がすごい簡単
+- 短くなる
+- *kbd* によるEmacs記法が使える(*bind-key*)
+- 個人用に割り当てたキーを列挙できる( *M-x describe-personal-keybindings* )
+- 複数のキーをまとめて割り当てられる(*bind-keys*)
+- メジャーモード・マイナーモードによらない最優先のキーバインドを定義できる(bind-key*, bind-keys*)
+
+難しいことはすべてbind-key.elが請け負ってくれるのが嬉しいです。
+** bind-key インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install bind-key
+
+
+#+end:
+** 概要                                                             :noexport:
+John Wiegley氏謹製 *bind-key.el* はキー割り当ての
+設定関数 *define-key* を完全に置き換えます。
+
+昨日紹介した[[http://rubikitch.com/2014/09/09/use-package/][use-package.el]] の内部で使われています。
+
+これを使うことで以下のメリットがあります。
+
+- 移行がすごい簡単
+- 短くなる
+- *kbd* によるEmacs記法が使える(*bind-key*)
+- 個人用に割り当てたキーを列挙できる( *M-x describe-personal-keybindings* )
+- 複数のキーをまとめて割り当てられる(*bind-keys*)
+- メジャーモード・マイナーモードによらない最優先のキーバインドを定義できる(bind-key*, bind-keys*)
+
+難しいことはすべてbind-key.elが請け負ってくれるのが嬉しいです。
+** bind-key vs define-key(global-set-key)
+では、対比してみましょう。
+
+#+BEGIN_SRC emacs-lisp :results silent
+(global-set-key (kbd "C-c x") 'my-ctrl-c-x-command)
+↓
+(bind-key "C-c x" 'my-ctrl-c-x-command)
+
+(define-key some-other-mode-map (kbd "C-c x") 'my-ctrl-c-x-command)
+↓
+(bind-key "C-c x" 'my-ctrl-c-x-command some-other-mode-map)
+#+END_SRC
+** 複数のキーをまとめて登録する
+重複もこんな感じで回避！
+
+#+BEGIN_SRC emacs-lisp :results silent
+(define-key dired-mode-map "o" 'dired-omit-mode)
+(define-key dired-mode-map "a" 'some-other-mode-map)
+↓
+(bind-keys :map dired-mode-map
+           ("o" . dired-omit-mode)
+           ("a" . some-custom-dired-function))
+#+END_SRC
+** メジャーモード・マイナーモードに依存しないで常に同じキーに割り当てる
+仮にC-tにother-windowを割り当てたとすると、
+diredだとC-tがプレフィクスキーになってしまい
+other-windowが動いてくれません。
+
+このような場合、モードによる上書きよりも
+優先度が高いようにする必要があります。
+
+この設定を書くのは *minor-mode-map-alist* だの
+*minor-mode-overriding-map-alist* だの
+*emulation-mode-map-alists* だの
+とてもややこしい問題になってきます。
+
+そんな場合bind-key/bind-keysの代わりに
+bind-key* や bind-keys* を使えば解決です。
+
+#+BEGIN_SRC emacs-lisp :results silent
+(bind-key* "C-t" 'other-window)
+#+END_SRC
+** bind-key/bind-keysで割り当てたキーバインドをリストする
+*M-x describe-personal-keybindings* は
+bind-keyなどで個人的に割り当てたキーバインドを
+表示してくれます。
+
+たとえば、以下の設定の場合、
+
+#+BEGIN_SRC emacs-lisp :results silent
+(require 'bind-key)
+(bind-key "C-x C-f" 'ffap)
+(bind-key "C-c f" 'find-file)
+(bind-key* "C-t" 'other-window)
+#+END_SRC
+
+このように表示されます。
+
+#+BEGIN_SRC fundamental :file
+Key name  Command         Comments
+--------- --------------- ---------------------
+C-t       `other-window'  was `transpose-chars'
+
+C-c f     `find-file'
+
+C-x C-f   `ffap'          was `find-file'
+#+END_SRC
+** 他の設定と合わせたい
+[[http://rubikitch.com/2014/09/09/use-package/][続きはuse-package.elで！]]
+
+*use-package* を使っていれば、自動的に
+M-x describe-personal-keybindingsも使えます。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

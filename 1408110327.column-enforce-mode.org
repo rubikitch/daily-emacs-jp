@@ -1,0 +1,74 @@
+#+BLOG: rubikitch
+#+POSTID: 115
+#+DATE: [2014-08-11 Mon 03:27]
+#+PERMALINK: column-enforce-mode
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs
+#+EL_PKG_NAME: column-enforce-mode
+#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, 長い行をお知らせ emacs, emacs 80桁制限, 改行位置 emacs, emacs fci-mode
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: 長い行をお知らせしてくれるゾ！column-enforce-mode
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージcolumn-enforce-modeの紹介
+#+MYTAGS: package:column-enforce-mode, emacs 使い方, emacs コマンド, emacs, emacs lisp column-enforce-mode, elisp column-enforce-mode, emacs melpa column-enforce-mode, emacs column-enforce-mode 使い方, emacs column-enforce-mode 設定, emacs パッケージ column-enforce-mode, emacs column-enforce-mode スクリーンショット, 長い行をお知らせ emacs, emacs 80桁制限, 改行位置 emacs, emacs fci-mode
+#+TITLE: emacs column-enforce-mode.el : 長い行をお知らせしてくれるゾ！column-enforce-mode | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>column-enforce-mode</td></tr>
+<tr><td>概要(原文)</td><td>Highlight text that extends beyond a  column</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/jordonbiondo/column-enforce-mode">https://github.com/jordonbiondo/column-enforce-mode</a></td></tr>
+<tr><td>バージョン</td><td>20140902.949</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:column-enforce-mode/">package:column-enforce-mode</a> </td></tr>
+</table>
+<br />
+#+END_HTML
+column-enforce-modeは長い行をお知らせしてくれる便利なマイナーモードです。
+
+たとえばコーディング規約で80桁以内にしなさいと言われたときとか、
+文章を書くときの改行位置の目安を知りたいときに役立ちます。
+
+設定ではバッファローカル変数にしていますが、
+何を書くかによって制限桁数が変わってくるからです。
+** column-enforce-mode インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install column-enforce-mode
+
+
+#+end:
+** 概要                                                             :noexport:
+column-enforce-modeは長い行をお知らせしてくれる便利なマイナーモードです。
+
+たとえばコーディング規約で80桁以内にしなさいと言われたときとか、
+文章を書くときの改行位置の目安を知りたいときに役立ちます。
+
+設定ではバッファローカル変数にしていますが、
+何を書くかによって制限桁数が変わってくるからです。
+** 設定 [[http://rubikitch.com/f/140811032549.column-enforce-mode.el][140811032549.column-enforce-mode.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/140811/140811032549.column-enforce-mode.el"
+#+BEGIN_SRC fundamental
+(require 'column-enforce-mode)
+(defun text-mode-hook--column-enforce-mode ()
+  (set (make-local-variable 'column-enforce-column) 50)
+  (column-enforce-mode 1))
+(add-hook 'text-mode-hook 'text-mode-hook--column-enforce-mode)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/140811032549.column-enforce-mode.el
+$ emacs -Q -f package-initialize -l 140811032549.column-enforce-mode.el
+#+END_EXAMPLE
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+http://rubikitch.com/f/20140811032734.png
+Fig1: 長い行を明示！

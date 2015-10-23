@@ -1,0 +1,158 @@
+#+BLOG: rubikitch
+#+POSTID: 612
+#+DATE: [2014-11-24 Mon 04:22]
+#+PERMALINK: scratch-pop
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION: scratch-pop.el + popwin.el + auto-save-buffers-enhanced.el による快適メモ取り環境の構築方法！
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs
+#+EL_PKG_NAME: scratch-pop
+#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, relate:popwin, relate:org, define-minor-mode, scratchバッファ メモ, emacs scratch, package:auto-save-buffers-enhanced, relate:open-junk-file, scratch, relate:omni-scratch
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: 【おまけ付き】自動保存*scratch*バッファをpopwinでサッと開いてメモを取る
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージscratch-popの紹介
+#+MYTAGS: package:scratch-pop, emacs 使い方, emacs コマンド, emacs, emacs lisp scratch-pop, elisp scratch-pop, emacs melpa scratch-pop, emacs scratch-pop 使い方, emacs scratch-pop 設定, emacs パッケージ scratch-pop, emacs scratch-pop スクリーンショット, relate:popwin, relate:org, define-minor-mode, scratchバッファ メモ, emacs scratch, package:auto-save-buffers-enhanced, relate:open-junk-file, scratch, relate:omni-scratch
+#+TAGS: package:scratch-pop, emacs 使い方, emacs コマンド, emacs, emacs lisp scratch-pop, elisp scratch-pop, emacs melpa scratch-pop, emacs scratch-pop 使い方, emacs scratch-pop 設定, emacs パッケージ scratch-pop, emacs scratch-pop スクリーンショット, relate:popwin, relate:org, define-minor-mode, scratchバッファ メモ, emacs scratch, package:auto-save-buffers-enhanced, relate:open-junk-file, scratch, relate:omni-scratch, Emacs, scratch-pop.el, popwin.el, popwin.el, open-junk-file.el, M-x org-capture, org-mode, scratch*バッファ専用の *マイナーモード, scratch
+#+TITLE: emacs scratch-pop.el : 【おまけ付き】自動保存*scratch*バッファをpopwinでサッと開いてメモを取る | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>scratch-pop</td></tr>
+<tr><td>概要(原文)</td><td>Popup scratch buffers.</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/zk-phi/scratch-pop">https://github.com/zk-phi/scratch-pop</a></td></tr>
+<tr><td>バージョン</td><td>20150428.157</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:scratch-pop/">package:scratch-pop</a> <a href="http://rubikitch.com/tag/package:popwin/">package:popwin</a> <a href="http://rubikitch.com/tag/package:org/">package:org</a> <a href="http://rubikitch.com/tag/package:open-junk-file/">package:open-junk-file</a> <a href="http://rubikitch.com/tag/package:omni-scratch/">package:omni-scratch</a></td></tr>
+</table>
+<br />
+#+END_HTML
+*scratch-pop.el* は、 *popwin.el* を使って
+*scratch*バッファをポップアップさせます。
+
+C-c cで*scratch*バッファを開き、
+メモを書いたらC-gで閉じるだけです。
+
+scratch-pop.elが提供するのはたったこれだけの機能ですが、
+短期的なメモにおいては十分です。
+** scratch-pop インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install scratch-pop
+
+
+#+end:
+ここではさらに以下のパッケージもインストールします。
+M-x package-install auto-save-buffers-enhanced
+M-x package-install popwin
+** 概要                                                             :noexport:
+*scratch-pop.el* は、 *popwin.el* を使って
+*scratch*バッファをポップアップさせます。
+
+C-c cで*scratch*バッファを開き、
+メモを書いたらC-gで閉じるだけです。
+
+scratch-pop.elが提供するのはたったこれだけの機能ですが、
+短期的なメモにおいては十分です。
+** 短期的なメモと長期的なメモ
+*scratch*バッファをメモ用途に
+使っている人はけっこういるかと思います。
+
+僕は昨日まで*scratch*バッファをほとんど使っていませんでした。
+
+僕はずっと昔から *open-junk-file.el* を使っていて、
+コードの試行錯誤はすべて ~/junk/ 以下に保存しています。
+
+メモは *M-x org-capture* を使ってメモファイルに一元管理しています。
+
+しかし、昨日のツイートがきっかけで、
+メモには2種類の目的があることに気付きました。
+
+#+BEGIN_QUOTE
+ 2014/11/23 16:27:39 kai2nenobu > これまじ便利。*scratch*でメモして、強制
+ 終了でメモ紛失という事故がなくなる。 "【自動保存】Emacsから「ファイル保存」
+ という概念を消し飛ばす。*scratch*も自動保存 | るびきち「日刊Emacs」" -
+ http://rubikitch.com/2014/11/23/auto-save-buffers-enhanced/ // by
+ Tsuenobu Kai from KeySnail [Tokyo, Japan]
+
+ 2014/11/23 20:09:20 rubikitch > なるほど、*scratch*を短期的なメモ用途とし
+ て使えるわけだ。コードの試行錯誤はやっぱりopen-junk-fileだが、これで
+ *scratch*の新しい使い方が思い付いたよ。 >> RT // by るびきち＠日刊Emacs
+ from twmode [Emacs on Debian]
+#+END_QUOTE
+
+org-captureによるものはあくまで永続性のあるメモであり、
+作業中における短期的なメモにおいてはいまいち使い勝手がよくないです。
+
+そこで*scratch*に目をつけました。
+** auto-save-buffers-enhanced.elと組み合わせる
+[[http://rubikitch.com/2014/11/23/auto-save-buffers-enhanced/][昨日紹介したauto-save-buffers-enhanced.el]] では
+*scratach*バッファが自動保存されるので併用しましょう。
+
+これでメモがなくなる心配はありません。
+** おまけの機能
+ついでに*scratch*バッファを快適に使うために以下の設定もやっています。
+- メジャーモードは *org-mode* (好みに応じて)
+- C-c C-eでバッファを全消去
+- C-c C-cでバッファの内容をkill-ringに入れて閉じる
+
+*scratch*バッファ専用の *マイナーモード* を定義しています。
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+** 設定 [[http://rubikitch.com/f/141124043904.scratch-pop.el][141124043904.scratch-pop.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/141124/141124043904.scratch-pop.el"
+#+BEGIN_SRC fundamental
+(require 'auto-save-buffers-enhanced)
+
+;;; *scratch*を ~/.emacs.d/scratch に自動保存するだけ
+;;; ファイルを自動保存したい人はregexpsの設定をしてください
+(setq auto-save-buffers-enhanced-include-regexps nil)
+(setq auto-save-buffers-enhanced-exclude-regexps nil)
+(setq auto-save-buffers-enhanced-save-scratch-buffer-to-file-p t)
+(setq auto-save-buffers-enhanced-file-related-with-scratch-buffer
+      (locate-user-emacs-file "scratch"))
+(auto-save-buffers-enhanced t)
+
+;;; C-x a sでauto-save-buffers-enhancedの有効・無効をトグル
+(global-set-key "\C-xas" 'auto-save-buffers-enhanced-toggle-activity)
+
+;;; scratch-popの設定
+(require 'scratch-pop)
+(global-set-key (kbd "C-c c") 'scratch-pop)
+
+;;; ついでにscratchバッファを快適にする設定
+;; (makunbound 'scratch-ext-minor-mode-map)
+(define-minor-mode scratch-ext-minor-mode
+  "*scratch*バッファ専用のマイナーモード"
+  nil ""
+  '(("\C-c\C-c" . scratch-pop-kill-ring-save-exit)
+    ("\C-c\C-e" . erase-buffer)))
+
+(with-current-buffer (get-buffer-create "*scratch*")
+  (erase-buffer)
+  (ignore-errors
+    (insert-file-contents auto-save-buffers-enhanced-file-related-with-scratch-buffer))
+  (org-mode)                            ;好みに応じて
+  (setq header-line-format "scratch!!")
+  (scratch-ext-minor-mode 1))
+
+(defun scratch-pop-kill-ring-save-exit ()
+  "*scratch*バッファの内容をkill-ringに入れてから閉じる"
+  (interactive)
+  (kill-new (buffer-string))
+  (erase-buffer)
+  (funcall (if (fboundp 'popwin:close-popup-window)
+               'popwin:close-popup-window
+             'quit-window)))
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/141124043904.scratch-pop.el
+$ emacs -Q -f package-initialize -l 141124043904.scratch-pop.el
+#+END_EXAMPLE
+http://rubikitch.com/f/20141124083446.png
+Fig1: *scratch*バッファがポップアップするよ！

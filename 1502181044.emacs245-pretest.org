@@ -1,0 +1,58 @@
+#+BLOG: rubikitch
+#+POSTID: 1174
+#+DATE: [2015-02-18 Wed 10:44]
+#+PERMALINK: emacs245-pretest
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, Emacs 24.5
+#+DESCRIPTION: Emacs 24.5のpretest登場。24.4のバグ修正がメインのようだ。
+#+MYTAGS: 
+#+TITLE: Emacs24.5 pretest(24.4.90)出ました
+#+begin: org2blog-tags
+#+TAGS: , Emacs, Emacs 24.5, Emacs24.5
+#+end:
+http://lists.gnu.org/archive/html/emacs-devel/2015-02/msg01028.html
+
+ftp://alpha.gnu.org/gnu/emacs/pretest/emacs-24.4.90.tar.xz
+
+*Emacs24.5* のリリースに備えて、pretestが発表されました。
+
+NEWSから24.5の変更点を見ましたが、
+特に大きな変更はなく、バグ修正がメインのようです。
+
+#+BEGIN_EXAMPLE
+,* Changes in Emacs 24.5
+
+---
+,** The default value of `history-length' has increased to 100.
+
++++
+,** `redisplay-dont-pause' is declared as obsolete.
+
+
+,* Changes in Specialized Modes and Packages in Emacs 24.5
+
+,** `call-process-shell-command' and `process-file-shell-command'
+don't take "&rest args" any more.
+
+,** Obsolete packages
+
+,*** cc-compat.el
+
+---
+,*** crisp.el - moved to elpa.gnu.org.
+
+---
+,*** tpu-edt.el, ws-mode.el
+These emulations of old editors are believed to be no longer relevant
+ - contact emacs-devel@gnu.org if you disagree.
+
+---
+,*** vi.el, vip.el (try M-x viper instead)
+
+
+#+END_EXAMPLE
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

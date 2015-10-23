@@ -1,0 +1,39 @@
+#+BLOG: rubikitch
+#+POSTID: 1650
+#+DATE: [2015-05-15 Fri 04:43]
+#+PERMALINK: melmag
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: メルマガ,
+#+DESCRIPTION: るびきち塾メルマガ『Emacsの鬼るびきちのココだけの話#181』の予告
+#+TITLE: 【メルマガ#181】10億円に勝る最高の宝
+#+MYTAGS: 
+#+begin: org2blog-tags
+#+TAGS: , メルマガ,, 
+#+end:
+先週は最強の勉強法とは何なのかついてお伝えしました。
+
+今週はそれを実践するにあたっての重要な心構え
+そして、それによって得られる「最高の宝」
+についてお話します。
+
+この勉強法は僕がるびきちとして活動し始めた当初
+(15年前)から行っているもので、その結果、
+執筆活動を生業にできるようになりました。
+
+執筆活動を始めた当初はその本当の価値が見えませんでしたが、
+年をとった今こそ、それが最高の仕事だと断言できます。
+
+「人生にとって一番大切なことは何か!？」
+
+人間として生きている以上迷っていると思いますが、
+この哲学的な問いに対して生涯崩すことのないであろう
+僕なりに最高の答えが出せました。
+
+「るびきち史」を振り返り価値観の変遷を通じて
+あなたなりの答えを探し出してみてください。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

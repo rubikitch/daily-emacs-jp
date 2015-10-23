@@ -1,0 +1,124 @@
+#+BLOG: rubikitch
+#+POSTID: 845
+#+DATE: [2014-12-31 Wed 14:25]
+#+PERMALINK: smart-newline
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs
+#+EL_PKG_NAME: smart-newline
+#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, 
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 
+#+EL_TITLE0: 改行の入力方法(C-o, C-j, C-mなど)をRETに統一する
+#+EL_URL: http://ainame.hateblo.jp/entry/2013/12/08/162032
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージsmart-newlineの紹介
+#+MYTAGS: package:smart-newline, emacs 使い方, emacs コマンド, emacs, emacs lisp smart-newline, elisp smart-newline, emacs melpa smart-newline, emacs smart-newline 使い方, emacs smart-newline 設定, emacs パッケージ smart-newline, 
+#+TAGS: package:smart-newline, emacs 使い方, emacs コマンド, emacs, emacs lisp smart-newline, elisp smart-newline, emacs melpa smart-newline, emacs smart-newline 使い方, emacs smart-newline 設定, emacs パッケージ smart-newline, , Emacs, smart-newline.el, open-line, newline-and-indent, newline, reindent-then-newline-and-indent, open-line, newline-and-indent, newline, reindent-then-newline-and-indent
+#+TITLE: emacs smart-newline.el : 改行の入力方法(C-o, C-j, C-mなど)をRETに統一する | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>smart-newline</td></tr>
+<tr><td>概要(原文)</td><td>Provide smart newline for one keybind.</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>サイト</td><td><a href="http://ainame.hateblo.jp/entry/2013/12/08/162032">http://ainame.hateblo.jp/entry/2013/12/08/162032</td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/ainame/smart-newline.el">https://github.com/ainame/smart-newline.el</a></td></tr>
+<tr><td>バージョン</td><td>20131207.1940</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:smart-newline/">package:smart-newline</a> </td></tr>
+</table>
+<br />
+#+END_HTML
+*smart-newline.el* は空気読んでくれる「改行」です。
+
+Emacsには改行の入力方法がいろいろありますが、
+これを使えばRETだけで以下のコマンドを兼ね備えることになります。
+
+- C-o (*open-line*)
+- C-j (*newline-and-indent*)
+- C-m (*newline*)
+- *reindent-then-newline-and-indent*
+
+行と行の間に挿入したいなと思ったら、
+C-oではなくてRETを数回押せばいいだけです。
+
+おかげでC-oやC-jのキーバインドが空き、
+よく使う他のコマンドが割り当てられます。
+
+言葉で説明するとややこしいので感覚で覚えてください。
+
+とにかくいろんなタイミングでRETを押してみましょう。
+
+
+僕もありがたく使わせていただいています。
+
+本設定では、C-uを押して通常の改行の挙動を追加しています。
+
+作者による詳しい解説はこちら。
+http://ainame.hateblo.jp/entry/2013/12/08/162032
+** smart-newline インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install smart-newline
+
+
+#+end:
+** 概要                                                             :noexport:
+*smart-newline.el* は空気読んでくれる「改行」です。
+
+Emacsには改行の入力方法がいろいろありますが、
+これを使えばRETだけで以下のコマンドを兼ね備えることになります。
+
+- C-o (*open-line*)
+- C-j (*newline-and-indent*)
+- C-m (*newline*)
+- *reindent-then-newline-and-indent*
+
+行と行の間に挿入したいなと思ったら、
+C-oではなくてRETを数回押せばいいだけです。
+
+おかげでC-oやC-jのキーバインドが空き、
+よく使う他のコマンドが割り当てられます。
+
+言葉で説明するとややこしいので感覚で覚えてください。
+
+とにかくいろんなタイミングでRETを押してみましょう。
+
+
+僕もありがたく使わせていただいています。
+
+本設定では、C-uを押して通常の改行の挙動を追加しています。
+
+作者による詳しい解説はこちら。
+http://ainame.hateblo.jp/entry/2013/12/08/162032
+
+** 設定 [[http://rubikitch.com/f/141231144300.smart-newline.el][141231144300.smart-newline.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/141231/141231144300.smart-newline.el"
+#+BEGIN_SRC fundamental
+(require 'smart-newline)
+(global-set-key (kbd "C-m") 'smart-newline)
+(add-hook 'ruby-mode-hook 'smart-newline-mode)
+(add-hook 'emacs-lisp-mode-hook 'smart-newline-mode)
+(add-hook 'org-mode-hook 'smart-newline-mode)
+
+(defadvice smart-newline (around C-u activate)
+  "C-uを押したら元のC-mの挙動をするようにした。
+org-modeなどで活用。"
+  (if (not current-prefix-arg)
+      ad-do-it
+    (let (current-prefix-arg)
+      (let (smart-newline-mode)
+        (call-interactively (key-binding (kbd "C-m")))))))
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/141231144300.smart-newline.el
+$ emacs -Q -f package-initialize -l 141231144300.smart-newline.el
+#+END_EXAMPLE
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

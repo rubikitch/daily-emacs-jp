@@ -1,0 +1,223 @@
+#+BLOG: rubikitch
+#+POSTID: 1597
+#+DATE: [2015-05-01 Fri 04:12]
+#+PERMALINK: xah-replace-pairs
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, Emacs Lisp, 
+#+EL_PKG_NAME: xah-replace-pairs
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, elisp 置換, replace-string, replace-regexp, elisp 正規表現置換
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール ライブラリ 使い方 
+#+EL_TITLE0: elispで文字列置換・正規表現置換をスタイリッシュに記述する！
+#+EL_URL: http://ergoemacs.org/emacs/elisp_replace_string_region.html
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージxah-replace-pairsの紹介
+#+MYTAGS: package:xah-replace-pairs, emacs 使い方, emacs コマンド, emacs, xah-replace-pairs, xah-replace-pairs.el, emacs lisp xah-replace-pairs, elisp xah-replace-pairs, emacs melpa xah-replace-pairs, emacs xah-replace-pairs 使い方, emacs xah-replace-pairs 設定, emacs パッケージ xah-replace-pairs, elisp 置換, replace-string, replace-regexp, elisp 正規表現置換
+#+TAGS: package:xah-replace-pairs, emacs 使い方, emacs コマンド, emacs, xah-replace-pairs, xah-replace-pairs.el, emacs lisp xah-replace-pairs, elisp xah-replace-pairs, emacs melpa xah-replace-pairs, emacs xah-replace-pairs 使い方, emacs xah-replace-pairs 設定, emacs パッケージ xah-replace-pairs, elisp 置換, replace-string, replace-regexp, elisp 正規表現置換, Emacs, Emacs Lisp, , xah-replace-pairs.el, xah-replace-pairs.el, replace-string, replace-regexp, replace-regexp-in-string, xah-replace-pairs-region, xah-replace-regexp-pairs-region, xah-replace-pairs-in-string, xah-replace-pairs-region, with-temp-buffer, insert, buffer-string, xah-replace-regexp-pairs-in-string, xah-replace-pairs-region-recursive, xah-replace-pairs-in-string-recursive
+#+TITLE: emacs xah-replace-pairs.el : elispで文字列置換・正規表現置換をスタイリッシュに記述する！ | MELPA Emacs Lisp Elisp パッケージ インストール ライブラリ 使い方 
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>xah-replace-pairs</td></tr>
+<tr><td>概要(原文)</td><td>Multi-pair find/replace in strings and region.</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>サイト</td><td><a href="http://ergoemacs.org/emacs/elisp_replace_string_region.html">http://ergoemacs.org/emacs/elisp_replace_string_region.html</td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/xahlee/xah-replace-pairs">https://github.com/xahlee/xah-replace-pairs</a></td></tr>
+<tr><td>バージョン</td><td>20150429.530</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:xah-replace-pairs/">package:xah-replace-pairs</a> </td></tr>
+</table>
+<br />
+#+END_HTML
+elispで置換処理を書くのはけっこう面倒です。
+
+*xah-replace-pairs.el* は、バッファ内・文字列の置換を
+一発で記述できるようにするライブラリです。
+** xah-replace-pairs インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install xah-replace-pairs
+
+
+#+end:
+** 概要                                                             :noexport:
+elispで置換処理を書くのはけっこう面倒です。
+
+*xah-replace-pairs.el* は、バッファ内・文字列の置換を
+一発で記述できるようにするライブラリです。
+** replace-stringやreplace-regexpをelispで使ってはいけない
+
+バッファ内の文字列や正規表現を置換するならば、
+素直に *replace-string* や *replace-regexp* を使えばいいじゃないか
+という声が聞こえてきそうですが、Lispプログラミングではだめな方法です。
+
+replace-stringのdocstringにはこう書いてあります。
+#+BEGIN_EXAMPLE
+This function is usually the wrong thing to use in a Lisp program.
+What you probably want is a loop like this:
+  (while (search-forward FROM-STRING nil t)
+    (replace-match TO-STRING nil t))
+which will run faster and will not set the mark or print anything.
+(You may need a more complex loop if FROM-STRING can match the null string
+and TO-STRING is also null.)
+#+END_EXAMPLE
+
+replace-regexpには同様にこう書けと言われています。
+#+BEGIN_EXAMPLE
+  (while (re-search-forward REGEXP nil t)
+    (replace-match TO-STRING nil nil))
+#+END_EXAMPLE
+
+elispでは頻繁にテキスト処理が行われるのだから、
+置換くらい標準関数で用意されてしかるべきなんですが、
+何年たってもなぜか用意されていないんですよね。
+
+文字列内の置換ならば *replace-regexp-in-string* が使えますが、
+複数の置換を行うには何度もネストする必要があります。
+
+この関数もEmacs21になってやっと導入されたのだから
+これまで無数の自前置換関数が定義されたことでしょう。
+** HTMLで実体参照に変換する例
+HTMLでは「&」を表すには「&amp;」と実体参照で書かなければなりませんが、
+region内で置換するコマンドを考えます。
+
+作者のサイトでの例です。
+
+#+BEGIN_SRC emacs-lisp :results silent
+(defun replace-html-chars-region (begin end)
+  "Replace “<” to “&lt;” etc in region."
+  (interactive "r")
+  (save-restriction
+    (narrow-to-region begin end)
+
+    (goto-char (point-min))
+    (while (search-forward "&" nil t) (replace-match "&amp;" nil t))
+
+    (goto-char (point-min))
+    (while (search-forward "<" nil t) (replace-match "&lt;" nil t))
+
+    (goto-char (point-min))
+    (while (search-forward ">" nil t) (replace-match "&gt;" nil t))))
+#+END_SRC
+
+うざってぇ…置換ごときでなんでこんなに行数喰うんだよ
+と思われるでしょう。
+
+でも、 *xah-replace-pairs-region* を使うと一発です！
+
+#+BEGIN_SRC emacs-lisp :results silent
+(require 'xah-replace-pairs)
+(defun replace-html-chars-region (begin end)
+  (interactive "r")
+  (xah-replace-pairs-region begin end
+                            '(
+                              ["&" "&amp;"]
+                              ["<" "&lt;"]
+                              [">" "&gt;"]
+                              )))
+#+END_SRC
+
+作者はベクタ好きのようですが、リストでもいいです。
+
+#+BEGIN_SRC emacs-lisp :results silent
+(defun replace-html-chars-region (begin end)
+  (interactive "r")
+  (xah-replace-pairs-region begin end
+                            '(
+                              ("&" "&amp;")
+                              ("<" "&lt;")
+                              (">" "&gt;")
+                              )))
+
+#+END_SRC
+
+pairsと名乗っていますが、単純に1回の置換も
+すんなりと記述できます。
+
+#+BEGIN_SRC emacs-lisp :results silent
+(with-temp-buffer
+  (insert "foobarbaz")
+  (xah-replace-pairs-region (point-min) (point-max) '(("bar" "BAR")))
+  (buffer-string))                      ; => "fooBARbaz"
+#+END_SRC
+
+正規表現置換バージョンの *xah-replace-regexp-pairs-region* もあります。
+
+** 文字列置換も楽々
+文字列置換も *replace-regexp-in-string* を連発するより簡単です。
+
+*xah-replace-pairs-in-string* を使います。
+
+この関数は *xah-replace-pairs-region* を
+*with-temp-buffer* 、 *insert* 、 *buffer-string*
+でくるんでいるだけです。
+
+正規表現置換バージョンの *xah-replace-regexp-pairs-in-string*
+もあります。
+
+
+#+BEGIN_SRC emacs-lisp :results silent
+;;; BEFORE
+(replace-regexp-in-string
+ ">" "&gt;"
+ (replace-regexp-in-string
+  "<" "&lt;"
+  (replace-regexp-in-string
+   "&" "&amp;" "<<<A&B>>>")))
+;; => "&lt;&lt;&lt;A&amp;B&gt;&gt;&gt;"
+;;; AFTER
+(xah-replace-pairs-in-string
+ "<<<A&B>>>"
+ '(("&" "&amp;") ("<" "&lt;") (">" "&gt;")))
+;; => "&lt;&lt;&lt;A&amp;B&gt;&gt;&gt;"
+#+END_SRC
+
+** 再帰置換a→c、c→dもできる
+実はxah-replace-pairs-(region|in-string)は
+置換先を一旦一時的な別な文字に置換し、
+その文字を置換先に置換しています。
+
+それをせずに単純に置換するだけの
+*xah-replace-pairs-region-recursive* と
+*xah-replace-pairs-in-string-recursive*
+も用意されています。
+
+当然、こちらの方が動作は高速です。
+
+#+BEGIN_SRC emacs-lisp :results silent
+;;; 置換先のcを一時的に別な文字に置換しているのでa→cになる
+(xah-replace-pairs-in-string "abcd" '(("a" "c") ("c" "d")))
+;; => "cbdd"
+;;; a→cの後にc→dが適用されるのでa→dになる
+(xah-replace-pairs-in-string-recursive "abcd" '(("a" "c") ("c" "d")))
+;; => "dbdd"
+;;; regexpの方はrecursiveな挙動をする
+(xah-replace-regexp-pairs-in-string "abcd" '(("a" "c") ("c" "d")))
+;; => "dbdd"
+#+END_SRC
+
+
+** まとめ
+このライブラリには6つの関数が定義されています。
+
+統制が取れた名前で正規表現で書くと
+xah-replace(-regexp)?-pairs-(region|in-string)(-recursive)?
+となります。
+
+- xah-replace-pairs-region
+- xah-replace-pairs-in-string
+- xah-replace-pairs-region-recursive
+- xah-replace-pairs-in-string-recursive
+- xah-replace-regexp-pairs-region
+- xah-replace-regexp-pairs-in-string
+が定義されています。
+
+- xah-replace-regexp-pairs-region-recursive
+- xah-replace-regexp-pairs-in-string-recursive
+は定義されていませんが、regexp版はrecursiveな挙動をします。
+
+elispプログラマならば、ぜひ導入したいところです。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

@@ -1,0 +1,89 @@
+#+BLOG: rubikitch
+#+POSTID: 1879
+#+DATE: [2015-08-05 Wed 02:04]
+#+PERMALINK: narrow-reindent
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs
+#+EL_PKG_NAME: narrow-reindent
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, narrowing, ナローイング, インデント
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: 【コードリーディング】ナローイングされた部分を再インデントする
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージnarrow-reindentの紹介
+#+MYTAGS: package:narrow-reindent, emacs 使い方, emacs コマンド, emacs, narrow-reindent, narrow-reindent.el, emacs lisp narrow-reindent, elisp narrow-reindent, emacs melpa narrow-reindent, emacs narrow-reindent 使い方, emacs narrow-reindent 設定, emacs パッケージ narrow-reindent, emacs narrow-reindent スクリーンショット, narrowing, ナローイング, インデント
+#+TAGS: package:narrow-reindent, emacs 使い方, emacs コマンド, emacs, narrow-reindent, narrow-reindent.el, emacs lisp narrow-reindent, elisp narrow-reindent, emacs melpa narrow-reindent, emacs narrow-reindent 使い方, emacs narrow-reindent 設定, emacs パッケージ narrow-reindent, emacs narrow-reindent スクリーンショット, narrowing, ナローイング, インデント, Emacs, narrow-reindent.el, M-x narrow-reindent-mode, C-x n n, C-x n d, C-x n p, narrow-reindent.el, M-x narrow-reindent-mode, C-x n n, C-x n d, C-x n p
+#+TITLE: emacs narrow-reindent.el : 【コードリーディング】ナローイングされた部分を再インデントする | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>narrow-reindent</td></tr>
+<tr><td>概要(原文)</td><td>Defines a minor mode to left-align narrowed regions.</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/emallson/narrow-reindent.el">https://github.com/emallson/narrow-reindent.el</a></td></tr>
+<tr><td>バージョン</td><td>20150722.1206</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:narrow-reindent/">package:narrow-reindent</a> </td></tr>
+</table>
+<br />
+#+END_HTML
+コードの内側をナローイングしてその部分のみを読もうとしたとき
+普通では深くインデントされたままです。
+
+*narrow-reindent.el* はマイナーモード *M-x narrow-reindent-mode*
+を定義しています。
+
+有効にすることで *C-x n n* 、 *C-x n d* 、 *C-x n p* が
+直後に再インデントされるように再定義されます。
+
+ほんとうにちょっとしたコードですが、
+深くインデントされたコードを熟読するときに便利でしょう。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150805020812.png]]
+Fig1: この状態で
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150805020817.png]]
+Fig2: 通常だとインデントが深いが
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150805020835.png]]
+Fig3: narrow-reindent-modeならば再インデントされて左寄せになる
+** narrow-reindent インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install narrow-reindent
+
+
+#+end:
+** 概要                                                             :noexport:
+コードの内側をナローイングしてその部分のみを読もうとしたとき
+普通では深くインデントされたままです。
+
+*narrow-reindent.el* はマイナーモード *M-x narrow-reindent-mode*
+を定義しています。
+
+有効にすることで *C-x n n* 、 *C-x n d* 、 *C-x n p* が
+直後に再インデントされるように再定義されます。
+
+ほんとうにちょっとしたコードですが、
+深くインデントされたコードを熟読するときに便利でしょう。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150805020812.png]]
+Fig4: この状態で
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150805020817.png]]
+Fig5: 通常だとインデントが深いが
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150805020835.png]]
+Fig6: narrow-reindent-modeならば再インデントされて左寄せになる
+

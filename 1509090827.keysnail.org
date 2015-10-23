@@ -1,0 +1,86 @@
+#+BLOG: rubikitch
+#+POSTID: 1965
+#+DATE: [2015-09-09 水 08:27]
+#+PERMALINK: keysnail
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: KeySnail
+#+DESCRIPTION: 
+#+MYTAGS: Firefox, e10s, WebExtensions, KeySnail, ブラウザ, Emacsユーザにとってのブラウザ, conkeror
+#+TITLE: FirefoxをEmacs化するKeySnailを最後まで看取ります
+#+begin: org2blog-tags
+#+TAGS: Firefox, e10s, WebExtensions, KeySnail, ブラウザ, Emacsユーザにとってのブラウザ, conkeror, KeySnail, 
+#+end:
+あなたはどんなブラウザを使っていますか？
+僕はメインでw3m、サブでFirefoxです。
+ChromeではなくてFirefoxなのは、神アドオンKeySnailの存在です。
+
+https://github.com/mooz/keysnail/wiki/keysnail-japanese
+
+KeySnailは、FirefoxにEmacs文化を持ち込みます。
+Emacsユーザがinit.elに設定をゴリゴリ書くように、KeySnailでは.keysnail.jsに設定を書きます。
+キーボードショートカットならず一連のキーに機能を割り当てられます。
+メジャーモードがそうであるように、KeySnailでも同じキーシーケンスでも通常のブラウジング時、キャレットモード、テキスト入力で別々に割り当てられます。
+サイトローカルなキーマップはEmacsのマイナーモードに相当します。
+JavaScriptプログラミングができるのならば、自分で自由に機能を追加できます。
+elispを自由に導入できるように、他人が作ったKeySnailプラグインを簡単に導入できます。
+基本的な操作はEmacsを模倣しています。
+そういうわけで、EmacsヘビーユーザにとってKeySnailはそれなしでは生きていけないものです。
+
+
+とはいえ、KeySnailの未来は明るくはないです。
+MozillaはKeySnailやVimperatorのように自由にハックできるアドオンを締め出そうとしています。
+e10s対応という大きな壁があり、おまけに2年後までには旧来のXUL・XPCOMによるアドオンを廃止するつもりでいます。
+WebExtensionsというChrome互換のアドオンにしようとしています。
+それにより、従来のFirefoxアドオンはほとんど使えなくなることでしょう。
+アドオンでコントロールできる範囲が大きく制限されるからです。
+
+Firefoxの強味はなんといっても他のブラウザにはない深いレベルのアドオンです。
+JavaScriptで内部にまでアクセスできるFirefoxは、まさにブラウザ界のEmacsです。
+Firefoxは多数のアドオンによって支えられたといっても過言ではありません。
+Chromeに追従したところで、しょせんはChromeの二番煎じでしかないでしょう。
+しかもブラウザのシェアはChromeから大きく引き離されています。
+いくら現行の設計には欠点があろうとも、最大の資産を投げ捨てるのは愚かな決定にしか思えません。
+
+アドオンのコードが新APIに完全対応しているのならば、書き直せば存続できます。
+趣味や隙間時間でやっている開発者に、それだけのエネルギーと時間を捻出できるかは疑問です。
+新APIに対応できなければ、そのアドオンは終わりです。
+
+従来のアドオンが使えなくなった時点で、Firefox離れが加速するのは間違いありません。
+それでも強行廃止するつもりなのでしょうか？
+従来のアドオンと共存させる道を提供しない限り、Firefoxはオシマイです。
+このままいくと、俺達の知っているFirefoxは死んでしまいます。
+
+そもそも「完璧な設計」なんてものはありえません。
+長所があっても必ず短所もあります。
+ソフトウェアはユーザによって支えられていますが、貴重なユーザを裏切る真似を平気でできるのでしょうか？
+FirefoxはFirefox道を歩んでほしかったです。
+
+Firefoxはもうすぐ署名なしのアドオンは実行できないようになるのですが、幸いKeySnailはその危機を回避しました。
+最新のKeySnailは署名がつけられました。
+なのでXULのアドオンが廃止されるまで生き延びられます。
+いちKeySnailファンとして、使えなくなる日まで愛用しようと思います。
+いずれ使えなくなる運命であっても、ブラウザをJavaScriptでカスタマイズする経験は無駄にはなりません。
+
+Firefoxが死ぬとき、なんらかの形でforkしたブラウザが登場することでしょう。
+Mozillaの態度に対して黙っていられない人たちが動きを見せることでしょう。
+そのときになってKeySnailで学んだ経験が生きると信じています。
+
+僕たちEmacs・KeySnailユーザが乗り換えるべきブラウザは何でしょうか？
+Firefoxのforkでしょうか？
+Emacs xwidgetブランチによるEmacs内のwebkitブラウザでしょうか？
+[[http://conkeror.org/][Conkeror]] でしょうか？
+深くハックできるブラウザでないと意味がありません。
+
+本サイトでは、いくつかKeySnailの設定を公開するつもりです。
+** 参考サイト
+- [[http://www.forest.impress.co.jp/docs/news/20150824_717623.html][Mozilla、「Firefox」のアドオンを「Google Chrome」互換の“WebExtensions”へ - 窓の杜]]
+- [[http://www.forest.impress.co.jp/docs/serial/moritalk/20150901_719012.html][第129話：動揺が広がるFirefox拡張機能の改革 - ＃モリトーク - 窓の杜]]
+- [[http://www.downthemall.net/the-likely-end-of-downthemall/][DownThemAll! &raquo; The likely end of DownThemAll?]]
+- [[https://mike.kaply.com/2015/08/21/my-take-on-webextensions/][My Take on WebExtensions | Mike&#039;s Musings]]
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

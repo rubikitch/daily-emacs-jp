@@ -1,0 +1,177 @@
+#+BLOG: rubikitch
+#+POSTID: 1758
+#+DATE: [2015-06-18 Thu 22:40]
+#+PERMALINK: tronesque-theme
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, theme, 
+#+EL_PKG_NAME: tronesque-theme
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, color-theme, カラーテーマ
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: Tronにインスパイアされたカラーテーマ
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージtronesque-themeの紹介
+#+MYTAGS: package:tronesque-theme, emacs 使い方, emacs コマンド, emacs, tronesque-theme, tronesque-theme.el, emacs lisp tronesque-theme, elisp tronesque-theme, emacs melpa tronesque-theme, emacs tronesque-theme 使い方, emacs tronesque-theme 設定, emacs パッケージ tronesque-theme, emacs tronesque-theme スクリーンショット, color-theme, カラーテーマ
+#+TAGS: package:tronesque-theme, emacs 使い方, emacs コマンド, emacs, tronesque-theme, tronesque-theme.el, emacs lisp tronesque-theme, elisp tronesque-theme, emacs melpa tronesque-theme, emacs tronesque-theme 使い方, emacs tronesque-theme 設定, emacs パッケージ tronesque-theme, emacs tronesque-theme スクリーンショット, color-theme, カラーテーマ, Emacs, theme, , tronesque-theme.el
+#+TITLE: emacs tronesque-theme.el : Tronにインスパイアされたカラーテーマ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>tronesque-theme</td></tr>
+<tr><td>概要(原文)</td><td>Color Theme based on Tron universe.</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/aurelienbottazini/tronesque">https://github.com/aurelienbottazini/tronesque</a></td></tr>
+<tr><td>バージョン</td><td>20150125.241</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:tronesque-theme/">package:tronesque-theme</a> </td></tr>
+</table>
+<br />
+#+END_HTML
+*tronesque-theme.el* は、Tronっぽいダークなカラーテーマです。
+
+以下のパッケージに対応しています。
+
+- dired
+- flymake
+- font-lock
+- hl-line
+- ido
+- info
+- isearch
+- org-mode
+- magit
+- diff
+- outline
+- compilation-mode
+- erc
+- show-paren-mode
+- auto-complete
+- writegood-mode
+- company
+- helm
+- whitespace-mode
+- markdown-mode
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_theme_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150618224207.png]]
+Fig1: emacs-lisp-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150618224214.png]]
+Fig2: magit
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150618224224.png]]
+Fig3: grep
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150618224235.png]]
+Fig4: outline-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150618224245.png]]
+Fig5: org-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150618224252.png]]
+Fig6: dired
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150618224256.png]]
+Fig7: web-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150618224302.png]]
+Fig8: markdown-mode with powerline
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150618224309.png]]
+Fig9: helm
+** tronesque-theme インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install tronesque-theme
+
+
+#+end:
+** 概要                                                             :noexport:
+*tronesque-theme.el* は、Tronっぽいダークなカラーテーマです。
+
+以下のパッケージに対応しています。
+
+- dired
+- flymake
+- font-lock
+- hl-line
+- ido
+- info
+- isearch
+- org-mode
+- magit
+- diff
+- outline
+- compilation-mode
+- erc
+- show-paren-mode
+- auto-complete
+- writegood-mode
+- company
+- helm
+- whitespace-mode
+- markdown-mode
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_theme_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150618224207.png]]
+Fig10: emacs-lisp-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150618224214.png]]
+Fig11: magit
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150618224224.png]]
+Fig12: grep
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150618224235.png]]
+Fig13: outline-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150618224245.png]]
+Fig14: org-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150618224252.png]]
+Fig15: dired
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150618224256.png]]
+Fig16: web-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150618224302.png]]
+Fig17: markdown-mode with powerline
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150618224309.png]]
+Fig18: helm
+
+** 設定 [[http://rubikitch.com/f/150618224118.tronesque-theme.el][150618224118.tronesque-theme.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/150618/150618224118.tronesque-theme.el"
+#+BEGIN_SRC fundamental
+(load-theme 'tronesque t)
+(tronesque-mode-line)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/150618224118.tronesque-theme.el
+$ emacs -Q -f package-initialize -l 150618224118.tronesque-theme.el
+#+END_EXAMPLE

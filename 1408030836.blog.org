@@ -1,0 +1,71 @@
+#+BLOG: rubikitch
+#+POSTID: 59
+#+DATE: [2014-08-03 Sun 08:36]
+#+PERMALINK: blog
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t
+#+ISPAGE: nil
+#+DESCRIPTION:
+#+BLOG: rubikitch
+#+CATEGORY: Emacs,Emacs Lisp
+#+DESCRIPTION:
+#+MYTAGS: Emacs,Emacs Lisp
+#+TAGS: Emacs,Emacs Lisp, Emacs,Emacs Lisp, Emacs Lispテクニックバイブル, generic-x, (require 'cl)問題, cl.el, cl-lib.el
+#+TITLE: Re: "Emacs Lisp テクニックバイブル" るびきち著
+http://drunkard-diogenes.blogspot.jp/2014/07/emacs-lisp.html
+
+拙著 *Emacs Lispテクニックバイブル* について大きく触れてあります。
+ありがたやありがたや。
+
+*** generic-xは入れとけ
+そうです。Emacsを使うなら *generic-x* はぜひともloadしておきましょう。
+せめてautoloadくらいしてくれればと思うのに、もったいないこと極まりないです。
+
+正直、
+/なに考えてるの？/
+/これをデフォで使えないとか頭おかしいんじゃね？/
+と声を大にして言っておくべきことです。
+
+設定方法は簡単です。
+
+#+begin_src emacs-lisp
+(require 'generic-x)
+#+end_src
+
+これを入れるだけです。
+これだけであらゆる設定ファイル専用のメジャーモードが使えるようになるのです。
+
+viについては…Emacs一筋なのでちょっとしか使えないです(笑)
+*** Emacs Lispについて
+Emacs24になって、Emacs Lispまわりは大きく変わりました。
+
+『Emacs Lispのletはダイナミックスコープ。』
+というのはかつては正しかったのですが、今は /半分正解/ です。
+
+なぜならレキシカルスコープにもできてしまうのですから。
+
+やりかたは簡単で、Emacs Lispファイルの先頭に
+
+#+begin_src emacs-lisp
+;;; -*- lexical-binding: t -*-
+#+end_src
+
+を入れるだけです。
+これでletがレキシカルスコープになって動作も速くなって幸せになれます。
+
+*(require 'cl)問題* にも決着が見えてきました。
+*cl.el* 自体がdeprecatedになっていて、今は *cl-lib.el* を使うようになっています。
+cl.elがcl-lib.elを呼ぶようになっていて、Common Lispマクロ・関数には「cl-」というプレフィクスがつきます。
+
+loop→cl-loop
+destructure-bind→cl-destructuring-bind
+remove-if-not→cl-remove-if-not
+
+よって、(require 'cl-lib)してしまえばCommon Lisp関数も /合法的に/ 使えます！
+
+おまけに、Emacsにも /念願のパッケージシステム/ が登場したおかげで、外部パッケージをどんどん投入できるようになりました。
+
+使うと役立つパッケージもさることながら、Emacs Lispプログラミングを進化させるものもあります。
+
+s.elやdash.elなどスタイリッシュなライブラリがパッケージで導入できるようになったので、それらも自由に使えます。
+
+Emacs Lispまわりはテクニックバイブル執筆当時から大きく進化したので、 /改訂版/ を出したいところです。

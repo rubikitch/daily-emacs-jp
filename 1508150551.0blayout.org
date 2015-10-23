@@ -1,0 +1,126 @@
+#+BLOG: rubikitch
+#+POSTID: 1900
+#+DATE: [2015-08-15 Sat 05:51]
+#+PERMALINK: 0blayout
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs
+#+EL_PKG_NAME: 0blayout
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p,  relate:spaces, relate:persp-mode, relate:perspective, relate:elscreen, relate:windows, relate:eyebrowse, emacs ウィンドウ構成, emacs ウィンドウ構成 保存 復元, emacs window-configuration, emacs ウィンドウ構成,, relate:state
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 
+#+EL_TITLE0: シンプルにウィンドウ構成に名前をつける
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージ0blayoutの紹介
+#+MYTAGS: package:0blayout, emacs 使い方, emacs コマンド, emacs, 0blayout, 0blayout.el, emacs lisp 0blayout, elisp 0blayout, emacs melpa 0blayout, emacs 0blayout 使い方, emacs 0blayout 設定, emacs パッケージ 0blayout,  relate:spaces, relate:persp-mode, relate:perspective, relate:elscreen, relate:windows, relate:eyebrowse, emacs ウィンドウ構成, emacs ウィンドウ構成 保存 復元, emacs window-configuration, emacs ウィンドウ構成,, relate:state
+#+TAGS: package:0blayout, emacs 使い方, emacs コマンド, emacs, 0blayout, 0blayout.el, emacs lisp 0blayout, elisp 0blayout, emacs melpa 0blayout, emacs 0blayout 使い方, emacs 0blayout 設定, emacs パッケージ 0blayout,  relate:spaces, relate:persp-mode, relate:perspective, relate:elscreen, relate:windows, relate:eyebrowse, emacs ウィンドウ構成, emacs ウィンドウ構成 保存 復元, emacs window-configuration, emacs ウィンドウ構成,, relate:state, Emacs, 0blayout.el
+#+TITLE: emacs 0blayout.el : シンプルにウィンドウ構成に名前をつける | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>0blayout</td></tr>
+<tr><td>概要(原文)</td><td>Layout grouping with ease</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/etu/0blayout-mode">https://github.com/etu/0blayout-mode</a></td></tr>
+<tr><td>バージョン</td><td>20150912.459</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:0blayout/">package:0blayout</a> <a href="http://rubikitch.com/tag/package:spaces/">package:spaces</a> <a href="http://rubikitch.com/tag/package:persp-mode/">package:persp-mode</a> <a href="http://rubikitch.com/tag/package:perspective/">package:perspective</a> <a href="http://rubikitch.com/tag/package:elscreen/">package:elscreen</a> <a href="http://rubikitch.com/tag/package:windows/">package:windows</a> <a href="http://rubikitch.com/tag/package:eyebrowse/">package:eyebrowse</a> <a href="http://rubikitch.com/tag/package:state/">package:state</a></td></tr>
+</table>
+<br />
+#+END_HTML
+*0blayout.el* もウィンドウ構成を管理するパッケージです。
+
+これは、ウィンドウ構成に名前をつけて
+新規作成、切り替え、削除をできるようにします。
+
+グローバルマイナーモード0blayout-modeを有効にすると使えますが、
+キーバインドがC-c C-lから始まっていて規約違反です。
+
+C-c C-英字はメジャーモードで予約されているため、
+メジャーモードのC-c C-lが使えなくなります。
+
+本設定ではキーマップを以下のように変更しています。
+
+- 新規作成 :: C-c C-l C-c → C-c l c
+- 切り替え :: C-c C-l C-b → C-c l b
+- 削除 :: C-c C-l C-k → C-c l k
+
+起動時にはdefaultという名前がつけられています。
+
+C-c l cで新しくレイアウトを作成し、*scratch*バッファに切り替わります。
+新しく空のワークスペースができるイメージです。
+
+C-c l bで他のレイアウトに切り替えます。
+そのとき、現在のウィンドウ構成が記憶されます。
+
+レイアウトは永続化されないので、
+Emacsを終了したらすべて失われます。
+
+elscreenやeyebrowseは番号で管理しますが、
+名前で管理したい方は使ってみてはどうでしょうか。
+
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+** 0blayout インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install 0blayout
+
+
+#+end:
+** 概要                                                             :noexport:
+*0blayout.el* もウィンドウ構成を管理するパッケージです。
+
+これは、ウィンドウ構成に名前をつけて
+新規作成、切り替え、削除をできるようにします。
+
+グローバルマイナーモード0blayout-modeを有効にすると使えますが、
+キーバインドがC-c C-lから始まっていて規約違反です。
+
+C-c C-英字はメジャーモードで予約されているため、
+メジャーモードのC-c C-lが使えなくなります。
+
+本設定ではキーマップを以下のように変更しています。
+
+- 新規作成 :: C-c C-l C-c → C-c l c
+- 切り替え :: C-c C-l C-b → C-c l b
+- 削除 :: C-c C-l C-k → C-c l k
+
+起動時にはdefaultという名前がつけられています。
+
+C-c l cで新しくレイアウトを作成し、*scratch*バッファに切り替わります。
+新しく空のワークスペースができるイメージです。
+
+C-c l bで他のレイアウトに切り替えます。
+そのとき、現在のウィンドウ構成が記憶されます。
+
+レイアウトは永続化されないので、
+Emacsを終了したらすべて失われます。
+
+elscreenやeyebrowseは番号で管理しますが、
+名前で管理したい方は使ってみてはどうでしょうか。
+
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+** 設定 [[http://rubikitch.com/f/150815054012.0blayout.el][150815054012.0blayout.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/150815/150815054012.0blayout.el"
+#+BEGIN_SRC fundamental
+;;; キーバインドを正す
+(setq 0blayout-mode-map (make-sparse-keymap))
+(define-key 0blayout-mode-map (kbd "C-c l c") '0blayout-new)
+(define-key 0blayout-mode-map (kbd "C-c l k") '0blayout-kill)
+(define-key 0blayout-mode-map (kbd "C-c l b") '0blayout-switch)
+(0blayout-mode 1)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/150815054012.0blayout.el
+$ emacs -Q -f package-initialize -l 150815054012.0blayout.el
+#+END_EXAMPLE

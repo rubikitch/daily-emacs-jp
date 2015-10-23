@@ -1,0 +1,255 @@
+#+BLOG: rubikitch
+#+POSTID: 1907
+#+DATE: [2015-08-18 Tue 19:46]
+#+PERMALINK: farmhouse-theme
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, theme
+#+EL_PKG_NAME: farmhouse-theme
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, color-theme, カラーテーマ
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: 緑を中心としたダーク・ライト双方対応のカラーテーマ
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージfarmhouse-themeの紹介
+#+MYTAGS: package:farmhouse-theme, emacs 使い方, emacs コマンド, emacs, farmhouse-theme, farmhouse-theme.el, emacs lisp farmhouse-theme, elisp farmhouse-theme, emacs melpa farmhouse-theme, emacs farmhouse-theme 使い方, emacs farmhouse-theme 設定, emacs パッケージ farmhouse-theme, emacs farmhouse-theme スクリーンショット, color-theme, カラーテーマ
+#+TAGS: package:farmhouse-theme, emacs 使い方, emacs コマンド, emacs, farmhouse-theme, farmhouse-theme.el, emacs lisp farmhouse-theme, elisp farmhouse-theme, emacs melpa farmhouse-theme, emacs farmhouse-theme 使い方, emacs farmhouse-theme 設定, emacs パッケージ farmhouse-theme, emacs farmhouse-theme スクリーンショット, color-theme, カラーテーマ, Emacs, theme, farmhouse-theme-light.el, farmhouse-theme-dark.el, farmhouse-theme-dark.el
+#+TITLE: emacs farmhouse-theme.el : 緑を中心としたダーク・ライト双方対応のカラーテーマ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>farmhouse-theme</td></tr>
+<tr><td>概要(原文)</td><td>Farmhouse Theme, Emacs edition</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/mattly/emacs-farmhouse-theme">https://github.com/mattly/emacs-farmhouse-theme</a></td></tr>
+<tr><td>バージョン</td><td>20150506.2127</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:farmhouse-theme/">package:farmhouse-theme</a> </td></tr>
+</table>
+<br />
+#+END_HTML
+*farmhouse-theme-light.el* 、 *farmhouse-theme-dark.el* は
+緑を基調としたダーク・ライト両方に対応しているカラーテーマです。
+
+以下のパッケージに対応しています。
+- diff
+- font-lock
+- isearch
+- hl-line
+- linum
+- link
+- mode-line
+- powerline
+- term
+- auto-complete
+- company
+- eshell
+- helm
+- magit
+- org
+- paren
+- prodigy
+- rainbow-delimiters
+# (save-window-excursion (async-shell-command "emacs-test -eval '(load-theme (quote farmhouse-light) t)'"))
+# (save-window-excursion (async-shell-command "emacs-test -eval '(load-theme (quote farmhouse-dark) t)'"))
+*** farmhouse-light
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_theme_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150818195020.png]]
+Fig1: emacs-lisp-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150818195033.png]]
+Fig2: magit
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150818195037.png]]
+Fig3: grep
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150818195041.png]]
+Fig4: outline-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150818195045.png]]
+Fig5: org-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150818195048.png]]
+Fig6: dired
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150818195052.png]]
+Fig7: web-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150818195055.png]]
+Fig8: markdown-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150818195100.png]]
+Fig9: helm
+
+*** farmhouse-dark
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_theme_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150818195136.png]]
+Fig10: emacs-lisp-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150818195141.png]]
+Fig11: magit
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150818195146.png]]
+Fig12: grep
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150818195150.png]]
+Fig13: outline-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150818195154.png]]
+Fig14: org-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150818195158.png]]
+Fig15: dired
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150818195203.png]]
+Fig16: web-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150818195207.png]]
+Fig17: markdown-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150818195213.png]]
+Fig18: helm
+** farmhouse-theme インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install farmhouse-theme
+
+
+#+end:
+** 概要                                                             :noexport:
+*farmhouse-theme-light.el* 、 *farmhouse-theme-dark.el* は
+緑を基調としたダーク・ライト両方に対応しているカラーテーマです。
+
+以下のパッケージに対応しています。
+- diff
+- font-lock
+- isearch
+- hl-line
+- linum
+- link
+- mode-line
+- powerline
+- term
+- auto-complete
+- company
+- eshell
+- helm
+- magit
+- org
+- paren
+- prodigy
+- rainbow-delimiters
+# (save-window-excursion (async-shell-command "emacs-test -eval '(load-theme (quote farmhouse-light) t)'"))
+# (save-window-excursion (async-shell-command "emacs-test -eval '(load-theme (quote farmhouse-dark) t)'"))
+*** farmhouse-light
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_theme_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150818195020.png]]
+Fig19: emacs-lisp-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150818195033.png]]
+Fig20: magit
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150818195037.png]]
+Fig21: grep
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150818195041.png]]
+Fig22: outline-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150818195045.png]]
+Fig23: org-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150818195048.png]]
+Fig24: dired
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150818195052.png]]
+Fig25: web-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150818195055.png]]
+Fig26: markdown-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150818195100.png]]
+Fig27: helm
+
+*** farmhouse-dark
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_theme_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150818195136.png]]
+Fig28: emacs-lisp-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150818195141.png]]
+Fig29: magit
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150818195146.png]]
+Fig30: grep
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150818195150.png]]
+Fig31: outline-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150818195154.png]]
+Fig32: org-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150818195158.png]]
+Fig33: dired
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150818195203.png]]
+Fig34: web-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150818195207.png]]
+Fig35: markdown-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150818195213.png]]
+Fig36: helm
+
+** 設定
+#+BEGIN_SRC fundamental
+(load-theme 'farmhouse-light t)
+#+END_SRC
+or
+#+BEGIN_SRC fundamental
+(load-theme 'farmhouse-dark t)
+#+END_SRC
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ emacs -Q -f package-initialize -eval '(load-theme (quote farmhouse-light) t)'
+$ emacs -Q -f package-initialize -eval '(load-theme (quote farmhouse-dark) t)'
+#+END_EXAMPLE
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

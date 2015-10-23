@@ -1,0 +1,384 @@
+#+BLOG: rubikitch
+#+POSTID: 1853
+#+DATE: [2015-07-25 Sat 22:16]
+#+PERMALINK: alect-themes
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, theme
+#+EL_PKG_NAME: alect-themes
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, color-theme, カラーテーマ
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: カスタマイズ可能なカラーテーマ群
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージalect-themesの紹介
+#+MYTAGS: package:alect-themes, emacs 使い方, emacs コマンド, emacs, alect-themes, alect-themes.el, emacs lisp alect-themes, elisp alect-themes, emacs melpa alect-themes, emacs alect-themes 使い方, emacs alect-themes 設定, emacs パッケージ alect-themes, emacs alect-themes スクリーンショット, color-theme, カラーテーマ
+#+TAGS: package:alect-themes, emacs 使い方, emacs コマンド, emacs, alect-themes, alect-themes.el, emacs lisp alect-themes, elisp alect-themes, emacs melpa alect-themes, emacs alect-themes 使い方, emacs alect-themes 設定, emacs パッケージ alect-themes, emacs alect-themes スクリーンショット, color-theme, カラーテーマ, Emacs, theme, alect-themes.el
+#+TITLE: emacs alect-themes.el : カスタマイズ可能なカラーテーマ群 | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>alect-themes</td></tr>
+<tr><td>概要(原文)</td><td>Configurable light, dark and black themes for Emacs 24 or later</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/alezost/alect-themes">https://github.com/alezost/alect-themes</a></td></tr>
+<tr><td>バージョン</td><td>20150722.8</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:alect-themes/">package:alect-themes</a> </td></tr>
+</table>
+<br />
+#+END_HTML
+*alect-themes.el* は、カラーテーマ集です。
+
+5つのテーマで構成されています。
+
+- alect-dark
+- alect-light
+- alect-black
+- alect-dark-alt
+- alect-light-alt
+
+カラーパレットの設定など、細かなカスタマイズができます。
+
+詳しくはREADME.mdを参照してください。
+
+# (save-window-excursion (async-shell-command "emacs-test -eval '(load-theme (quote alect-light-alt) t)'"))
+多くのパッケージに対応しています。
+- isearch
+- ido
+- help
+- apropos
+- info
+- man
+- mode-line
+- calendar
+- diary
+- comint
+- eshell
+- term
+- compilation
+- widget
+- customization
+- diff
+- ediff
+- dired
+- erc
+- epa
+- ert
+- [[http://orgmode.org/][Org]]
+- message
+- gnus
+- flyspell
+- makefile
+- ruler
+- whitespace
+- linum
+- show-paren
+- [[https:/github.com/alezost/aurel][aurel]]
+- [[https:/github.com/auto-complete/auto-complete][auto-complete]]
+- [[https://github.com/ocaml/tuareg][tuareg]]
+- [[https://github.com/the-lambda-church/merlin][merlin]]
+- [[https://github.com/diml/utop][utop]]
+- [[http://company-mode.github.io/][company]]
+- [[https://github.com/jrockway/cperl-mode][cperl]]
+- [[https:/github.com/cheusov/dictem][dictem]]
+- [[https://www.gnu.org/software/emms/][EMMS]]
+- [[https:/github.com/jaor/geiser][Geiser]]
+- [[https:/github.com/atykhonov/google-translate][google-translate]]
+- [[https://www.gnu.org/software/guix/][GNU Guix]]
+- [[https://emacs-helm.github.io/helm/][Helm]] 
+- [[https:/github.com/zk-phi/indent-guide][indent-guide]]
+- [[http://magit.vc/][Magit]]
+- [[http://jblevins.org/projects/markdown-mode/][markdown]]
+- [[https:/github.com/djcb/sauron][sauron]]
+- [[https://common-lisp.net/project/slime/][slime]]
+- [[https:/github.com/escherdragon/sunrise-commander][sunrise-commander]]
+- [[https:/github.com/vapniks/syslog-mode][syslog]]
+- [[https:/github.com/dholm/tabbar][tabbar]]
+- [[http://emacs-w3m.namazu.org/][w3m]]
+** alect-themes インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install alect-themes
+
+
+#+end:
+** 概要                                                             :noexport:
+*alect-themes.el* は、カラーテーマ集です。
+
+5つのテーマで構成されています。
+
+- alect-dark
+- alect-light
+- alect-black
+- alect-dark-alt
+- alect-light-alt
+
+カラーパレットの設定など、細かなカスタマイズができます。
+
+詳しくはREADME.mdを参照してください。
+
+# (save-window-excursion (async-shell-command "emacs-test -eval '(load-theme (quote alect-light-alt) t)'"))
+多くのパッケージに対応しています。
+- isearch
+- ido
+- help
+- apropos
+- info
+- man
+- mode-line
+- calendar
+- diary
+- comint
+- eshell
+- term
+- compilation
+- widget
+- customization
+- diff
+- ediff
+- dired
+- erc
+- epa
+- ert
+- [[http://orgmode.org/][Org]]
+- message
+- gnus
+- flyspell
+- makefile
+- ruler
+- whitespace
+- linum
+- show-paren
+- [[https:/github.com/alezost/aurel][aurel]]
+- [[https:/github.com/auto-complete/auto-complete][auto-complete]]
+- [[https://github.com/ocaml/tuareg][tuareg]]
+- [[https://github.com/the-lambda-church/merlin][merlin]]
+- [[https://github.com/diml/utop][utop]]
+- [[http://company-mode.github.io/][company]]
+- [[https://github.com/jrockway/cperl-mode][cperl]]
+- [[https:/github.com/cheusov/dictem][dictem]]
+- [[https://www.gnu.org/software/emms/][EMMS]]
+- [[https:/github.com/jaor/geiser][Geiser]]
+- [[https:/github.com/atykhonov/google-translate][google-translate]]
+- [[https://www.gnu.org/software/guix/][GNU Guix]]
+- [[https://emacs-helm.github.io/helm/][Helm]] 
+- [[https:/github.com/zk-phi/indent-guide][indent-guide]]
+- [[http://magit.vc/][Magit]]
+- [[http://jblevins.org/projects/markdown-mode/][markdown]]
+- [[https:/github.com/djcb/sauron][sauron]]
+- [[https://common-lisp.net/project/slime/][slime]]
+- [[https:/github.com/escherdragon/sunrise-commander][sunrise-commander]]
+- [[https:/github.com/vapniks/syslog-mode][syslog]]
+- [[https:/github.com/dholm/tabbar][tabbar]]
+- [[http://emacs-w3m.namazu.org/][w3m]]
+
+** alect-dark
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_theme_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150725222246.png]]
+Fig1: emacs-lisp-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150725222254.png]]
+Fig2: magit
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150725222300.png]]
+Fig3: grep
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150725222309.png]]
+Fig4: outline-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150725222315.png]]
+Fig5: org-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150725222320.png]]
+Fig6: dired
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150725222324.png]]
+Fig7: web-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150725222328.png]]
+Fig8: markdown-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150725222333.png]]
+Fig9: helm
+
+** alect-light
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_theme_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150725222441.png]]
+Fig10: emacs-lisp-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150725222447.png]]
+Fig11: magit
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150725222451.png]]
+Fig12: grep
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150725222456.png]]
+Fig13: outline-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150725222501.png]]
+Fig14: org-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150725222506.png]]
+Fig15: dired
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150725222510.png]]
+Fig16: web-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150725222515.png]]
+Fig17: markdown-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150725222520.png]]
+Fig18: helm
+
+** alect-black
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_theme_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150725222551.png]]
+Fig19: emacs-lisp-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150725222558.png]]
+Fig20: magit
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150725222603.png]]
+Fig21: grep
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150725222607.png]]
+Fig22: outline-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150725222611.png]]
+Fig23: org-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150725222615.png]]
+Fig24: dired
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150725222619.png]]
+Fig25: web-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150725222622.png]]
+Fig26: markdown-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150725222627.png]]
+Fig27: helm
+
+** alect-dark-alt
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_theme_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150725223008.png]]
+Fig28: emacs-lisp-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150725223015.png]]
+Fig29: magit
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150725223022.png]]
+Fig30: grep
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150725223031.png]]
+Fig31: outline-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150725223039.png]]
+Fig32: org-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150725223044.png]]
+Fig33: dired
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150725223049.png]]
+Fig34: web-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150725223053.png]]
+Fig35: markdown-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150725223100.png]]
+Fig36: helm
+
+** alect-light-alt
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_theme_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150725223132.png]]
+Fig37: emacs-lisp-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150725223137.png]]
+Fig38: magit
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150725223141.png]]
+Fig39: grep
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150725223144.png]]
+Fig40: outline-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150725223148.png]]
+Fig41: org-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150725223152.png]]
+Fig42: dired
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150725223155.png]]
+Fig43: web-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150725223159.png]]
+Fig44: markdown-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150725223203.png]]
+Fig45: helm
+
+
+** 設定(alect-dark)
+#+BEGIN_SRC fundamental
+(load-theme 'alect-dark t)
+#+END_SRC
+
+** 実行方法(alect-dark)
+#+BEGIN_EXAMPLE
+$ emacs -Q -f package-initialize -eval '(load-theme (quote alect-dark) t)'
+#+END_EXAMPLE
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

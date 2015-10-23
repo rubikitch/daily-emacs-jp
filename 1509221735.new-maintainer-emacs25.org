@@ -1,0 +1,63 @@
+#+BLOG: rubikitch
+#+POSTID: 2013
+#+DATE: [2015-09-22 Tue 17:35]
+#+PERMALINK: new-maintainer-emacs25
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, Emacs 25.0, 
+#+DESCRIPTION: 
+#+MYTAGS: Stefan Monnier, メンテナ辞任, 
+#+TITLE: 【ありがとう・お疲れ様】Emacsのメンテナのリーダーが辞任します
+#+begin: org2blog-tags
+#+TAGS: Stefan Monnier, メンテナ辞任, , Emacs, Emacs 25.0, , 
+#+end:
+http://lists.gnu.org/archive/html/emacs-devel/2015-09/msg00849.html
+
+#+BEGIN_QUOTE
+そろそろEmacs25のfeature freezeの時期だと思っています。
+長年の懸案だったxwidgetブランチ、ダイナミックロード・モジュールなどは取り込みたいですが、
+実際に取り込むかというスケジュールと詳細はまだ議論の余地があります。
+
+しかし、それらの決定は他の人に譲ることになるでしょう。
+私(Stefan Monnier)はメンテナのリーダーを辞任するからです。
+#+END_QUOTE
+
+http://www.gnu.org/software/emacs/history.html
+
+#+BEGIN_EXAMPLE
+ * October 28, 2001 - Emacs 21.1 released
+ * March 18, 2002 - Emacs 21.2 released
+ * March 24, 2003 - Emacs 21.3 released
+ * Feb 6, 2005 - Emacs 21.4 released
+ * June 2, 2007 - Emacs 22.1 released
+ * March 26, 2008 - Emacs 22.2 released
+ * September 5, 2008 - Emacs 22.3 released
+ * July 29, 2009 - Emacs 23.1 released
+ * May 8, 2010 - Emacs 23.2 released
+ * March 10, 2011 - Emacs 23.3 released
+ * January 29, 2012 - Emacs 23.4 released
+ * June 10, 2012 - Emacs 24.1 released
+ * August 27, 2012 - Emacs 24.2 released
+ * March 11, 2013 - Emacs 24.3 released
+ * October 20, 2014 - Emacs 24.4 released
+ * April 10, 2015 - Emacs 24.5 released
+#+END_EXAMPLE
+
+Stefanさんは7年もの長きにわたりEmacs開発陣のリーダーを務めていました。
+歴史を見てわかるように、Emacs21時代は6年もあり開発が停滞していました。
+Emacs22で彼がリーダーになってから開発スピードが急激に上がりました。
+Emacsは彼のおかげで生き返ったのです！
+
+ELPAのおかげでEmacsにもパッケージ時代が到来しました。
+cl-libのおかげで、合法的にCommon Lisp関数が使えるようになりました。
+[[http://rubikitch.com/2014/10/30/nadvice/][nadvice.el]] のおかげでアドバイスがとても使いやすくなりました。
+pcase.elとgv.elというおもしろいライブラリはelispに新しい風を吹き込みました。
+その他、数えきれないほどの貢献をしてきました。
+そのおかげでEmacsは一気に進化し、使いやすくなりました。
+とくにパッケージシステムの確立は、Emacs史上最大の出来事だと確信しています。
+ありがとうございます、そしてお疲れ様です。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

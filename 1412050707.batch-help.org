@@ -1,0 +1,127 @@
+#+BLOG: rubikitch
+#+POSTID: 666
+#+DATE: [2014-12-05 Fri 07:07]
+#+PERMALINK: batch-help
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, org-mode,
+#+DESCRIPTION:
+#+MYTAGS: emacs ヘルプ, emacs help batch, help, package:help, relate:org, emacs キーバインド, M-x describe-mode
+#+TAGS: emacs ヘルプ, emacs help batch, help, package:help, relate:org, emacs キーバインド, M-x describe-mode, Emacs, org-mode, , バッチモード, M-x describe-bindings, princ, Help, Help, Help, Help
+#+TITLE: Emacsのデフォルトのキーバインドを1秒で知る方法！org-modeでの例あり
+Emacsはカスタマイズ性があまりにも高すぎるので、
+カスタム化されていたのを長年使っていると
+標準の状態を忘れてしまいます。
+
+かといって、Emacsについての文章を書くときは
+標準の状態を知っておく必要があります。
+
+いちいち別なEmacsを立ち上げて操作するのは面倒ですね。
+
+そこで、Emacsの *バッチモード* を使ってヘルプバッファを出力してしまいます。
+
+** デフォルトのキーバインドを知る
+デフォルトの *キーバインド* は、 *M-x describe-bindings* を
+バッチモードで動かし、*Help*の内容を *princ* で出力します。
+
+コマンドラインは長いですが1行です。
+
+- -Q :: init.elなどの初期化ファイルを読み込まない
+- -batch :: バッチモード(関数やLisp式を実行後終了する)
+- -f :: 実行する関数を指定する
+- -eval :: 実行するLisp式を指定する
+
+#+BEGIN_EXAMPLE
+$ emacs -Q -batch -f describe-bindings -eval
+'(with-current-buffer "*Help*" (princ (buffer-string)))'
+Type C-x 1 to delete the help window, C-M-v to scroll help.
+Key translations:
+key             binding
+---             -------
+略
+Global Bindings:
+key             binding
+---             -------
+
+SPC .. ~	self-insert-command
+略
+C-@		set-mark-command
+C-a		move-beginning-of-line
+C-b		backward-char
+C-c		mode-specific-command-prefix
+C-d		delete-char
+C-e		move-end-of-line
+略
+#+END_EXAMPLE
+
+** 特定のメジャーモードの説明・キーバインドを見る
+同様の手法を *M-x describe-mode* を実行します。
+
+#+BEGIN_EXAMPLE
+$ emacs -Q -batch -f org-mode -f describe-mode -eval
+'(with-current-buffer "*Help*" (princ (buffer-string)))'
+
+Type C-x 1 to delete the help window, C-M-v to scroll help.
+Enabled minor modes: Auto-Composition Auto-Compression Auto-Encryption
+Electric-Indent File-Name-Shadow Line-Number Mouse-Wheel Tooltip
+
+(Information about these minor modes follows the major mode info.)
+
+ mode defined in `org.el':
+Outline-based notes management and organizer, alias
+"Carsten's outline-mode for keeping track of everything."
+
+Org-mode develops organizational tasks around a NOTES file which
+contains information about projects as plain text.  Org-mode is
+implemented on top of outline-mode, which is ideal to keep the content
+of large files well structured.  It supports ToDo items, deadlines and
+time stamps, which magically appear in the diary listing of the Emacs
+calendar.  Tables are easily created with a built-in table editor.
+Plain text URL-like links connect to websites, emails (VM), Usenet
+messages (Gnus), BBDB entries, and any files related to the project.
+For printing and sharing of notes, an Org-mode file (or a part of it)
+can be exported as a structured ASCII or HTML file.
+
+The following commands are available:
+
+key             binding
+---             -------
+
+C-a		org-beginning-of-line
+C-c		Prefix Command
+C-e		org-end-of-line
+略
+#+END_EXAMPLE
+
+autoloadされていないコマンドは-lでライブラリをロードします。
+
+#+BEGIN_EXAMPLE
+$ emacs -Q -batch -l org-agenda -f org-agenda-mode -f describe-mode
+-eval '(with-current-buffer "*Help*" (princ (buffer-string)))'
+
+Type o to delete the help window, C-M-v to scroll help.
+Enabled minor modes: Auto-Composition Auto-Compression Auto-Encryption
+Electric-Indent File-Name-Shadow Line-Number Mouse-Wheel Tooltip
+
+(Information about these minor modes follows the major mode info.)
+
+ mode defined in `org-agenda.el':
+Mode for time-sorted view on action items in Org-mode files.
+
+The following commands are available:
+#+END_EXAMPLE
+
+org-agendaのtodo関係のコマンドを知りたければ普通にgrepで。
+#+BEGIN_EXAMPLE
+$ emacs -Q -batch -l org-agenda -f org-agenda-mode -f describe-mode
+-eval '(with-current-buffer "*Help*" (princ (buffer-string)))' | grep todo
+t		org-agenda-todo
+<C-S-left>	org-agenda-todo-previousset
+<C-S-right>	org-agenda-todo-nextset
+C-c C-t		org-agenda-todo
+#+END_EXAMPLE
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

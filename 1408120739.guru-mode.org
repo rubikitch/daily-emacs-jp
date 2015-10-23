@@ -1,0 +1,96 @@
+#+BLOG: rubikitch
+#+POSTID: 126
+#+DATE: [2014-08-12 Tue 07:39]
+#+PERMALINK: guru-mode
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs
+#+EL_PKG_NAME: guru-mode
+#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, emacs カーソルキー, emacs 特殊キー, emacs drill-instructor, emacs 鬼軍曹
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: guru-modeは外国人による鬼軍曹だ
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージguru-modeの紹介
+#+MYTAGS: package:guru-mode, emacs 使い方, emacs コマンド, emacs, emacs lisp guru-mode, elisp guru-mode, emacs melpa guru-mode, emacs guru-mode 使い方, emacs guru-mode 設定, emacs パッケージ guru-mode, emacs guru-mode スクリーンショット, emacs カーソルキー, emacs 特殊キー, emacs drill-instructor, emacs 鬼軍曹
+#+TITLE: emacs guru-mode.el : guru-modeは外国人による鬼軍曹だ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>guru-mode</td></tr>
+<tr><td>概要(原文)</td><td>Become an Emacs guru</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/bbatsov/guru-mode">https://github.com/bbatsov/guru-mode</a></td></tr>
+<tr><td>バージョン</td><td>20140905.702</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:guru-mode/">package:guru-mode</a> </td></tr>
+</table>
+<br />
+#+END_HTML
+guru-modeはEmacsの操作方法を強引に習得するマイナーモードです。
+
+カーソルキーなどの特殊キーを使う軟弱者を鍛えてくれます。
+
+drill-instructorに似ていますね。
+** guru-mode インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install guru-mode
+
+
+#+end:
+** 概要                                                             :noexport:
+guru-modeはEmacsの操作方法を強引に習得するマイナーモードです。
+
+カーソルキーなどの特殊キーを使う軟弱者を鍛えてくれます。
+
+drill-instructorに似ていますね。
+** こんなキーが無効にされる。
+ソースコードを抜き出すと、このように定義されています。
+
+左のキーが無効になって、右のキーを使えと言われます。
+
+#+begin_example
+(defvar guru-affected-bindings-list
+  '(("<left>" . "C-b")
+    ("<right>" . "C-f")
+    ("<up>" . "C-p")
+    ("<down>" . "C-n")
+    ("<C-left>" . "M-b")
+    ("<C-right>" . "M-f")
+    ("<C-up>" . "M-{")
+    ("<C-down>" . "M-}")
+    ("<M-left>" . "M-b")
+    ("<M-right>" . "M-f")
+    ("<M-up>" . "M-{")
+    ("<M-down>" . "M-}")
+    ("<delete>" . "C-d")
+    ("<C-delete>" . "M-d")
+    ("<M-delete>" . "M-d")
+    ("<next>" . "C-v")
+    ("<C-next>" . "M-x <")
+    ("<prior>" . "M-v")
+    ("<C-prior>" . "M-x >")
+    ("<home>" . "C-a")
+    ("<C-home>" . "M-<")
+    ("<end>" . "C-e")
+    ("<C-end>" . "M->")))
+#+end_example
+** 設定 [[http://rubikitch.com/f/140812073729.guru-mode.el][140812073729.guru-mode.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/140812/140812073729.guru-mode.el"
+#+BEGIN_SRC fundamental
+(guru-global-mode)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/140812073729.guru-mode.el
+$ emacs -Q -f package-initialize -l 140812073729.guru-mode.el
+#+END_EXAMPLE
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+http://rubikitch.com/f/20140812073853.png
+Fig1: ←を押すとC-bを使えと怒られる(笑)

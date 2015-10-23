@@ -1,0 +1,44 @@
+#+BLOG: rubikitch
+#+POSTID: 39
+#+DATE: [2014-07-31 Thu 14:29]
+#+PERMALINK: tagtest
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t
+#+ISPAGE: nil
+#+DESCRIPTION:
+#+BLOG: rubikitch
+#+CATEGORY: Emacs
+#+DESCRIPTION:
+#+MYTAGS: ho
+#+TAGS: ho, Emacs, emph
+#+TITLE: tag test
+*emph*
+/italic/
+/日本語/
+
+
+#+begin_example
+[shell]
+cd /home/user
+ls *.txt
+cp aaa.text bbb.text
+[/shell]
+#+end_example
+
+#+begin_src sh
+[shell]
+cd /home/user
+ls *.txt
+cp aaa.text bbb.text
+[/shell]
+#+end_example
+
+#+begin_src sh
+cd /home/user
+ls *.txt
+cp aaa.text bbb.text
+#+end_src
+[[http://rubikitch.com/f/a.png]]
+
+
+#+CAPTION: a test image
+http://rubikitch.com/f/a.png

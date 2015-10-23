@@ -1,0 +1,156 @@
+#+BLOG: rubikitch
+#+POSTID: 1645
+#+DATE: [2015-05-14 Thu 04:57]
+#+PERMALINK: xah-lookup
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, eww, 
+#+EL_PKG_NAME: xah-lookup
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, relate:google-this, emacs 辞書検索, emacs wikipedia, emacs google, emacs ググる, 
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 
+#+EL_TITLE0: 【辞書検索】現在の単語やregionをGoogleやWikipediaで串刺し検索！
+#+EL_URL: http://ergoemacs.org/emacs/emacs_lookup_ref.html
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージxah-lookupの紹介
+#+MYTAGS: package:xah-lookup, emacs 使い方, emacs コマンド, emacs, xah-lookup, xah-lookup.el, emacs lisp xah-lookup, elisp xah-lookup, emacs melpa xah-lookup, emacs xah-lookup 使い方, emacs xah-lookup 設定, emacs パッケージ xah-lookup, relate:google-this, emacs 辞書検索, emacs wikipedia, emacs google, emacs ググる, 
+#+TAGS: package:xah-lookup, emacs 使い方, emacs コマンド, emacs, xah-lookup, xah-lookup.el, emacs lisp xah-lookup, elisp xah-lookup, emacs melpa xah-lookup, emacs xah-lookup 使い方, emacs xah-lookup 設定, emacs パッケージ xah-lookup, relate:google-this, emacs 辞書検索, emacs wikipedia, emacs google, emacs ググる, , Emacs, eww, , xah-lookup.el, M-x xah-lookup-google, M-x xah-lookup-wikipedia, オンライン辞書, M-x xah-lookup-google, M-x xah-lookup-wikipedia, M-x xah-lookup-word-definition, M-x xah-lookup-word-dict-org, M-x xah-lookup-answers.com, M-x xah-lookup-wiktionary, M-x xah-lookup-all-dictionaries, xah-lookup-dictionary-list, xah-lookup.el, M-x xah-lookup-google, M-x xah-lookup-wikipedia, オンライン辞書, M-x xah-lookup-google, M-x xah-lookup-wikipedia, M-x xah-lookup-word-definition, M-x xah-lookup-word-dict-org, M-x xah-lookup-answers.com, M-x xah-lookup-wiktionary, M-x xah-lookup-all-dictionaries, xah-lookup-dictionary-list, xah-lookup-word-on-internet
+#+TITLE: emacs xah-lookup.el : 【辞書検索】現在の単語やregionをGoogleやWikipediaで串刺し検索！ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>xah-lookup</td></tr>
+<tr><td>概要(原文)</td><td>look up word on internet</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>サイト</td><td><a href="http://ergoemacs.org/emacs/emacs_lookup_ref.html">http://ergoemacs.org/emacs/emacs_lookup_ref.html</td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/xahlee/lookup-word-on-internet">https://github.com/xahlee/lookup-word-on-internet</a></td></tr>
+<tr><td>バージョン</td><td>20150502.855</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:xah-lookup/">package:xah-lookup</a> <a href="http://rubikitch.com/tag/package:google-this/">package:google-this</a></td></tr>
+</table>
+<br />
+#+END_HTML
+Emacsを日常的に使っていると調べ物もEmacsでやりたくなります。
+
+[[http://rubikitch.com/2014/09/26/google-this/][google-this.el(レビュー)]] はGoogleに特化していますが、
+この *xah-lookup.el* は他の多くの辞書サイトにも対応しています。
+
+基本的にカーソル位置の単語(実はシンボル)かregionに作用します。
+
+たとえば
+*M-x xah-lookup-google* はGoogle検索に、
+*M-x xah-lookup-wikipedia* はWikipediaで開きます。
+
+他にも多くの *オンライン辞書* サイト用のコマンドが定義されています。
+
+- *M-x xah-lookup-google* (<f1> 7) :: Google
+- *M-x xah-lookup-wikipedia* (<f1> 8) :: Wikipedia(en)
+- *M-x xah-lookup-word-definition* (<f1> 9) :: thefreedictionary.com
+- *M-x xah-lookup-word-dict-org* :: dict.org
+- *M-x xah-lookup-answers.com* :: answers.com
+- *M-x xah-lookup-wiktionary* :: en.wiktionary.org
+
+コードに一貫性があるため、新しい辞書サイトに
+特化したコマンドを定義するのは易しいです。
+
+とっておきのコマンドが *M-x xah-lookup-all-dictionaries* であり、
+ベクタ *xah-lookup-dictionary-list* で指定された辞書サイトを
+すべて開きます。
+** xah-lookup インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install xah-lookup
+
+
+#+end:
+** 概要                                                             :noexport:
+Emacsを日常的に使っていると調べ物もEmacsでやりたくなります。
+
+[[http://rubikitch.com/2014/09/26/google-this/][google-this.el(レビュー)]] はGoogleに特化していますが、
+この *xah-lookup.el* は他の多くの辞書サイトにも対応しています。
+
+基本的にカーソル位置の単語(実はシンボル)かregionに作用します。
+
+たとえば
+*M-x xah-lookup-google* はGoogle検索に、
+*M-x xah-lookup-wikipedia* はWikipediaで開きます。
+
+他にも多くの *オンライン辞書* サイト用のコマンドが定義されています。
+
+- *M-x xah-lookup-google* (<f1> 7) :: Google
+- *M-x xah-lookup-wikipedia* (<f1> 8) :: Wikipedia(en)
+- *M-x xah-lookup-word-definition* (<f1> 9) :: thefreedictionary.com
+- *M-x xah-lookup-word-dict-org* :: dict.org
+- *M-x xah-lookup-answers.com* :: answers.com
+- *M-x xah-lookup-wiktionary* :: en.wiktionary.org
+
+コードに一貫性があるため、新しい辞書サイトに
+特化したコマンドを定義するのは易しいです。
+
+とっておきのコマンドが *M-x xah-lookup-all-dictionaries* であり、
+ベクタ *xah-lookup-dictionary-list* で指定された辞書サイトを
+すべて開きます。
+** 辞書サイト登録方法
+特定のサイトで辞書検索をする関数を作るには、
+*xah-lookup-word-on-internet* を呼び出すだけです。
+
+たとえば [[http://rubikitch.com/2014/11/20/eww-weblio/][Weblio(EWWで開く設定あり)]] ならば、こうします。
+
+xah-lookup-googleの関数定義からURLとdocstringを変更しただけです。
+
+クエリは「�」というUnicode文字です。
+
+#+BEGIN_SRC emacs-lisp :results silent
+(defun xah-lookup-weblio (&optional φword)
+  "Lookup definition of current word or text selection in URL `http://www.weblio.jp/'"
+  (interactive)
+  (xah-lookup-word-on-internet
+   φword
+   "http://www.weblio.jp/content/�"))
+#+END_SRC
+
+Googleはそのままでも日本語化されますが、
+Wikipediaを日本語化したいならば、
+xah-lookup-wikipediaの関数定義でen→jaの変更をします。
+
+#+BEGIN_SRC emacs-lisp :results silent
+(defun xah-lookup-wikipedia (&optional φword)
+  "Lookup current word or text selection in Wikipedia."
+  (interactive)
+  (xah-lookup-word-on-internet
+   φword
+   "http://ja.wikipedia.org/wiki/�") )
+#+END_SRC
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+** 串刺し検索で使う辞書サイトの設定
+*M-x xah-lookup-all-dictionaries* で使う辞書サイトは
+デフォルトでは以下の設定になっています。
+
+適宜変更してください。
+
+#+BEGIN_SRC emacs-lisp :results silent
+(setq
+ xah-lookup-dictionary-list
+ [
+  "http://www.dict.org/bin/Dict?Form=Dict2&Database=*&Query=�" ; 1913 Webster, WordNet
+  "http://www.thefreedictionary.com/�"                         ; AHD
+  "http://www.answers.com/main/ntquery?s=�"                    ; AHD
+  "http://en.wiktionary.org/wiki/�"
+  "http://www.google.com/search?q=define:+�"   ; google
+  "http://www.etymonline.com/index.php?search=�" ; etymology
+  ] )
+#+END_SRC
+
+[[http://wordyenglish.com/words/dictionary_tools.html][作者によるオンライン辞書リスト]] が詳しいです。
+** EWWで開いてほしい
+やっぱりEmacs 24.4以降を使っているならば、
+辞書検索くらいEWWで開いてほしいものです。
+
+ならばぜひともこの設定を加えてください。
+
+#+BEGIN_SRC emacs-lisp :results silent
+(setq xah-lookup-browser-function 'eww)
+#+END_SRC

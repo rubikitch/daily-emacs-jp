@@ -1,0 +1,40 @@
+#+BLOG: rubikitch
+#+POSTID: 1555
+#+DATE: [2015-04-24 Fri 02:59]
+#+PERMALINK: melmag
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: メルマガ,
+#+DESCRIPTION: るびきち塾メルマガ『Emacsの鬼るびきちのココだけの話#178』の予告
+#+TITLE: 【メルマガ#178】ちょっと一休み
+#+MYTAGS: 
+#+begin: org2blog-tags
+#+TAGS: , メルマガ,, 
+#+end:
+今回から数回ちょっとEmacsから離れ
+読み物的な感じの内容になってきます。
+
+しかし、これらの内容は僕が人生を通じて
+長い期間を経て学んだことであり
+あなたのエンジニア人生に役立つことでしょう。
+
+Emacs不足であれば、個別にメールください。
+
+
+僕はrubikitch.com、メルマガ、連載、
+そして現在進行中の書籍執筆も手がけていて、
+さらに奉仕活動もやっています。
+
+なぜこれだけの大量行動ができるのでしょうか？
+
+これは朝一番と休憩時間にとあることをやっているからです。
+
+現代人にとって一番必要とされているのですが、
+なぜかみんなやりたがりません。
+
+そのせいで余計な時間がかかってしまうのです。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

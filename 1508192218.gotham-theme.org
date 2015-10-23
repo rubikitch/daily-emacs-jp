@@ -1,0 +1,236 @@
+#+BLOG: rubikitch
+#+POSTID: 1909
+#+DATE: [2015-08-19 Wed 22:18]
+#+PERMALINK: gotham-theme
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, theme
+#+EL_PKG_NAME: gotham-theme
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, color-theme, カラーテーマ
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: 端末にも対応したとてもダークなカラーテーマ
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージgotham-themeの紹介
+#+MYTAGS: package:gotham-theme, emacs 使い方, emacs コマンド, emacs, gotham-theme, gotham-theme.el, emacs lisp gotham-theme, elisp gotham-theme, emacs melpa gotham-theme, emacs gotham-theme 使い方, emacs gotham-theme 設定, emacs パッケージ gotham-theme, emacs gotham-theme スクリーンショット, color-theme, カラーテーマ
+#+TAGS: package:gotham-theme, emacs 使い方, emacs コマンド, emacs, gotham-theme, gotham-theme.el, emacs lisp gotham-theme, elisp gotham-theme, emacs melpa gotham-theme, emacs gotham-theme 使い方, emacs gotham-theme 設定, emacs パッケージ gotham-theme, emacs gotham-theme スクリーンショット, color-theme, カラーテーマ, Emacs, theme, gotham-theme.el
+#+TITLE: emacs gotham-theme.el : 端末にも対応したとてもダークなカラーテーマ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>gotham-theme</td></tr>
+<tr><td>概要(原文)</td><td>A very dark Emacs color theme.</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/wasamasa/gotham-theme">https://github.com/wasamasa/gotham-theme</a></td></tr>
+<tr><td>バージョン</td><td>20150710.832</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:gotham-theme/">package:gotham-theme</a> </td></tr>
+</table>
+<br />
+#+END_HTML
+*gotham-theme.el* は、端末にも対応しているダークなカラーテーマです。
+
+# (save-window-excursion (async-shell-command "urxvt -e emacs-test -nw -eval '(load-theme (quote gotham) t)'"))
+多くのパッケージに対応しています。
+- font-lock
+- isearch
+- mode-line
+- header-line
+- custom
+- compilation
+- diff
+- erc
+- ediff
+- eshell
+- elfeed
+- flymake
+- flyspell
+- ido
+- makefile
+- outline
+- pulse
+- rcirc
+- semantic
+- speedbar
+- show-paren-mode
+- term
+- widget
+- which-func
+- whitespace
+- ace-jump-mode
+- auctex
+- auto-complete
+- circe
+- company
+- ecb
+- flycheck
+- enh-ruby-mode
+- helm
+- hydra
+- jabber
+- js2-mode
+- linum-relative
+- lui
+- magit 2.1
+- magit 1.4
+- markdown-mode
+- org
+- popup
+- powerline
+- rainbow-delimiters
+- rst-mode
+- smartparens
+- smart-mode-line
+- web-mode
+- undo-tree
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_theme_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150819222117.png]]
+Fig1: emacs-lisp-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150819222122.png]]
+Fig2: magit
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150819222125.png]]
+Fig3: grep
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150819222128.png]]
+Fig4: outline-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150819222132.png]]
+Fig5: org-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150819222136.png]]
+Fig6: dired
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150819222141.png]]
+Fig7: web-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150819222145.png]]
+Fig8: markdown-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150819222151.png]]
+Fig9: helm
+** gotham-theme インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install gotham-theme
+
+
+#+end:
+** 概要                                                             :noexport:
+*gotham-theme.el* は、端末にも対応しているダークなカラーテーマです。
+
+# (save-window-excursion (async-shell-command "urxvt -e emacs-test -nw -eval '(load-theme (quote gotham) t)'"))
+多くのパッケージに対応しています。
+- font-lock
+- isearch
+- mode-line
+- header-line
+- custom
+- compilation
+- diff
+- erc
+- ediff
+- eshell
+- elfeed
+- flymake
+- flyspell
+- ido
+- makefile
+- outline
+- pulse
+- rcirc
+- semantic
+- speedbar
+- show-paren-mode
+- term
+- widget
+- which-func
+- whitespace
+- ace-jump-mode
+- auctex
+- auto-complete
+- circe
+- company
+- ecb
+- flycheck
+- enh-ruby-mode
+- helm
+- hydra
+- jabber
+- js2-mode
+- linum-relative
+- lui
+- magit 2.1
+- magit 1.4
+- markdown-mode
+- org
+- popup
+- powerline
+- rainbow-delimiters
+- rst-mode
+- smartparens
+- smart-mode-line
+- web-mode
+- undo-tree
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_theme_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150819222117.png]]
+Fig10: emacs-lisp-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150819222122.png]]
+Fig11: magit
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150819222125.png]]
+Fig12: grep
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150819222128.png]]
+Fig13: outline-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150819222132.png]]
+Fig14: org-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150819222136.png]]
+Fig15: dired
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150819222141.png]]
+Fig16: web-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150819222145.png]]
+Fig17: markdown-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150819222151.png]]
+Fig18: helm
+
+** 設定
+#+BEGIN_SRC fundamental
+(load-theme 'gotham t)
+#+END_SRC
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ emacs -Q -f package-initialize -eval '(load-theme (quote gotham) t)'
+#+END_EXAMPLE
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

@@ -1,0 +1,103 @@
+#+BLOG: rubikitch
+#+POSTID: 2052
+#+DATE: [2015-10-05 Mon 11:05]
+#+PERMALINK: helm-c-yasnippet
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs
+#+EL_PKG_NAME: helm-c-yasnippet
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, relate:helm, relate:yasnippet, テンプレート, スニペット, template, snippet, skeleton, スケルトン, 定型文, 略語展開, abbrev, 短縮名, タイピング省力化, anything-c-yasnippet, anything, 
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: 最強テンプレートシステムYasnippetを絞り込んで展開・編集などを行う
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージhelm-c-yasnippetの紹介
+#+MYTAGS: package:helm-c-yasnippet, emacs 使い方, emacs コマンド, emacs, helm-c-yasnippet, helm-c-yasnippet.el, emacs lisp helm-c-yasnippet, elisp helm-c-yasnippet, emacs melpa helm-c-yasnippet, emacs helm-c-yasnippet 使い方, emacs helm-c-yasnippet 設定, emacs パッケージ helm-c-yasnippet, emacs helm-c-yasnippet スクリーンショット, relate:helm, relate:yasnippet, テンプレート, スニペット, template, snippet, skeleton, スケルトン, 定型文, 略語展開, abbrev, 短縮名, タイピング省力化, anything-c-yasnippet, anything, 
+#+TAGS: package:helm-c-yasnippet, emacs 使い方, emacs コマンド, emacs, helm-c-yasnippet, helm-c-yasnippet.el, emacs lisp helm-c-yasnippet, elisp helm-c-yasnippet, emacs melpa helm-c-yasnippet, emacs helm-c-yasnippet 使い方, emacs helm-c-yasnippet 設定, emacs パッケージ helm-c-yasnippet, emacs helm-c-yasnippet スクリーンショット, relate:helm, relate:yasnippet, テンプレート, スニペット, template, snippet, skeleton, スケルトン, 定型文, 略語展開, abbrev, 短縮名, タイピング省力化, anything-c-yasnippet, anything, , Emacs, yasnippet, helm, helm-c-yasnippet.el, anything-c-yasnippet.el, yasnippet, helm, helm-c-yasnippet.el, anything-c-yasnippet.el
+#+TITLE: emacs helm-c-yasnippet.el : 最強テンプレートシステムYasnippetを絞り込んで展開・編集などを行う | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>helm-c-yasnippet</td></tr>
+<tr><td>概要(原文)</td><td>helm source for yasnippet.el</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/emacs-jp/helm-c-yasnippet">https://github.com/emacs-jp/helm-c-yasnippet</a></td></tr>
+<tr><td>バージョン</td><td>20151001.802</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:helm-c-yasnippet/">package:helm-c-yasnippet</a> <a href="http://rubikitch.com/tag/package:helm/">package:helm</a> <a href="http://rubikitch.com/tag/package:yasnippet/">package:yasnippet</a></td></tr>
+</table>
+<br />
+#+END_HTML
+Emacsで入力を省力化するにはテンプレートシステムや略語展開をしますが、
+その両方を兼ね備えた強力なパッケージが *yasnippet* です。
+
+しかし、肝心なときに略語を思い出せなかったりすると本末転倒です。
+
+そこで *helm* インターフェースによって部分文字列や絞り込み検索が
+できるようになったのが *helm-c-yasnippet.el* です。
+
+元々 anything.el を使った *anything-c-yasnippet.el* を
+helmに移植したものです。
+
+以下のことができます。
+- スニペットを展開する
+- スニペットをファイルを編集する
+- すべてのスニペットを再読み込みする
+- スニペットをリネームする
+- スニペットを削除する
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151005153923.png]]
+Fig1: C-c y def→defを含むスニペット一覧
+
+** helm-c-yasnippet インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install helm-c-yasnippet
+
+
+#+end:
+** 概要                                                             :noexport:
+Emacsで入力を省力化するにはテンプレートシステムや略語展開をしますが、
+その両方を兼ね備えた強力なパッケージが *yasnippet* です。
+
+しかし、肝心なときに略語を思い出せなかったりすると本末転倒です。
+
+そこで *helm* インターフェースによって部分文字列や絞り込み検索が
+できるようになったのが *helm-c-yasnippet.el* です。
+
+元々 anything.el を使った *anything-c-yasnippet.el* を
+helmに移植したものです。
+
+以下のことができます。
+- スニペットを展開する
+- スニペットをファイルを編集する
+- すべてのスニペットを再読み込みする
+- スニペットをリネームする
+- スニペットを削除する
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151005153923.png]]
+Fig2: C-c y def→defを含むスニペット一覧
+
+
+** 設定 [[http://rubikitch.com/f/151005153717.helm-c-yasnippet.el][151005153717.helm-c-yasnippet.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/151005/151005153717.helm-c-yasnippet.el"
+#+BEGIN_SRC fundamental
+(require 'yasnippet)
+(require 'helm-c-yasnippet)
+(setq helm-yas-space-match-any-greedy t)
+(global-set-key (kbd "C-c y") 'helm-yas-complete)
+(push '("emacs.+/snippets/" . snippet-mode) auto-mode-alist)
+(yas-global-mode 1)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/151005153717.helm-c-yasnippet.el
+$ emacs -Q -f package-initialize -l 151005153717.helm-c-yasnippet.el
+#+END_EXAMPLE

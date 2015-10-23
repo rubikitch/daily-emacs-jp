@@ -1,0 +1,104 @@
+#+BLOG: rubikitch
+#+POSTID: 1728
+#+DATE: [2015-06-08 Mon 17:10]
+#+PERMALINK: green-phosphor-theme
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, theme, 
+#+EL_PKG_NAME: green-phosphor-theme
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, color-theme, カラーテーマ
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: 緑を中心としたダークカラーテーマ
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージgreen-phosphor-themeの紹介
+#+MYTAGS: package:green-phosphor-theme, emacs 使い方, emacs コマンド, emacs, green-phosphor-theme, green-phosphor-theme.el, emacs lisp green-phosphor-theme, elisp green-phosphor-theme, emacs melpa green-phosphor-theme, emacs green-phosphor-theme 使い方, emacs green-phosphor-theme 設定, emacs パッケージ green-phosphor-theme, emacs green-phosphor-theme スクリーンショット, color-theme, カラーテーマ
+#+TAGS: package:green-phosphor-theme, emacs 使い方, emacs コマンド, emacs, green-phosphor-theme, green-phosphor-theme.el, emacs lisp green-phosphor-theme, elisp green-phosphor-theme, emacs melpa green-phosphor-theme, emacs green-phosphor-theme 使い方, emacs green-phosphor-theme 設定, emacs パッケージ green-phosphor-theme, emacs green-phosphor-theme スクリーンショット, color-theme, カラーテーマ, Emacs, theme, , green-phosphor-theme.el
+#+TITLE: emacs green-phosphor-theme.el : 緑を中心としたダークカラーテーマ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>green-phosphor-theme</td></tr>
+<tr><td>概要(原文)</td><td>A light color theme with muted, autumnal colors.</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/aalpern/emacs-color-theme-green-phosphor">https://github.com/aalpern/emacs-color-theme-green-phosphor</a></td></tr>
+<tr><td>バージョン</td><td>20150515.747</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:green-phosphor-theme/">package:green-phosphor-theme</a> </td></tr>
+</table>
+<br />
+#+END_HTML
+*green-phosphor-theme.el* は、緑を中心とした
+暗いカラーテーマです。
+
+まだ開発して間がないので以下の設定しかありません。
+
+-  font-lock
+-  powerline
+-  git-gutter
+-  web-mode
+-  js3-mode
+-  markdown-mode
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150608171153.png]]
+Fig1: emacs-lisp-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150608171217.png]]
+Fig2: markdown-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150608171421.png]]
+Fig3: web-mode
+** green-phosphor-theme インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install green-phosphor-theme
+
+
+#+end:
+** 概要                                                             :noexport:
+*green-phosphor-theme.el* は、緑を中心とした
+暗いカラーテーマです。
+
+まだ開発して間がないので以下の設定しかありません。
+
+-  font-lock
+-  powerline
+-  git-gutter
+-  web-mode
+-  js3-mode
+-  markdown-mode
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150608171153.png]]
+Fig4: emacs-lisp-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150608171217.png]]
+Fig5: markdown-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150608171421.png]]
+Fig6: web-mode
+
+** 設定 [[http://rubikitch.com/f/150608171030.green-phosphor-theme.el][150608171030.green-phosphor-theme.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/150608/150608171030.green-phosphor-theme.el"
+#+BEGIN_SRC fundamental
+(load-theme 'green-phosphor t)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/150608171030.green-phosphor-theme.el
+$ emacs -Q -f package-initialize -l 150608171030.green-phosphor-theme.el
+#+END_EXAMPLE

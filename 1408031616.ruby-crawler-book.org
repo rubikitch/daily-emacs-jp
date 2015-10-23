@@ -1,0 +1,59 @@
+#+BLOG: rubikitch
+#+POSTID: 64
+#+DATE: [2014-08-03 Sun 16:16]
+#+PERMALINK: ruby-crawler-book
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t
+#+ISPAGE: nil
+#+BLOG: rubikitch
+#+CATEGORY: Ruby, 著書
+#+DESCRIPTION: Rubyによるクローラー開発本『Rubyによるクローラー開発技法』を執筆しました。佐々木拓郎さんとの共著です。2014/08/25発売！
+#+MYTAGS: Rubyによるクローラー開発技法, ruby crawler, ruby スクレイピング, ruby anemone gem, ruby nokogiri gem, wget, ruby webrick, 岡崎図書館事件
+#+TAGS: Rubyによるクローラー開発技法, ruby crawler, ruby スクレイピング, ruby anemone gem, ruby nokogiri gem, wget, ruby webrick, 岡崎図書館事件, Ruby, 著書, Ruby, 佐々木拓郎, SBクリエイティブ, クローラー
+#+TITLE: 新刊『Rubyによるクローラー開発技法』2014/08/25発売！
+久々に本を書かせていただきました。
+
+『Rubyによるクローラー開発技法』です。
+http://www.amazon.co.jp/dp/4797380357
+
+本を書くこと自体3年ぶりで、ましてや =Ruby= の本は5年ぶりになります。
+
+今回は [[http://www.slideshare.net/takurosasaki/web-scrapingruby][『Rubyで作るクローラー』スライド]] で有名な =佐々木拓郎= さんとの共著です。
+
+Blog: http://blog.takuros.net/
+Twitter: [[http://twitter.com/dkfj][@dkfj]]
+Facebook: [[https://www.facebook.com/takuro.sasaki][takuro.sasaki]]
+
+
+
+
+実は去年末に =SBクリエイティブ= 様よりRuby =クローラー= 本執筆企画の声をかけていただきました。
+
+クローラーというのはWeb巡回ロボットのことで、検索エンジンで有名ですね。
+ビジネスの世界でもマーケティング分析に使われていたりします。
+
+とてもありがたい申し出ですが、最初は断りました。
+なぜなら、巡回ロボットのような立派なクローラーを作ったことがないからです。
+
+ですが編集者に
+「クローラーに明確な定義はなく、Webページを解析してなんらかの処理をするものは広義のクローラーだ」
+と言われたので、共著を条件に引き受けました。
+
+確かに、Webページを読み込んで解析する小規模なスクリプトならば昔からたくさん書いてきました。
+
+クローラーを
+/Webページをダウンロードして何かの処理をするもの/
+と定義してしまえば、WgetやRSSリーダーだってクローラーになります。
+
+Wgetの再帰ダウンロード機能はダウンロード後にHTMLを解析してリンクを辿っているので、まさにクローラーです。
+
+RSSリーダーもRSSのXMLを取得し解析して最新記事を取ってきているので、それもクローラーになります。
+
+そういうわけで、イントロとして以下の内容を書かせていただきました。
+
+- Rubyの基礎
+- クローラーとしてのWget
+- クローラーのテスト用Webサーバ
+- 単純なHTML解析スクリプト
+- 単純なスクリプトをサーバー化する方法
+
+すべてRubyの標準ライブラリで行っているので、Rubyの魅力が十二分に伝われば幸いです。

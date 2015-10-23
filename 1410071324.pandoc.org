@@ -1,0 +1,157 @@
+#+BLOG: rubikitch
+#+POSTID: 435
+#+DATE: [2014-10-07 Tue 13:24]
+#+PERMALINK: pandoc
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, Ruby
+#+DESCRIPTION: 最新版Pandocとラッパースクリプトでhtmlをorgに一括変換しよう！grepも自由自在
+#+MYTAGS: package:org
+#+TAGS: package:org, Emacs, Ruby, wget, org-mode, org文書, grep検索, Pandoc, GHC, cabal
+#+TITLE: EmacsユーザならばWebページをPandocでorg-modeに変換して読もうじゃないか！検索性と可読性を確保しつつ画像も見られるよ。
+[[http://rubikitch.com/2014/09/22/pandoc/][この前万能ドキュメント変換器Pandocを紹介した]] ばかりですが、
+もう少し触ってみました。
+
+[[http://rubikitch.com/tag/pandoc/][→Pandoc関連記事]]
+
+
+メルマガに書くための資料集めとして、
+まとまった情報が書かれているサイトを
+*wget* で保存して *org-mode* で読もうと奮闘している過程で
+この記事を書いています。
+
+HTML文書を *org文書* に変換しておくことで、
+元々HTMLだった文書をリンクや画像を保持したまま
+*grep検索* できるようになります。
+
+HTMLのままgrepもできないことはないですが、
+HTMLは人間にはとても読みづらいフォーマットです。
+
+Debian testingに含まれている *Pandoc* 1.12.4.2だと、
+org-modeへの変換はバグがあって使いものになりません。
+
+- 表のx軸とy軸が逆(transposeされている)
+- div id="hogehoge"形式のアンカーが反映されない
+
+** Pandoc最新版をインストール
+そこで、Haskell版CPANといえる *cabal* で
+最新のPandocをインストールしたところ、
+嬉しいことにこれらの問題は解決していました。
+
+PandocはHaskellで書かれているので、まずは
+Haskell処理系 *GHC* と *cabal* をインストールしておきます。
+
+そして、cabalでPandocをインストールします。
+
+#+BEGIN_EXAMPLE
+$ sudo apt-get install ghc cabal
+$ cabal update
+$ cabal install pandoc
+#+END_EXAMPLE
+
+Pandocはたくさんのパッケージに依存しているので初回インストールは
+けっこう時間がかかるがじっくり待てば ~/.cabal/bin/pandoc に
+インストールされます。
+
+** 使い方
+URLで指定されたページをorgに変換するには
+以下のようにします。
+
+前回とは違い --no-wrap オプションを付けておけば、
+orgに変換されたときに不自然な改行がなくなります。
+
+Pandocで変換されたorg文書は不自然な改行のために
+リンクがおかしくなっていましたが、
+その問題が見事に解決されます。
+
+また、UTF-8以外の文書は受け付けないのでnkfで変換しときます。
+
+#+BEGIN_EXAMPLE
+$ curl -s URL | nkf -w | ~/.cabal/bin/pandoc --no-wrap -f html -o output.org
+output.orgに出力
+#+END_EXAMPLE
+
+** 後処理とワイルドカード指定で一括変換
+最新のPandocでもいくつか変換結果に問題がありますが、
+ラッパースクリプト pandoc-org.rb を書いて解決させます。
+
+- BEGIN_HTML〜END_HTMLでHTMLタグが出現する→カット
+- 行末に \\ が現れる→カット
+- ファイルへのリンクが正しく変換されない→file: リンクに変換
+- 「foo.html#id」のリンク→foo.org::idに変換
+- JavaScriptへのリンクが現れる→カット
+- 立て続けにリンクがあると org-next-link で行けない→間にスペースを挿入
+- 本文中に_が現れると \_ になってしまう→そのまま_と表示する
+- pandoc -t org foo.htmlしたらfoo.orgではなくて標準出力に出力される→foo.orgに出力させる
+
+pandoc-org.rbはこのようにして使います。
+
+1. wgetでサイトをhtmlでダウンロードする
+2. pandoc-org.rbですべてのhtmlをorgに変換する
+
+#+BEGIN_EXAMPLE
+$ wget -r -l1 -p -k http://www.example.com/
+$ pandoc-org.rb *.html
+#+END_EXAMPLE
+
+***  [[http://rubikitch.com/f/pandoc-org.rb][pandoc-org.rb(以下のコードと同一)]]
+#+BEGIN: include :file "/r/gdgd/bin/pandoc-org.rb"
+#+BEGIN_SRC fundamental
+#!/usr/local/bin/ruby
+# -*- coding: utf-8 -*-
+require 'parallel'
+require 'tempfile'
+require 'kconv'
+
+def convert(html, org)
+  # utf8しか受け付けないのでnkfで変換する
+  tf = Tempfile.new("html")
+  s = NKF.nkf("-m0 -w -Lu", File.read(html))
+  s.gsub!(%r!</?code.*?>!i, '')                      # <code>
+  s.gsub!(%r!</?textarea!i, 'pre')
+  tf.write s
+  tf.close
+  system "~/.cabal/bin/pandoc --no-wrap -f html #{tf.path} -o #{org.inspect}"
+
+  s = File.read(org)
+  open(org, "w") do |f|
+    f.write process_org(s)
+  end
+end
+
+def process_org(s)
+  s = s.clone
+  s.gsub!(/#\+BEGIN_HTML.+?#\+END_HTML\n\n/m, '') # うざいのでカット
+  s.gsub!(/[\\][\\]$/, '')                        # 行末の\\
+  s.gsub!(/\\_/, '_')                             # \_
+  # file:リンクへ正しく変換されないのはバグよね
+  s.gsub!(/\[\[javascript:[^\[]+\]\[.+?\]+/, '') # javascript link
+  s.gsub!(/\[\[([^\[]+?)\]/) do
+    link = $1
+    orig = $&
+    file, id = $1.split(/#/)
+    if not file
+      newlink = nil
+    elsif file !~ /^http/
+      newlink = "file:" << file.sub(/html?$/, 'org')
+      if id
+        newlink << "::#{id}"
+      end
+    else
+      newlink = link
+    end
+    newlink ? "[[#{newlink}]" : orig
+  end
+  s.gsub!(/\]\]\[\[/, ']] [[')  # 隣合うリンクの間にスペースを入れる
+  s
+end
+
+Parallel.each(ARGV) do |html|
+  convert html, html.sub(/html?$/, 'org')
+end
+#+END_SRC
+
+#+END:

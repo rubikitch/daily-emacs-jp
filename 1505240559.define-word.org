@@ -1,0 +1,100 @@
+#+BLOG: rubikitch
+#+POSTID: 1681
+#+DATE: [2015-05-24 Sun 05:59]
+#+PERMALINK: define-word
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, Emacs Lisp, 
+#+EL_PKG_NAME: define-word
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, emacs 英英辞典, emacs ネットアクセス, elisp url-retrieve 使い方, emacs クローラー, emacs 辞書検索, relate:helm-wordnet
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: 【英英辞典】カーソル位置の単語・ミニバッファ入力の単語の意味を表示する
+#+EL_URL: http://oremacs.com/2015/05/22/define-word/
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージdefine-wordの紹介
+#+MYTAGS: package:define-word, emacs 使い方, emacs コマンド, emacs, define-word, define-word.el, emacs lisp define-word, elisp define-word, emacs melpa define-word, emacs define-word 使い方, emacs define-word 設定, emacs パッケージ define-word, emacs define-word スクリーンショット, emacs 英英辞典, emacs ネットアクセス, elisp url-retrieve 使い方, emacs クローラー, emacs 辞書検索, relate:helm-wordnet
+#+TAGS: package:define-word, emacs 使い方, emacs コマンド, emacs, define-word, define-word.el, emacs lisp define-word, elisp define-word, emacs melpa define-word, emacs define-word 使い方, emacs define-word 設定, emacs パッケージ define-word, emacs define-word スクリーンショット, emacs 英英辞典, emacs ネットアクセス, elisp url-retrieve 使い方, emacs クローラー, emacs 辞書検索, relate:helm-wordnet, Emacs, Emacs Lisp, , define-word.el, M-x define-word-at-point, M-x define-word, define-word-limit, M-x define-word-at-point, M-x define-word, define-word-limit, define-word, url-retrieve, クローラー
+#+TITLE: emacs define-word.el : 【英英辞典】カーソル位置の単語・ミニバッファ入力の単語の意味を表示する | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>define-word</td></tr>
+<tr><td>概要(原文)</td><td>display the definition of word at point.</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>サイト</td><td><a href="http://oremacs.com/2015/05/22/define-word/">http://oremacs.com/2015/05/22/define-word/</td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/abo-abo/define-word">https://github.com/abo-abo/define-word</a></td></tr>
+<tr><td>バージョン</td><td>20150523.347</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:define-word/">package:define-word</a> <a href="http://rubikitch.com/tag/package:helm-wordnet/">package:helm-wordnet</a></td></tr>
+</table>
+<br />
+#+END_HTML
+*define-word.el* は、オンライン英英辞典 https://wordnik.com/ の
+Emacsインターフェースを提供する新入りelispです。
+
+<2015-05-24 Sun>時点においては2つのコマンドが用意されています。
+
+どちらも単語の意味をエコーエリアに表示するものです。
+
+*M-x define-word-at-point* はカーソル位置・regionの単語、
+*M-x define-word* はミニバッファから入力された単語です。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150524060646.png]]
+Fig1: bufferの意味を表示
+
+https://wordnik.com/words/buffer と比べてみてください。
+
+表示される数は変数 *define-word-limit* (デフォルト:10) で変更できますが、
+フレームの高さにも依存します。
+** define-word インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install define-word
+
+
+#+end:
+** 概要                                                             :noexport:
+*define-word.el* は、オンライン英英辞典 https://wordnik.com/ の
+Emacsインターフェースを提供する新入りelispです。
+
+<2015-05-24 Sun>時点においては2つのコマンドが用意されています。
+
+どちらも単語の意味をエコーエリアに表示するものです。
+
+*M-x define-word-at-point* はカーソル位置・regionの単語、
+*M-x define-word* はミニバッファから入力された単語です。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150524060646.png]]
+Fig2: bufferの意味を表示
+
+https://wordnik.com/words/buffer と比べてみてください。
+
+表示される数は変数 *define-word-limit* (デフォルト:10) で変更できますが、
+フレームの高さにも依存します。
+** コードを読んでみると
+<2015-05-24 Sun>時点においては、本当に2つの関数しか定義されていません。
+
+コードは50行程度と実に短いです。
+
+本体は *define-word* 関数にあり、
+ *url-retrieve* 関数を呼び出しているだけです。
+
+この関数は非同期にダウンロードするものであり、
+第2引数はダウンロード後に実行されるコールバック関数です。
+
+そこではダウンロードされた内容のバッファをカレントバッファとし、
+HTMLを正規表現で解析して情報を抽出し、表示していることがわかります。
+
+elispで書かれた *クローラー* のサンプルとしてほどよい難易度です。
+
+この程度のものならばurl-retrieveでもいいですが、
+本格的なものは [[http://rubikitch.com/2015/05/23/request/][request.el(レビュー)]] を使う方が賢明です。
+
+また、define-wordという名前から、
+将来的には他のサイトに対応するかもしれません。

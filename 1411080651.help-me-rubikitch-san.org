@@ -1,0 +1,140 @@
+#+BLOG: rubikitch
+#+POSTID: 557
+#+DATE: [2014-11-08 Sat 06:51]
+#+PERMALINK: help-me-rubikitch-san
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, Emacs Lisp, Emacs 24.4,
+#+DESCRIPTION:
+#+MYTAGS: relate:w3m, package:eww
+#+TAGS: relate:w3m, package:eww, Emacs, Emacs Lisp, Emacs 24.4,, eww, libxml-parse-html-region, emacs-w3m, format, interactive
+#+TITLE: なんと、eww(Emacs 24.4組み込みWebブラウザ)で…
+時は2014/11/06、事件は起きました…
+
+事の発端はこのツイートから。
+
+#+BEGIN_QUOTE
+ 2014/11/06 14:27:47 rizaudo > Emacsにrubikichコマンドを実装してくれないか
+ な。 何か気になる面白パッケージとかがあれば、関係するるびきちさんのブログ
+ に飛ぶか、るびきちさんに聞けるような何か。
+ // by リザウド@Lisp大好きクラブ from YoruFukurou
+#+END_QUOTE
+
+エゴサーチしているのでこれに対してさりげなく空中リプライしてみると…
+
+#+BEGIN_QUOTE
+ 2014/11/06 14:30:42 rubikitch > http://rubikitch.com/tag/package:helm/ の
+ ようにパッケージ名を指定すればそれに関する記事が出てきますよー。
+ // by るびきち＠日刊Emacs from twmode [Emacs on Debian]
+#+END_QUOTE
+
+すると…
+
+#+BEGIN_QUOTE
+ 2014/11/06 14:33:03 rizaudo > 今日の良い情報だ。 関数書いてewwで出せるよ
+ うにしよう。 関数名はhelp-me-rubikitch-sanとかそう言う名前で。
+ // by リザウド@Lisp大好きクラブ from YoruFukurou
+
+ 2014/11/06 14:48:12 rizaudo >
+ (defun help-me-rubikitch-san (package)
+   (interactive "MPackageName:")
+   (eww-browse-url (concat "http://rubikitch.com/tag/package:" package "/")))
+ // by リザウド@Lisp大好きクラブ from YoruFukurou
+#+END_QUOTE
+
+当サイトから関連パッケージを *eww* で閲覧する
+コマンドを書かれてしまいました(笑)
+
+しかも…
+
+#+BEGIN_QUOTE
+ 2014/11/06 14:49:34 rizaudo > 今の関数をGIstにポイしました。 まあささっと
+ 書いた関数なので、適当にどうぞ。
+ https://gist.github.com/rizaudo/46d66f8bf3b9f969278c
+ // by リザウド@Lisp大好きクラブ from YoruFukurou
+
+ 2014/11/06 15:07:14 Isuzu_T > ( ﾟ∀ﾟ)o彡ﾟ るびきち！ るびきち！
+ 助けてるびきちー！ // by 垂木いすゞ(黒)(黒) from OpenTween [きさらぎ駅]
+#+END_QUOTE
+
+Gistに晒されました(笑)
+
+
+** ありがとうございます
+当サイトが役立っていることが実感でき、
+僕はとても嬉しいです。
+
+感謝の気持ちでいっぱいです。
+
+これからも役立つ情報を提供するよう
+日々更新をしていくことを誓います。
+
+昨日は金曜日でメルマガの予告記事を書く日だったので、
+お礼が遅れてしまいました。
+
+当サイトは特定のパッケージの記事を
+一括して表示する機能があります。
+
+[[http://rubikitch.com/tag/package:helm][package:helm]] のようにタグを辿れば
+helmに関する記事が出てきます。
+
+
+まだ出来たてホヤホヤのサイトなので、
+該当する記事がまだ存在しないこともありますが、
+これから埋めていきます。
+
+嬉しい反面、これからきちんと情報提供しなければ
+という責任感・使命感に燃えました。
+
+** ewwはいいよー
+ewwというのは、Emacs 24.4で標準添付された
+Emacs組み込みブラウザのことです。
+
+Emacs Lispで書かれているので遅いと思われがちですが、
+HTML解析は *libxml-parse-html-region* という
+Ｃ言語で書かれていたる関数で行っているので
+速度は問題ありません。
+
+EmacsのベテランさんにはEmacs/W3という
+pure elispな激遅ブラウザのトラウマを
+思い出してしまうかもしれませんが、大丈夫です。
+
+
+Emacs上のブラウザといえば *emacs-w3m* が主流ですが、
+Windowsの人には敷居が高いという問題があります。
+
+Windowsでも問題なく簡単に使えるのは大きいですね。
+
+ewwは表も画像もきちんと表示してくれるので、
+Emacsで使えるブラウザとしては十分合格です。
+** eww-browse-url: ewwでURLを開く関数
+*eww-browse-url* 関数は、ewwでURLを開く関数です。
+
+この関数を応用すればプログラミング言語のオンラインドキュメントを
+参照することが簡単にできるようになります。
+
+ドキュメントを参照するのにわざわざブラウザとEmacsを
+行き来する必要がないのは嬉しいですね。
+** ちょいと添削
+ちなみに、 *concat* 関数よりも *format* 関数を使った方が
+読みやすくなるし、シンボルも受け付けるのでおすすめです。
+
+*interactive* の指定はsにすればinput methodの影響を受けません。
+
+#+BEGIN_QUOTE
+M -- Any string.  Inherits the current input method.
+s -- Any string.  Does not inherit the current input method.
+#+END_QUOTE
+
+
+#+BEGIN: include :file "/r/sync/junk/141108/141108070748.el"
+#+BEGIN_SRC fundamental
+(defun help-me-rubikitch-san (package)
+  (interactive "sPackageName: ")
+  (eww-browse-url (format "http://rubikitch.com/tag/package:%s/" package)))
+#+END_SRC
+
+#+END:

@@ -1,0 +1,85 @@
+#+BLOG: rubikitch
+#+POSTID: 2090
+#+DATE: [2015-10-19 Mon 04:35]
+#+PERMALINK: ietf-docs
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs
+#+EL_PKG_NAME: ietf-docs
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, IETF, Internet Engineering Task Force, インターネットドラフト, internet-draft, RFC, ISOC, プロトコル, インターネット 仕様, relate:thingatpt, relate:date-at-point, tools.ietf.org, thing-at-point
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: IETFのドキュメントをEmacsで取得・キャッシュ・閲覧する
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージietf-docsの紹介
+#+MYTAGS: package:ietf-docs, emacs 使い方, emacs コマンド, emacs, ietf-docs, ietf-docs.el, emacs lisp ietf-docs, elisp ietf-docs, emacs melpa ietf-docs, emacs ietf-docs 使い方, emacs ietf-docs 設定, emacs パッケージ ietf-docs, emacs ietf-docs スクリーンショット, IETF, Internet Engineering Task Force, インターネットドラフト, internet-draft, RFC, ISOC, プロトコル, インターネット 仕様, relate:thingatpt, relate:date-at-point, tools.ietf.org, thing-at-point
+#+TAGS: package:ietf-docs, emacs 使い方, emacs コマンド, emacs, ietf-docs, ietf-docs.el, emacs lisp ietf-docs, elisp ietf-docs, emacs melpa ietf-docs, emacs ietf-docs 使い方, emacs ietf-docs 設定, emacs パッケージ ietf-docs, emacs ietf-docs スクリーンショット, IETF, Internet Engineering Task Force, インターネットドラフト, internet-draft, RFC, ISOC, プロトコル, インターネット 仕様, relate:thingatpt, relate:date-at-point, tools.ietf.org, thing-at-point, Emacs, ietf-docs.el, M-x ietf-docs-open-at-point, M-x ietf-docs-open-at-point
+#+TITLE: emacs ietf-docs.el : IETFのドキュメントをEmacsで取得・キャッシュ・閲覧する | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>ietf-docs</td></tr>
+<tr><td>概要(原文)</td><td>Fetch, Cache and Load IETF documents</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/choppsv1/ietf-docs">https://github.com/choppsv1/ietf-docs</a></td></tr>
+<tr><td>バージョン</td><td>20150928.257</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:ietf-docs/">package:ietf-docs</a> <a href="http://rubikitch.com/tag/package:thingatpt/">package:thingatpt</a> <a href="http://rubikitch.com/tag/package:date-at-point/">package:date-at-point</a></td></tr>
+</table>
+<br />
+#+END_HTML
+*ietf-docs.el* は、IETF文書をEmacsで閲覧するためのelispです。
+*M-x ietf-docs-open-at-point* は、カーソル位置が以下のようなIETF文書への参照であるならば対応する文書を開きます。
+- RFC-791
+- rfc-791
+- RFC 2992
+- rfc 2992
+- draft-ietf-isis-ipv6
+- draft-ietf-isis-ipv6.txt
+- draft-ietf-isis-ipv6.xml
+- draft-ietf-isis-ipv6.html
+そのためにthingatpt.elを拡張しています。
+[[http://rubikitch.com/2015/05/15/date-at-point/][date-at-point.el(レビュー)]] 同様、簡単に追加できます。
+
+一度ダウンロードした文書は ~/ietf-docs-cache/ 以下にキャッシュされます。
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151019044936.png]]
+Fig1: カーソル位置がIETF文書への参照でM-x ietf-docs-open-at-pointを実行すると
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151019044949.png]]
+Fig2: 対応する文書が開かれる
+** ietf-docs インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install ietf-docs
+
+
+#+end:
+** 概要                                                             :noexport:
+*ietf-docs.el* は、IETF文書をEmacsで閲覧するためのelispです。
+*M-x ietf-docs-open-at-point* は、カーソル位置が以下のようなIETF文書への参照であるならば対応する文書を開きます。
+- RFC-791
+- rfc-791
+- RFC 2992
+- rfc 2992
+- draft-ietf-isis-ipv6
+- draft-ietf-isis-ipv6.txt
+- draft-ietf-isis-ipv6.xml
+- draft-ietf-isis-ipv6.html
+そのためにthingatpt.elを拡張しています。
+[[http://rubikitch.com/2015/05/15/date-at-point/][date-at-point.el(レビュー)]] 同様、簡単に追加できます。
+
+一度ダウンロードした文書は ~/ietf-docs-cache/ 以下にキャッシュされます。
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151019044936.png]]
+Fig3: カーソル位置がIETF文書への参照でM-x ietf-docs-open-at-pointを実行すると
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151019044949.png]]
+Fig4: 対応する文書が開かれる
+

@@ -1,0 +1,36 @@
+#+BLOG: rubikitch
+#+POSTID: 411
+#+DATE: [2014-09-29 Mon 17:17]
+#+PERMALINK: stdin
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t
+#+ISPAGE: nil
+#+DESCRIPTION: emacs -Q -batch -eval '(print (eval (read standard-input)))' で標準入力からS式を読めるお話。
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, Emacs Lisp,
+#+DESCRIPTION:
+#+MYTAGS: Emacs Lisp, emacs eval read, standard-input, emacs 標準入力 S式,
+#+TAGS: Emacs Lisp, emacs eval read, standard-input, emacs 標準入力 S式,, Emacs, Emacs Lisp,,
+#+TITLE: 【小ネタ】実はEmacsは標準入力を読むことができる
+Emacsって標準入力を読めるのかなと
+ふと知的好奇心が湧いたので
+標準入力にS式を放り込んでみました。
+
+#+BEGIN_EXAMPLE
+$ echo '(+ 1 2)' | emacs -Q -batch -eval '(print (eval (read standard-input)))'
+Lisp expression:
+3
+#+END_EXAMPLE
+
+あ、できた…
+
+Lisp expression:の行も標準出力に書き出されるから
+2>/dev/nullを入れても消せません(笑)
+
+どうやら、標準入力から読み込めるのはS式だけのようで、
+任意の入力を受け取る関数は存在しないようです。
+
+今日は問題解決でドタバタしているため、
+短いですがこの辺で。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

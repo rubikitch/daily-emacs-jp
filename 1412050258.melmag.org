@@ -1,0 +1,42 @@
+#+BLOG: rubikitch
+#+POSTID: 664
+#+DATE: [2014-12-05 Fri 02:58]
+#+PERMALINK: melmag
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: メルマガ,
+#+DESCRIPTION: Emacsの鬼るびきちのココだけの話#159
+#+MYTAGS:
+#+TAGS: , メルマガ, , helm-projectile.el
+#+TITLE: プロジェクト三部作最終回！
+今週のメルマガは、 *helm-projectile.el* についてです。
+
+プロジェクト三部作はこれで完結です。
+
+projectileはとても多機能で
+多くのコマンドを持っているので
+コマンドをすべて使うのは難しいです。
+
+そこでhelmインターフェースでひとまとめにする作戦です。
+
+helm-projectile.elには2つの側面があります。
+
+両者の違いを明確にし、どう使い分ければいいのかもお話します。
+
+また、projectile.el本体にはなく、
+helm-projectile.elからしかアクセスできない機能もあります。
+
+その機能とは？
+
+helm-projectile.elを巨大プロジェクトで使うと
+何も設定しないと重くなることは避けられません。
+
+重い問題もスパッと解決させます。
+
+helm-projectile.elを使っていても使える
+素のprojectileのコマンドを2つ厳選します。
+
+お楽しみに〜

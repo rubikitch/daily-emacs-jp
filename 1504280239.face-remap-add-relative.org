@@ -1,0 +1,55 @@
+#+BLOG: rubikitch
+#+POSTID: 1585
+#+DATE: [2015-04-28 Tue 02:39]
+#+PERMALINK: face-remap-add-relative
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, 
+#+DESCRIPTION: face-remap-add-relativeを使えばバッファローカルでフェイスを変更できる。ここではボールド体にする例。
+#+MYTAGS: フェイスを変更, フォントを変更, Emacs フォント 変更, ボールド体にする, emacs bold font, 
+#+TITLE: バッファローカルでフェイス(フォントや色)をbold体に変更する
+#+begin: org2blog-tags
+#+TAGS: フェイスを変更, フォントを変更, Emacs フォント 変更, ボールド体にする, emacs bold font, , Emacs, , M-x customize-face, ぱうフォント, Ricty, face-remap-add-relative, C-x C--, text-scale-adjust, text-mode-hook, text-mode, org-mode, markdown-mode
+#+end:
+Emacs全体で使うフェイスを変更するには *M-x customize-face* や
+テーマを変更すればいいです。
+
+けれども、特定のバッファのみフェイスを変更したいことがあります。
+
+僕は元々
+「bold体こそが読みやすい」
+という信仰があったので、かつては *ぱうフォント* 、
+さっきまでは *Ricty* のboldをデフォルトで使っていました。
+
+しかし、コードはmediumの方が大事なキーワードを
+boldにできることに気付きました。
+
+とはいえ文章のバッファはboldにしたいのです。
+
+そこでバッファローカルでフェイスの属性を変更する
+*face-remap-add-relative* を使います。
+
+この関数は *C-x C--* などに割り当てられている *text-scale-adjust* が
+バッファローカルでフォントの大きさを変更できることから見付けました。
+
+face-remap-add-relativeはフェイス名、
+そして属性と値の繰り返しを指定します。
+
+この場合はdefaultフェイスのweightをboldにしたいので、
+このようにします。
+
+#+BEGIN_SRC emacs-lisp
+(defun make-buffer-bold-font ()
+  (face-remap-add-relative 'default :weight 'bold))
+(add-hook 'text-mode-hook 'make-buffer-bold-font)
+(add-hook 'mew-message-mode-hook 'make-buffer-bold-font)
+#+END_SRC
+
+*text-mode-hook* は、 *text-mode* 以外にも
+*org-mode* や *markdown-mode* などの派生モードでも呼ばれます。
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

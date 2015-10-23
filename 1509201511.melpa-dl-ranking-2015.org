@@ -1,0 +1,132 @@
+#+BLOG: rubikitch
+#+POSTID: 2007
+#+DATE: [2015-09-20 Sun 15:11]
+#+PERMALINK: melpa-dl-ranking-2015
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, Ruby
+#+DESCRIPTION: 
+#+MYTAGS: emacs, emacs melpa, emacs パッケージ, emacs 人気 パッケージ, emacs 定番 パッケージ, emacs 人気 elisp, emacs 定番 elisp, emacs おすすめ パッケージ, emacs おすすめ elisp, ruby json open-uri, emacs describe-package,
+#+TITLE: 1年たったので再びEmacs MELPA ダウンロードランキングを見てみる
+#+begin: org2blog-tags
+#+TAGS: emacs, emacs melpa, emacs パッケージ, emacs 人気 パッケージ, emacs 定番 パッケージ, emacs 人気 elisp, emacs 定番 elisp, emacs おすすめ パッケージ, emacs おすすめ elisp, ruby json open-uri, emacs describe-package,, Emacs, Ruby, 
+#+end:
+[[http://rubikitch.com/2014/09/02/melpa-dl-ranking/][去年、MELPAのダウンロードランキングを見てみました]] が、
+あれから1年たったので再び見てみることにしました。
+
+** ダウンロードランキング2015
+
+#+BEGIN_EXAMPLE
+$ wget -O- http://rubikitch.com/f/melpa-dl-counts.rb| ruby
+# 198606 dash                                     (describe-package 'dash)
+# 169806 magit                                    (describe-package 'magit)
+# 146333 helm                                     (describe-package 'helm)
+# 143993 popup                                    (describe-package 'popup)
+# 143704 auto-complete                            (describe-package 'auto-complete)
+# 134451 flycheck                                 (describe-package 'flycheck)
+# 133977 s                                        (describe-package 's)
+# 132078 epl                                      (describe-package 'epl)
+# 124991 yasnippet                                (describe-package 'yasnippet)
+# 118700 pkg-info                                 (describe-package 'pkg-info)
+# 116126 projectile                               (describe-package 'projectile)
+# 106105 git-commit-mode                          (describe-package 'git-commit-mode)
+#  97035 git-rebase-mode                          (describe-package 'git-rebase-mode)
+#  93813 undo-tree                                (describe-package 'undo-tree)
+#  93145 markdown-mode                            (describe-package 'markdown-mode)
+#  90514 smartparens                              (describe-package 'smartparens)
+#  90394 company                                  (describe-package 'company)
+#  90335 expand-region                            (describe-package 'expand-region)
+#  86106 f                                        (describe-package 'f)
+#  80366 haskell-mode                             (describe-package 'haskell-mode)
+#  79407 async                                    (describe-package 'async)
+#  78813 rainbow-delimiters                       (describe-package 'rainbow-delimiters)
+#  77718 zenburn-theme                            (describe-package 'zenburn-theme)
+#  76619 web-mode                                 (describe-package 'web-mode)
+#  75550 clojure-mode                             (describe-package 'clojure-mode)
+#  74416 js2-mode                                 (describe-package 'js2-mode)
+#  73440 cider                                    (describe-package 'cider)
+#  70327 smex                                     (describe-package 'smex)
+#  69742 ace-jump-mode                            (describe-package 'ace-jump-mode)
+
+#+END_EXAMPLE
+
+このページをewwで見るか、スクリプトを実行して
+C-e C-x C-eでパッケージの説明が見られます。
+
+** ダウンロードランキング2014
+参考までに去年のランキングを載せてみます。
+
+#+BEGIN_EXAMPLE
+$ wget -O- http://rubikitch.com/f/melpa-dl-counts.rb| ruby
+#  80583 magit                                    (describe-package 'magit)
+#  74866 dash                                     (describe-package 'dash)
+#  63193 auto-complete                            (describe-package 'auto-complete)
+#  56894 popup                                    (describe-package 'popup)
+#  56578 git-commit-mode                          (describe-package 'git-commit-mode)
+#  55007 s                                        (describe-package 's)
+#  50291 flycheck                                 (describe-package 'flycheck)
+#  49654 yasnippet                                (describe-package 'yasnippet)
+#  48842 git-rebase-mode                          (describe-package 'git-rebase-mode)
+#  48728 helm                                     (describe-package 'helm)
+#  45257 epl                                      (describe-package 'epl)
+#  43794 pkg-info                                 (describe-package 'pkg-info)
+#  38017 undo-tree                                (describe-package 'undo-tree)
+#  37539 projectile                               (describe-package 'projectile)
+#  35607 smex                                     (describe-package 'smex)
+#  34864 zenburn-theme                            (describe-package 'zenburn-theme)
+#  34747 clojure-mode                             (describe-package 'clojure-mode)
+#  34692 f                                        (describe-package 'f)
+#+END_EXAMPLE
+
+** 結論
+去年と比較してみましょう。
+
+まず、1位がmagitからdashに変わりました。
+dashはリストや制御構造のライブラリで多くのパッケージで使われています。
+自分でインストールするのではなくて依存関係で自動インストールされます。
+やはり、自動インストールでダウンロード数を稼げるライブラリは強いです。
+
+2位のmagitは相変わらず強いです。
+git-commit-mode、git-rebase-modeが強いのは、
+magitにより自動インストールされるからです。
+
+そして、3位が[[http://rubikitch.com/category/helm/][helm]] です！
+去年10位でしたが、大きく順位を上げました。
+非互換な変更をしばしば行うという問題はありますが、
+更新速度が早いので人気が出ています。
+7/11に[[http://rubikitch.com/2015/07/12/helm-core/][helm-core]]パッケージ が出たばかりですが、
+わずか2ヶ月で3万を超えるダウンロードを記録しているので伸びが凄まじいです。
+magitやdashをも追い抜いてしまうかもしれません!？
+
+4位のpopupは5位の[[http://rubikitch.com/2014/11/05/auto-complete/][auto-complete]] のライブラリです。
+auto-completeは自動補完を行います。
+
+6位のflycheckはリアルタイム文法チェッカーです。
+
+7位のsは文字列処理のライブラリです。
+elisp標準では文字列関数が弱いのでelispを書く人ならば必須です。
+文字列関数の貧弱さに対し、いかにフラストレーションを抱えているかがわかります。
+
+8位のeplはelispパッケージのライブラリです。
+pkg-infoが使っています。
+
+9位のyasnippetは定番のテンプレート展開です。
+
+10位のpkg-infoはパッケージの情報を得るライブラリです。
+flycheckとprojectileが使っているのでこの位置です。
+
+11位のprojectileはプロジェクトを扱います。
+
+今のemacserならば
+- magit
+- helm
+- auto-complete
+- flycheck
+- yasnippet
+- projectile
+- undo-tree
+あたりを押えておけばよいですね。
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

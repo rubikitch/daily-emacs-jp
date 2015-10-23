@@ -1,0 +1,102 @@
+#+BLOG: rubikitch
+#+POSTID: 128
+#+DATE: [2014-08-12 Tue 08:21]
+#+PERMALINK: chruby
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs
+#+EL_PKG_NAME: chruby
+#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p , ruby, ruby バージョン切り替え, ruby rvm, ruby rbenv, ruby chruby, ruby ruby-install, ruby emacs chruby, relate:ruby-mode
+#+EL_TITLE: Emacs Lisp Elisp Ruby パッケージ インストール 使い方
+#+EL_TITLE0: chruby/chruby.el:Rubyのバージョンを切り替える最新の方法
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージchrubyの紹介
+#+MYTAGS: package:chruby, emacs 使い方, emacs コマンド, emacs, emacs lisp chruby, elisp chruby, emacs melpa chruby, emacs chruby 使い方, emacs chruby 設定, emacs パッケージ chruby , ruby, ruby バージョン切り替え, ruby rvm, ruby rbenv, ruby chruby, ruby ruby-install, ruby emacs chruby, relate:ruby-mode
+#+TITLE: emacs chruby.el : chruby/chruby.el:Rubyのバージョンを切り替える最新の方法 | MELPA Emacs Lisp Elisp Ruby パッケージ インストール 使い方
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>chruby</td></tr>
+<tr><td>概要(原文)</td><td>Emacs integration for chruby</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/plexus/chruby.el">https://github.com/plexus/chruby.el</a></td></tr>
+<tr><td>バージョン</td><td>20141126.57</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:chruby/">package:chruby</a> <a href="http://rubikitch.com/tag/package:ruby-mode/">package:ruby-mode</a></td></tr>
+</table>
+<br />
+#+END_HTML
+chrubyはRubyのバージョンを切り替えるものです。
+
+類似のものにrbenvやrvmがありますが、
+chrubyの方が新しく、シンプルな仕組みになっています。
+
+RSpecなどのgemによってインストールされたコマンドを
+そのまま実行できるメリットもあります。
+
+rbenvだとrbenv rehashが必要になります。
+
+chrubyは[[https://github.com/postmodern/chruby/][シェル版]] とelisp版があります。
+
+chruby.elをインストールすると、
+Emacs内部で使うRuby(eshellやcall-process)でも
+Rubyの切り替えができるようになります。
+
+chrubyを使う前にruby-installで使うRubyをインストールしてください。
+
+http://www.oiax.jp/rails/zakkan/chruby_on_ubuntu.html
+がとても詳しいです。
+
+パッケージでインストールすれば設定は不要です。
+** chruby インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install chruby
+
+
+#+end:
+** 概要                                                             :noexport:
+chrubyはRubyのバージョンを切り替えるものです。
+
+類似のものにrbenvやrvmがありますが、
+chrubyの方が新しく、シンプルな仕組みになっています。
+
+RSpecなどのgemによってインストールされたコマンドを
+そのまま実行できるメリットもあります。
+
+rbenvだとrbenv rehashが必要になります。
+
+chrubyは[[https://github.com/postmodern/chruby/][シェル版]] とelisp版があります。
+
+chruby.elをインストールすると、
+Emacs内部で使うRuby(eshellやcall-process)でも
+Rubyの切り替えができるようになります。
+
+chrubyを使う前にruby-installで使うRubyをインストールしてください。
+
+http://www.oiax.jp/rails/zakkan/chruby_on_ubuntu.html
+がとても詳しいです。
+
+パッケージでインストールすれば設定は不要です。
+** 使い方
+*** eshell
+#+BEGIN_EXAMPLE
+eshell $ chruby "1.9"; ruby -v
+("/r/.gem/ruby/2.1.0/bin" "/r/.rubies/ruby-1.9.3-p547/bin")
+ruby 1.9.3p547 (2014-05-14) [x86_64-linux]
+eshell $ chruby "2"; ruby -v
+("/r/.gem/ruby/2.1.0/bin" "/r/.rubies/ruby-2.1.2/bin")
+ruby 2.1.2p95 (2014-05-08 revision 45877) [x86_64-linux]
+#+END_EXAMPLE
+*** call-process
+#+begin_src emacs-lisp
+(defun chruby-test (ver)
+  (with-temp-buffer
+    (chruby ver)
+    (call-process "ruby" nil t nil "-v")
+    (buffer-string)))
+(chruby-test "1.9") ; => "ruby 1.9.3p547 (2014-05-14) [x86_64-linux]\n"
+(chruby-test "2")   ; => "ruby 2.1.2p95 (2014-05-08 revision 45877) [x86_64-linux]\n"
+#+end_src

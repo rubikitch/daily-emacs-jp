@@ -1,0 +1,74 @@
+#+BLOG: rubikitch
+#+POSTID: 727
+#+DATE: [2014-12-16 Tue 15:53]
+#+PERMALINK: org-dblock-read-only
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, org-mode, 
+#+DESCRIPTION: org-modeのdblockをread-onlyにしてdblockを手で書き換えることを阻止するコード。
+#+MYTAGS: org-mode, org-dblock, org-mode dynamic block, relate:org2blog, package:org
+#+TAGS: org-mode, org-dblock, org-mode dynamic block, relate:org2blog, package:org, Emacs, org-mode, , org2blog, org-mode, dblock(dynamic block), read-only
+#+TITLE: org-modeのdblock(dynamic block)をread-onlyにする修正
+僕は毎日の記事を *org2blog* パッケージを使って、
+*org-mode* で書いています。
+
+そして、 *dblock(dynamic block)* という機能で
+与えられた情報から決まった形式を自動生成しています。
+
+しかし、記事を修正するときにしばしばdblockを書き換えてしまい、
+その修正を無にしてしまうことがありました。
+
+本来dblockは機械的に書かれる文字列であり、
+その部分は *read-only* であるべきです。
+
+このコードを使えばread-onlyにできて、
+dblock内部を書き換えてしまうミスを阻止できます。
+
+使い方はrequireするだけです。
+
+** 設定 [[http://rubikitch.com/f/mylisp-org-dblock-read-only-fix.el][mylisp-org-dblock-read-only-fix.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/emacs/init.d/mylisp-org-dblock-read-only-fix.el"
+#+BEGIN_SRC fundamental
+(defun org-update-dblock--make-read-only (orig-fn &rest args)
+  (if buffer-file-name
+    (let (s (inhibit-read-only t))
+      (save-excursion
+        (org-beginning-of-dblock)
+        (save-excursion
+          (forward-line 1)
+          (setq s (point)))
+        (re-search-forward org-dblock-end-re nil t)
+        (put-text-property s (point) 'read-only nil))
+      (unwind-protect
+          (apply orig-fn args)
+        (goto-char s)
+        (re-search-forward org-dblock-end-re nil t)
+        (beginning-of-line)
+        (put-text-property s (point) 'read-only t)))
+    (apply orig-fn args)))
+(advice-add 'org-update-dblock :around 'org-update-dblock--make-read-only)
+
+(defun org-dblock-make-read-only-find-file-hook ()
+  (when (derived-mode-p 'org-mode)
+    (let ((inhibit-read-only t))
+      (org-map-dblocks
+       (lambda ()
+         (let (s)
+           (forward-char 1)
+           (setq s (point))
+           (re-search-forward org-dblock-end-re nil t)
+           (beginning-of-line)
+           (put-text-property s (point) 'read-only t)
+           (set-buffer-modified-p nil)))))))
+(add-hook 'find-file-hook 'org-dblock-make-read-only-find-file-hook)
+
+
+(provide 'mylisp-org-dblock-read-only-fix)
+#+END_SRC
+
+#+END:
+
+

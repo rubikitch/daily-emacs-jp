@@ -1,0 +1,154 @@
+#+BLOG: rubikitch
+#+POSTID: 1855
+#+DATE: [2015-07-26 Sun 17:19]
+#+PERMALINK: professional-theme
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, theme
+#+EL_PKG_NAME: professional-theme
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, color-theme, カラーテーマ
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: Vimから移植された白地にカラーテーマ
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージprofessional-themeの紹介
+#+MYTAGS: package:professional-theme, emacs 使い方, emacs コマンド, emacs, professional-theme, professional-theme.el, emacs lisp professional-theme, elisp professional-theme, emacs melpa professional-theme, emacs professional-theme 使い方, emacs professional-theme 設定, emacs パッケージ professional-theme, emacs professional-theme スクリーンショット, color-theme, カラーテーマ
+#+TAGS: package:professional-theme, emacs 使い方, emacs コマンド, emacs, professional-theme, professional-theme.el, emacs lisp professional-theme, elisp professional-theme, emacs melpa professional-theme, emacs professional-theme 使い方, emacs professional-theme 設定, emacs パッケージ professional-theme, emacs professional-theme スクリーンショット, color-theme, カラーテーマ, Emacs, theme, professional-theme.el
+#+TITLE: emacs professional-theme.el : Vimから移植された白地にカラーテーマ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>professional-theme</td></tr>
+<tr><td>概要(原文)</td><td>Emacs port of Vim's professional theme</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/juanjux/emacs-professional-theme">https://github.com/juanjux/emacs-professional-theme</a></td></tr>
+<tr><td>バージョン</td><td>20150315.400</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:professional-theme/">package:professional-theme</a> </td></tr>
+</table>
+<br />
+#+END_HTML
+*professional-theme.el* は、Vimから移植された白地カラーテーマです。
+
+# (save-window-excursion (async-shell-command "emacs-test -eval '(load-theme (quote professional) t)'"))
+以下のパッケージに対応しています。
+- font-lock
+- linum
+- hl-line
+- indent-guide
+- powerline
+- isearch
+- compile
+- show-paren
+- elscreen
+- helm
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_theme_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150726172143.png]]
+Fig1: emacs-lisp-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150726172148.png]]
+Fig2: magit
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150726172151.png]]
+Fig3: grep
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150726172155.png]]
+Fig4: outline-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150726172158.png]]
+Fig5: org-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150726172202.png]]
+Fig6: dired
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150726172205.png]]
+Fig7: web-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150726172209.png]]
+Fig8: markdown-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150726172213.png]]
+Fig9: helm
+** professional-theme インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install professional-theme
+
+
+#+end:
+** 概要                                                             :noexport:
+*professional-theme.el* は、Vimから移植された白地カラーテーマです。
+
+# (save-window-excursion (async-shell-command "emacs-test -eval '(load-theme (quote professional) t)'"))
+以下のパッケージに対応しています。
+- font-lock
+- linum
+- hl-line
+- indent-guide
+- powerline
+- isearch
+- compile
+- show-paren
+- elscreen
+- helm
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_theme_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150726172143.png]]
+Fig10: emacs-lisp-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150726172148.png]]
+Fig11: magit
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150726172151.png]]
+Fig12: grep
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150726172155.png]]
+Fig13: outline-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150726172158.png]]
+Fig14: org-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150726172202.png]]
+Fig15: dired
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150726172205.png]]
+Fig16: web-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150726172209.png]]
+Fig17: markdown-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150726172213.png]]
+Fig18: helm
+
+** 設定
+#+BEGIN_SRC fundamental
+(load-theme 'professional t)
+#+END_SRC
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ emacs -Q -f package-initialize -eval '(load-theme (quote professional) t)'
+#+END_EXAMPLE
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

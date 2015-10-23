@@ -1,0 +1,115 @@
+#+BLOG: rubikitch
+#+POSTID: 459
+#+DATE: [2014-10-13 Mon 07:34]
+#+PERMALINK: org-src
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, org-mode
+#+DESCRIPTION:
+#+MYTAGS: package:org, emacs org-mode begin_src begin_example
+#+TAGS: package:org, emacs org-mode begin_src begin_example, Emacs, org-mode, org-mode, orgフォーマット, 軽量マークアップ言語, org-escape-code-in-region, org-escape-code-in-string
+#+TITLE: org-mode、お前の実力はそんなもんか!？
+僕はいつも通り最新 *org-mode* で文章を書いていたのだが、
+衝撃的な事実がわかったのでブログすることにします。
+
+*orgフォーマット* は *軽量マークアップ言語* の一種で、
+org-modeはorg文書を読み書きするためのメジャーモードです。
+
+そして、軽量マークアップ言語とは読み書きしやすい形式で
+文書構造を表現するものです。
+
+つまり、 /可読性が命/ なんです。
+
+今回の発見はorgフォーマットの可読性に激震が走るものです。
+
+さりげなく以下の文書を書いて、HTMLに変換したところ…
+
+
+#+INCLUDE: ../../../junk/141013/141013074111.org example
+
+↓org8(最新版)で変換したら
+http://rubikitch.com/f/141013074111-org8.html
+
+http://rubikitch.com/f/20141013074958.png
+Fig1: org8ではめちゃくちゃ！
+
+なんとめちゃくちゃに変換されたのでしょうか！！！！
+
+ちなみにEmacs24.3標準添付のorg-7.9.3fでは
+意図通りに変換してくれます。
+
+http://rubikitch.com/f/141013074111-org7.html
+
+http://rubikitch.com/f/20141013075004.png
+Fig2: org7では正しい
+
+
+「#+BEGIN_SRC〜#+END_SRC」、「#+BEGIN_EXAMPLE〜#+END_EXAMPLE」は
+本来ならば囲まれた部分をそのまま出力する指令です。
+
+つまり、記述する側に立ってみれば
+これらのブロックはまさに /結界に守られた聖域/ であり、
+ENDが来るまでブロックの内容には手が加えられないはずでした。
+
+「#+END_SRC」なんて、org-modeそのものの解説でもなければ
+ブロック内部に現れるなんてことはありません。
+
+そのため聖域の中では何でも自由に書ける安心がありました。
+
+しかし、この挙動の変化により結界が破られ
+安心してブロックの内容を書けなくなりました。
+
+これは仕様変更なんだろうかと思い
+[[http://orgmode.org/Changes.html][orgmode.orgのRelease Note]] を見てみましたが
+該当する記述は見当たりませんでした。
+
+Emacs 24.3同梱のorgは7.9.3fであり、
+8.0.3で大きく変更されたことから8.0.3で試したところ
+上記のような現象が起きました。
+
+Git最新版にしても解決していません。
+
+** 人ん家に土足で踏み入っていいのか？
+正直、この変更に対して僕はどん引きした上に /怒り心頭/ です。
+
+例えてみれば、性格も仕事も素晴しい日本人の友人がいるとして、
+彼が土足で(日本)人の家に上がったようなものです。
+
+本来、軽量マークアップ言語で書かれた文書は
+将来のバージョンにわたっても
+修正なしで正しく変換されるべきものですが、
+この変更により文書の変更が強要されます。
+
+しかも、行頭の「*」はorg以外の文書ならば
+いつ出てきてもおかしくありません。
+
+それなのになぜ醜悪この上ない「,」をつける必要があるのでしょうか。
+
+SRC・EXAMPLEブロックは上述の通り聖域であり、
+このようなエスケープは聖域を侵す行為
+土足で人ん家に侵入する行為に他なりません。
+
+安心してブロックを記述できなくなり、
+可読性にも大きく傷がつきました。
+
+** 対処法
+対処法はINCLUDEを使うことです。
+
+#+BEGIN_EXAMPLE
+#+INCLUDE example.txt example
+#+END_EXAMPLE
+
+このように書けば、example.txtの行頭に「*」が来ても正しく変換されます。
+
+なお、ブロック内エスケープされるのは行頭に
+「*」「#+」「,*」「,#+」が来る場合です。
+
+以下の関数参照してください。
+
+- *org-escape-code-in-region*
+- *org-escape-code-in-string*
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

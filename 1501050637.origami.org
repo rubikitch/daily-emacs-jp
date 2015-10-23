@@ -1,0 +1,46 @@
+#+BLOG: rubikitch
+#+POSTID: 868
+#+DATE: [2015-01-05 Mon 06:37]
+#+PERMALINK: origami
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: 記事更新情報, 
+#+DESCRIPTION: 
+#+MYTAGS: 
+#+TITLE: origami.elでview-modeを更新しても折畳みを保持するようにしました
+[[http://rubikitch.com/2015/01/03/origami/]]
+
+origami.elの設定を更新しました。
+
+以前はview-modeを解除すると折畳みが解除されてしまう不具合がありましたが、
+設定を更新したのでその不具合はなくなりました。
+
+これでEmacs Lisp等もorg-modeのようにアウトラインが明確になりますね！
+
+** 設定 [[http://rubikitch.com/f/150103055834.origami.el][150103055834.origami.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/150103/150103055834.origami.el"
+#+BEGIN_SRC fundamental
+(require 'origami)
+;; (makunbound 'origami-view-mode-map)
+(define-minor-mode origami-view-mode
+  "TABにorigamiの折畳みを割り当てる"
+  nil "折紙"
+  '(("\C-i" . origami-cycle))
+  (or origami-mode (origami-mode 1)))
+(defun origami-cycle (recursive)
+  "origamiの機能をorg風にまとめる"
+  (interactive "P")
+  (call-interactively
+   (if recursive 'origami-toggle-all-nodes 'origami-toggle-node)))
+(defun view-mode-hook--origami ()
+  (when (memq major-mode (mapcar 'car origami-parser-alist))
+    (origami-view-mode (if view-mode 1 -1))))
+(add-hook 'view-mode-hook 'view-mode-hook--origami)
+#+END_SRC
+
+#+END:
+
+

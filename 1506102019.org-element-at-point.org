@@ -1,0 +1,64 @@
+#+DATE: [2015-06-10 Wed 20:19]
+#+PERMALINK: org-element-at-point
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+POSTID: 1732
+#+CATEGORY: Emacs, Emacs Lisp, org-mode, 
+#+DESCRIPTION: 
+#+MYTAGS: package:org, package:avy, relate:date-at-point, relate:org, relate:avy, relate:thingatpt, org-element-at-point, thing-at-point, bounds-of-thing-at-point, org-element-at-point, org-element-property, org-mode thing-at-point
+#+TITLE: org文書の現在の要素(element)をthing-at-pointで扱えるようにする
+#+begin: org2blog-tags
+#+TAGS: package:org, package:avy, relate:date-at-point, relate:org, relate:avy, relate:thingatpt, org-element-at-point, thing-at-point, bounds-of-thing-at-point, org-element-at-point, org-element-property, org-mode thing-at-point, Emacs, Emacs Lisp, org-mode, , thing-at-point, org-mode, org-element, bounds-of-thing-at-point
+#+end:
+*thing-at-point* はカーソル位置のいろいろな THING を得る関数です。
+
+THINGはline, url, sexp, symbolなどいろいろ取りますが、
+ユーザ側で拡張できます。
+
+[[http://rubikitch.com/2015/05/15/date-at-point/][date-at-point.el(レビュー)]] は、dateが取れるように拡張したパッケージです。
+
+コードを読めばとても簡単なので、それを使って *org-mode* の
+カーソル位置の要素 *org-element* を取得できるようにしてみました。
+
+驚くほど簡単です。
+
+#+BEGIN_SRC emacs-lisp :results silent
+(require 'org-element)
+(defun org-element-at-point-bounds ()
+  (let ((e (org-element-at-point)))
+    (cons (org-element-property :begin e) (org-element-property :end e))))
+(put 'org-element 'bounds-of-thing-at-point 'org-element-at-point-bounds)
+#+END_SRC
+
+開始位置、終了位置のコンスセルを返す関数を定義し、
+*bounds-of-thing-at-point* に登録するだけです。
+
+以下のorg文書の先頭でテストしてみます。
+
+#+BEGIN_EXAMPLE
+* H1-1
+body1
+* H1-2
+body2
+#+END_EXAMPLE
+
+#+BEGIN_SRC emacs-lisp :results silent
+(with-temp-buffer
+  (org-mode)
+  (save-excursion
+    (insert "* H1-1
+body1
+* H1-2
+body2"))
+  (thing-at-point 'org-element)
+  ;; => "* H1-1\nbody1\n"
+  (let ((b (bounds-of-thing-at-point 'org-element)))
+    b                                   ; => (1 . 14)
+    (buffer-substring (car b) (cdr b))  ; => "* H1-1\nbody1\n"
+    ))
+#+END_SRC
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

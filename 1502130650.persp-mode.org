@@ -1,0 +1,219 @@
+#+BLOG: rubikitch
+#+POSTID: 1131
+#+DATE: [2015-02-13 Fri 06:50]
+#+PERMALINK: persp-mode
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, Emacs 24.4, 
+#+EL_PKG_NAME: persp-mode
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, relate:perspective, helm buffer-list, ido buffer-list, relate:recentf, relate:helm, relate:ido, relate:elscreen, relate:windows, relate:spaces, emacs プロジェクト 切り替え, プロジェクト, ウィンドウ構成, ウィンドウ構成管理, relate:save-visited-files, relate:elscreen-separate-buffer-list, relate:eyebrowse, relate:state
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: 『さらに』進化したワークスペース(ウィンドウ構成・プロジェクト)管理！perspectiveはいらない子
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージpersp-modeの紹介
+#+MYTAGS: package:persp-mode, emacs 使い方, emacs コマンド, emacs, persp-mode, persp-mode.el, emacs lisp persp-mode, elisp persp-mode, emacs melpa persp-mode, emacs persp-mode 使い方, emacs persp-mode 設定, emacs パッケージ persp-mode, emacs persp-mode スクリーンショット, relate:perspective, helm buffer-list, ido buffer-list, relate:recentf, relate:helm, relate:ido, relate:elscreen, relate:windows, relate:spaces, emacs プロジェクト 切り替え, プロジェクト, ウィンドウ構成, ウィンドウ構成管理, relate:save-visited-files, relate:elscreen-separate-buffer-list, relate:eyebrowse, relate:state
+#+TAGS: package:persp-mode, emacs 使い方, emacs コマンド, emacs, persp-mode, persp-mode.el, emacs lisp persp-mode, elisp persp-mode, emacs melpa persp-mode, emacs persp-mode 使い方, emacs persp-mode 設定, emacs パッケージ persp-mode, emacs persp-mode スクリーンショット, relate:perspective, helm buffer-list, ido buffer-list, relate:recentf, relate:helm, relate:ido, relate:elscreen, relate:windows, relate:spaces, emacs プロジェクト 切り替え, プロジェクト, ウィンドウ構成, ウィンドウ構成管理, relate:save-visited-files, relate:elscreen-separate-buffer-list, relate:eyebrowse, relate:state, Emacs, Emacs 24.4, , persp-mode.el, M-x persp-mode, read-buffer-function, M-x helm-buffers-list, helm-source-buffers-list, persp-mode.el, M-x persp-mode, read-buffer-function, M-x helm-buffers-list, helm-source-buffers-list, C-c p s, persp-switch, C-c p c, persp-kill, recentf, M-x helm-mini, M-x helm-for-files
+#+TITLE: emacs persp-mode.el : 『さらに』進化したワークスペース(ウィンドウ構成・プロジェクト)管理！perspectiveはいらない子 | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>persp-mode</td></tr>
+<tr><td>概要(原文)</td><td>"perspectives" shared among frames + save/load - bugs.</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/Bad-ptr/persp-mode.el">https://github.com/Bad-ptr/persp-mode.el</a></td></tr>
+<tr><td>バージョン</td><td>20151017.618</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:persp-mode/">package:persp-mode</a> <a href="http://rubikitch.com/tag/package:perspective/">package:perspective</a> <a href="http://rubikitch.com/tag/package:recentf/">package:recentf</a> <a href="http://rubikitch.com/tag/package:helm/">package:helm</a> <a href="http://rubikitch.com/tag/package:ido/">package:ido</a> <a href="http://rubikitch.com/tag/package:elscreen/">package:elscreen</a> <a href="http://rubikitch.com/tag/package:windows/">package:windows</a> <a href="http://rubikitch.com/tag/package:spaces/">package:spaces</a> <a href="http://rubikitch.com/tag/package:save-visited-files/">package:save-visited-files</a> <a href="http://rubikitch.com/tag/package:elscreen-separate-buffer-list/">package:elscreen-separate-buffer-list</a> <a href="http://rubikitch.com/tag/package:eyebrowse/">package:eyebrowse</a> <a href="http://rubikitch.com/tag/package:state/">package:state</a></td></tr>
+</table>
+<br />
+#+END_HTML
+<2015-02-22 Sun> [[http://rubikitch.com/2015/02/22/elscreen-separate-buffer-list/][elscreen-separate-buffer-list.el(レビュー)]] は
+elscreenで同等のことを実現します。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+*persp-mode.el* は、Emacsでワークスペースを実現します。
+
+[[http://rubikitch.com/2015/01/28/perspective/][perspective.el(レビュー)]] との違いは、
+それぞれのperspectiveが永続化できることです。
+
+Emacs再起動時には開かれているファイルバッファが復元されます。
+
+つまり、[[http://rubikitch.com/2015/02/08/save-visited-files/][save-visited-files.el(レビュー)]] の機能も含んでいます。
+
+また、perspective.elでのバグが取り除かれているようです。
+
+perspective.elもpersp-mode.elも *M-x persp-mode* と同じ名前なので、
+/使う際にはperspective.elは削除してください。/
+
+
+ワークスペースというと、ウィンドウマネージャーやデスクトップ環境で
+用途別にウィンドウのレイアウトを切り替える機能です。
+
+Emacsでワークスペースといえば、
+ウィンドウ構成を切り替えるだけだと思いがちですが、
+persp-mode.elはそれだけでなく、バッファリストも管理します。
+
+つまり、現状のウィンドウ構成切り替えである
+- [[http://rubikitch.com/2014/09/05/elscreen/][elscreen.el(レビュー)]]
+- spaces.el
+などよりも進化しています。
+
+windows.elも一応バッファリストを管理していますが、
+単に順番を管理しているだけです。
+
+perspectiveとは「視点・見通し」という意味があり、
+現在のワークスペースにおいて選択できるバッファを限定することで
+現在のタスクに視点を集中し、見通しを良くします。
+
+こうすることで、Emacs内で複数のプロジェクトを動かしているときに、
+そのプロジェクトに集中できるようになります。
+
+バッファリストの管理について気になったのでコードを読んだところ、
+idoのバッファ選択の制御と *read-buffer-function* の設定を
+行っていることがわかりました。
+
+helmでのバッファ選択(*M-x helm-buffers-list* 、 *helm-source-buffers-list*) は、
+idoのバッファリストを呼び出しているので、persp-mode.elはhelmにも対応しています。
+
+anythingでのバッファ選択や標準のC-x C-bは、
+idoではなくて直接 (buffer-list) を呼んでいるので
+すべてのバッファが見えます。
+** persp-mode インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install persp-mode
+
+
+#+end:
+** 概要                                                             :noexport:
+<2015-02-22 Sun> [[http://rubikitch.com/2015/02/22/elscreen-separate-buffer-list/][elscreen-separate-buffer-list.el(レビュー)]] は
+elscreenで同等のことを実現します。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+*persp-mode.el* は、Emacsでワークスペースを実現します。
+
+[[http://rubikitch.com/2015/01/28/perspective/][perspective.el(レビュー)]] との違いは、
+それぞれのperspectiveが永続化できることです。
+
+Emacs再起動時には開かれているファイルバッファが復元されます。
+
+つまり、[[http://rubikitch.com/2015/02/08/save-visited-files/][save-visited-files.el(レビュー)]] の機能も含んでいます。
+
+また、perspective.elでのバグが取り除かれているようです。
+
+perspective.elもpersp-mode.elも *M-x persp-mode* と同じ名前なので、
+/使う際にはperspective.elは削除してください。/
+
+
+ワークスペースというと、ウィンドウマネージャーやデスクトップ環境で
+用途別にウィンドウのレイアウトを切り替える機能です。
+
+Emacsでワークスペースといえば、
+ウィンドウ構成を切り替えるだけだと思いがちですが、
+persp-mode.elはそれだけでなく、バッファリストも管理します。
+
+つまり、現状のウィンドウ構成切り替えである
+- [[http://rubikitch.com/2014/09/05/elscreen/][elscreen.el(レビュー)]]
+- spaces.el
+などよりも進化しています。
+
+windows.elも一応バッファリストを管理していますが、
+単に順番を管理しているだけです。
+
+perspectiveとは「視点・見通し」という意味があり、
+現在のワークスペースにおいて選択できるバッファを限定することで
+現在のタスクに視点を集中し、見通しを良くします。
+
+こうすることで、Emacs内で複数のプロジェクトを動かしているときに、
+そのプロジェクトに集中できるようになります。
+
+バッファリストの管理について気になったのでコードを読んだところ、
+idoのバッファ選択の制御と *read-buffer-function* の設定を
+行っていることがわかりました。
+
+helmでのバッファ選択(*M-x helm-buffers-list* 、 *helm-source-buffers-list*) は、
+idoのバッファリストを呼び出しているので、persp-mode.elはhelmにも対応しています。
+
+anythingでのバッファ選択や標準のC-x C-bは、
+idoではなくて直接 (buffer-list) を呼んでいるので
+すべてのバッファが見えます。
+** 設定 [[http://rubikitch.com/f/150213062623.persp-mode.el][150213062623.persp-mode.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/150213/150213062623.persp-mode.el"
+#+BEGIN_SRC fundamental
+(setq persp-keymap-prefix (kbd "C-c p")) ;prefix
+(setq persp-add-on-switch-or-display t) ;バッファを切り替えたら見えるようにする
+(persp-mode 1)
+(defun persp-register-buffers-on-create ()
+  (interactive)
+  (dolist (bufname (condition-case _
+                       (helm-comp-read
+                        "Buffers: "
+                        (mapcar 'buffer-name (buffer-list))
+                        :must-match t
+                        :marked-candidates t)
+                     (quit nil)))
+    (persp-add-buffer (get-buffer bufname))))
+(add-hook 'persp-activated-hook 'persp-register-buffers-on-create)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/150213062623.persp-mode.el
+$ emacs -Q -f package-initialize -l 150213062623.persp-mode.el
+#+END_EXAMPLE
+
+persp-modeを有効にした時点で、noneというワークスペースが作成されます。
+(perspective.elではmainという名前)
+
+新しいワークスペースを作ったり切り替えるには
+*C-c p s* (*persp-switch*) を使います。
+
+現在のワークスペースを削除するには *C-c p c* (*persp-kill*) を使います。
+
+この2つさえ知っていればとりあえず使えます。
+
+タスクを始めるために新しいワークスペースを作ると、
+/*scratch*バッファに切り替わり、/
+(perspective.elではperspective専用のscratchバッファになる)
+他のバッファがすべてリストから見えなくなります。
+
+そこで、新しいワークスペースを作成するときに、
+ワークスペースに取り込みたいバッファをhelm選択できるようにしました。
+(フックの名前が変更されただけでperspectiveでの設定が使える)
+
+C-SPCで複数個選択できます。
+
+もし、ワークスペース作成時にバッファを取り込んでいない場合は、
+C-x C-fや *recentf* (*M-x helm-mini* 、 *M-x helm-for-files* 等)から
+選択します。
+
+[[file:/r/sync/screenshots/20150128083721.png]]
+Fig1: data.c/window.c/files.el/window.elを開いている状態
+
+[[file:/r/sync/screenshots/20150128083736.png]]
+Fig2: C-c p sでcというperspectiveを作成し、C-SPCで2つのcバッファを選択
+
+[[file:/r/sync/screenshots/20150128083750.png]]
+Fig3: 最初は *scratch*(c) バッファが作成される
+
+[[file:/r/sync/screenshots/20150128083814.png]]
+Fig4: helmのバッファリストからは2つのcバッファと*scratch*(c)しか見えない
+
+その後、C-c p s noneを実行すると、
+noneのウィンドウ構成が復元され、Fig1に戻ります。
+
+同様にC-c p s elでelバッファのみのワークスペースも作成できます。
+
+[[file:/r/sync/screenshots/20150128084217.png]]
+Fig5: idoにも対応！
+
+# /r/sync/screenshots/20150128083721.png http://rubikitch.com/wp-content/uploads/2015/02/wpid-20150128083721.png
+# /r/sync/screenshots/20150128083736.png http://rubikitch.com/wp-content/uploads/2015/02/wpid-20150128083736.png
+# /r/sync/screenshots/20150128083750.png http://rubikitch.com/wp-content/uploads/2015/02/wpid-20150128083750.png
+# /r/sync/screenshots/20150128083814.png http://rubikitch.com/wp-content/uploads/2015/02/wpid-20150128083814.png
+# /r/sync/screenshots/20150128084217.png http://rubikitch.com/wp-content/uploads/2015/02/wpid-20150128084217.png

@@ -1,0 +1,115 @@
+#+BLOG: rubikitch
+#+POSTID: 1575
+#+DATE: [2015-04-26 Sun 05:08]
+#+PERMALINK: color-theme
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, theme, 
+#+DESCRIPTION: Emacsのcolor themeを一覧・テストするサイトの紹介と、設定方法
+#+MYTAGS: relate:helm-package, relate:helm, relate:color-theme, emacs 色設定, emacs theme, emacs color theme, emacs color-theme.el, emacs スキン, emacs テーマ, emacs skin, emacs color setting, emacs カラーテーマ, emacs テーマ 変更, emacs カラーテーマ 設定, emacs 見た目の変更, emacs 好みの色設定, emacs 背景色, 
+#+TITLE: Emacsのcolor-theme(カラーテーマ)を一覧・テスト・設定する
+#+begin: org2blog-tags
+#+TAGS: relate:helm-package, relate:helm, relate:color-theme, emacs 色設定, emacs theme, emacs color theme, emacs color-theme.el, emacs スキン, emacs テーマ, emacs skin, emacs color setting, emacs カラーテーマ, emacs テーマ 変更, emacs カラーテーマ 設定, emacs 見た目の変更, emacs 好みの色設定, emacs 背景色, , Emacs, theme, , M-x list-packages, M-x occur RET theme, M-x helm-package, M-x helm-list-elisp-packages, color-theme.el, M-x customize-face, custom-file, custom-set-faces
+#+end:
+Emacsの色設定は奥が深く、面倒だったりします。
+
+Emacs歴が長い人は自分好みの色設定を探究している人もいるでしょう。
+
+とりあえず先人の色設定を手っ取り早く試したいならばテーマに頼るのがいいです。
+
+でも、いろいろあって迷ってしまいますね。
+
+ならば、3つのサイトを紹介します。
+
+** 90個のテーマ一覧
+http://code.google.com/p/gnuemacscolorthemetest/
+
+このサイトは90個のテーマで、
+Ｃ言語、elisp、Java、Perl、LaTeXのバッファを
+表示したスクリーンショットが見られます。
+
+一覧できるので、好みのテーマが見付かるでしょう。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150426062126.png]]
+Fig1: テーマ一覧
+
+** 106個のテーマ一覧
+https://github.com/emacs-jp/replace-colorthemes/blob/master/screenshots.md
+
+emacs-jpにもテーマ一覧があります。
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150426064504.png]]
+Fig2: emacs-jpにもテーマ一覧
+
+
+
+** ブラウザでテーマを選択
+http://color-theme-select.heroku.com/
+
+このサイトはブラウザでEmacsを模倣し、
+右上のテーマをクリックすればそのテーマがわかります。
+
+左下のspeedbarをクリックすれば、
+いろいろなモードでの表示が確認できます。
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150426062402.png]]
+Fig3: ブラウザで手軽に試せる
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150426062414.png]]
+Fig4: ruby-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150426062419.png]]
+Fig5: java-mode
+
+** テーマを設定する
+テーマは現在ではMELPAに多数置いてあるので、
+*M-x list-packages* でパッケージ一覧を表示させ、
+テーマ名を検索し、インストールしてください。
+
+*M-x occur RET theme* でも *M-x helm-package* でも
+*M-x helm-list-elisp-packages* でもいいです。
+
+その後、たとえばcalmer-forest-themeならば
+#+BEGIN_SRC emacs-lisp :results silent
+(load-theme 'calmer-forest t)
+#+END_SRC
+
+を評価します。
+
+気に入ればinit.elに書きましょう。
+
+昔から *color-theme.el* というelispが開発されていましたが、
+[[http://d.hatena.ne.jp/syohex/20121211/1355231365][Emacs24の現在は時代遅れ(外部サイト)]] になっています。
+
+** 既存の設定とバッティングする場合は…
+
+なお、 *M-x customize-face* で独自に色設定をしているときは
+それが有効になります。
+
+それはそれでテーマをアレンジできて便利ですが、
+初めてテーマを使うときは邪魔になりかねません。
+
+ほぼすべてのテーマでfont-lockの色設定は施されているので、
+気に入ったテーマが見付かった場合は独自のカスタマイズから
+font-lock関係のフェイスの設定を取り除いてください。
+
+カスタマイズ結果はinit.elか
+変数 *custom-file* で設定したファイルに記録されます。
+
+その中で *custom-set-faces* という項目(S式)があるので、
+そこからfont-lockと検索してください。
+
+# /r/sync/screenshots/20150426062126.png http://rubikitch.com/wp-content/uploads/2015/04/wpid-20150426062126.png
+# /r/sync/screenshots/20150426064504.png http://rubikitch.com/wp-content/uploads/2015/04/wpid-20150426064504.png
+# /r/sync/screenshots/20150426062402.png http://rubikitch.com/wp-content/uploads/2015/04/wpid-20150426062402.png
+# /r/sync/screenshots/20150426062414.png http://rubikitch.com/wp-content/uploads/2015/04/wpid-20150426062414.png
+# /r/sync/screenshots/20150426062419.png http://rubikitch.com/wp-content/uploads/2015/04/wpid-20150426062419.png

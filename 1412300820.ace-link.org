@@ -1,0 +1,169 @@
+#+BLOG: rubikitch
+#+POSTID: 829
+#+DATE: [2014-12-30 Tue 08:20]
+#+PERMALINK: ace-link
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, eww, org-mode
+#+EL_PKG_NAME: ace-link
+#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, Hit-a-Hint, , relate:ace-jump-buffer, relate:ace-jump-zap, relate:ace-isearch,  emacs カーソル移動, ace-jump-mode, eww ace-jump, relate:eww-lnum, org-mode ace-jump, info ace-jump, help ace-jump, eww Hit-a-Hint, emacs eww conkeror, conkeror, emacs eww Hit-a-Hint, emacs ブラウザ Hit-a-Hint, emacs eww キーボード操作, emacs eww conkeror, relate:avy, relate:link-hint
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: 【Hit-a-Hint】EWW,org-mode,Info,helpにてキーボード2ストロークでリンクを辿る
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージace-linkの紹介
+#+MYTAGS: package:ace-link, emacs 使い方, emacs コマンド, emacs, emacs lisp ace-link, elisp ace-link, emacs melpa ace-link, emacs ace-link 使い方, emacs ace-link 設定, emacs パッケージ ace-link, emacs ace-link スクリーンショット, Hit-a-Hint, , relate:ace-jump-buffer, relate:ace-jump-zap, relate:ace-isearch,  emacs カーソル移動, ace-jump-mode, eww ace-jump, relate:eww-lnum, org-mode ace-jump, info ace-jump, help ace-jump, eww Hit-a-Hint, emacs eww conkeror, conkeror, emacs eww Hit-a-Hint, emacs ブラウザ Hit-a-Hint, emacs eww キーボード操作, emacs eww conkeror, relate:avy, relate:link-hint
+#+TAGS: package:ace-link, emacs 使い方, emacs コマンド, emacs, emacs lisp ace-link, elisp ace-link, emacs melpa ace-link, emacs ace-link 使い方, emacs ace-link 設定, emacs パッケージ ace-link, emacs ace-link スクリーンショット, Hit-a-Hint, , relate:ace-jump-buffer, relate:ace-jump-zap, relate:ace-isearch,  emacs カーソル移動, ace-jump-mode, eww ace-jump, relate:eww-lnum, org-mode ace-jump, info ace-jump, help ace-jump, eww Hit-a-Hint, emacs eww conkeror, conkeror, emacs eww Hit-a-Hint, emacs ブラウザ Hit-a-Hint, emacs eww キーボード操作, emacs eww conkeror, relate:avy, relate:link-hint, Emacs, eww, org-mode, Hit-a-Hint, ace-link.el, EWW, org-mode, info, help, Hit-a-Hint, ace-link.el, EWW, org-mode, info, help
+#+TITLE: emacs ace-link.el : 【Hit-a-Hint】EWW,org-mode,Info,helpにてキーボード2ストロークでリンクを辿る | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>ace-link</td></tr>
+<tr><td>概要(原文)</td><td>Quickly follow links</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/abo-abo/ace-link">https://github.com/abo-abo/ace-link</a></td></tr>
+<tr><td>バージョン</td><td>20150901.646</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:ace-link/">package:ace-link</a> <a href="http://rubikitch.com/tag/package:ace-jump-buffer/">package:ace-jump-buffer</a> <a href="http://rubikitch.com/tag/package:ace-jump-zap/">package:ace-jump-zap</a> <a href="http://rubikitch.com/tag/package:ace-isearch/">package:ace-isearch</a> <a href="http://rubikitch.com/tag/package:eww-lnum/">package:eww-lnum</a> <a href="http://rubikitch.com/tag/package:avy/">package:avy</a> <a href="http://rubikitch.com/tag/package:link-hint/">package:link-hint</a></td></tr>
+</table>
+<br />
+#+END_HTML
+<2015-01-07 Wed> 一部のリンクが辿れないバグを設定で修正。
+
+[[http://rubikitch.com/2014/10/09/ace-jump-mode/][ace-jump-mode(レビュー)]] は、画面内の任意の場所に
+2〜3ストロークで到達する強力なカーソル移動ツールです。
+
+ブラウザでいう *Hit-a-Hint* のようなものです。
+
+これをリンクを辿るのに使うのがこの *ace-link.el* です。
+
+たいていの場合、画面内のリンクの数は多くないので、
+キーボード2ストロークでそのリンクを辿れるようになります。
+
+特に[[http://rubikitch.com/category/eww/][Emacs 24.4により標準装備されたWebブラウザEWW]]
+においては超快適になること間違いありません。
+
+同種のパッケージ[[http://rubikitch.com/2014/11/12/eww-lnum/][eww-lnum(レビュー)]] は
+文字がずれてしまう欠点がありましたが、
+ace-linkではそれが解消されています。
+
+乗り換えをおすすめします。
+
+以下のパッケージに対応しています。
+
+- *EWW*
+- *org-mode*
+- *info*
+- *help*
+
+
+** ace-link インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install ace-link
+
+
+#+end:
+** 概要                                                             :noexport:
+<2015-01-07 Wed> 一部のリンクが辿れないバグを設定で修正。
+
+[[http://rubikitch.com/2014/10/09/ace-jump-mode/][ace-jump-mode(レビュー)]] は、画面内の任意の場所に
+2〜3ストロークで到達する強力なカーソル移動ツールです。
+
+ブラウザでいう *Hit-a-Hint* のようなものです。
+
+これをリンクを辿るのに使うのがこの *ace-link.el* です。
+
+たいていの場合、画面内のリンクの数は多くないので、
+キーボード2ストロークでそのリンクを辿れるようになります。
+
+特に[[http://rubikitch.com/category/eww/][Emacs 24.4により標準装備されたWebブラウザEWW]]
+においては超快適になること間違いありません。
+
+同種のパッケージ[[http://rubikitch.com/2014/11/12/eww-lnum/][eww-lnum(レビュー)]] は
+文字がずれてしまう欠点がありましたが、
+ace-linkではそれが解消されています。
+
+乗り換えをおすすめします。
+
+以下のパッケージに対応しています。
+
+- *EWW*
+- *org-mode*
+- *info*
+- *help*
+
+
+
+** 設定 [[http://rubikitch.com/f/141230083314.ace-link.el][141230083314.ace-link.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/141230/141230083314.ace-link.el"
+#+BEGIN_SRC fundamental
+;;; デフォルトの設定(参考)
+;; (defun ace-link-setup-default ()
+;;   "Setup the defualt shortcuts."
+;;   (require 'info)
+;;   (define-key Info-mode-map "o" 'ace-link-info)
+;;   (require 'help-mode)
+;;   (define-key help-mode-map "o" 'ace-link-help)
+;;   (require 'eww)
+;;   (define-key eww-link-keymap "o" 'ace-link-eww)
+;;   (define-key eww-mode-map "o" 'ace-link-eww))
+(ace-link-setup-default)
+(require 'org)
+(define-key org-mode-map (kbd "C-c M-o") 'ace-link-org)
+
+;;; text-property-any -> next-single-property-change
+;;; にしないと一部のリンクが辿れないので再定義
+(defun ali--eww-collect-references ()
+  "Collect the positions of visible links in the current `eww' buffer."
+  (save-excursion
+    (save-restriction
+      (narrow-to-region
+       (window-start)
+       (window-end))
+      (goto-char (point-min))
+      (let ((skip (next-single-property-change (point) 'help-echo))
+            candidates)
+        (while (setq skip (text-property-not-all
+                           skip (point-max) 'help-echo nil))
+          (goto-char skip)
+          (push skip candidates)
+          (setq skip (next-single-property-change (point) 'help-echo)))
+        (nreverse candidates)))))
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/141230083314.ace-link.el
+$ emacs -Q -f package-initialize -l 141230083314.ace-link.el
+#+END_EXAMPLE
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+[[file:/r/sync/screenshots/20141230082916.png]]
+Fig1: M-x ewwでEWW起動
+
+[[file:/r/sync/screenshots/20141230082934.png]]
+Fig2: EWWでoを押しace-link-ewwを起動！
+
+[[file:/r/sync/screenshots/20141230082942.png]]
+Fig3: eww-lnumはずれてしまう！
+
+[[file:/r/sync/screenshots/20141230083008.png]]
+Fig4: *Help*にてoを押しace-link-helpを起動！
+
+[[file:/r/sync/screenshots/20141230083028.png]]
+Fig5: infoにてoを押しace-link-infoを起動
+
+[[file:/r/sync/screenshots/20141230083055.png]]
+Fig6: org-modeにてM-x ace-link-orgを起動
+
+
+# /r/sync/screenshots/20141230082916.png http://rubikitch.com/wp-content/uploads/2014/12/wpid-20141230082916.png
+# /r/sync/screenshots/20141230082934.png http://rubikitch.com/wp-content/uploads/2014/12/wpid-20141230082934.png
+# /r/sync/screenshots/20141230082942.png http://rubikitch.com/wp-content/uploads/2014/12/wpid-20141230082942.png
+# /r/sync/screenshots/20141230083008.png http://rubikitch.com/wp-content/uploads/2014/12/wpid-20141230083008.png
+# /r/sync/screenshots/20141230083028.png http://rubikitch.com/wp-content/uploads/2014/12/wpid-20141230083028.png
+# /r/sync/screenshots/20141230083055.png http://rubikitch.com/wp-content/uploads/2014/12/wpid-20141230083055.png

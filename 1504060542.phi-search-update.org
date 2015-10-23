@@ -1,0 +1,31 @@
+#+BLOG: rubikitch
+#+POSTID: 1446
+#+DATE: [2015-04-06 Mon 05:42]
+#+PERMALINK: phi-search-update
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: 記事更新情報, 
+#+DESCRIPTION: 
+#+MYTAGS: 
+#+TITLE: phi-search.elが生まれ変わったので再レビューしました
+#+begin: org2blog-tags
+#+TAGS: , 記事更新情報, , 
+#+end:
+[[http://rubikitch.com/2014/11/11/phi-search/]]
+
+phi-search.elが大幅に変更されたので、
+レビューを書き直しました。
+
+ウィンドウがポップアップするのではなくミニバッファで完結し、
+よりisearchに近付きました。
+
+Migemo化されているので日本人にとっては嬉しい限りです。
+
+visual-regexp.el似のre-builder的正規表現置換についても触れました。
+
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

@@ -1,0 +1,93 @@
+#+BLOG: rubikitch
+#+POSTID: 2034
+#+DATE: [2015-10-01 Thu 06:40]
+#+PERMALINK: restart-emacs
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs
+#+EL_PKG_NAME: restart-emacs
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacsを再起動, 自動再起動シェルスクリプト, kill-emacs-hook, call-process, w32-shell-execute, open, suspend-emacs, display-graphic-p, system-type, save-buffers-kill-emacs, C-x C-c
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 
+#+EL_TITLE0: Emacsを再起動させる！GUI/端末/Unix/Windows対応
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージrestart-emacsの紹介
+#+MYTAGS: package:restart-emacs, emacs 使い方, emacs コマンド, emacs, restart-emacs, restart-emacs.el, emacs lisp restart-emacs, elisp restart-emacs, emacs melpa restart-emacs, emacs restart-emacs 使い方, emacs restart-emacs 設定, emacs パッケージ restart-emacs, emacsを再起動, 自動再起動シェルスクリプト, kill-emacs-hook, call-process, w32-shell-execute, open, suspend-emacs, display-graphic-p, system-type, save-buffers-kill-emacs, C-x C-c
+#+TAGS: package:restart-emacs, emacs 使い方, emacs コマンド, emacs, restart-emacs, restart-emacs.el, emacs lisp restart-emacs, elisp restart-emacs, emacs melpa restart-emacs, emacs restart-emacs 使い方, emacs restart-emacs 設定, emacs パッケージ restart-emacs, emacsを再起動, 自動再起動シェルスクリプト, kill-emacs-hook, call-process, w32-shell-execute, open, suspend-emacs, display-graphic-p, system-type, save-buffers-kill-emacs, C-x C-c, Emacs, M-x restart-emacs
+#+TITLE: emacs restart-emacs.el : Emacsを再起動させる！GUI/端末/Unix/Windows対応 | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>restart-emacs</td></tr>
+<tr><td>概要(原文)</td><td>Restart emacs from within emacs</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/iqbalansari/restart-emacs">https://github.com/iqbalansari/restart-emacs</a></td></tr>
+<tr><td>バージョン</td><td>20150927.2338</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:restart-emacs/">package:restart-emacs</a> </td></tr>
+</table>
+<br />
+#+END_HTML
+*M-x restart-emacs* は、Emacsを再起動させるコマンドです。
+
+C-uの数によって再起動の方法を制御できます。
+
+- M-x restart-emacs :: 通常のEmacsを立ち上げる
+- C-u M-x restart-emacs :: emacs --debug-init
+- C-u C-u M-x restart-emacs :: emacs -Q
+- C-u C-u C-u M-x restart-emacs :: 引数を尋ねる
+
+GUI/-nw両方のケースに対応していて、WindowsとUnixでも場合分けされています。
+ただし、Windows上で-nwで立ち上げられたEmacsは再起動できません。
+** restart-emacs インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install restart-emacs
+
+
+#+end:
+** 概要                                                             :noexport:
+*M-x restart-emacs* は、Emacsを再起動させるコマンドです。
+
+C-uの数によって再起動の方法を制御できます。
+
+- M-x restart-emacs :: 通常のEmacsを立ち上げる
+- C-u M-x restart-emacs :: emacs --debug-init
+- C-u C-u M-x restart-emacs :: emacs -Q
+- C-u C-u C-u M-x restart-emacs :: 引数を尋ねる
+
+GUI/-nw両方のケースに対応していて、WindowsとUnixでも場合分けされています。
+ただし、Windows上で-nwで立ち上げられたEmacsは再起動できません。
+
+** プログラム自動再起動させるシェルスクリプト
+以下の単純なシェルスクリプト retry でプログラムを無限に蘇らせられます。
+
+#+BEGIN_EXAMPLE
+#!/bin/bash
+"$@"
+sleep 0.05; exec $0 "$@"
+#+END_EXAMPLE
+
+$ retry emacs
+すれば終了後Emacsが再び立ち上がります。
+
+Emacsが突然死しても蘇るので、僕は以前からこのアプローチを採っています。
+
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+** 設定 [[http://rubikitch.com/f/151001064201.restart-emacs.el][151001064201.restart-emacs.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/151001/151001064201.restart-emacs.el"
+#+BEGIN_SRC fundamental
+(global-set-key (kbd "C-x C-c") 'restart-emacs)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/151001064201.restart-emacs.el
+$ emacs -Q -f package-initialize -l 151001064201.restart-emacs.el
+#+END_EXAMPLE

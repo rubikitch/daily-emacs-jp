@@ -1,0 +1,139 @@
+#+BLOG: rubikitch
+#+POSTID: 433
+#+DATE: [2014-10-06 Mon 14:30]
+#+PERMALINK: org-eldoc
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs
+#+EL_PKG_NAME: org-eldoc
+#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, emacs eldoc org-mode, package:eldoc, relate:eldoc, relate:org, package:org, relate:c-eldoc, relate:go-eldoc, relate:css-eldoc, relate:php-eldoc, relate:python, emacs eldoc Ｃ言語, emacs eldoc golang, emacs eldoc php, emacs eldoc python, emacs eldoc css
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: org-modeで見出し、begin_srcブロックをeldoc表示！Emacs Lisp以外にもＣ言語、Go、CSS、PHP、Pythonにも対応
+#+begin: org2blog
+#+DESCRIPTION: Emacs Lispパッケージorg-eldocの紹介
+#+MYTAGS: package:org-eldoc, emacs 使い方, emacs コマンド, emacs, emacs lisp org-eldoc, elisp org-eldoc, emacs  org-eldoc, emacs org-eldoc 使い方, emacs org-eldoc 設定, emacs パッケージ org-eldoc, emacs org-eldoc スクリーンショット, emacs eldoc org-mode, package:eldoc, relate:eldoc, relate:org, package:org, relate:c-eldoc, relate:go-eldoc, relate:css-eldoc, relate:php-eldoc, relate:python, emacs eldoc Ｃ言語, emacs eldoc golang, emacs eldoc php, emacs eldoc python, emacs eldoc css
+#+TAGS: package:org-eldoc, emacs 使い方, emacs コマンド, emacs, emacs lisp org-eldoc, elisp org-eldoc, emacs  org-eldoc, emacs org-eldoc 使い方, emacs org-eldoc 設定, emacs パッケージ org-eldoc, emacs org-eldoc スクリーンショット, emacs eldoc org-mode, package:eldoc, relate:eldoc, relate:org, package:org, relate:c-eldoc, relate:go-eldoc, relate:css-eldoc, relate:php-eldoc, relate:python, emacs eldoc Ｃ言語, emacs eldoc golang, emacs eldoc php, emacs eldoc python, emacs eldoc css, Emacs, eldoc, org-eldoc, org-mode, eldoc, org-eldoc, org-mode
+#+TITLE: emacs org-eldoc.el : org-modeで見出し、begin_srcブロックをeldoc表示！Emacs Lisp以外にもＣ言語、Go、CSS、PHP、Pythonにも対応 |  Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>org-eldoc</td></tr>
+<tr><td>概要(原文)</td><td>EL_DOCに説明文を入れてください</td></tr>
+<tr><td>リポジトリ</td><td>まだパッケージに登録されていない</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:org-eldoc/">package:org-eldoc</a> <a href="http://rubikitch.com/tag/package:eldoc/">package:eldoc</a> <a href="http://rubikitch.com/tag/package:org/">package:org</a> <a href="http://rubikitch.com/tag/package:c-eldoc/">package:c-eldoc</a> <a href="http://rubikitch.com/tag/package:go-eldoc/">package:go-eldoc</a> <a href="http://rubikitch.com/tag/package:css-eldoc/">package:css-eldoc</a> <a href="http://rubikitch.com/tag/package:php-eldoc/">package:php-eldoc</a> <a href="http://rubikitch.com/tag/package:python/">package:python</a></td></tr>
+</table>
+<br />
+#+END_HTML
+<2015-01-18 Sun>本家orgパッケージのcontrib/lisp以下に登録されました。
+
+*eldoc* はEmacs Lispプログラミングを支援してくれることで定番ですね。
+
+カーソル位置の関数の引数や変数の説明がエコーエリアに
+自動的に表示されるアレですよ。
+
+eldocは拡張できるようになっているため、Emacs Lisp以外にも対応しています。
+- Ｃ言語(c-eldoc)
+- Go(go-eldoc)
+- CSS(css-eldoc)
+- PHP(php-eldoc)
+- Python(python.el)
+
+この *org-eldoc* は *org-mode* にて
+- 見出しのフルパス(？) - 大見出し〜現在の見出しまでを/で区切ったもの
+- begin_src blockのパラメータ
+- begin_src 内のソースコード(Emacs Lisp, Ｃ言語, CSS, Python, PHP, Go)のeldoc
+を表示してくれます。
+
+Emacs 24.3ではbegin_src内のEmacs Lispのeldocが
+エラーになってしまうので関数を再定義しています。
+** org-eldoc インストール
+これはまだパッケージ化されていないので、[[http://rubikitch.com/package-initialize/#sec-2][手動でインストール]] する必要があります。
+
+
+#+end:
+** 概要                                                             :noexport:
+<2015-01-18 Sun>本家orgパッケージのcontrib/lisp以下に登録されました。
+
+*eldoc* はEmacs Lispプログラミングを支援してくれることで定番ですね。
+
+カーソル位置の関数の引数や変数の説明がエコーエリアに
+自動的に表示されるアレですよ。
+
+eldocは拡張できるようになっているため、Emacs Lisp以外にも対応しています。
+- Ｃ言語(c-eldoc)
+- Go(go-eldoc)
+- CSS(css-eldoc)
+- PHP(php-eldoc)
+- Python(python.el)
+
+この *org-eldoc* は *org-mode* にて
+- 見出しのフルパス(？) - 大見出し〜現在の見出しまでを/で区切ったもの
+- begin_src blockのパラメータ
+- begin_src 内のソースコード(Emacs Lisp, Ｃ言語, CSS, Python, PHP, Go)のeldoc
+を表示してくれます。
+
+Emacs 24.3ではbegin_src内のEmacs Lispのeldocが
+エラーになってしまうので関数を再定義しています。
+
+** 設定 [[http://rubikitch.com/f/141006143712.org-eldoc.1.el][141006143712.org-eldoc.1.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/141006/141006143712.org-eldoc.1.el"
+#+BEGIN_SRC fundamental
+(require 'org-eldoc)
+(org-eldoc-hook-setup)
+(add-hook 'emacs-lisp-mode-hook 'eldoc-mode)
+(defun org-eldoc-documentation-function ()
+  "Return breadcrumbs when on a headline, args for src block header-line,
+  calls other documentation functions depending on lang when inside src body."
+  (or
+   (org-eldoc-get-breadcrumb)
+   (org-eldoc-get-src-header)
+   (let ((lang (org-eldoc-get-src-lang)))
+     (cond ((or
+             (string= lang "elisp")
+             (string= lang "emacs-lisp"))
+            (cond ((fboundp 'eldoc-documentation-function-default)
+                   (eldoc-documentation-function-default))
+
+                  ((locate-library "elisp-mode") ;; we're using development version of Emacs
+                   (autoload 'elisp-eldoc-documentation-function "elisp-mode" nil t)
+                   (elisp-eldoc-documentation-function))
+                  (t                    ;24.3
+                   (let (eldoc-documentation-function)
+                     (eldoc-print-current-symbol-info)))))
+           ((or
+             (string= lang "c") ;; http://github.com/nflath/c-eldoc
+             (string= lang "C")) (when (require 'c-eldoc nil t)
+                                   (c-eldoc-print-current-symbol-info)))
+           ;; https://github.com/zenozeng/css-eldoc
+           ((string= lang "css") (when (require 'css-eldoc nil t)
+                                   (css-eldoc-function)))
+           ((string= lang "python") (when (require 'python nil t)
+                                      (python-eldoc-function)))
+           ;; https://github.com/zenozeng/php-eldoc
+           ((string= lang "php") (when (require 'php-eldoc nil t)
+                                   (php-eldoc-function)))
+           ((or
+             (string= lang "go")
+             (string= lang "golang")) (when (require 'go-eldoc nil t)
+                                        (go-eldoc--documentation-function)))))))
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/141006143712.org-eldoc.1.el
+$ emacs -Q -f package-initialize -l 141006143712.org-eldoc.1.el
+#+END_EXAMPLE
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+http://rubikitch.com/f/20141006143900.png
+Fig1: 見出しの階層表示
+
+http://rubikitch.com/f/20141006143907.png
+Fig2: begin_src ブロックのパラメータ表示
+
+http://rubikitch.com/f/20141006145237.png
+Fig3: begin_src 内のEmacs Lispのeldoc

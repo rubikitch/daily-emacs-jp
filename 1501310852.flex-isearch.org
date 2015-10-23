@@ -1,0 +1,110 @@
+#+BLOG: rubikitch
+#+POSTID: 1048
+#+DATE: [2015-01-31 Sat 08:52]
+#+PERMALINK: flex-isearch
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs
+#+EL_PKG_NAME: flex-isearch
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, relate:flx-ido, あいまいマッチ, emacs あいまい検索, isearch あいまい, isearch, relate:isearch-dabbrev, emacs シンボル検索, relate:ace-jump-mode, relate:flx-isearch
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: 【安定】ido的あいまいインクリメンタルサーチ
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージflex-isearchの紹介
+#+MYTAGS: package:flex-isearch, emacs 使い方, emacs コマンド, emacs, flex-isearch, flex-isearch.el, emacs lisp flex-isearch, elisp flex-isearch, emacs melpa flex-isearch, emacs flex-isearch 使い方, emacs flex-isearch 設定, emacs パッケージ flex-isearch, emacs flex-isearch スクリーンショット, relate:flx-ido, あいまいマッチ, emacs あいまい検索, isearch あいまい, isearch, relate:isearch-dabbrev, emacs シンボル検索, relate:ace-jump-mode, relate:flx-isearch
+#+TAGS: package:flex-isearch, emacs 使い方, emacs コマンド, emacs, flex-isearch, flex-isearch.el, emacs lisp flex-isearch, elisp flex-isearch, emacs melpa flex-isearch, emacs flex-isearch 使い方, emacs flex-isearch 設定, emacs パッケージ flex-isearch, emacs flex-isearch スクリーンショット, relate:flx-ido, あいまいマッチ, emacs あいまい検索, isearch あいまい, isearch, relate:isearch-dabbrev, emacs シンボル検索, relate:ace-jump-mode, relate:flx-isearch, Emacs, flex-isearch.el, M-x global-flex-isearch-mode, M-x global-flex-isearch-mode
+#+TITLE: emacs flex-isearch.el : 【安定】ido的あいまいインクリメンタルサーチ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>flex-isearch</td></tr>
+<tr><td>概要(原文)</td><td>Flex matching (like ido) in isearch.</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://bitbucket.org/jpkotta/flex-isearch">https://bitbucket.org/jpkotta/flex-isearch</a></td></tr>
+<tr><td>バージョン</td><td>20130508.1503</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:flex-isearch/">package:flex-isearch</a> <a href="http://rubikitch.com/tag/package:flx-ido/">package:flx-ido</a> <a href="http://rubikitch.com/tag/package:isearch-dabbrev/">package:isearch-dabbrev</a> <a href="http://rubikitch.com/tag/package:ace-jump-mode/">package:ace-jump-mode</a> <a href="http://rubikitch.com/tag/package:flx-isearch/">package:flx-isearch</a></td></tr>
+</table>
+<br />
+#+END_HTML
+*flex-isearch.el* も [[http://rubikitch.com/2015/01/30/flx-isearch/][昨日のflx-isearch.el]] に引き続き、
+あいまい検索を行うisearchです。
+
+両者を使ってみたところ、こちらの方が安定して動作します。
+
+あいまいisearchとは、文字と文字の間に任意の文字が入ることを許可し、
+isearchの打鍵数を減らすことができます。
+
+idoのflex matchと似たようなものです。
+
+たとえば「fisrh」でflex-isearchにマッチします。
+
+本設定ではC-M-s/C-M-rに割り当てています。
+
+正規表現isearchはC-u C-s/C-u C-rを使ってください。
+
+*M-x global-flex-isearch-mode* でマイナーモードを有効にすると、
+C-u C-u C-s/C-u C-u C-rであいまいisearchになります。
+
+あいまい検索はおもしろい機能ですが、臨機応変に使い分けてください。
+
+画面内での移動ならば[[http://rubikitch.com/2014/10/09/ace-jump-mode/][ace-jump-mode.el(レビュー)]] が便利ですし、
+isearchの検索文字列をdabbrevする[[http://rubikitch.com/2014/12/23/isearch-dabbrev/][isearch-dabbrev.el(レビュー)]] もあります。
+** flex-isearch インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install flex-isearch
+
+
+#+end:
+** 概要                                                             :noexport:
+*flex-isearch.el* も [[http://rubikitch.com/2015/01/30/flx-isearch/][昨日のflx-isearch.el]] に引き続き、
+あいまい検索を行うisearchです。
+
+両者を使ってみたところ、こちらの方が安定して動作します。
+
+あいまいisearchとは、文字と文字の間に任意の文字が入ることを許可し、
+isearchの打鍵数を減らすことができます。
+
+idoのflex matchと似たようなものです。
+
+たとえば「fisrh」でflex-isearchにマッチします。
+
+本設定ではC-M-s/C-M-rに割り当てています。
+
+正規表現isearchはC-u C-s/C-u C-rを使ってください。
+
+*M-x global-flex-isearch-mode* でマイナーモードを有効にすると、
+C-u C-u C-s/C-u C-u C-rであいまいisearchになります。
+
+あいまい検索はおもしろい機能ですが、臨機応変に使い分けてください。
+
+画面内での移動ならば[[http://rubikitch.com/2014/10/09/ace-jump-mode/][ace-jump-mode.el(レビュー)]] が便利ですし、
+isearchの検索文字列をdabbrevする[[http://rubikitch.com/2014/12/23/isearch-dabbrev/][isearch-dabbrev.el(レビュー)]] もあります。
+
+** 設定 [[http://rubikitch.com/f/150131085109.flex-isearch.el][150131085109.flex-isearch.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/150131/150131085109.flex-isearch.el"
+#+BEGIN_SRC fundamental
+(global-flex-isearch-mode 1)
+(global-set-key (kbd "C-M-s") 'flex-isearch-forward)
+(global-set-key (kbd "C-M-r") 'flex-isearch-backward)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/150131085109.flex-isearch.el
+$ emacs -Q -f package-initialize -l 150131085109.flex-isearch.el
+#+END_EXAMPLE
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+[[file:/r/sync/screenshots/20150131085908.png]]
+Fig1: cinbでcandidates-in-bufferにマッチ！
+
+
+# /r/sync/screenshots/20150131085908.png http://rubikitch.com/wp-content/uploads/2015/01/wpid-20150131085908.png

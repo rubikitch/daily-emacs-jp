@@ -1,0 +1,256 @@
+#+BLOG: rubikitch
+#+POSTID: 1975
+#+DATE: [2015-09-12 Sat 21:46]
+#+PERMALINK: spacemacs-theme
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, theme
+#+EL_PKG_NAME: spacemacs-theme
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, color-theme, カラーテーマ
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: spacemacsで採用されているカラーテーマ(明暗両対応)
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージspacemacs-themeの紹介
+#+MYTAGS: package:spacemacs-theme, emacs 使い方, emacs コマンド, emacs, spacemacs-theme, spacemacs-theme.el, emacs lisp spacemacs-theme, elisp spacemacs-theme, emacs melpa spacemacs-theme, emacs spacemacs-theme 使い方, emacs spacemacs-theme 設定, emacs パッケージ spacemacs-theme, emacs spacemacs-theme スクリーンショット, color-theme, カラーテーマ
+#+TAGS: package:spacemacs-theme, emacs 使い方, emacs コマンド, emacs, spacemacs-theme, spacemacs-theme.el, emacs lisp spacemacs-theme, elisp spacemacs-theme, emacs melpa spacemacs-theme, emacs spacemacs-theme 使い方, emacs spacemacs-theme 設定, emacs パッケージ spacemacs-theme, emacs spacemacs-theme スクリーンショット, color-theme, カラーテーマ, Emacs, theme, spacemacs-theme.el
+#+TITLE: emacs spacemacs-theme.el : spacemacsで採用されているカラーテーマ(明暗両対応) | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>spacemacs-theme</td></tr>
+<tr><td>概要(原文)</td><td>Color theme with a dark and light versions</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/nashamri/spacemacs-theme">https://github.com/nashamri/spacemacs-theme</a></td></tr>
+<tr><td>バージョン</td><td>20150903.1059</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:spacemacs-theme/">package:spacemacs-theme</a> </td></tr>
+</table>
+<br />
+#+END_HTML
+*spacemacs-theme.el* は、以下のパッケージに対応したカラーテーマ群です。
+- font-lock
+- isearch
+- link
+- tooltip
+- anzu-mode
+- company
+- diff
+- dired
+- ediff
+- ein
+- eldoc
+- erc
+- eshell
+- flycheck
+- git-gutter-fr
+- git-timemachine
+- gnus
+- guide-key
+- helm
+- helm-swoop
+- highlight-indentation
+- ido
+- info
+- linum-mode
+- magit
+- mode-line
+- neotree
+- org
+- perspective
+- powerline
+- rainbow-delimiters
+- shm
+- smartparens
+- term
+- which-key
+- auto-complete
+- ffap
+- flx
+- font-latex
+- icomplete+
+- js2-mode
+- js3-mode
+- mu4e
+- slime
+- undo-tree
+- web-mode
+
+以下のカラーテーマが定義されています。
+
+- spacemacs-dark
+- spacemacs-light
+
+
+** spacemacs-theme インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install spacemacs-theme
+
+
+#+END:
+
+** 概要                                                             :noexport:
+*spacemacs-theme.el* は、以下のパッケージに対応したカラーテーマ群です。
+- font-lock
+- isearch
+- link
+- tooltip
+- anzu-mode
+- company
+- diff
+- dired
+- ediff
+- ein
+- eldoc
+- erc
+- eshell
+- flycheck
+- git-gutter-fr
+- git-timemachine
+- gnus
+- guide-key
+- helm
+- helm-swoop
+- highlight-indentation
+- ido
+- info
+- linum-mode
+- magit
+- mode-line
+- neotree
+- org
+- perspective
+- powerline
+- rainbow-delimiters
+- shm
+- smartparens
+- term
+- which-key
+- auto-complete
+- ffap
+- flx
+- font-latex
+- icomplete+
+- js2-mode
+- js3-mode
+- mu4e
+- slime
+- undo-tree
+- web-mode
+
+以下のカラーテーマが定義されています。
+#+begin: org2blog-sub-color-themes
+- spacemacs-dark
+- spacemacs-light
+
+#+end:
+
+** theme: spacemacs-dark
+# *spacemacs-dark-theme.el*
+*** スクリーンショット
+# (save-window-excursion (async-shell-command "emacs-test -eval '(load-theme (quote spacemacs-dark) t)'"))
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_theme_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150912214915.png]]
+Fig1: emacs-lisp-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150912214921.png]]
+Fig2: magit
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150912214924.png]]
+Fig3: grep
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150912214927.png]]
+Fig4: outline-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150912214929.png]]
+Fig5: org-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150912214931.png]]
+Fig6: dired
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150912214934.png]]
+Fig7: web-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150912214936.png]]
+Fig8: markdown-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150912214940.png]]
+Fig9: helm
+
+
+*** 設定
+#+BEGIN_SRC fundamental
+(load-theme 'spacemacs-dark t)
+#+END_SRC
+
+*** 実行方法
+#+BEGIN_EXAMPLE
+$ emacs -Q -f package-initialize -eval '(load-theme (quote spacemacs-dark) t)'
+#+END_EXAMPLE
+
+** theme: spacemacs-light
+# *spacemacs-light-theme.el*
+*** スクリーンショット
+# (save-window-excursion (async-shell-command "emacs-test -eval '(load-theme (quote spacemacs-light) t)'"))
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_theme_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150912215008.png]]
+Fig10: emacs-lisp-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150912215013.png]]
+Fig11: magit
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150912215015.png]]
+Fig12: grep
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150912215017.png]]
+Fig13: outline-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150912215019.png]]
+Fig14: org-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150912215021.png]]
+Fig15: dired
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150912215023.png]]
+Fig16: web-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150912215026.png]]
+Fig17: markdown-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150912215029.png]]
+Fig18: helm
+
+
+*** 設定
+#+BEGIN_SRC fundamental
+(load-theme 'spacemacs-light t)
+#+END_SRC
+
+*** 実行方法
+#+BEGIN_EXAMPLE
+$ emacs -Q -f package-initialize -eval '(load-theme (quote spacemacs-light) t)'
+#+END_EXAMPLE
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

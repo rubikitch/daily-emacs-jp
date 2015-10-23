@@ -1,0 +1,188 @@
+#+BLOG: rubikitch
+#+POSTID: 1516
+#+DATE: [2015-04-16 Thu 05:05]
+#+PERMALINK: ace-jump-helm-line
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, helm
+#+EL_PKG_NAME: ace-jump-helm-line
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, relate:ace-jump-mode, relate:ace-window, relate:avy, relate:helm, relate:anything, helm anything shortcut, helm 候補選択ショートカット, emacs 候補選択, 候補選択, helm カーソルを移動せずに選択, 
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: 【helmこそが最強の候補選択IF！】画面内のhelmの候補を直接選択する
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージace-jump-helm-lineの紹介
+#+MYTAGS: package:ace-jump-helm-line, emacs 使い方, emacs コマンド, emacs, ace-jump-helm-line, ace-jump-helm-line.el, emacs lisp ace-jump-helm-line, elisp ace-jump-helm-line, emacs melpa ace-jump-helm-line, emacs ace-jump-helm-line 使い方, emacs ace-jump-helm-line 設定, emacs パッケージ ace-jump-helm-line, emacs ace-jump-helm-line スクリーンショット, relate:ace-jump-mode, relate:ace-window, relate:avy, relate:helm, relate:anything, helm anything shortcut, helm 候補選択ショートカット, emacs 候補選択, 候補選択, helm カーソルを移動せずに選択, 
+#+TAGS: package:ace-jump-helm-line, emacs 使い方, emacs コマンド, emacs, ace-jump-helm-line, ace-jump-helm-line.el, emacs lisp ace-jump-helm-line, elisp ace-jump-helm-line, emacs melpa ace-jump-helm-line, emacs ace-jump-helm-line 使い方, emacs ace-jump-helm-line 設定, emacs パッケージ ace-jump-helm-line, emacs ace-jump-helm-line スクリーンショット, relate:ace-jump-mode, relate:ace-window, relate:avy, relate:helm, relate:anything, helm anything shortcut, helm 候補選択ショートカット, emacs 候補選択, 候補選択, helm カーソルを移動せずに選択, , Emacs, helm, anything.el, helm, Shell Command Output, ace-jump-helm-line.el, anything.el, helm, Shell Command Output, ace-jump-helm-line.el, avy.el
+#+TITLE: emacs ace-jump-helm-line.el : 【helmこそが最強の候補選択IF！】画面内のhelmの候補を直接選択する | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>ace-jump-helm-line</td></tr>
+<tr><td>概要(原文)</td><td>Ace-jump to a candidate in helm window</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/cute-jumper/ace-jump-helm-line">https://github.com/cute-jumper/ace-jump-helm-line</a></td></tr>
+<tr><td>バージョン</td><td>20150511.1058</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:ace-jump-helm-line/">package:ace-jump-helm-line</a> <a href="http://rubikitch.com/tag/package:ace-jump-mode/">package:ace-jump-mode</a> <a href="http://rubikitch.com/tag/package:ace-window/">package:ace-window</a> <a href="http://rubikitch.com/tag/package:avy/">package:avy</a> <a href="http://rubikitch.com/tag/package:helm/">package:helm</a> <a href="http://rubikitch.com/tag/package:anything/">package:anything</a></td></tr>
+</table>
+<br />
+#+END_HTML
+嬉しいニュースです！
+
+*anything.el* が *helm* になって削除された機能のひとつ
+候補をクエリではなくてキーボードショートカットで選択する機能が
+復活いたしました。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150416052730.png]]
+Fig1: sを押せば *Shell Command Output* を選択
+
+anything.elにて
+
+#+BEGIN_SRC emacs-lisp :results silent
+(require 'anything)
+(setq anything-enable-shortcuts 'prefix)
+(define-key anything-map (kbd "@") 'anything-select-with-prefix-shortcut)
+#+END_SRC
+
+と設定すれば、anything起動後に@を押せば左端に示されているキーで
+候補を直接選択し、デフォルトアクションを実行できます。
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150416052744.png]]
+Fig2: 元々はanything.elの機能
+
+helmではそれができなかったのですが、この *ace-jump-helm-line.el* を使えば
+可能になります。
+
+僕がanythingを使い続けている理由のひとつがshortcut機能だったのですが、
+helmでも使えるようになったのは嬉しいのではないでしょうか。
+
+直接選択ができるようになったことで、
+helmで少数候補を選択する場合でもかなり使いやすくなります。
+
+絞り込みたいときは絞り込んで、
+直接選択したいときは直接選択できるという二段構えができてこそ
+理想の候補選択インターフェースだと思っています。
+
+本設定ではanythingと挙動を合わせています。
+
+- 使うキーは asdfghjklzxcvbnmqwertyuiop
+- @でanything同様、候補選択後にデフォルトアクション実行
+- @@、あるいは``で文字そのものを入力
+- `で候補に移動するだけ(NEW!)
+
+レビュー前日に登録されたばかりの新しいパッケージなので、
+これからの発展が楽しみです。
+** ace-jump-helm-line インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install ace-jump-helm-line
+
+
+#+end:
+** 概要                                                             :noexport:
+嬉しいニュースです！
+
+*anything.el* が *helm* になって削除された機能のひとつ
+候補をクエリではなくてキーボードショートカットで選択する機能が
+復活いたしました。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150416052730.png]]
+Fig3: sを押せば *Shell Command Output* を選択
+
+anything.elにて
+
+#+BEGIN_SRC emacs-lisp :results silent
+(require 'anything)
+(setq anything-enable-shortcuts 'prefix)
+(define-key anything-map (kbd "@") 'anything-select-with-prefix-shortcut)
+#+END_SRC
+
+と設定すれば、anything起動後に@を押せば左端に示されているキーで
+候補を直接選択し、デフォルトアクションを実行できます。
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150416052744.png]]
+Fig4: 元々はanything.elの機能
+
+helmではそれができなかったのですが、この *ace-jump-helm-line.el* を使えば
+可能になります。
+
+僕がanythingを使い続けている理由のひとつがshortcut機能だったのですが、
+helmでも使えるようになったのは嬉しいのではないでしょうか。
+
+直接選択ができるようになったことで、
+helmで少数候補を選択する場合でもかなり使いやすくなります。
+
+絞り込みたいときは絞り込んで、
+直接選択したいときは直接選択できるという二段構えができてこそ
+理想の候補選択インターフェースだと思っています。
+
+本設定ではanythingと挙動を合わせています。
+
+- 使うキーは asdfghjklzxcvbnmqwertyuiop
+- @でanything同様、候補選択後にデフォルトアクション実行
+- @@、あるいは``で文字そのものを入力
+- `で候補に移動するだけ(NEW!)
+
+レビュー前日に登録されたばかりの新しいパッケージなので、
+これからの発展が楽しみです。
+
+** ace-jumpであってace-jumpではない
+実はこのパッケージ、名前こそace-jumpと名乗っていますが、
+内部ではace-jump-mode.elは使っていません。
+
+実は [[http://rubikitch.com/2014/12/26/ace-window/][ace-window.el(レビュー)]] に依存していて、
+ace-windowパッケージのサブライブラリ *avy.el* を使っています。
+
+avy.elはace-jump-mode.elからツリー構築部分を抜き出し汎用化したものです。
+
+挙動が[[http://rubikitch.com/2014/10/09/ace-jump-mode/][ace-jump-mode.el(レビュー)]] そっくりなので
+そう名乗っているに過ぎません。
+
+** 設定 [[http://rubikitch.com/f/150416044841.ace-jump-helm-line.1.el][150416044841.ace-jump-helm-line.1.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/150416/150416044841.ace-jump-helm-line.1.el"
+#+BEGIN_SRC fundamental
+(require 'ace-jump-helm-line)
+
+(define-key helm-map (kbd "`") 'ace-jump-helm-line--with-error-fallback)
+(define-key helm-map (kbd "@") 'ace-jump-helm-line-and-execute-action)
+
+;;; anything-shortcut-keys-alistと同じように設定
+(setq avy-keys (append "asdfghjklzxcvbnmqwertyuiop" nil))
+
+;;; ちょっとアレンジ
+(defun ajhl--insert-last-char ()
+  (insert (substring (this-command-keys) -1)))
+(defun ace-jump-helm-line--with-error-fallback ()
+  "ヒント文字以外の文字が押されたらその文字を挿入するように修正"
+  (interactive)
+  (condition-case nil
+      (ace-jump-helm-line)
+    (error (ajhl--insert-last-char))))
+(defun ace-jump-helm-line-and-execute-action ()
+  "anything-select-with-prefix-shortcut互換"
+  (interactive)
+  (condition-case nil
+      (progn (ace-jump-helm-line)
+             (helm-exit-minibuffer))
+    (error (ajhl--insert-last-char))))
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/150416044841.ace-jump-helm-line.1.el
+$ emacs -Q -f package-initialize -l 150416044841.ace-jump-helm-line.1.el
+#+END_EXAMPLE
+
+# /r/sync/screenshots/20150416052730.png http://rubikitch.com/wp-content/uploads/2015/04/wpid-20150416052730.png
+# /r/sync/screenshots/20150416052744.png http://rubikitch.com/wp-content/uploads/2015/04/wpid-20150416052744.png

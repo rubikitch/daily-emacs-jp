@@ -1,0 +1,222 @@
+#+BLOG: rubikitch
+#+POSTID: 268
+#+DATE: [2014-09-02 Tue 06:37]
+#+PERMALINK: melpa-dl-ranking
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, Ruby,
+#+DESCRIPTION:
+# relate:magit, relate:git-commit-mode, relate:git-rebase-mode, relate:gitconfig-mode, relate:gitignore-mode, relate:dash, relate:s, relate:f, relate:auto-complete, relate:popup, relate:exec-path-from-shell, relate:anzu, relate:deferred
+#+MYTAGS: emacs, emacs melpa, emacs パッケージ, emacs 人気 パッケージ, emacs 定番 パッケージ, emacs 人気 elisp, emacs 定番 elisp, emacs おすすめ パッケージ, emacs おすすめ elisp, ruby json open-uri, emacs describe-package,
+#+TAGS: emacs, emacs melpa, emacs パッケージ, emacs 人気 パッケージ, emacs 定番 パッケージ, emacs 人気 elisp, emacs 定番 elisp, emacs おすすめ パッケージ, emacs おすすめ elisp, ruby json open-uri, emacs describe-package,, Emacs, Ruby,, magit, git-commit-mode, gitconfig-mode, gitignore-mode, dash, f, auto-complete, exec-path-from-shell, deferred
+#+TITLE: Emacs MELPA ダウンロードランキングを見てみる
+** 解析
+[[http://melpa.milkbox.net/][MELPAのサイト]] には更新日時やダウンロードランキングが記されているが、
+いったいどうなってるのかなと思って解析してみました。
+
+w3mからでは見られないのでJavaScript…天敵Ajaxですね(笑)
+
+#+BEGIN_EXAMPLE
+<script src="js/melpa.js"></script>
+#+END_EXAMPLE
+という行を見掛けたので、
+http://melpa.milkbox.net/js/melpa.js
+を眺めてみると、いきなり
+#+BEGIN_EXAMPLE
+// TODO Fix json encoding of versions
+#+END_EXAMPLE
+
+という行を見付けたので、jsonで検索。
+
+すると、ありましたありました。
+#+BEGIN_EXAMPLE
+  melpa.packageList = m.sync([
+    m.request({method: 'GET', url: "/recipes.json"}),
+    m.request({method: 'GET', url: "/archive.json"}),
+    m.request({method: 'GET', url: "/download_counts.json"})
+  ]).then(function (info) {〜
+#+END_EXAMPLE
+
+http://melpa.milkbox.net/recipes.json
+http://melpa.milkbox.net/archive.json
+http://melpa.milkbox.net/download_counts.json
+
+この3つのjsonを見ればいいということがわかって、
+興味がある download_counts.json を見てみました。
+
+形式はシンプルにもこんな感じです。
+
+#+BEGIN_EXAMPLE
+{
+ "/direx": 2,
+ "occur-x": 185,
+ "org-drill-table": 81,
+ "ido-vertical-mode": 6640,
+ "rhtml-mode": 1691,
+ "flx-ido": 16803,
+ "asn1-mode": 66,
+ "manage-minor-mode": 220,
+ "nummm-mode": 88,
+ 〜
+}
+#+END_EXAMPLE
+** ランキング！
+ここでRubyさんに解析していただきましょう。
+
+10000ダウンロード以上のものを並べてみました。
+
+#+BEGIN_EXAMPLE
+$ ruby -rjson -ropen-uri -rpp -e 'pp
+JSON.parse(open("http://melpa.milkbox.net/download_counts.json",&:read)).
+sort_by{|p,c| c}.reverse'
+[["magit", 80583],
+ ["dash", 74866],
+ ["auto-complete", 63193],
+ ["popup", 56894],
+ ["git-commit-mode", 56578],
+ ["s", 55007],
+ ["flycheck", 50291],
+ ["yasnippet", 49654],
+ ["git-rebase-mode", 48842],
+ ["helm", 48728],
+ ["epl", 45257],
+ ["pkg-info", 43794],
+ ["undo-tree", 38017],
+ ["projectile", 37539],
+ ["smex", 35607],
+ ["zenburn-theme", 34864],
+ ["clojure-mode", 34747],
+ ["f", 34692],
+ ["expand-region", 33792],
+ ["markdown-mode", 33788],
+ ["haskell-mode", 33079],
+ ["smartparens", 31166],
+ ["ido-ubiquitous", 30548],
+ ["ace-jump-mode", 28794],
+ ["rainbow-delimiters", 28299],
+ ["paredit", 27662],
+ ["cider", 26650],
+ ["multiple-cursors", 26461],
+ ["js2-mode", 25559],
+ ["solarized-theme", 25549],
+ ["web-mode", 25479],
+ ["gitconfig-mode", 23739],
+ ["elisp-slime-nav", 23574],
+ ["diminish", 23144],
+ ["inf-ruby", 22913],
+ ["gitignore-mode", 22594],
+ ["exec-path-from-shell", 21003],
+ ["gh", 20604],
+ ["php-mode", 20335],
+ ["coffee-mode", 19772],
+ ["color-theme", 19171],
+ ["yaml-mode", 19043],
+ ["pcache", 18954],
+ ["slime", 18237],
+ ["company", 17657],
+ ["gist", 17526],
+ ["logito", 17042],
+ ["dired+", 17010],
+ ["anzu", 16938],
+ ["flx-ido", 16803],
+ ["evil", 16554],
+ ["flx", 16287],
+ ["move-text", 16191],
+ ["ack-and-a-half", 15857],
+ ["deferred", 15243],
+ ["lua-mode", 15126],
+ ["ctable", 15023],
+ ["color-theme-sanityinc-tomorrow", 14972],
+ ["clojure-test-mode", 14207],
+ ["browse-kill-ring", 13857],
+ ["w3m", 13831],
+ ["helm-projectile", 13782],
+ ["volatile-highlights", 13555],
+ ["simple-httpd", 13327],
+ ["guru-mode", 13136],
+ ["scss-mode", 13102],
+ ["jedi", 13091],
+ ["haml-mode", 12944],
+ ["flymake-easy", 12916],
+ ["epc", 12904],
+ ["color-theme-sanityinc-solarized", 12879],
+ ["idomenu", 12834],
+ ["skewer-mode", 12821],
+ ["concurrent", 12649],
+ ["popwin", 12200],
+ ["grizzl", 12194],
+ ["htmlize", 12064],
+ ["find-file-in-project", 11911],
+ ["erlang", 11846],
+ ["go-mode", 11612],
+ ["scala-mode2", 11173],
+ ["ac-nrepl", 11169],
+ ["sass-mode", 10665],
+ ["autopair", 10581],
+ ["ruby-compilation", 10559],
+ ["less-css-mode", 10493],
+ ["color-theme-solarized", 10490],
+ ["wgrep", 10397],
+ ["yari", 10338],
+ ["mmm-mode", 10125],
+ ["ess", 10034],
+ 〜
+]
+#+END_EXAMPLE
+
+なんと1位は *magit* でした！
+人気パッケージですが、1位はちょっと意外でした。
+
+見てみたら *git-commit-mode* *git-rebase-mode* *gitconfig-mode*
+*gitignore-mode* が上位にランキングされていてgit人気の高さを感じました。
+
+*dash* *s* *f* といった短い名前のスタイリッシュライブラリも上位、
+依存パッケージでダウンロードさますが、高ランクは定着している証拠です。
+
+*auto-complete* *popup* *exec-path-from-shell* *anzu* *deferred* などの
+日本人勢もランキングされているのは嬉しい限りです。
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+** 整形してみる
+それでは、整形してみましょう。
+
+[[http://rubikitch.com/f/melpa-dl-counts.rb][melpa-dl-counts.rb(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/140902/melpa-dl-counts.rb"
+#+BEGIN_SRC fundamental
+#!/usr/local/bin/ruby
+require 'json'
+require 'open-uri'
+
+JSON.parse(open("http://melpa.milkbox.net/download_counts.json",&:read)).
+  sort_by{|p,c| c}.reverse.each {|pkg, dl|
+  printf "# %6d %-40s (describe-package '%s)\n", dl, pkg, pkg
+}
+#+END_SRC
+
+#+END:
+
+#+BEGIN_EXAMPLE
+$ wget -O- http://rubikitch.com/f/melpa-dl-counts.rb| ruby
+#  80583 magit                                    (describe-package 'magit)
+#  74866 dash                                     (describe-package 'dash)
+#  63193 auto-complete                            (describe-package 'auto-complete)
+#  56894 popup                                    (describe-package 'popup)
+#  56578 git-commit-mode                          (describe-package 'git-commit-mode)
+#  55007 s                                        (describe-package 's)
+#  50291 flycheck                                 (describe-package 'flycheck)
+#  49654 yasnippet                                (describe-package 'yasnippet)
+#  48842 git-rebase-mode                          (describe-package 'git-rebase-mode)
+#  48728 helm                                     (describe-package 'helm)
+#  45257 epl                                      (describe-package 'epl)
+#  43794 pkg-info                                 (describe-package 'pkg-info)
+#  38017 undo-tree                                (describe-package 'undo-tree)
+#  37539 projectile                               (describe-package 'projectile)
+#  35607 smex                                     (describe-package 'smex)
+#  34864 zenburn-theme                            (describe-package 'zenburn-theme)
+#  34747 clojure-mode                             (describe-package 'clojure-mode)
+#  34692 f                                        (describe-package 'f)
+#+END_EXAMPLE
+
+実行結果の各行でC-e C-x C-eを押せばパッケージの説明が見られます。

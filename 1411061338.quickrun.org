@@ -1,0 +1,231 @@
+#+BLOG: rubikitch
+#+POSTID: 553
+#+DATE: [2014-11-06 Thu 13:38]
+#+PERMALINK: quickrun
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs
+#+EL_PKG_NAME: quickrun
+#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, c-mode, c++-mode, objc-mode, csharp-mode, perl-mode, cperl-mode, ruby-mode, python-mode, php-mode, emacs-lisp-mode, lisp-mode, scheme-mode, javascript-mode, js-mode, js2-mode, clojure-mode, erlang-mode, ocaml-mode, tuareg-mode, fsharp-mode, go-mode, io-mode, lua-mode, haskell-mode, java-mode, d-mode, fortran-mode, markdown-mode, coffee-mode, jsx-mode, typescript-mode, scala-mode, groove-mode, haml-mode, sass-mode, less-mode, less-css-mode, sh-mode, awk-mode, rust-mode, dart-mode, elixir-mode, tcl-mode, swift-mode, ats-mode, ess-mode, relate:helm, relate:anything, relate:compile, relate:executable
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: 【これはすごい】Emacsで開発中のプログラムの実行をチョー簡単にするquickrunがメチャガチャパワーアップしてた件！
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージquickrunの紹介
+#+MYTAGS: package:quickrun, emacs 使い方, emacs コマンド, emacs, emacs lisp quickrun, elisp quickrun, emacs melpa quickrun, emacs quickrun 使い方, emacs quickrun 設定, emacs パッケージ quickrun, emacs quickrun スクリーンショット, c-mode, c++-mode, objc-mode, csharp-mode, perl-mode, cperl-mode, ruby-mode, python-mode, php-mode, emacs-lisp-mode, lisp-mode, scheme-mode, javascript-mode, js-mode, js2-mode, clojure-mode, erlang-mode, ocaml-mode, tuareg-mode, fsharp-mode, go-mode, io-mode, lua-mode, haskell-mode, java-mode, d-mode, fortran-mode, markdown-mode, coffee-mode, jsx-mode, typescript-mode, scala-mode, groove-mode, haml-mode, sass-mode, less-mode, less-css-mode, sh-mode, awk-mode, rust-mode, dart-mode, elixir-mode, tcl-mode, swift-mode, ats-mode, ess-mode, relate:helm, relate:anything, relate:compile, relate:executable
+#+TITLE: emacs quickrun.el : 【これはすごい】Emacsで開発中のプログラムの実行をチョー簡単にするquickrunがメチャガチャパワーアップしてた件！ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>quickrun</td></tr>
+<tr><td>概要(原文)</td><td>Run commands quickly</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/syohex/emacs-quickrun">https://github.com/syohex/emacs-quickrun</a></td></tr>
+<tr><td>バージョン</td><td>20141103.630</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:quickrun/">package:quickrun</a> <a href="http://rubikitch.com/tag/package:helm/">package:helm</a> <a href="http://rubikitch.com/tag/package:anything/">package:anything</a> <a href="http://rubikitch.com/tag/package:compile/">package:compile</a> <a href="http://rubikitch.com/tag/package:executable/">package:executable</a></td></tr>
+</table>
+<br />
+#+END_HTML
+
+Emacs内で開発中のプログラム実行をカンタンにする *quickrun.el* ですが、
+いつのまにかめっちゃパワーアップしてました。
+
+元々、標準の *M-x compile* や *M-x executable-interpret* の
+お手軽かつ空気読めるバージョンとして開発されました。
+
+正直、出た当初のころは話題沸騰ながらも、
+俺的にはしっくりこなくて放置していました。
+
+MELPAで更新されていたのを機に再び使ってみたら、
+なかなかイケてる感じでした。
+
+今や、いろいろな形での実行がサポートされており、
+*helm* や *anything* インターフェースまで
+出来ているではありませんかっ！！
+** quickrun インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install quickrun
+
+
+#+end:
+** 概要                                                             :noexport:
+
+Emacs内で開発中のプログラム実行をカンタンにする *quickrun.el* ですが、
+いつのまにかめっちゃパワーアップしてました。
+
+元々、標準の *M-x compile* や *M-x executable-interpret* の
+お手軽かつ空気読めるバージョンとして開発されました。
+
+正直、出た当初のころは話題沸騰ながらも、
+俺的にはしっくりこなくて放置していました。
+
+MELPAで更新されていたのを機に再び使ってみたら、
+なかなかイケてる感じでした。
+
+今や、いろいろな形での実行がサポートされており、
+*helm* や *anything* インターフェースまで
+出来ているではありませんかっ！！
+** 対応言語
+対応プログラミング言語もものすごい増えていました。
+
+何に対応しているかはコードを見ていただくのが早いでしょう。
+
+#+BEGIN_SRC emacs-lisp :results silent
+(defvar quickrun-file-alist
+  '(("\\.c\\'" . "c")
+    ("\\.\\(cpp\\|cxx\\|C\\|cc\\)\\'" . "c++")
+    ("\\.m\\'" . "objc")
+    ("\\.cs\\'" . "c#")
+    ("\\.\\(pl\\|pm\\)\\'" . "perl")
+    ("\\.rb\\'" . "ruby")
+    ("\\.py\\'" . "python")
+    ("\\.php\\'" . "php")
+    ("\\.\\(el\\|elisp\\)\\'" . "emacs")
+    ("\\.\\(lisp\\|lsp\\)\\'" . "lisp")
+    ("\\.\\(scm\\|scheme\\)\\'" . "scheme")
+    ("\\.js\\'" . "javascript")
+    ("\\.clj\\'" . "clojure")
+    ("\\.erl\\'" . "erlang")
+    ("\\.ml\\'" . "ocaml")
+    ("\\.\\(fsx?\\|fsscript\\)\\'" . "fsharp")
+    ("\\.go\\'" . "go")
+    ("\\.io\\'" . "io")
+    ("\\.lua\\'" . "lua")
+    ("\\.hs\\'" . "haskell")
+    ("\\.java\\'" . "java")
+    ("\\.d\\'" . "d")
+    ("\\.\\(f\\|for\\|f90\\|f95\\)\\'" . "fortran")
+    ("\\.\\(md\\|markdown\\|mdown\\|mkdn\\)\\'" . "markdown")
+    ("\\.coffee\\'" . "coffee")
+    ("\\.jsx\\'" . "jsx")
+    ("\\.ts\\'" . "typescript")
+    ("\\.scala\\'" . "scala")
+    ("\\.groovy\\'". "groovy")
+    ("\\.haml\\'" . "haml")
+    ("\\.sass\\'" . "sass")
+    ("\\.less\\'" . "less")
+    ("\\.\\(sh\\|bash\\|zsh\\|csh\\|csh\\)\\'" . "shellscript")
+    ("\\.awk\\'" . "awk")
+    ("\\.rs\\'" . "rust")
+    ("\\.dart\\'" . "dart/checked")
+    ("\\.exs?\\'" . "elixir")
+    ("\\.tcl\\'" . "tcl")
+    ("\\.swift\\'" . "swift")
+    ("\\.dats\\'" . "ats")
+    ("\\.\\(r\\|R\\)\\'" . "r"))
+  "Alist of (file-regexp . key)")
+
+(defvar quickrun/major-mode-alist
+  '((c-mode . "c")
+    (c++-mode . "c++")
+    (objc-mode . "objc")
+    (csharp-mode . "c#")
+    ((perl-mode cperl-mode) . "perl")
+    (ruby-mode . "ruby")
+    (python-mode . "python")
+    (php-mode . "php")
+    (emacs-lisp-mode . "emacs")
+    (lisp-mode . "lisp")
+    (scheme-mode . "scheme")
+    ((javascript-mode js-mode js2-mode) . "javascript")
+    (clojure-mode . "clojure")
+    (erlang-mode . "erlang")
+    ((ocaml-mode tuareg-mode) . "ocaml")
+    (fsharp-mode . "fsharp")
+    (go-mode . "go")
+    (io-mode . "io")
+    (lua-mode . "lua")
+    (haskell-mode . "haskell")
+    (java-mode . "java")
+    (d-mode . "d")
+    (fortran-mode . "fortran")
+    (markdown-mode . "markdown")
+    (coffee-mode . "coffee")
+    (jsx-mode . "jsx")
+    (typescript-mode . "typescript")
+    (scala-mode . "scala")
+    (groove-mode . "groovy")
+    (haml-mode . "haml")
+    (sass-mode . "sass")
+    ((less-mode less-css-mode) . "less")
+    (sh-mode . "shellscript")
+    (awk-mode . "awk")
+    (rust-mode . "rust")
+    (dart-mode . "dart/checked")
+    (elixir-mode . "elixir")
+    (tcl-mode . "tcl")
+    (swift-mode . "swift")
+    (ats-mode . "ats")
+    (ess-mode . "r"))
+  "Alist of major-mode and langkey")
+#+END_SRC
+
+
+** 基本形M-x quickrun
+とりあえず基本は *M-x quickrun* 。
+メジャーモードでプログラミング言語を自動判別し、
+適切なコマンドで実行してくれます。
+
+実行に使うコマンドは「#!」がついていればそれを使い、
+登録されているデフォルトのコマンドで実行します。
+
+ruby-modeの場合、デフォルトでrubyコマンドが使われますが、
+「#!/usr/local/bin/ruby18」と書いてあればそれを使います。
+
+quickrunでの実行結果はポップアップしますが、
+qを押せば元のウィンドウ構成に戻してくれる親切設計です。
+
+実行に10秒(変数 *quickrun-timeout-seconds* で設定可能)以上かかったときは、
+時間がかかりすぎる場合とみなして自動的にプロセスを殺します。
+
+** C-u M-x quickrun: 別なインタプリタを選択
+*C-u M-x quickrun* では、どれで実行するのか選べます。
+
+Rubyの場合、デフォルトのruby/ruby以外にもruby/mrubyが用意されていて、
+それを選択すれば *mrbc* や *mruby* で実行してくれます。
+
+** C-u C-u M-x quickrunでコンパイルのみ
+*C-u C-u M-x quickrun* ではコンパイルのみを実行します。
+
+インタプリタ言語の場合は文法チェックをします。
+
+Rubyの場合は *ruby -c* を実行します。
+
+** M-x quickrun-with-argで引数をつける
+プログラムで引数をつけたいときは *M-x quickrun-with-arg* を使います。
+
+あるいはバッファローカルな  *quickrun-option-args* 変数に設定します。
+
+スクリーンショットのように1行目のS式を評価してからM-x quickrunを
+実行する方法もあります。
+
+http://rubikitch.com/f/20141106135812.png
+Fig1: 引数を指定する
+** 入力の自動化
+入力を求めてくる対話的プログラムの自動実行もサポートしています。
+
+ファイル名に「.qrinput」というサフィックスをつけたファイルを用意し、
+そこに入力する内容を書けば、実行時にその内容を入力してくれます。
+
+入力のパターンが複数ある場合は、
+*quickrun-input-file-extension* で他のサフィックスを指定します。
+
+http://rubikitch.com/f/20141106140319.png
+Fig2: .qrinputファイルで入力を指定
+
+
+もう一つの方法として *M-x quickrun-shell* で
+*eshell* を使って実行させることもできます。
+
+http://rubikitch.com/f/20141106140545.png
+Fig3: M-x quickrun-shell
+
+** helm/anythingインターフェース
+現時点でなにができるかを知りたければ、
+*helm* をインストールして
+*M-x helm-quickrun* を実行してください。
+
+*anything* ならば *M-x anything-quickrun* です。

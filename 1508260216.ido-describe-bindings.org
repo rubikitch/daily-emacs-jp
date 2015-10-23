@@ -1,0 +1,110 @@
+#+BLOG: rubikitch
+#+POSTID: 1928
+#+DATE: [2015-08-26 Wed 02:16]
+#+PERMALINK: ido-describe-bindings
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, ido
+#+EL_PKG_NAME: ido-describe-bindings
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, relate:ido-vertical-mode, relate:helm-descbinds
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: f1 b(describe-bindings)をido化する
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージido-describe-bindingsの紹介
+#+MYTAGS: package:ido-describe-bindings, emacs 使い方, emacs コマンド, emacs, ido-describe-bindings, ido-describe-bindings.el, emacs lisp ido-describe-bindings, elisp ido-describe-bindings, emacs melpa ido-describe-bindings, emacs ido-describe-bindings 使い方, emacs ido-describe-bindings 設定, emacs パッケージ ido-describe-bindings, emacs ido-describe-bindings スクリーンショット, relate:ido-vertical-mode, relate:helm-descbinds
+#+TAGS: package:ido-describe-bindings, emacs 使い方, emacs コマンド, emacs, ido-describe-bindings, ido-describe-bindings.el, emacs lisp ido-describe-bindings, elisp ido-describe-bindings, emacs melpa ido-describe-bindings, emacs ido-describe-bindings 使い方, emacs ido-describe-bindings 設定, emacs パッケージ ido-describe-bindings, emacs ido-describe-bindings スクリーンショット, relate:ido-vertical-mode, relate:helm-descbinds, Emacs, ido, describe-bindings, ido-describe-bindings.el, ido, describe-bindings, ido-describe-bindings.el, ido
+#+TITLE: emacs ido-describe-bindings.el : f1 b(describe-bindings)をido化する | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>ido-describe-bindings</td></tr>
+<tr><td>概要(原文)</td><td>Yet another `describe-bindings' with `ido'.</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/danil/ido-describe-bindings">https://github.com/danil/ido-describe-bindings</a></td></tr>
+<tr><td>バージョン</td><td>20150816.1002</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:ido-describe-bindings/">package:ido-describe-bindings</a> <a href="http://rubikitch.com/tag/package:ido-vertical-mode/">package:ido-vertical-mode</a> <a href="http://rubikitch.com/tag/package:helm-descbinds/">package:helm-descbinds</a></td></tr>
+</table>
+<br />
+#+END_HTML
+現在割り当てられているキーバインドをリストする
+<f1> b (*describe-bindings*) はそのままだと絞り込みができず
+使い勝手がよくありません。
+
+*ido-describe-bindings.el* を使うと
+*ido* ＋ [[http://rubikitch.com/2015/01/06/ido-vertical-mode/][ido-vertical-mode(レビュー)]] で
+あいまいマッチにより絞り込みができるようになります。
+
+とはいえ、<2015-08-26 Wed>時点では開発されて日が浅いので
+荒削りという印象は拭えません。
+
+同種の[[http://rubikitch.com/2014/08/30/helm-descbinds/][helm-descbinds.el(レビュー)]]と比較して
+- プレフィクスキー + C-hで発動しない
+- C-vやM-vでスクロールできない
+- describe-keyしかできない
+- find-functionやコマンド実行ができない
+という欠点があります。
+
+機能性においてhelmはidoを上回っているので
+helm-descbindsは超えられないでしょう。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150826022648.png]]
+Fig1: <f1> bでido化されたdescribe-bindings
+** ido-describe-bindings インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install ido-describe-bindings
+
+
+#+end:
+** 概要                                                             :noexport:
+現在割り当てられているキーバインドをリストする
+<f1> b (*describe-bindings*) はそのままだと絞り込みができず
+使い勝手がよくありません。
+
+*ido-describe-bindings.el* を使うと
+*ido* ＋ [[http://rubikitch.com/2015/01/06/ido-vertical-mode/][ido-vertical-mode(レビュー)]] で
+あいまいマッチにより絞り込みができるようになります。
+
+とはいえ、<2015-08-26 Wed>時点では開発されて日が浅いので
+荒削りという印象は拭えません。
+
+同種の[[http://rubikitch.com/2014/08/30/helm-descbinds/][helm-descbinds.el(レビュー)]]と比較して
+- プレフィクスキー + C-hで発動しない
+- C-vやM-vでスクロールできない
+- describe-keyしかできない
+- find-functionやコマンド実行ができない
+という欠点があります。
+
+機能性においてhelmはidoを上回っているので
+helm-descbindsは超えられないでしょう。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150826022648.png]]
+Fig2: <f1> bでido化されたdescribe-bindings
+** 設定 [[http://rubikitch.com/f/150826022528.ido-describe-bindings.el][150826022528.ido-describe-bindings.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/150826/150826022528.ido-describe-bindings.el"
+#+BEGIN_SRC fundamental
+;;; このときidoが使うwindowの高さは大きくした方がいい
+(setq ido-max-window-height 0.75)
+;;; あいまいマッチは入れておこう
+(setq ido-enable-flex-matching t)
+;;; C-n/C-pで選択
+(setq ido-vertical-define-keys 'C-n-and-C-p-only)
+(define-key help-map (kbd "b") 'ido-describe-bindings)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/150826022528.ido-describe-bindings.el
+$ emacs -Q -f package-initialize -l 150826022528.ido-describe-bindings.el
+#+END_EXAMPLE
+

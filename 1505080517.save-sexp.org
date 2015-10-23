@@ -1,0 +1,119 @@
+#+BLOG: rubikitch
+#+POSTID: 1627
+#+DATE: [2015-05-08 Fri 05:17]
+#+PERMALINK: save-sexp
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs
+#+EL_PKG_NAME: save-sexp
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット,  relate:session, emacs データ永続化, elisp データ永続化, elisp データ保存, emacs minibuffer-history 永続化, emacs ミニバッファ 履歴 保存, emacs データ永続化, elisp データ永続化, elisp データ保存, relate:psession, relate:stash, setq, init.el setq 入力,
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: 変数を永続化する・設定ファイルにサッとsetqを挿入する
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージsave-sexpの紹介
+#+MYTAGS: package:save-sexp, emacs 使い方, emacs コマンド, emacs, save-sexp, save-sexp.el, emacs lisp save-sexp, elisp save-sexp, emacs melpa save-sexp, emacs save-sexp 使い方, emacs save-sexp 設定, emacs パッケージ save-sexp, emacs save-sexp スクリーンショット,  relate:session, emacs データ永続化, elisp データ永続化, elisp データ保存, emacs minibuffer-history 永続化, emacs ミニバッファ 履歴 保存, emacs データ永続化, elisp データ永続化, elisp データ保存, relate:psession, relate:stash, setq, init.el setq 入力,
+#+TAGS: package:save-sexp, emacs 使い方, emacs コマンド, emacs, save-sexp, save-sexp.el, emacs lisp save-sexp, elisp save-sexp, emacs melpa save-sexp, emacs save-sexp 使い方, emacs save-sexp 設定, emacs パッケージ save-sexp, emacs save-sexp スクリーンショット,  relate:session, emacs データ永続化, elisp データ永続化, elisp データ保存, emacs minibuffer-history 永続化, emacs ミニバッファ 履歴 保存, emacs データ永続化, elisp データ永続化, elisp データ保存, relate:psession, relate:stash, setq, init.el setq 入力,, Emacs, save-sexp.el, 永続化, M-x insert-setq, 永続化, M-x insert-setq, save-sexp-save-setq, minibuffer-history
+#+TITLE: emacs save-sexp.el : 変数を永続化する・設定ファイルにサッとsetqを挿入する | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>save-sexp</td></tr>
+<tr><td>概要(原文)</td><td>save variables in files using setter forms like `setq'</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/tarsius/save-sexp">https://github.com/tarsius/save-sexp</a></td></tr>
+<tr><td>バージョン</td><td>20130106.642</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:save-sexp/">package:save-sexp</a> <a href="http://rubikitch.com/tag/package:session/">package:session</a> <a href="http://rubikitch.com/tag/package:psession/">package:psession</a> <a href="http://rubikitch.com/tag/package:stash/">package:stash</a></td></tr>
+</table>
+<br />
+#+END_HTML
+この *save-sexp.el* は2つの側面があります。
+
+- 設定ファイルに現在の設定値のsetqを挿入する
+- 変数の値をファイルに書き出し *永続化* する
+
+ユーザサイドにとって嬉しいのが前者、
+elispプログラマにとって嬉しいのが後者です。
+
+Emacsの設定ファイルをいじるとき、
+多くの場合はsetqで変数を設定しますが、
+わざわざsetqフォームを手入力するのは面倒です。
+
+そこで本設定で定義した *M-x insert-setq* で
+カレントバッファに変数の現在値のsetqを挿入させます。
+
+C-c C-iに割り当てているので、
+サクッと設定を加えてしまいましょう。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150508053331.png]]
+Fig1: C-c C-iで変数名を入力
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150508053334.png]]
+Fig2: 現在値のsetqが入力される！
+** save-sexp インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install save-sexp
+
+
+#+end:
+** 概要                                                             :noexport:
+この *save-sexp.el* は2つの側面があります。
+
+- 設定ファイルに現在の設定値のsetqを挿入する
+- 変数の値をファイルに書き出し *永続化* する
+
+ユーザサイドにとって嬉しいのが前者、
+elispプログラマにとって嬉しいのが後者です。
+
+Emacsの設定ファイルをいじるとき、
+多くの場合はsetqで変数を設定しますが、
+わざわざsetqフォームを手入力するのは面倒です。
+
+そこで本設定で定義した *M-x insert-setq* で
+カレントバッファに変数の現在値のsetqを挿入させます。
+
+C-c C-iに割り当てているので、
+サクッと設定を加えてしまいましょう。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150508053331.png]]
+Fig1: C-c C-iで変数名を入力
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150508053334.png]]
+Fig2: 現在値のsetqが入力される！
+** elispプログラマ向け
+
+変数の値をファイルに書き出す *save-sexp-save-setq* 関数は
+ファイル名と変数名を指定するだけでそのファイルに書き出されます。
+
+たとえば、 *minibuffer-history* を書き出すには
+#+BEGIN_SRC emacs-lisp :results silent
+(save-sexp-save-setq "~/.emacs.d/minibuffer-history.el" 'minibuffer-history)
+#+END_SRC
+と書くだけで ~/.emacs.d/minibuffer-history.el に保存されます。
+
+内容は (setq minibuffer-history 〜) のみであり、
+きれいに整形(pretty-print)されています。
+
+後は
+#+BEGIN_SRC emacs-lisp :results silent
+(load "~/.emacs.d/minibuffer-history.el")
+#+END_SRC
+と書けば復元できます。
+
+永続化するライブラリには
+[[http://rubikitch.com/2015/02/06/stash/][stash.el(レビュー)]] がありますが、
+こっちの方が1変数1ファイルとかなりシンプルです。
+
+まさに1粒で2度おいしいelispプログラムです。
+
+

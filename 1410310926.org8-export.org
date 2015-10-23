@@ -1,0 +1,32 @@
+#+BLOG: rubikitch
+#+POSTID: 539
+#+DATE: [2014-10-31 Fri 09:26]
+#+PERMALINK: org8-export
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: メルマガ,
+#+DESCRIPTION:
+#+MYTAGS:
+#+TAGS: , メルマガ,, Emacs 24.4
+#+TITLE: org-modeを使ってコードやグラフが含まれるHTMLを作ろう！
+*Emacs 24.4* がリリースされ、org-modeもorg7から[[http://rubikitch.com/2014/10/21/emacs244-2/][ org8に変わりました]]。
+
+その際、いろいろなところが大きく変更されたのですが、
+他フォーマットへの変換も操作性がガラッと変わってしまいました。
+
+これまでメルマガではorg文書内のコードを再利用する方法を3つ紹介しましたが、
+今回はHTML化したときに、どのようにな形でコードが埋め込まれるのかを
+実例を用いて詳しく見ていきます。
+
+埋め込まれ方は言語によって異なるし、ときに細かい指定が必要になってきます。
+
+もちろん、org8のでの他フォーマットへ変換操作の変更点も紹介します。
+
+今回のメルマガを理解すれば、コードやグラフが含まれるHTMLを簡単に作成できます。
+
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

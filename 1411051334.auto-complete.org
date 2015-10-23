@@ -1,0 +1,276 @@
+#+BLOG: rubikitch
+#+POSTID: 551
+#+DATE: [2014-11-05 Wed 13:34]
+#+PERMALINK: auto-complete
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs
+#+EL_PKG_NAME: auto-complete
+#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p 動画, emacs 自動補完, relate:company
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 動画
+#+EL_TITLE0: 和製自動補完の逆襲！auto-completeとcompany、あなたはどっちがお好み？
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージauto-completeの紹介
+#+MYTAGS: package:auto-complete, emacs 使い方, emacs コマンド, emacs, emacs lisp auto-complete, elisp auto-complete, emacs melpa auto-complete, emacs auto-complete 使い方, emacs auto-complete 設定, emacs パッケージ auto-complete, emacs auto-complete 動画, emacs 自動補完, relate:company
+#+TITLE: emacs auto-complete.el : 和製自動補完の逆襲！auto-completeとcompany、あなたはどっちがお好み？ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 動画
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>auto-complete</td></tr>
+<tr><td>概要(原文)</td><td>Auto Completion for GNU Emacs</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/auto-complete/auto-complete">https://github.com/auto-complete/auto-complete</a></td></tr>
+<tr><td>バージョン</td><td>20141208.809</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:auto-complete/">package:auto-complete</a> <a href="http://rubikitch.com/tag/package:company/">package:company</a></td></tr>
+</table>
+<br />
+#+END_HTML
+久々に *auto-complete.el* がMELPAで更新されていました。
+
+2ヶ月前に *less-css-mode* に対応し、
+今回の更新で [[http://rubikitch.com/2014/08/24/web-mode/][web-mode]] に対応しました。
+
+これを使うと、タイプするだけで自動的に
+補完候補がポップアップしてきます。
+
+これがどういうものかは [[http://www.youtube.com/watch?v=rGVVnDxwJYE][YouTubeのデモ動画]] を見てください。
+
+この前紹介した[[http://rubikitch.com/2014/10/14/company/][company.el]] と機能的にはかぶりますが、
+作者が日本人であることから、
+日本ではこっちの方が知名度があります。
+
+もちろん補完の方法はユーザが自由に作ることができます。
+
+companyでは1つの関数を定義するだけでいいのですが、
+auto-completeではanythingやhelmの情報源(source)
+をモデリングしたデータ構造を定義します。
+
+現時点では以下のメジャーモードに対応しています。
+
+- *emacs-lisp-mode*
+- *lisp-mode*
+- *lisp-interaction-mode*
+- *slime-repl-mode*
+- *c-mode*
+- *cc-mode*
+- *c++-mode*
+- *go-mode*
+- *java-mode*
+- *malabar-mode*
+- *clojure-mode*
+- *clojurescript-mode*
+- *scala-mode*
+- *scheme-mode*
+- *ocaml-mode*
+- *tuareg-mode*
+- *coq-mode*
+- *haskell-mode*
+- *agda-mode*
+- *agda2-mode*
+- *perl-mode*
+- *cperl-mode*
+- *python-mode*
+- *ruby-mode*
+- *lua-mode*
+- *tcl-mode*
+- *ecmascript-mode*
+- *javascript-mode*
+- *js-mode*
+- *js2-mode*
+- *php-mode*
+- *css-mode*
+- *less-css-mode*
+- *makefile-mode*
+- *sh-mode*
+- *fortran-mode*
+- *f90-mode*
+- *ada-mode*
+- *xml-mode*
+- *sgml-mode*
+- *web-mode*
+- *ts-mode*
+- *sclang-mode*
+- *verilog-mode*
+- *qml-mode*
+
+また、MELPAには以下のパッケージが存在します。
+
+- *ac-anaconda*
+- *ac-c-headers*
+- *ac-cake*
+- *ac-cake2*
+- *ac-cider*
+- *ac-dabbrev*
+- *ac-dcd*
+- *ac-emmet*
+- *ac-etags*
+- *ac-geiser*
+- *ac-haskell-process*
+- *ac-helm*
+- *ac-inf-ruby*
+- *ac-ispell*
+- *ac-js2*
+- *ac-math*
+- *ac-octave*
+- *ac-slime*
+- *ac-sly*
+- *auto-complete-auctex*
+- *auto-complete-c-headers*
+- *auto-complete-chunk*
+- *auto-complete-clang*
+- *auto-complete-clang-async*
+- *auto-complete-exuberant-ctags*
+- *auto-complete-nxml*
+- *auto-complete-pcmp*
+- *auto-complete-rst*
+- *auto-complete-sage*
+
+開発されてから5年が経過し、
+対応しているメジャーモードがこれだけ増えたのだから、
+使ってみる価値は十分にあります。
+
+あなた好みの設定を見付け出してください。
+
+[[http://cx4a.org/software/auto-complete/manual.ja.html][詳しい日本語マニュアル]] もあります。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+** auto-complete インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install auto-complete
+
+
+#+end:
+** 概要                                                             :noexport:
+久々に *auto-complete.el* がMELPAで更新されていました。
+
+2ヶ月前に *less-css-mode* に対応し、
+今回の更新で [[http://rubikitch.com/2014/08/24/web-mode/][web-mode]] に対応しました。
+
+これを使うと、タイプするだけで自動的に
+補完候補がポップアップしてきます。
+
+これがどういうものかは [[http://www.youtube.com/watch?v=rGVVnDxwJYE][YouTubeのデモ動画]] を見てください。
+
+この前紹介した[[http://rubikitch.com/2014/10/14/company/][company.el]] と機能的にはかぶりますが、
+作者が日本人であることから、
+日本ではこっちの方が知名度があります。
+
+もちろん補完の方法はユーザが自由に作ることができます。
+
+companyでは1つの関数を定義するだけでいいのですが、
+auto-completeではanythingやhelmの情報源(source)
+をモデリングしたデータ構造を定義します。
+
+現時点では以下のメジャーモードに対応しています。
+
+- *emacs-lisp-mode*
+- *lisp-mode*
+- *lisp-interaction-mode*
+- *slime-repl-mode*
+- *c-mode*
+- *cc-mode*
+- *c++-mode*
+- *go-mode*
+- *java-mode*
+- *malabar-mode*
+- *clojure-mode*
+- *clojurescript-mode*
+- *scala-mode*
+- *scheme-mode*
+- *ocaml-mode*
+- *tuareg-mode*
+- *coq-mode*
+- *haskell-mode*
+- *agda-mode*
+- *agda2-mode*
+- *perl-mode*
+- *cperl-mode*
+- *python-mode*
+- *ruby-mode*
+- *lua-mode*
+- *tcl-mode*
+- *ecmascript-mode*
+- *javascript-mode*
+- *js-mode*
+- *js2-mode*
+- *php-mode*
+- *css-mode*
+- *less-css-mode*
+- *makefile-mode*
+- *sh-mode*
+- *fortran-mode*
+- *f90-mode*
+- *ada-mode*
+- *xml-mode*
+- *sgml-mode*
+- *web-mode*
+- *ts-mode*
+- *sclang-mode*
+- *verilog-mode*
+- *qml-mode*
+
+また、MELPAには以下のパッケージが存在します。
+
+- *ac-anaconda*
+- *ac-c-headers*
+- *ac-cake*
+- *ac-cake2*
+- *ac-cider*
+- *ac-dabbrev*
+- *ac-dcd*
+- *ac-emmet*
+- *ac-etags*
+- *ac-geiser*
+- *ac-haskell-process*
+- *ac-helm*
+- *ac-inf-ruby*
+- *ac-ispell*
+- *ac-js2*
+- *ac-math*
+- *ac-octave*
+- *ac-slime*
+- *ac-sly*
+- *auto-complete-auctex*
+- *auto-complete-c-headers*
+- *auto-complete-chunk*
+- *auto-complete-clang*
+- *auto-complete-clang-async*
+- *auto-complete-exuberant-ctags*
+- *auto-complete-nxml*
+- *auto-complete-pcmp*
+- *auto-complete-rst*
+- *auto-complete-sage*
+
+開発されてから5年が経過し、
+対応しているメジャーモードがこれだけ増えたのだから、
+使ってみる価値は十分にあります。
+
+あなた好みの設定を見付け出してください。
+
+[[http://cx4a.org/software/auto-complete/manual.ja.html][詳しい日本語マニュアル]] もあります。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+** 設定 [[http://rubikitch.com/f/141105134632.auto-complete.el][141105134632.auto-complete.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/141105/141105134632.auto-complete.el"
+#+BEGIN_SRC fundamental
+(require 'auto-complete-config)
+(ac-config-default)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/141105134632.auto-complete.el
+$ emacs -Q -f package-initialize -l 141105134632.auto-complete.el
+#+END_EXAMPLE
+
+タイプしてしばらく待つと補完候補がポップアップしますので、
+M-p/M-nで選択してください。
+
+ポップアップ中でもカーソルが移動できるようにするために
+C-p/C-nには割り当てられていません。

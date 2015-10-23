@@ -1,0 +1,102 @@
+#+BLOG: rubikitch
+#+POSTID: 391
+#+DATE: [2014-09-26 Fri 11:27]
+#+PERMALINK: google-this
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t
+#+ISPAGE: nil
+#+DESCRIPTION: M-x google-thisを実行すれば現在のシンボル・単語・regionをググる
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs
+#+EL_PKG_NAME: google-this
+#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs google検索 カーソル位置, emacs ググる 方法, emacs ググれカス, emacs リージョン ググる google 検索, emacs シンボル ググる google 検索, ググれカス, ggrks, relate:helm-google
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方
+#+EL_TITLE0: Emacsからググるたった1つのコマンド
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージgoogle-thisの紹介
+#+MYTAGS: package:google-this, emacs 使い方, emacs コマンド, emacs, emacs lisp google-this, elisp google-this, emacs melpa google-this, emacs google-this 使い方, emacs google-this 設定, emacs パッケージ google-this, emacs google検索 カーソル位置, emacs ググる 方法, emacs ググれカス, emacs リージョン ググる google 検索, emacs シンボル ググる google 検索, ググれカス, ggrks, relate:helm-google
+#+TAGS: package:google-this, emacs 使い方, emacs コマンド, emacs, emacs lisp google-this, elisp google-this, emacs melpa google-this, emacs google-this 使い方, emacs google-this 設定, emacs パッケージ google-this, emacs google検索 カーソル位置, emacs ググる 方法, emacs ググれカス, emacs リージョン ググる google 検索, emacs シンボル ググる google 検索, ググれカス, ggrks, relate:helm-google, Emacs, google-this.el, M-x google-this, google-this.el, M-x google-this
+#+TITLE: emacs google-this.el : Emacsからググるたった1つのコマンド | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>google-this</td></tr>
+<tr><td>概要(原文)</td><td>A set of functions and bindings to google under point.</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/Malabarba/emacs-google-this">https://github.com/Malabarba/emacs-google-this</a></td></tr>
+<tr><td>バージョン</td><td>20150522.240</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:google-this/">package:google-this</a> <a href="http://rubikitch.com/tag/package:helm-google/">package:helm-google</a></td></tr>
+</table>
+<br />
+#+END_HTML
+なんか今更感があるけど、EmacsからGoogle検索をする方法です。
+
+Emacsを使っている多くの人が自前で「Emacsからググるコマンド」を
+作っているかもしれません。
+
+非公開のものも入れればきっと星の数ほど実装がありそうですが、
+*google-this.el* はMELPAに置いてある最新の実装です。
+
+その中にはたくさんのコマンドが定義されていて、
+マイナーモード化もされているのですが
+実用上、たった一つのコマンドを知っていれば問題ありません。
+
+*M-x google-this* は空気を読んでググってくれます。
+
+- regionが指定してあるときはその内容
+- 現在のシンボル
+- 現在の単語
+
+
+** google-this インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install google-this
+
+
+#+end:
+** 概要                                                             :noexport:
+なんか今更感があるけど、EmacsからGoogle検索をする方法です。
+
+Emacsを使っている多くの人が自前で「Emacsからググるコマンド」を
+作っているかもしれません。
+
+非公開のものも入れればきっと星の数ほど実装がありそうですが、
+*google-this.el* はMELPAに置いてある最新の実装です。
+
+その中にはたくさんのコマンドが定義されていて、
+マイナーモード化もされているのですが
+実用上、たった一つのコマンドを知っていれば問題ありません。
+
+*M-x google-this* は空気を読んでググってくれます。
+
+- regionが指定してあるときはその内容
+- 現在のシンボル
+- 現在の単語
+
+
+
+** 設定 [[http://rubikitch.com/f/140926112330.google-this.el][140926112330.google-this.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/140926/140926112330.google-this.el"
+#+BEGIN_SRC fundamental
+;;; マイナーモードとして使いたいならば以下の設定
+(setq google-this-keybind (kbd "C-x g"))
+(google-this-mode 1)
+(require 'google-this)
+(setq google-this-location-suffix "co.jp")
+(defun google-this-url () "URL for google searches."
+  ;; 100件/日本語ページ/5年以内ならこのように設定する
+  (concat google-this-base-url google-this-location-suffix
+          "/search?q=%s&hl=ja&num=100&as_qdr=y5&lr=lang_ja"))
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/140926112330.google-this.el
+$ emacs -Q -f package-initialize -l 140926112330.google-this.el
+#+END_EXAMPLE
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

@@ -1,0 +1,27 @@
+#+BLOG: rubikitch
+#+POSTID: 1883
+#+DATE: [2015-08-07 Fri 03:15]
+#+PERMALINK: melmag
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: メルマガ,
+#+DESCRIPTION: るびきち塾メルマガ『Emacsの鬼るびきちのココだけの話#193』の予告
+#+TITLE: 【メルマガ#193】るびきち黎明期を知りたい？
+#+MYTAGS: 
+#+begin: org2blog-tags
+#+TAGS: , メルマガ,, 
+#+end:
+今回も雑談回です。
+
+僕が著者になる直前の出来事について赤裸々に語りました。
+
+もし、あなたが何かに苦しんでいるのであれば
+今回のお話は、きっと役立つかもしれません。
+
+そして、僕が「人生の教科書」にしている本を
+あなたにこっそり教えます。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

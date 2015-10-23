@@ -1,0 +1,126 @@
+#+BLOG: rubikitch
+#+POSTID: 295
+#+DATE: [2014-09-06 Sat 04:46]
+#+PERMALINK: linked-buffer
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs
+#+EL_PKG_NAME: lentic
+#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, emacs indirect-buffer, emacs org-mode babel, emacs org-babel, emacs 文芸的プログラミング, emacs 複数のメジャーモード, emacs mmm-mode, relate:org, relate:multifiles, linked-buffer.el
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: 【linked-bufferから改名】1つのファイルで複数のメジャーモードを使う直観的な方法！org-babelが便利に
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージlenticの紹介
+#+MYTAGS: package:lentic, emacs 使い方, emacs コマンド, emacs, emacs lisp lentic, elisp lentic, emacs melpa lentic, emacs lentic 使い方, emacs lentic 設定, emacs パッケージ lentic, emacs lentic スクリーンショット, emacs indirect-buffer, emacs org-mode babel, emacs org-babel, emacs 文芸的プログラミング, emacs 複数のメジャーモード, emacs mmm-mode, relate:org, relate:multifiles, linked-buffer.el
+#+TITLE: emacs lentic.el : 【linked-bufferから改名】1つのファイルで複数のメジャーモードを使う直観的な方法！org-babelが便利に | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>lentic</td></tr>
+<tr><td>概要(原文)</td><td>One buffer as a view of another</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/phillord/lentic">https://github.com/phillord/lentic</a></td></tr>
+<tr><td>バージョン</td><td>20141227.546</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:lentic/">package:lentic</a> <a href="http://rubikitch.com/tag/package:org/">package:org</a> <a href="http://rubikitch.com/tag/package:multifiles/">package:multifiles</a></td></tr>
+</table>
+<br />
+#+END_HTML
+<2014-12-16 Tue>linked-bufferからlenticに改名されました。
+
+今回はすごいマイナーなパッケージを紹介します。
+
+というか知られてなさすぎて日本語のブログでは取り上げられてないです。
+
+lentic.elは *indirect-buffer* のように
+同じ内容をキープし続ける2つのバッファを使って
+1つのバッファで複数のメジャーモードを実現させます。
+
+2つのバッファを同時に表示して、カーソル位置も連動してくれるので、
+単にウィンドウを切り替えるだけでメジャーモードを使い分けられます。
+
+*org-mode* で文書中にソースコードを書くときに使うと便利です。
+
+逆に、複数のファイルを1つのバッファに統合するには [[http://rubikitch.com/2014/09/06/multifiles/][multifiles.el]] を使います。
+** lentic インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install lentic
+
+
+#+end:
+** 概要                                                             :noexport:
+<2014-12-16 Tue>linked-bufferからlenticに改名されました。
+
+今回はすごいマイナーなパッケージを紹介します。
+
+というか知られてなさすぎて日本語のブログでは取り上げられてないです。
+
+lentic.elは *indirect-buffer* のように
+同じ内容をキープし続ける2つのバッファを使って
+1つのバッファで複数のメジャーモードを実現させます。
+
+2つのバッファを同時に表示して、カーソル位置も連動してくれるので、
+単にウィンドウを切り替えるだけでメジャーモードを使い分けられます。
+
+*org-mode* で文書中にソースコードを書くときに使うと便利です。
+
+逆に、複数のファイルを1つのバッファに統合するには [[http://rubikitch.com/2014/09/06/multifiles/][multifiles.el]] を使います。
+** 設定 [[http://rubikitch.com/f/140906050929.linked-buffer.1.el][140906050929.linked-buffer.1.el(以下のコードと同一)]]
+autoloadの設定がされていないので、requireの必要があります。
+
+#+BEGIN: include :file "/r/sync/junk/140906/140906050929.linked-buffer.1.el"
+#+BEGIN_SRC fundamental
+(require 'lentic)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/140906050929.linked-buffer.1.el
+$ emacs -Q -f package-initialize -l 140906050929.linked-buffer.1.el
+#+END_EXAMPLE
+
+** 使い方
+たとえば、こんなorg文書があるとします。
+
+#+BEGIN_EXAMPLE
+==== ここから
+org-babelでorg文書にソースコード書けるよねー。
+
+#+begin_src emacs-lisp
+(setq hoge 100)
+#+end_src
+
+けれど、毎回 C-c ' するの面倒！
+
+#+BEGIN_SRC emacs-lisp
+(defun hoge ()
+  (+ (length "abc") 999))
+#+END_SRC
+
+そこでlenticを使いましょう。
+==== ここまで
+#+END_EXAMPLE
+
+
+この状態で *M-x lentic-split-window-right* を実行すると、
+右側に同じ内容のバッファが登場します。
+
+そして、一方のカーソルを動かすと、他方のカーソルも移動し、
+一方を編集すると、他方も編集されます。
+
+ここで右側のバッファを *emacs-lisp-mode* にしておけば、
+ソースブロックをそのまま編集できます。
+
+ただし、保存は元のバッファで行ってください。
+
+なお、上下分割バージョンは *M-x lentic-split-window-below* です。
+
+まだ開発が始まったばかりなので、今後に期待です。
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+http://rubikitch.com/f/20140906051044.png
+Fig1: 左右のバッファを連動させて編集！！

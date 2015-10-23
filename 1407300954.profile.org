@@ -1,0 +1,16 @@
+#+BLOG: rubikitch
+#+POSTID: 37
+#+DATE: [2014-07-30 Wed 09:54]
+#+PERMALINK: profile
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t
+#+ISPAGE: nil
+#+DESCRIPTION:
+#+BLOG: rubikitch
+#+CATEGORY:
+#+DESCRIPTION:
+#+TAGS:
+#+TITLE: 自己紹介ページ完成
+[[http://rubikitch.com/profile/][自己紹介]] のページを作成しました。
+
+それでは、Emacs Lisp紹介記事を書くための
+*yasnippet* テンプレートを作ってきます。

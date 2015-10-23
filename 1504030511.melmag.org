@@ -1,0 +1,45 @@
+#+BLOG: rubikitch
+#+POSTID: 1412
+#+DATE: [2015-04-03 Fri 05:11]
+#+PERMALINK: melmag
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: メルマガ,
+#+DESCRIPTION: るびきち塾メルマガ『Emacsの鬼るびきちのココだけの話#175』の予告
+#+TITLE: 【メルマガ#175】elisp添削の実況中継・前編
+#+MYTAGS: 
+#+begin: org2blog-tags
+#+TAGS: , メルマガ,, 
+#+end:
+新年度初のメルマガはelisp添削の実況です。
+
+「るびきち塾」の根幹は読者のメールサポートで、
+Emacsに関すること関しないことなんでも受け付けています。
+
+もちろんelispの添削もやっています。
+
+とりあえずプログラムを書いたけど
+「ここをどのようにすればいいかわからない」
+「より良い書き方はないのかな？」
+「この処理を行うライブラリはないの？」
+などの疑問を、毎日elispを読んでいる僕が
+あなたのレベルに応じて御答えします。
+
+今回と次回はelispを書き始めたばかりの読者との添削実況で、
+20日間、30通ものメールのやりとりをした結果、
+あなたにシェアしたい内容を凝縮してお伝えします。
+
+プログラムの内容は、CSVファイルを処理して、
+2つの出力形式のバッファに出力するものです。
+
+元々はファイルの各行を処理する方法の質問でしたが、
+だんだん話が広がっていくのでした…
+
+登録はコチラ
+↓
+http://www.mag2.com/m/0001373131.html
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

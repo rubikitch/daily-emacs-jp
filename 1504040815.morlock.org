@@ -1,0 +1,148 @@
+#+BLOG: rubikitch
+#+POSTID: 1422
+#+DATE: [2015-04-04 Sat 08:15]
+#+PERMALINK: morlock
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, Emacs Lisp, 
+#+EL_PKG_NAME: morlock
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, relate:font-lock, relate:lisp-mode, emacs-lispで新しいキーワードをハイライトする, font-lockのルールを追加, emacs-lispのfont-lockの設定, font-lock-mode, emacs-lisp-mode
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: 【font-lock】emacs-lisp-modeでハイライトするキーワードを超簡単に追加する
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージmorlockの紹介
+#+MYTAGS: package:morlock, emacs 使い方, emacs コマンド, emacs, morlock, morlock.el, emacs lisp morlock, elisp morlock, emacs melpa morlock, emacs morlock 使い方, emacs morlock 設定, emacs パッケージ morlock, emacs morlock スクリーンショット, relate:font-lock, relate:lisp-mode, emacs-lispで新しいキーワードをハイライトする, font-lockのルールを追加, emacs-lispのfont-lockの設定, font-lock-mode, emacs-lisp-mode
+#+TAGS: package:morlock, emacs 使い方, emacs コマンド, emacs, morlock, morlock.el, emacs lisp morlock, elisp morlock, emacs melpa morlock, emacs morlock 使い方, emacs morlock 設定, emacs パッケージ morlock, emacs morlock スクリーンショット, relate:font-lock, relate:lisp-mode, emacs-lispで新しいキーワードをハイライトする, font-lockのルールを追加, emacs-lispのfont-lockの設定, font-lock-mode, emacs-lisp-mode, Emacs, Emacs Lisp, , font-lock, morlock.el, morlock-mode, M-x morlock-mode, font-lock, morlock.el, morlock-mode, M-x morlock-mode
+#+TITLE: emacs morlock.el : 【font-lock】emacs-lisp-modeでハイライトするキーワードを超簡単に追加する | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>morlock</td></tr>
+<tr><td>概要(原文)</td><td>more font-lock keywords for elisp</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/tarsius/morlock">https://github.com/tarsius/morlock</a></td></tr>
+<tr><td>バージョン</td><td>20141223.925</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:morlock/">package:morlock</a> <a href="http://rubikitch.com/tag/package:font-lock/">package:font-lock</a> <a href="http://rubikitch.com/tag/package:lisp-mode/">package:lisp-mode</a></td></tr>
+</table>
+<br />
+#+END_HTML
+パッケージ時代でelispは多くのライブラリにアクセスできるようになりました。
+
+Lispという言語は簡単にDSL(ドメイン特化言語)を定義できる柔軟性があるため、
+新たに「キーワード」が定義しているライブラリも多くあります。
+
+そういう新しいキーワードに *font-lock* で色付けできたら素敵だと思いませんか？
+
+本来font-lockは設定が難しいのですが、この *morlock.el* を使えば、
+ハイライトしたいキーワードを簡単に設定できます。
+
+この設定を有効にすれば、新たに以下のキーワードに色が付きます。
+
+- cl-dotimes
+- cl-dolist
+- cl-declare
+- and
+- or
+- not
+- define-button-type
+- define-namespace
+
+*morlock-mode* が有効時にキーワードの設定を変更したら、
+*M-x morlock-mode* を2度実行すれば色付けが反映されます。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150404082608.png]]
+Fig1: before
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150404082614.png]]
+Fig2: after
+
+
+** morlock インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install morlock
+
+
+#+end:
+** 概要                                                             :noexport:
+パッケージ時代でelispは多くのライブラリにアクセスできるようになりました。
+
+Lispという言語は簡単にDSL(ドメイン特化言語)を定義できる柔軟性があるため、
+新たに「キーワード」が定義しているライブラリも多くあります。
+
+そういう新しいキーワードに *font-lock* で色付けできたら素敵だと思いませんか？
+
+本来font-lockは設定が難しいのですが、この *morlock.el* を使えば、
+ハイライトしたいキーワードを簡単に設定できます。
+
+この設定を有効にすれば、新たに以下のキーワードに色が付きます。
+
+- cl-dotimes
+- cl-dolist
+- cl-declare
+- and
+- or
+- not
+- define-button-type
+- define-namespace
+
+*morlock-mode* が有効時にキーワードの設定を変更したら、
+*M-x morlock-mode* を2度実行すれば色付けが反映されます。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150404082608.png]]
+Fig1: before
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150404082614.png]]
+Fig2: after
+
+
+
+** 設定 [[http://rubikitch.com/f/150404075540.morlock.1.el][150404075540.morlock.1.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/150404/150404075540.morlock.1.el"
+#+BEGIN_SRC fundamental
+(require 'morlock)
+(progn                              ;キーワードを追加したらC-M-xで反映
+  ;; 新しいキーワード
+  (setq morlock-op-font-lock-keywords
+        `((,(format "(\\(%s\\)\\>"
+                    ;; ここに追加する
+                    (regexp-opt '("and" "or" "not")))
+           1 'font-lock-keyword-face)))
+  ;; define-*系キーワード
+  (setq morlock-el-font-lock-keywords
+        `((,(format "(\\(%s\\)\\>[ \t'\(]*\\(\\(?:\\sw\\|\\s_\\)+\\)?"
+                    ;; ここに追加する
+                    (regexp-opt '("define-button-type" "define-namespace")))
+           (1 'font-lock-keyword-face)
+           (2 'font-lock-variable-name-face nil t))))
+  (setq morlock-font-lock-keywords
+        (append morlock-el-font-lock-keywords
+                morlock-op-font-lock-keywords
+                morlock-cl-font-lock-keywords)))
+
+;;; 新しいキーワードをemacs-lisp-modeで有効にする
+(global-morlock-mode 1)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/150404075540.morlock.1.el
+$ emacs -Q -f package-initialize -l 150404075540.morlock.1.el
+#+END_EXAMPLE
+
+
+
+# /r/sync/screenshots/20150404082608.png http://rubikitch.com/wp-content/uploads/2015/04/wpid-20150404082608.png
+# /r/sync/screenshots/20150404082614.png http://rubikitch.com/wp-content/uploads/2015/04/wpid-20150404082614.png

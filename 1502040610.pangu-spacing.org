@@ -1,0 +1,118 @@
+#+BLOG: rubikitch
+#+POSTID: 1076
+#+DATE: [2015-02-04 Wed 06:10]
+#+PERMALINK: pangu-spacing
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs
+#+EL_PKG_NAME: pangu-spacing
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, emacs 全角 半角 スペース, emacs text-adjust.el, emacs 自動スペース, emacs 日本語 英語 スペース, emacs 中国語 英語 スペース, emacs 半角文字と全角文字の間に自動でスペース, 日本語, 中国語
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: 全角と半角の間に自動でスペースを入れる新実装
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージpangu-spacingの紹介
+#+MYTAGS: package:pangu-spacing, emacs 使い方, emacs コマンド, emacs, pangu-spacing, pangu-spacing.el, emacs lisp pangu-spacing, elisp pangu-spacing, emacs melpa pangu-spacing, emacs pangu-spacing 使い方, emacs pangu-spacing 設定, emacs パッケージ pangu-spacing, emacs pangu-spacing スクリーンショット, emacs 全角 半角 スペース, emacs text-adjust.el, emacs 自動スペース, emacs 日本語 英語 スペース, emacs 中国語 英語 スペース, emacs 半角文字と全角文字の間に自動でスペース, 日本語, 中国語
+#+TAGS: package:pangu-spacing, emacs 使い方, emacs コマンド, emacs, pangu-spacing, pangu-spacing.el, emacs lisp pangu-spacing, elisp pangu-spacing, emacs melpa pangu-spacing, emacs pangu-spacing 使い方, emacs pangu-spacing 設定, emacs パッケージ pangu-spacing, emacs pangu-spacing スクリーンショット, emacs 全角 半角 スペース, emacs text-adjust.el, emacs 自動スペース, emacs 日本語 英語 スペース, emacs 中国語 英語 スペース, emacs 半角文字と全角文字の間に自動でスペース, 日本語, 中国語, Emacs, text-adjust.el, pangu-spacing.el, pangu-spacing-real-insert-separtor, text-adjust.el, pangu-spacing.el, pangu-spacing-real-insert-separtor
+#+TITLE: emacs pangu-spacing.el : 全角と半角の間に自動でスペースを入れる新実装 | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>pangu-spacing</td></tr>
+<tr><td>概要(原文)</td><td>Minor-mode to add space between Chinese and English characters.</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/coldnew/pangu-spacing">https://github.com/coldnew/pangu-spacing</a></td></tr>
+<tr><td>バージョン</td><td>20150202.1910</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:pangu-spacing/">package:pangu-spacing</a> </td></tr>
+</table>
+<br />
+#+END_HTML
+日本語においては、いわゆる半角文字と全角文字の間にスペースを
+入れた方が見やすいと言われています。
+
+それを自動で行ってくれるパッケージは
+かつて *text-adjust.el* がありましたが、
+今はメンテナンスされていないようです。
+
+そこで、この *pangu-spacing.el* を使ってみてください。
+
+元々は中国語と英語の間に自動でスペースを入れるものですが、
+正規表現を日本語用に書き換えてしまえばそのまま日本語で使えます。
+
+変数 *pangu-spacing-real-insert-separtor* をtに設定することで、
+ファイル書き込み時に全角・半角間に実際にスペースを挿入します。
+
+ファイルに書き込まれるまではオーバーレイにより
+見た目上スペースが入っているだけです。
+
+中国産なんて嫌という嫌中でない限り、使ってみる価値はあります(笑)
+
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+[[file:/r/sync/screenshots/20150204062311.png]]
+Fig1: 全角・半角間に自動でスペース挿入！
+** pangu-spacing インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install pangu-spacing
+
+
+#+end:
+** 概要                                                             :noexport:
+日本語においては、いわゆる半角文字と全角文字の間にスペースを
+入れた方が見やすいと言われています。
+
+それを自動で行ってくれるパッケージは
+かつて *text-adjust.el* がありましたが、
+今はメンテナンスされていないようです。
+
+そこで、この *pangu-spacing.el* を使ってみてください。
+
+元々は中国語と英語の間に自動でスペースを入れるものですが、
+正規表現を日本語用に書き換えてしまえばそのまま日本語で使えます。
+
+変数 *pangu-spacing-real-insert-separtor* をtに設定することで、
+ファイル書き込み時に全角・半角間に実際にスペースを挿入します。
+
+ファイルに書き込まれるまではオーバーレイにより
+見た目上スペースが入っているだけです。
+
+中国産なんて嫌という嫌中でない限り、使ってみる価値はあります(笑)
+
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+[[file:/r/sync/screenshots/20150204062311.png]]
+Fig1: 全角・半角間に自動でスペース挿入！
+
+** 設定 [[http://rubikitch.com/f/150204060643.pangu-spacing.el][150204060643.pangu-spacing.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/150204/150204060643.pangu-spacing.el"
+#+BEGIN_SRC fundamental
+;;; chinse-two-byte→japaneseに置き換えるだけで日本語でも使える
+(setq pangu-spacing-chinese-before-english-regexp
+  (rx (group-n 1 (category japanese))
+      (group-n 2 (in "a-zA-Z0-9"))))
+(setq pangu-spacing-chinese-after-english-regexp
+  (rx (group-n 1 (in "a-zA-Z0-9"))
+      (group-n 2 (category japanese))))
+;;; 見た目ではなくて実際にスペースを入れる
+(setq pangu-spacing-real-insert-separtor t)
+;; text-modeやその派生モード(org-mode等)のみに使いたいならこれ
+(add-hook 'text-mode-hook 'pangu-spacing-mode)
+;; すべてのメジャーモードに使ってみたい人はこれを
+;; (global-pangu-spacing-mode 1)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/150204060643.pangu-spacing.el
+$ emacs -Q -f package-initialize -l 150204060643.pangu-spacing.el
+#+END_EXAMPLE
+
+# /r/sync/screenshots/20150204062311.png http://rubikitch.com/wp-content/uploads/2015/02/wpid-20150204062311.png

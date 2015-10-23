@@ -1,0 +1,205 @@
+#+BLOG: rubikitch
+#+POSTID: 564
+#+DATE: [2014-11-09 Sun 09:44]
+#+PERMALINK: mykie
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs
+#+EL_PKG_NAME: mykie
+#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, emacs キー割り当て, emacs キーバインド, emacs 空気読める, emacs global-set-key, relate:org, relate:winner
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方
+#+EL_TITLE0: 1つのキーに複数の機能を割り当てる記憶にやさしいキーバインド節約術
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージmykieの紹介
+#+MYTAGS: package:mykie, emacs 使い方, emacs コマンド, emacs, emacs lisp mykie, elisp mykie, emacs melpa mykie, emacs mykie 使い方, emacs mykie 設定, emacs パッケージ mykie, emacs mykie スクリーンショット, emacs キー割り当て, emacs キーバインド, emacs 空気読める, emacs global-set-key, relate:org, relate:winner
+#+TITLE: emacs mykie.el : 1つのキーに複数の機能を割り当てる記憶にやさしいキーバインド節約術 | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>mykie</td></tr>
+<tr><td>概要(原文)</td><td>Command multiplexer: Register multiple functions to a keybind</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/yuutayamada/mykie-el">https://github.com/yuutayamada/mykie-el</a></td></tr>
+<tr><td>バージョン</td><td>20140221.1925</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:mykie/">package:mykie</a> <a href="http://rubikitch.com/tag/package:org/">package:org</a> <a href="http://rubikitch.com/tag/package:winner/">package:winner</a></td></tr>
+</table>
+<br />
+#+END_HTML
+このパッケージは僕がずっと愛用していてお気に入りです。
+
+当サイトの設定にもしばしば登場させたいので、ここで紹介しておきます。
+
+Emacsには無数のコマンドがキーに割り当てられています。
+
+しかし、自分の好きなコマンドをすべてキーに割り当てるには、
+あまりにもキーの数が不足しています。
+
+おまけに使用頻度の低いコマンドは忘れ去られてしまいます。
+
+そこで、複数の機能を持つコマンドを定義して
+キーに割り当てるのが現実的な答えとなります。
+
+それを行うのが *mykie.el* です。
+
+mykie.elは状況によって挙動を変化させるコマンドを定義します。
+
+状況とは、
+- C-uを押したとき
+- 繰り返し起動したとき
+- regionが設定されているとき
+- 行頭
+- 行末
+- メジャーモード特定のとき
+- カーソル位置がURLのとき
+- ミニバッファのとき
+- コメントカーソル位置のとき
+などなどです。
+
+様々な関数やマクロが用意されていますが
+*mykie:global-set-key* を知っていればそれで十分です。
+
+#+BEGIN_EXAMPLE
+(mykie:global-set-key kbdによるキー表記
+  キーワード 値
+  キーワード 値
+  ...)
+#+END_EXAMPLE
+
+mykie:global-set-keyは1つのキーを登録するマクロですが、
+*mykie:set-keys* で、ひとまとめにキーを登録することもできます。
+
+僕はmykie:global-set-keyを使っていますが、好みに応じて。
+
+作者による日本語の解説があります。
+
+http://sleepboy-zzz.blogspot.com/2013/12/emacsmykieel.html
+http://sleepboy-zzz.blogspot.com/2014/02/mykieel-v021.html
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+** mykie インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install mykie
+
+
+#+end:
+** 概要                                                             :noexport:
+このパッケージは僕がずっと愛用していてお気に入りです。
+
+当サイトの設定にもしばしば登場させたいので、ここで紹介しておきます。
+
+Emacsには無数のコマンドがキーに割り当てられています。
+
+しかし、自分の好きなコマンドをすべてキーに割り当てるには、
+あまりにもキーの数が不足しています。
+
+おまけに使用頻度の低いコマンドは忘れ去られてしまいます。
+
+そこで、複数の機能を持つコマンドを定義して
+キーに割り当てるのが現実的な答えとなります。
+
+それを行うのが *mykie.el* です。
+
+mykie.elは状況によって挙動を変化させるコマンドを定義します。
+
+状況とは、
+- C-uを押したとき
+- 繰り返し起動したとき
+- regionが設定されているとき
+- 行頭
+- 行末
+- メジャーモード特定のとき
+- カーソル位置がURLのとき
+- ミニバッファのとき
+- コメントカーソル位置のとき
+などなどです。
+
+様々な関数やマクロが用意されていますが
+*mykie:global-set-key* を知っていればそれで十分です。
+
+#+BEGIN_EXAMPLE
+(mykie:global-set-key kbdによるキー表記
+  キーワード 値
+  キーワード 値
+  ...)
+#+END_EXAMPLE
+
+mykie:global-set-keyは1つのキーを登録するマクロですが、
+*mykie:set-keys* で、ひとまとめにキーを登録することもできます。
+
+僕はmykie:global-set-keyを使っていますが、好みに応じて。
+
+作者による日本語の解説があります。
+
+http://sleepboy-zzz.blogspot.com/2013/12/emacsmykieel.html
+http://sleepboy-zzz.blogspot.com/2014/02/mykieel-v021.html
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+** 僕が使っている主な設定
+僕はウィンドウ構成を戻す *winner.el* を愛用していますが、
+*M-x winner-undo* と *M-x winner-redo* は対になっているので、
+C-qにまとめています。
+
+また、org-modeで時間計測をしていますが、
+*M-x org-clock-out* と *M-x org-clock-goto* は
+いつでも使えるようにしたいので、まとめています。
+
+mykieでC-uに対応するコマンドを実行するとき、
+*current-prefix-arg* (C-uの情報)もそのまま渡ってしまいます。
+
+これをリセットするには:C-u!を指定します。
+
+org-clock-outはC-uを読んでしまうので、そうする必要があります。
+
+作者さんのコメントを反映しました。
+ありがとうございます。
+
+#+BEGIN: include :file "/r/sync/junk/141109/141109095459.mykie.el"
+#+BEGIN_SRC fundamental
+(require 'mykie)
+(mykie:global-set-key "C-q"
+  :default winner-undo
+  :C-u     winner-redo)
+(global-unset-key (kbd "C-l"))
+(mykie:global-set-key "C-l C-o"
+  :default org-clock-goto
+  :C-u! org-clock-out)
+#+END_SRC
+
+#+END:
+
+** 使えるキーワード
+| :default or t      | Call this if conditions aren't matched all conditions      |
+| :C-u               | Call this if you pushed C-u key before pushing the key     |
+| :C-u*N             | Call this if you pushed N times of C-u                     |
+| :M-N               | Call this if you pushed such as M-1                        |
+| :region            | Call this if you are selecting region                      |
+| :region&C-u        | Call this if you satisfied :region & :C-u condition        |
+| :repeat            | Call this if you repeat same command at same point         |
+| :bolp              | Call this if current point is beginning of line            |
+| :eolp              | Call this if current point is end of line                  |
+| :bobp              | Call this if current point is beginning of buffer          |
+| :eobp              | Call this if current point is end of buffer                |
+| :C-u&bolp          | Call this if you satisfied :C-u & :bolp                    |
+| :C-u&eolp          | Call this if you satisfied :C-u & :eolp                    |
+| :C-u&bobp          | Call this if you satisfied :C-u & :bobp                    |
+| :C-u&eobp          | Call this if you satisfied :C-u & :eobp                    |
+| :email             | Call this if current point matched (thing-at-point 'email) |
+| :C-u&email         | Call this if you satisfied :C-u & :email                   |
+| :url               | Call this if current point matched (thing-at-point 'url)   |
+| :C-u&url           | Call this if you satisfied :C-u & :url                     |
+| :MAJOR-MODE        | Call this if :MAJOR-MODE matched `major-mode'.             |
+| :C-u&MAJOR-MODE    | Call this if you satisfied :C-u & :MAJOR-MODE              |
+| :region&MAJOR-MODE | Call this if you satisfied :region & :MAJOR-MODE           |
+| :prog              | Call this if current buffer is related `prog-mode'         |
+| :C-u&prog          | Call this if you satisfied :C-u & :prog                    |
+| :region&prog       | Call this if you satisfied :region & :prog                 |
+| :err               | Call this if error is exists of flymake or flycheck.       |
+| :C-u&err           | Call this if you satisfied :C-u & :err                     |
+| :region&err        | Call this if you satisfied :region & :err                  |
+| :minibuff          | Call this if current point is in minibuffer                |
+| :readonly          | Call this if current buffer is read-only                   |
+| :comment           | Call this if current point is string or comment face       |

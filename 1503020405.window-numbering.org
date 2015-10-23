@@ -1,0 +1,94 @@
+#+BLOG: rubikitch
+#+POSTID: 1236
+#+DATE: [2015-03-02 Mon 04:05]
+#+PERMALINK: window-numbering
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs
+#+EL_PKG_NAME: window-numbering
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, relate:win-switch, relate:switch-window, relate:ace-window, emacs ウィンドウ 切り替え, emacs C-x o 改善, ウィンドウ切り替え, 
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: 【3分割以上の人へ】ウィンドウを番号(M-0〜M-9)で選択
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージwindow-numberingの紹介
+#+MYTAGS: package:window-numbering, emacs 使い方, emacs コマンド, emacs, window-numbering, window-numbering.el, emacs lisp window-numbering, elisp window-numbering, emacs melpa window-numbering, emacs window-numbering 使い方, emacs window-numbering 設定, emacs パッケージ window-numbering, emacs window-numbering スクリーンショット, relate:win-switch, relate:switch-window, relate:ace-window, emacs ウィンドウ 切り替え, emacs C-x o 改善, ウィンドウ切り替え, 
+#+TAGS: package:window-numbering, emacs 使い方, emacs コマンド, emacs, window-numbering, window-numbering.el, emacs lisp window-numbering, elisp window-numbering, emacs melpa window-numbering, emacs window-numbering 使い方, emacs window-numbering 設定, emacs パッケージ window-numbering, emacs window-numbering スクリーンショット, relate:win-switch, relate:switch-window, relate:ace-window, emacs ウィンドウ 切り替え, emacs C-x o 改善, ウィンドウ切り替え, , Emacs, other-window, window-numbering.el, window-numbering-mode, 数値引数, 前置引数, other-window, window-numbering.el, window-numbering-mode, 数値引数, 前置引数
+#+TITLE: emacs window-numbering.el : 【3分割以上の人へ】ウィンドウを番号(M-0〜M-9)で選択 | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>window-numbering</td></tr>
+<tr><td>概要(原文)</td><td>Numbered window shortcuts</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/nschum/window-numbering.el">https://github.com/nschum/window-numbering.el</a></td></tr>
+<tr><td>バージョン</td><td>20150228.1247</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:window-numbering/">package:window-numbering</a> <a href="http://rubikitch.com/tag/package:win-switch/">package:win-switch</a> <a href="http://rubikitch.com/tag/package:switch-window/">package:switch-window</a> <a href="http://rubikitch.com/tag/package:ace-window/">package:ace-window</a></td></tr>
+</table>
+<br />
+#+END_HTML
+ウィンドウを切り替えるelispはたくさんあります。
+
+C-x oをカイゼンする[[http://rubikitch.com/2015/02/21/win-switch/][win-switch.el(レビュー)]] や[[http://rubikitch.com/2014/12/15/switch-window/][ switch-window.el(レビュー)]] 、
+そしてウィンドウ選択をace-jump化する[[http://rubikitch.com/2014/12/26/ace-window/][ace-window.el(レビュー)]] もあります。
+
+2〜3個くらいしか分割しない人はC-tなど余ったキーに
+*other-window* を割り当てる方法もあります。
+
+*window-numbering.el* は、ウィンドウを番号で選択するものです。
+
+マイナーモード *window-numbering-mode* を有効にすると、
+M-0〜M-9で対応する番号のウィンドウに切り替えられるようになります。
+
+そのかわり、 *数値引数* (*前置引数*)としてM-0〜M-9を使っている人は
+それが使えなくなります。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+[[file:/r/sync/screenshots/20150302040531.png]]
+Fig1: モードラインの左端に番号がつくのでM-1〜M-3で選択
+** window-numbering インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install window-numbering
+
+
+#+end:
+** 概要                                                             :noexport:
+ウィンドウを切り替えるelispはたくさんあります。
+
+C-x oをカイゼンする[[http://rubikitch.com/2015/02/21/win-switch/][win-switch.el(レビュー)]] や[[http://rubikitch.com/2014/12/15/switch-window/][ switch-window.el(レビュー)]] 、
+そしてウィンドウ選択をace-jump化する[[http://rubikitch.com/2014/12/26/ace-window/][ace-window.el(レビュー)]] もあります。
+
+2〜3個くらいしか分割しない人はC-tなど余ったキーに
+*other-window* を割り当てる方法もあります。
+
+*window-numbering.el* は、ウィンドウを番号で選択するものです。
+
+マイナーモード *window-numbering-mode* を有効にすると、
+M-0〜M-9で対応する番号のウィンドウに切り替えられるようになります。
+
+そのかわり、 *数値引数* (*前置引数*)としてM-0〜M-9を使っている人は
+それが使えなくなります。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+[[file:/r/sync/screenshots/20150302040531.png]]
+Fig1: モードラインの左端に番号がつくのでM-1〜M-3で選択
+
+** 設定 [[http://rubikitch.com/f/150302040348.window-numbering.el][150302040348.window-numbering.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/150302/150302040348.window-numbering.el"
+#+BEGIN_SRC fundamental
+(window-numbering-mode 1)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/150302040348.window-numbering.el
+$ emacs -Q -f package-initialize -l 150302040348.window-numbering.el
+#+END_EXAMPLE
+
+# /r/sync/screenshots/20150302040531.png http://rubikitch.com/wp-content/uploads/2015/03/wpid-20150302040531.png

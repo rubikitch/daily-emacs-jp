@@ -1,0 +1,42 @@
+#+BLOG: rubikitch
+#+POSTID: 851
+#+DATE: [2015-01-02 Fri 04:27]
+#+PERMALINK: melmag
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: メルマガ, 
+#+DESCRIPTION: 『Emacsの鬼るびきちのココだけの話』#162はEmacsで音を鳴らすお話！
+#+MYTAGS: 
+#+TITLE: Emacsで音を鳴らしてみよう
+新年初メルマガはサウンドの話題です。
+
+Emacsには音を鳴らす機能が存在します。
+
+あまり知られていないかもしれませんが、
+なんと標準機能として存在しているのです。
+
+とはいえ、そのままだと
+wavしか再生できないわ
+音声再生中はEmacsを操作できないわ
+C-gで止めることもできないわで
+/いったいなんのために存在するの？/
+といった具合です。
+
+正直、開発者の意図はわかりかねるのですが、
+こんなやつでも使ってやる価値はあるかもしれません。
+
+今回はこのEmacs組み込みの音声再生機能に光を当ててみます。
+
+組み込みなのでWindowsでもそのまま動作しますしね。
+
+今回は
+この機能を外部プレイヤー呼び出しに置き換えたり、
+ちょっと懐しいとあることをやってみようと思います。
+
+今回は新たな冒険を楽しんむような感覚でお読みください。
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

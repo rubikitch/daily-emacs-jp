@@ -1,0 +1,130 @@
+#+BLOG: rubikitch
+#+POSTID: 1404
+#+DATE: [2015-04-01 Wed 07:50]
+#+PERMALINK: helm-plugin-file-line
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, helm, 
+#+DESCRIPTION: 
+#+MYTAGS: package:helm, helm type line 動かない, helm type file-line 動かない, helm 動かない, helm 更新したら動かなくなった, helm-firefox-bookmark 動かない, helm-w3m-bookmark 動かない, helm-bbdb 動かない, helm-emms 動かない, helm-gentoo 動かない, helm-yaoddmuse 動かない
+#+TITLE: 【helm最新情報】type:line, type:file-line, helm-firefox-bookmarkが削除されていたので復活させた
+#+begin: org2blog-tags
+#+TAGS: package:helm, helm type line 動かない, helm type file-line 動かない, helm 動かない, helm 更新したら動かなくなった, helm-firefox-bookmark 動かない, helm-w3m-bookmark 動かない, helm-bbdb 動かない, helm-emms 動かない, helm-gentoo 動かない, helm-yaoddmuse 動かない, Emacs, helm, , M-x helm-firefox-bookmark, M-x helm-w3m-bookmark, 時は命なり, anything.el
+#+end:
+僕はhelmの更新をちょくちょく追い掛けているが、
+このパッケージは本当に注意していないと
+いきなり動かなくなることがあります。
+
+というのは、helm開発者がコードを削除しすぎるからです。
+
+** 行番号移動を復活させる
+
+僕はをoccurやgrepのように指定した行に移動する目的でも
+使っているわけだが、いきなり動かなくなってて困りました。
+
+原因はこのコミットでtype:lineやtype:file-lineが削除されていたことでした。
+
+https://github.com/emacs-helm/helm/commit/b8aaa74c1e8ba8348cb4fe82b819361e26bd3ed2
+
+#+BEGIN_EXAMPLE
+b8aaa74c1e8ba8348cb4fe82b819361e26bd3ed2
+Author: Thierry Volpiatto <thierry.volpiatto@gmail.com>
+Date:   Mon Mar 23 20:12:56 2015 +0100
+
+    Remove obsolete code.
+    
+    * helm-aliases.el: Cleanup.
+    * helm-plugin.el: Cleanup.
+    * helm-utils.el: Cleanup.
+#+END_EXAMPLE
+
+http://rubikitch.com/f/mylisp-helm-file-line.el
+
+に置いてあるのでrequireすれば復活します。
+
+#+BEGIN_SRC emacs-lisp :results silent
+(require 'mylisp-helm-file-line)
+#+END_SRC
+
+
+確かにhelm本体には使われていないかもしれませんが、
+helmユーザ側が自分のコードで使っている可能性があるという
+想像力くらいは働かせるべきでしょう。
+** helm-firefox-bookmark, helm-w3m-bookmarkなどを復活させる
+https://github.com/emacs-helm/helm/commit/ef0cfb9d83f47a7d01d69d5f50ccd2191049a8ef
+
+#+BEGIN_EXAMPLE
+ef0cfb9d83f47a7d01d69d5f50ccd2191049a8ef
+Author: Thierry Volpiatto <thierry.volpiatto@gmail.com>
+Date:   Fri Mar 6 09:18:06 2015 +0100
+
+    * helm-aliases.el: Remove bbdb aliases.
+    * helm-bbdb.el: deleted.
+    * helm-emms.el: deleted.
+    * helm-firefox.el: deleted.
+    * helm-gentoo.el: deleted.
+    * helm-w3m.el: deleted.
+    * helm-yaoddmuse.el: deleted.
+#+END_EXAMPLE
+
+の変更により以下のファイルが削除されました。
+
+- helm-bbdb.el
+- helm-emms.el
+- helm-firefox.el
+- helm-gentoo.el
+- helm-w3m.el
+- helm-yaoddmuse.el
+
+*M-x helm-firefox-bookmark* や *M-x helm-w3m-bookmark*
+が使えなくて驚いた人もいるでしょう。
+
+helm-emms.el, helm-firefox.el, helm-w3m.el は
+それぞれ独立したパッケージに移動してあるので、
+当該パッケージをインストールすれば使えるようになります。
+
+#+BEGIN_EXAMPLE
+M-x package-install helm-emms
+M-x package-install helm-firefox
+M-x package-install helm-w3m
+#+END_EXAMPLE
+
+helm-bbdb.el, helm-gentoo.el, helm-yaoddmuse.el
+はパッケージに登録されていないので、ここから持って行ってください。
+
+http://rubikitch.com/f/helm-bbdb.el
+http://rubikitch.com/f/helm-gentoo.el
+http://rubikitch.com/f/helm-yaoddmuse.el
+** 時は命なり
+[[http://rubikitch.com/2014/08/14/helm/][C-eとC-jがいきなり使えなくなったり]] するなど、helmは本当に
+いきなり動かなくなって戸惑うことがしばしばあります。
+
+「パッケージをバージョンアップしたら突然動かなくなった」
+というのは、こういった開発者の身勝手な行動も大きいです。
+
+人間にとって平等に与えられているのは「時間」です。
+
+「時は金なり」といいますが、それは間違いです。
+
+正しくは「 *時は命なり* 」です。
+
+失ったお金を取り戻すことはできますが、
+失った時間は取り戻せません。
+
+なぜ開発者の利己的な行動のせいで問題解決の時間を
+取られなければならないのでしょうか？
+
+Emacs Lispに詳しくない一般Emacsユーザが
+この問題を解決するのにどれくらい時間がかかるのでしょうか？
+
+いきなり非互換な変更をするというのは、
+/ユーザの大切な命の一部を奪うという大罪/
+を犯していることを認識すべきです。
+
+
+
+こういうことに振り回されたくなければ
+むしろ *anything.el* を使った方がいいです。

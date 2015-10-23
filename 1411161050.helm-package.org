@@ -1,0 +1,103 @@
+#+BLOG: rubikitch
+#+POSTID: 585
+#+DATE: [2014-11-16 Sun 10:50]
+#+PERMALINK: helm-package
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs
+#+EL_PKG_NAME: helm-package
+#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, relate:helm, emacs package.el, relate:package, emacs パッケージ インストール, emacs melpa インストール, emacs パッケージ 絞り込み検索, emacs helm package, emacs helm,
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: パッケージをhelmインターフェースで即座に見付けてインストール
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージhelm-packageの紹介
+#+MYTAGS: package:helm-package, emacs 使い方, emacs コマンド, emacs, emacs lisp helm-package, elisp helm-package, emacs melpa helm-package, emacs helm-package 使い方, emacs helm-package 設定, emacs パッケージ helm-package, emacs helm-package スクリーンショット, relate:helm, emacs package.el, relate:package, emacs パッケージ インストール, emacs melpa インストール, emacs パッケージ 絞り込み検索, emacs helm package, emacs helm,
+#+TITLE: emacs helm-package.el : パッケージをhelmインターフェースで即座に見付けてインストール | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>helm-package</td></tr>
+<tr><td>概要(原文)</td><td>Listing ELPA packages with helm interface</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/syohex/emacs-helm-package">https://github.com/syohex/emacs-helm-package</a></td></tr>
+<tr><td>バージョン</td><td>20140108.2223</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:helm-package/">package:helm-package</a> <a href="http://rubikitch.com/tag/package:helm/">package:helm</a> <a href="http://rubikitch.com/tag/package:package/">package:package</a></td></tr>
+</table>
+<br />
+#+END_HTML
+あなたが
+「こんな機能欲しいな」
+と思ったとき、なにかパッケージをインストールします。
+
+そのとき、2000を超える豊富なMELPAパッケージ群は大きな味方になります。
+
+これだけあれば、たいていの場合、欲しい機能はすでに存在します。
+
+どうやって探すかというと、標準の方法では *M-x list-packages* を使いますが、
+isearchやoccurによる方法だと、絞り込み検索ができなかったりするので、
+やや不便です。
+
+そんなときに役立つのが *helm* インターフェースです。
+
+*M-x helm-package* こそ、欲しいパッケージを見付ける決定打になります。
+
+これは、パッケージ名、説明文をhelmで絞り込み検索するので、
+キーワードにマッチするパッケージを一覧してくれます。
+
+RETでそのパッケージをインストール、C-zでその説明文が見られます。
+** helm-package インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install helm-package
+
+
+#+end:
+** 概要                                                             :noexport:
+あなたが
+「こんな機能欲しいな」
+と思ったとき、なにかパッケージをインストールします。
+
+そのとき、2000を超える豊富なMELPAパッケージ群は大きな味方になります。
+
+これだけあれば、たいていの場合、欲しい機能はすでに存在します。
+
+どうやって探すかというと、標準の方法では *M-x list-packages* を使いますが、
+isearchやoccurによる方法だと、絞り込み検索ができなかったりするので、
+やや不便です。
+
+そんなときに役立つのが *helm* インターフェースです。
+
+*M-x helm-package* こそ、欲しいパッケージを見付ける決定打になります。
+
+これは、パッケージ名、説明文をhelmで絞り込み検索するので、
+キーワードにマッチするパッケージを一覧してくれます。
+
+RETでそのパッケージをインストール、C-zでその説明文が見られます。
+** 設定 [[http://rubikitch.com/f/141116105554.helm-package.el][141116105554.helm-package.el(以下のコードと同一)]]
+パッケージの基本設定をすれば十分です。
+
+#+BEGIN: include :file "/r/sync/junk/141116/141116105554.helm-package.el"
+#+BEGIN_SRC fundamental
+(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
+(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
+(fset 'package-desc-vers 'package--ac-desc-version)
+(package-initialize)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/141116105554.helm-package.el
+$ emacs -Q -f package-initialize -l 141116105554.helm-package.el
+#+END_EXAMPLE
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+http://rubikitch.com/f/20141116105701.png
+Fig1: M-x helm-package の後に正規表現関連のパッケージを見つける
+
+http://rubikitch.com/f/20141116105720.png
+Fig2: C-zを押して説明文を表示

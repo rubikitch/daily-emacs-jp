@@ -1,0 +1,93 @@
+#+BLOG: rubikitch
+#+POSTID: 638
+#+DATE: [2014-11-29 Sat 03:37]
+#+PERMALINK: org-agenda-cache
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, org-mode
+#+DESCRIPTION: org-agendaが遅い問題を解決！M-x org-agenda-cacheで*Org Agenda*バッファを再利用。
+#+MYTAGS: org-agenda 遅い, org-agenda キャッシュ, emacs org-agenda, package:org
+#+TAGS: org-agenda 遅い, org-agenda キャッシュ, emacs org-agenda, package:org, Emacs, org-mode, org-mode, 予定表, TODO管理, org-agenda, M-x org-agenda-cache, org-agenda-custom-commands, Org Agenda, Org Agenda
+#+TITLE: 【もう遅くない】Emacs org-agendaによる予定表を瞬時に表示させる方法
+*org-mode* 厨のみなさん、こんにちは。
+るびきちです。
+
+*予定表* や *TODO管理* に *org-agenda* を使っていますか？
+
+Emacs標準機能でありながら、超高機能でやばいです。
+
+複数のorgファイルの情報を1つのバッファにまとめてくれるから、
+いろんなファイルにTODOを書いていても見逃さなくなります。
+
+これはこれで嬉しいのですが、たった一つの大きな欠点がります。
+
+/めちゃくちゃ動作がトロイ！！！/
+
+所詮インターフェース記述言語のEmacs Lispで
+処理されているから仕方ないとはいえ、
+高々テキスト処理にCore i7で1秒以上待たされるのはたまりません。
+
+原因はorg-agendaをqで終了するときに
+バッファを削除してしまうので
+毎回再生成していることです。
+
+そこで、*Org Agenda*バッファを保持(キャッシュ)することで
+一瞬でagendaを表示させます。
+
+実用上agendaは毎回更新する必要はなく、
+たいていの場合はほぼ同じ内容です。
+
+ここで定義する *M-x org-agenda-cache* は前回のagendaを表示します。
+
+C-u M-x org-agenda-cacheで再生成して表示します。
+
+あるいは、agenda上でgを押して更新することもできます。
+
+org-agendaは元々は *org-agenda-custom-commands* 変数で
+複数の設定を使い分けるように意図されていますが、
+M-x org-agenda-cacheを使うことで、予定関係の情報すべてを
+すべて表示させる運用方法が可能になります。
+
+Happy org life!!
+
+** 設定 [[http://rubikitch.com/f/141129034417.org-agenda-cache.el][141129034417.org-agenda-cache.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/141129/141129034417.org-agenda-cache.el"
+#+BEGIN_SRC fundamental
+(require 'org-agenda)
+(setq org-agenda-custom-commands
+      '(("a" "Agenda and all TODO's"
+         (;; 2週間の予定
+          (agenda "" ((org-agenda-span 14)
+                      (org-agenda-show-log nil)
+                      (org-agenda-clockreport-mode nil)))
+          ;; 今日の予定・行動記録
+          (agenda "" ((org-agenda-span 1)
+                      (org-agenda-show-log 'clockcheck)
+                      (org-agenda-clockreport-mode t)))
+          (alltodo "")))))
+(defun org-agenda-cache (&optional regenerate)
+  "agendaを更新せずに表示する。"
+  (interactive "P")
+  (when (or regenerate (null (get-buffer "*Org Agenda*")))
+    ;; "a" は org-agenda-custom-commands で常用する文字
+    (setq current-prefix-arg nil)
+    (org-agenda nil "a"))
+  (switch-to-buffer "*Org Agenda*")
+  (delete-other-windows))
+;;; そもそもqで*Org Agenda*を殺しているのが悪い!
+(define-key org-agenda-mode-map (kbd "q") 'quit-window)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/141129034417.org-agenda-cache.el
+$ emacs -Q -f package-initialize -l 141129034417.org-agenda-cache.el
+#+END_EXAMPLE
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

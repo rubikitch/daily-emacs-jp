@@ -1,0 +1,118 @@
+#+BLOG: rubikitch
+#+POSTID: 1687
+#+DATE: [2015-05-27 Wed 06:26]
+#+PERMALINK: omni-kill
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs
+#+EL_PKG_NAME: omni-kill
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, omni-kill-symbol, omni-select-symbol, omni-copy-symbol, omni-delete-symbol, omni-kill-list, omni-select-list, omni-copy-list, omni-delete-list, omni-kill-sexp, omni-select-sexp, omni-copy-sexp, omni-delete-sexp, omni-kill-defun, omni-select-defun, omni-copy-defun, omni-delete-defun, omni-kill-filename, omni-select-filename, omni-copy-filename, omni-delete-filename, omni-kill-url, omni-select-url, omni-copy-url, omni-delete-url, omni-kill-email, omni-select-email, omni-copy-email, omni-delete-email, omni-kill-word, omni-select-word, omni-copy-word, omni-delete-word, omni-kill-sentence, omni-select-sentence, omni-copy-sentence, omni-delete-sentence, omni-kill-whitespace, omni-select-whitespace, omni-copy-whitespace, omni-delete-whitespace, omni-kill-line, omni-select-line, omni-copy-line, omni-delete-line, omni-kill-number, omni-select-number, omni-copy-number, omni-delete-number, omni-kill-page, omni-select-page, omni-copy-page, omni-delete-page, relate:thingatpt, relate:easy-kill, relate:edit-at-point
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 
+#+EL_TITLE0: 現在位置のURL、S式、シンボル、email、ファイル名など(thing)をmark/kill/copyする
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージomni-killの紹介
+#+MYTAGS: package:omni-kill, emacs 使い方, emacs コマンド, emacs, omni-kill, omni-kill.el, emacs lisp omni-kill, elisp omni-kill, emacs melpa omni-kill, emacs omni-kill 使い方, emacs omni-kill 設定, emacs パッケージ omni-kill, omni-kill-symbol, omni-select-symbol, omni-copy-symbol, omni-delete-symbol, omni-kill-list, omni-select-list, omni-copy-list, omni-delete-list, omni-kill-sexp, omni-select-sexp, omni-copy-sexp, omni-delete-sexp, omni-kill-defun, omni-select-defun, omni-copy-defun, omni-delete-defun, omni-kill-filename, omni-select-filename, omni-copy-filename, omni-delete-filename, omni-kill-url, omni-select-url, omni-copy-url, omni-delete-url, omni-kill-email, omni-select-email, omni-copy-email, omni-delete-email, omni-kill-word, omni-select-word, omni-copy-word, omni-delete-word, omni-kill-sentence, omni-select-sentence, omni-copy-sentence, omni-delete-sentence, omni-kill-whitespace, omni-select-whitespace, omni-copy-whitespace, omni-delete-whitespace, omni-kill-line, omni-select-line, omni-copy-line, omni-delete-line, omni-kill-number, omni-select-number, omni-copy-number, omni-delete-number, omni-kill-page, omni-select-page, omni-copy-page, omni-delete-page, relate:thingatpt, relate:easy-kill, relate:edit-at-point
+#+TAGS: package:omni-kill, emacs 使い方, emacs コマンド, emacs, omni-kill, omni-kill.el, emacs lisp omni-kill, elisp omni-kill, emacs melpa omni-kill, emacs omni-kill 使い方, emacs omni-kill 設定, emacs パッケージ omni-kill, omni-kill-symbol, omni-select-symbol, omni-copy-symbol, omni-delete-symbol, omni-kill-list, omni-select-list, omni-copy-list, omni-delete-list, omni-kill-sexp, omni-select-sexp, omni-copy-sexp, omni-delete-sexp, omni-kill-defun, omni-select-defun, omni-copy-defun, omni-delete-defun, omni-kill-filename, omni-select-filename, omni-copy-filename, omni-delete-filename, omni-kill-url, omni-select-url, omni-copy-url, omni-delete-url, omni-kill-email, omni-select-email, omni-copy-email, omni-delete-email, omni-kill-word, omni-select-word, omni-copy-word, omni-delete-word, omni-kill-sentence, omni-select-sentence, omni-copy-sentence, omni-delete-sentence, omni-kill-whitespace, omni-select-whitespace, omni-copy-whitespace, omni-delete-whitespace, omni-kill-line, omni-select-line, omni-copy-line, omni-delete-line, omni-kill-number, omni-select-number, omni-copy-number, omni-delete-number, omni-kill-page, omni-select-page, omni-copy-page, omni-delete-page, relate:thingatpt, relate:easy-kill, relate:edit-at-point, Emacs, omni-kill.el, thing-at-point, M-x omni-select, M-x omni-kill, M-x omni-copy, M-x omni-delete, thing-at-point, M-x omni-select, M-x omni-kill, M-x omni-copy, M-x omni-delete
+#+TITLE: emacs omni-kill.el : 現在位置のURL、S式、シンボル、email、ファイル名など(thing)をmark/kill/copyする | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>omni-kill</td></tr>
+<tr><td>概要(原文)</td><td>Kill all the things</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/AdrieanKhisbe/omni-kill.el">https://github.com/AdrieanKhisbe/omni-kill.el</a></td></tr>
+<tr><td>バージョン</td><td>20150526.2349</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:omni-kill/">package:omni-kill</a> <a href="http://rubikitch.com/tag/package:thingatpt/">package:thingatpt</a> <a href="http://rubikitch.com/tag/package:easy-kill/">package:easy-kill</a> <a href="http://rubikitch.com/tag/package:edit-at-point/">package:edit-at-point</a></td></tr>
+</table>
+<br />
+#+END_HTML
+*omni-kill.el* は *thing-at-point* に基く編集コマンドたちを定義しています。
+
+thing-at-pointは現在位置のthingを取得する関数です。
+
+thingは以下のものがあります。
+
+- symbol (s)
+- list
+- sexp (S)
+- defun (d)
+- filename (f)
+- url (u)
+- email (e)
+- word (w)
+- sentence (p)
+- whitespace (W)
+- line (l)
+- number (n)
+- page (P)
+
+*M-x omni-select* 、 *M-x omni-kill* 、
+*M-x omni-copy* 、 *M-x omni-delete* は
+それぞれ、頭文字(括弧で示した文字)を指定されたthingを
+マーク、キル、コピー、削除します。
+
+たとえばM-x omni-select eでカーソル位置のemailをコピーします。
+
+一方、omni-(select|kill|copy|delete)-THINGというコマンド群も定義されており、
+M-x omni-delete-url は現在のURLを削除します。
+
+word/sexp/defunについては標準コマンドがあるので、
+わざわざ使う必要がないでしょう。
+
+emailとurlとfilenameについては
+1ストロークのキーが余っていればそれなりに便利に使えます。
+
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+** omni-kill インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install omni-kill
+
+
+#+end:
+** 概要                                                             :noexport:
+*omni-kill.el* は *thing-at-point* に基く編集コマンドたちを定義しています。
+
+thing-at-pointは現在位置のthingを取得する関数です。
+
+thingは以下のものがあります。
+
+- symbol (s)
+- list
+- sexp (S)
+- defun (d)
+- filename (f)
+- url (u)
+- email (e)
+- word (w)
+- sentence (p)
+- whitespace (W)
+- line (l)
+- number (n)
+- page (P)
+
+*M-x omni-select* 、 *M-x omni-kill* 、
+*M-x omni-copy* 、 *M-x omni-delete* は
+それぞれ、頭文字(括弧で示した文字)を指定されたthingを
+マーク、キル、コピー、削除します。
+
+たとえばM-x omni-select eでカーソル位置のemailをコピーします。
+
+一方、omni-(select|kill|copy|delete)-THINGというコマンド群も定義されており、
+M-x omni-delete-url は現在のURLを削除します。
+
+word/sexp/defunについては標準コマンドがあるので、
+わざわざ使う必要がないでしょう。
+
+emailとurlとfilenameについては
+1ストロークのキーが余っていればそれなりに便利に使えます。
+
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

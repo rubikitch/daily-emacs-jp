@@ -1,0 +1,31 @@
+#+BLOG: rubikitch
+#+POSTID: 1359
+#+DATE: [2015-03-24 Tue 03:50]
+#+PERMALINK: org-multiple-keymap-update
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: 記事更新情報, 
+#+DESCRIPTION: 
+#+MYTAGS: 
+#+TITLE: org-multiple-keymap.elが更新されました
+#+begin: org2blog-tags
+#+TAGS: , 記事更新情報, , 
+#+end:
+http://rubikitch.com/2015/03/17/org-multiple-keymap
+
+レビュー時点ではタイムスタンプと優先度のみの対応でしたが、
+現時点では見出し行にも対応しています。
+
+また、新たに作られた要素にも対応したので、
+タイムスタンプを入力したらすぐに
+org-multiple-keymap.elのショートカットキーが使えます。
+
+EIEIO(Common LispのCLOS風味なオブジェクト指向)で書き直されましたので
+EIEIOの使い方の題材としてもうってつけです。
+
+作者のページ→ http://sheephead.homelinux.org/2015/03/22/7272/
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

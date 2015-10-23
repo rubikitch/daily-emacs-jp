@@ -1,0 +1,26 @@
+#+BLOG: rubikitch
+#+POSTID: 1544
+#+DATE: [2015-04-22 Wed 04:02]
+#+PERMALINK: toc-org-rename
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: 記事更新情報, 
+#+DESCRIPTION: 目次自動生成のorg-toc.elはリネームされたので、使っている人は設定をorg-toc→toc-orgに置換してください。
+#+MYTAGS: 
+#+TITLE: org-tocはtoc-orgにリネームされました
+#+begin: org2blog-tags
+#+TAGS: , 記事更新情報, , 
+#+end:
+[[http://rubikitch.com/2014/09/21/org-toc/]]
+
+org-modeで目次を自動生成する元org-toc.elは
+toc-org.elにリネームされました。
+
+同名で別な働きをするファイルが org/contrib/lisp 内にあるからです。
+
+使っている方は設定で org-toc -> toc-org と置換してください。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

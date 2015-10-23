@@ -1,0 +1,130 @@
+#+BLOG: rubikitch
+#+POSTID: 451
+#+DATE: [2014-10-11 Sat 07:52]
+#+PERMALINK: org-confirm-elisp-link-function
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs,
+#+DESCRIPTION: org-confirm-elisp-link-functionとorg-confirm-shell-link-functionに自分が書いたorg文書に限りリンクをすぐに実行させる
+#+MYTAGS: package:org, org-confirm-elisp-link-function, org-confirm-shell-link-function, org-confirm-elisp-link-not-regexp, org-confirm-shell-link-not-regexp, emacs org-mode リンク, org-mode, org-mode ハイパーリンク
+#+TAGS: package:org, org-confirm-elisp-link-function, org-confirm-shell-link-function, org-confirm-elisp-link-not-regexp, org-confirm-shell-link-not-regexp, emacs org-mode リンク, org-mode, org-mode ハイパーリンク, Emacs,, org-mode, mew, GNUS, WL, GNU Screen, org-confirm-elisp-link-not-regexp, org-confirm-shell-link-not-regexp, trace-output
+#+TITLE: Emacs org-modeのelisp・shellリンクを快適かつ安全に実行する方法
+*org-mode* はハイパーリンク機能も装備しています。
+
+つまり、Wikiのような記法でリンクを書くことができ、
+リンク先へジャンプできるのです。
+
+リンク先はファイルはもちろんのこと、
+メール(*mew* 、 *GNUS* 、 *WL*)、
+シェルコマンド、 *GNU Screen* 、
+Emacs Lispコード
+へのリンクも作成できます。
+
+#+BEGIN: include :file "/r/sync/junk/141011/141011080546.org"
+#+BEGIN_SRC fundamental
+[[shell:ls -l]]
+[[elisp:(message "ok")]]
+#+END_SRC
+
+#+END:
+
+
+しかし、シェルコマンドやEmacs Lispへのリンクを無闇に踏むのはとても危険です。
+
+なぜなら、rm -rf /を実行するリンクも作成可能だからです。
+
+リンクにはラベルも指定できるので、
+リンク先のコードが見えない状態で
+危険なリンクを踏んでしまうこともあります。
+
+とくに他の人からorgファイルをもらったとき、
+彼に悪意があって、そのリンクを踏んでしまったら…
+
+/やばいですね/
+
+そこでorg-modeのデフォルトの設定では安全側に倒してあり、
+Emacs Lisp、シェルコマンドへのリンクを実行する際、
+「このリンクを実行しますか？」とyes/noで訊いてきます。
+
+かといって、こういうリスクはあるものの日常的ではないので
+かえってうざったいと思うのが普通ですよね。
+
+たとえば、ls -lへのリンク
+#+BEGIN_EXAMPLE
+[[shell:ls -l]]
+#+END_EXAMPLE
+は安全なのに
+
+#+BEGIN_EXAMPLE
+Execute "ls -l" in shell? (yes or no)  yes
+#+END_EXAMPLE
+
+と尋ねられるのは嫌ですよね。
+
+訊くのを全面的にやめさせるにはこうするのですが、
+
+#+BEGIN_SRC emacs-lisp :results silent
+(setq org-confirm-elisp-link-function nil)
+(setq org-confirm-shell-link-function nil)
+#+END_SRC
+
+これではセキュリティリスクを負います。
+
+org-mode開発者側はこの問題を認識していて、
+- *org-confirm-elisp-link-not-regexp*
+- *org-confirm-shell-link-not-regexp*
+という変数を用意することで正規表現に
+マッチするリンクは尋ねないようにしています。
+
+それでも安全な正規表現を用意・更新するのは面倒です。
+
+そこで、新しいルールとして
+/自分が作成したorgファイルは安全/
+ということにしてしまいましょう。
+
+特定のディレクトリに配置してあるorgファイルや
+特定のバッファ名に限っては安全とみなします。
+
+ここでは
+#+BEGIN_EXAMPLE
+"/sync/memo/\\|/sync/junk/"
+#+END_EXAMPLE
+を満たすディレクトリと
+*trace-output*バッファを安全とみなし、
+それ以外のorgバッファは危険とみなします。
+
+なお、*trace-output*を安全にしているのは
+[[http://rubikitch.com/2014/10/04/trace-org/][*trace-output*をorg-modeにする設定]] のためです。
+
+こうしておけば、自分が書いたorg文書をそのディレクトリに
+放り込んでおくだけでいいので、
+いちいち尋ねられる煩わしさから解放されます。
+
+** 設定 [[http://rubikitch.com/f/141011075230.org-confirm-elisp-link-function.1.el][141011075230.org-confirm-elisp-link-function.1.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/141011/141011075230.org-confirm-elisp-link-function.1.el"
+#+BEGIN_SRC fundamental
+(defun org-confirm-elisp-link-function--no-confirm-my-org-file (prompt)
+  "自分が書いたorgファイルの(のディレクトリにある)elispリンクはconfirmなし。
+それ以外のディレクトリではconfirmする。"
+  (or (string-match "/sync/memo/\\|/sync/junk/" (or (buffer-file-name) ""))
+      (member (buffer-name) '("*trace-output*"))
+      (y-or-n-p prompt)))
+(setq org-confirm-elisp-link-function
+      'org-confirm-elisp-link-function--no-confirm-my-org-file)
+(setq org-confirm-shell-link-function
+      'org-confirm-elisp-link-function--no-confirm-my-org-file)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/141011075230.org-confirm-elisp-link-function.1.el
+$ emacs -Q -f package-initialize -l 141011075230.org-confirm-elisp-link-function.1.el
+#+END_EXAMPLE
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

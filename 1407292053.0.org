@@ -1,0 +1,36 @@
+#+BLOG: rubikitch
+#+POSTID: 33
+#+DATE: [2014-07-29 Tue 20:53]
+#+PERMALINK: 0
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t
+#+ISPAGE: nil
+#+DESCRIPTION:
+#+BLOG: rubikitch
+#+CATEGORY: Emacs
+#+DESCRIPTION:
+#+TAGS: Emacs,WordPress,org2blog,melpa,package-install
+#+TITLE: るびきちは生まれ変わります
+ども、るびきちです。
+
+この度、念願の独自ドメイン
+*rubikitch.com*
+を取得しました。
+
+どうせならサイトも生まれ変わらせようと思いまして、
+遅まきながら *WordPress* でCMSデビューをします。
+
+WordPressは使用者が多くてノウハウが蓄積されていて、
+*Emacs* からスムーズに投稿できるということで採用しました。
+
+このブログはEmacsユーザなら大好き *org-mode* から
+WordPressに投稿できる *org2blog* で書いています。
+
+MELPAから
+M-x package-install org2blog
+でインストールできます。
+
+[[http://www.rubyist.net/~rubikitch/][旧サイト]] も[[http://d.hatena.ne.jp/rubikitch/][旧ブログ]] も放置状態でごめんなさい。
+
+これからは心を入れ替えて価値ある
+情報配信をし続けたいと思うので、
+今後ともよろしくお願いします。

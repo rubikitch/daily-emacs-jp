@@ -1,0 +1,102 @@
+#+BLOG: rubikitch
+#+POSTID: 1583
+#+DATE: [2015-04-28 Tue 02:06]
+#+PERMALINK: cycle-themes
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, theme, 
+#+EL_PKG_NAME: cycle-themes
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, relate:color-theme, emacs 色設定, emacs theme, emacs color theme, emacs color-theme.el, emacs スキン, emacs テーマ, emacs skin, emacs color setting, emacs カラーテーマ, emacs テーマ 変更, emacs カラーテーマ 設定, emacs 見た目の変更, emacs 好みの色設定, emacs 背景色, emacs テーマ 切り替え, emacs カラーテーマ 迷う
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: color-theme(カラーテーマ)をワンタッチで切り替える
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージcycle-themesの紹介
+#+MYTAGS: package:cycle-themes, emacs 使い方, emacs コマンド, emacs, cycle-themes, cycle-themes.el, emacs lisp cycle-themes, elisp cycle-themes, emacs melpa cycle-themes, emacs cycle-themes 使い方, emacs cycle-themes 設定, emacs パッケージ cycle-themes, emacs cycle-themes スクリーンショット, relate:color-theme, emacs 色設定, emacs theme, emacs color theme, emacs color-theme.el, emacs スキン, emacs テーマ, emacs skin, emacs color setting, emacs カラーテーマ, emacs テーマ 変更, emacs カラーテーマ 設定, emacs 見た目の変更, emacs 好みの色設定, emacs 背景色, emacs テーマ 切り替え, emacs カラーテーマ 迷う
+#+TAGS: package:cycle-themes, emacs 使い方, emacs コマンド, emacs, cycle-themes, cycle-themes.el, emacs lisp cycle-themes, elisp cycle-themes, emacs melpa cycle-themes, emacs cycle-themes 使い方, emacs cycle-themes 設定, emacs パッケージ cycle-themes, emacs cycle-themes スクリーンショット, relate:color-theme, emacs 色設定, emacs theme, emacs color theme, emacs color-theme.el, emacs スキン, emacs テーマ, emacs skin, emacs color setting, emacs カラーテーマ, emacs テーマ 変更, emacs カラーテーマ 設定, emacs 見た目の変更, emacs 好みの色設定, emacs 背景色, emacs テーマ 切り替え, emacs カラーテーマ 迷う, Emacs, theme, , カラーテーマ, cycle-themes.el, cycle-themes.el
+#+TITLE: emacs cycle-themes.el : color-theme(カラーテーマ)をワンタッチで切り替える | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>cycle-themes</td></tr>
+<tr><td>概要(原文)</td><td>A global minor mode to make switching themes easier</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/toroidal-code/cycle-themes.el">https://github.com/toroidal-code/cycle-themes.el</a></td></tr>
+<tr><td>バージョン</td><td>20150402.2009</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:cycle-themes/">package:cycle-themes</a> <a href="http://rubikitch.com/tag/package:color-theme/">package:color-theme</a></td></tr>
+</table>
+<br />
+#+END_HTML
+Emacsの *カラーテーマ* はたくさんあるので迷うものです。
+
+ならば、 *cycle-themes.el* で複数のテーマを切り替えて使っていくのがいいです。
+
+<2015-04-28 Tue>の時点で開発が浅いので設定で修正しています。
+
+本設定ではC-c tでテーマを順次切り替えます。
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150428021352.png]]
+Fig1: 最初のテーマ
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150428021356.png]]
+Fig2: C-c tで切り替え
+** cycle-themes インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install cycle-themes
+
+
+#+end:
+** 概要                                                             :noexport:
+Emacsの *カラーテーマ* はたくさんあるので迷うものです。
+
+ならば、 *cycle-themes.el* で複数のテーマを切り替えて使っていくのがいいです。
+
+<2015-04-28 Tue>の時点で開発が浅いので設定で修正しています。
+
+本設定ではC-c tでテーマを順次切り替えます。
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150428021352.png]]
+Fig1: 最初のテーマ
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150428021356.png]]
+Fig2: C-c tで切り替え
+
+** 設定 [[http://rubikitch.com/f/150428012227.cycle-theme.el][150428012227.cycle-theme.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/150428/150428012227.cycle-theme.el"
+#+BEGIN_SRC fundamental
+(require 'cycle-themes)
+;;; 使うthemeを設定する
+(setq cycle-themes-theme-list
+      '(adwaita deeper-blue leuven))
+;;; 切り替えたときのthemeを表示する
+(defun cycle-themes-after-cycle-hook--show ()
+  (message "Themes = %S" custom-enabled-themes))
+(add-hook 'cycle-themes-after-cycle-hook 'cycle-themes-after-cycle-hook--show)
+
+;;; C-c C-tはメジャーモードで使っているのでC-c tで切り替える
+(define-key cycle-themes-mode-map (kbd "C-c C-t") nil)
+(define-key cycle-themes-mode-map (kbd "C-c t") 'cycle-themes)
+;;; [2015-04-28 Tue]これがないとエラーになる…
+(setq custom-known-themes (append '(user changed) cycle-themes-theme-list))
+
+(cycle-themes-mode 1)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/150428012227.cycle-theme.el
+$ emacs -Q -f package-initialize -l 150428012227.cycle-theme.el
+#+END_EXAMPLE
+
+# /r/sync/screenshots/20150428021352.png http://rubikitch.com/wp-content/uploads/2015/04/wpid-20150428021352.png
+# /r/sync/screenshots/20150428021356.png http://rubikitch.com/wp-content/uploads/2015/04/wpid-20150428021356.png

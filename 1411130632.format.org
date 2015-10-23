@@ -1,0 +1,140 @@
+#+BLOG: rubikitch
+#+POSTID: 577
+#+DATE: [2014-11-13 Thu 06:32]
+#+PERMALINK: format
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs,
+#+DESCRIPTION:
+#+MYTAGS: Emacs, Emacs Lisp, number-to-string, char-to-string, buffer-name, symbol-name, prin1-to-string
+#+TAGS: Emacs, Emacs Lisp, number-to-string, char-to-string, buffer-name, symbol-name, prin1-to-string, Emacs,, format, printf, string-match, buffer-name, scratch, scratch, scratch, scratch, scratch, scratch, scratch, scratch, concat, scratch, scratch, scratch
+#+TITLE: Emacs Lisp Tips: 文字列化はformat関数が鉄板である3つの理由
+今日はEmacs LispのTipsです。
+
+一言で言うと
+/おまいらformat関数をもっと使え/
+ってことです。
+
+*format* 関数には3つのメリットがあります。
+
+- *printf* 形式の書式文字列
+- 読みやすい
+- あらゆるオブジェクトを受け取れる
+** 読みやすい
+printf形式の書式文字列が使えるのは、言うまでもないので省きますが、
+文字列を作る関数ではformat関数を使うのがすごい大事なのです。
+
+たった1つの文字列を埋め込む場合でもformat関数を使うべきです。
+
+#+BEGIN: include :file "/r/sync/junk/141113/141113064536.el"
+#+BEGIN_SRC fundamental
+(let ((x "helm"))
+  (concat "http://rubikitch.com/tag/package:" x "/")
+  ;; => "http://rubikitch.com/tag/package:helm/"
+  (format "http://rubikitch.com/tag/package:%s/" x)
+  ;; => "http://rubikitch.com/tag/package:helm/"
+  )
+#+END_SRC
+
+#+END:
+
+この例を見てみればわかるように、format関数を使った方が、
+URLのアウトラインがわかりやすくなりますよね。
+** 文字列化
+ですが、format関数のすごいところは、あらゆるオブジェクトを
+文字列化してしまうところです。
+
+Emacs Lispプログラマが陥るよくある落とし穴として、
+バッファ名を代入する前提の「バッファを格納する変数」に
+バッファオブジェクトそのものを代入してしまったため、
+*string-match* 関数でエラーを起こしてしまうことです。
+
+バッファオブジェクトでバッファ名に対してstring-matchするときは、
+バッファ名を得る必要があります。
+
+かといって、安易に *buffer-name* 関数を使うと、
+今度はその変数にバッファ名が代入されているときにエラーになってしまいます。
+
+#+BEGIN: include :file "/r/sync/junk/141113/141113065629.el"
+#+BEGIN_SRC fundamental
+(condition-case _
+    (buffer-name "*scratch*")
+  (error _))
+;; => (wrong-type-argument bufferp "*scratch*")
+(let ((buf "*scratch*"))
+  (if (bufferp buf) (buffer-name buf) buf)) ; => "*scratch*"
+(let ((buf (get-buffer "*scratch*")))
+  (if (bufferp buf) (buffer-name buf) buf)) ; => "*scratch*"
+#+END_SRC
+
+#+END:
+
+長くてうざったいです。
+
+これを一気に解決してくれるのがformat関数なのです。
+
+#+BEGIN: include :file "/r/sync/junk/141113/141113064934.el"
+#+BEGIN_SRC fundamental
+(let ((buf "*scratch*"))
+  (string-match "^\\*" buf))            ; => 0
+(let ((buf (get-buffer "*scratch*")))
+  (condition-case _
+      (string-match "^\\*" buf)
+    (error _)))
+;;; => (wrong-type-argument stringp #<buffer *scratch*>)
+(let ((buf (get-buffer "*scratch*")))
+  (string-match "^\\*" (format "%s" buf))) ; => 0
+#+END_SRC
+
+#+END:
+
+つーわけで (wrong-type-argument stringp 〜) というエラーに遭遇したら
+format関数の出番なんですね。
+
+** concat + *-to-string が許されるのが小学生まで
+で、すげー吐き気を催すコードが
+*concat* と文字列化関数を合わせてる場合です。
+
+Emacs Lispのソースコードに対して「concat.+-(name|to-string)」でgrepすると
+出るわ出るわ、すごい汚いコードが…
+
+#+BEGIN: include :file "/r/sync/junk/141113/141113070119.el"
+#+BEGIN_SRC fundamental
+(let ((x 512))
+  (concat "合計金額は" (number-to-string x) "円") ; => "合計金額は512円"
+  (format "合計金額は%s円" x) ; => "合計金額は512円"
+  )
+(let ((c ?X))
+  (concat "文字[" (char-to-string c) "]") ; => "文字[X]"
+  (format "文字[%c]" c) ; => "文字[X]"
+  )
+(let ((b (get-buffer "*scratch*")))
+  (concat "Buffer: " (buffer-name b)) ; => "Buffer: *scratch*"
+  (format "Buffer: %s" b) ; => "Buffer: *scratch*"
+  )
+(let ((s 'sym))
+  (concat "Symbol: " (symbol-name s)) ; => "Symbol: sym"
+  (format "Symbol: %s" s) ; => "Symbol: sym"
+  )
+(let ((s '(foo bar)))
+  (concat "Sexp: " (prin1-to-string s)) ; => "Sexp: (foo bar)"
+  (format "Sexp: %S" s) ; => "Sexp: (foo bar)"
+  )
+#+END_SRC
+
+#+END:
+
+どっちが読みやすいかは火を見るより明らかですよね。
+
+ただし、nilを渡すと"nil"が返るので注意です。
+
+#+BEGIN_SRC emacs-lisp :results silent
+(format "%s" nil) ; => "nil"
+#+END_SRC
+
+Emacs Lispに限らず他言語を使う場合でも、同じ理由で
+極力printf/format系の関数を使うことをおすすめします。
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

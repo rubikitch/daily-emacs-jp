@@ -1,0 +1,37 @@
+#+BLOG: rubikitch
+#+POSTID: 1608
+#+DATE: [2015-05-02 Sat 05:21]
+#+PERMALINK: emacs245-mingw32
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, Emacs 24.5, 
+#+DESCRIPTION: Emacs24.5の公式Windowsバイナリ(mingw32/32bit)がリリースされました。URL有。
+#+MYTAGS: Emacs24.5, Emacs24.5 32bit, Emacs24.5 mingw32
+#+TITLE: Emacs24.5の公式Windowsバイナリ(mingw32/32bit)リリース！
+#+begin: org2blog-tags
+#+TAGS: Emacs24.5, Emacs24.5 32bit, Emacs24.5 mingw32, Emacs, Emacs 24.5, , 
+#+end:
+http://lists.gnu.org/archive/html/emacs-devel/2015-05/msg00000.html
+
+emacs-devel側でごたごたがあったせいで
+長らくEmacs 24.5のWindows版バイナリがリリースされていませんでしたが、
+20日遅れで本日やっとリリースされました。
+
+公式バイナリはmingw32であり、32bit版です。
+
+Emacs 24.5は基本的にはEmacs 24.4のバグフィクスリリースなので
+24.3→24.4のような大きな変更はありません。
+
+安心してアップグレードしてください。
+
+http://ftp.jaist.ac.jp/pub/GNU/emacs/windows/emacs-24.5-bin-i686-mingw32.zip
+から取得してください。
+
+64bit版ならば[[http://rubikitch.com/2015/04/15/ntemacs64-emacs245/][NTEmacs64]] があるのでそちらを利用してください。
+
+リリース作業お疲れ様です。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

@@ -1,0 +1,39 @@
+#+POSTID: 230
+#+DATE: [2014-08-28 Thu 10:49]
+#+PERMALINK: emacs-intro
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t
+#+ISPAGE: t
+#+DESCRIPTION: Emacs初心者へ向けて
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs,
+#+MYTAGS:
+#+TAGS: , Emacs,, 環境
+#+TITLE: Emacsとは
+[[http://www.gnu.org/software/emacs/][Emacs]] とは、Unix系OSでよく使われているテキストエディタ…
+ということになっていますが、実際はありとあらゆることができる *環境* です。
+
+初めて使うのであれば、Software Design連載記事を見ていただくのが早いです。
+
+もちろん、技術評論社には許可を得て掲載しています。
+
+WindowsでEmacsをインストールする方にはどちらか選んでください。
+- [[http://rubikitch.com/category/gnupack/][gnupack 32bit(レビュー・簡単)]] 
+- [[http://rubikitch.com/category/NTEmacs64/][NTEmacs64(レビュー)]]
+
+ただ、EmacsをWindowsでのみ使っているのでは本当の価値がわかりません。
+
+ぜひともGNU/Linux、Mac等のUnix系OSで使ってみてください。
+
+* 【Software Design連載】るびきち流Emacs超入門
+  『思考をカタチにするエディタの使い方』
+
+連載記事は後でまとめて書籍にするという選択肢もありますが、
+より多くの人に見ていただく方が社会全体の利益になるため
+全文公開することにいたしました。
+
+右サイドバーの「雑誌連載中」から記事を辿ってください。
+
+Emacsが初めての人にも理解できるように書きました。
+# * 色々なEmacs Lispプログラムを導入するには
+

@@ -1,0 +1,194 @@
+#+BLOG: rubikitch
+#+POSTID: 1893
+#+DATE: [2015-08-12 Wed 14:49]
+#+PERMALINK: zerodark-theme
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, theme
+#+EL_PKG_NAME: zerodark-theme
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, color-theme, カラーテーマ
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: One Dark(Atom)、Niflheimからインスパイアされたダークなカラーテーマ
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージzerodark-themeの紹介
+#+MYTAGS: package:zerodark-theme, emacs 使い方, emacs コマンド, emacs, zerodark-theme, zerodark-theme.el, emacs lisp zerodark-theme, elisp zerodark-theme, emacs melpa zerodark-theme, emacs zerodark-theme 使い方, emacs zerodark-theme 設定, emacs パッケージ zerodark-theme, emacs zerodark-theme スクリーンショット, color-theme, カラーテーマ
+#+TAGS: package:zerodark-theme, emacs 使い方, emacs コマンド, emacs, zerodark-theme, zerodark-theme.el, emacs lisp zerodark-theme, elisp zerodark-theme, emacs melpa zerodark-theme, emacs zerodark-theme 使い方, emacs zerodark-theme 設定, emacs パッケージ zerodark-theme, emacs zerodark-theme スクリーンショット, color-theme, カラーテーマ, Emacs, theme, zerodark-theme.el
+#+TITLE: emacs zerodark-theme.el : One Dark(Atom)、Niflheimからインスパイアされたダークなカラーテーマ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>zerodark-theme</td></tr>
+<tr><td>概要(原文)</td><td>A dark, medium contrast theme for Emacs</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/NicolasPetton/zerodark-theme">https://github.com/NicolasPetton/zerodark-theme</a></td></tr>
+<tr><td>バージョン</td><td>20150730.515</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:zerodark-theme/">package:zerodark-theme</a> </td></tr>
+</table>
+<br />
+#+END_HTML
+*zerodark-theme.el* は、カラーテーマです。
+
+# (save-window-excursion (async-shell-command "emacs-test -eval '(load-theme (quote zerodark) t)'"))
+以下のパッケージに対応しています。
+- isearch
+- hl-line
+- font-lock
+- mode-line
+- powerline
+- message
+- org
+- linum
+- hlinum
+- eshell
+- whitespace
+- link
+- widget
+- compilation
+- dired
+- magit
+- ido
+- notmuch
+- company
+- web-mode
+- js2-mode
+- flycheck
+- fic-mode
+- outline
+- gnus
+- which-function
+- diff
+- ediff
+- helm
+- visible-mark
+- show-paren
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_theme_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150812145331.png]]
+Fig1: emacs-lisp-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150812145337.png]]
+Fig2: magit
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150812145341.png]]
+Fig3: grep
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150812145347.png]]
+Fig4: outline-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150812145350.png]]
+Fig5: org-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150812145354.png]]
+Fig6: dired
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150812145358.png]]
+Fig7: web-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150812145402.png]]
+Fig8: markdown-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150812145407.png]]
+Fig9: helm
+** zerodark-theme インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install zerodark-theme
+
+
+#+end:
+** 概要                                                             :noexport:
+*zerodark-theme.el* は、カラーテーマです。
+
+# (save-window-excursion (async-shell-command "emacs-test -eval '(load-theme (quote zerodark) t)'"))
+以下のパッケージに対応しています。
+- isearch
+- hl-line
+- font-lock
+- mode-line
+- powerline
+- message
+- org
+- linum
+- hlinum
+- eshell
+- whitespace
+- link
+- widget
+- compilation
+- dired
+- magit
+- ido
+- notmuch
+- company
+- web-mode
+- js2-mode
+- flycheck
+- fic-mode
+- outline
+- gnus
+- which-function
+- diff
+- ediff
+- helm
+- visible-mark
+- show-paren
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_theme_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150812145331.png]]
+Fig10: emacs-lisp-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150812145337.png]]
+Fig11: magit
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150812145341.png]]
+Fig12: grep
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150812145347.png]]
+Fig13: outline-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150812145350.png]]
+Fig14: org-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150812145354.png]]
+Fig15: dired
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150812145358.png]]
+Fig16: web-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150812145402.png]]
+Fig17: markdown-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150812145407.png]]
+Fig18: helm
+
+** 設定
+#+BEGIN_SRC fundamental
+(load-theme 'zerodark t)
+#+END_SRC
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ emacs -Q -f package-initialize -eval '(load-theme (quote zerodark) t)'
+#+END_EXAMPLE
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

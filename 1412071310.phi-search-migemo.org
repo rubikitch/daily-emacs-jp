@@ -1,0 +1,22 @@
+#+BLOG: rubikitch
+#+POSTID: 677
+#+DATE: [2014-12-07 Sun 13:10]
+#+PERMALINK: phi-search-migemo
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: 記事更新情報,
+#+DESCRIPTION:
+#+MYTAGS:
+#+TITLE: phi-search-migemoのバグが修正されました！安心してmultiple-cursorsと併用してください
+[[http://rubikitch.com/2014/12/06/phi-search-migemo/][phi-searchがMigemo化された]] わけですが、
+レビュー記事を書いた日はバグがあったため
+multiple-cursors.elとうまく併用できませんでした。
+
+しかし、昨日このバグは修正されたので安心して導入できます。
+
+作者の素早い対応に感謝いたします。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

@@ -1,0 +1,63 @@
+#+BLOG: rubikitch
+#+POSTID: 143
+#+DATE: [2014-08-12 Tue 14:53]
+#+PERMALINK: propertize
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs Lisp, Emacs,
+#+DESCRIPTION: propertize関数で文字列に固有のデータをくっつける話
+#+MYTAGS: Emacs, Emacs Lisp, elisp, emacs テキストプロパティ, emacs propertize, emacs get-text-property, emacs put-text-property, emacs set-text-properties, Ruby 特異メソッド, Emacs Lisp 特異メソッド, helm, helm display-to-real
+#+TAGS: Emacs, Emacs Lisp, elisp, emacs テキストプロパティ, emacs propertize, emacs get-text-property, emacs put-text-property, emacs set-text-properties, Ruby 特異メソッド, Emacs Lisp 特異メソッド, helm, helm display-to-real, Emacs Lisp, Emacs,, propertize, Rubyの特異メソッド, helm, display-to-real, テキストプロパティ
+#+TITLE: Emacs Lispのテキストプロパティがどう見ても特異メソッドな件(笑)
+ふと思い立ったのでこんなコードを書いてみました。
+
+Emacs Lispプログラミングをしている人にはもはや当たり前かもしれないけど、
+*propertize* 関数がどう見ても *Rubyの特異メソッド* に見えてきたので。
+
+しかも *helm* の情報源を記述するときに、
+*display-to-real* 属性で *テキストプロパティ* を
+つけてあげると、文字列に付随するデータを渡せます。
+** コード [[http://rubikitch.com/f/140812145540.propertize.el][140812145540.propertize.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/140812/140812145540.propertize.el"
+#+BEGIN_SRC fundamental
+(setq s1 "foo"
+      ;; s2にテキストプロパティをつけてあげる
+      s2 (propertize "foo"
+                     'value "bar"
+                     :number 1
+                     'func (lambda (self) (capitalize self))))
+(string= s1 s2)                             ; => t
+;;; もはやただの文字列ではない(笑)
+(get-text-property 0 'value s2)             ; => "bar"
+(get-text-property 0 :number s2)            ; => 1
+;;; 見ろよこれ、どう見ても特異メソッドじゃねーか！
+(funcall (get-text-property 0 'func s2) s2) ; => "Foo"
+
+;;; helmで応用できる
+(require 'helm)
+(defun helmtest ()
+  (interactive)
+  (helm :sources '(((name . "test")
+                    (init
+                     . (lambda ()
+                         (with-current-buffer (helm-candidate-buffer 'global)
+                           (insert "foo\n"
+                                   "bar\n"
+                                   "baz\n"))))
+                    (candidates-in-buffer)
+                    (display-to-real
+                     . (lambda (x) (propertize x 'capitalize (capitalize x))))
+                    (action
+                     . (lambda (x) (message "%s (%s)" x (get-text-property 0 'capitalize x))))))))
+#+END_SRC
+
+#+END:
+
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+http://rubikitch.com/f/20140812150326.png
+Fig1: M-x helmetstでbarを選択したところ

@@ -1,0 +1,50 @@
+#+BLOG: rubikitch
+#+POSTID: 420
+#+DATE: [2014-10-03 Fri 10:28]
+#+PERMALINK: melmag
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: メルマガ,
+#+DESCRIPTION: Emacsの鬼るびきちのココだけの話#149はEmacsでグラフを描くお話
+#+MYTAGS: emacs, gnuplot, org-mode, emacs グラフ gnuplot org-mode
+#+TAGS: emacs, gnuplot, org-mode, emacs グラフ gnuplot org-mode, メルマガ,, gnuplot, org-mode
+#+TITLE: Emacsでグラフを描きませんか？
+最近はやや自己啓発よりなメルマガでしたが、
+今月は再びEmacsどっぷりな内容にするつもりです。
+
+また何かおもしろいライフハックがあったら
+それとEmacsを絡ませていくかもしれませんが…
+
+今回からは数回に分けてEmacsでグラフを描く話にします。
+
+グラフを描くには表計算ソフトを使うのが当たり前ですが、
+ここではあえて *gnuplot* を使うことにします。
+
+フリーソフトウェアながら、
+学術論文にも使えるハイクオリティなソフトウェアです。
+
+歴史も長く信頼度も高いです。
+
+そして、グラフのデータは何で入力するかというと、 *org-mode* です。
+
+org-modeの表作成機能はとても使いやすく、
+まさにgnuplotの相性はバッチリです。
+
+グラフというと難しそうなイメージがありますが、
+安心してください。
+
+簡単なグラフならば決まり文句を使うだけなので簡単にできます。
+
+また、org-modeはあまりにも多機能すぎるため、
+しばらく使っていないと使い方を忘れてしまうことが
+本当によくあります。
+
+僕ですらよくあります。
+
+そこで、使い方を忘れてしまうのを防ぐ仕組みと、
+グラフ作成機能をそれに組み込む設定も紹介します。
+
+楽しみにしててください。

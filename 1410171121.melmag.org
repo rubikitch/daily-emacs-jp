@@ -1,0 +1,50 @@
+#+BLOG: rubikitch
+#+POSTID: 482
+#+DATE: [2014-10-17 Fri 11:21]
+#+PERMALINK: melmag
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: メルマガ,
+#+DESCRIPTION:
+#+MYTAGS:
+#+TAGS: , メルマガ,, org-mode, org2blog
+#+TITLE: 毎日20分程度でEmacsブログを更新し続けている舞台裏を暴露…
+ついにメルマガ『Emacsの鬼るびきちのココだけの話』も
+151号に到達しました。
+
+初代ポケモンの数ですね(笑)
+
+今回は、毎日更新しているこのブログの舞台裏を暴露します。
+
+ここ数年は年に数回しか更新できなかったブログが、
+rubikitch.comになってから突如毎日欠かさず更新し続けている…
+その秘密とは…？
+
+舞台裏にはこんな仕掛けがあるということを
+メルマガを読んでくださってるあなたにこっそりと伝授します。
+
+ブログの更新時間は15〜40分くらいです。
+
+初見のEmacs Lispでも簡単なものならば
+20分もあればレビュー記事が書けてしまいます。
+
+そのためには円滑にテストを行い、
+文章を書くための仕組みが不可欠です。
+
+使っているツールは
+*org-mode* でブログを更新する *org2blog*
+というパッケージです。
+
+しかし、それだけでは足りません。
+
+org-modeにとある仕掛けを施して
+思考の流れのままスムーズに
+ブログ記事を書き上げています。
+
+それでは土曜日のメルマガを楽しみにしててください。
+
+ちなみにこの記事は7分で書き上げました(笑)
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

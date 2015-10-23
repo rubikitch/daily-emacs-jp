@@ -1,0 +1,90 @@
+#+BLOG: rubikitch
+#+POSTID: 1140
+#+DATE: [2015-02-14 Sat 07:40]
+#+PERMALINK: shell-split-string
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, Emacs Lisp, 
+#+EL_PKG_NAME: shell-split-string
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs シェル, elisp shellsplit, emacs lisp シェル 構文解析, emacs lisp split-string shell, emacs lisp shellwords, emacs lisp shellsplit, shell-quote-argument 逆, 
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 
+#+EL_TITLE0: シェル文字列を分解するたった1つの関数
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージshell-split-stringの紹介
+#+MYTAGS: package:shell-split-string, emacs 使い方, emacs コマンド, emacs, shell-split-string, shell-split-string.el, emacs lisp shell-split-string, elisp shell-split-string, emacs melpa shell-split-string, emacs shell-split-string 使い方, emacs shell-split-string 設定, emacs パッケージ shell-split-string, emacs シェル, elisp shellsplit, emacs lisp シェル 構文解析, emacs lisp split-string shell, emacs lisp shellwords, emacs lisp shellsplit, shell-quote-argument 逆, 
+#+TAGS: package:shell-split-string, emacs 使い方, emacs コマンド, emacs, shell-split-string, shell-split-string.el, emacs lisp shell-split-string, elisp shell-split-string, emacs melpa shell-split-string, emacs shell-split-string 使い方, emacs shell-split-string 設定, emacs パッケージ shell-split-string, emacs シェル, elisp shellsplit, emacs lisp シェル 構文解析, emacs lisp split-string shell, emacs lisp shellwords, emacs lisp shellsplit, shell-quote-argument 逆, , Emacs, Emacs Lisp, , shell-split-string.el, shell-split-string, shell-quote-argument, split-string, shell-split-string.el, shell-split-string, shell-quote-argument, split-string
+#+TITLE: emacs shell-split-string.el : シェル文字列を分解するたった1つの関数 | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>shell-split-string</td></tr>
+<tr><td>概要(原文)</td><td>Split strings using shell-like syntax</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/10sr/shell-split-string-el">https://github.com/10sr/shell-split-string-el</a></td></tr>
+<tr><td>バージョン</td><td>20150202.2036</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:shell-split-string/">package:shell-split-string</a> </td></tr>
+</table>
+<br />
+#+END_HTML
+
+*shell-split-string.el* は、Unixのシェルの文字列を単語ごとに分けます。
+
+たったひとつの関数 *shell-split-string* のみが用意されています。
+
+文字列をシェルに渡すためにメタ文字をクオートする
+*shell-quote-argument* の逆と考えてください。
+
+シェルの文法を解釈する *split-string* ともいえます。
+
+elispでシェルのような対話的インターフェースで何か作るときに
+シェルの構文で言語化すると使いやすいのではないでしょうか？
+
+autoloadされているので、requireは不要です。
+
+使用例:
+#+BEGIN_SRC emacs-lisp :results silent
+(shell-split-string "abc")              ; => ("abc")
+(shell-split-string "abc  def")         ; => ("abc" "def")
+(shell-split-string "abc \"def ghi\"")  ; => ("abc" "def ghi")
+(shell-split-string "abc 'de f'ghi")    ; => ("abc" "de fghi")
+(shell-split-string "abc \"d\\\"ef\"")  ; => ("abc" "d\"ef")
+#+END_SRC
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+** shell-split-string インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install shell-split-string
+
+
+#+end:
+** 概要                                                             :noexport:
+
+*shell-split-string.el* は、Unixのシェルの文字列を単語ごとに分けます。
+
+たったひとつの関数 *shell-split-string* のみが用意されています。
+
+文字列をシェルに渡すためにメタ文字をクオートする
+*shell-quote-argument* の逆と考えてください。
+
+シェルの文法を解釈する *split-string* ともいえます。
+
+elispでシェルのような対話的インターフェースで何か作るときに
+シェルの構文で言語化すると使いやすいのではないでしょうか？
+
+autoloadされているので、requireは不要です。
+
+使用例:
+#+BEGIN_SRC emacs-lisp :results silent
+(shell-split-string "abc")              ; => ("abc")
+(shell-split-string "abc  def")         ; => ("abc" "def")
+(shell-split-string "abc \"def ghi\"")  ; => ("abc" "def ghi")
+(shell-split-string "abc 'de f'ghi")    ; => ("abc" "de fghi")
+(shell-split-string "abc \"d\\\"ef\"")  ; => ("abc" "d\"ef")
+#+END_SRC
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

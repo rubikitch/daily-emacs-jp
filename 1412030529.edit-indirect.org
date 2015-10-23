@@ -1,0 +1,171 @@
+#+BLOG: rubikitch
+#+POSTID: 657
+#+DATE: [2014-12-03 Wed 05:29]
+#+PERMALINK: edit-indirect
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs
+#+EL_PKG_NAME: edit-indirect
+#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, relate:org, relate:web-mode, relate:css-mode, relate:js2-mode, emacs html css, emacs html javascript, emacs 複数のメジャーモード, relate:narrow-indirect
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: JavaScriptやCSSをorg-babel的に別バッファで編集する！複数の言語を含むものすべて…
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージedit-indirectの紹介
+#+MYTAGS: package:edit-indirect, emacs 使い方, emacs コマンド, emacs, emacs lisp edit-indirect, elisp edit-indirect, emacs melpa edit-indirect, emacs edit-indirect 使い方, emacs edit-indirect 設定, emacs パッケージ edit-indirect, emacs edit-indirect スクリーンショット, relate:org, relate:web-mode, relate:css-mode, relate:js2-mode, emacs html css, emacs html javascript, emacs 複数のメジャーモード, relate:narrow-indirect
+#+TAGS: package:edit-indirect, emacs 使い方, emacs コマンド, emacs, emacs lisp edit-indirect, elisp edit-indirect, emacs melpa edit-indirect, emacs edit-indirect 使い方, emacs edit-indirect 設定, emacs パッケージ edit-indirect, emacs edit-indirect スクリーンショット, relate:org, relate:web-mode, relate:css-mode, relate:js2-mode, emacs html css, emacs html javascript, emacs 複数のメジャーモード, relate:narrow-indirect, Emacs, edit-indirect.el, M-x edit-indirect-region, org-mode, SRCブロック, org-babel, M-x make-indirect-buffer, M-x clone-indirect-buffer, 間接バッファ, M-x edit-indirect-dwim, edit-indirect-guess-mode-alist, M-x edit-indirect-region, org-mode, SRCブロック, org-babel, M-x make-indirect-buffer, M-x clone-indirect-buffer, 間接バッファ, M-x edit-indirect-dwim, edit-indirect-guess-mode-alist
+#+TITLE: emacs edit-indirect.el : JavaScriptやCSSをorg-babel的に別バッファで編集する！複数の言語を含むものすべて… | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>edit-indirect</td></tr>
+<tr><td>概要(原文)</td><td>Edit regions in separate buffers</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/Fanael/edit-indirect">https://github.com/Fanael/edit-indirect</a></td></tr>
+<tr><td>バージョン</td><td>20141213.1005</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:edit-indirect/">package:edit-indirect</a> <a href="http://rubikitch.com/tag/package:org/">package:org</a> <a href="http://rubikitch.com/tag/package:web-mode/">package:web-mode</a> <a href="http://rubikitch.com/tag/package:css-mode/">package:css-mode</a> <a href="http://rubikitch.com/tag/package:js2-mode/">package:js2-mode</a> <a href="http://rubikitch.com/tag/package:narrow-indirect/">package:narrow-indirect</a></td></tr>
+</table>
+<br />
+#+END_HTML
+*edit-indirect.el* は、regionを別バッファで編集する機能を提供します。
+
+<2015-01-07 Wed> 同じメジャーモードなら [[http://rubikitch.com/2015/01/07/narrow-indirect/][narrow-indirect(レビュー)]] を。
+
+使い方は、regionを指定し、 *M-x edit-indirect-region* を実行します。
+
+すると、別ウィンドウにそのregionと同じ内容のバッファが出てくるので、
+編集してC-c C-cを押して元のバッファに反映します。
+
+編集を破棄するにはC-c C-kです。
+
+似たような既存の機能は、 *org-mode* の *SRCブロック* を
+編集する機能(*org-babel*)です。
+
+org-modeでC-c 'を押すとそのsrcブロックを適切な
+メジャーモードの別バッファで編集できますが、
+edit-indirect.elはそれを任意のバッファで
+行えるようにするものです。
+
+名前はindirectと名乗っていますが、 *M-x make-indirect-buffer* や
+*M-x clone-indirect-buffer* とは何の関係もありません。
+
+それら *間接バッファ* は編集したと同時に元のバッファに編集が反映されますが、
+M-x edit-indirect-regionはC-c C-cを押したときに初めて反映されます。
+
+デフォルトの状態ではfundamental-modeになっているので、
+M-x edit-indirect-region実行後は何かのメジャーモードを
+設定するでしょう。
+
+ここだけ見ればあまり役に立たなさそうですが、
+複数の言語が混在したファイルを編集するときに役立ちます。
+
+例として、インラインCSSやJavaScriptを編集するコマンド
+*M-x edit-indirect-dwim* を用意しました。
+
+*edit-indirect-guess-mode-alist* を設定すれば、
+他の言語にも対応できます。
+
+
+** edit-indirect インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install edit-indirect
+
+
+#+end:
+** 概要                                                             :noexport:
+*edit-indirect.el* は、regionを別バッファで編集する機能を提供します。
+
+<2015-01-07 Wed> 同じメジャーモードなら [[http://rubikitch.com/2015/01/07/narrow-indirect/][narrow-indirect(レビュー)]] を。
+
+使い方は、regionを指定し、 *M-x edit-indirect-region* を実行します。
+
+すると、別ウィンドウにそのregionと同じ内容のバッファが出てくるので、
+編集してC-c C-cを押して元のバッファに反映します。
+
+編集を破棄するにはC-c C-kです。
+
+似たような既存の機能は、 *org-mode* の *SRCブロック* を
+編集する機能(*org-babel*)です。
+
+org-modeでC-c 'を押すとそのsrcブロックを適切な
+メジャーモードの別バッファで編集できますが、
+edit-indirect.elはそれを任意のバッファで
+行えるようにするものです。
+
+名前はindirectと名乗っていますが、 *M-x make-indirect-buffer* や
+*M-x clone-indirect-buffer* とは何の関係もありません。
+
+それら *間接バッファ* は編集したと同時に元のバッファに編集が反映されますが、
+M-x edit-indirect-regionはC-c C-cを押したときに初めて反映されます。
+
+デフォルトの状態ではfundamental-modeになっているので、
+M-x edit-indirect-region実行後は何かのメジャーモードを
+設定するでしょう。
+
+ここだけ見ればあまり役に立たなさそうですが、
+複数の言語が混在したファイルを編集するときに役立ちます。
+
+例として、インラインCSSやJavaScriptを編集するコマンド
+*M-x edit-indirect-dwim* を用意しました。
+
+*edit-indirect-guess-mode-alist* を設定すれば、
+他の言語にも対応できます。
+
+
+
+** 設定 [[http://rubikitch.com/f/141203051005.edit-indirect-css-js.el][141203051005.edit-indirect-css-js.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/141203/141203051005.edit-indirect-css-js.el"
+#+BEGIN_SRC fundamental
+(require 'cl-lib)
+(require 'edit-indirect)
+(defvar edit-indirect-guess-mode-alist
+  '(("<script.*>"  "</script.*>" js2-mode)
+    ("<style.*>"  "</style.*>" css-mode))
+  "(開始正規表現 終了正規表現 メジャーモード) のリスト。
+開始正規表現の後から終了正規表現の前までが
+edit-indirect-regionが適用されます。")
+(defun edit-indirect-guess-mode-at-point ()
+  (cl-loop with s
+           with e
+           with region-start
+           with region-end
+           with pt = (point)
+           for (start end mode) in
+           edit-indirect-guess-mode-alist
+           when
+           (save-excursion
+             (setq s (re-search-backward start nil t)
+                   region-start (match-end 0))
+             (setq e (re-search-forward end nil t)
+                   region-end (match-beginning 0))
+             (and s e (< s pt e)))
+           return (list mode region-start region-end)))
+(defun edit-indirect-dwim (s e)
+  (interactive "r")
+  (let (it)
+    (cond ((region-active-p)
+           (edit-indirect-region s e t))
+          ((setq it (edit-indirect-guess-mode-at-point))
+           (edit-indirect-region (nth 1 it) (nth 2 it) t)
+           (funcall (car it)))
+          (t
+           (user-error "No region")))))
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/141203051005.edit-indirect-css-js.el
+$ emacs -Q -f package-initialize -l 141203051005.edit-indirect-css-js.el
+#+END_EXAMPLE
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+http://rubikitch.com/f/20141203054152.png
+Fig1: インラインCSSをcss-modeで編集
+
+http://rubikitch.com/f/20141203054217.png
+Fig2: インラインJavaScriptをjs2-modeで編集

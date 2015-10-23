@@ -1,0 +1,68 @@
+#+BLOG: rubikitch
+#+POSTID: 1409
+#+DATE: [2015-04-02 Thu 08:43]
+#+PERMALINK: emacs245rc2
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, Emacs 24.5, 
+#+DESCRIPTION: Emacs24.5RC1でtrampのscpメソッドが動いていないので、その修正がバックポートされ本日RC2がリリースされました。本番リリースは4/6の予定です。
+#+MYTAGS: 
+#+TITLE: 本日Emacs24.5RC2リリース、6日にEmacs24.5リリース予定
+#+begin: org2blog-tags
+#+TAGS: , Emacs, Emacs 24.5, , 
+#+end:
+本来ならば今日(現地時間で1日)にEmacs24.5がリリースされるはずでしたが、
+細かい問題があったことで今日Release Candidate 2がリリースされました。
+
+[[http://rubikitch.com/2015/03/30/emacs245-news/][Emacs24.5の最新情報はこちら]]
+
+** 本日RC2登場
+http://lists.gnu.org/archive/html/emacs-devel/2015-04/msg00070.html
+
+#+BEGIN_QUOTE
+The second release candidate for the 24.5 release of Emacs (the
+extensible text editor) is available at
+
+  ftp://alpha.gnu.org/gnu/emacs/pretest/emacs-24.5-rc2.tar.xz
+
+Please give it as much testing as you can.
+
+As always, if you encounter problems building or using Emacs,
+send a report to address@hidden with full details
+(if possible, use M-x report-emacs-bug).
+
+Thanks for helping to test Emacs.
+#+END_QUOTE
+
+
+** 本番は4/6にリリース予定
+http://lists.gnu.org/archive/html/emacs-devel/2015-04/msg00059.html
+
+#+BEGIN_QUOTE
+> There will be a second RC (hopefully today), and I will do the release
+> on Monday if everything goes according to plan.
+
+Thank you!
+#+END_QUOTE
+
+そして、特に問題なければ月曜日(6日、日本時間で7日)にリリース予定です。
+
+** 現時点ではtrampのscpメソッドが動かないらしい
+http://lists.gnu.org/archive/html/emacs-devel/2015-04/msg00004.html
+
+#+BEGIN_QUOTE
+I hate it to be the grinch. But bug#20233 means, that Tramp is broken
+for the "scp" method, the default one. I could reproduce this locally.
+
+Backporting a patch from the master branch seems to cure the problem
+(waiting for acknowledgement of the OP).
+
+Does this qualify to make a second RC?
+#+END_QUOTE
+
+ちなみに問題とはtrampのscpメソッドが動かないようです。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

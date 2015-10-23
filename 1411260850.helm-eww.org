@@ -1,0 +1,116 @@
+#+BLOG: rubikitch
+#+POSTID: 624
+#+DATE: [2014-11-26 Wed 08:50]
+#+PERMALINK: helm-eww
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, Emacs 24.4, Emacs 25.0, eww, helm, Emacs Lisp
+#+DESCRIPTION: helm-eww.el (仮)はewwでのURL履歴をhelmインターフェースで検索します。
+#+MYTAGS: anything.el eww, helm eww, package:anything, pacakge:helm, package:eww, relate:helm, relate:anything
+#+TAGS: anything.el eww, helm eww, package:anything, pacakge:helm, package:eww, relate:helm, relate:anything, Emacs, Emacs 24.4, Emacs 25.0, eww, helm, Emacs Lisp, emacs-w3m, helm-eww.el, M-x rename-buffer, ブラウザ履歴, helmインターフェース, M-x helm-eww-history, helm-source-eww-history, helm-for-files-preferred-list, M-x helm-for-files, anything-c-source-eww-history, anything.el, helm eww
+#+TITLE: helm-eww.el - Emacs組み込みWebブラウザewwでURLの履歴をhelm/anythingする
+eww使っていますかー!？
+
+高速動作するから、僕は *emacs-w3m* からあっさり乗り換えてしまいました。
+
+この前、 *helm-eww.el* というのを速攻で作ってしまいました。
+
+ewwは *M-x rename-buffer* しない限り、1つのバッファにすべての *ブラウザ履歴* を保存するようになっています。
+
+つまり、そのままでは他のページには簡単には切り替えられない欠点があります。
+
+そこで、ewwの履歴を *helmインターフェース* ですぐにアクセスすれば
+あたかも複数のバッファに分かれているかのように扱えます。
+
+現時点でもとても快適に使えています。
+
+eww元々の「H」、そしてw3m流の「s」に
+*M-x helm-eww-history* を割り当てています。
+
+情報源 *helm-source-eww-history* を
+*helm-for-files-preferred-list* に入れれば
+*M-x helm-for-files* からでもアクセスできます。
+
+#+BEGIN_SRC emacs-lisp :results silent
+;;; 設定例
+(setq helm-for-files-preferred-list
+      '(helm-source-buffers-list
+        helm-source-recentf
+        helm-source-bookmarks
+        helm-source-file-cache
+        helm-source-files-in-current-dir
+        helm-source-eww-history
+        helm-source-locate))
+#+END_SRC
+
+なお、 *anything-c-source-eww-history* も定義しているので、
+*anything.el* を使っている方でも使用できます。
+
+叩き台なので改良したい方、MELPAに上げたい方は大歓迎です。
+
+** 設定 [[http://rubikitch.com/f/helm-eww.el][helm-eww.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/141126/helm-eww.el"
+#+BEGIN_SRC fundamental
+(require 'eww)
+(defvar eww-data)
+(defun eww-current-url ()
+  (if (boundp 'eww-current-url)
+      eww-current-url                   ;emacs24.4
+    (plist-get eww-data :url)))         ;emacs25
+(defun eww-current-title ()
+  (if (boundp 'eww-current-title)
+      eww-current-title                   ;emacs24.4
+    (plist-get eww-data :title)))
+
+(require 'helm)
+(require 'cl-lib)
+
+(defun helm-eww-history-candidates ()
+  (cl-loop with hash = (make-hash-table :test 'equal)
+           for b in (buffer-list)
+           when (eq (buffer-local-value 'major-mode b) 'eww-mode)
+           append (with-current-buffer b
+                    (clrhash hash)
+                    (puthash (eww-current-url) t hash)
+                    (cons
+                     (cons (format "%s (%s) <%s>" (eww-current-title) (eww-current-url) b) b)
+                     (cl-loop for pl in eww-history
+                              unless (gethash (plist-get pl :url) hash)
+                              collect
+                              (prog1 (cons (format "%s (%s) <%s>" (plist-get pl :title) (plist-get pl :url) b)
+                                           (cons b pl))
+                                (puthash (plist-get pl :url) t hash)))))))
+(defun helm-eww-history-browse (buf-hist)
+  (if (bufferp buf-hist)
+      (switch-to-buffer buf-hist)
+    (switch-to-buffer (car buf-hist))
+    (eww-save-history)
+    (eww-restore-history (cdr buf-hist))))
+(defvar helm-source-eww-history
+  '((name . "eww history")
+    (candidates . helm-eww-history-candidates)
+    (migemo)
+    (action . helm-eww-history-browse)))
+(defvaralias 'anything-c-source-eww-history 'helm-source-eww-history)
+(defun helm-eww-history ()
+  (interactive)
+  (helm :sources 'helm-source-eww-history
+        :buffer "*helm eww*"))
+
+(define-key eww-mode-map (kbd "H") 'helm-eww-history)
+(define-key eww-mode-map (kbd "s") 'helm-eww-history)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/helm-eww.el
+$ emacs -Q -f package-initialize -l helm-eww.el
+#+END_EXAMPLE
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+http://rubikitch.com/f/20141126091701.png
+Fig1: helmで履歴！

@@ -1,0 +1,47 @@
+#+BLOG: rubikitch
+#+POSTID: 891
+#+DATE: [2015-01-10 Sat 07:51]
+#+PERMALINK: hl-anything
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: 記事更新情報, 
+#+DESCRIPTION: 
+#+MYTAGS: 
+#+TAGS: , 記事更新情報, , end-of-buffer
+#+TITLE: hl-anythingの設定変更
+[[http://rubikitch.com/2014/12/28/hl-anything/]]
+
+レビュー当時は *end-of-buffer* 関係がのバグがあったのですが
+本家で修正されたので設定から除去しました。
+
+** 設定 [[http://rubikitch.com/f/141228045535.hl-anything.el][141228045535.hl-anything.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/141228/141228045535.hl-anything.el"
+#+BEGIN_SRC fundamental
+(require 'cl-lib)
+(defun hl-thingatpt--symbol-regexp (&rest them)
+  "せっかく (bounds-of-thing-at-point 'symbol) してるんだから
+\\_<〜\\_>で囲もうぜ？"
+  (if (use-region-p)
+      (apply them)
+    (cl-destructuring-bind (regexp &rest rest)
+        (apply them)
+      `(,(format "\\_<%s\\_>" regexp) ,@rest))))
+(advice-add 'hl-thingatpt :around 'hl-thingatpt--symbol-regexp)
+
+;;; regionを指定したときに解除されないのを修正
+(advice-add 'hl-highlight-thingatpt-local :after 'deactivate-mark)
+(advice-add 'hl-highlight-thingatpt-global :after 'deactivate-mark)
+
+;;; ハイライト情報を保存・復元
+(add-hook 'find-file-hook 'hl-restore-highlights)
+(add-hook 'kill-emacs-hook 'hl-save-highlights)
+#+END_SRC
+
+#+END:
+
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

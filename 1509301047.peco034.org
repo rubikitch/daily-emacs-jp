@@ -1,0 +1,83 @@
+#+BLOG: rubikitch
+#+POSTID: 2032
+#+DATE: [2015-09-30 Wed 10:47]
+#+PERMALINK: peco034
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: helm, peco
+#+DESCRIPTION: 
+#+MYTAGS: relate:helm, relate:anything, , シェルでanythingの絞り込み, シェルでhelmの絞り込み, peco, percol, go, golang, zsh, bash, zaw, ターミナル版anything的なpercol, ターミナル版anything的なpeco, 端末版Unite.vimなpeco, 
+#+TITLE: 【helmを端末へ】peco-0.3.4リリース！大量・少量どちらの候補数でも使いやすく
+#+begin: org2blog-tags
+#+TAGS: relate:helm, relate:anything, , シェルでanythingの絞り込み, シェルでhelmの絞り込み, peco, percol, go, golang, zsh, bash, zaw, ターミナル版anything的なpercol, ターミナル版anything的なpeco, 端末版Unite.vimなpeco, , helm, peco, hit-a-hint
+#+end:
+[[http://rubikitch.com/category/helm/][helm(カテゴリ)]] の絞り込みを端末の世界で行う[[https://github.com/peco/peco][peco]] が
+バージョン0.3.4となって昨日リリースされました。
+
+https://github.com/peco/peco/releases/tag/v0.3.4
+からダウンロードしてください。
+
+このバージョンでの最大の特徴は、
+[[http://rubikitch.com/2015/04/16/ace-jump-helm-line/][ace-jump-helm-line.el(レビュー)]] や anything-prefix-shortcut
+のようにショートカットで候補選択できる機能(*hit-a-hint*)が実装されたことです。
+
+pecoは元々大量の候補を絞り込み検索することで素早く選択できるようにしますが、
+少量の候補を選択するにはC-nや矢印キーを何度も使う必要があり面倒でした。
+
+そこで、「@」を押した後に候補の左端に表示されている文字を打ち込むことで
+即座に選択できるようになりました。
+
+つまり、絞り込み検索に加え、キーボードメニュー的な目視選択もできるのです。
+
+この機能は僕がTwitterで要望したところ、すぐに実装してくれました。
+
+また、スクロール後にクエリを入力したときに候補が表示されないバグも直りました。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150930143639.png]]
+Fig1: 左端のa〜cがヒント文字。@jでActiveを選択。
+
+そのためには、 ~/.config/peco/config.json に設定を加える必要があります。
+
+SingleKeyJump.ShowPrefixにtrueを
+Keymap.@にpeco.ToggleSingleKeyJumpと設定してください。
+
+C-g、C-v、M-v、M-a、Pgup、Pgdnはhelm/anythingに合わせて
+手元で設定しています。
+
+#+BEGIN_EXAMPLE
+{
+    "SingleKeyJump": {
+        "ShowPrefix": true
+    },
+    "Keymap": {
+        "@": "peco.ToggleSingleKeyJump",
+        "C-g": "peco.Cancel",
+        "C-v": "peco.ScrollPageDown",
+        "M-v": "peco.ScrollPageUp",
+        "M-a": "peco.SelectAll",
+        "Pgup": "peco.ScrollPageUp",
+        "Pgdn": "peco.ScrollPageDown"
+    }
+}
+
+#+END_EXAMPLE
+
+
+
+pecoは端末上でしか動かないので、
+emacsのshell-mode/eshellやウィンドウマネージャーで動かすには
+[[http://rubikitch.com/2015/09/29/peco-wrapper][ターミナルエミュレータを媒介するラッパースクリプト]] を使う必要があります。
+
+絞り込み検索はhelmとは比較にならないほど疾いので、
+emacsの中でもどんどん使っていこうと思っています。
+
+詳しい説明はgithubページにて→ https://github.com/peco/peco/
+[[https://github.com/peco/peco/wiki/Sample-Usage][SampleUsage]] も見ればいいアイデアが思い浮かぶことでしょう。
+
+
+

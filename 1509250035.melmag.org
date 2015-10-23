@@ -1,0 +1,31 @@
+#+BLOG: rubikitch
+#+POSTID: 2020
+#+DATE: [2015-09-25 Fri 00:35]
+#+PERMALINK: melmag
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: メルマガ,
+#+DESCRIPTION: るびきち塾メルマガ『Emacsの鬼るびきちのココだけの話#200』の予告
+#+TITLE: 【メルマガ#200】刊行4年弱で200号を迎えました！！
+#+MYTAGS: 
+#+begin: org2blog-tags
+#+TAGS: , メルマガ,, 
+#+end:
+今回でメルマガは200号を迎えました。
+
+そこで改めてEmacsのEmacsらしさ
+について考察してみます。
+
+このEmacsらしさがあるからこそ、
+僕らはEmacsを愛用しているのです。
+
+そして、僕は「Emacs性」のある
+ソフトウェアを特に好んでいます。
+
+Emacs性の観点でソフトウェアを眺めれば、
+自分の手になじむかどうかがわかるでしょう。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

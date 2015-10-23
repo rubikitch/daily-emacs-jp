@@ -1,0 +1,47 @@
+#+BLOG: rubikitch
+#+POSTID: 512
+#+DATE: [2014-10-24 Fri 13:31]
+#+PERMALINK: melmag
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: メルマガ,
+#+DESCRIPTION: Emacsの鬼るびきちのココだけの話#152はEmacsでgnuplotコードを再利用して色々なグラフを描くお話
+#+MYTAGS:
+#+TAGS: , メルマガ,, org-mode, org-babel, DRY原則, gnuplot
+#+TITLE: Emacs org-modeでソースコードを再利用する3つの方法とは？
+*org-mode* は文章の中にソースコードを埋め込むことができます。
+
+その機能のことを *org-babel* といいますが、
+org-babelの中で埋め込むソースコードを管理する方法は
+大きく分けて3つあります。
+
+そのうち2つの方法はソースコードを別のファイルに書いて、
+文書の中にファイル名指定で埋め込む方法です。
+
+これらの方法ならば、ソースコード単体でテストや実行ができるので楽です。
+
+間違ってもソースコードを文書にコピペしてはいけませんよ!
+
+そうするとソースコードを変更したときに
+文書に変更が反映されませんから…
+
+*DRY原則* はソースコードのみならず、文書にも適用すべき事柄です。
+
+
+今回のメルマガはorg文書に埋め込んだソースコードを
+文書内の別な部分で再利用する方法を紹介します。
+
+具体例として、 org-mode + *gnuplot* で色々なグラフを描く文書を作成します。
+
+もちろんグラフの画像はEmacsでインライン画像として表示できます。
+
+[[http://rubikitch.com/2014/10/07/pandoc-2/][orgフォーマットはEmacsユーザにとっては最も可用性が高い]] と考えています。
+
+この方法を応用すれば、ソースコード・画像が含まれる
+文書やサイトを作ることがとても簡単になります。
+
+Emacsの可能性を感じてください。
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

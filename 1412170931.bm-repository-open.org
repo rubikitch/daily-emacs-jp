@@ -1,0 +1,78 @@
+#+BLOG: rubikitch
+#+POSTID: 734
+#+DATE: [2014-12-17 Wed 09:31]
+#+PERMALINK: bm-repository-open
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, helm, 
+#+DESCRIPTION: 
+#+MYTAGS: package:bm, package:helm-bm, relate:helm, relate:bookmark
+#+TAGS: package:bm, package:helm-bm, relate:helm, relate:bookmark, Emacs, helm, , bm-repository-load, bm-repository, bm-repository-file
+#+TITLE: 目に見えるブックマークbm.elの最強設定！helmで『全bm』を見られるようにする
+bm.elとは目に見えるブックマークのことです ([[http://rubikitch.com/2014/11/21/bm/][レビュー記事]]) 。
+
+さらに、[[http://rubikitch.com/2014/11/22/helm-bm/][helm-bmというhelmインターフェース]] も存在します。
+
+しかし、bmの大きな欠点はbmを永続化できるものの、
+開いているバッファの範囲でしかbmを一覧できないことです。
+
+つまり、まだ開いていないファイルについては
+bmをつけたかどうかがわからないのです。
+
+そのため標準のbookmarkの代わりには使いづらいです。
+
+そこで、 *bm-repository-load* した後に
+*bm-repository* に登録されている全ファイルを開いてしまいます。
+
+これにより、リポジトリに保管されているbmを
+起動時から一覧できるようになります。
+
+ちなみにこの欠点に気付くのに何年もかかりました(苦笑)
+
+ついでに *bm-repository-file* を ~/.emacs.d/bm-repository に変更しました。
+
+** 設定 [[http://rubikitch.com/f/141217093322.bm-repository-open.el][141217093322.bm-repository-open.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/141217/141217093322.bm-repository-open.el"
+#+BEGIN_SRC fundamental
+(require 'bm)
+(defun bm-find-files-in-repository ()
+  (interactive)
+  (cl-loop for (key . _) in bm-repository
+           when (file-exists-p key)
+           do (find-file-noselect key)))
+(defun bm-repository-load-and-open ()
+  (interactive)
+  (bm-repository-load)
+  (bm-find-files-in-repository))
+
+(setq bm-repository-file "~/.emacs.d/bm-repository")
+(setq-default bm-buffer-persistence t)
+(setq bm-restore-repository-on-load t)
+(add-hook 'after-init-hook 'bm-repository-load-and-open)
+(defun bm-buffer-restore-safe ()
+  (ignore-errors (bm-buffer-restore)))
+(add-hook 'find-file-hooks 'bm-buffer-restore-safe)
+(add-hook 'kill-buffer-hook 'bm-buffer-save)
+(defun bm-save-to-repository ()
+  (interactive)
+  (unless noninteractive
+    (bm-buffer-save-all)
+    (bm-repository-save)))
+(add-hook 'kill-emacs-hook 'bm-save-to-repository)
+(run-with-idle-timer 600 t 'bm-save-to-repository)
+(add-hook 'after-revert-hook 'bm-buffer-restore)
+(add-hook 'vc-before-checkin-hook 'bm-buffer-save)
+(add-hook 'before-save-hook 'bm-buffer-save)
+
+(require 'helm-bm)
+;; migemoくらいつけようね
+(push '(migemo) helm-source-bm)
+;; annotationはあまり使わないので仕切り線で表示件数減るの嫌
+(setq helm-source-bm (delete '(multiline) helm-source-bm))
+#+END_SRC
+
+#+END:
+

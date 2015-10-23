@@ -1,0 +1,206 @@
+#+BLOG: rubikitch
+#+POSTID: 336
+#+DATE: [2014-09-11 Thu 11:08]
+#+PERMALINK: owdriver
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs
+#+EL_PKG_NAME: owdriver
+#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, package:smartrep, emacs other-window, emacs 3分割, emacs ウィンドウ管理, emacs ウィンドウ構成, emacs smartrep.el e2wm.el, emacs 隣のウィンドウ 操作, emacs 他のウィンドウ 操作, relate:switch-window, relate:win-switch
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方
+#+EL_TITLE0: 3分割以上でも大丈夫！other-window系のコマンドを蹴っ飛ばせ！ウィンドウを切り替えなしに操作するッ！！
+#+EL_URL: http://tinyurl.com/mlg9qxc
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージowdriverの紹介
+#+MYTAGS: package:owdriver, emacs 使い方, emacs コマンド, emacs, emacs lisp owdriver, elisp owdriver, emacs melpa owdriver, emacs owdriver 使い方, emacs owdriver 設定, emacs パッケージ owdriver, package:smartrep, emacs other-window, emacs 3分割, emacs ウィンドウ管理, emacs ウィンドウ構成, emacs smartrep.el e2wm.el, emacs 隣のウィンドウ 操作, emacs 他のウィンドウ 操作, relate:switch-window, relate:win-switch
+#+TAGS: package:owdriver, emacs 使い方, emacs コマンド, emacs, emacs lisp owdriver, elisp owdriver, emacs melpa owdriver, emacs owdriver 使い方, emacs owdriver 設定, emacs パッケージ owdriver, package:smartrep, emacs other-window, emacs 3分割, emacs ウィンドウ管理, emacs ウィンドウ構成, emacs smartrep.el e2wm.el, emacs 隣のウィンドウ 操作, emacs 他のウィンドウ 操作, relate:switch-window, relate:win-switch, Emacs, scroll-other-window, owdriver.el, smartrep.el, C-x o (other-window), owdriver-prefix-key, scroll-other-window, owdriver.el, smartrep.el, C-x o (other-window), owdriver-prefix-key, owdriver-add-keymap, owdriver-define-command, owdriver-define-command
+#+TITLE: emacs owdriver.el : 3分割以上でも大丈夫！other-window系のコマンドを蹴っ飛ばせ！ウィンドウを切り替えなしに操作するッ！！ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>owdriver</td></tr>
+<tr><td>概要(原文)</td><td>Quickly perform various actions on other windows</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>サイト</td><td><a href="http://tinyurl.com/mlg9qxc">http://tinyurl.com/mlg9qxc</td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/aki2o/owdriver">https://github.com/aki2o/owdriver</a></td></tr>
+<tr><td>バージョン</td><td>20141011.738</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:owdriver/">package:owdriver</a> <a href="http://rubikitch.com/tag/package:switch-window/">package:switch-window</a> <a href="http://rubikitch.com/tag/package:win-switch/">package:win-switch</a></td></tr>
+</table>
+<br />
+#+END_HTML
+<2015-02-21 Sat> [[http://rubikitch.com/2015/02/21/win-switch/][win-switch.elも仲間に入れてください。]] 
+
+
+これは便利！
+
+通常のEmacsでは3分割以上ウィンドウを分割していると、
+一気に操作性が悪くなっていました。
+
+というのは、 *scroll-other-window* などのother-window系コマンドは
+すぐ隣のウィンドウを操作するものでしかないからです。
+
+3分割されているとき、隣の隣のウィンドウを直接操作するコマンドはありません。
+
+この問題は *owdriver.el* (Other Window Driver) が解決してくれます。
+
+そのうち紹介しますが、連続するプレフィクスキーを
+省略できる *smartrep.el* のうまい活用例です。
+
+2分割であってもわざわざ *C-x o (other-window)* で操作するウィンドウを
+選択する必要がないので、導入する価値は十分にあります。
+
+プレフィクスキー( *owdriver-prefix-key* )をうまく設定しておけば、
+/other-window系コマンドは用済み/ になってしまいます。
+
+/それくらいやばい破壊力を持っています！！/
+
+[[http://rubikitch.com/2014/12/15/switch-window][switch-windowも併用するとなおよし]] 。
+
+** owdriver インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install owdriver
+
+
+#+end:
+** 概要                                                             :noexport:
+<2015-02-21 Sat> [[http://rubikitch.com/2015/02/21/win-switch/][win-switch.elも仲間に入れてください。]] 
+
+
+これは便利！
+
+通常のEmacsでは3分割以上ウィンドウを分割していると、
+一気に操作性が悪くなっていました。
+
+というのは、 *scroll-other-window* などのother-window系コマンドは
+すぐ隣のウィンドウを操作するものでしかないからです。
+
+3分割されているとき、隣の隣のウィンドウを直接操作するコマンドはありません。
+
+この問題は *owdriver.el* (Other Window Driver) が解決してくれます。
+
+そのうち紹介しますが、連続するプレフィクスキーを
+省略できる *smartrep.el* のうまい活用例です。
+
+2分割であってもわざわざ *C-x o (other-window)* で操作するウィンドウを
+選択する必要がないので、導入する価値は十分にあります。
+
+プレフィクスキー( *owdriver-prefix-key* )をうまく設定しておけば、
+/other-window系コマンドは用済み/ になってしまいます。
+
+/それくらいやばい破壊力を持っています！！/
+
+[[http://rubikitch.com/2014/12/15/switch-window][switch-windowも併用するとなおよし]] 。
+
+
+** 設定 [[http://rubikitch.com/f/140911110001.owdriver.el][140911110001.owdriver.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/140911/140911110001.owdriver.el"
+#+BEGIN_SRC fundamental
+(require 'owdriver)
+(global-unset-key (kbd "M-o"))
+(setq owdriver-prefix-key "M-o")
+(owdriver-config-default)
+;;; これを入れておくことでM-o M-oで対象ウィンドウを選択できる
+(owdriver-add-keymap owdriver-prefix-key 'owdriver-next-window)
+(owdriver-mode 1)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/140911110001.owdriver.el
+$ emacs -Q -f package-initialize -l 140911110001.owdriver.el
+
+#+END_EXAMPLE
+
+M-oをsmartrepのプレフィクスキーにしておけば、
+M-oを押した後は隣のウィンドウをあたかも
+選択したかのように操作できます。
+
+たとえばM-oの後にC-vやM-vでスクロールできるし、
+C-f/C-b/C-n/C-pでカーソル移動などもできます。
+
+3分割以上のときにM-oをたて続けに押せば、
+対象ウィンドウを切り替えられます。
+
+他ウィンドウの操作を終わるにはC-gかC-qです。
+
+操作しているウィンドウを選択して終了するにはC-RETです。
+** コマンドを追加する
+現時点での owdriver-config-default の定義はこうなっています。
+
+#+BEGIN_SRC emacs-lisp :results silent
+(defun owdriver-config-default ()
+  "Do the recommended configuration."
+  ;; Own command
+  (owdriver-add-keymap "C-o"        'owdriver-next-window)
+  (owdriver-add-keymap "C-S-o"      'owdriver-previous-window)
+  (owdriver-add-keymap "<C-return>" 'owdriver-focus-window)
+  (owdriver-add-keymap "C-q"        'owdriver-quit)
+  ;; Basic command
+  (owdriver-define-command scroll-up               t)
+  (owdriver-define-command scroll-up-command       t)
+  (owdriver-define-command scroll-down             t)
+  (owdriver-define-command scroll-down-command     t)
+  (owdriver-define-command scroll-left             t (scroll-left 10 t))
+  (owdriver-define-command scroll-right            t (scroll-right 10 t))
+  (owdriver-define-command next-line               t)
+  (owdriver-define-command previous-line           t)
+  (owdriver-define-command forward-char            t)
+  (owdriver-define-command forward-word            t)
+  (owdriver-define-command backward-char           t)
+  (owdriver-define-command backward-word           t)
+  (owdriver-define-command move-beginning-of-line  t)
+  (owdriver-define-command move-end-of-line        t)
+  (owdriver-define-command beginning-of-buffer     t)
+  (owdriver-define-command end-of-buffer           t)
+  (owdriver-define-command isearch-forward         t (isearch-forward))
+  (owdriver-define-command isearch-backward        t (isearch-backward))
+  (owdriver-define-command set-mark-command        t)
+  (owdriver-define-command kill-ring-save          t (call-interactively 'kill-ring-save) (deactivate-mark))
+  ;; Third party command
+  (owdriver-define-command pophint:do t (pophint:do :not-switch-window t))
+  (owdriver-define-command inertias-up t)
+  (owdriver-define-command inertias-down t)
+  )
+#+END_SRC
+
+*owdriver-add-keymap* でowdriverコマンドを追加します。
+
+*owdriver-define-command* でowdriver用コマンドを定義します。
+
+*owdriver-define-command* は、 owdriver-add-keymap の機能を含んでいます。
+
+たとえば、
+#+BEGIN_EXAMPLE
+(owdriver-define-command scroll-up-command       t)
+#+END_EXAMPLE
+
+は、scroll-up-command (C-v) のowdriver版
+(owdriver-do-scroll-up-command) を定義しています。
+
+第2引数にtを指定していることでキーマップに追加し、
+M-o C-vと操作できるようになります。
+
+ときたまowdriver版コマンドは、
+元のコマンドを実行するだけではすまされないこともあります。
+
+そのときのために、第3引数以降に任意のフォームを記述できるようになっています。
+
+#+BEGIN_EXAMPLE
+(owdriver-define-command kill-ring-save          t
+  (call-interactively 'kill-ring-save) (deactivate-mark))
+#+END_EXAMPLE
+
+は、owdriver版では
+
+#+BEGIN_EXAMPLE
+(progn
+  (call-interactively 'kill-ring-save) (deactivate-mark))
+#+END_EXAMPLE
+
+を実行するように定義されます。

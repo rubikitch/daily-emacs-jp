@@ -1,0 +1,116 @@
+#+BLOG: rubikitch
+#+POSTID: 1298
+#+DATE: [2015-03-14 Sat 07:29]
+#+PERMALINK: highlight-thing
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs
+#+EL_PKG_NAME: highlight-thing
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, relate:auto-highlight-symbol, relate:highlight-symbol, カーソル位置のシンボルをハイライト, 変数 自動ハイライト, テキストハイライト, ハイライト, 自動ハイライト, relate:thingatpt, relate:hi-lock, thing-at-point, , relate:highlight-symbol
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: 【シンボル自動色付け】シンプルでカスタマイズ可能で標準志向で新しい実装
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージhighlight-thingの紹介
+#+MYTAGS: package:highlight-thing, emacs 使い方, emacs コマンド, emacs, highlight-thing, highlight-thing.el, emacs lisp highlight-thing, elisp highlight-thing, emacs melpa highlight-thing, emacs highlight-thing 使い方, emacs highlight-thing 設定, emacs パッケージ highlight-thing, emacs highlight-thing スクリーンショット, relate:auto-highlight-symbol, relate:highlight-symbol, カーソル位置のシンボルをハイライト, 変数 自動ハイライト, テキストハイライト, ハイライト, 自動ハイライト, relate:thingatpt, relate:hi-lock, thing-at-point, , relate:highlight-symbol
+#+TAGS: package:highlight-thing, emacs 使い方, emacs コマンド, emacs, highlight-thing, highlight-thing.el, emacs lisp highlight-thing, elisp highlight-thing, emacs melpa highlight-thing, emacs highlight-thing 使い方, emacs highlight-thing 設定, emacs パッケージ highlight-thing, emacs highlight-thing スクリーンショット, relate:auto-highlight-symbol, relate:highlight-symbol, カーソル位置のシンボルをハイライト, 変数 自動ハイライト, テキストハイライト, ハイライト, 自動ハイライト, relate:thingatpt, relate:hi-lock, thing-at-point, , relate:highlight-symbol, Emacs, auto-highlight-symbol.el, highlight-symbol.el, highlight-thing.el, thing-at-point, auto-highlight-symbol.el, highlight-symbol.el, highlight-thing.el, thing-at-point, M-x highlight-thing-mode, M-x global-highlight-thing-mode, highlight-thing-limit-to-defun
+#+TITLE: emacs highlight-thing.el : 【シンボル自動色付け】シンプルでカスタマイズ可能で標準志向で新しい実装 | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>highlight-thing</td></tr>
+<tr><td>概要(原文)</td><td>Minimalistic minor mode to highlight current thing under point.</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/fgeller/highlight-thing.el">https://github.com/fgeller/highlight-thing.el</a></td></tr>
+<tr><td>バージョン</td><td>20151001.21</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:highlight-thing/">package:highlight-thing</a> <a href="http://rubikitch.com/tag/package:auto-highlight-symbol/">package:auto-highlight-symbol</a> <a href="http://rubikitch.com/tag/package:highlight-symbol/">package:highlight-symbol</a> <a href="http://rubikitch.com/tag/package:thingatpt/">package:thingatpt</a> <a href="http://rubikitch.com/tag/package:hi-lock/">package:hi-lock</a> <a href="http://rubikitch.com/tag/package:highlight-symbol/">package:highlight-symbol</a></td></tr>
+</table>
+<br />
+#+END_HTML
+<2015-03-15 Sun> バグ修正＆ローカルマイナーモード化されました！！
+
+カーソル位置のシンボルをハイライトするelispは、
+*auto-highlight-symbol.el* や *highlight-symbol.el* があります。
+
+ここで新しい実装が登場しました。
+
+*highlight-thing.el* は、名前の通りシンボル以外のものもハイライトできます。
+
+しかも外部パッケージに一切依存せず、標準パッケージのみを使っています。
+
+そのため、コードは100行以内ととても短く、コードの見通しが良いです。
+
+highlight-thing.elの特徴は、
+*thing-at-point* 関数が受け取るthingをならばなんでもハイライトできます。
+
+しかも現在のdefun内のみにハイライトを限定できるのも嬉しいです。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+[[file:/r/sync/screenshots/20150314080755.png]]
+Fig1: シンボルをハイライト
+
+[[file:/r/sync/screenshots/20150314080802.png]]
+Fig2: 現在の関数内にハイライトを限定できる
+** highlight-thing インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install highlight-thing
+
+
+#+end:
+** 概要                                                             :noexport:
+<2015-03-15 Sun> バグ修正＆ローカルマイナーモード化されました！！
+
+カーソル位置のシンボルをハイライトするelispは、
+*auto-highlight-symbol.el* や *highlight-symbol.el* があります。
+
+ここで新しい実装が登場しました。
+
+*highlight-thing.el* は、名前の通りシンボル以外のものもハイライトできます。
+
+しかも外部パッケージに一切依存せず、標準パッケージのみを使っています。
+
+そのため、コードは100行以内ととても短く、コードの見通しが良いです。
+
+highlight-thing.elの特徴は、
+*thing-at-point* 関数が受け取るthingをならばなんでもハイライトできます。
+
+しかも現在のdefun内のみにハイライトを限定できるのも嬉しいです。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+[[file:/r/sync/screenshots/20150314080755.png]]
+Fig3: シンボルをハイライト
+
+[[file:/r/sync/screenshots/20150314080802.png]]
+Fig4: 現在の関数内にハイライトを限定できる
+** <2015-03-15 Sun>ローカル・グローバルマイナーモード化＆バグ修正
+レビュー記事を上げた時点では
+*M-x highlight-thing-mode* はグローバルマイナーモードでしたが、
+今回の更新により、ローカルマイナーモード化されました。
+
+グローバル版は *M-x global-highlight-thing-mode* になりました。
+
+また、 *highlight-thing-limit-to-defun* 周りのバグも修正されました。
+
+迅速に対応に感謝です。
+
+** 設定 [[http://rubikitch.com/f/50highlight-thing.el][50highlight-thing.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/emacs/init.d/50highlight-thing.el"
+#+BEGIN_SRC fundamental
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/50highlight-thing.el
+$ emacs -Q -f package-initialize -l 50highlight-thing.el
+#+END_EXAMPLE
+
+
+
+
+# /r/sync/screenshots/20150314080755.png http://rubikitch.com/wp-content/uploads/2015/03/wpid-201503140807551.png
+# /r/sync/screenshots/20150314080802.png http://rubikitch.com/wp-content/uploads/2015/03/wpid-20150314080802.png

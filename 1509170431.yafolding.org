@@ -1,0 +1,114 @@
+#+BLOG: rubikitch
+#+POSTID: 2000
+#+DATE: [2015-09-17 Thu 04:31]
+#+PERMALINK: yafolding
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs
+#+EL_PKG_NAME: yafolding
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, relate:cn-outline, relate:fold-this, コードリーディング, 詳細を隠す, 深いインデントを隠す, 
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: インデントが深い部分を隠す
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージyafoldingの紹介
+#+MYTAGS: package:yafolding, emacs 使い方, emacs コマンド, emacs, yafolding, yafolding.el, emacs lisp yafolding, elisp yafolding, emacs melpa yafolding, emacs yafolding 使い方, emacs yafolding 設定, emacs パッケージ yafolding, emacs yafolding スクリーンショット, relate:cn-outline, relate:fold-this, コードリーディング, 詳細を隠す, 深いインデントを隠す, 
+#+TAGS: package:yafolding, emacs 使い方, emacs コマンド, emacs, yafolding, yafolding.el, emacs lisp yafolding, elisp yafolding, emacs melpa yafolding, emacs yafolding 使い方, emacs yafolding 設定, emacs パッケージ yafolding, emacs yafolding スクリーンショット, relate:cn-outline, relate:fold-this, コードリーディング, 詳細を隠す, 深いインデントを隠す, , Emacs, yafolding.el, yafolding.el
+#+TITLE: emacs yafolding.el : インデントが深い部分を隠す | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>yafolding</td></tr>
+<tr><td>概要(原文)</td><td>Yet another folding extension for Emacs</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/zenozeng/yafolding.el">https://github.com/zenozeng/yafolding.el</a></td></tr>
+<tr><td>バージョン</td><td>20141202.2056</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:yafolding/">package:yafolding</a> <a href="http://rubikitch.com/tag/package:cn-outline/">package:cn-outline</a> <a href="http://rubikitch.com/tag/package:fold-this/">package:fold-this</a></td></tr>
+</table>
+<br />
+#+END_HTML
+プログラムを読んでいて、しばしば
+「ここより詳細は読む必要がない」
+ということがあります。
+
+詳細はしばしば深いインデントになっています。
+
+*yafolding.el* は、単純にインデントに基いてコードを隠したりします。
+
+- C-RET :: 現在位置以下を隠す・見せる
+- C-M-RET :: トップレベル以外を隠す・見せる
+- C-S-RET :: 現在位置を含む階層を隠す
+
+もちろん言語には依存しません。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150917044115.png]]
+Fig1: C-M-RETですべて隠す
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150917044125.png]]
+Fig2: ここでC-RETでこの部分を見せる
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150917044140.png]]
+Fig3: whileの行において
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150917044148.png]]
+Fig4: C-S-RETを押すとその階層を隠す
+** yafolding インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install yafolding
+
+
+#+end:
+** 概要                                                             :noexport:
+プログラムを読んでいて、しばしば
+「ここより詳細は読む必要がない」
+ということがあります。
+
+詳細はしばしば深いインデントになっています。
+
+*yafolding.el* は、単純にインデントに基いてコードを隠したりします。
+
+- C-RET :: 現在位置以下を隠す・見せる
+- C-M-RET :: トップレベル以外を隠す・見せる
+- C-S-RET :: 現在位置を含む階層を隠す
+
+もちろん言語には依存しません。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150917044115.png]]
+Fig5: C-M-RETですべて隠す
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150917044125.png]]
+Fig6: ここでC-RETでこの部分を見せる
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150917044140.png]]
+Fig7: whileの行において
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150917044148.png]]
+Fig8: C-S-RETを押すとその階層を隠す
+
+** 設定 [[http://rubikitch.com/f/150917043941.yafolding.1.el][150917043941.yafolding.1.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/150917/150917043941.yafolding.1.el"
+#+BEGIN_SRC fundamental
+(add-hook 'prog-mode-hook 'yafolding-mode)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/150917043941.yafolding.1.el
+$ emacs -Q -f package-initialize -l 150917043941.yafolding.1.el
+#+END_EXAMPLE

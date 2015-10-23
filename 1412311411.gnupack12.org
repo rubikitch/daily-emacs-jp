@@ -1,0 +1,72 @@
+#+BLOG: rubikitch
+#+POSTID: 842
+#+DATE: [2014-12-31 Wed 14:11]
+#+PERMALINK: gnupack12
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, Emacs 24.4, gnupack
+#+DESCRIPTION: 
+#+MYTAGS: gnupack, emacs, emacs windows, emacs gnupack, emacs24.4 windows, emacs cygwin, 
+#+TAGS: gnupack, emacs, emacs windows, emacs gnupack, emacs24.4 windows, emacs cygwin, , Emacs, Emacs 24.4, , gnupack, cygwin, ruby, python, cvs, git, subversion, gcc, Windows7, Windows8, Windows8.1
+#+TITLE: 【Emacs on Windows待望の新バージョン】公式版gnupack 12.00登場！！
+WindowsでEmacsを容易に使えるようにする *gnupack* ですが、
+先日、公式で新バージョン(12.00-2014.12.29)が出ました。
+
+http://d.hatena.ne.jp/ksugita0510/20141229
+
+gnupackとは展開するだけでEmacsとcygwinが使えるようにするものです。
+
+もちろん、Emacsは24.4です！
+
+Windowsで [[http://rubikitch.com/category/eww/][Emacs WebブラウザEWW]] がいきなり使えるのは嬉しいはずです。
+
+久々のリリースで大幅に見直しされたようで、
+Emacsバイナリの方は *cygwin* 版に変更になりました。
+
+関連ライブラリの更新の手間が楽になることと、
+cygwinそのものとの親和性を考えてその結論になったようです。
+
+とにかくWindowsでのコマンドライン環境をややこしくしている原因のひとつが
+MinGWとcygwinの混在なので、統一されたのは嬉しいことではないでしょうか。
+
+確かにcygwinは重いという声もありますが、
+WindowsでEmacsやUnix環境が使えるだけでも
+ありがたいと思うべきでしょう。
+
+Windowsである以上、ある程度は妥協する必要があると思います。
+
+正直、今時32bitというのもなんだけど
+WindowsでのEmacsに苦労している人は
+使ってみる価値はあるのではないでしょうか？
+
+gnupackにはbasicとdevelがありますが、
+/僕としては断然develをおすすめします。/
+
+開発をしないとしても
+- *ruby*
+- *python*
+- *cvs*
+- *git*
+- *subversion*
+- *gcc*
+がついてくるからです。
+
+特にRubyで書かれた便利ツールはいろいろあるし、
+バージョン管理はEmacs使いならばぜひとも習得すべきだからです。
+
+開発者は *Windows7* で動作確認していますが、
+*Windows8* 、 *Windows8.1* でも動くようです。
+
+公式ページはこちらから
+http://d.hatena.ne.jp/ksugita0510/20141229
+
+どうしても64bitがいいというならば
+[[http://rubikitch.com/2014/11/11/ntemacs64/][NTEmacs64 on gnupackという選択肢]] もあります。
+
+公式で64bit版が配布されたらもっと幸せになれることでしょう。
+
+64bit cygwin/emacsも安定しているらしいです。
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

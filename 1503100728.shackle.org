@@ -1,0 +1,186 @@
+#+BLOG: rubikitch
+#+POSTID: 1276
+#+DATE: [2015-03-10 Tue 07:28]
+#+PERMALINK: shackle
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, helm, 
+#+EL_PKG_NAME: shackle
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, ヘルプバッファ, 補完バッファ, Emacs ポップアップ, relate:popwin, Emacs ウィンドウ分割, emacs display-buffer カイゼン, display-buffer, display-buffer-function, package:winner, 
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: 【シンプルなpopwin】ウィンドウの表示方法を柔軟にカスタマイズ！helm・補完・ヘルプバッファにも対応
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージshackleの紹介
+#+MYTAGS: package:shackle, emacs 使い方, emacs コマンド, emacs, shackle, shackle.el, emacs lisp shackle, elisp shackle, emacs melpa shackle, emacs shackle 使い方, emacs shackle 設定, emacs パッケージ shackle, emacs shackle スクリーンショット, ヘルプバッファ, 補完バッファ, Emacs ポップアップ, relate:popwin, Emacs ウィンドウ分割, emacs display-buffer カイゼン, display-buffer, display-buffer-function, package:winner, 
+#+TAGS: package:shackle, emacs 使い方, emacs コマンド, emacs, shackle, shackle.el, emacs lisp shackle, elisp shackle, emacs melpa shackle, emacs shackle 使い方, emacs shackle 設定, emacs パッケージ shackle, emacs shackle スクリーンショット, ヘルプバッファ, 補完バッファ, Emacs ポップアップ, relate:popwin, Emacs ウィンドウ分割, emacs display-buffer カイゼン, display-buffer, display-buffer-function, package:winner, , Emacs, helm, , shackle.el, display-buffer-alist, popwin.el, shackle.el, display-buffer-alist, popwin.el, Help, Completions, helm mini, compilation, Help, *compilation*, *Help*, *completions*, *helm mini*, *helm buffers*
+#+TITLE: emacs shackle.el : 【シンプルなpopwin】ウィンドウの表示方法を柔軟にカスタマイズ！helm・補完・ヘルプバッファにも対応 | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>shackle</td></tr>
+<tr><td>概要(原文)</td><td>Enforce rules for popups</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/wasamasa/shackle">https://github.com/wasamasa/shackle</a></td></tr>
+<tr><td>バージョン</td><td>20150122.1419</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:shackle/">package:shackle</a> <a href="http://rubikitch.com/tag/package:popwin/">package:popwin</a></td></tr>
+</table>
+<br />
+#+END_HTML
+
+*shackle.el* は、バッファの表示方法を
+シンプルなルールで記述してカスタマイズするものです。
+
+Emacs24から *display-buffer-alist* という
+表示方法を細かく設定するオプションが導入されましたが、
+複雑怪奇な代物で理解がとても困難です。
+
+それを理解しやすい形で記述できるようにします。
+
+バッファの表示方法とかポップアップといえば [[http://d.hatena.ne.jp/m2ym/20110120/1295524932][popwin.el(本家)]] が有名です。
+
+しかし、タイマーを使っているなど、かなり入れ込んだ構造になっていて、
+shackle.el作者曰く、デバッグ困難で不可解なバグがあるらしいです。
+
+対してshackle.elは、標準のdisplay-buffer-alistに
+ひとつのエントリを追加するだけの
+シンプルで内部理解しやすい構造になっています。
+
+*popwin.el* ではC-gでポップアップウィンドウを消せますが、
+*M-x winner-undo*をキーに割り当ててしまえば(ここではC-z)
+特にメリットを感じません。
+
+シンプルな方が好きならばshackle.elを試してみてください。
+** shackle インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install shackle
+
+
+#+end:
+** 概要                                                             :noexport:
+
+*shackle.el* は、バッファの表示方法を
+シンプルなルールで記述してカスタマイズするものです。
+
+Emacs24から *display-buffer-alist* という
+表示方法を細かく設定するオプションが導入されましたが、
+複雑怪奇な代物で理解がとても困難です。
+
+それを理解しやすい形で記述できるようにします。
+
+バッファの表示方法とかポップアップといえば [[http://d.hatena.ne.jp/m2ym/20110120/1295524932][popwin.el(本家)]] が有名です。
+
+しかし、タイマーを使っているなど、かなり入れ込んだ構造になっていて、
+shackle.el作者曰く、デバッグ困難で不可解なバグがあるらしいです。
+
+対してshackle.elは、標準のdisplay-buffer-alistに
+ひとつのエントリを追加するだけの
+シンプルで内部理解しやすい構造になっています。
+
+*popwin.el* ではC-gでポップアップウィンドウを消せますが、
+*M-x winner-undo*をキーに割り当ててしまえば(ここではC-z)
+特にメリットを感じません。
+
+シンプルな方が好きならばshackle.elを試してみてください。
+** 設定 [[http://rubikitch.com/f/150310063649.shackle.el][150310063649.shackle.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/150310/150310063649.shackle.el"
+#+BEGIN_SRC fundamental
+(require 'shackle)
+(setq shackle-rules
+      '(;; *compilation*は下部に2割の大きさで表示
+        (compilation-mode :align below :ratio 0.2)
+        ;; ヘルプバッファは右側に表示
+        ("*Help*" :align right)
+        ;; 補完バッファは下部に3割の大きさで表示
+        ("*Completions*" :align below :ratio 0.3)
+        ;; M-x helm-miniは下部に7割の大きさで表示
+        ("*helm mini*" :align below :ratio 0.7)
+        ;; 他のhelmコマンドは右側に表示 (バッファ名の正規表現マッチ)
+        ("\*helm" :regexp t :align right)
+        ;; 上部に表示
+        ("foo" :align above)
+        ;; 別フレームで表示
+        ("bar" :frame t)
+        ;; 同じウィンドウで表示
+        ("baz" :same t)
+        ;; ポップアップで表示
+        ("hoge" :popup t)
+        ;; 選択する
+        ("abc" :select t)
+        ))
+(shackle-mode 1)
+(setq shackle-lighter "")
+
+;;; C-zで直前のウィンドウ構成に戻す
+(winner-mode 1)
+(global-set-key (kbd "C-z") 'winner-undo)
+;;;; test
+;; (display-buffer (get-buffer-create "*compilation*"))
+;; (display-buffer (get-buffer-create "*Help*"))
+;; (display-buffer (get-buffer-create "foo"))
+;; (display-buffer (get-buffer-create "bar"))
+;; (display-buffer (get-buffer-create "baz"))
+;; (display-buffer (get-buffer-create "hoge"))
+;; (display-buffer (get-buffer-create "abc"))
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/150310063649.shackle.el
+$ emacs -Q -f package-initialize -l 150310063649.shackle.el
+#+END_EXAMPLE
+
+上の設定をすると、このように表示されます。
+
+スクリーンショットを撮る際フォントを大きくしているため
+ウィンドウが小さすぎるように見えますが、
+作業時のフォントでは問題ありません。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+[[file:/r/sync/screenshots/20150310074634.png]]
+Fig1: =*compilation*=
+
+[[file:/r/sync/screenshots/20150310074701.png]]
+Fig2: =*Help*=
+
+[[file:/r/sync/screenshots/20150310074717.png]]
+Fig3: =*completions*=
+
+[[file:/r/sync/screenshots/20150310074737.png]]
+Fig4: =*helm mini*=
+
+[[file:/r/sync/screenshots/20150310074754.png]]
+Fig5: =*helm buffers*=
+
+[[file:/r/sync/screenshots/20150310074811.png]]
+Fig6: foo
+
+[[file:/r/sync/screenshots/20150310074819.png]]
+Fig7: bar(別フレーム)
+
+[[file:/r/sync/screenshots/20150310074834.png]]
+Fig8: baz(同一ウィンドウ)
+
+[[file:/r/sync/screenshots/20150310074844.png]]
+Fig9: hoge
+
+[[file:/r/sync/screenshots/20150310074851.png]]
+Fig10: abc
+
+
+# /r/sync/screenshots/20150310074634.png http://rubikitch.com/wp-content/uploads/2015/03/wpid-20150310074634.png
+# /r/sync/screenshots/20150310074701.png http://rubikitch.com/wp-content/uploads/2015/03/wpid-20150310074701.png
+# /r/sync/screenshots/20150310074717.png http://rubikitch.com/wp-content/uploads/2015/03/wpid-20150310074717.png
+# /r/sync/screenshots/20150310074737.png http://rubikitch.com/wp-content/uploads/2015/03/wpid-20150310074737.png
+# /r/sync/screenshots/20150310074754.png http://rubikitch.com/wp-content/uploads/2015/03/wpid-20150310074754.png
+# /r/sync/screenshots/20150310074811.png http://rubikitch.com/wp-content/uploads/2015/03/wpid-20150310074811.png
+# /r/sync/screenshots/20150310074819.png http://rubikitch.com/wp-content/uploads/2015/03/wpid-20150310074819.png
+# /r/sync/screenshots/20150310074834.png http://rubikitch.com/wp-content/uploads/2015/03/wpid-20150310074834.png
+# /r/sync/screenshots/20150310074844.png http://rubikitch.com/wp-content/uploads/2015/03/wpid-20150310074844.png
+# /r/sync/screenshots/20150310074851.png http://rubikitch.com/wp-content/uploads/2015/03/wpid-20150310074851.png

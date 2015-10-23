@@ -1,0 +1,118 @@
+#+BLOG: rubikitch
+#+POSTID: 874
+#+DATE: [2015-01-07 Wed 04:53]
+#+PERMALINK: narrow-indirect
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs
+#+EL_PKG_NAME: narrow-indirect
+#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, relate:edit-indirect, relate:fancy-narrow
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: ナローイングを間接バッファで行うようにカイゼンする！
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージnarrow-indirectの紹介
+#+MYTAGS: package:narrow-indirect, emacs 使い方, emacs コマンド, emacs, emacs lisp narrow-indirect, elisp narrow-indirect, emacs melpa narrow-indirect, emacs narrow-indirect 使い方, emacs narrow-indirect 設定, emacs パッケージ narrow-indirect, emacs narrow-indirect スクリーンショット, relate:edit-indirect, relate:fancy-narrow
+#+TAGS: package:narrow-indirect, emacs 使い方, emacs コマンド, emacs, emacs lisp narrow-indirect, elisp narrow-indirect, emacs melpa narrow-indirect, emacs narrow-indirect 使い方, emacs narrow-indirect 設定, emacs パッケージ narrow-indirect, emacs narrow-indirect スクリーンショット, relate:edit-indirect, relate:fancy-narrow, Emacs, narrow-indirect.el, ナローイング, 間接バッファ, C-x n w (widen), narrow-indirect.el, ナローイング, 間接バッファ, C-x n w (widen), font-lock, M-x font-lock-mode
+#+TITLE: emacs narrow-indirect.el : ナローイングを間接バッファで行うようにカイゼンする！ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>narrow-indirect</td></tr>
+<tr><td>概要(原文)</td><td>Narrow using an indirect buffer that is a clone</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="http://www.emacswiki.org/narrow-indirect.el">http://www.emacswiki.org/narrow-indirect.el</a></td></tr>
+<tr><td>バージョン</td><td>20150105.33</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:narrow-indirect/">package:narrow-indirect</a> <a href="http://rubikitch.com/tag/package:edit-indirect/">package:edit-indirect</a> <a href="http://rubikitch.com/tag/package:fancy-narrow/">package:fancy-narrow</a></td></tr>
+</table>
+<br />
+#+END_HTML
+
+*narrow-indirect.el* は、 *ナローイング* を
+ *間接バッファ* で行うものです。
+
+ナローイングとは、テキストの一部のみを表示するもので、
+編集操作をその部分に限定できます。
+
+一方、間接バッファとは、元のバッファと同じ内容で
+編集操作が元のバッファと連動している、
+いわばバッファの別名のようなものです。
+
+これらを組み合わせることでナローイングを戻す
+*C-x n w (widen)* を使う必要はなく、
+ただ間接バッファを削除するだけで済みます。
+
+大きいバッファのうち、2箇所を編集する場合に
+2つの間接バッファを作成しておけば、
+あたかも複数のファイルであるかのように扱えます。
+** narrow-indirect インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install narrow-indirect
+
+
+#+end:
+** 概要                                                             :noexport:
+
+*narrow-indirect.el* は、 *ナローイング* を
+ *間接バッファ* で行うものです。
+
+ナローイングとは、テキストの一部のみを表示するもので、
+編集操作をその部分に限定できます。
+
+一方、間接バッファとは、元のバッファと同じ内容で
+編集操作が元のバッファと連動している、
+いわばバッファの別名のようなものです。
+
+これらを組み合わせることでナローイングを戻す
+*C-x n w (widen)* を使う必要はなく、
+ただ間接バッファを削除するだけで済みます。
+
+大きいバッファのうち、2箇所を編集する場合に
+2つの間接バッファを作成しておけば、
+あたかも複数のファイルであるかのように扱えます。
+
+** 別のメジャーモードにしたければedit-indirectを
+元のバッファと間接バッファは別のメジャーモードが持てます。
+
+しかし、テキストプロパティは共有されるので
+間接バッファでメジャーモードを変更すると
+元のバッファの *font-lock* による色付けも変わってしまいます。
+
+色付けを戻すには、2回 *M-x font-lock-mode* を実行する必要があります。
+
+こういう特徴があるので、edit-indirect.elは
+できれば同じメジャーモードで使った方がいいです。
+
+よって、JavaScriptやCSSが含まれているHTMLを編集するには、
+色付けの問題が起こるので、[[http://rubikitch.com/2014/12/03/edit-indirect/][edit-indirect.el(レビュー)]]  を使いましょう。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+[[file:/r/sync/screenshots/20150107050057.png]]
+Fig1: C-x 4 n d後。上:元のバッファ / 下:ナローイング間接バッファ
+
+** 設定 [[http://rubikitch.com/f/150107045754.narrow-indirect.el][150107045754.narrow-indirect.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/150107/150107045754.narrow-indirect.el"
+#+BEGIN_SRC fundamental
+;;; 作者推奨キーバインド
+(define-key ctl-x-4-map "nd" 'ni-narrow-to-defun-indirect-other-window)
+(define-key ctl-x-4-map "nn" 'ni-narrow-to-region-indirect-other-window)
+(define-key ctl-x-4-map "np" 'ni-narrow-to-page-indirect-other-window)
+;;; いっそのこと置き換えてもいいかもしれない
+;; (define-key ctl-x-map "nd" 'ni-narrow-to-defun-indirect-other-window)
+;; (define-key ctl-x-map "nn" 'ni-narrow-to-region-indirect-other-window)
+;; (define-key ctl-x-map "np" 'ni-narrow-to-page-indirect-other-window)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/150107045754.narrow-indirect.el
+$ emacs -Q -f package-initialize -l 150107045754.narrow-indirect.el
+#+END_EXAMPLE
+
+# /r/sync/screenshots/20150107050057.png http://rubikitch.com/wp-content/uploads/2015/01/wpid-20150107050057.png

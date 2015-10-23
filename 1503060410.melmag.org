@@ -1,0 +1,44 @@
+#+BLOG: rubikitch
+#+POSTID: 1248
+#+DATE: [2015-03-06 Fri 04:10]
+#+PERMALINK: melmag
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: メルマガ,
+#+DESCRIPTION: るびきち塾メルマガ『Emacsの鬼るびきちのココだけの話#171』の予告
+#+TITLE: 満月！
+#+MYTAGS: 
+#+begin: org2blog-tags
+#+TAGS: , メルマガ,, 
+#+end:
+
+今日は満月ですね。
+
+というわけで、今回のメルマガはEmacsで月の満ち欠けを扱う話題です。
+
+先月は自分ハック月間で今回の話題を先週やるつもりでしたが、
+今日が満月だと気付いたので急遽今回に延期しました。
+
+実はEmacsには標準で月の満ち欠けを扱うコマンドや関数があります。
+
+一見何のため？と思われるかもしれませんが、
+実は人間は月の満ち欠けにより少なからず影響を受けています。
+
+ダイエットなどの美容でも注目されていて、
+月の満ち欠けが書かれている手帳やカレンダーもあります。
+
+僕も最近月のリズムを意識して暮らすようになりました。
+
+たとえば仕事術の定番でGTDがありますが、
+毎週の振り返りを行う「週次レビュー」があります。
+
+僕はアレンジして「新月レビュー」と「満月レビュー」をしようと思っています。
+
+
+最後はelispにどっと踏み込みますので、
+明日のメルマガを楽しみにしててください。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

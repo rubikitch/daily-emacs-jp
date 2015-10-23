@@ -1,0 +1,135 @@
+#+BLOG: rubikitch
+#+POSTID: 944
+#+DATE: [2015-01-15 Thu 07:48]
+#+PERMALINK: clocker
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, org-mode, 
+#+EL_PKG_NAME: clocker
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, org-mode clock-in, org-clock-in, org-mode 時間計測, 時間割, 時間の使い方, 無駄時間, 効率化, org-agenda, relate:projectile
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: org-modeによる計時(clock-in)習慣化養成ギブス
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージclockerの紹介
+#+MYTAGS: package:clocker, emacs 使い方, emacs コマンド, emacs, clocker, clocker.el, emacs lisp clocker, elisp clocker, emacs melpa clocker, emacs clocker 使い方, emacs clocker 設定, emacs パッケージ clocker, emacs clocker スクリーンショット, org-mode clock-in, org-clock-in, org-mode 時間計測, 時間割, 時間の使い方, 無駄時間, 効率化, org-agenda, relate:projectile
+#+TAGS: package:clocker, emacs 使い方, emacs コマンド, emacs, clocker, clocker.el, emacs lisp clocker, elisp clocker, emacs melpa clocker, emacs clocker 使い方, emacs clocker 設定, emacs パッケージ clocker, emacs clocker スクリーンショット, org-mode clock-in, org-clock-in, org-mode 時間計測, 時間割, 時間の使い方, 無駄時間, 効率化, org-agenda, relate:projectile, Emacs, org-mode, , org-mode, org-agenda, clocker.el, projectile, org-agenda, clocker.el, projectile
+#+TITLE: emacs clocker.el : org-modeによる計時(clock-in)習慣化養成ギブス | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>clocker</td></tr>
+<tr><td>概要(原文)</td><td>Note taker and clock-in enforcer</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/roman/clocker.el">https://github.com/roman/clocker.el</a></td></tr>
+<tr><td>バージョン</td><td>20150112.1303</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:clocker/">package:clocker</a> <a href="http://rubikitch.com/tag/package:projectile/">package:projectile</a></td></tr>
+</table>
+<br />
+#+END_HTML
+*org-mode* で自分の生活の記録している人はいると思います。
+
+C-c C-x C-iでそのタスクの開始時刻を記録(clock-in)し、
+C-c C-x C-oで終了時刻を記録(clock-out)します。
+
+それを続けていくと、 *org-agenda* で今日一日どのように時間を使ったかが
+わかるようになります。
+
+一日の最後に時間の使い方を振り返ることで、
+もっと時間を有効に使おうという意欲が湧いてきます。
+
+これを効果的に行い、100%行動させる仕組みが
+[[/juku/][メルマガ読者限定公開の「org習慣仕事術」]] です。
+
+しかし、人は往々にしてclock-inを忘れてしまいます。
+
+*clocker.el* は、clock-inを強制させるために
+clock-inを忘れたままファイル保存(orgファイル以外)したときに
+「clock-inしたか？」と聞いてくるマイナーモードです。
+
+ただ聞いてくるだけなので、yes/noどっちを答えても変わりません。
+
+放置するとまた聞いてきてうざいので、さっさとclock-inしましょう
+というのが意図です。
+
+まぁ、orgファイルを書くタスクをしているときには
+効かないってことですね、現時点では。
+
+とはいえ、初公開が5日前という出来立てほやほやなので、
+今後の発展次第でより柔軟な設定ができるようになることでしょう。
+
+ *projectile* と連携させる機能もあり、
+プロジェクトルート直下の org/ ディレクトリに
+issueごとのorgファイルを配置する使い方もあります。
+
+それについてはREADMEを見てください。
+** clocker インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install clocker
+
+
+#+end:
+** 概要                                                             :noexport:
+*org-mode* で自分の生活の記録している人はいると思います。
+
+C-c C-x C-iでそのタスクの開始時刻を記録(clock-in)し、
+C-c C-x C-oで終了時刻を記録(clock-out)します。
+
+それを続けていくと、 *org-agenda* で今日一日どのように時間を使ったかが
+わかるようになります。
+
+一日の最後に時間の使い方を振り返ることで、
+もっと時間を有効に使おうという意欲が湧いてきます。
+
+これを効果的に行い、100%行動させる仕組みが
+[[/juku/][メルマガ読者限定公開の「org習慣仕事術」]] です。
+
+しかし、人は往々にしてclock-inを忘れてしまいます。
+
+*clocker.el* は、clock-inを強制させるために
+clock-inを忘れたままファイル保存(orgファイル以外)したときに
+「clock-inしたか？」と聞いてくるマイナーモードです。
+
+ただ聞いてくるだけなので、yes/noどっちを答えても変わりません。
+
+放置するとまた聞いてきてうざいので、さっさとclock-inしましょう
+というのが意図です。
+
+まぁ、orgファイルを書くタスクをしているときには
+効かないってことですね、現時点では。
+
+とはいえ、初公開が5日前という出来立てほやほやなので、
+今後の発展次第でより柔軟な設定ができるようになることでしょう。
+
+ *projectile* と連携させる機能もあり、
+プロジェクトルート直下の org/ ディレクトリに
+issueごとのorgファイルを配置する使い方もあります。
+
+それについてはREADMEを見てください。
+** 設定 [[http://rubikitch.com/f/150115080714.clocker.el][150115080714.clocker.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/150115/150115080714.clocker.el"
+#+BEGIN_SRC fundamental
+;;; [clockを記録しているorgファイルを常に表示]させないようにする
+;;; 常に表示されていると、煩わしい人はこの設定を。
+(setq clocker-keep-org-file-always-visible nil)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/150115080714.clocker.el
+$ emacs -Q -f package-initialize -l 150115080714.clocker.el
+#+END_EXAMPLE
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+[[file:/r/sync/screenshots/20150115081622.png]]
+Fig1: 保存時にはこのようにclock-inしたかどうか聞いてくる
+
+
+# /r/sync/screenshots/20150115081622.png http://rubikitch.com/wp-content/uploads/2015/01/wpid-20150115081622.png

@@ -1,0 +1,176 @@
+#+BLOG: rubikitch
+#+POSTID: 469
+#+DATE: [2014-10-15 Wed 11:21]
+#+PERMALINK: anything-kyr
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs
+#+EL_PKG_NAME: anything-kyr
+#+EL_DOC: Show context-aware commands
+#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, relate:anything, relate:helm, relate:trace, relate:org, relate:yaoddmuse
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方
+#+EL_TITLE0: 空気を読んで必要なコマンドを提示してくれる古えの最終兵器…anything.elの秘蔵っ子
+#+begin: org2blog
+#+DESCRIPTION: Emacs Lispパッケージanything-kyrの紹介
+#+MYTAGS: package:anything-kyr, emacs 使い方, emacs コマンド, emacs, emacs lisp anything-kyr, elisp anything-kyr, emacs  anything-kyr, emacs anything-kyr 使い方, emacs anything-kyr 設定, emacs パッケージ anything-kyr, relate:anything, relate:helm, relate:trace, relate:org, relate:yaoddmuse
+#+TITLE: emacs anything-kyr.el : 空気を読んで必要なコマンドを提示してくれる古えの最終兵器…anything.elの秘蔵っ子 |  Emacs Lisp Elisp パッケージ インストール 設定 使い方
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>anything-kyr</td></tr>
+<tr><td>概要(原文)</td><td>Show context-aware commands</td></tr>
+<tr><td>リポジトリ</td><td>まだパッケージに登録されていない</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:anything-kyr/">package:anything-kyr</a> <a href="http://rubikitch.com/tag/package:anything/">package:anything</a> <a href="http://rubikitch.com/tag/package:helm/">package:helm</a> <a href="http://rubikitch.com/tag/package:trace/">package:trace</a> <a href="http://rubikitch.com/tag/package:org/">package:org</a> <a href="http://rubikitch.com/tag/package:yaoddmuse/">package:yaoddmuse</a></td></tr>
+</table>
+<br />
+#+END_HTML
+昨晩から今朝まで [[%E4%B8%80%E9%80%A3%E3%81%AE%E3%81%A4%E3%81%B6%E3%82%84%E3%81%8D][一連のつぶやき]] に登場してた *anything-kyr.el* というのは、
+条件が整ったときに、実行されるであろうコマンド・URL
+(正確には *org-mode* のリンク)を提示してくれるコマンドです。
+
+条件とは、以下のものです。
+- メジャーモード *anything-kyr-commands-by-major-mode*
+- 任意のS式 *anything-kyr-commands-by-condition*
+- ファイル名の正規表現 *anything-kyr-commands-by-file-name*
+
+*anything.el* はもはや *helm* に取って代わられてしまいましたが、
+anything-kyr.elは僕の方ではいまだに大活躍しています。
+
+このEmacs Lispは特に宣伝することもなく
+こっそりとEmacsWikiに上げていたので、
+知っている人はほとんどいないかと思います。
+
+実に5年ぶりに更新しましたのでこのようにブログを書いています。
+
+KYRとは「空気読める」の略で、 *M-x anything-kyr* を実行すると、
+現在の状況で必要とされるコマンドを提示します。
+
+情報源の変数 *anything-c-source-kyr* も定義されているので、
+自分のanythingコマンドに組み込むこともできます。
+
+anything.elを使うには本来anything-config.elも必要となりますが、
+anything-kyr.elのみを使うのであれば不要です。
+
+今更anything関連をMELPAに上げるのはアレなので、
+auto-installベースでインストールするようにしています。
+** anything-kyr インストール
+これはまだパッケージ化されていないので、[[http://rubikitch.com/package-initialize/#sec-2][手動でインストール]] する必要があります。
+
+
+#+end:
+
+M-x auto-install-batch anything-kyr
+でインストールできるようにしました。
+
+** 概要                                                             :noexport:
+昨晩から今朝まで [[%E4%B8%80%E9%80%A3%E3%81%AE%E3%81%A4%E3%81%B6%E3%82%84%E3%81%8D][一連のつぶやき]] に登場してた *anything-kyr.el* というのは、
+条件が整ったときに、実行されるであろうコマンド・URL
+(正確には *org-mode* のリンク)を提示してくれるコマンドです。
+
+条件とは、以下のものです。
+- メジャーモード *anything-kyr-commands-by-major-mode*
+- 任意のS式 *anything-kyr-commands-by-condition*
+- ファイル名の正規表現 *anything-kyr-commands-by-file-name*
+
+*anything.el* はもはや *helm* に取って代わられてしまいましたが、
+anything-kyr.elは僕の方ではいまだに大活躍しています。
+
+このEmacs Lispは特に宣伝することもなく
+こっそりとEmacsWikiに上げていたので、
+知っている人はほとんどいないかと思います。
+
+実に5年ぶりに更新しましたのでこのようにブログを書いています。
+
+KYRとは「空気読める」の略で、 *M-x anything-kyr* を実行すると、
+現在の状況で必要とされるコマンドを提示します。
+
+情報源の変数 *anything-c-source-kyr* も定義されているので、
+自分のanythingコマンドに組み込むこともできます。
+
+anything.elを使うには本来anything-config.elも必要となりますが、
+anything-kyr.elのみを使うのであれば不要です。
+
+今更anything関連をMELPAに上げるのはアレなので、
+auto-installベースでインストールするようにしています。
+
+** 設定 [[http://rubikitch.com/f/141015113526.anything-kyr.el][141015113526.anything-kyr.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/141015/141015113526.anything-kyr.el"
+#+BEGIN_SRC fundamental
+;; KYR = "Kuuki wo YomeRu" in Japanese (can read the atmosphere)
+(require 'anything-kyr)
+(setq mode-line-buffer-identification
+      (append '(" "
+                (:eval (and (featurep 'anything-kyr)
+                            (anything-kyr-should-notify-p))))
+              mode-line-buffer-identification))
+(put 'mode-line-buffer-identification 'risky-local-variable t)
+
+(setq ;; メジャーモードでの設定
+      anything-kyr-commands-by-major-mode
+      ;; org-modeのときにorg-clock-in, org-clock-outを提示
+      '((org-mode
+         org-clock-in org-clock-out))
+      ;; 条件での設定
+      anything-kyr-commands-by-condition
+      '(
+        ;; M-x trace-functionした関数があるときに
+        ;; untrace-allとuntrace-functionを提示する
+        ((and (featurep 'trace)
+              (loop for (funcname) in ad-advised-functions
+                    thereis (trace-is-traced (intern funcname))))
+         untrace-all untrace-function)
+        )
+
+      ;; ファイル名での設定
+      anything-kyr-commands-by-file-name
+      '(
+        ;; yaoddmuseディレクトリのときに提示
+        ("/.emacs.d/yaoddmuse/"
+         yaoddmuse-browse-current-page
+         "http://www.emacswiki.org/")
+        ))
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/141015113526.anything-kyr.el
+$ emacs -Q -f package-initialize -l 141015113526.anything-kyr.el
+#+END_EXAMPLE
+
+その後
+M-x trace-function RET find-file RET
+でトレースを有効にするとバッファ名の前に◎がつき、
+M-x anything-kyrでuntrace-allとuntrace-functionが提示されます。
+
+M-x untrace-allを実行すると◎が消えます。
+
+御自分にあうように条件を書き換えてください。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+http://rubikitch.com/f/20141015114924.png
+Fig1: 条件が整ったときに◎がつき、コマンドが提示される
+
+** 一連のつぶやき
+
+-  2014/10/15 07:12:47 rubikitch > 入力補完はあれば助かる程度のもので、補完設定を書くのに四苦八苦するようでは本末転倒や。それよりも類似のコードを検索したりとか、テンプレートやドキュメントをひっぱってくる方が大切よね。  by るびきち＠日刊Emacs from twmode [Emacs on Debian]
+-  2014/10/15 07:11:01 rubikitch > 空気読んでコマンドを提示するanything-kyr.el…まあ昔の自分が欲しかったから作ったし今もそれに助けられているのであるが、果たして需要はあるのだろうか。あるのならば再設計したい。  by るびきち＠日刊Emacs from twmode [Emacs on Debian]
+-  2014/10/15 07:06:00 rubikitch > anything-kyr(condition-command)が発動する条件がたくさん出てきたら、それはもはやAIになるのか？どうあれ、次に実行すべきコマンドをお知らせしてくれるシステムはあるとすごい助かる。  by るびきち＠日刊Emacs from twmode [Emacs on Debian]
+-  2014/10/15 07:03:29 rubikitch > anything-kyr.elを再設計するとなったら、名前も変えるべきよね。condition-command.elあたりだろうか。モードラインでお知らせし、helm/anything/menuのインターフェースで適切なコマンド・orgリンクを提示するやつ。  by るびきち＠日刊Emacs from twmode [Emacs on Debian]
+-  2014/10/15 01:41:18 rubikitch > anything-kyrの条件強化＋ドキュメント参照コマンド量産計画。ドキュメント参照コマンドはorgのリンクを呼び出す org-open-link-from-string経由がよさげ。
+   たとえばRubyでNokogiriでxpathを記述するときにxpathの参考資料出すとか。  by るびきち＠日刊Emacs from twmode [Emacs on Debian]
+-  2014/10/14 21:32:50 rubikitch > anything-kyrをhelmに移植するとしたら、helm-M-xと合わせるのがちょうどいい落とし所だろう。となると helm-M-x-transformer を書き換えてkyrに対応させればいけそうだ。時間がないので興味ある誰かさんに任せよう。  by るびきち＠日刊Emacs from twmode [Emacs on Debian]
+-  2014/10/14 21:25:22 rubikitch > 他にもtrace-functionのアドバイスがかけられている関数があるならば、untrace-allやuntrace-functionを提示するとかね。
+   TWにブログURL出すのも…
+   条件をすらすら書けるelisp力があればいくらでも強化できるのがanything-kyr.el  by るびきち＠日刊Emacs from twmode [Emacs on Debian]
+-  2014/10/14 21:21:48 rubikitch > ここ数日company.elと格闘していたのだが、時間効率考えたらanything-kyr.elの条件設定＋条件限定コマンドを定義してる方がいいことに気付いた。例えばorg-babelのパラメータの使い方ならば、begin_src行という条件設定に対し、infoを開くコマンド定義  by るびきち＠日刊Emacs from twmode [Emacs on Debian]
+-  2014/10/14 21:17:45 rubikitch > てゆーかanythingは情報源を組み合わせて統合させるのが主眼だったのにhelmになったら単一情報源によるコマンドがやたらめったら定義されている…情報源を組み合わせてオレオレhelmを構築すべきでしょ。集中と分散で歴史は繰り返すのだろうか。#Emacs  by るびきち＠日刊Emacs from twmode [Emacs on Debian]
+-  2014/10/14 21:14:15 rubikitch > smart-mode-lineでの設定例:
+(setq sml/pos-id-separator '(" " (:eval (when (and (featurep 'anything-kyr) (anything-kyr-should-notify-p)) "◎"))))  by るびきち＠日刊Emacs from twmode [Emacs on Debian]
+-  2014/10/14 21:13:00 rubikitch > anything-kyr.el…使っている人は多分いないと思うけど、条件が整ったときにコマンドをanythingで提示してくれるやつ。
+   せっかく作ったコマンドを忘れないようにするために昔作ったけどいまだ現役。
+   元々ある機能しか使ってないから置換するだけでhelmでも動くかと。  by るびきち＠日刊Emacs from twmode [Emacs on Debian]
+-  2014/10/14 21:08:45 rubikitch > もう忘れられてると思うが5年半ぶりに更新!anything-kyr-should-notify-p でコマンドを提示してくれるか否かを判定。モードラインに表示するといい #Emacs (install-elisp-from-emacswiki "anything-kyr.el")  by るびきち＠日刊Emacs from twmode [Emacs on Debian]

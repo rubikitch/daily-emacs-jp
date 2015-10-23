@@ -1,0 +1,116 @@
+#+BLOG: rubikitch
+#+POSTID: 1350
+#+DATE: [2015-03-21 Sat 05:30]
+#+PERMALINK: undohist
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs
+#+EL_PKG_NAME: undohist
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs undo 履歴, relate:undo-tree, emacs アンドゥ 改善, Emacs undo 永続化, emacs undo 履歴 保存, emacsのundoを改良
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 
+#+EL_TITLE0: ファイルを閉じてもEmacsを再起動してもundoできるようにする
+#+EL_URL: http://d.hatena.ne.jp/m2ym/20090707/1246933894
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージundohistの紹介
+#+MYTAGS: package:undohist, emacs 使い方, emacs コマンド, emacs, undohist, undohist.el, emacs lisp undohist, elisp undohist, emacs melpa undohist, emacs undohist 使い方, emacs undohist 設定, emacs パッケージ undohist, emacs undo 履歴, relate:undo-tree, emacs アンドゥ 改善, Emacs undo 永続化, emacs undo 履歴 保存, emacsのundoを改良
+#+TAGS: package:undohist, emacs 使い方, emacs コマンド, emacs, undohist, undohist.el, emacs lisp undohist, elisp undohist, emacs melpa undohist, emacs undohist 使い方, emacs undohist 設定, emacs パッケージ undohist, emacs undo 履歴, relate:undo-tree, emacs アンドゥ 改善, Emacs undo 永続化, emacs undo 履歴 保存, emacsのundoを改良, Emacs, undohist.el, undoを永続化, undohist.el, undoを永続化
+#+TITLE: emacs undohist.el : ファイルを閉じてもEmacsを再起動してもundoできるようにする | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>undohist</td></tr>
+<tr><td>概要(原文)</td><td>Persistent undo history for GNU Emacs</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>サイト</td><td><a href="http://d.hatena.ne.jp/m2ym/20090707/1246933894">http://d.hatena.ne.jp/m2ym/20090707/1246933894</td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/m2ym/undohist-el">https://github.com/m2ym/undohist-el</a></td></tr>
+<tr><td>バージョン</td><td>20150315.542</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:undohist/">package:undohist</a> <a href="http://rubikitch.com/tag/package:undo-tree/">package:undo-tree</a></td></tr>
+</table>
+<br />
+#+END_HTML
+
+*undohist.el* はEmacsの *undoを永続化* します。
+
+通常のEmacsはファイルバッファを閉じると
+undoの履歴もクリアされるので戻せなくなってしまいます。
+
+つまり、ファイルを閉じてもEmacsを再起動してもC-/で元に戻せます。
+
+ぐぐってみたら[[http://d.hatena.ne.jp/Lian/20120420/1334856445][NTEmacsで動作しない]] とのことなので、
+修正を引用しました。
+
+以下の方法で動作確認できます。
+1. 適当なファイルを開く
+2. 変更する
+3. ファイルバッファを削除する
+4. 再びファイルを開く
+5. C-/を押すと2の変更を取り消せる！！！
+** undohist インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install undohist
+
+
+#+end:
+** 概要                                                             :noexport:
+
+*undohist.el* はEmacsの *undoを永続化* します。
+
+通常のEmacsはファイルバッファを閉じると
+undoの履歴もクリアされるので戻せなくなってしまいます。
+
+つまり、ファイルを閉じてもEmacsを再起動してもC-/で元に戻せます。
+
+ぐぐってみたら[[http://d.hatena.ne.jp/Lian/20120420/1334856445][NTEmacsで動作しない]] とのことなので、
+修正を引用しました。
+
+以下の方法で動作確認できます。
+1. 適当なファイルを開く
+2. 変更する
+3. ファイルバッファを削除する
+4. 再びファイルを開く
+5. C-/を押すと2の変更を取り消せる！！！
+
+** 設定 [[http://rubikitch.com/f/150321052351.undohist.el][150321052351.undohist.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/150321/150321052351.undohist.el"
+#+BEGIN_SRC fundamental
+(require 'undohist)
+(undohist-initialize)
+;;; 永続化を無視するファイル名の正規表現
+(setq undohist-ignored-files
+      '("/tmp/"))
+;;; NTEmacsだと動かないらしいので再定義
+;;; http://d.hatena.ne.jp/Lian/20120420/1334856445
+(when (eq system-type 'windows-nt)
+  (defun make-undohist-file-name (file)
+    (setq file (convert-standard-filename (expand-file-name file)))
+    (if (eq (aref file 1) ?:)
+        (setq file (concat "/"
+                           "drive_"
+                           (char-to-string (downcase (aref file 0)))
+                           (if (eq (aref file 2) ?/)
+                               ""
+                             (if (eq (aref file 2) ?\\)
+                                 ""
+                               "/"))
+                           (substring file 2))))
+    (setq file (expand-file-name
+                (subst-char-in-string
+                 ?/ ?!
+                 (subst-char-in-string
+                  ?\\ ?!
+                  (replace-regexp-in-string "!" "!!"  file)))
+                undohist-directory))))
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/150321052351.undohist.el
+$ emacs -Q -f package-initialize -l 150321052351.undohist.el
+#+END_EXAMPLE
+

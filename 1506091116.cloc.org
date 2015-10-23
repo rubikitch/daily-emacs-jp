@@ -1,0 +1,114 @@
+#+BLOG: rubikitch
+#+POSTID: 1730
+#+DATE: [2015-06-09 Tue 11:16]
+#+PERMALINK: cloc
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs
+#+EL_PKG_NAME: cloc
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, 
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 
+#+EL_TITLE0: バッファ中のプログラムを解析し空行・コメント行・コード行を数えて出力する
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージclocの紹介
+#+MYTAGS: package:cloc, emacs 使い方, emacs コマンド, emacs, cloc, cloc.el, emacs lisp cloc, elisp cloc, emacs melpa cloc, emacs cloc 使い方, emacs cloc 設定, emacs パッケージ cloc, 
+#+TAGS: package:cloc, emacs 使い方, emacs コマンド, emacs, cloc, cloc.el, emacs lisp cloc, elisp cloc, emacs melpa cloc, emacs cloc 使い方, emacs cloc 設定, emacs パッケージ cloc, , Emacs, cloc.el, M-x cloc, C-u M-x cloc, cloc-get-results-as-plists, M-x cloc, C-u M-x cloc, cloc-get-results-as-plists
+#+TITLE: emacs cloc.el : バッファ中のプログラムを解析し空行・コメント行・コード行を数えて出力する | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>cloc</td></tr>
+<tr><td>概要(原文)</td><td>count lines of code over emacs buffers</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/cosmicexplorer/cloc-emacs">https://github.com/cosmicexplorer/cloc-emacs</a></td></tr>
+<tr><td>バージョン</td><td>20150525.335</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:cloc/">package:cloc</a> </td></tr>
+</table>
+<br />
+#+END_HTML
+*cloc.el* は[[http://cloc.sourceforge.net][cloc(sourceforge)]] のEmacsインターフェースです。
+
+clocとは、与えられたソースコードを言語別に分類し、
+空行・コメント行・コード行を出力するPerlスクリプトです。
+
+*M-x cloc* を実行すると、ファイル名の正規表現を訊かれ、
+開かれているバッファの各ファイル名においてclocを実行し、
+エコーエリアに結果を表示します。
+
+たとえば、elispファイル4つ、Ｃ言語ファイル1つが開かれていて
+正規表現「.」を指定した場合は
+
+#+BEGIN_EXAMPLE
+      20 text files.
+classified 20 files      20 unique files.                              
+      16 files ignored.
+
+http://cloc.sourceforge.net v 1.60  T=0.03 s (156.9 files/s, 395702.1 lines/s)
+-------------------------------------------------------------------------------
+Language                     files          blank        comment           code
+-------------------------------------------------------------------------------
+Lisp                             4            589           1174           5815
+C                                1            782            693           3556
+-------------------------------------------------------------------------------
+SUM:                             5           1371           1867           9371
+-------------------------------------------------------------------------------
+#+END_EXAMPLE
+
+となります。
+
+*C-u M-x cloc* はカレントバッファにおいてclocを実行します。
+
+clocの結果を属性リストとして得る
+*cloc-get-results-as-plists* 関数も用意されています。
+
+これはclocの結果を使ってelispで加工するときに便利です。
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+** cloc インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install cloc
+
+
+#+end:
+** 概要                                                             :noexport:
+*cloc.el* は[[http://cloc.sourceforge.net][cloc(sourceforge)]] のEmacsインターフェースです。
+
+clocとは、与えられたソースコードを言語別に分類し、
+空行・コメント行・コード行を出力するPerlスクリプトです。
+
+*M-x cloc* を実行すると、ファイル名の正規表現を訊かれ、
+開かれているバッファの各ファイル名においてclocを実行し、
+エコーエリアに結果を表示します。
+
+たとえば、elispファイル4つ、Ｃ言語ファイル1つが開かれていて
+正規表現「.」を指定した場合は
+
+#+BEGIN_EXAMPLE
+      20 text files.
+classified 20 files      20 unique files.                              
+      16 files ignored.
+
+http://cloc.sourceforge.net v 1.60  T=0.03 s (156.9 files/s, 395702.1 lines/s)
+-------------------------------------------------------------------------------
+Language                     files          blank        comment           code
+-------------------------------------------------------------------------------
+Lisp                             4            589           1174           5815
+C                                1            782            693           3556
+-------------------------------------------------------------------------------
+SUM:                             5           1371           1867           9371
+-------------------------------------------------------------------------------
+#+END_EXAMPLE
+
+となります。
+
+*C-u M-x cloc* はカレントバッファにおいてclocを実行します。
+
+clocの結果を属性リストとして得る
+*cloc-get-results-as-plists* 関数も用意されています。
+
+これはclocの結果を使ってelispで加工するときに便利です。
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

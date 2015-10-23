@@ -1,0 +1,56 @@
+#+BLOG: rubikitch
+#+POSTID: 1356
+#+DATE: [2015-03-23 Mon 09:32]
+#+PERMALINK: helm-swoop-update
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: 記事更新情報, 
+#+DESCRIPTION: 
+#+MYTAGS: 
+#+TITLE: C-u C-sでhelm-swoopを起動させる設定を加えました
+#+begin: org2blog-tags
+#+TAGS: , 記事更新情報, , M-x occur, C-u C-s, C-u C-u C-s, helm-swoop-pre-input-function
+#+end:
+http://rubikitch.com/2014/12/25/helm-swoop
+
+#+BEGIN_QUOTE
+isearch＋helm-swoopはace-isearchもありますが、
+その場合はisearchが起動しているのでカーソルが移動してしまいます。
+
+*M-x occur* のようにマッチする行をリストしたい場合には不便です。
+
+そこで *C-u C-s* でM-x helm-swoopを起動させるようにしてしまいます。
+
+カーソルを移動させたくない場合はC-gでhelm-swoopを閉じればいいだけです。
+
+さらに *C-u C-u C-s* でM-x helm-swoop-nomigemoを起動させ、
+複数の正規表現で絞り込めるようになります。
+
+C-u C-sは本来正規表現isearchですがhelm-swoopに置き換えても
+違和感はありません。
+
+isearchと同様の使い勝手にするため、
+初期入力(*helm-swoop-pre-input-function*)を無効にしました。
+
+なお、この発想は類似品[[http://rubikitch.com/2015/03/18/swiper/][swiper.el(レビュー)]] のアイデアの応用です。
+#+END_QUOTE
+
+#+BEGIN_SRC emacs-lisp :results silent
+;;; [2015-03-23 Mon]C-u C-s / C-u C-u C-s
+(defun isearch-forward-or-helm-swoop (use-helm-swoop)
+  (interactive "p")
+  (let (current-prefix-arg
+        (helm-swoop-pre-input-function 'ignore))
+    (call-interactively
+     (case use-helm-swoop
+       (1 'isearch-forward)
+       (4 'helm-swoop)
+       (16 'helm-swoop-nomigemo)))))
+(global-set-key (kbd "C-s") 'isearch-forward-or-helm-swoop)
+#+END_SRC
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

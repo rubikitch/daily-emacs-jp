@@ -1,0 +1,107 @@
+#+BLOG: rubikitch
+#+POSTID: 1011
+#+DATE: [2015-01-27 Tue 08:10]
+#+PERMALINK: jaword
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs
+#+EL_PKG_NAME: jaword
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs 日本語 単語 移動, emacs 日本語 形態素解析, 形態素解析, relate:chinese-word-at-point, relate:tinysegmenter, package:tinysegmenter, emacs 単語
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 
+#+EL_TITLE0: 単語を扱うコマンド(M-f/M-b/M-d/M-t/M-DEL)を日本語に対応させる
+#+EL_URL: http://qiita.com/zk_phi/items/b9c90014c434b75e8139
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージjawordの紹介
+#+MYTAGS: package:jaword, emacs 使い方, emacs コマンド, emacs, jaword, jaword.el, emacs lisp jaword, elisp jaword, emacs melpa jaword, emacs jaword 使い方, emacs jaword 設定, emacs パッケージ jaword, emacs 日本語 単語 移動, emacs 日本語 形態素解析, 形態素解析, relate:chinese-word-at-point, relate:tinysegmenter, package:tinysegmenter, emacs 単語
+#+TAGS: package:jaword, emacs 使い方, emacs コマンド, emacs, jaword, jaword.el, emacs lisp jaword, elisp jaword, emacs melpa jaword, emacs jaword 使い方, emacs jaword 設定, emacs パッケージ jaword, emacs 日本語 単語 移動, emacs 日本語 形態素解析, 形態素解析, relate:chinese-word-at-point, relate:tinysegmenter, package:tinysegmenter, emacs 単語, Emacs, jaword.el, M-x jaword-mode, tinysegmenter.el, M-x jaword-mode, tinysegmenter.el
+#+TITLE: emacs jaword.el : 単語を扱うコマンド(M-f/M-b/M-d/M-t/M-DEL)を日本語に対応させる | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>jaword</td></tr>
+<tr><td>概要(原文)</td><td>Minor-mode for handling Japanese words better</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>サイト</td><td><a href="http://qiita.com/zk_phi/items/b9c90014c434b75e8139">http://qiita.com/zk_phi/items/b9c90014c434b75e8139</td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/zk-phi/jaword">https://github.com/zk-phi/jaword</a></td></tr>
+<tr><td>バージョン</td><td>20150126.452</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:jaword/">package:jaword</a> <a href="http://rubikitch.com/tag/package:chinese-word-at-point/">package:chinese-word-at-point</a> <a href="http://rubikitch.com/tag/package:tinysegmenter/">package:tinysegmenter</a></td></tr>
+</table>
+<br />
+#+END_HTML
+*jaword.el* は、日本語の単語を認識した各種単語コマンドを提供します。
+
+*M-x jaword-mode* でマイナーモードを有効にすると、
+- M-f - 次の単語へ移動
+- M-b - 前の単語へ移動
+- M-d - 単語の削除
+- M-t - 単語の入れ換え
+- M-DEL - 前の単語の削除
+を日本語対応にします。
+
+単語認識は *tinysegmenter.el* による形態素解析で行っていますが、
+現代のコンピュータならば動作速度は問題ありません。
+
+デフォルトでは日本語文書の単語の区切りは文字の種類の境目ですが、
+jaword-modeを有効にすると国文法に基いた単語区切りになります。
+
+#+BEGIN_EXAMPLE
+私/は/失敗/することがあります/。
+↓
+私/は/失敗/する/こと/が/あり/ます/。
+#+END_EXAMPLE
+
+実用の観点からすればいささか細かすぎると感じる人がいるかもしれません。
+
+好みに応じて。
+
+僕はデフォルトの挙動で十分です。
+
+作者のサイトはこちら
+↓
+http://qiita.com/zk_phi/items/b9c90014c434b75e8139
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+** jaword インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install jaword
+
+
+#+end:
+** 概要                                                             :noexport:
+*jaword.el* は、日本語の単語を認識した各種単語コマンドを提供します。
+
+*M-x jaword-mode* でマイナーモードを有効にすると、
+- M-f - 次の単語へ移動
+- M-b - 前の単語へ移動
+- M-d - 単語の削除
+- M-t - 単語の入れ換え
+- M-DEL - 前の単語の削除
+を日本語対応にします。
+
+単語認識は *tinysegmenter.el* による形態素解析で行っていますが、
+現代のコンピュータならば動作速度は問題ありません。
+
+デフォルトでは日本語文書の単語の区切りは文字の種類の境目ですが、
+jaword-modeを有効にすると国文法に基いた単語区切りになります。
+
+#+BEGIN_EXAMPLE
+私/は/失敗/することがあります/。
+↓
+私/は/失敗/する/こと/が/あり/ます/。
+#+END_EXAMPLE
+
+実用の観点からすればいささか細かすぎると感じる人がいるかもしれません。
+
+好みに応じて。
+
+僕はデフォルトの挙動で十分です。
+
+作者のサイトはこちら
+↓
+http://qiita.com/zk_phi/items/b9c90014c434b75e8139
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

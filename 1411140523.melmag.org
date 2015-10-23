@@ -1,0 +1,62 @@
+#+BLOG: rubikitch
+#+POSTID: 581
+#+DATE: [2014-11-14 Fri 05:23]
+#+PERMALINK: melmag
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: メルマガ,
+#+DESCRIPTION:
+#+MYTAGS:
+#+TAGS: , メルマガ,, org-babel, org-mode, Ruby, gnuplot, gem
+#+TITLE: org-babelで家計簿！Ruby 2.1.5リリース
+
+年末が近づいてきましたね。
+
+というわけで今回のメルマガはEmacsで家計簿をつける話です。
+
+今回使うツールは
+- *org-babel* (*org-mode* でソースコードを実行する仕組み)
+- *Ruby*
+- *gnuplot*
+です。
+
+Rubyといえば、ちょうど昨日
+[[https://www.ruby-lang.org/ja/news/2014/11/13/ruby-2-1-5-is-released/][Ruby 2.1.5]]がリリースされたばかりですね。
+
+まだRubyをインストールしてない人は
+インストールしといてください。
+
+表の集計で使うだけなのでライブラリ(*gem*)は不要です。
+
+古典的な機能しか使っていないので、
+多少古くても大丈夫です。
+
+
+gnuplotも再登場します。
+
+前回は数表のグラフを描くだけでしたが、
+今回は家計簿なので用途ごとの棒グラフを描きます。
+
+
+org-babelというのは、与えられたデータを
+任意のプログラミング言語で処理して文書に載っける仕組みです。
+
+多くのプログラミング言語に対応しているので、
+あなたの得意な言語で処理すればいいです。
+
+処理結果を次のソースコードへの入力として扱えるので、結果をチェーンして
+場面場面に応じて適切なプログラミング言語を組み合わせられます。
+
+ということで、
+家計簿データをorg-modeの表で用意し、
+集計をRubyで行い、
+グラフ化をgnuplotで行います。
+
+家計簿という身近なテーマを通して、
+org-babelの力を感じてください。
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

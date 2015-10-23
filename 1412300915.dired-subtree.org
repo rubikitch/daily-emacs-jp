@@ -1,0 +1,25 @@
+#+BLOG: rubikitch
+#+POSTID: 834
+#+DATE: [2014-12-30 Tue 09:15]
+#+PERMALINK: dired-subtree
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: 記事更新情報, 
+#+DESCRIPTION: 
+#+MYTAGS: 
+#+TITLE: dired-subtree.elで^が使えるようにしました
+[[http://rubikitch.com/2014/12/22/dired-subtree/][dired-subtree.el]] の設定にて、^をdired-subtreeに対応させました。
+
+つまり、subtreeの親ディレクトリに移動するか、
+そうでないならば通常の^を実行します。
+
+親ディレクトリに移動する場合、
+通常のdiredの「^」(dired-up-directory) と
+M-x dired-subtree-upを使い分ける必要がありません。
+
+どちらの場合も「^」でいけます。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

@@ -1,0 +1,59 @@
+#+BLOG: rubikitch
+#+POSTID: 815
+#+DATE: [2014-12-28 Sun 09:08]
+#+PERMALINK: backward-delete-char
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, helm
+#+DESCRIPTION: 
+#+MYTAGS: package:bind-key, helm, Emacs helm C-h backward-delete-char, C-h backspace, 
+#+TAGS: package:bind-key, helm, Emacs helm C-h backward-delete-char, C-h backspace, , Emacs, helm, C-h, backward-delete-char, ウィンドウマネージャー, backspace, ratpoison
+#+TITLE: C-hで確実にbackward-delete-charにする方法！helm対応
+*C-h* はやっぱり *backward-delete-char* ですよね？
+
+シェルではそうなっているのにEmacsでは何をトチ狂ったのか
+helpになっているという有様…一体何考えてるんだか。
+
+C-hを割り当て直してない人っているのか疑問です、正直。
+
+helmでC-hが効かなくて悩んでいる人もいるようなので
+それを解消する設定を書いておきます。
+
+Emacs以外でもC-hは後退したいと思うのならば、
+*ウィンドウマネージャー* レベルで
+C-hに *backspace* を割り当てましょう。
+
+*ratpoison* ならば.ratpoisonrcにこう書きます。
+
+#+BEGIN_EXAMPLE
+definekey top C-h meta BackSpace
+#+END_EXAMPLE
+
+もちろん僕はそうしています。
+
+** 設定 [[http://rubikitch.com/f/141228090623.c-h.el][141228090623.c-h.el(以下のコードと同一)]]
+M-x package-install bind-key
+で [[http://rubikitch.com/2014/09/10/bind-key/][bind-key.el(レビュー)]] を導入します。
+
+#+BEGIN: include :file "/r/sync/junk/141228/141228090623.c-h.el"
+#+BEGIN_SRC fundamental
+(require 'bind-key)
+(bind-key* "C-h" 'backward-delete-char)
+(require 'helm)
+(bind-key "C-h" nil helm-map)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/141228090623.c-h.el
+$ emacs -Q -f package-initialize -l 141228090623.c-h.el
+#+END_EXAMPLE
+
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

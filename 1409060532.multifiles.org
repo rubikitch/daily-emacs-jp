@@ -1,0 +1,109 @@
+#+BLOG: rubikitch
+#+POSTID: 306
+#+DATE: [2014-09-06 Sat 05:32]
+#+PERMALINK: multifiles
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs
+#+EL_PKG_NAME: multifiles
+#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, relate:linked-buffer
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: 【日本初公開】複数のファイルを1つのバッファで編集する方法
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージmultifilesの紹介
+#+MYTAGS: package:multifiles, emacs 使い方, emacs コマンド, emacs, emacs lisp multifiles, elisp multifiles, emacs melpa multifiles, emacs multifiles 使い方, emacs multifiles 設定, emacs パッケージ multifiles, emacs multifiles スクリーンショット, relate:linked-buffer
+#+TITLE: emacs multifiles.el : 【日本初公開】複数のファイルを1つのバッファで編集する方法 | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>multifiles</td></tr>
+<tr><td>概要(原文)</td><td>View and edit parts of multiple files in one buffer</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/magnars/multifiles.el">https://github.com/magnars/multifiles.el</a></td></tr>
+<tr><td>バージョン</td><td>20130615.1433</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:multifiles/">package:multifiles</a> <a href="http://rubikitch.com/tag/package:linked-buffer/">package:linked-buffer</a></td></tr>
+</table>
+<br />
+#+END_HTML
+今度は [[http://rubikitch.com/2014/09/06/linked-buffer/][linked-buffer.el]] とは逆に、
+複数のバッファを1つのバッファにまとめて編集する方法です。
+
+複数のファイルを同時に編集・参照する必要がある場合には、
+1つのバッファで統合した方がよいこともあります。
+
+統合することで単一バッファが対象のコマンドを使って
+複数のファイルを編集できるからです。
+
+- *isearch*
+- *M-x occur*
+- *M-x helm-occur*
+- *M-% (query-replace)*
+
+特に多数の小さいファイルを編集するときに有効です。
+** multifiles インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install multifiles
+
+
+#+end:
+** 概要                                                             :noexport:
+今度は [[http://rubikitch.com/2014/09/06/linked-buffer/][linked-buffer.el]] とは逆に、
+複数のバッファを1つのバッファにまとめて編集する方法です。
+
+複数のファイルを同時に編集・参照する必要がある場合には、
+1つのバッファで統合した方がよいこともあります。
+
+統合することで単一バッファが対象のコマンドを使って
+複数のファイルを編集できるからです。
+
+- *isearch*
+- *M-x occur*
+- *M-x helm-occur*
+- *M-% (query-replace)*
+
+特に多数の小さいファイルを編集するときに有効です。
+
+** 設定 [[http://rubikitch.com/f/140906052848.multifiles.1.el][140906052848.multifiles.1.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/140906/140906052848.multifiles.1.el"
+#+BEGIN_SRC fundamental
+(require 'multifiles)
+(global-set-key (kbd "C-!") 'mf/mirror-region-in-multifile)
+(defadvice mf/mirror-region-in-multifile (before no-region (s e &optional buf) activate)
+  "regionを指定していない場合はバッファ全体を対象にする"
+  (unless (region-active-p)
+    (setq s (point-min) e (point-max))))
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/140906052848.multifiles.1.el
+$ emacs -Q -f package-initialize -l 140906052848.multifiles.1.el
+#+END_EXAMPLE
+
+
+
+regionを指定して *M-x mf/mirror-region-in-multifile* を実行すれば、
+その部分が*multifile*バッファにコピーされます。
+
+それを必要な分だけ繰り返してください。
+
+編集が終わったら、*multifile*バッファでC-x C-sすれば
+全ファイルに編集結果が反映されます。
+
+
+
+なお、そのままだと使いづらいので、regionを指定しない場合は
+バッファ全体を対象にするようアドバイスを加えました。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+http://rubikitch.com/f/20140906053136.png
+Fig1: 左:元のファイル 右:まとめたバッファ
+
+http://rubikitch.com/f/20140906053156.png
+Fig2: まとめたバッファを編集するとオリジナルに反映される！C-x C-sで保存！！

@@ -1,0 +1,126 @@
+#+BLOG: rubikitch
+#+POSTID: 696
+#+DATE: [2014-12-09 Tue 08:42]
+#+PERMALINK: alert
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs
+#+EL_PKG_NAME: alert
+#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, emacs growl
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方
+#+EL_TITLE0: Growlなどの通知ツールでメッセージを通知させる関数！
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージalertの紹介
+#+MYTAGS: package:alert, emacs 使い方, emacs コマンド, emacs, emacs lisp alert, elisp alert, emacs melpa alert, emacs alert 使い方, emacs alert 設定, emacs パッケージ alert, emacs alert スクリーンショット, emacs growl
+#+TITLE: emacs alert.el : Growlなどの通知ツールでメッセージを通知させる関数！ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>alert</td></tr>
+<tr><td>概要(原文)</td><td>Growl-style notification system for Emacs</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/jwiegley/alert">https://github.com/jwiegley/alert</a></td></tr>
+<tr><td>バージョン</td><td>20141222.1703</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:alert/">package:alert</a> </td></tr>
+</table>
+<br />
+#+END_HTML
+*alert.el* は、メッセージを通知する
+ *alert* という関数を定義しているライブラリです。
+
+それを使うことによって、ユーザが通知方法を
+カスタマイズできるというメリットがあります。
+
+用途は通常の *message* 関数の代わりですが、
+*Growl* で通知したりするなどができるようになります。
+
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+** alert インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install alert
+
+
+#+end:
+** 概要                                                             :noexport:
+*alert.el* は、メッセージを通知する
+ *alert* という関数を定義しているライブラリです。
+
+それを使うことによって、ユーザが通知方法を
+カスタマイズできるというメリットがあります。
+
+用途は通常の *message* 関数の代わりですが、
+*Growl* で通知したりするなどができるようになります。
+
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+** 使用例(プログラマ側)
+
+READMEより使い方を引用します。
+
+そのままC-x C-eで評価すると
+*message* 同様ミニバッファに表示されるだけです。
+
+#+BEGIN_SRC emacs-lisp :results silent
+(require 'alert)
+
+;; This is the most basic form usage
+(alert "This is an alert")
+
+;; You can adjust the severity for more important messages
+(alert "This is an alert" :severity 'high)
+
+;; Or decrease it for purely informative ones
+(alert "This is an alert" :severity 'trivial)
+
+;; Alerts can have optional titles.  Otherwise, the title is the
+;; buffer-name of the (current-buffer) where the alert originated.
+(alert "This is an alert" :title "My Alert")
+
+;; Further, alerts can have categories.  This allows users to
+;; selectively filter on them.
+(alert "This is an alert" :title "My Alert" :category 'debug)
+#+END_SRC
+** 設定(ユーザ側)
+使えるスタイルは以下の通りです。
+
+| style         | 説明                                                                  |
+|---------------+-----------------------------------------------------------------------|
+| message       | messageと同様                                                         |
+| log           | 時刻とともに*Alert*バッファにログが書き込まれる                       |
+| ignore        | alertを無視する                                                       |
+| fringe        | fringe(左右端)の色を変更する                                          |
+| growl         | Mac OS Xの Growl (http://growl.info/extras.php) を使う                |
+| gntp          | gntpを使う 要gntp.el(https://github.com/tekai/gntp.el)                |
+| notifications | D-Busの通知ライブラリを使う                                           |
+| libnotify     | libnotifyを使う                                                       |
+| toaster       | toaster (https://github.com/nels-o/toaster) を使う                    |
+| notifier      | terminal-notifier (https://github.com/alloy/terminal-notifier) を使う |
+
+
+たとえば、fringeで色変えしたければ、
+#+BEGIN_SRC emacs-lisp :results silent
+(setq alert-default-style 'fringe)
+#+END_SRC
+
+とします。
+
+ただ、現時点では色が変わったままで
+#+BEGIN_SRC emacs-lisp :results silent
+(alert-fringe-restore nil)
+#+END_SRC
+を呼ばないと元に戻らないようです…
+
+僕はMac OS Xを持っていないので確認できませんが、
+#+BEGIN_SRC emacs-lisp :results silent
+(setq alert-default-style 'growl)
+#+END_SRC
+でGrowlによる通知ができると思います。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

@@ -1,0 +1,153 @@
+#+BLOG: rubikitch
+#+POSTID: 888
+#+DATE: [2015-01-10 Sat 07:17]
+#+PERMALINK: ido-ubiquitous
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, SKK, 
+#+EL_PKG_NAME: ido-ubiquitous
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, relate:helm, package:smex, package:ido-vertical-mode, emacs ido helm, relate:iswitchb, emacs iswitchb helm, iswitchb, emacs バッファ選択, emacs バッファ切り替え, ido あいまい検索, ido あいまいマッチ, relate:ddskk, relate:bookmark, package:ido, relate:ido
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: 【全補完ido化】はぁ〜、やっぱhelmよりもidoでござるなwww
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージido-ubiquitousの紹介
+#+MYTAGS: package:ido-ubiquitous, emacs 使い方, emacs コマンド, emacs, ido-ubiquitous, ido-ubiquitous.el, emacs lisp ido-ubiquitous, elisp ido-ubiquitous, emacs melpa ido-ubiquitous, emacs ido-ubiquitous 使い方, emacs ido-ubiquitous 設定, emacs パッケージ ido-ubiquitous, emacs ido-ubiquitous スクリーンショット, relate:helm, package:smex, package:ido-vertical-mode, emacs ido helm, relate:iswitchb, emacs iswitchb helm, iswitchb, emacs バッファ選択, emacs バッファ切り替え, ido あいまい検索, ido あいまいマッチ, relate:ddskk, relate:bookmark, package:ido, relate:ido
+#+TAGS: package:ido-ubiquitous, emacs 使い方, emacs コマンド, emacs, ido-ubiquitous, ido-ubiquitous.el, emacs lisp ido-ubiquitous, elisp ido-ubiquitous, emacs melpa ido-ubiquitous, emacs ido-ubiquitous 使い方, emacs ido-ubiquitous 設定, emacs パッケージ ido-ubiquitous, emacs ido-ubiquitous スクリーンショット, relate:helm, package:smex, package:ido-vertical-mode, emacs ido helm, relate:iswitchb, emacs iswitchb helm, iswitchb, emacs バッファ選択, emacs バッファ切り替え, ido あいまい検索, ido あいまいマッチ, relate:ddskk, relate:bookmark, package:ido, relate:ido, Emacs, SKK, , ido-ubiquitous.el, ido, helm, helm-match-plugin, bookmark, ido, helm, helm-match-plugin, bookmark
+#+TITLE: emacs ido-ubiquitous.el : 【全補完ido化】はぁ〜、やっぱhelmよりもidoでござるなwww | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>ido-ubiquitous</td></tr>
+<tr><td>概要(原文)</td><td>Use ido (nearly) everywhere.</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/DarwinAwardWinner/ido-ubiquitous">https://github.com/DarwinAwardWinner/ido-ubiquitous</a></td></tr>
+<tr><td>バージョン</td><td>20150630.926</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:ido-ubiquitous/">package:ido-ubiquitous</a> <a href="http://rubikitch.com/tag/package:helm/">package:helm</a> <a href="http://rubikitch.com/tag/package:iswitchb/">package:iswitchb</a> <a href="http://rubikitch.com/tag/package:ddskk/">package:ddskk</a> <a href="http://rubikitch.com/tag/package:bookmark/">package:bookmark</a> <a href="http://rubikitch.com/tag/package:ido/">package:ido</a></td></tr>
+</table>
+<br />
+#+END_HTML
+*ido-ubiquitous.el* は、その名の通りすべての補完を *ido* 化します。
+
+idoは標準添付パッケージで部分文字列・あいまいマッチによる
+強力なバッファ・ファイル選択を提供します。
+
+これをM-xに対応させたのが[[http://rubikitch.com/2014/12/16/smex/][smex.el(レビュー)]] です。
+
+そして、このido-ubiquitous.elはその他の補完をido化します。
+
+idoファンにはぜひともおすすめです。
+
+今の補完のトレンドは *helm* だと思いますが、
+- 単一情報源
+- 単一アクション
+- Migemo不要
+の条件下ではidoの方が優れていると思います。
+
+なぜなら、idoのあいまいマッチは、各文字の間に「.*」を挿入した
+正規表現で検索されるため、とても少ない打鍵数で選択できるからです。
+
+helmの *helm-match-plugin* はスペースが必要ですが、idoでは不要です。
+
+特に *bookmark* などで威力を発揮します。
+
+idoが好きならばぜひとも[[http://rubikitch.com/2015/01/06/ido-vertical-mode/][ido-vertical-mode(レビュー)]] もおすすめです。
+
+本設定では有効にしています。
+
+
+skkを使っている人はミニバッファ内ではC-jで使えますが、
+idoでは喰われてしまっています。
+
+よって強引にC-jを取り返しています。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+[[file:/r/sync/screenshots/20150110073904.png]]
+Fig1: C-x r b(ブックマーク)でido選択！
+** ido-ubiquitous インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install ido-ubiquitous
+
+
+#+end:
+** 概要                                                             :noexport:
+*ido-ubiquitous.el* は、その名の通りすべての補完を *ido* 化します。
+
+idoは標準添付パッケージで部分文字列・あいまいマッチによる
+強力なバッファ・ファイル選択を提供します。
+
+これをM-xに対応させたのが[[http://rubikitch.com/2014/12/16/smex/][smex.el(レビュー)]] です。
+
+そして、このido-ubiquitous.elはその他の補完をido化します。
+
+idoファンにはぜひともおすすめです。
+
+今の補完のトレンドは *helm* だと思いますが、
+- 単一情報源
+- 単一アクション
+- Migemo不要
+の条件下ではidoの方が優れていると思います。
+
+なぜなら、idoのあいまいマッチは、各文字の間に「.*」を挿入した
+正規表現で検索されるため、とても少ない打鍵数で選択できるからです。
+
+helmの *helm-match-plugin* はスペースが必要ですが、idoでは不要です。
+
+特に *bookmark* などで威力を発揮します。
+
+idoが好きならばぜひとも[[http://rubikitch.com/2015/01/06/ido-vertical-mode/][ido-vertical-mode(レビュー)]] もおすすめです。
+
+本設定では有効にしています。
+
+
+skkを使っている人はミニバッファ内ではC-jで使えますが、
+idoでは喰われてしまっています。
+
+よって強引にC-jを取り返しています。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+[[file:/r/sync/screenshots/20150110073904.png]]
+Fig2: C-x r b(ブックマーク)でido選択！
+
+** 設定 [[http://rubikitch.com/f/150110070133.ido-ubiquitous.el][150110070133.ido-ubiquitous.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/150110/150110070133.ido-ubiquitous.el"
+#+BEGIN_SRC fundamental
+(ido-mode 1)
+;;; あいまいマッチ:これを入れないとidoの魅力がガタ落ち
+(setq ido-enable-flex-matching t)
+;;; 縦に並べる(お好みで)
+(when (fboundp 'ido-vertical-mode)
+  (ido-vertical-mode 1))
+;;; completing-readをido化
+(ido-ubiquitous-mode 1)
+;;; M-xをido化
+(when (fboundp 'smex)
+  (global-set-key (kbd "M-x") 'smex))
+;;; skk使いはC-jをskk-modeにする
+(when (fboundp 'skk-mode)
+  (fset 'ido-select-text 'skk-mode))
+;;; 使用例
+(defun test ()
+  (interactive)
+  (message
+   (completing-read "Test: " '("foo" "bar" "baz") nil t)))
+(defun test2 ()
+  (interactive)
+  (message
+   (completing-read "Test: " '("foo" "bar" "baz") )))
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/150110070133.ido-ubiquitous.el
+$ emacs -Q -f package-initialize -l 150110070133.ido-ubiquitous.el
+#+END_EXAMPLE
+
+
+# /r/sync/screenshots/20150110073904.png http://rubikitch.com/wp-content/uploads/2015/01/wpid-20150110073904.png

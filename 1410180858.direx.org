@@ -1,0 +1,131 @@
+#+BLOG: rubikitch
+#+POSTID: 484
+#+DATE: [2014-10-18 Sat 08:58]
+#+PERMALINK: direx
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs
+#+EL_PKG_NAME: direx
+#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, dired, emacs dired, relate:dired, relate:speedbar
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: diredとspeedbarを組み合わせた全く新しいファイラ
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージdirexの紹介
+#+MYTAGS: package:direx, emacs 使い方, emacs コマンド, emacs, emacs lisp direx, elisp direx, emacs melpa direx, emacs direx 使い方, emacs direx 設定, emacs パッケージ direx, emacs direx スクリーンショット, dired, emacs dired, relate:dired, relate:speedbar
+#+TITLE: emacs direx.el : diredとspeedbarを組み合わせた全く新しいファイラ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>direx</td></tr>
+<tr><td>概要(原文)</td><td>Simple Directory Explorer</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/m2ym/direx-el">https://github.com/m2ym/direx-el</a></td></tr>
+<tr><td>バージョン</td><td>20141214.2059</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:direx/">package:direx</a> <a href="http://rubikitch.com/tag/package:dired/">package:dired</a> <a href="http://rubikitch.com/tag/package:speedbar/">package:speedbar</a></td></tr>
+</table>
+<br />
+#+END_HTML
+*direx.el* は一言で言えば *Yet another dired* です。
+
+つまり、Emacs Lispで実装されたもうひとつのファイラです。
+
+最大の特徴は、深いディレクトリ構造をディレクトリツリーとして
+すべて見せてくれることです。
+
+[[http://rubikitch.com/2014/09/16/sr-speedbar/][speedbar]] 的なディレクトリツリーが特徴です。
+
+「diredとspeedbarを組み合わせた」とタイトルに書きましたが、
+実はどちらにも依存していません。
+
+
+また、コアはわずか1000行ととてもコンパクトです。
+
+diredと比べれば1/8に過ぎません。
+
+使い方はdiredに似ているのですぐに慣れます。
+
+- C: コピー
+- R: リネーム・移動
+- D: 削除
+- ^: 親ディレクトリ
+- RET: ファイル・ディレクトリを開く
+などはそのまま使えます。
+
+なによりディレクトリでRETを押すと
+その場でサブディレクトリが展開されるし、
+Eを押すと再帰的にディレクトリツリーを開いてくれます。
+
+direxとdiredのエントリーポイントはこのように対応しています。
+
+*M-x dired-jump* → *M-x direx:jump-to-directory*
+*M-x dired* → *M-x direx:find-directory*
+
+たくさんのサブディレクトリが含まれるディレクトリを見るとき、
+direxはとても役立ちます。
+
+** direx インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install direx
+
+
+#+end:
+** 概要                                                             :noexport:
+*direx.el* は一言で言えば *Yet another dired* です。
+
+つまり、Emacs Lispで実装されたもうひとつのファイラです。
+
+最大の特徴は、深いディレクトリ構造をディレクトリツリーとして
+すべて見せてくれることです。
+
+[[http://rubikitch.com/2014/09/16/sr-speedbar/][speedbar]] 的なディレクトリツリーが特徴です。
+
+「diredとspeedbarを組み合わせた」とタイトルに書きましたが、
+実はどちらにも依存していません。
+
+
+また、コアはわずか1000行ととてもコンパクトです。
+
+diredと比べれば1/8に過ぎません。
+
+使い方はdiredに似ているのですぐに慣れます。
+
+- C: コピー
+- R: リネーム・移動
+- D: 削除
+- ^: 親ディレクトリ
+- RET: ファイル・ディレクトリを開く
+などはそのまま使えます。
+
+なによりディレクトリでRETを押すと
+その場でサブディレクトリが展開されるし、
+Eを押すと再帰的にディレクトリツリーを開いてくれます。
+
+direxとdiredのエントリーポイントはこのように対応しています。
+
+*M-x dired-jump* → *M-x direx:jump-to-directory*
+*M-x dired* → *M-x direx:find-directory*
+
+たくさんのサブディレクトリが含まれるディレクトリを見るとき、
+direxはとても役立ちます。
+
+
+** 設定 [[http://rubikitch.com/f/141018090645.direx.el][141018090645.direx.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/141018/141018090645.direx.el"
+#+BEGIN_SRC fundamental
+(global-set-key (kbd "C-x C-j") 'direx:jump-to-directory)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/141018090645.direx.el
+$ emacs -Q -f package-initialize -l 141018090645.direx.el
+#+END_EXAMPLE
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+http://rubikitch.com/f/20141018090753.png
+Fig1: direxでディレクトリツリーを見よう

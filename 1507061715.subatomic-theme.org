@@ -1,0 +1,201 @@
+#+BLOG: rubikitch
+#+POSTID: 1800
+#+DATE: [2015-07-06 Mon 17:15]
+#+PERMALINK: subatomic-theme
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, theme
+#+EL_PKG_NAME: subatomic-theme
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, color-theme, カラーテーマ
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: 背景がグレーor真っ黒なカラーテーマ
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージsubatomic-themeの紹介
+#+MYTAGS: package:subatomic-theme, emacs 使い方, emacs コマンド, emacs, subatomic-theme, subatomic-theme.el, emacs lisp subatomic-theme, elisp subatomic-theme, emacs melpa subatomic-theme, emacs subatomic-theme 使い方, emacs subatomic-theme 設定, emacs パッケージ subatomic-theme, emacs subatomic-theme スクリーンショット, color-theme, カラーテーマ
+#+TAGS: package:subatomic-theme, emacs 使い方, emacs コマンド, emacs, subatomic-theme, subatomic-theme.el, emacs lisp subatomic-theme, elisp subatomic-theme, emacs melpa subatomic-theme, emacs subatomic-theme 使い方, emacs subatomic-theme 設定, emacs パッケージ subatomic-theme, emacs subatomic-theme スクリーンショット, color-theme, カラーテーマ, Emacs, theme, subatomic-theme.el
+#+TITLE: emacs subatomic-theme.el : 背景がグレーor真っ黒なカラーテーマ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>subatomic-theme</td></tr>
+<tr><td>概要(原文)</td><td>Low contrast bluish color theme</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/cryon/subatomic">https://github.com/cryon/subatomic</a></td></tr>
+<tr><td>バージョン</td><td>20150408.253</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:subatomic-theme/">package:subatomic-theme</a> </td></tr>
+</table>
+<br />
+#+END_HTML
+*subatomic-theme.el* は、カラーテーマです。
+
+通常版(背景グレー)とハイコントラスト版(背景黒)が用意されています。
+
+# (save-window-excursion (async-shell-command "emacs-test -eval '(progn (setq subatomic-high-contrast t)(load-theme (quote subatomic) t))'"))
+以下のパッケージに対応しています。
+- linum
+- show-paren
+- isearch
+- mode-line
+- powerline
+- hl-line
+- font-lock
+- flymake
+- eshell
+- calendar
+- ido
+- jabber
+- erc
+- highlight-symbol
+- diff
+- magit
+- compilation
+- twittering-mode
+- outline
+- org
+- dired+
+- nxml
+- git-gutter
+- git-gutter-fringe
+- company
+- shm (structured-haskell-mode)
+- fill-column-indicator
+** subatomic-theme インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install subatomic-theme
+
+
+#+end:
+** 概要                                                             :noexport:
+*subatomic-theme.el* は、カラーテーマです。
+
+通常版(背景グレー)とハイコントラスト版(背景黒)が用意されています。
+
+# (save-window-excursion (async-shell-command "emacs-test -eval '(progn (setq subatomic-high-contrast t)(load-theme (quote subatomic) t))'"))
+以下のパッケージに対応しています。
+- linum
+- show-paren
+- isearch
+- mode-line
+- powerline
+- hl-line
+- font-lock
+- flymake
+- eshell
+- calendar
+- ido
+- jabber
+- erc
+- highlight-symbol
+- diff
+- magit
+- compilation
+- twittering-mode
+- outline
+- org
+- dired+
+- nxml
+- git-gutter
+- git-gutter-fringe
+- company
+- shm (structured-haskell-mode)
+- fill-column-indicator
+
+** デフォルトの設定
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_theme_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150706171633.png]]
+Fig1: emacs-lisp-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150706171639.png]]
+Fig2: magit
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150706171644.png]]
+Fig3: grep
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150706171648.png]]
+Fig4: outline-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150706171652.png]]
+Fig5: org-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150706171659.png]]
+Fig6: dired
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150706171703.png]]
+Fig7: web-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150706171708.png]]
+Fig8: markdown-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150706171712.png]]
+Fig9: helm
+** ハイコントラスト版(真っ黒背景)
+#+BEGIN_SRC emacs-lisp :results silent
+(setq subatomic-high-contrast t)
+#+END_SRC
+の設定を加えると背景が真っ黒になります。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_theme_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150706171909.png]]
+Fig10: emacs-lisp-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150706171914.png]]
+Fig11: magit
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150706171918.png]]
+Fig12: grep
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150706171922.png]]
+Fig13: outline-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150706171925.png]]
+Fig14: org-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150706171930.png]]
+Fig15: dired
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150706171933.png]]
+Fig16: web-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150706171938.png]]
+Fig17: markdown-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150706171943.png]]
+Fig18: helm
+
+
+
+** 設定
+#+BEGIN_SRC fundamental
+(load-theme 'subatomic t)
+#+END_SRC
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ emacs -Q -f package-initialize -eval '(load-theme (quote subatomic) t)'
+$ emacs -Q -f package-initialize -eval '(progn (setq subatomic-high-contrast t)(load-theme (quote subatomic) t))'
+#+END_EXAMPLE
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

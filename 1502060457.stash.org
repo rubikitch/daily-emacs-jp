@@ -1,0 +1,123 @@
+#+BLOG: rubikitch
+#+POSTID: 1090
+#+DATE: [2015-02-06 Fri 04:57]
+#+PERMALINK: stash
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, Emacs Lisp, 
+#+EL_PKG_NAME: stash
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, relate:psession, relate:session, emacs データ永続化, elisp データ永続化, elisp データ保存, emacs kill-ring 保存, emacs kill-ring 永続化, relate:savekill, emacs savekill, emacs minibuffer-history 永続化, emacs ミニバッファ 履歴 保存, relate:save-sexp
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 
+#+EL_TITLE0: kill-ringやminibuffer-history等の任意の変数をこっそりと永続化し、再起動時に復元させる
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージstashの紹介
+#+MYTAGS: package:stash, emacs 使い方, emacs コマンド, emacs, stash, stash.el, emacs lisp stash, elisp stash, emacs melpa stash, emacs stash 使い方, emacs stash 設定, emacs パッケージ stash, relate:psession, relate:session, emacs データ永続化, elisp データ永続化, elisp データ保存, emacs kill-ring 保存, emacs kill-ring 永続化, relate:savekill, emacs savekill, emacs minibuffer-history 永続化, emacs ミニバッファ 履歴 保存, relate:save-sexp
+#+TAGS: package:stash, emacs 使い方, emacs コマンド, emacs, stash, stash.el, emacs lisp stash, elisp stash, emacs melpa stash, emacs stash 使い方, emacs stash 設定, emacs パッケージ stash, relate:psession, relate:session, emacs データ永続化, elisp データ永続化, elisp データ保存, emacs kill-ring 保存, emacs kill-ring 永続化, relate:savekill, emacs savekill, emacs minibuffer-history 永続化, emacs ミニバッファ 履歴 保存, relate:save-sexp, Emacs, Emacs Lisp, , stash.el, kill-ring, minibuffer-history, session.el, stash.el, kill-ring, minibuffer-history, session.el
+#+TITLE: emacs stash.el : kill-ringやminibuffer-history等の任意の変数をこっそりと永続化し、再起動時に復元させる | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>stash</td></tr>
+<tr><td>概要(原文)</td><td>lightweight persistent caching</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/vermiculus/stash.el">https://github.com/vermiculus/stash.el</a></td></tr>
+<tr><td>バージョン</td><td>20150201.1221</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:stash/">package:stash</a> <a href="http://rubikitch.com/tag/package:psession/">package:psession</a> <a href="http://rubikitch.com/tag/package:session/">package:session</a> <a href="http://rubikitch.com/tag/package:savekill/">package:savekill</a> <a href="http://rubikitch.com/tag/package:save-sexp/">package:save-sexp</a></td></tr>
+</table>
+<br />
+#+END_HTML
+<2015-05-08 Fri> [[http://rubikitch.com/2015/05/08/save-sexp/][よりシンプルなのをお好みならばsave-sexp.elを！]]
+
+Emacs Lispのデータをディスクに保存するのは比較的簡単ですが、
+わざわざ記述するのは面倒です。
+
+また、保存する処理を書くことなく、
+裏でこっそりやってほしいこともあります。
+
+そんな場合に *stash.el* が役立ちます。
+
+これを使えば保存してほしい変数を
+アイドル時・Emacs終了時に保存し、
+Emacs再起動時に復元させられます。
+
+とくに *kill-ring* や *minibuffer-history* を
+復元するのに役立ちます。
+
+[[http://rubikitch.com/2014/08/21/psession/][psession.el(レビュー)]] や *session.el* は
+Emacs終了時に変数の値を保存しますが、
+途中でEmacsが落ちてしまった場合はきちんと復元できません。
+
+よって、アイドル時に保存する方がよいわけです。
+
+今すぐすべての変数を保存するには
+#+BEGIN_EXAMPLE
+M-: (stash-save-all)
+#+END_EXAMPLE
+を実行します。
+
+保存先は ~/.emacs.d/stashes/ 以下になります。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+** stash インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install stash
+
+
+#+end:
+** 概要                                                             :noexport:
+<2015-05-08 Fri> [[http://rubikitch.com/2015/05/08/save-sexp/][よりシンプルなのをお好みならばsave-sexp.elを！]]
+
+Emacs Lispのデータをディスクに保存するのは比較的簡単ですが、
+わざわざ記述するのは面倒です。
+
+また、保存する処理を書くことなく、
+裏でこっそりやってほしいこともあります。
+
+そんな場合に *stash.el* が役立ちます。
+
+これを使えば保存してほしい変数を
+アイドル時・Emacs終了時に保存し、
+Emacs再起動時に復元させられます。
+
+とくに *kill-ring* や *minibuffer-history* を
+復元するのに役立ちます。
+
+[[http://rubikitch.com/2014/08/21/psession/][psession.el(レビュー)]] や *session.el* は
+Emacs終了時に変数の値を保存しますが、
+途中でEmacsが落ちてしまった場合はきちんと復元できません。
+
+よって、アイドル時に保存する方がよいわけです。
+
+今すぐすべての変数を保存するには
+#+BEGIN_EXAMPLE
+M-: (stash-save-all)
+#+END_EXAMPLE
+を実行します。
+
+保存先は ~/.emacs.d/stashes/ 以下になります。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+** 設定 [[http://rubikitch.com/f/150206050344.stash.el][150206050344.stash.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/150206/150206050344.stash.el"
+#+BEGIN_SRC fundamental
+;;; 永続化したい変数を宣言する
+;;; (or stashed 'nil)は読み込み時にデフォルトでnilにするおまじない
+(defstash kill-ring "kill-ring.el" nil (or stashed 'nil))
+(defstash minibuffer-history "minibuffer-history.el" nil (or stashed 'nil))
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/150206050344.stash.el
+$ emacs -Q -f package-initialize -l 150206050344.stash.el
+kill-ringやminibuffer-historyを変更する
+$ emacs -Q -f package-initialize -l 150206050344.stash.el
+復元される
+#+END_EXAMPLE

@@ -1,0 +1,40 @@
+#+BLOG: rubikitch
+#+POSTID: 950
+#+DATE: [2015-01-16 Fri 04:11]
+#+PERMALINK: melmag
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: メルマガ, 
+#+DESCRIPTION: 
+#+MYTAGS: 
+#+TITLE: EWWを骨までしゃぶろう！
+#+begin: org2blog-tags
+#+TAGS: , メルマガ, , 
+#+end:
+今週の「るびきち塾」メルマガはEWW！
+
+Emacs 24.4にて標準装備となった
+Emacs組み込みブラウザのEWWについてです。
+
+[[http://rubikitch.com/category/gnupack/][gnupack]] や [[http://rubikitch.com/category/ntemacs64/][NTEmacs64]] のおかげで
+WindowsでもEmacs 24.4が使えるようになり、
+すぐにEWWを試せるようになりました。
+
+EWWはEmacsのバッファによるWebブラウザなので、
+Firefoxなどの普通のブラウザと比べて見劣りします。
+
+一言で言えば
+/Emacsで動く画像表示可能な高速テキストブラウザ/
+です。
+
+EWWにはEWWの役割があります。
+
+EmacsにおけるEWWの位置付けやら
+他のWebブラウザとの比較を通して
+EWW的視点を養ってください。
+
+僕はEWWを心から愛しています。
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

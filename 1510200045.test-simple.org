@@ -1,0 +1,162 @@
+#+BLOG: rubikitch
+#+POSTID: 2093
+#+DATE: [2015-10-20 Tue 00:45]
+#+PERMALINK: test-simple
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, Emacs Lisp, 
+#+EL_PKG_NAME: test-simple
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, , 自動テスト, ユニットテスト, Emacs ユニットテスト, relate:ert, emacs ert, relate:el-expectations, relate:ert-expectations, relate:el-spec, assert, assert-equal, emacs testing framework, テスティングフレームワーク, emacs lisp test
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 
+#+EL_TITLE0: 最強にシンプルなelisp用テスティングフレームワーク(ユニットテスト)
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージtest-simpleの紹介
+#+MYTAGS: package:test-simple, emacs 使い方, emacs コマンド, emacs, test-simple, test-simple.el, emacs lisp test-simple, elisp test-simple, emacs melpa test-simple, emacs test-simple 使い方, emacs test-simple 設定, emacs パッケージ test-simple, , 自動テスト, ユニットテスト, Emacs ユニットテスト, relate:ert, emacs ert, relate:el-expectations, relate:ert-expectations, relate:el-spec, assert, assert-equal, emacs testing framework, テスティングフレームワーク, emacs lisp test
+#+TAGS: package:test-simple, emacs 使い方, emacs コマンド, emacs, test-simple, test-simple.el, emacs lisp test-simple, elisp test-simple, emacs melpa test-simple, emacs test-simple 使い方, emacs test-simple 設定, emacs パッケージ test-simple, , 自動テスト, ユニットテスト, Emacs ユニットテスト, relate:ert, emacs ert, relate:el-expectations, relate:ert-expectations, relate:el-spec, assert, assert-equal, emacs testing framework, テスティングフレームワーク, emacs lisp test, Emacs, Emacs Lisp, , test-simple.el, test-simple, scratch
+#+TITLE: emacs test-simple.el : 最強にシンプルなelisp用テスティングフレームワーク(ユニットテスト) | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>test-simple</td></tr>
+<tr><td>概要(原文)</td><td>Simple Unit Test Framework for Emacs Lisp</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/rocky/emacs-test-simple">https://github.com/rocky/emacs-test-simple</a></td></tr>
+<tr><td>バージョン</td><td>20150331.302</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:test-simple/">package:test-simple</a> <a href="http://rubikitch.com/tag/package:ert/">package:ert</a> <a href="http://rubikitch.com/tag/package:el-expectations/">package:el-expectations</a> <a href="http://rubikitch.com/tag/package:ert-expectations/">package:ert-expectations</a> <a href="http://rubikitch.com/tag/package:el-spec/">package:el-spec</a></td></tr>
+</table>
+<br />
+#+END_HTML
+*test-simple.el* はものすごいシンプルなテスティングフレームワークです。
+僕もかつてel-expectations.elやERT対応版ert-expectations.elを作っていましたが、それをも上回るシンプルさです。
+なんとトップレベルでassert関数群が定義されています。
+そのため、C-M-xやC-x C-eで即座に1つのテストを評価できる手軽さです。
+** test-simple インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install test-simple
+
+
+#+end:
+** 概要                                                             :noexport:
+*test-simple.el* はものすごいシンプルなテスティングフレームワークです。
+僕もかつてel-expectations.elやERT対応版ert-expectations.elを作っていましたが、それをも上回るシンプルさです。
+なんとトップレベルでassert関数群が定義されています。
+そのため、C-M-xやC-x C-eで即座に1つのテストを評価できる手軽さです。
+** 使用例:最大公約数GCD
+まず、gcd.elを用意します。
+
+#+BEGIN_EXAMPLE
+(defun gcd(a b)
+  "Greatest Common Divisor of A and B"
+  ;; Make a < b
+  (if (> a b)
+      (let ((c a))
+        (setq a b)
+        (setq b c)))
+  (cond
+   ((< a 0) nil)
+   ((or (= 0 (- b a)) (= a 1)) a)
+   (t (gcd (- b a) a))))
+#+END_EXAMPLE
+
+そして、それに対応するテストtest-gcd.elを書きます。
+
+#+BEGIN_EXAMPLE
+(require 'test-simple)
+(test-simple-start) ;; テスト開始！カウンターとタイマーをリセット
+
+;; .elを確実に読み込ませるためにrequireの代わりにload-fileを使う
+(assert-t (load-file "./gcd.el")
+          "gcd.elがないよ！" )
+
+(note "負数とエラーの例")
+
+(assert-nil (gcd 5 -1) "正数")
+(assert-nil (gcd -4 1) "正数、逆順")
+(assert-raises error (gcd "a" 32)
+               "文字列を指定したらエラー")
+
+(note "計算")
+(assert-equal 1 (gcd 3 5) "gcd(3,5)")
+(assert-equal 8 (gcd 8 32) "gcd(8,32)")
+
+(end-tests) ;; 計時終了、結果をレポート
+
+#+END_EXAMPLE
+
+M-x eval-bufferでテストを実行すると、 *test-simple* バッファに結果が表示されます。
+
+#+BEGIN_EXAMPLE
+test-gcd.el
+......
+0 failures in 6 assertions (0.0205035 seconds)
+#+END_EXAMPLE
+
+コマンドラインからテストを実行できます。
+
+#+BEGIN_EXAMPLE
+$ emacs -batch -f package-initialize -l test-gcd.el
+Loading /r/sync/memo/wp/rubikitch/gcd.el (source)...
+*scratch*
+......
+0 failures in 6 assertions (0.000390617 seconds)
+#+END_EXAMPLE
+
+package-initializeが重いならば、 test-simple.el のあるディレクトリを指定してもいいです。
+
+#+BEGIN_EXAMPLE
+$ emacs -batch -L ~/.emacs.d/quelpa/build/test-simple/ -l test-gcd.el
+#+END_EXAMPLE
+** 失敗するテスト
+テストをわざと失敗させましょう。
+
+#+BEGIN_EXAMPLE
+(require 'test-simple)
+(test-simple-start)
+
+(assert-nil t "assert-nil")
+(assert-t nil "assert-t")
+(assert-equal 1 (+ 1 1) "(+ 1 1) == 2")
+
+(end-tests)
+#+END_EXAMPLE
+
+すると、assert-*の最後の引数で指定されたメッセージとともに失敗が報告されます。
+
+#+BEGIN_EXAMPLE
+test-simple-fail.el
+F
+Description: none set, type assert-nil
+
+	Message: assert-nil
+F
+Description: none set, type assert-nil
+
+	Message: assert-t
+F
+Description: none set, type assert-equal
+Message: (+ 1 1) == 2
+  Expected: 1
+  Got: 2
+
+3 failures in 3 assertions (0.0190111 seconds)
+#+END_EXAMPLE
+** assert関数群
+用意されているassert関数群です。
+C-M-xやC-x C-eで個別に評価したとき、assertを満たすならばtを、満たさないならばnilを返します。
+
+#+BEGIN_EXAMPLE
+(defmacro assert-raises (error-condition body &optional fail-message)
+(defun assert-equal (expected actual &optional fail-message)
+(defun assert-eq (expected actual &optional fail-message)
+(defun assert-eql (expected actual &optional fail-message)
+(defun assert-matches (expected-regexp actual &optional fail-message)
+(defun assert-t (actual &optional fail-message)
+(defun assert-nil (actual &optional fail-message)
+#+END_EXAMPLE
+もはや説明不要でしょう。
+

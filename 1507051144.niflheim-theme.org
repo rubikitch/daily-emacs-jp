@@ -1,0 +1,190 @@
+#+BLOG: rubikitch
+#+POSTID: 1798
+#+DATE: [2015-07-05 Sun 11:44]
+#+PERMALINK: niflheim-theme
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, theme
+#+EL_PKG_NAME: niflheim-theme
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, color-theme, カラーテーマ
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: グレーベースなカラーテーマ
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージniflheim-themeの紹介
+#+MYTAGS: package:niflheim-theme, emacs 使い方, emacs コマンド, emacs, niflheim-theme, niflheim-theme.el, emacs lisp niflheim-theme, elisp niflheim-theme, emacs melpa niflheim-theme, emacs niflheim-theme 使い方, emacs niflheim-theme 設定, emacs パッケージ niflheim-theme, emacs niflheim-theme スクリーンショット, color-theme, カラーテーマ
+#+TAGS: package:niflheim-theme, emacs 使い方, emacs コマンド, emacs, niflheim-theme, niflheim-theme.el, emacs lisp niflheim-theme, elisp niflheim-theme, emacs melpa niflheim-theme, emacs niflheim-theme 使い方, emacs niflheim-theme 設定, emacs パッケージ niflheim-theme, emacs niflheim-theme スクリーンショット, color-theme, カラーテーマ, Emacs, theme, niflheim-theme.el
+#+TITLE: emacs niflheim-theme.el : グレーベースなカラーテーマ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>niflheim-theme</td></tr>
+<tr><td>概要(原文)</td><td>A port of the Nifleim theme to Emacs</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/niflheim-theme/emacs">https://github.com/niflheim-theme/emacs</a></td></tr>
+<tr><td>バージョン</td><td>20150630.821</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:niflheim-theme/">package:niflheim-theme</a> </td></tr>
+</table>
+<br />
+#+END_HTML
+*niflheim-theme.el* は、グレーベースなカラーテーマです。
+
+# (save-window-excursion (async-shell-command "emacs-test -eval '(load-theme (quote niflheim) t)'"))
+以下のパッケージに対応しています。
+
+- hl-line
+- mode-line
+- mml
+- org
+- font-lock
+- linum
+- eshell
+- whitespace
+- compilation
+- dired
+- magit
+- diff
+- ediff
+- ido
+- js2-mode
+- outline
+- message
+- notmuch
+- mu4e
+- flyspell
+- flycheck
+- gnus
+- slime
+- company
+- web-mode
+- fic-mode
+- which-func
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_theme_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150705120219.png]]
+Fig1: emacs-lisp-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150705120225.png]]
+Fig2: magit
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150705120234.png]]
+Fig3: grep
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150705120238.png]]
+Fig4: outline-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150705120246.png]]
+Fig5: org-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150705120253.png]]
+Fig6: dired
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150705120302.png]]
+Fig7: web-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150705120308.png]]
+Fig8: markdown-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150705120314.png]]
+Fig9: helm
+** niflheim-theme インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install niflheim-theme
+
+
+#+end:
+** 概要                                                             :noexport:
+*niflheim-theme.el* は、グレーベースなカラーテーマです。
+
+# (save-window-excursion (async-shell-command "emacs-test -eval '(load-theme (quote niflheim) t)'"))
+以下のパッケージに対応しています。
+
+- hl-line
+- mode-line
+- mml
+- org
+- font-lock
+- linum
+- eshell
+- whitespace
+- compilation
+- dired
+- magit
+- diff
+- ediff
+- ido
+- js2-mode
+- outline
+- message
+- notmuch
+- mu4e
+- flyspell
+- flycheck
+- gnus
+- slime
+- company
+- web-mode
+- fic-mode
+- which-func
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_theme_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150705120219.png]]
+Fig10: emacs-lisp-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150705120225.png]]
+Fig11: magit
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150705120234.png]]
+Fig12: grep
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150705120238.png]]
+Fig13: outline-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150705120246.png]]
+Fig14: org-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150705120253.png]]
+Fig15: dired
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150705120302.png]]
+Fig16: web-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150705120308.png]]
+Fig17: markdown-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150705120314.png]]
+Fig18: helm
+
+** 設定
+#+BEGIN_SRC fundamental
+(load-theme 'niflheim t)
+#+END_SRC
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ emacs -Q -f package-initialize -eval '(load-theme (quote niflheim) t)'
+#+END_EXAMPLE
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

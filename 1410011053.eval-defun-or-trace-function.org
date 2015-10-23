@@ -1,0 +1,78 @@
+#+BLOG: rubikitch
+#+POSTID: 415
+#+DATE: [2014-10-01 Wed 10:53]
+#+PERMALINK: eval-defun-or-trace-function
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs Lisp, Emacs,
+#+DESCRIPTION: C-u C-u C-M-xで現在の関数をtrace-function。C-u C-u C-u C-M-xでuntrace-all
+#+MYTAGS: emacs eval-defun C-M-x, emacs trace-function edebug, emacs untrace-all, emacs トレース, emacs トレーサ, emacs trace.el, emacs lisp 関数 トレース, emacs, package:trace, package:edebug, emacs lisp, emacs lisp 関数 返り値 引数, eamcs lisp デバッグ
+#+TAGS: emacs eval-defun C-M-x, emacs trace-function edebug, emacs untrace-all, emacs トレース, emacs トレーサ, emacs trace.el, emacs lisp 関数 トレース, emacs, package:trace, package:edebug, emacs lisp, emacs lisp 関数 返り値 引数, eamcs lisp デバッグ, Emacs Lisp, Emacs,, trace.el, M-x trace-function, M-x untrace-function, M-x untrace-all, C-u C-M-x, edebug
+#+TITLE: 【デバッグの友】現在位置のEmacs Lisp関数をトレースする超簡単な方法！
+Emacs Lispをデバッグしていて、特定の関数の引数と返り値を
+トレースしたくなることはよくあります。
+
+そのときは標準添付の *trace.el* を使います。
+
+*M-x trace-function* で、トレースする関数と
+トレース結果を出力するバッファを指定します。
+
+その後で対象関数を呼び出すと、
+トレース結果のバッファが
+ポップアップします。
+
+トレースをやめるには *M-x untrace-function* や
+*M-x untrace-all* を使います。
+
+しかし、これらのコマンドはわざわざ関数名を
+入力する必要があるため使いづらいものです。
+
+そこで、現在の関数(defun)を評価するC-M-xに
+組み込んでしまいましょう。
+
+元々 *C-u C-M-x* で現在の関数を
+*edebug* デバッガにかけることができるので、
+C-u C-u C-M-xでtrace-function、
+C-u C-u C-u C-M-xでuntrace-function
+することにしました。
+
+トレースの詳しい使い方は
+[[http://d.hatena.ne.jp/rubikitch/20101113/trace][旧ブログ:デバッグの第一歩!Emacs Lisp関数をトレースする方法]] を
+参照してください。
+
+** 設定 [[http://rubikitch.com/f/141001104025.eval-defun.trace-function.el][141001104025.eval-defun.trace-function.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/141001/141001104025.eval-defun.trace-function.el"
+#+BEGIN_SRC fundamental
+(require 'cl-lib)
+(defun current-defun ()
+  (save-excursion
+    (beginning-of-defun)
+    (forward-char 1)
+    (forward-sexp 2)
+    (symbol-at-point)))
+(defun eval-defun-or-trace-function (arg)
+  "C-M-xにtrace-functionの機能をつける"
+  (interactive "p")
+  (cl-case arg
+    (64 (untrace-function (current-defun))
+        (message "untrace-function: %s" (current-defun)))
+    (16 (trace-function (current-defun))
+        (message "trace-function: %s" (current-defun)))
+    (4 (eval-defun t))
+    (t (eval-defun nil))))
+(define-key emacs-lisp-mode-map (kbd "C-M-x") 'eval-defun-or-trace-function)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/141001104025.eval-defun.trace-function.el
+$ emacs -Q -f package-initialize -l 141001104025.eval-defun.trace-function.el
+#+END_EXAMPLE
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

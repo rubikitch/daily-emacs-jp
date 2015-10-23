@@ -1,0 +1,51 @@
+#+BLOG: rubikitch
+#+POSTID: 195
+#+DATE: [2014-08-23 Sat 03:58]
+#+PERMALINK: wdired
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: メルマガ,
+#+DESCRIPTION: 『Emacsの鬼るびきちのココだけの話#143』
+#+MYTAGS: Emacs, emacs dired wdired, package:dired
+#+TAGS: Emacs, emacs dired wdired, package:dired, メルマガ,,
+#+TITLE: 今週のメルマガはdiredで自由自在にファイル名を編集するwdiredについて
+あなたはファイル名の変更はどうやっていますか？
+
+シェルからmvを実行していますか？
+
+diredからRで新しいファイル名を入力していますか？
+
+たしかに変更するファイル名が1つの場合は、
+これらで済みますよね。
+
+僕も普通にeshellからmvを実行しています。
+
+
+しかし、複数個のファイルを変更するとなったら、
+たとえば拡張子を変更する場合…
+
+毎度毎度mvを実行するのでは日が暮れますよね。
+
+
+Emacsを使っている限り、wdiredを使えば
+ファイル名変更はこれだけで十分です。
+
+標準機能なので、diredから
+M-x wdired-change-to-wdired-mode
+を実行すればすぐにwdiredに入れます。
+
+好きなキーを割り当ててファイル名を
+書き換えてC-c C-cでオシマイです。
+
+#+BEGIN_EXAMPLE
+(require 'dired)
+(define-key dired-mode-map "e" 'wdired-change-to-wdired-mode)
+#+END_EXAMPLE
+
+メルマガではそんなwdiredのあまり知られていない機能や
+類似のコマンドについて取り上げていきます。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

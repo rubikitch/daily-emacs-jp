@@ -1,0 +1,30 @@
+#+BLOG: rubikitch
+#+POSTID: 1777
+#+DATE: [2015-06-26 Fri 11:36]
+#+PERMALINK: melmag
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: メルマガ,
+#+DESCRIPTION: るびきち塾メルマガ『Emacsの鬼るびきちのココだけの話#187』の予告
+#+TITLE: 【メルマガ#187】Emacs力をつけるには！？
+#+MYTAGS: 
+#+begin: org2blog-tags
+#+TAGS: , メルマガ,, 
+#+end:
+6月最後のメルマガは、コラム調になります。
+
+Emacsについて深く知るにはどうすればいいのでしょうか？
+
+どうすればもっと使いこなせるでしょうか？
+
+結局は場数を踏んで洞察力をつけることだと思います。
+
+でも、それは大変なことではなく楽しい営みです。
+
+子供のころに遊んだであろうとある遊びをたとえに
+指針をお話していきます。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

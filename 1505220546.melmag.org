@@ -1,0 +1,41 @@
+#+BLOG: rubikitch
+#+POSTID: 1676
+#+DATE: [2015-05-22 Fri 05:46]
+#+PERMALINK: melmag
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: メルマガ,
+#+DESCRIPTION: るびきち塾メルマガ『Emacsの鬼るびきちのココだけの話#182』の予告
+#+TITLE: 【メルマガ#182】「日刊Emacs」の秘密をこっそり教えます
+#+MYTAGS: 
+#+begin: org2blog-tags
+#+TAGS: , メルマガ,, 
+#+end:
+今週は僕が毎日更新しているこのサイト
+「日刊Emacs」の秘密に迫っていきます。
+
+運営には有料サーバを使っていますが、
+使っているサーバを選択した理由、
+そして、なぜ有料サーバにしたのかについて話します。
+
+多くの人は「無料の罠」に陥っています。
+
+いくら優れた無料ブログサービスであっても
+避けられない3つの欠点とは？
+
+
+後半は記事に対するSEOについても触れます。
+
+SEOをきっちりこなすことで検索エンジンが
+あなたの記事を見つけてくれやすくなります。
+
+その結果あなたの記事が多くの人に読まれるようになります。
+
+せっかく優れたツールの記事なのに
+SEOをしてないためなかなか見付けられず
+もったいないなと思うことがよくあります。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

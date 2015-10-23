@@ -1,0 +1,175 @@
+#+BLOG: rubikitch
+#+POSTID: 1434
+#+DATE: [2015-04-05 Sun 09:02]
+#+PERMALINK: phi-search-dired
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, dired, 
+#+EL_PKG_NAME: phi-search-dired
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, relate:phi-search, package:dired, relate:dired-filter, dired ファイル名でフィルタリング, dired 表示するファイルを絞り込む, dired 絞り込み検索, dired helm, helm-find-files, dired ファイル名でフィルタリング, dired 正規表現にマッチするファイルをマーク, dired isearch, インクリメンタルサーチ, relate:dired-filter, relate:dired-narrow
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: diredからisearchでファイル名を絞り込んだりマークしたり
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージphi-search-diredの紹介
+#+MYTAGS: package:phi-search-dired, emacs 使い方, emacs コマンド, emacs, phi-search-dired, phi-search-dired.el, emacs lisp phi-search-dired, elisp phi-search-dired, emacs melpa phi-search-dired, emacs phi-search-dired 使い方, emacs phi-search-dired 設定, emacs パッケージ phi-search-dired, emacs phi-search-dired スクリーンショット, relate:phi-search, package:dired, relate:dired-filter, dired ファイル名でフィルタリング, dired 表示するファイルを絞り込む, dired 絞り込み検索, dired helm, helm-find-files, dired ファイル名でフィルタリング, dired 正規表現にマッチするファイルをマーク, dired isearch, インクリメンタルサーチ, relate:dired-filter, relate:dired-narrow
+#+TAGS: package:phi-search-dired, emacs 使い方, emacs コマンド, emacs, phi-search-dired, phi-search-dired.el, emacs lisp phi-search-dired, elisp phi-search-dired, emacs melpa phi-search-dired, emacs phi-search-dired 使い方, emacs phi-search-dired 設定, emacs パッケージ phi-search-dired, emacs phi-search-dired スクリーンショット, relate:phi-search, package:dired, relate:dired-filter, dired ファイル名でフィルタリング, dired 表示するファイルを絞り込む, dired 絞り込み検索, dired helm, helm-find-files, dired ファイル名でフィルタリング, dired 正規表現にマッチするファイルをマーク, dired isearch, インクリメンタルサーチ, relate:dired-filter, relate:dired-narrow, Emacs, dired, , phi-search-dired.el, dired, ファイル名で絞り込み機能, 正規表現isearch, dired-undo, % m, * %, dired-mark-files-regexp, dired, ファイル名で絞り込み機能, 正規表現isearch, dired-undo, % m, * %, dired-mark-files-regexp
+#+TITLE: emacs phi-search-dired.el : diredからisearchでファイル名を絞り込んだりマークしたり | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>phi-search-dired</td></tr>
+<tr><td>概要(原文)</td><td>interactive filtering for dired powered by phi-search</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/zk-phi/phi-search-dired">https://github.com/zk-phi/phi-search-dired</a></td></tr>
+<tr><td>バージョン</td><td>20150405.14</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:phi-search-dired/">package:phi-search-dired</a> <a href="http://rubikitch.com/tag/package:phi-search/">package:phi-search</a> <a href="http://rubikitch.com/tag/package:dired-filter/">package:dired-filter</a> <a href="http://rubikitch.com/tag/package:dired-filter/">package:dired-filter</a> <a href="http://rubikitch.com/tag/package:dired-narrow/">package:dired-narrow</a></td></tr>
+</table>
+<br />
+#+END_HTML
+*phi-search-dired.el* は *dired* において
+ *ファイル名で絞り込み機能* を提供します。
+
+名前の通り[[http://rubikitch.com/2014/11/11/phi-search/][phi-search.el(レビュー)]] という
+独自の *正規表現isearch* がベースとなっていて、
+isearchでファイル名を絞り込み、
+マッチしたファイルのみを表示・マークします。
+
+
+本設定では標準のisearchを置き換えるためC-sに割り当てています。
+
+使い方は、C-sで絞り込みたいファイル名の正規表現を入力します。
+
+ここで3通りの操作方法があります。
+
+SPCを押すとマッチしたファイルのみ表示するようになり、
+RETを押すとマッチしたファイルをマークし、
+C-gを押すとそのままの表示のまま抜けます。
+
+SPCの後にさらに正規表現を入力できるので、
+helmのようにガンガン絞り込めます。
+
+
+SPCを押すと他のファイル名が表示されなくなりますが、
+C-/ (*dired-undo*) で元に戻せるので安心してください。
+
+dired標準コマンドの *% m* または ** %* (*dired-mark-files-regexp*) を
+強化したものともいえます。
+
+なお、 [[http://rubikitch.com/2015/04/07/dired-filter/][dired-filter.el(レビュー)]]  では正規表現だけでなく
+ディレクトリのみを表示したりもできます。
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150405092007.png]]
+Fig1: 元の状態
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150405092015.png]]
+Fig2: C-s anything (5つマッチしていることがわかる)
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150405092025.png]]
+Fig3: ここでSPCを押すとanythingが含まれるエントリだけを表示
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150405092035.png]]
+Fig4: ここでC-gを押すとFig3に戻り、さらにクエリを入力して絞り込み
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150405092038.png]]
+Fig5: RETでそのエントリがマークされる
+** phi-search-dired インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install phi-search-dired
+
+
+#+end:
+** 概要                                                             :noexport:
+*phi-search-dired.el* は *dired* において
+ *ファイル名で絞り込み機能* を提供します。
+
+名前の通り[[http://rubikitch.com/2014/11/11/phi-search/][phi-search.el(レビュー)]] という
+独自の *正規表現isearch* がベースとなっていて、
+isearchでファイル名を絞り込み、
+マッチしたファイルのみを表示・マークします。
+
+
+本設定では標準のisearchを置き換えるためC-sに割り当てています。
+
+使い方は、C-sで絞り込みたいファイル名の正規表現を入力します。
+
+ここで3通りの操作方法があります。
+
+SPCを押すとマッチしたファイルのみ表示するようになり、
+RETを押すとマッチしたファイルをマークし、
+C-gを押すとそのままの表示のまま抜けます。
+
+SPCの後にさらに正規表現を入力できるので、
+helmのようにガンガン絞り込めます。
+
+
+SPCを押すと他のファイル名が表示されなくなりますが、
+C-/ (*dired-undo*) で元に戻せるので安心してください。
+
+dired標準コマンドの *% m* または ** %* (*dired-mark-files-regexp*) を
+強化したものともいえます。
+
+なお、 [[http://rubikitch.com/2015/04/07/dired-filter/][dired-filter.el(レビュー)]]  では正規表現だけでなく
+ディレクトリのみを表示したりもできます。
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150405092007.png]]
+Fig6: 元の状態
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150405092015.png]]
+Fig7: C-s anything (5つマッチしていることがわかる)
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150405092025.png]]
+Fig8: ここでSPCを押すとanythingが含まれるエントリだけを表示
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150405092035.png]]
+Fig9: ここでC-gを押すとFig3に戻り、さらにクエリを入力して絞り込み
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150405092038.png]]
+Fig10: RETでそのエントリがマークされる
+
+** 設定 [[http://rubikitch.com/f/150405085104.phi-search-dired.el][150405085104.phi-search-dired.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/150405/150405085104.phi-search-dired.el"
+#+BEGIN_SRC fundamental
+(require 'dired)
+(define-key dired-mode-map (kbd "C-s") 'phi-search-dired)
+;;; 表示を整えるアドバイス
+(defun phi-search-dired-restrict-to-matches--show-all ()
+  (with-selected-window (minibuffer-selected-window)
+    (when (re-search-backward " \\.\\./?$" nil t)
+      (forward-line 1)
+      (recenter nil))))
+(advice-add 'phi-search-dired-restrict-to-matches :after
+            'phi-search-dired-restrict-to-matches--show-all)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/150405085104.phi-search-dired.el
+$ emacs -Q -f package-initialize -l 150405085104.phi-search-dired.el
+#+END_EXAMPLE
+
+# /r/sync/screenshots/20150405092007.png http://rubikitch.com/wp-content/uploads/2015/04/wpid-201504050920071.png
+# /r/sync/screenshots/20150405092015.png http://rubikitch.com/wp-content/uploads/2015/04/wpid-201504050920151.png
+# /r/sync/screenshots/20150405092025.png http://rubikitch.com/wp-content/uploads/2015/04/wpid-201504050920251.png
+# /r/sync/screenshots/20150405092035.png http://rubikitch.com/wp-content/uploads/2015/04/wpid-201504050920351.png
+# /r/sync/screenshots/20150405092038.png http://rubikitch.com/wp-content/uploads/2015/04/wpid-201504050920381.png

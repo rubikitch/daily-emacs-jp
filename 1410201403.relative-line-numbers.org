@@ -1,0 +1,69 @@
+#+BLOG: rubikitch
+#+POSTID: 489
+#+DATE: [2014-10-20 Mon 14:03]
+#+PERMALINK: relative-line-numbers
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs
+#+EL_PKG_NAME: relative-line-numbers
+#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, relate:linum-relative, 相対行番号, 
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: 画面左に相対行番号をつけよう！
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージrelative-line-numbersの紹介
+#+MYTAGS: package:relative-line-numbers, emacs 使い方, emacs コマンド, emacs, emacs lisp relative-line-numbers, elisp relative-line-numbers, emacs melpa relative-line-numbers, emacs relative-line-numbers 使い方, emacs relative-line-numbers 設定, emacs パッケージ relative-line-numbers, emacs relative-line-numbers スクリーンショット, relate:linum-relative, 相対行番号, 
+#+TAGS: package:relative-line-numbers, emacs 使い方, emacs コマンド, emacs, emacs lisp relative-line-numbers, elisp relative-line-numbers, emacs melpa relative-line-numbers, emacs relative-line-numbers 使い方, emacs relative-line-numbers 設定, emacs パッケージ relative-line-numbers, emacs relative-line-numbers スクリーンショット, relate:linum-relative, 相対行番号, , Emacs, relative-line-numbers.el, relative-line-numbers.el
+#+TITLE: emacs relative-line-numbers.el : 画面左に相対行番号をつけよう！ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>relative-line-numbers</td></tr>
+<tr><td>概要(原文)</td><td>Display relative line numbers on the margin</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/Fanael/relative-line-numbers">https://github.com/Fanael/relative-line-numbers</a></td></tr>
+<tr><td>バージョン</td><td>20150624.714</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:relative-line-numbers/">package:relative-line-numbers</a> <a href="http://rubikitch.com/tag/package:linum-relative/">package:linum-relative</a></td></tr>
+</table>
+<br />
+#+END_HTML
+
+*relative-line-numbers.el* は、画面左端のスペースに
+相対行番号をつけるものです。
+
+
+[[http://rubikitch.com/2014/10/26/relative-line-numbers][→続報です]]
+** relative-line-numbers インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install relative-line-numbers
+
+
+#+end:
+** 概要                                                             :noexport:
+
+*relative-line-numbers.el* は、画面左端のスペースに
+相対行番号をつけるものです。
+
+
+[[http://rubikitch.com/2014/10/26/relative-line-numbers][→続報です]]
+
+** 設定 [[http://rubikitch.com/f/141020140339.relative-line-numbers.el][141020140339.relative-line-numbers.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/141020/141020140339.relative-line-numbers.el"
+#+BEGIN_SRC fundamental
+(global-relative-line-numbers-mode)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/141020140339.relative-line-numbers.el
+$ emacs -Q -f package-initialize -l 141020140339.relative-line-numbers.el
+#+END_EXAMPLE
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+http://rubikitch.com/f/20141020140507.png
+Fig1: 相対行番号！

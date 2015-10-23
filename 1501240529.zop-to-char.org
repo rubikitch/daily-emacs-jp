@@ -1,0 +1,111 @@
+#+BLOG: rubikitch
+#+POSTID: 996
+#+DATE: [2015-01-24 Sat 05:29]
+#+PERMALINK: zop-to-char
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs
+#+EL_PKG_NAME: zop-to-char
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, zap-to-char, zap-up-to-char, relate:ace-jump-zap, M-z, emacs zap-to-char M-z, emacs zap-up-to-char M-z misc, ZapToChar, ZapUpToChar, relate:zzz-to-char, relate:avy-zap
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: M-z(zap-to-char)を目に見える形に置き換える
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージzop-to-charの紹介
+#+MYTAGS: package:zop-to-char, emacs 使い方, emacs コマンド, emacs, zop-to-char, zop-to-char.el, emacs lisp zop-to-char, elisp zop-to-char, emacs melpa zop-to-char, emacs zop-to-char 使い方, emacs zop-to-char 設定, emacs パッケージ zop-to-char, emacs zop-to-char スクリーンショット, zap-to-char, zap-up-to-char, relate:ace-jump-zap, M-z, emacs zap-to-char M-z, emacs zap-up-to-char M-z misc, ZapToChar, ZapUpToChar, relate:zzz-to-char, relate:avy-zap
+#+TAGS: package:zop-to-char, emacs 使い方, emacs コマンド, emacs, zop-to-char, zop-to-char.el, emacs lisp zop-to-char, elisp zop-to-char, emacs melpa zop-to-char, emacs zop-to-char 使い方, emacs zop-to-char 設定, emacs パッケージ zop-to-char, emacs zop-to-char スクリーンショット, zap-to-char, zap-up-to-char, relate:ace-jump-zap, M-z, emacs zap-to-char M-z, emacs zap-up-to-char M-z misc, ZapToChar, ZapUpToChar, relate:zzz-to-char, relate:avy-zap, Emacs, zop-to-char.el, M-x zap-up-to-char, M-x zap-up-to-char
+#+TITLE: emacs zop-to-char.el : M-z(zap-to-char)を目に見える形に置き換える | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>zop-to-char</td></tr>
+<tr><td>概要(原文)</td><td>A replacement of zap-to-char.</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/thierryvolpiatto/zop-to-char">https://github.com/thierryvolpiatto/zop-to-char</a></td></tr>
+<tr><td>バージョン</td><td>20150901.47</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:zop-to-char/">package:zop-to-char</a> <a href="http://rubikitch.com/tag/package:ace-jump-zap/">package:ace-jump-zap</a> <a href="http://rubikitch.com/tag/package:zzz-to-char/">package:zzz-to-char</a> <a href="http://rubikitch.com/tag/package:avy-zap/">package:avy-zap</a></td></tr>
+</table>
+<br />
+#+END_HTML
+*zop-to-char.el* は、 [[http://rubikitch.com/2014/09/23/ace-jump-zap/][ace-jump-zap.el(レビュー)]] と同様M-zの置き換えです。
+
+両者に共通するメリットは、標準のM-z (zap-to-char)や
+*M-x zap-up-to-char* でより遠くの同じ文字まで削除できるようにする点です。
+
+ace-jump-zap.elでは文字の指定をace-jump-modeで行いますが、
+zop-to-char.elでは削除範囲がひと目でわかる形になります。
+
+僕はこっちの方が好きなのでさっそく置き換えました。
+
+ちなみにzap-to-charとzap-up-to-charは兄弟分で、
+指定した文字も含めて削除するのが前者、
+指定した文字の直前まで削除するのが後者です。
+
+僕は後者の方が好きです。
+** zop-to-char インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install zop-to-char
+
+
+#+end:
+** 概要                                                             :noexport:
+*zop-to-char.el* は、 [[http://rubikitch.com/2014/09/23/ace-jump-zap/][ace-jump-zap.el(レビュー)]] と同様M-zの置き換えです。
+
+両者に共通するメリットは、標準のM-z (zap-to-char)や
+*M-x zap-up-to-char* でより遠くの同じ文字まで削除できるようにする点です。
+
+ace-jump-zap.elでは文字の指定をace-jump-modeで行いますが、
+zop-to-char.elでは削除範囲がひと目でわかる形になります。
+
+僕はこっちの方が好きなのでさっそく置き換えました。
+
+ちなみにzap-to-charとzap-up-to-charは兄弟分で、
+指定した文字も含めて削除するのが前者、
+指定した文字の直前まで削除するのが後者です。
+
+僕は後者の方が好きです。
+
+** 設定 [[http://rubikitch.com/f/150124052832.zop-to-char.el][150124052832.zop-to-char.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/150124/150124052832.zop-to-char.el"
+#+BEGIN_SRC fundamental
+;; (global-set-key (kbd "M-z") 'zop-to-char)
+(global-set-key (kbd "M-z") 'zop-up-to-char)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/150124052832.zop-to-char.el
+$ emacs -Q -f package-initialize -l 150124052832.zop-to-char.el
+#+END_EXAMPLE
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+
+[[file:/r/sync/screenshots/20150124054055.png]]
+Fig1: M-z を押すと操作方法が出てくる
+
+[[file:/r/sync/screenshots/20150124054122.png]]
+Fig2: aを押すと範囲が明示される
+
+[[file:/r/sync/screenshots/20150124054135.png]]
+Fig3: C-fで次のaまで範囲を広げる
+
+ここでC-qを押したらその場所まで移動し、
+C-gを押したらM-zそのものを取り消します。
+
+
+
+[[file:/r/sync/screenshots/20150124054153.png]]
+Fig4: RETで削除！削除した内容はkill-ringに。
+
+
+# /r/sync/screenshots/20150124054055.png http://rubikitch.com/wp-content/uploads/2015/01/wpid-20150124054055.png
+# /r/sync/screenshots/20150124054122.png http://rubikitch.com/wp-content/uploads/2015/01/wpid-20150124054122.png
+# /r/sync/screenshots/20150124054135.png http://rubikitch.com/wp-content/uploads/2015/01/wpid-20150124054135.png
+# /r/sync/screenshots/20150124054153.png http://rubikitch.com/wp-content/uploads/2015/01/wpid-20150124054153.png

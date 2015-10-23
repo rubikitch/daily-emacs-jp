@@ -1,0 +1,123 @@
+#+BLOG: rubikitch
+#+POSTID: 1144
+#+DATE: [2015-02-15 Sun 08:59]
+#+PERMALINK: lusty-explorer
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs
+#+EL_PKG_NAME: lusty-explorer
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, relate:ido, relate:helm, relate:ido-vertical-mode, relate:jg-quicknav
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: 【idoをややhelm風に】あいまいマッチでサクサクとファイルやバッファを開く
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージlusty-explorerの紹介
+#+MYTAGS: package:lusty-explorer, emacs 使い方, emacs コマンド, emacs, lusty-explorer, lusty-explorer.el, emacs lisp lusty-explorer, elisp lusty-explorer, emacs melpa lusty-explorer, emacs lusty-explorer 使い方, emacs lusty-explorer 設定, emacs パッケージ lusty-explorer, emacs lusty-explorer スクリーンショット, relate:ido, relate:helm, relate:ido-vertical-mode, relate:jg-quicknav
+#+TAGS: package:lusty-explorer, emacs 使い方, emacs コマンド, emacs, lusty-explorer, lusty-explorer.el, emacs lisp lusty-explorer, elisp lusty-explorer, emacs melpa lusty-explorer, emacs lusty-explorer 使い方, emacs lusty-explorer 設定, emacs パッケージ lusty-explorer, emacs lusty-explorer スクリーンショット, relate:ido, relate:helm, relate:ido-vertical-mode, relate:jg-quicknav, Emacs, helm, anything, lusty-explorer.el, ido, M-x lusty-file-explorer, M-x lusty-buffer-explorer, lusty-explorer-mode, C-x C-f, C-x b, helm, anything, lusty-explorer.el, ido, M-x lusty-file-explorer, M-x lusty-buffer-explorer, lusty-explorer-mode, C-x C-f, C-x b
+#+TITLE: emacs lusty-explorer.el : 【idoをややhelm風に】あいまいマッチでサクサクとファイルやバッファを開く | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>lusty-explorer</td></tr>
+<tr><td>概要(原文)</td><td>Dynamic filesystem explorer and buffer switcher</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/sjbach/lusty-emacs">https://github.com/sjbach/lusty-emacs</a></td></tr>
+<tr><td>バージョン</td><td>20130407.1056</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:lusty-explorer/">package:lusty-explorer</a> <a href="http://rubikitch.com/tag/package:ido/">package:ido</a> <a href="http://rubikitch.com/tag/package:helm/">package:helm</a> <a href="http://rubikitch.com/tag/package:ido-vertical-mode/">package:ido-vertical-mode</a> <a href="http://rubikitch.com/tag/package:jg-quicknav/">package:jg-quicknav</a></td></tr>
+</table>
+<br />
+#+END_HTML
+
+ファイルやバッファを開く方法は本当にいろいろあります。
+
+*helm* や *anything* は鉄板ですが、あまりにも抜本的すぎて
+ついていけない人もいます。
+
+この *lusty-explorer.el* は、[[http://www.vim.org/scripts/script.php?script_id=1890][vimの同名のプラグイン]] の移植版です。
+
+これを一言で言うと、あいまいマッチを有効な *ido* の操作性を持ちながら
+helmのような専用のウィンドウで候補選択するインターフェースです。
+
+[[http://viewglob.sourceforge.net/lusty-explorer.el.animated.gif][アニメーションGif]] で見てみればどんなのかわかるでしょう。
+
+ファイルを開くには *M-x lusty-file-explorer* 、
+バッファを開くには *M-x lusty-buffer-explorer* を使います。
+
+マイナーモード *lusty-explorer-mode* を有効にすれば、
+*C-x C-f* と *C-x b* がlusty化されます。
+
+
+helmっぽいidoといえば [[http://rubikitch.com/2015/01/06/ido-vertical-mode/][ido-vertical-mode(レビュー)]] に似ていますが、
+こっちの方は1画面に多くの候補を表示できるメリットがあります。
+
+とはいえ、ファイルが多い場合はさっさと絞り込みをするでしょうから、
+その辺はお好みで。
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+[[file:/r/sync/screenshots/20150215091040.png]]
+Fig1: M-x lusty-file-explorerはたくさんの候補を表示できる
+
+[[file:/r/sync/screenshots/20150215091056.png]]
+Fig2: ido-vertical-modeでは少数の候補しか表示されない
+** lusty-explorer インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install lusty-explorer
+
+
+#+end:
+** 概要                                                             :noexport:
+
+ファイルやバッファを開く方法は本当にいろいろあります。
+
+*helm* や *anything* は鉄板ですが、あまりにも抜本的すぎて
+ついていけない人もいます。
+
+この *lusty-explorer.el* は、[[http://www.vim.org/scripts/script.php?script_id=1890][vimの同名のプラグイン]] の移植版です。
+
+これを一言で言うと、あいまいマッチを有効な *ido* の操作性を持ちながら
+helmのような専用のウィンドウで候補選択するインターフェースです。
+
+[[http://viewglob.sourceforge.net/lusty-explorer.el.animated.gif][アニメーションGif]] で見てみればどんなのかわかるでしょう。
+
+ファイルを開くには *M-x lusty-file-explorer* 、
+バッファを開くには *M-x lusty-buffer-explorer* を使います。
+
+マイナーモード *lusty-explorer-mode* を有効にすれば、
+*C-x C-f* と *C-x b* がlusty化されます。
+
+
+helmっぽいidoといえば [[http://rubikitch.com/2015/01/06/ido-vertical-mode/][ido-vertical-mode(レビュー)]] に似ていますが、
+こっちの方は1画面に多くの候補を表示できるメリットがあります。
+
+とはいえ、ファイルが多い場合はさっさと絞り込みをするでしょうから、
+その辺はお好みで。
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+[[file:/r/sync/screenshots/20150215091040.png]]
+Fig1: M-x lusty-file-explorerはたくさんの候補を表示できる
+
+[[file:/r/sync/screenshots/20150215091056.png]]
+Fig2: ido-vertical-modeでは少数の候補しか表示されない
+
+** 設定 [[http://rubikitch.com/f/150215090952.lusty-explorer.el][150215090952.lusty-explorer.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/150215/150215090952.lusty-explorer.el"
+#+BEGIN_SRC fundamental
+(lusty-explorer-mode 1)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/150215090952.lusty-explorer.el
+$ emacs -Q -f package-initialize -l 150215090952.lusty-explorer.el
+#+END_EXAMPLE
+
+# /r/sync/screenshots/20150215091040.png http://rubikitch.com/wp-content/uploads/2015/02/wpid-20150215091040.png
+# /r/sync/screenshots/20150215091056.png http://rubikitch.com/wp-content/uploads/2015/02/wpid-20150215091056.png

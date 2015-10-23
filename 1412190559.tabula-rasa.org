@@ -1,0 +1,126 @@
+#+BLOG: rubikitch
+#+POSTID: 741
+#+DATE: [2014-12-19 Fri 05:59]
+#+PERMALINK: tabula-rasa
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs
+#+EL_PKG_NAME: tabula-rasa
+#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, relate:writeroom-mode, WriteRoom, WriteRoom OS X, 超集中, WriteRoom iPhone, emacs 物書き, emacs ライティング, ライティング, relate:olivetti
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: 執筆部屋その2！専用フォントや行間スペースも指定できる集中物書きモード
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージtabula-rasaの紹介
+#+MYTAGS: package:tabula-rasa, emacs 使い方, emacs コマンド, emacs, emacs lisp tabula-rasa, elisp tabula-rasa, emacs melpa tabula-rasa, emacs tabula-rasa 使い方, emacs tabula-rasa 設定, emacs パッケージ tabula-rasa, emacs tabula-rasa スクリーンショット, relate:writeroom-mode, WriteRoom, WriteRoom OS X, 超集中, WriteRoom iPhone, emacs 物書き, emacs ライティング, ライティング, relate:olivetti
+#+TAGS: package:tabula-rasa, emacs 使い方, emacs コマンド, emacs, emacs lisp tabula-rasa, elisp tabula-rasa, emacs melpa tabula-rasa, emacs tabula-rasa 使い方, emacs tabula-rasa 設定, emacs パッケージ tabula-rasa, emacs tabula-rasa スクリーンショット, relate:writeroom-mode, WriteRoom, WriteRoom OS X, 超集中, WriteRoom iPhone, emacs 物書き, emacs ライティング, ライティング, relate:olivetti, Emacs, tabula-rasa.el, writeroom-mode.el, M-x writeroom-mode, M-x tabula-rasa-mode, writeroom-mode.el, M-x writeroom-mode, M-x tabula-rasa-mode
+#+TITLE: emacs tabula-rasa.el : 執筆部屋その2！専用フォントや行間スペースも指定できる集中物書きモード | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>tabula-rasa</td></tr>
+<tr><td>概要(原文)</td><td>Distraction free writing mode</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/idomagal/tabula-rasa">https://github.com/idomagal/tabula-rasa</a></td></tr>
+<tr><td>バージョン</td><td>20141215.2147</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:tabula-rasa/">package:tabula-rasa</a> <a href="http://rubikitch.com/tag/package:writeroom-mode/">package:writeroom-mode</a> <a href="http://rubikitch.com/tag/package:olivetti/">package:olivetti</a></td></tr>
+</table>
+<br />
+#+END_HTML
+*tabula-rasa.el* は[[http://rubikitch.com/2014/12/18/writeroom-mode/][昨日紹介したwriteroom-mode.el]] と同様に
+執筆部屋にひきこもって物書きに集中するマイナーモードです。
+
+これも *writeroom-mode.el* 同様、
+テキストを画面中央に設置し、
+ツールバーやfringeをそぎ落とすのですが、
+こちらの方が設定項目が多いです。
+
+実際作者はwriteroom-mode.elも参考にして作っています。
+
+writeroom-modeでは設定できないが、
+tabula-rasaで設定できる項目は
+こんなのがあります。
+
+- 行間のスペース(ピクセル)
+- フォントのアンチエイリアス化
+- 専用のフォント
+- カーソルのフォント
+- 有効・無効にするマイナーモード
+
+そもそも設計思想が異なり、
+*M-x writeroom-mode* はバッファローカルなマイナーモードであるのに対し、
+*M-x tabula-rasa-mode* はグローバルマイナーモードです。
+
+その代わり、モードラインを消し飛ばしたり、
+上下のマージンを設定することはできません。
+
+設計思想やカスタマイズ項目が異なる両マイナーモード、
+集中して物書きする場合はお好みの方をどうぞ。
+** tabula-rasa インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install tabula-rasa
+
+
+#+end:
+** 概要                                                             :noexport:
+*tabula-rasa.el* は[[http://rubikitch.com/2014/12/18/writeroom-mode/][昨日紹介したwriteroom-mode.el]] と同様に
+執筆部屋にひきこもって物書きに集中するマイナーモードです。
+
+これも *writeroom-mode.el* 同様、
+テキストを画面中央に設置し、
+ツールバーやfringeをそぎ落とすのですが、
+こちらの方が設定項目が多いです。
+
+実際作者はwriteroom-mode.elも参考にして作っています。
+
+writeroom-modeでは設定できないが、
+tabula-rasaで設定できる項目は
+こんなのがあります。
+
+- 行間のスペース(ピクセル)
+- フォントのアンチエイリアス化
+- 専用のフォント
+- カーソルのフォント
+- 有効・無効にするマイナーモード
+
+そもそも設計思想が異なり、
+*M-x writeroom-mode* はバッファローカルなマイナーモードであるのに対し、
+*M-x tabula-rasa-mode* はグローバルマイナーモードです。
+
+その代わり、モードラインを消し飛ばしたり、
+上下のマージンを設定することはできません。
+
+設計思想やカスタマイズ項目が異なる両マイナーモード、
+集中して物書きする場合はお好みの方をどうぞ。
+** 設定 [[http://rubikitch.com/f/141219060532.tabula-rasa.1.el][141219060532.tabula-rasa.1.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/141219/141219060532.tabula-rasa.1.el"
+#+BEGIN_SRC fundamental
+(require 'tabula-rasa)
+;; 80桁
+(setq tabula-rasa-width 80)
+;; 行間5ピクセル
+(setq tabula-rasa-line-spacing 5)
+;; アンチエイリアスしない
+(setq tabula-rasa-toggle-antialiasing nil)
+;; 有効・無効にするマイナーモード
+(setq tabula-rasa-minor-mode-states
+      ;; マイナーモード名はなぜか文字列で指定する必要がある…
+      '(("global-highline-mode" . nil)
+        ("global-highlight-parentheses-mode" . nil)))
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/141219060532.tabula-rasa.1.el
+$ emacs -Q -f package-initialize -l 141219060532.tabula-rasa.1.el
+#+END_EXAMPLE
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+http://rubikitch.com/f/20141219061055.png
+Fig1: M-x tabula-rasa-mode
+

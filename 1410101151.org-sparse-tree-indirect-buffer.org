@@ -1,0 +1,81 @@
+#+BLOG: rubikitch
+#+POSTID: 448
+#+DATE: [2014-10-10 Fri 11:51]
+#+PERMALINK: org-sparse-tree-indirect-buffer
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs,
+#+DESCRIPTION: org-modeのC-c /の結果表示にindirect-bufferを使い、すぐに元の表示に戻せるようにする。
+#+MYTAGS: package:org, org-mode, emacs org-mode, org-mode C-c /, make-indirect-buffer, clone-indirect-buffer, emacs 間接バッファ org-mode, org-mode 検索
+#+TAGS: package:org, org-mode, emacs org-mode, org-mode C-c /, make-indirect-buffer, clone-indirect-buffer, emacs 間接バッファ org-mode, org-mode 検索, Emacs,, アウトライン, スケジュール管理, 文書作成, C-c /, M-x org-sparse-tree, C-c / /, indirect-buffer
+#+TITLE: Emacs org-modeの検索機能を16倍パワーアップする方法
+org-mode使っていますかー？
+
+*アウトライン* に *スケジュール管理* に *文書作成* と
+大車輪の働きをするorg-mode、
+これに独自の検索機能がついていることは知っていますか？
+
+*C-c /* は *M-x org-sparse-tree* が割り当てられています。
+
+クエリに対応する見出しとその内容だけが表示され、
+クエリの部分がハイライトされます。
+
+実行すると
+
+#+BEGIN_EXAMPLE
+Sparse tree: [/]regexp [t]odo [T]odo-kwd [m]atch [p]roperty
+             [d]eadlines [b]efore-date [a]fter-date [D]ates range
+             [c]ycle through date types: scheduled/deadline
+#+END_EXAMPLE
+
+のようなメニューがエコーエリアに出てきます。
+
+とくに *C-c / /* は検索語(正規表現)が含まれるツリーのみを表示してくれます。
+
+org文書のうち、検索語に関連するところだけを拾い読みするのに便利です。
+
+しかし、これは元のバッファの表示を変えてしまうので、
+再び元の表示に戻すのが面倒です。
+
+そこで、 *indirect-buffer* を用いることにします。
+
+indirect-bufferとは、バッファの内容を共有したバッファであり、
+1つのバッファに別なメジャーモードや表示状態を持てるようにするものです。
+
+indirect-bufferを編集すると、元のバッファにも編集が反映されるので、
+バッファにおけるシンボリックリンクみたいなものと考えてください。
+
+この設定ではC-c /の結果をindirect-bufferで表示するようにして、
+閲覧後はindirect-bufferを削除するだけで元のバッファに戻れるようにします。
+
+ほんと、なんでindirect-bufferで結果表示しないのか不思議でなりません。
+
+これによりストレスが1/16になりました。
+** 設定 [[http://rubikitch.com/f/141010120124.org-sparse-tree-indirect-buffer.el][141010120124.org-sparse-tree-indirect-buffer.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/141010/141010120124.org-sparse-tree-indirect-buffer.el"
+#+BEGIN_SRC fundamental
+(require 'org)
+(defun org-sparse-tree-indirect-buffer (arg)
+  (interactive "P")
+  (let ((ibuf (switch-to-buffer (org-get-indirect-buffer))))
+    (condition-case _
+        (org-sparse-tree arg)
+      (quit (kill-buffer ibuf)))))
+(define-key org-mode-map (kbd "C-c /") 'org-sparse-tree-indirect-buffer)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/141010120124.org-sparse-tree-indirect-buffer.el
+$ emacs -Q -f package-initialize -l 141010120124.org-sparse-tree-indirect-buffer.el
+#+END_EXAMPLE
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+http://rubikitch.com/f/20141010120351.png
+Fig1: C-c / /で検索！バッファ名に-1とついている点に注目！

@@ -1,0 +1,168 @@
+#+BLOG: rubikitch
+#+POSTID: 1911
+#+DATE: [2015-08-20 Thu 20:26]
+#+PERMALINK: darcula-theme
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, theme
+#+EL_PKG_NAME: darcula-theme
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, color-theme, カラーテーマ
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: IntelliJにインスパイアされたダークなカラーテーマ
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージdarcula-themeの紹介
+#+MYTAGS: package:darcula-theme, emacs 使い方, emacs コマンド, emacs, darcula-theme, darcula-theme.el, emacs lisp darcula-theme, elisp darcula-theme, emacs melpa darcula-theme, emacs darcula-theme 使い方, emacs darcula-theme 設定, emacs パッケージ darcula-theme, emacs darcula-theme スクリーンショット, color-theme, カラーテーマ
+#+TAGS: package:darcula-theme, emacs 使い方, emacs コマンド, emacs, darcula-theme, darcula-theme.el, emacs lisp darcula-theme, elisp darcula-theme, emacs melpa darcula-theme, emacs darcula-theme 使い方, emacs darcula-theme 設定, emacs パッケージ darcula-theme, emacs darcula-theme スクリーンショット, color-theme, カラーテーマ, Emacs, theme, darcula-theme.el
+#+TITLE: emacs darcula-theme.el : IntelliJにインスパイアされたダークなカラーテーマ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>darcula-theme</td></tr>
+<tr><td>概要(原文)</td><td>Inspired by IntelliJ's Darcula theme</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/fommil/darcula-theme-emacs">https://github.com/fommil/darcula-theme-emacs</a></td></tr>
+<tr><td>バージョン</td><td>20150629.235</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:darcula-theme/">package:darcula-theme</a> </td></tr>
+</table>
+<br />
+#+END_HTML
+*darcula-theme.el* は以下のパッケージに対応したカラーテーマです。
+
+- compilation
+- ensime
+- font-lock
+- scala
+- flymake
+- link
+- header-line
+- tooltip
+- mode-line
+- popup
+- auto-complete
+- company
+- git-gutter
+- isearch
+
+# (save-window-excursion (async-shell-command "emacs-test -eval '(load-theme (quote darcula) t)'"))
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_theme_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150820202806.png]]
+Fig1: emacs-lisp-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150820202812.png]]
+Fig2: magit
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150820202816.png]]
+Fig3: grep
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150820202821.png]]
+Fig4: outline-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150820202830.png]]
+Fig5: org-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150820202835.png]]
+Fig6: dired
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150820202838.png]]
+Fig7: web-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150820202842.png]]
+Fig8: markdown-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150820202847.png]]
+Fig9: helm
+
+
+** darcula-theme インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install darcula-theme
+
+
+#+end:
+** 概要                                                             :noexport:
+*darcula-theme.el* は以下のパッケージに対応したカラーテーマです。
+
+- compilation
+- ensime
+- font-lock
+- scala
+- flymake
+- link
+- header-line
+- tooltip
+- mode-line
+- popup
+- auto-complete
+- company
+- git-gutter
+- isearch
+
+# (save-window-excursion (async-shell-command "emacs-test -eval '(load-theme (quote darcula) t)'"))
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_theme_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150820202806.png]]
+Fig10: emacs-lisp-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150820202812.png]]
+Fig11: magit
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150820202816.png]]
+Fig12: grep
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150820202821.png]]
+Fig13: outline-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150820202830.png]]
+Fig14: org-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150820202835.png]]
+Fig15: dired
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150820202838.png]]
+Fig16: web-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150820202842.png]]
+Fig17: markdown-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150820202847.png]]
+Fig18: helm
+
+
+
+** 設定
+#+BEGIN_SRC fundamental
+(load-theme 'darcula t)
+#+END_SRC
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ emacs -Q -f package-initialize -eval '(load-theme (quote darcula) t)'
+#+END_EXAMPLE
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

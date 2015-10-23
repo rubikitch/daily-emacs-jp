@@ -1,0 +1,131 @@
+#+BLOG: rubikitch
+#+POSTID: 2015
+#+DATE: [2015-09-23 Wed 06:55]
+#+PERMALINK: ido-migemo
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, ido
+#+EL_PKG_NAME: ido-migemo
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, relate:migem, relate:helm-migemo, relate:ido
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: idoでMigemo！！
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージido-migemoの紹介
+#+MYTAGS: package:ido-migemo, emacs 使い方, emacs コマンド, emacs, ido-migemo, ido-migemo.el, emacs lisp ido-migemo, elisp ido-migemo, emacs melpa ido-migemo, emacs ido-migemo 使い方, emacs ido-migemo 設定, emacs パッケージ ido-migemo, emacs ido-migemo スクリーンショット, relate:migem, relate:helm-migemo, relate:ido
+#+TAGS: package:ido-migemo, emacs 使い方, emacs コマンド, emacs, ido-migemo, ido-migemo.el, emacs lisp ido-migemo, elisp ido-migemo, emacs melpa ido-migemo, emacs ido-migemo 使い方, emacs ido-migemo 設定, emacs パッケージ ido-migemo, emacs ido-migemo スクリーンショット, relate:migem, relate:helm-migemo, relate:ido, Emacs, ido, ido-migemo-exclude-command, ido-migemo-exclude-command
+#+TITLE: emacs ido-migemo.el : idoでMigemo！！ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>ido-migemo</td></tr>
+<tr><td>概要(原文)</td><td>Migemo plug-in for Ido</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/myuhe/ido-migemo.el">https://github.com/myuhe/ido-migemo.el</a></td></tr>
+<tr><td>バージョン</td><td>20150921.1544</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:ido-migemo/">package:ido-migemo</a> <a href="http://rubikitch.com/tag/package:migem/">package:migem</a> <a href="http://rubikitch.com/tag/package:helm-migemo/">package:helm-migemo</a> <a href="http://rubikitch.com/tag/package:ido/">package:ido</a></td></tr>
+</table>
+<br />
+#+END_HTML
+http://sheephead.homelinux.org/2015/09/14/7329/
+
+ついに来ました！
+idoで[[http://rubikitch.com/2014/08/20/migemo/][Migemo]] が使えるようになりました！！
+
+候補選択インターフェースは[[http://rubikitch.com/category/helm/][helm(カテゴリ)]] や[[http://rubikitch.com/category/ido/][ido(カテゴリ)]] や
+[[http://rubikitch.com/2015/03/15/ivy/][ivy.el(レビュー)]] がありますが、一長一短です。
+
+idoはflex-matchが使えてウィンドウ構成を壊さないという利点がありますが、
+Migemoが使えないという欠点がありました。
+
+helmは単一情報源・単一アクションでは大袈裟に思える場合がありますが、
+[[http://rubikitch.com/2014/12/19/helm-migemo/][helm-migemo.el(レビュー)]] でMigemoが使えるという大きな利点があります。
+
+これまでだとMigemoつき候補選択ならば無条件にhelmでしたが、
+これからはidoも使えるようになったということです。
+
+ただ、Migemo化はidoの素晴しきflex-matchを犠牲にしているので、
+*ido-migemo-exclude-command* でMigemo化しないコマンドを指定できます。
+
+デフォルトでは [[http://rubikitch.com/2014/12/16/smex/][M-x smex]] は除外しています。
+
+[[http://rubikitch.com/2015/02/23/ido-occasional/][ido-occasional.el(レビュー)]] のように、
+Migemo化するーコマンドを明示的に指定する方法もあればいいと思いました。
+
+最新の候補選択はabo-aboさんによる[[http://rubikitch.com/2015/03/15/ivy/][ivy]] もあります。
+それはido + ido-vertical-mode をわかりやすく再実装したようなものですが、
+Migemo化されれば日本で普及するかもしれません。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150923071358.png]]
+Fig1: idoでMigemo!!
+** ido-migemo インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install ido-migemo
+
+
+#+end:
+** 概要                                                             :noexport:
+http://sheephead.homelinux.org/2015/09/14/7329/
+
+ついに来ました！
+idoで[[http://rubikitch.com/2014/08/20/migemo/][Migemo]] が使えるようになりました！！
+
+候補選択インターフェースは[[http://rubikitch.com/category/helm/][helm(カテゴリ)]] や[[http://rubikitch.com/category/ido/][ido(カテゴリ)]] や
+[[http://rubikitch.com/2015/03/15/ivy/][ivy.el(レビュー)]] がありますが、一長一短です。
+
+idoはflex-matchが使えてウィンドウ構成を壊さないという利点がありますが、
+Migemoが使えないという欠点がありました。
+
+helmは単一情報源・単一アクションでは大袈裟に思える場合がありますが、
+[[http://rubikitch.com/2014/12/19/helm-migemo/][helm-migemo.el(レビュー)]] でMigemoが使えるという大きな利点があります。
+
+これまでだとMigemoつき候補選択ならば無条件にhelmでしたが、
+これからはidoも使えるようになったということです。
+
+ただ、Migemo化はidoの素晴しきflex-matchを犠牲にしているので、
+*ido-migemo-exclude-command* でMigemo化しないコマンドを指定できます。
+
+デフォルトでは [[http://rubikitch.com/2014/12/16/smex/][M-x smex]] は除外しています。
+
+[[http://rubikitch.com/2015/02/23/ido-occasional/][ido-occasional.el(レビュー)]] のように、
+Migemo化するーコマンドを明示的に指定する方法もあればいいと思いました。
+
+最新の候補選択はabo-aboさんによる[[http://rubikitch.com/2015/03/15/ivy/][ivy]] もあります。
+それはido + ido-vertical-mode をわかりやすく再実装したようなものですが、
+Migemo化されれば日本で普及するかもしれません。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150923071358.png]]
+Fig2: idoでMigemo!!
+
+** 設定 [[http://rubikitch.com/f/150923065509.ido-migemo.el][150923065509.ido-migemo.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/150923/150923065509.ido-migemo.el"
+#+BEGIN_SRC fundamental
+(require 'migemo)
+(setq migemo-command "/usr/bin/cmigemo")
+(setq migemo-options '("-q" "--emacs"))
+(setq migemo-dictionary "/usr/share/cmigemo/euc-jp/migemo-dict")
+
+(require 'ido-migemo)
+(ido-mode 1)
+(ido-migemo-mode 1)
+;;; 無効にするコマンド
+(setq ido-migemo-exclude-command '(smex ido-switch-buffer))
+;;; Migemoが効いていることを示すプロンプト
+(setq ido-migemo-prompt-string "Migemo|")
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/150923065509.ido-migemo.el
+$ emacs -Q -f package-initialize -l 150923065509.ido-migemo.el
+#+END_EXAMPLE

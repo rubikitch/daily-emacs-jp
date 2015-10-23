@@ -1,0 +1,99 @@
+#+BLOG: rubikitch
+#+POSTID: 2063
+#+DATE: [2015-10-07 Wed 04:50]
+#+PERMALINK: highlight-symbol
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs
+#+EL_PKG_NAME: highlight-symbol
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, relate:auto-highlight-symbol, シンボル, シンボル置換, シンボルをハイライト, シンボル間を移動, isearch-forward-symbol, isearch-forward-symbol-at-point, relate:helm-swoop, relate:edit-at-point, relate:hl-anything, relate:rainbow-identifiers, relate:highlight-thing, relate:highlight-defined, relate:smartrep, relate:hydra
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: 【進化したよ】シンボルを自動・手動ハイライト、移動、置換、マッチ数表示
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージhighlight-symbolの紹介
+#+MYTAGS: package:highlight-symbol, emacs 使い方, emacs コマンド, emacs, highlight-symbol, highlight-symbol.el, emacs lisp highlight-symbol, elisp highlight-symbol, emacs melpa highlight-symbol, emacs highlight-symbol 使い方, emacs highlight-symbol 設定, emacs パッケージ highlight-symbol, emacs highlight-symbol スクリーンショット, relate:auto-highlight-symbol, シンボル, シンボル置換, シンボルをハイライト, シンボル間を移動, isearch-forward-symbol, isearch-forward-symbol-at-point, relate:helm-swoop, relate:edit-at-point, relate:hl-anything, relate:rainbow-identifiers, relate:highlight-thing, relate:highlight-defined, relate:smartrep, relate:hydra
+#+TAGS: package:highlight-symbol, emacs 使い方, emacs コマンド, emacs, highlight-symbol, highlight-symbol.el, emacs lisp highlight-symbol, elisp highlight-symbol, emacs melpa highlight-symbol, emacs highlight-symbol 使い方, emacs highlight-symbol 設定, emacs パッケージ highlight-symbol, emacs highlight-symbol スクリーンショット, relate:auto-highlight-symbol, シンボル, シンボル置換, シンボルをハイライト, シンボル間を移動, isearch-forward-symbol, isearch-forward-symbol-at-point, relate:helm-swoop, relate:edit-at-point, relate:hl-anything, relate:rainbow-identifiers, relate:highlight-thing, relate:highlight-defined, relate:smartrep, relate:hydra, Emacs, highlight-symbol.el, M-x highlight-symbol, M-x highlight-symbol-mode, M-x highlight-symbol-query-replace, M-x highlight-symbol-nav-mode, M-x highlight-symbol, M-x highlight-symbol-mode, M-x highlight-symbol-query-replace, M-x highlight-symbol-nav-mode
+#+TITLE: emacs highlight-symbol.el : 【進化したよ】シンボルを自動・手動ハイライト、移動、置換、マッチ数表示 | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>highlight-symbol</td></tr>
+<tr><td>概要(原文)</td><td>automatic and manual symbol highlighting</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/nschum/highlight-symbol.el">https://github.com/nschum/highlight-symbol.el</a></td></tr>
+<tr><td>バージョン</td><td>20151005.451</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:highlight-symbol/">package:highlight-symbol</a> <a href="http://rubikitch.com/tag/package:auto-highlight-symbol/">package:auto-highlight-symbol</a> <a href="http://rubikitch.com/tag/package:helm-swoop/">package:helm-swoop</a> <a href="http://rubikitch.com/tag/package:edit-at-point/">package:edit-at-point</a> <a href="http://rubikitch.com/tag/package:hl-anything/">package:hl-anything</a> <a href="http://rubikitch.com/tag/package:rainbow-identifiers/">package:rainbow-identifiers</a> <a href="http://rubikitch.com/tag/package:highlight-thing/">package:highlight-thing</a> <a href="http://rubikitch.com/tag/package:highlight-defined/">package:highlight-defined</a> <a href="http://rubikitch.com/tag/package:smartrep/">package:smartrep</a> <a href="http://rubikitch.com/tag/package:hydra/">package:hydra</a></td></tr>
+</table>
+<br />
+#+END_HTML
+シンボルのハイライトを行う昔からある *highlight-symbol.el* が進化しました。
+
+- *M-x highlight-symbol* でカーソル位置のシンボルをハイライト(トグル)
+- *M-x highlight-symbol-mode* でカーソル位置のシンボルを自動ハイライト
+- *M-x highlight-symbol-query-replace* でシンボル置換
+- *M-x highlight-symbol-nav-mode* マイナーモードでM-p/M-nでシンボル移動(NEW!)
+- カーソル位置のシンボルと同じものの個数を表示(NEW!)
+
+とくに highlight-symbol-nav-mode によってM-p/M-nでシンボル移動できるのは
+何気に便利だと思います。
+
+元々M-p/M-nはメジャーモードにふさわしい移動のために予約されているのですが、
+実際に割り当てられているモードは少ないです。
+そこで、ソースコードにおいて有効にしています。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151007051031.png]]
+Fig1: 自動ハイライト＆M-p/M-nで移動＆個数表示
+** highlight-symbol インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install highlight-symbol
+
+
+#+end:
+** 概要                                                             :noexport:
+シンボルのハイライトを行う昔からある *highlight-symbol.el* が進化しました。
+
+- *M-x highlight-symbol* でカーソル位置のシンボルをハイライト(トグル)
+- *M-x highlight-symbol-mode* でカーソル位置のシンボルを自動ハイライト
+- *M-x highlight-symbol-query-replace* でシンボル置換
+- *M-x highlight-symbol-nav-mode* マイナーモードでM-p/M-nでシンボル移動(NEW!)
+- カーソル位置のシンボルと同じものの個数を表示(NEW!)
+
+とくに highlight-symbol-nav-mode によってM-p/M-nでシンボル移動できるのは
+何気に便利だと思います。
+
+元々M-p/M-nはメジャーモードにふさわしい移動のために予約されているのですが、
+実際に割り当てられているモードは少ないです。
+そこで、ソースコードにおいて有効にしています。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151007051031.png]]
+Fig2: 自動ハイライト＆M-p/M-nで移動＆個数表示
+
+** 設定 [[http://rubikitch.com/f/151007044121.highlight-symbol.el][151007044121.highlight-symbol.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/151007/151007044121.highlight-symbol.el"
+#+BEGIN_SRC fundamental
+;;; 1秒後自動ハイライトされるようになる
+(setq highlight-symbol-idle-delay 1.0)
+;;; 自動ハイライトをしたいならば
+(add-hook 'prog-mode-hook 'highlight-symbol-mode)
+;;; ソースコードにおいてM-p/M-nでシンボル間を移動
+(add-hook 'prog-mode-hook 'highlight-symbol-nav-mode)
+;;; シンボル置換
+(global-set-key (kbd "M-s M-r") 'highlight-symbol-query-replace)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/151007044121.highlight-symbol.el
+$ emacs -Q -f package-initialize -l 151007044121.highlight-symbol.el
+#+END_EXAMPLE

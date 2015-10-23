@@ -1,0 +1,34 @@
+#+BLOG: rubikitch
+#+POSTID: 1867
+#+DATE: [2015-07-31 Fri 23:29]
+#+PERMALINK: melmag
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: メルマガ,
+#+DESCRIPTION: るびきち塾メルマガ『Emacsの鬼るびきちのココだけの話#192』の予告
+#+TITLE: 【メルマガ#192】るびきちの秘密!？
+#+MYTAGS: 
+#+begin: org2blog-tags
+#+TAGS: , メルマガ,, 
+#+end:
+8月ですね！
+
+今回は雑談回といたします。
+
+本メルマガは
+「Emacsの鬼るびきちのココだけの話」
+という名前なので、
+Emacsに関することであれ関しないことであれ、
+あなたの役に立つであろう内容を配信していきます。
+
+今回はまさに「ココだけの話」で
+僕の生い立ちそしてそこから得た大きな学びを
+赤裸々に語ることにします。
+
+「るびきち」とは一体何者じゃ!？
+興味がある方はぜひとも講読してみてください。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

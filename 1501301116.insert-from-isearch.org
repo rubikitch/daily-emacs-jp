@@ -1,0 +1,120 @@
+#+BLOG: rubikitch
+#+POSTID: 1042
+#+DATE: [2015-01-30 Fri 11:16]
+#+PERMALINK: insert-from-isearch
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, 
+#+DESCRIPTION: インクリメンタルサーチでC-eを押してその部分のシンボルを、C-u C-eでその行を貼り付ける。fcopy.el風味、dabbrevやhippie-expandの補助。
+#+MYTAGS: Emacs, emacs isearch, relate:fcopy, fcopy.el, インクリメンタルサーチ, emacs isearch 貼り付け, relate:ace-isearch, relate:dabbrev, dabbrev, dynamic abbrev, screen, relate:hippie-exp
+#+TITLE: 【isearchでdabbrev風】インクリメンタルサーチにマッチした部分(シンボル、行)を挿入する
+#+begin: org2blog-tags
+#+TAGS: Emacs, emacs isearch, relate:fcopy, fcopy.el, インクリメンタルサーチ, emacs isearch 貼り付け, relate:ace-isearch, relate:dabbrev, dabbrev, dynamic abbrev, screen, relate:hippie-exp, Emacs, , ace-isearch-use-function-from-isearch, dabbrev-expand, M-/, hippie-expand
+#+end:
+
+<2015-02-11 Wed>追記
+[[http://rubikitch.com/2014/10/08/ace-isearch/][ace-isearch(レビュー)]] と併用している場合、デフォルトでは
+6文字以上で[[http://rubikitch.com/2014/12/25/helm-swoop/][helm-swoop(レビュー)]] が発動するため併用できません。
+そのため、isearchからhelm-swoopが発動しないように
+*ace-isearch-use-function-from-isearch* をnilにしました。
+
+
+たった今思い付いたコードです。
+
+バッファ内の特定の行やシンボルをコピーするときどうしますか？
+
+行の場合は、
+1. isearchなどでターゲットの行へジャンプ
+2. C-a C-SPC C-n M-wでその行をコピー
+3. C-u C-SPCで元の位置に戻る
+4. C-yで貼り付け
+と、isearch後に7ストロークも必要とします。
+
+シンボルの場合は *dabbrev-expand* (*M-/*) や
+*hippie-expand* が使えるのでまだマシですが、
+Emacs Lispのシンボルは共通のprefixなので、
+いまいち使いづらいです。
+
+シンボル名の途中ならば
+1. isearchなどでターゲットのシンボルへジャンプ
+2. C-M-b C-M-SPC M-wでそのシンボルをコピー
+3. C-u C-SPCで元の位置に戻る
+4. C-yで貼り付け
+と、やはり6ストローク必要とします。
+
+そこでisearch後、即に行はシンボルを貼り付けられるようにする
+Emacs Lispを書きました。
+
+isearch後、C-eでシンボルを、C-u C-eでその行を
+元の位置に貼り付けます。
+
+検索文字列がシンボルをまたがる場合は、
+検索文字列を含むシンボル単位の塊を貼り付けます。
+
+検索文字列を伸ばすにはC-w (標準機能)でできます。
+
+行を指定してからコピーというのは昔から
+知る人ぞ知る [[http://at-aka.blogspot.com/2012/08/fcopyel-ver60.html][fcopy.el]] がありますが、
+こちらはisearchという標準機能からすぐに使える手軽さがあります。
+
+長いシンボルのdabbrev代わりに使ってあげてください。
+
+#+BEGIN_SRC emacs-lisp :results silent
+(defun insert-from-isearch (&optional whole-line)
+  (interactive "P")
+  (let ((str (insert-from-isearch-target-string whole-line)))
+    (isearch-done t)
+    (goto-char (mark))
+    (pop-mark)
+    (and whole-line (beginning-of-line))
+    (undo-boundary)
+    (insert str)))
+(defun insert-from-isearch-target-string (whole-line)
+  (if whole-line
+      (thing-at-point 'line)
+    (let ((bound (bounds-of-thing-at-point 'symbol))
+          (min (min (point) isearch-other-end))
+          (max (max (point) isearch-other-end)))
+      (cons (point) isearch-other-end)
+      (if (and bound (<= (car bound) min max (cdr bound)))
+          (buffer-substring (car bound) (cdr bound))
+        (save-excursion
+          (buffer-substring
+           (progn (goto-char min)
+                  (or (car (bounds-of-thing-at-point 'symbol)) min))
+           (progn (goto-char max)
+                  (or (cdr (bounds-of-thing-at-point 'symbol)) max))))))))
+(define-key isearch-mode-map (kbd "C-e") 'insert-from-isearch)
+(setq ace-isearch-use-function-from-isearch nil)
+#+END_SRC
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+[[file:/r/sync/screenshots/20150130105919.png]]
+Fig1: 初期状態
+
+[[file:/r/sync/screenshots/20150130113214.png]]
+Fig2: thiを検索
+
+[[file:/r/sync/screenshots/20150130113222.png]]
+Fig3: C-eでThisが貼り付けられる
+
+[[file:/r/sync/screenshots/20150130113317.png]]
+Fig4: ant C-wでant toを検索
+
+[[file:/r/sync/screenshots/20150130113323.png]]
+Fig5: C-eでwant toが貼り付けられる
+
+[[file:/r/sync/screenshots/20150130113346.png]]
+Fig6: この状態でbuffを検索し、C-u C-eを押すとその行を貼り付ける
+
+
+# /r/sync/screenshots/20150130105919.png http://rubikitch.com/wp-content/uploads/2015/01/wpid-20150130105919.png
+# /r/sync/screenshots/20150130113214.png http://rubikitch.com/wp-content/uploads/2015/01/wpid-20150130113214.png
+# /r/sync/screenshots/20150130113222.png http://rubikitch.com/wp-content/uploads/2015/01/wpid-20150130113222.png
+# /r/sync/screenshots/20150130113317.png http://rubikitch.com/wp-content/uploads/2015/01/wpid-20150130113317.png
+# /r/sync/screenshots/20150130113323.png http://rubikitch.com/wp-content/uploads/2015/01/wpid-20150130113323.png
+# /r/sync/screenshots/20150130113346.png http://rubikitch.com/wp-content/uploads/2015/01/wpid-20150130113346.png

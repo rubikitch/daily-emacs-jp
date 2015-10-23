@@ -1,0 +1,33 @@
+#+DATE: [2015-10-24 Sat 03:30]
+#+PERMALINK: all-pages-in-github
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: 未分類, 
+#+DESCRIPTION: 
+#+MYTAGS: 
+#+TITLE: 本サイトの全記事をGitHubに置きました！
+#+begin: org2blog-tags
+#+TAGS: , 未分類, , 
+#+end:
+https://github.com/rubikitch/daily-emacs-jp/
+
+るびきち「日刊Emacs」の全記事のorgファイルをGitHubに置きました。
+cloneして手元に置いておけば、grep/agで検索できます。
+サイトの内容に誤りがありましたら、御気軽にpull-requestください。
+
+もしあなたの記事を「日刊Emacs」に掲載してほしいという奇特な人(いないだろうけど)もpull-requestしてください。
+公序良俗に反してないEmacsに関する内容であれば蹴ることはないと思われます。
+
+#+BEGIN_EXAMPLE
+# cloneする
+$ hub clone rubikitch/daily-emacs-jp
+
+# 更新を反映する
+$ cd daily-emacs-jp
+$ git pull
+#+END_EXAMPLE
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

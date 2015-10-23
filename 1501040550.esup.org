@@ -1,0 +1,179 @@
+#+BLOG: rubikitch
+#+POSTID: 859
+#+DATE: [2015-01-04 Sun 05:50]
+#+PERMALINK: esup
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs
+#+EL_PKG_NAME: esup
+#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, relate:init-loader, emacs 起動時間 短縮, emacs 起動時間 プロファイリング, emacs 起動時間 プロファイル, 
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 
+#+EL_TITLE0: Emacs起動が遅い原因を探れ！init-loader.el対応コードあり
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージesupの紹介
+#+MYTAGS: package:esup, emacs 使い方, emacs コマンド, emacs, emacs lisp esup, elisp esup, emacs melpa esup, emacs esup 使い方, emacs esup 設定, emacs パッケージ esup, relate:init-loader, emacs 起動時間 短縮, emacs 起動時間 プロファイリング, emacs 起動時間 プロファイル, 
+#+TAGS: package:esup, emacs 使い方, emacs コマンド, emacs, emacs lisp esup, elisp esup, emacs melpa esup, emacs esup 使い方, emacs esup 設定, emacs パッケージ esup, relate:init-loader, emacs 起動時間 短縮, emacs 起動時間 プロファイリング, emacs 起動時間 プロファイル, , Emacs, M-x init-loader-show-log, M-x server-start, emacsclient, gc-cons-threshold, autoload, eval-after-load, with-eval-after-load
+#+TITLE: emacs esup.el : Emacs起動が遅い原因を探れ！init-loader.el対応コードあり | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>esup</td></tr>
+<tr><td>概要(原文)</td><td>the Emacs StartUp Profiler (ESUP)</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/jschaf/esup">https://github.com/jschaf/esup</a></td></tr>
+<tr><td>バージョン</td><td>20141227.758</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:esup/">package:esup</a> <a href="http://rubikitch.com/tag/package:init-loader/">package:init-loader</a></td></tr>
+</table>
+<br />
+#+END_HTML
+esup(Emacs Start Up Profiler)は、Emacsの起動が遅い問題を解決します。
+
+遅い原因を見付けるにはプロファイラをかけるのが一番！
+
+時間がかかる処理から順に式を表示してくれます。
+
+使い方はM-x esupを実行するだけです。
+
+すると、子プロセスでEmacsが立ち上がり、
+その結果が*esup*バッファに表示されます。
+
+以下のサイトがとても詳しいです。
+
+特に後者はesupに限らず、
+高速起動のためのあらゆるTipsがまとまっています。
+
+- [[http://boronology.blogspot.jp/2013/06/esupemacs.html][小人閑居して: esupを使いながらEmacs起動の高速化]]
+- [[http://futurismo.biz/archives/2849][Emacs 高速化起動にむけたカイゼンのとりくみ | Futurismo]]
+** esup インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install esup
+
+
+#+end:
+init-loader.elに対応するにはnofletも必要です。
+M-x package-install noflet
+
+** 概要                                                             :noexport:
+esup(Emacs Start Up Profiler)は、Emacsの起動が遅い問題を解決します。
+
+遅い原因を見付けるにはプロファイラをかけるのが一番！
+
+時間がかかる処理から順に式を表示してくれます。
+
+使い方はM-x esupを実行するだけです。
+
+すると、子プロセスでEmacsが立ち上がり、
+その結果が*esup*バッファに表示されます。
+
+以下のサイトがとても詳しいです。
+
+特に後者はesupに限らず、
+高速起動のためのあらゆるTipsがまとまっています。
+
+- [[http://boronology.blogspot.jp/2013/06/esupemacs.html][小人閑居して: esupを使いながらEmacs起動の高速化]]
+- [[http://futurismo.biz/archives/2849][Emacs 高速化起動にむけたカイゼンのとりくみ | Futurismo]]
+
+** GCの結果
+まず目立つのがGCの結果です。
+
+#+BEGIN_EXAMPLE
+Total User Startup Time: 11.558sec
+Total Number of GC Pauses: 149
+Total GC Time: 3.671sec
+#+END_EXAMPLE
+
+GCだけで3秒以上もかかってるので、これを潰しましょう。
+
+
+#+BEGIN_SRC emacs-lisp :results silent
+(setq gc-cons-threshold (* 128 1024 1024))
+#+END_SRC
+
+これをinit.elの先頭に加えます。
+
+今のパソコンならこれくらいでかい値でも問題ないです。
+
+すると、こちらではGCにかかる時間は0.1秒になりました。
+
+** init-loaderに対応させる
+しかし、 *init-loader.el* を使っていると、
+init-loader-load全体がプロファイルされてしまうため、
+そのままでは使いものになりません。
+
+#+BEGIN_EXAMPLE
+Total User Startup Time: 9.435sec     Total Number of GC Pauses: 29     Total GC Time: 0.161sec
+
+init.el:4  9.435sec   99%
+(if (equal system-name "ririn")
+    (load "~/emacs/ririn")
+  (let ((dir (or (getenv "INITDIR") "~/emacs/init.d/"))
+        (initfile (or (getenv "INITFILE") "__NOT_EXIST__")))
+    (package-initialize)                ;needed?
+    (cond ((file-readable-p initfile)
+           (load initfile t))
+          ((file-directory-p dir)
+           (require 'init-loader-x "~/.emacs.d/ext/init-loader/init-loader-x")
+           (init-loader-load dir)))))
+
+init.el:1  0.000sec   0%
+(when (member "--load-el" command-line-args)
+  (setq load-suffixes '(".el"))
+  (setq command-line-args (remove "--load-el" command-line-args)))
+#+END_EXAMPLE
+
+init-loader自体、各ファイルの読み込みにかかった時間は計測しているので、
+おおまかなことは *M-x init-loader-show-log* でわかります。
+
+しかし、S式単位でのプロファイリングはできないですね。
+
+#+BEGIN_SRC emacs-lisp :results silent
+(require 'esup)
+(require 'init-loader)
+(require 'noflet)
+(defun esup-init-loader ()
+  (interactive)
+  (let ((files)
+        (esup-user-init-file "/tmp/esup-init.el"))
+    (noflet ((load (file &rest _) (push (locate-library file) files)))
+      (init-loader-load "~/.emacs.d/inits/"))
+    (with-current-buffer (find-file-noselect esup-user-init-file)
+      (erase-buffer)
+      (dolist (file (reverse files))
+        (insert-file-contents file)
+        (goto-char (point-max)))
+      (save-buffer))
+    (esup)))
+#+END_SRC
+
+このようにinit-loaderが読み込むファイルの内容を
+/tmp/esup-init.elにまとめて、それをプロファイル対象にします。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+
+** 深追い不要
+ただ、プロファイルの観点からすると
+Emacsの使用時間全体における起動時間は微々たるものなので、
+起動時間の短縮は所詮自己満足に過ぎないと言っておきます。
+
+一度立ち上げてしまえばずっと使うのがEmacsであり、
+*M-x server-start* 後に *emacsclient* を使ってしまえば
+シェルから一瞬で立ち上がります。
+
+せいぜい *gc-cons-threshold* をでかくする程度で十分です。
+
+起動時間短縮には *autoload* 化とか
+*eval-after-load* (Emacs 24.4では *with-eval-after-load* も)とか
+それらを使っている[[http://rubikitch.com/2014/09/09/use-package/][use-package(レビュー)]] を使う必要がありますが、
+init.el全体が長い人は書き換えにかかる時間コストが大きすぎます。
+
+たかが数秒起動時間を短縮するのに、
+何時間何日もかけてinit.elをこねくり回す必要性は皆無です。
+
+そんなことする暇があったら、
+より快適な環境を構築することに
+時間をかけるべきです。

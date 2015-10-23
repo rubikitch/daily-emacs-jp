@@ -1,0 +1,49 @@
+#+BLOG: rubikitch
+#+POSTID: 969
+#+DATE: [2015-01-19 Mon 10:45]
+#+PERMALINK: url-user-agent
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, eww, Emacs Lisp, 
+#+DESCRIPTION: 
+#+MYTAGS: eww user-agent 偽装, eww user-agent 変更, emacs user-agent 偽装, emacs user-agent 変更
+#+TITLE: EWWなどのEmacsにおけるHTTPアクセスのUser-Agentを変更する方法
+#+begin: org2blog-tags
+#+TAGS: eww user-agent 偽装, eww user-agent 変更, emacs user-agent 偽装, emacs user-agent 変更, Emacs, eww, Emacs Lisp, , url-retrieve, url-retrieve-synchronously
+#+end:
+Webサイトにアクセスするとき、
+ブラウザ情報としてUser-Agentヘッダを送信しますよね。
+
+サイトによってはUser-Agentによって表示する内容を変更したりもします。
+
+そこで、User-Agentを自分で設定すれば望みの表示をさせられます。
+
+EmacsでのHTTPアクセスはurlパッケージの
+*url-retrieve* や *url-retrieve-synchronously* で
+行っていますが、ここの設定はすべてに効きます。
+
+EmacsWebブラウザEWWも例外ではありません。
+
+http://www.cman.jp/network/support/go_access.cgi
+を開けばUser-Agentがわかりますが、
+デフォルトはURL/Emacsです。
+
+ここではw3mに偽装します。
+
+#+BEGIN: include :file "/r/sync/junk/150118/150118132054.eww.user-agent.el"
+#+BEGIN_SRC fundamental
+;;; (eww "http://www.cman.jp/network/support/go_access.cgi")
+(require 'url-http)
+(defvar url-user-agent "w3m/0.5.3")
+(defun url-http-user-agent-string ()
+  (format "User-Agent: %s\r\n" url-user-agent))
+#+END_SRC
+
+#+END:
+
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

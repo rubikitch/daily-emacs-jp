@@ -1,0 +1,202 @@
+#+BLOG: rubikitch
+#+POSTID: 2024
+#+DATE: [2015-09-27 Sun 07:19]
+#+PERMALINK: cyphejor
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs
+#+EL_PKG_NAME: cyphejor
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, relate:diminsh, モード名, メジャーモード名を短くする, モードライン, mode-line, モードラインを占有, mode-name
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: 置換ルールに従ってメジャーモード名を短くする
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージcyphejorの紹介
+#+MYTAGS: package:cyphejor, emacs 使い方, emacs コマンド, emacs, cyphejor, cyphejor.el, emacs lisp cyphejor, elisp cyphejor, emacs melpa cyphejor, emacs cyphejor 使い方, emacs cyphejor 設定, emacs パッケージ cyphejor, emacs cyphejor スクリーンショット, relate:diminsh, モード名, メジャーモード名を短くする, モードライン, mode-line, モードラインを占有, mode-name
+#+TAGS: package:cyphejor, emacs 使い方, emacs コマンド, emacs, cyphejor, cyphejor.el, emacs lisp cyphejor, elisp cyphejor, emacs melpa cyphejor, emacs cyphejor 使い方, emacs cyphejor 設定, emacs パッケージ cyphejor, emacs cyphejor スクリーンショット, relate:diminsh, モード名, メジャーモード名を短くする, モードライン, mode-line, モードラインを占有, mode-name, Emacs, cyphejor.el, cyphejor-rules, mode-name, cyphejor--cypher, cyphejor.el, cyphejor-rules, mode-name, cyphejor--cypher
+#+TITLE: emacs cyphejor.el : 置換ルールに従ってメジャーモード名を短くする | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>cyphejor</td></tr>
+<tr><td>概要(原文)</td><td>Shorten major mode names using user-defined rules</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/mrkkrp/cyphejor">https://github.com/mrkkrp/cyphejor</a></td></tr>
+<tr><td>バージョン</td><td>20150914.427</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:cyphejor/">package:cyphejor</a> <a href="http://rubikitch.com/tag/package:diminsh/">package:diminsh</a></td></tr>
+</table>
+<br />
+#+END_HTML
+長いモード名は貴重なモードラインのスペースを占有してしまいます。
+
+そこで *cyphejor.el* はルールに従ってモード名を短縮します。
+
+モード名を単語で区切り、 *cyphejor-rules* で指定されたルールに従って
+新しい名前を *mode-name* に設定します。
+
+どのような名前になるのかは、 *cyphejor--cypher* 関数で確かめられます。
+
+#+BEGIN_SRC emacs-lisp :results silent
+(let ((cyphejor-rules
+       '(:upcase                        ;該当しない単語は頭文字
+         ("bookmark"    "→")
+         ("buffer"      "β")
+         ("diff"        "Δ")
+         ("dired"       "δ")
+         ("emacs"       "ε")
+         ("fundamental" "Ⓕ")
+         ("inferior"    "i" :prefix)    ;最初にiがつく
+         ("interaction" "i" :prefix)
+         ("interactive" "i" :prefix)
+         ("lisp"        "λ" :postfix)  ;最後にλがつく
+         ("menu"        "▤" :postfix)
+         ("mode"        "")             ;modeは表示させない
+         ("package"     "↓")
+         ("python"      "π")
+         ("shell"       "sh" :postfix)
+         ("text"        "ξ")
+         ("wdired"      "↯δ"))))
+  (cyphejor--cypher "emacs-lisp-mode" cyphejor-rules) ; => "ελ"
+  (cyphejor--cypher "lisp-interaction-mode" cyphejor-rules) ; => "iλ"
+  (cyphejor--cypher "python-mode" cyphejor-rules) ; => "π"
+  (cyphejor--cypher "package-menu-mode" cyphejor-rules) ; => "↓▤"
+  (cyphejor--cypher "shell-mode" cyphejor-rules) ; => "sh"
+  (cyphejor--cypher "dired-mode" cyphejor-rules) ; => "δ"
+  (cyphejor--cypher "wdired-mode" cyphejor-rules) ; => "↯δ"
+  ;; upcaseが指定してあるので単語がリストにない場合は先頭文字が大文字になる
+  (cyphejor--cypher "org-mode" cyphejor-rules)    ; => "O"
+  (cyphejor--cypher "sh-mode" cyphejor-rules) ; => "S"
+  (cyphejor--cypher "eshell-mode" cyphejor-rules) ; => "E"
+  (cyphejor--cypher "reb-lisp-mode" cyphejor-rules) ; => "Rλ"
+  )
+;;; upcaseをなくすとそのまま出てくる
+(let ((cyphejor-rules
+       '(("mode"        "")
+         ("lisp"        "λ" :postfix))))
+  (cyphejor--cypher "emacs-lisp-mode" cyphejor-rules) ; => "emacs λ"
+  (cyphejor--cypher "org-mode" cyphejor-rules) ; => "org"
+  (cyphejor--cypher "sh-mode" cyphejor-rules) ; => "sh"
+  )
+#+END_SRC
+
+実際には常用するメジャーモード名の単語をcyphejor-rulesに含めないと
+わかりにくくなるかと思われます。
+
+マイナーモード名も同じくモードラインを占有してしまうので、
+cyphejor--cypherの結果をdiminsh.elと併用するといいでしょう。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150927075308.png]]
+Fig1: lisp-interaction-modeがiλと表示される
+** cyphejor インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install cyphejor
+
+
+#+end:
+** 概要                                                             :noexport:
+長いモード名は貴重なモードラインのスペースを占有してしまいます。
+
+そこで *cyphejor.el* はルールに従ってモード名を短縮します。
+
+モード名を単語で区切り、 *cyphejor-rules* で指定されたルールに従って
+新しい名前を *mode-name* に設定します。
+
+どのような名前になるのかは、 *cyphejor--cypher* 関数で確かめられます。
+
+#+BEGIN_SRC emacs-lisp :results silent
+(let ((cyphejor-rules
+       '(:upcase                        ;該当しない単語は頭文字
+         ("bookmark"    "→")
+         ("buffer"      "β")
+         ("diff"        "Δ")
+         ("dired"       "δ")
+         ("emacs"       "ε")
+         ("fundamental" "Ⓕ")
+         ("inferior"    "i" :prefix)    ;最初にiがつく
+         ("interaction" "i" :prefix)
+         ("interactive" "i" :prefix)
+         ("lisp"        "λ" :postfix)  ;最後にλがつく
+         ("menu"        "▤" :postfix)
+         ("mode"        "")             ;modeは表示させない
+         ("package"     "↓")
+         ("python"      "π")
+         ("shell"       "sh" :postfix)
+         ("text"        "ξ")
+         ("wdired"      "↯δ"))))
+  (cyphejor--cypher "emacs-lisp-mode" cyphejor-rules) ; => "ελ"
+  (cyphejor--cypher "lisp-interaction-mode" cyphejor-rules) ; => "iλ"
+  (cyphejor--cypher "python-mode" cyphejor-rules) ; => "π"
+  (cyphejor--cypher "package-menu-mode" cyphejor-rules) ; => "↓▤"
+  (cyphejor--cypher "shell-mode" cyphejor-rules) ; => "sh"
+  (cyphejor--cypher "dired-mode" cyphejor-rules) ; => "δ"
+  (cyphejor--cypher "wdired-mode" cyphejor-rules) ; => "↯δ"
+  ;; upcaseが指定してあるので単語がリストにない場合は先頭文字が大文字になる
+  (cyphejor--cypher "org-mode" cyphejor-rules)    ; => "O"
+  (cyphejor--cypher "sh-mode" cyphejor-rules) ; => "S"
+  (cyphejor--cypher "eshell-mode" cyphejor-rules) ; => "E"
+  (cyphejor--cypher "reb-lisp-mode" cyphejor-rules) ; => "Rλ"
+  )
+;;; upcaseをなくすとそのまま出てくる
+(let ((cyphejor-rules
+       '(("mode"        "")
+         ("lisp"        "λ" :postfix))))
+  (cyphejor--cypher "emacs-lisp-mode" cyphejor-rules) ; => "emacs λ"
+  (cyphejor--cypher "org-mode" cyphejor-rules) ; => "org"
+  (cyphejor--cypher "sh-mode" cyphejor-rules) ; => "sh"
+  )
+#+END_SRC
+
+実際には常用するメジャーモード名の単語をcyphejor-rulesに含めないと
+わかりにくくなるかと思われます。
+
+マイナーモード名も同じくモードラインを占有してしまうので、
+cyphejor--cypherの結果をdiminsh.elと併用するといいでしょう。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150927075308.png]]
+Fig2: lisp-interaction-modeがiλと表示される
+
+** 設定 [[http://rubikitch.com/f/150927071505.cyphejor.el][150927071505.cyphejor.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/150927/150927071505.cyphejor.el"
+#+BEGIN_SRC fundamental
+(setq
+ cyphejor-rules
+ '(:upcase
+   ("bookmark"    "→")
+   ("buffer"      "β")
+   ("diff"        "Δ")
+   ("dired"       "δ")
+   ("emacs"       "ε")
+   ("fundamental" "Ⓕ")
+   ("inferior"    "i" :prefix)
+   ("interaction" "i" :prefix)
+   ("interactive" "i" :prefix)
+   ("lisp"        "λ" :postfix)
+   ("menu"        "▤" :postfix)
+   ("mode"        "")
+   ("package"     "↓")
+   ("python"      "π")
+   ("shell"       "sh" :postfix)
+   ("text"        "ξ")
+   ("wdired"      "↯δ")))
+(cyphejor-mode 1)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/150927071505.cyphejor.el
+$ emacs -Q -f package-initialize -l 150927071505.cyphejor.el
+#+END_EXAMPLE
+
+
+
+

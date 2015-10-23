@@ -1,0 +1,148 @@
+#+BLOG: rubikitch
+#+POSTID: 1606
+#+DATE: [2015-05-02 Sat 04:51]
+#+PERMALINK: macrostep
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, Emacs Lisp, 
+#+EL_PKG_NAME: macrostep
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, elisp マクロ展開, macroexpand, elisp デバッグ, edebug, relate:lisp, emacs-lisp-mode, elisp マクロをデバッグする, マクロ展開の様子を見る, elisp macrolet デバッグ
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: 【コードリーディング支援】elispのマクロ展開をその場で順番に眺める
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージmacrostepの紹介
+#+MYTAGS: package:macrostep, emacs 使い方, emacs コマンド, emacs, macrostep, macrostep.el, emacs lisp macrostep, elisp macrostep, emacs melpa macrostep, emacs macrostep 使い方, emacs macrostep 設定, emacs パッケージ macrostep, emacs macrostep スクリーンショット, elisp マクロ展開, macroexpand, elisp デバッグ, edebug, relate:lisp, emacs-lisp-mode, elisp マクロをデバッグする, マクロ展開の様子を見る, elisp macrolet デバッグ
+#+TAGS: package:macrostep, emacs 使い方, emacs コマンド, emacs, macrostep, macrostep.el, emacs lisp macrostep, elisp macrostep, emacs melpa macrostep, emacs macrostep 使い方, emacs macrostep 設定, emacs パッケージ macrostep, emacs macrostep スクリーンショット, elisp マクロ展開, macroexpand, elisp デバッグ, edebug, relate:lisp, emacs-lisp-mode, elisp マクロをデバッグする, マクロ展開の様子を見る, elisp macrolet デバッグ, Emacs, Emacs Lisp, , macroexpand, macrostep.el, macrolet, cl-macrolet, macroexpand, macrostep.el, macrolet, cl-macrolet
+#+TITLE: emacs macrostep.el : 【コードリーディング支援】elispのマクロ展開をその場で順番に眺める | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>macrostep</td></tr>
+<tr><td>概要(原文)</td><td>interactive macro stepper for Emacs Lisp</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/joddie/macrostep">https://github.com/joddie/macrostep</a></td></tr>
+<tr><td>バージョン</td><td>20150416.1831</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:macrostep/">package:macrostep</a> <a href="http://rubikitch.com/tag/package:lisp/">package:lisp</a></td></tr>
+</table>
+<br />
+#+END_HTML
+Lispのマクロはとても強力で、制御構造すら隠蔽できてしまいます。
+
+もちろんelispだって例外ではありません。
+
+マクロは何度も「展開」され、
+最終的にはスペシャルフォームと関数のみになります。
+
+マクロは便利さの反面、デバッグが困難になるという代償が伴います。
+
+マクロのデバッグの際には展開の様子を見ていくのがいいです。
+
+マクロがどのように展開されるかについては
+ *macroexpand* という関数を使えばわかりますが、
+デバッグの際に使おうにもわざわざコピーして貼り付けるのでは面倒です。
+
+*macrostep.el* は、emacs-lisp-modeのバッファの中で
+その場でマクロ展開の様子を見られるようにします。
+
+*macrolet* や *cl-macrolet* によるローカルマクロにも対応しています。
+
+elispプログラマならば常備したいところです。
+** macrostep インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install macrostep
+
+
+#+end:
+** 概要                                                             :noexport:
+Lispのマクロはとても強力で、制御構造すら隠蔽できてしまいます。
+
+もちろんelispだって例外ではありません。
+
+マクロは何度も「展開」され、
+最終的にはスペシャルフォームと関数のみになります。
+
+マクロは便利さの反面、デバッグが困難になるという代償が伴います。
+
+マクロのデバッグの際には展開の様子を見ていくのがいいです。
+
+マクロがどのように展開されるかについては
+ *macroexpand* という関数を使えばわかりますが、
+デバッグの際に使おうにもわざわざコピーして貼り付けるのでは面倒です。
+
+*macrostep.el* は、emacs-lisp-modeのバッファの中で
+その場でマクロ展開の様子を見られるようにします。
+
+*macrolet* や *cl-macrolet* によるローカルマクロにも対応しています。
+
+elispプログラマならば常備したいところです。
+** 使い方
+C-c eを押してマクロ展開状態にします。
+
+この状態で以下のキーが使えます。
+
+- e - さらに展開
+- u - 展開した部分を閉じる
+- p - 次のマクロを選択する
+- n - 前のマクロを選択する
+- q - macrostepを終了する
+
+C-c e e ...と操作すると最終的にはマクロが
+すべて展開された状態が見られます。
+
+理解できないマクロを展開するのに使ってみてください。
+
+知ってました？
+defunって実はdefaliasで定義されたマクロなんですよ！！
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150502050552.png]]
+Fig1: 初期状態
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150502050557.png]]
+Fig2: C-c eでマクロを1段階展開！
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150502050609.png]]
+Fig3: pやnで次に展開するマクロを選択できる
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150502050632.png]]
+Fig4: dolistをさらに展開
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150502051548.png]]
+Fig5: macroletやcl-macroletで定義されたローカルマクロにも対応！
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150502051554.png]]
+Fig6: C-c eで展開！
+
+
+
+** 設定 [[http://rubikitch.com/f/150502050134.macrostep.el][150502050134.macrostep.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/150502/150502050134.macrostep.el"
+#+BEGIN_SRC fundamental
+(define-key emacs-lisp-mode-map (kbd "C-c e") 'macrostep-expand)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/150502050134.macrostep.el
+$ emacs -Q -f package-initialize -l 150502050134.macrostep.el
+#+END_EXAMPLE
+
+# /r/sync/screenshots/20150502050552.png http://rubikitch.com/wp-content/uploads/2015/05/wpid-20150502050552.png
+# /r/sync/screenshots/20150502050557.png http://rubikitch.com/wp-content/uploads/2015/05/wpid-20150502050557.png
+# /r/sync/screenshots/20150502050609.png http://rubikitch.com/wp-content/uploads/2015/05/wpid-20150502050609.png
+# /r/sync/screenshots/20150502050632.png http://rubikitch.com/wp-content/uploads/2015/05/wpid-20150502050632.png
+# /r/sync/screenshots/20150502051548.png http://rubikitch.com/wp-content/uploads/2015/05/wpid-20150502051548.png
+# /r/sync/screenshots/20150502051554.png http://rubikitch.com/wp-content/uploads/2015/05/wpid-20150502051554.png

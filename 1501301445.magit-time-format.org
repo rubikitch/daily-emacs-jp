@@ -1,0 +1,49 @@
+#+BLOG: rubikitch
+#+POSTID: 1045
+#+DATE: [2015-01-30 Fri 14:45]
+#+PERMALINK: magit-time-format
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, 
+#+DESCRIPTION: 
+#+MYTAGS: emacs magit, package:magit, magit time format, 
+#+TITLE: magitのログで、コミット日時を時刻で表示させる設定
+#+begin: org2blog-tags
+#+TAGS: emacs magit, package:magit, magit time format, , Emacs, , magit.el, git, magit-log
+#+end:
+*magit.el* は *git* をとても使いやすくしてくれます。
+
+しかし、 *magit-log* にてコミット日時が「1 year」などと
+大まかにしか見られないのが不満でなりません。
+
+Twitterのツイート日時もそうなんですが、
+なんで厳密に時刻を表示しないのか疑問でなりません。
+
+時刻を表示することで、いつのコミットなのかが厳密にわかります。
+
+なぜかこのようにカスタマイズする変数が存在しないので、
+関数再定義adviceで強引に設定しました。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+[[file:/r/sync/screenshots/20150130145101.png]]
+Fig1: 時刻表示！
+
+
+#+BEGIN_SRC emacs-lisp :results silent
+(require 'magit)
+(defun magit-format-duration--format-date (duration spec width)
+  (format-time-string "%y-%m-%dT%H:%M:%S"
+                      (seconds-to-time (- (float-time) duration))))
+(advice-add 'magit-format-duration :override
+            'magit-format-duration--format-date)
+(defun magit-log-margin-set-timeunit-width--fixed ()
+  (setq magit-log-margin-timeunit-width 12))
+(advice-add 'magit-log-margin-set-timeunit-width :override
+            'magit-log-margin-set-timeunit-width--fixed)
+(setq magit-log-margin-spec '(33 nil magit-duration-spec))
+#+END_SRC
+
+# /r/sync/screenshots/20150130145101.png http://rubikitch.com/wp-content/uploads/2015/01/wpid-20150130145101.png

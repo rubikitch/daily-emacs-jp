@@ -1,0 +1,94 @@
+#+BLOG: rubikitch
+#+POSTID: 1819
+#+DATE: [2015-07-11 Sat 23:22]
+#+PERMALINK: ace-popup-menu
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs
+#+EL_PKG_NAME: ace-popup-menu
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, マウス, relate:avy, popup
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: マウスのポップアップメニューをキーボード操作可能にする
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージace-popup-menuの紹介
+#+MYTAGS: package:ace-popup-menu, emacs 使い方, emacs コマンド, emacs, ace-popup-menu, ace-popup-menu.el, emacs lisp ace-popup-menu, elisp ace-popup-menu, emacs melpa ace-popup-menu, emacs ace-popup-menu 使い方, emacs ace-popup-menu 設定, emacs パッケージ ace-popup-menu, emacs ace-popup-menu スクリーンショット, マウス, relate:avy, popup
+#+TAGS: package:ace-popup-menu, emacs 使い方, emacs コマンド, emacs, ace-popup-menu, ace-popup-menu.el, emacs lisp ace-popup-menu, elisp ace-popup-menu, emacs melpa ace-popup-menu, emacs ace-popup-menu 使い方, emacs ace-popup-menu 設定, emacs パッケージ ace-popup-menu, emacs ace-popup-menu スクリーンショット, マウス, relate:avy, popup, Emacs, ace-popup-menu.el, ポップアップメニュー, ace-popup-menu-mode, x-popup-menu, ace-popup-menu, ポップアップメニュー, ace-popup-menu-mode, x-popup-menu, ace-popup-menu
+#+TITLE: emacs ace-popup-menu.el : マウスのポップアップメニューをキーボード操作可能にする | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>ace-popup-menu</td></tr>
+<tr><td>概要(原文)</td><td>Replace GUI popup menu in Emacs with something more efficient</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/mrkkrp/ace-popup-menu">https://github.com/mrkkrp/ace-popup-menu</a></td></tr>
+<tr><td>バージョン</td><td>20150709.458</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:ace-popup-menu/">package:ace-popup-menu</a> <a href="http://rubikitch.com/tag/package:avy/">package:avy</a></td></tr>
+</table>
+<br />
+#+END_HTML
+*ace-popup-menu.el* は、マウスの *ポップアップメニュー* を
+キーボードで選択できるようにします。
+
+aceと名乗っていますが、[[http://rubikitch.com/2014/10/09/ace-jump-mode/][ace-jump-mode.el(レビュー)]] に依存しているわけではなく
+類似品の[[http://rubikitch.com/2015/05/20/avy/][avy.el(レビュー)]] を内部で使っています。
+
+マイナーモード *ace-popup-menu-mode* は
+ *x-popup-menu* 関数を *ace-popup-menu* に完全に置き換えます。
+
+そのため、ace-popup-menu関数を直接使うこともできます。
+
+コンテキストメニューのように少数の候補を選択するメニューの
+置き換えとしては十分活用できます。
+
+多数の候補を選択する場合はidoやhelmの出番です。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150711232750.png]]
+Fig1: このようにバッファによるメニューが表示される
+** ace-popup-menu インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install ace-popup-menu
+
+
+#+end:
+** 概要                                                             :noexport:
+*ace-popup-menu.el* は、マウスの *ポップアップメニュー* を
+キーボードで選択できるようにします。
+
+aceと名乗っていますが、[[http://rubikitch.com/2014/10/09/ace-jump-mode/][ace-jump-mode.el(レビュー)]] に依存しているわけではなく
+類似品の[[http://rubikitch.com/2015/05/20/avy/][avy.el(レビュー)]] を内部で使っています。
+
+マイナーモード *ace-popup-menu-mode* は
+ *x-popup-menu* 関数を *ace-popup-menu* に完全に置き換えます。
+
+そのため、ace-popup-menu関数を直接使うこともできます。
+
+コンテキストメニューのように少数の候補を選択するメニューの
+置き換えとしては十分活用できます。
+
+多数の候補を選択する場合はidoやhelmの出番です。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150711232750.png]]
+Fig2: このようにバッファによるメニューが表示される
+
+** 設定 [[http://rubikitch.com/f/150711232409.ace-popup-menu.el][150711232409.ace-popup-menu.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/150711/150711232409.ace-popup-menu.el"
+#+BEGIN_SRC fundamental
+(ace-popup-menu-mode 1)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/150711232409.ace-popup-menu.el
+$ emacs -Q -f package-initialize -l 150711232409.ace-popup-menu.el
+#+END_EXAMPLE

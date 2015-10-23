@@ -1,0 +1,38 @@
+#+BLOG: rubikitch
+#+POSTID: 1835
+#+DATE: [2015-07-17 Fri 09:09]
+#+PERMALINK: melmag
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: メルマガ,
+#+DESCRIPTION: るびきち塾メルマガ『Emacsの鬼るびきちのココだけの話#190』の予告
+#+TITLE: 【メルマガ#190】テキスト音声化のススメ
+#+MYTAGS: 
+#+begin: org2blog-tags
+#+TAGS: , メルマガ,, 
+#+end:
+今回はテキスト読み上げソフト
+及びそれを便利にするスクリプトを紹介します。
+
+ここで紹介するソフトウェアは
+ぐぐれば設定が出てきますが
+最新版では動かないものが多いです。
+
+よって本メルマガで紹介する方法が最新です。
+
+なにより音声による学習はとても有効です。
+
+パソコンの画面とにらめっこしていては目が疲れ、
+長いテキストを印刷しようものなら紙がかさばります。
+
+しかし、音声化してしまえば
+手持ちのオーディオプレイヤーで
+いつでもどこでも再生できるので
+とても手軽になります。
+
+暗記、長時間の通勤通学のお供にどうぞ。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

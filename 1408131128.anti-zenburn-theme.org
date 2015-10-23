@@ -1,0 +1,152 @@
+#+BLOG: rubikitch
+#+POSTID: 145
+#+DATE: [2014-08-13 Wed 11:28]
+#+PERMALINK: anti-zenburn-theme
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, theme
+#+EL_PKG_NAME: anti-zenburn-theme
+#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, emacs color-theme, emacs theme org-mode, emacs theme ruby-mode, emacs theme magit, emacs theme grep
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: anti-zenburn-themeはこんな感じの見た目
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージanti-zenburn-themeの紹介
+#+MYTAGS: package:anti-zenburn-theme, emacs 使い方, emacs コマンド, emacs, emacs lisp anti-zenburn-theme, elisp anti-zenburn-theme, emacs melpa anti-zenburn-theme, emacs anti-zenburn-theme 使い方, emacs anti-zenburn-theme 設定, emacs パッケージ anti-zenburn-theme, emacs anti-zenburn-theme スクリーンショット, emacs color-theme, emacs theme org-mode, emacs theme ruby-mode, emacs theme magit, emacs theme grep
+#+TITLE: emacs anti-zenburn-theme.el : anti-zenburn-themeはこんな感じの見た目 | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>anti-zenburn-theme</td></tr>
+<tr><td>概要(原文)</td><td>Low-contrast Zenburn-inverted theme</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/m00natic/anti-zenburn-theme">https://github.com/m00natic/anti-zenburn-theme</a></td></tr>
+<tr><td>バージョン</td><td>20141113.1233</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:anti-zenburn-theme/">package:anti-zenburn-theme</a> </td></tr>
+</table>
+<br />
+#+END_HTML
+[[http://rubikitch.com/2014/08/12/hc-zenburn-theme][hc-zenburn-themeはあんな感じの見た目だったけど]]
+今回紹介するanti-zenburn-themeは、
+色合いのコントラストが低めのバージョンです。
+** anti-zenburn-theme インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install anti-zenburn-theme
+
+
+#+end:
+** 概要                                                             :noexport:
+[[http://rubikitch.com/2014/08/12/hc-zenburn-theme][hc-zenburn-themeはあんな感じの見た目だったけど]]
+今回紹介するanti-zenburn-themeは、
+色合いのコントラストが低めのバージョンです。
+** 対応パッケージ
+- compilation
+- grep
+- faces used by isearch
+- font lock
+- newsticker
+- external
+- anzu
+- full-ack
+- auctex
+- auto-complete
+- android mode
+- bm
+- company-mode
+- clojure-test-mode
+- coq
+- ctable
+- diff
+- diff-hl
+- dim-autoload
+- dired+
+- ediff
+- ert
+- eshell
+- flx
+- flycheck
+- flymake
+- flyspell
+- erc
+- git-gutter
+- git-gutter-fr
+- git-rebase-mode
+- gnus
+- guide-key
+- helm
+- hl-line-mode
+- hl-sexp
+- ido-mode
+- iedit-mode
+- js2-mode
+- jabber-mode
+- ledger-mode
+- linum-mode
+- macrostep
+- magit
+- egg
+- message-mode
+- mew
+- mic-paren
+- mingus
+- nav
+- mu4e
+- mumamo
+- org-mode
+- outline
+- p4
+- perspective
+- powerline
+- proofgeneral
+- rainbow-delimiters
+- rcirc
+- rpm-mode
+- rst-mode
+- sh-mode
+- show-paren
+- smartparens
+- sml-mode-line
+- SLIME
+- speedbar
+- tabbar
+- term
+- undo-tree
+- volatile-highlights
+- elfeed
+- emacs-w3m
+- web-mode
+- whitespace-mode
+- wanderlust
+- which-func-mode
+- yascroll
+- fill-column-indicator
+- vc-annotate
+
+** 設定 [[http://rubikitch.com/f/140813112745.anti-zenburn-theme.el][140813112745.anti-zenburn-theme.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/140813/140813112745.anti-zenburn-theme.el"
+#+BEGIN_SRC fundamental
+(load-theme 'anti-zenburn t)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/140813112745.anti-zenburn-theme.el
+$ emacs -Q -f package-initialize -l 140813112745.anti-zenburn-theme.el
+#+END_EXAMPLE
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+http://rubikitch.com/f/20140813112952.png
+Fig1: org-mode(背景色が暗い場合)
+
+http://rubikitch.com/f/20140813113012.png
+Fig2: grep(背景色が暗い場合)
+
+http://rubikitch.com/f/20140813113036.png
+Fig3: magit(背景色が明るい場合)
+
+http://rubikitch.com/f/20140813113051.png
+Fig4: ruby-mode(背景色が明るい場合)

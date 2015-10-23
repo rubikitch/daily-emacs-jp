@@ -1,0 +1,122 @@
+#+BLOG: rubikitch
+#+POSTID: 1946
+#+DATE: [2015-09-02 Wed 17:54]
+#+PERMALINK: zzz-to-char
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs
+#+EL_PKG_NAME: zzz-to-char
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, emacs zap-to-char M-z, emacs zap-up-to-char M-z misc, ZapToChar, ZapUpToChar, relate:ace-jump-mode, relate:zop-to-char, relate:avy-zap, relate:ace-jump-zap
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: ace-jump的M-z(zap-to-char)の新実装
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージzzz-to-charの紹介
+#+MYTAGS: package:zzz-to-char, emacs 使い方, emacs コマンド, emacs, zzz-to-char, zzz-to-char.el, emacs lisp zzz-to-char, elisp zzz-to-char, emacs melpa zzz-to-char, emacs zzz-to-char 使い方, emacs zzz-to-char 設定, emacs パッケージ zzz-to-char, emacs zzz-to-char スクリーンショット, emacs zap-to-char M-z, emacs zap-up-to-char M-z misc, ZapToChar, ZapUpToChar, relate:ace-jump-mode, relate:zop-to-char, relate:avy-zap, relate:ace-jump-zap
+#+TAGS: package:zzz-to-char, emacs 使い方, emacs コマンド, emacs, zzz-to-char, zzz-to-char.el, emacs lisp zzz-to-char, elisp zzz-to-char, emacs melpa zzz-to-char, emacs zzz-to-char 使い方, emacs zzz-to-char 設定, emacs パッケージ zzz-to-char, emacs zzz-to-char スクリーンショット, emacs zap-to-char M-z, emacs zap-up-to-char M-z misc, ZapToChar, ZapUpToChar, relate:ace-jump-mode, relate:zop-to-char, relate:avy-zap, relate:ace-jump-zap, Emacs, zzz-to-char.el, M-x zzz-to-char, zzz-to-char-reach, zzz-to-char.el, M-x zzz-to-char, zzz-to-char-reach
+#+TITLE: emacs zzz-to-char.el : ace-jump的M-z(zap-to-char)の新実装 | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>zzz-to-char</td></tr>
+<tr><td>概要(原文)</td><td>Fancy version of `zap-to-char' command</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/mrkkrp/zzz-to-char">https://github.com/mrkkrp/zzz-to-char</a></td></tr>
+<tr><td>バージョン</td><td>20150831.1044</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:zzz-to-char/">package:zzz-to-char</a> <a href="http://rubikitch.com/tag/package:ace-jump-mode/">package:ace-jump-mode</a> <a href="http://rubikitch.com/tag/package:zop-to-char/">package:zop-to-char</a> <a href="http://rubikitch.com/tag/package:avy-zap/">package:avy-zap</a> <a href="http://rubikitch.com/tag/package:ace-jump-zap/">package:ace-jump-zap</a></td></tr>
+</table>
+<br />
+#+END_HTML
+M-z (zap-to-char)の拡張はいくつかありますが、
+この *zzz-to-char.el* もそのひとつです。
+
+M-zの欠点はなんといっても削除されるのが最初の文字に限定されることです。
+
+*M-x zzz-to-char* は、[[http://rubikitch.com/2015/05/20/avy/][avy.el(レビュー)]] を使ってace-jump的に
+削除する場所を指定します。
+
+[[http://rubikitch.com/2015/05/31/avy-zap/][avy-zap.el(レビュー)]] や[[http://rubikitch.com/2014/09/23/ace-jump-zap/][ace-jump-zap.el(レビュー)]] と同じようなものです。
+
+
+類似品よりも優れている点は、あまり遠くの位置までを削除対象にしないことです。
+
+探索対象は *zzz-to-char-reach* (デフォルト80)で決定されます。
+
+このコマンドを使う場合、たいていは近い位置の文字を削除するので
+この挙動は嬉しいと思います。
+
+[[http://rubikitch.com/2015/01/24/zop-to-char/][zop-to-char.el(レビュー)]] とお好みで。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150902180039.png]]
+Fig1: 元の状況
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150902180044.png]]
+Fig2: M-z aを押すとハイライトされ…
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150902180050.png]]
+Fig3: dを押すとそこまで削除される
+
+** zzz-to-char インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install zzz-to-char
+
+
+#+end:
+** 概要                                                            :noexport:
+M-z (zap-to-char)の拡張はいくつかありますが、
+この *zzz-to-char.el* もそのひとつです。
+
+M-zの欠点はなんといっても削除されるのが最初の文字に限定されることです。
+
+*M-x zzz-to-char* は、[[http://rubikitch.com/2015/05/20/avy/][avy.el(レビュー)]] を使ってace-jump的に
+削除する場所を指定します。
+
+[[http://rubikitch.com/2015/05/31/avy-zap/][avy-zap.el(レビュー)]] や[[http://rubikitch.com/2014/09/23/ace-jump-zap/][ace-jump-zap.el(レビュー)]] と同じようなものです。
+
+
+類似品よりも優れている点は、あまり遠くの位置までを削除対象にしないことです。
+
+探索対象は *zzz-to-char-reach* (デフォルト80)で決定されます。
+
+このコマンドを使う場合、たいていは近い位置の文字を削除するので
+この挙動は嬉しいと思います。
+
+[[http://rubikitch.com/2015/01/24/zop-to-char/][zop-to-char.el(レビュー)]] とお好みで。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150902180039.png]]
+Fig4: 元の状況
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150902180044.png]]
+Fig5: M-z aを押すとハイライトされ…
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150902180050.png]]
+Fig6: dを押すとそこまで削除される
+
+
+** 設定 [[http://rubikitch.com/f/150902175927.zzz-to-char.el][150902175927.zzz-to-char.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/150902/150902175927.zzz-to-char.el"
+#+BEGIN_SRC fundamental
+;;; 80文字までを探索対象にする
+(setq zzz-to-char-reach 80)
+(global-set-key (kbd "M-z") 'zzz-up-to-char)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/150902175927.zzz-to-char.el
+$ emacs -Q -f package-initialize -l 150902175927.zzz-to-char.el
+#+END_EXAMPLE

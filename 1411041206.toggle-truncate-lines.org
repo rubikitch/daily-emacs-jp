@@ -1,0 +1,50 @@
+#+BLOG: rubikitch
+#+POSTID: 549
+#+DATE: [2014-11-04 Tue 12:06]
+#+PERMALINK: toggle-truncate-lines
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs,
+#+DESCRIPTION:
+#+MYTAGS: emacs 長い行 折り返し表示
+#+TAGS: emacs 長い行 折り返し表示, Emacs,, org-mode, アスキーアート, truncate-lines, M-x toggle-truncate-lines
+#+TITLE: Emacs M-x toggle-truncate-lines: 長い行の折り返し表示を切り換える
+Emacsにおいて、長い行の扱い方は2種類あります。
+
+1. 次の行に折り返し表示する
+2. 画面の外にはみ出た部分を表示せずに1行で表示する
+
+文書やコードを書く場合にあたっては、
+長い行は画面上の次の行に表示されるのが好ましいですが、
+そうするとかえって見辛いケースが出てきます。
+
+*org-mode* の表や *アスキーアート* なんかがその典型例で、
+org-modeではデフォルトでは折り返し表示しません。
+
+バッファごとの折り返し表示は変数 *truncate-lines* で制御できます。
+
+これをtにすれば折り返しません。
+
+とはいえ、場合によっては折り返し表示を切り替えられると便利ですね。
+
+最近のEmacsではいつの間にか *M-x toggle-truncate-lines*
+という文字通りのコマンドが標準で入ってきています。
+
+ぐぐったら同名のコマンドの独自実装が見付かりましたが、
+標準で使えるのは嬉しいですね。
+
+僕はC-c tに割り当ててています。
+
+#+BEGIN_SRC emacs-lisp :results silent
+(global-set-key (kbd "C-c t") 'toggle-truncate-lines)
+#+END_SRC
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+http://rubikitch.com/f/20141104120617.png
+Fig1: 折り返し表示
+
+http://rubikitch.com/f/20141104120636.png
+Fig2: 折り返さない

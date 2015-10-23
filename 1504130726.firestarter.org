@@ -1,0 +1,196 @@
+#+BLOG: rubikitch
+#+POSTID: 1500
+#+DATE: [2015-04-13 Mon 07:26]
+#+PERMALINK: firestarter
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs
+#+EL_PKG_NAME: firestarter
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, emacs ファイル保存後, emacs コマンド実行後, flymake, autotest, guard, ファイルの監視, 日々の定型作業を自動化する, ファイルセーブ時に指定したシェルコマンドを非同期で実行, プロジェクトのビルド, 自動テストの実行, エミュレータやブラウザを自動起動, 自動テストやコンパイルを簡単に記述, ファイル保存時に自動実行, relate:deferred, relate:popwin, relate:auto-save-buffers-enhanced, relate:real-auto-save, relate:hookify, relate:watch-buffer, relate:auto-shell-command, relate:backup-each-save, emacs シェルコマンド 自動実行, emacs テスト自動実行, emacs 保存したらすぐに実行, after-save-hook, deferred:process-shell, emacs deferred.el 使い方, growl, growlnotify, file-name-nondirectory, file-name-sans-extension, file-name-extension, relate:format-spec, emacs 自動実行 セキュリティ
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: ファイル保存後に自動でシェルコマンド・Emacsコマンド・S式を実行させる「安全な」設定を個別ファイルに指定する
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージfirestarterの紹介
+#+MYTAGS: package:firestarter, emacs 使い方, emacs コマンド, emacs, firestarter, firestarter.el, emacs lisp firestarter, elisp firestarter, emacs melpa firestarter, emacs firestarter 使い方, emacs firestarter 設定, emacs パッケージ firestarter, emacs firestarter スクリーンショット, emacs ファイル保存後, emacs コマンド実行後, flymake, autotest, guard, ファイルの監視, 日々の定型作業を自動化する, ファイルセーブ時に指定したシェルコマンドを非同期で実行, プロジェクトのビルド, 自動テストの実行, エミュレータやブラウザを自動起動, 自動テストやコンパイルを簡単に記述, ファイル保存時に自動実行, relate:deferred, relate:popwin, relate:auto-save-buffers-enhanced, relate:real-auto-save, relate:hookify, relate:watch-buffer, relate:auto-shell-command, relate:backup-each-save, emacs シェルコマンド 自動実行, emacs テスト自動実行, emacs 保存したらすぐに実行, after-save-hook, deferred:process-shell, emacs deferred.el 使い方, growl, growlnotify, file-name-nondirectory, file-name-sans-extension, file-name-extension, relate:format-spec, emacs 自動実行 セキュリティ
+#+TAGS: package:firestarter, emacs 使い方, emacs コマンド, emacs, firestarter, firestarter.el, emacs lisp firestarter, elisp firestarter, emacs melpa firestarter, emacs firestarter 使い方, emacs firestarter 設定, emacs パッケージ firestarter, emacs firestarter スクリーンショット, emacs ファイル保存後, emacs コマンド実行後, flymake, autotest, guard, ファイルの監視, 日々の定型作業を自動化する, ファイルセーブ時に指定したシェルコマンドを非同期で実行, プロジェクトのビルド, 自動テストの実行, エミュレータやブラウザを自動起動, 自動テストやコンパイルを簡単に記述, ファイル保存時に自動実行, relate:deferred, relate:popwin, relate:auto-save-buffers-enhanced, relate:real-auto-save, relate:hookify, relate:watch-buffer, relate:auto-shell-command, relate:backup-each-save, emacs シェルコマンド 自動実行, emacs テスト自動実行, emacs 保存したらすぐに実行, after-save-hook, deferred:process-shell, emacs deferred.el 使い方, growl, growlnotify, file-name-nondirectory, file-name-sans-extension, file-name-extension, relate:format-spec, emacs 自動実行 セキュリティ, Emacs, firestarter.el, firestarter, firestarter.el, firestarter
+#+TITLE: emacs firestarter.el : ファイル保存後に自動でシェルコマンド・Emacsコマンド・S式を実行させる「安全な」設定を個別ファイルに指定する | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>firestarter</td></tr>
+<tr><td>概要(原文)</td><td>Execute (shell) commands on save</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/wasamasa/firestarter">https://github.com/wasamasa/firestarter</a></td></tr>
+<tr><td>バージョン</td><td>20150412.1209</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:firestarter/">package:firestarter</a> <a href="http://rubikitch.com/tag/package:deferred/">package:deferred</a> <a href="http://rubikitch.com/tag/package:popwin/">package:popwin</a> <a href="http://rubikitch.com/tag/package:auto-save-buffers-enhanced/">package:auto-save-buffers-enhanced</a> <a href="http://rubikitch.com/tag/package:real-auto-save/">package:real-auto-save</a> <a href="http://rubikitch.com/tag/package:hookify/">package:hookify</a> <a href="http://rubikitch.com/tag/package:watch-buffer/">package:watch-buffer</a> <a href="http://rubikitch.com/tag/package:auto-shell-command/">package:auto-shell-command</a> <a href="http://rubikitch.com/tag/package:backup-each-save/">package:backup-each-save</a> <a href="http://rubikitch.com/tag/package:format-spec/">package:format-spec</a></td></tr>
+</table>
+<br />
+#+END_HTML
+ファイル保存後に特定のアクションをさせたいことはよくあります。
+
+昨日紹介した[[http://rubikitch.com/2015/04/12/auto-shell-command-2/][auto-shell-command.el(レビュー)]] もそのひとつです。
+
+auto-shell-command.elはinit.elにまとめて書く必要がある上に、
+シェルコマンドの実行しかサポートされていません。
+
+今回紹介する *firestarter.el* は、ファイルローカル変数や
+ディレクトリローカル変数に保存後の処理を記述する方式です。
+
+使い方は簡単で、ファイル・ディレクトリローカル変数 *firestarter* に
+値を設定するだけです。
+
+- 文字列: 実行させるシェルコマンド
+- シンボル: 実行させるEmacsコマンド
+- S式: 実行させるS式
+
+シェルコマンドには以下の%記法が使えます。
+
+#+BEGIN_SRC emacs-lisp :results silent
+;;; firestarter-formatより
+(let* ((buffer (buffer-name))           ;%b バッファ名
+       (path (or (buffer-file-name) "")) ;%p フルパス
+       (file (file-name-nondirectory (or path ""))) ;%f ファイル名(ディレクトリ除外)
+       (stem (file-name-sans-extension file)) ;%s 拡張子を抜いたフルパス
+       (extension (file-name-extension file t))) ;%e 拡張子
+  (format-spec string (format-spec-make ?b buffer ?p path ?f file
+                                        ?s stem ?e extension)))
+#+END_SRC
+
+シンボル…たとえば「firestarter: gomoku」とすれば
+保存時に五目並べをします(意味ねぇw)
+
+S式は「firestarter: (message "ok")」などと指定します。
+** firestarter インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install firestarter
+
+
+#+end:
+** 概要                                                             :noexport:
+ファイル保存後に特定のアクションをさせたいことはよくあります。
+
+昨日紹介した[[http://rubikitch.com/2015/04/12/auto-shell-command-2/][auto-shell-command.el(レビュー)]] もそのひとつです。
+
+auto-shell-command.elはinit.elにまとめて書く必要がある上に、
+シェルコマンドの実行しかサポートされていません。
+
+今回紹介する *firestarter.el* は、ファイルローカル変数や
+ディレクトリローカル変数に保存後の処理を記述する方式です。
+
+使い方は簡単で、ファイル・ディレクトリローカル変数 *firestarter* に
+値を設定するだけです。
+
+- 文字列: 実行させるシェルコマンド
+- シンボル: 実行させるEmacsコマンド
+- S式: 実行させるS式
+
+シェルコマンドには以下の%記法が使えます。
+
+#+BEGIN_SRC emacs-lisp :results silent
+;;; firestarter-formatより
+(let* ((buffer (buffer-name))           ;%b バッファ名
+       (path (or (buffer-file-name) "")) ;%p フルパス
+       (file (file-name-nondirectory (or path ""))) ;%f ファイル名(ディレクトリ除外)
+       (stem (file-name-sans-extension file)) ;%s 拡張子を抜いたフルパス
+       (extension (file-name-extension file t))) ;%e 拡張子
+  (format-spec string (format-spec-make ?b buffer ?p path ?f file
+                                        ?s stem ?e extension)))
+#+END_SRC
+
+シンボル…たとえば「firestarter: gomoku」とすれば
+保存時に五目並べをします(意味ねぇw)
+
+S式は「firestarter: (message "ok")」などと指定します。
+
+** セキュリティと利便性の兼ね合い
+ファイル・ディレクトリローカル変数というのは本来危険と隣り合わせです。
+
+悪意のある人がシステムを壊滅させる設定をさせることができるからです。
+
+そのためEmacs側にセーフティガードが設けられていて、
+変数を有効にするか訊いてきます。
+
+ここで!を押せば安全な値として恒久的に有効にできますし、
+nを押せば拒否できます。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150413073345.png]]
+Fig1: _
+
+とはいえ毎回それを訊かれるのはうざったいです。
+
+安全性と利便性というのはしばしばトレードオフになります。
+
+今回、両者をうまくとりまとめるため、以下の方針にしています。
+- firestarterに任意の値を受け付けるようにする
+- ファイルを開いたときにfirestarterの値を示す
+- ファイルに関連付けられていないバッファ保存時に警告
+
+任意の値を受け付けるのは本当に危険なので、
+毎回訊かれる代わりにfirestarterを意識させるようにします。
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150413080907.png]]
+Fig2: ファイルを開いたらfirestarterの設定をお知らせ
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150413080914.png]]
+Fig3: 実行したことをお知らせ
+
+
+
+** 設定 [[http://rubikitch.com/f/150413064753.firestarter.1.el][150413064753.firestarter.1.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/150413/150413064753.firestarter.1.el"
+#+BEGIN_SRC fundamental
+(firestarter-mode)
+;;; 失敗時に結果をお知らせ
+(setq firestarter-default-type 'failure)
+;;; コマンド実行後に実行したコマンドを知らせる
+(defun firestarter-sentinel--show-command (&rest ignore)
+  (run-at-time 1 nil 'message (format "firestarted: %s" (firestarter-format firestarter))))
+(advice-add 'firestarter-sentinel :before 'firestarter-sentinel--show-command)
+
+;;; セキュリティと利便性を両立
+;; firestarterに任意の値を受け取れるようにする
+(put 'firestarter 'safe-local-variable 'identity)
+;; firestarterが設定されているときはmessageでお知らせ
+(defun find-file-hook--firestarter-notify ()
+  (when (and (bound-and-true-p firestarter-mode) firestarter)
+    (run-at-time 1 nil 'message "firestarter = %S" firestarter)))
+(add-hook 'find-file-hook 'find-file-hook--firestarter-notify)
+;; ファイルに関連付けられていないバッファの保存時にfirestarterが設定されているときに警告
+(defun warn-firestarter-before-saving-nonfile-buffer (&rest ignore)
+  (let (it)
+    (when (and (not buffer-file-name)
+               (save-excursion
+                 (save-restriction
+                   (widen)
+                   (goto-char (point-min))
+                   (and (re-search-forward "firestarter *:" nil t)
+                        (setq it (buffer-substring (point-at-bol) (point-at-eol))))))
+               (not (yes-or-no-p (concat "Save buffer with firestarter\n" it))))
+      (error "Quit saving because of dangerous firestarter setting."))))
+(advice-add 'basic-save-buffer :before 'warn-firestarter-before-saving-nonfile-buffer)
+(advice-add 'write-file :before 'warn-firestarter-before-saving-nonfile-buffer)
+
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/150413064753.firestarter.1.el
+$ emacs -Q -f package-initialize -l 150413064753.firestarter.1.el
+#+END_EXAMPLE
+
+# /r/sync/screenshots/20150413073345.png http://rubikitch.com/wp-content/uploads/2015/04/wpid-20150413073345.png
+# /r/sync/screenshots/20150413080907.png http://rubikitch.com/wp-content/uploads/2015/04/wpid-20150413080907.png
+# /r/sync/screenshots/20150413080914.png http://rubikitch.com/wp-content/uploads/2015/04/wpid-20150413080914.png

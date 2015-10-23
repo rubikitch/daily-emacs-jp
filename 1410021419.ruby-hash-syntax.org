@@ -1,0 +1,96 @@
+#+BLOG: rubikitch
+#+POSTID: 417
+#+DATE: [2014-10-02 Thu 14:19]
+#+PERMALINK: ruby-hash-syntax
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, Ruby,
+#+EL_PKG_NAME: ruby-hash-syntax
+#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p,  ruby 1.9 Hash Symbol syntax, ruby ハッシュ 新記法,
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方
+#+EL_TITLE0: RubyのHashのを1.9以降で使える新記法に切り替える
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージruby-hash-syntaxの紹介
+#+MYTAGS: package:ruby-hash-syntax, emacs 使い方, emacs コマンド, emacs, emacs lisp ruby-hash-syntax, elisp ruby-hash-syntax, emacs melpa ruby-hash-syntax, emacs ruby-hash-syntax 使い方, emacs ruby-hash-syntax 設定, emacs パッケージ ruby-hash-syntax,  ruby 1.9 Hash Symbol syntax, ruby ハッシュ 新記法,
+#+TITLE: emacs ruby-hash-syntax.el : RubyのHashのを1.9以降で使える新記法に切り替える | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>ruby-hash-syntax</td></tr>
+<tr><td>概要(原文)</td><td>Toggle ruby hash syntax between classic and 1.9 styles</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/purcell/ruby-hash-syntax">https://github.com/purcell/ruby-hash-syntax</a></td></tr>
+<tr><td>バージョン</td><td>20141010.839</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:ruby-hash-syntax/">package:ruby-hash-syntax</a> </td></tr>
+</table>
+<br />
+#+END_HTML
+Ruby 1.9以降でHashの書き方が増えました。
+
+以下のようにHashのキーがSymbolの場合、=>の代わりに:が使えます。
+
+#+BEGIN_SRC ruby :results xmp silent
+# 従来の書き方
+{ :foo => 1, :bar => 2, :baz => 3,}
+# Ruby 1.9以降使える書き方
+{ foo: 1, bar: 2, baz: 3,}
+#+END_SRC
+
+好みの問題があるとは思いますが、
+新記法の方が短くてかっこいいのではないでしょうか？
+
+*ruby-hash-syntax.el* は、両者の記法を切り替えるEmacs Lispです。
+
+元々 *TextMate* に存在する機能ですが、Emacsへ移植されました。
+
+使い方はHashを *C-M-SPC (mark-sexp)* などでregionに設定してから、
+*M-x ruby-toggle-hash-syntax* を実行します。
+
+記法は自動判別するので、
+旧記法→新記法、新記法→旧記法と
+切り替えてくれます。
+
+ただし、旧記法でキーがすべてSymbolでないとエラーになるので注意です。
+
+autoloadされているので設定は不要です。
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+** ruby-hash-syntax インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install ruby-hash-syntax
+
+
+#+end:
+** 概要                                                             :noexport:
+Ruby 1.9以降でHashの書き方が増えました。
+
+以下のようにHashのキーがSymbolの場合、=>の代わりに:が使えます。
+
+#+BEGIN_SRC ruby :results xmp silent
+# 従来の書き方
+{ :foo => 1, :bar => 2, :baz => 3,}
+# Ruby 1.9以降使える書き方
+{ foo: 1, bar: 2, baz: 3,}
+#+END_SRC
+
+好みの問題があるとは思いますが、
+新記法の方が短くてかっこいいのではないでしょうか？
+
+*ruby-hash-syntax.el* は、両者の記法を切り替えるEmacs Lispです。
+
+元々 *TextMate* に存在する機能ですが、Emacsへ移植されました。
+
+使い方はHashを *C-M-SPC (mark-sexp)* などでregionに設定してから、
+*M-x ruby-toggle-hash-syntax* を実行します。
+
+記法は自動判別するので、
+旧記法→新記法、新記法→旧記法と
+切り替えてくれます。
+
+ただし、旧記法でキーがすべてSymbolでないとエラーになるので注意です。
+
+autoloadされているので設定は不要です。
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

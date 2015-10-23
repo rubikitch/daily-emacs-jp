@@ -1,0 +1,149 @@
+#+BLOG: rubikitch
+#+POSTID: 1317
+#+DATE: [2015-03-17 Tue 05:48]
+#+PERMALINK: org-multiple-keymap
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, org-mode, 
+#+EL_PKG_NAME: org-multiple-keymap
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, relate:worf, org-mode キーマップ, relate:smartrep, relate:hydra,  org-mode speed key, org-mode キーバインド
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: org-modeで特定のカーソル位置で操作を簡単にする
+#+EL_URL: http://sheephead.homelinux.org/2015/03/15/7265/
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージorg-multiple-keymapの紹介
+#+MYTAGS: package:org-multiple-keymap, emacs 使い方, emacs コマンド, emacs, org-multiple-keymap, org-multiple-keymap.el, emacs lisp org-multiple-keymap, elisp org-multiple-keymap, emacs melpa org-multiple-keymap, emacs org-multiple-keymap 使い方, emacs org-multiple-keymap 設定, emacs パッケージ org-multiple-keymap, emacs org-multiple-keymap スクリーンショット, relate:worf, org-mode キーマップ, relate:smartrep, relate:hydra,  org-mode speed key, org-mode キーバインド
+#+TAGS: package:org-multiple-keymap, emacs 使い方, emacs コマンド, emacs, org-multiple-keymap, org-multiple-keymap.el, emacs lisp org-multiple-keymap, elisp org-multiple-keymap, emacs melpa org-multiple-keymap, emacs org-multiple-keymap 使い方, emacs org-multiple-keymap 設定, emacs パッケージ org-multiple-keymap, emacs org-multiple-keymap スクリーンショット, relate:worf, org-mode キーマップ, relate:smartrep, relate:hydra,  org-mode speed key, org-mode キーバインド, Emacs, org-mode, , org-multiple-keymap.el, M-x org-multiple-keymap-minor-mode, org-multiple-keymap.el, M-x org-multiple-keymap-minor-mode
+#+TITLE: emacs org-multiple-keymap.el : org-modeで特定のカーソル位置で操作を簡単にする | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>org-multiple-keymap</td></tr>
+<tr><td>概要(原文)</td><td>Set keymap to elements, such as timestamp and priority.</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>サイト</td><td><a href="http://sheephead.homelinux.org/2015/03/15/7265/">http://sheephead.homelinux.org/2015/03/15/7265/</td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/myuhe/org-multiple-keymap.el">https://github.com/myuhe/org-multiple-keymap.el</a></td></tr>
+<tr><td>バージョン</td><td>20150322.711</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:org-multiple-keymap/">package:org-multiple-keymap</a> <a href="http://rubikitch.com/tag/package:worf/">package:worf</a> <a href="http://rubikitch.com/tag/package:smartrep/">package:smartrep</a> <a href="http://rubikitch.com/tag/package:hydra/">package:hydra</a></td></tr>
+</table>
+<br />
+#+END_HTML
+<2015-03-24 Tue>見出し行及び新たに作成した要素にも対応しました。
+よって、少し[[http://rubikitch.com/2014/12/14/worf/][worf.el(レビュー)]] とかぶっています。
+
+org-modeは [[http://orgmode.jp/orgcard-ja.txt][無数のキーバインド]] が登録されている化け物メジャーモードです。
+
+操作を覚えるだけでも大変ですね。
+
+*org-multiple-keymap.el* という小さいelispは、現時点において
+タイムスタンプと優先度(プライオリティ)でショートカットキーが使えます。
+
+主にpとnで切り替えられるようにします。
+
+*M-x org-multiple-keymap-minor-mode* マイナーモードを有効にした時点で
+orgバッファの解析が行われ、タイムスタンプと優先度がハイライトされ、
+ショートカットキーが使えるようになります。
+
+とはいえ3/15に登場したばかりの出来立てほやほやなので、
+将来的にはソースブロックなど、他の要素に対応することでしょう。
+
+<2015-03-17 Tue>の時点ではマイナーモード有効後に作成した
+タイムスタンプと優先度については対応していませんが、
+<2015-03-24 Tue>の時点では対応するようになりました。
+
+作者による日本語の解説ページはこちら
+http://sheephead.homelinux.org/2015/03/15/7265/
+http://sheephead.homelinux.org/2015/03/22/7272/
+
+
+彼は[[http://rubikitch.com/2015/01/25/hydra/][smartrep.el(hydraとの比較レビュー)]] を開発しており
+キー操作についてはものすごいこだわりがあります。
+
+現状でも見出しにおいては標準で [[http://orgmode.org/manual/Speed-keys.html][Speed Keys]] があり、
+さらにviライクに進化させた [[http://rubikitch.com/2014/12/14/worf/][worf.el(レビュー)]] もあります。
+
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+[[file:/r/sync/screenshots/20150317061139.png]]
+Fig5: M-x org-multiple-keymap-minor-mode でタイムスタンプと優先度がハイライト
+
+[[file:/r/sync/screenshots/20150317061146.png]]
+Fig6: 年の位置でnを押すと来年に
+
+[[file:/r/sync/screenshots/20150317061152.png]]
+Fig7: タイムスタンプでP/Nで日単位の移動
+
+[[file:/r/sync/screenshots/20150317061201.png]]
+Fig8: 優先度もp/nで切り替えられる
+
+
+# /r/sync/screenshots/20150317061139.png http://rubikitch.com/wp-content/uploads/2015/03/wpid-201503170611391.png
+# /r/sync/screenshots/20150317061146.png http://rubikitch.com/wp-content/uploads/2015/03/wpid-201503170611461.png
+# /r/sync/screenshots/20150317061152.png http://rubikitch.com/wp-content/uploads/2015/03/wpid-201503170611521.png
+# /r/sync/screenshots/20150317061201.png http://rubikitch.com/wp-content/uploads/2015/03/wpid-201503170612011.png
+** org-multiple-keymap インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install org-multiple-keymap
+
+
+#+end:
+** 概要                                                             :noexport:
+<2015-03-24 Tue>見出し行及び新たに作成した要素にも対応しました。
+よって、少し[[http://rubikitch.com/2014/12/14/worf/][worf.el(レビュー)]] とかぶっています。
+
+org-modeは [[http://orgmode.jp/orgcard-ja.txt][無数のキーバインド]] が登録されている化け物メジャーモードです。
+
+操作を覚えるだけでも大変ですね。
+
+*org-multiple-keymap.el* という小さいelispは、現時点において
+タイムスタンプと優先度(プライオリティ)でショートカットキーが使えます。
+
+主にpとnで切り替えられるようにします。
+
+*M-x org-multiple-keymap-minor-mode* マイナーモードを有効にした時点で
+orgバッファの解析が行われ、タイムスタンプと優先度がハイライトされ、
+ショートカットキーが使えるようになります。
+
+とはいえ3/15に登場したばかりの出来立てほやほやなので、
+将来的にはソースブロックなど、他の要素に対応することでしょう。
+
+<2015-03-17 Tue>の時点ではマイナーモード有効後に作成した
+タイムスタンプと優先度については対応していませんが、
+<2015-03-24 Tue>の時点では対応するようになりました。
+
+作者による日本語の解説ページはこちら
+http://sheephead.homelinux.org/2015/03/15/7265/
+http://sheephead.homelinux.org/2015/03/22/7272/
+
+
+彼は[[http://rubikitch.com/2015/01/25/hydra/][smartrep.el(hydraとの比較レビュー)]] を開発しており
+キー操作についてはものすごいこだわりがあります。
+
+現状でも見出しにおいては標準で [[http://orgmode.org/manual/Speed-keys.html][Speed Keys]] があり、
+さらにviライクに進化させた [[http://rubikitch.com/2014/12/14/worf/][worf.el(レビュー)]] もあります。
+
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+[[file:/r/sync/screenshots/20150317061139.png]]
+Fig5: M-x org-multiple-keymap-minor-mode でタイムスタンプと優先度がハイライト
+
+[[file:/r/sync/screenshots/20150317061146.png]]
+Fig6: 年の位置でnを押すと来年に
+
+[[file:/r/sync/screenshots/20150317061152.png]]
+Fig7: タイムスタンプでP/Nで日単位の移動
+
+[[file:/r/sync/screenshots/20150317061201.png]]
+Fig8: 優先度もp/nで切り替えられる
+
+
+# /r/sync/screenshots/20150317061139.png http://rubikitch.com/wp-content/uploads/2015/03/wpid-201503170611391.png
+# /r/sync/screenshots/20150317061146.png http://rubikitch.com/wp-content/uploads/2015/03/wpid-201503170611461.png
+# /r/sync/screenshots/20150317061152.png http://rubikitch.com/wp-content/uploads/2015/03/wpid-201503170611521.png
+# /r/sync/screenshots/20150317061201.png http://rubikitch.com/wp-content/uploads/2015/03/wpid-201503170612011.png

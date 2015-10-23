@@ -1,0 +1,67 @@
+#+BLOG: rubikitch
+#+POSTID: 947
+#+DATE: [2015-01-16 Fri 03:31]
+#+PERMALINK: gnupack1201
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, gnupack, Emacs 24.4, 
+#+DESCRIPTION: 
+#+MYTAGS: 
+#+TITLE: gnupack 12.01リリース！Windowsでもemacsclientで瞬速Emacsを実現
+#+begin: org2blog-tags
+#+TAGS: , Emacs, gnupack, Emacs 24.4, , emacsclient, ドライブレター
+#+end:
+http://d.hatena.ne.jp/ksugita0510/20150111/p1
+
+Emacs 24.4ベースのgnupackが12.00→12.01に
+マイナーバージョンアップされました。
+
+変更点は以下となっています(引用)。
+
+#+BEGIN_QUOTE
+- startup_emacs.exeのファイル関連付けが動作するよう機能改善
+
+  emacs_startupプログラムの引数で渡された Windows形式のパスを Cygwin
+  形式のパスに変換することで実現しています．emacs自体は何も変更してい
+  ないため，emacs起動後はこれまでどおり Windowsパス形式を認識できない
+  ので注意ください．
+
+- emacsclientの設定を追加
+
+  emacsclientは，従来のemacsが提供する機能と同じです．gnupackで
+  emacsclientを使うには，初回startup_emacs.exeを実行し，以降
+  startup_emacsclient.exeを実行してください．
+#+END_QUOTE
+
+どちらも嬉しい機能改善ですね！
+
+startup_emacsclient.exeのおかげで、ファイル関連付けから
+*emacsclient* を立ち上げられるようになりました。
+
+emacsclientは起動中のEmacsにファイルを渡すことにより、
+事実上瞬時に起動するEmacsを使うことになる神機能です。
+
+「Emacsは起動が遅い」という声を封殺します。
+
+emacsclientファンはぜひともバージョンアップしてください。
+
+[[http://rubikitch.com/2014/12/31/gnupack12/][12.00の記事]] にも書きましたがgnupackを使うならば、
+開発者じゃなくてもdevelをおすすめします。
+
+本家Windows版よりも動作が遅いのは
+Cygwinの仕様なので耐えてください(笑)
+
+また、gnupackのEmacsはcygwin版なので、
+ *ドライブレター* は認識しません。
+
+F:\foo.txt → /f/foo.txt
+
+のように書き換えてください。
+
+詳しくはリリースノートを参照してください。
+http://iij.dl.sourceforge.jp/gnupack/62561/ReleaseNote_gnupack_devel-12.01-2015.01.11.txt
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

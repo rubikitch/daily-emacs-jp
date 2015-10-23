@@ -1,0 +1,186 @@
+#+BLOG: rubikitch
+#+POSTID: 134
+#+DATE: [2014-08-12 Tue 09:55]
+#+PERMALINK: monokai-theme
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, theme
+#+EL_PKG_NAME: monokai-theme
+#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, emacs color-theme, emacs theme org-mode, emacs theme ruby-mode, emacs theme magit, emacs theme grep
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: monokai-themeはこんな配色になる
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージmonokai-themeの紹介
+#+MYTAGS: package:monokai-theme, emacs 使い方, emacs コマンド, emacs, emacs lisp monokai-theme, elisp monokai-theme, emacs melpa monokai-theme, emacs monokai-theme 使い方, emacs monokai-theme 設定, emacs パッケージ monokai-theme, emacs monokai-theme スクリーンショット, emacs color-theme, emacs theme org-mode, emacs theme ruby-mode, emacs theme magit, emacs theme grep
+#+TITLE: emacs monokai-theme.el : monokai-themeはこんな配色になる | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>monokai-theme</td></tr>
+<tr><td>概要(原文)</td><td>A fruity color theme for Emacs.</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/oneKelvinSmith/monokai-emacs">https://github.com/oneKelvinSmith/monokai-emacs</a></td></tr>
+<tr><td>バージョン</td><td>20141121.1202</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:monokai-theme/">package:monokai-theme</a> </td></tr>
+</table>
+<br />
+#+END_HTML
+monokai-theme.elは、TextMateのMonokaiのEmacsへ移植したものです。
+** monokai-theme インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install monokai-theme
+
+
+#+end:
+** 概要                                                             :noexport:
+monokai-theme.elは、TextMateのMonokaiのEmacsへ移植したものです。
+** 対応パッケージ
+定義本体は3500行以上にもわたるcreate-monokai-theme関数で、
+以下のパッケージに対応しています。
+
+occurでコメントを抜き出したものを出しておきます。。
+
+- compilation
+- cua
+- diary
+- dired
+- dropdown
+- ecb
+- ee
+- grep
+- faces used by isearch
+- man
+- misc faces
+- font lock
+- ace-jump-mode
+- auctex
+- auto-complete
+- auto highlight symbol
+- android mode
+- anzu-mode
+- bm
+- calfw
+- clojure-test-mode
+- company-mode
+- cscope
+- ctable
+- coffee
+- custom
+- diff
+- ediff
+- diff-hl
+- edts
+- elfeed
+- enhanced ruby mode
+- epc
+- erc
+- eshell
+- fic
+- flx
+- flymake
+- flycheck
+- flyspell
+- git-gutter
+- git-gutter-fr
+- git-gutter+ and git-gutter+-fr
+- guide-key
+- gnus
+- helm (these probably needs tweaking)
+- helm-ls-git
+- hi-lock-mode
+- highlight-changes
+- highlight-indentation
+- hl-line-mode
+- ido-mode
+- js2-mode colors
+- jedi
+- linum-mode
+- lusty-explorer
+- magit
+- markdown-mode
+- message-mode
+- mew
+- mingus
+- moccur
+- mu4e
+- mumamo
+- nav
+- nav-flash
+- org-mode
+- org-habit (clear=blue, ready=green, alert=yellow, overdue=red. future=lower contrast)
+- latest additions
+- outline
+- parenfaceu
+- pretty-mode
+- popup
+- powerline
+- rainbow-delimiters
+- rhtm-mode
+- rst-mode
+- rpm-mode
+- sh-mode
+- smartparens
+- show-paren
+- mic-paren
+- SLIME
+- speedbar
+- sunrise commander headings
+- sunrise commander marked
+- sunrise commander fstat
+- sunrise commander file types
+- sunrise commander misc
+- table
+- term
+- tooltip. (NOTE: This setting has no effect on the os widgets for me
+- zencoding uses this)
+- tuareg
+- undo-tree
+- volatile highlights
+- w3m
+- web-mode
+- whitespace-mode
+- wanderlust
+- weechat
+- which-func-mode
+- window-number-mode
+- yascroll
+- zencoding
+- compilation
+- fill-column-indicator
+- magit
+- highlight-changes
+- highlight-tail
+- syslog-mode
+- vc
+- weechat
+
+** 設定 [[http://rubikitch.com/f/140812095307.monokai-theme.el][140812095307.monokai-theme.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/140812/140812095307.monokai-theme.el"
+#+BEGIN_SRC fundamental
+(load-theme 'monokai t)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/140812095307.monokai-theme.el
+$ emacs -Q -f package-initialize -l 140812095307.monokai-theme.el
+#+END_EXAMPLE
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+http://rubikitch.com/f/20140812100001.png
+Fig1: org-mode(背景色が暗い場合)
+
+http://rubikitch.com/f/20140812100104.png
+Fig2: grep(背景色が暗い場合)
+
+http://rubikitch.com/f/20140812100243.png
+Fig3: magit(背景色が明るい場合)
+
+http://rubikitch.com/f/20140812100341.png
+Fig4: ruby-mode(背景色が明るい場合)

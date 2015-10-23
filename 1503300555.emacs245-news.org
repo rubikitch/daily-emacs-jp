@@ -1,0 +1,133 @@
+#+BLOG: rubikitch
+#+POSTID: 1394
+#+DATE: [2015-03-30 Mon 05:55]
+#+PERMALINK: emacs245-news
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, Emacs 24.4, Emacs 24.5, 
+#+DESCRIPTION: Emacs24.5はEmacs24.4のバグフィクスリリースとして4/11にリリースされました。
+#+MYTAGS: Emacs 24.5, Emacs24.5, Emacs24.5の変更点, Emacs24.5 リリースノート, Emacs24.5 更新点, Emacs24.5 アップグレード, Emacs24.5 バージョンアップ, Emacs24.5 ニュース, Emacs24.5 ChangeLog, Emacs24.5 新機能, Emacs24.5 ビルド, Emacs24.5 コンパイル
+#+TITLE: Emacs 24.5はバグフィクスとして4/11にリリースされました！ビルド方法 変更点
+#+begin: org2blog-tags
+#+TAGS: Emacs 24.5, Emacs24.5, Emacs24.5の変更点, Emacs24.5 リリースノート, Emacs24.5 更新点, Emacs24.5 アップグレード, Emacs24.5 バージョンアップ, Emacs24.5 ニュース, Emacs24.5 ChangeLog, Emacs24.5 新機能, Emacs24.5 ビルド, Emacs24.5 コンパイル, Emacs, Emacs 24.4, Emacs 24.5, , start-process-shell-command, call-process-shell-command, start-process, call-process, browse-url, browse-url-firefox-startup-arguments, ERC, find-dired
+#+end:
+<2015-04-11 Sat> [[http://rubikitch.com/2015/04/11/emacs245][リリースされました。]]
+
+<2015-04-02 Thu> [[http://rubikitch.com/2015/04/02/emacs245rc2][リリース予定日が4/1から4/6に変更されました。]]
+
+[[http://rubikitch.com/2015/03/28/emacs245rc1/][Emacs 24.5 RC1]] が出て特に問題の報告がなさそうなので、
+さっそくインストールしました。
+
+結論を言うと、Emacs 24.5はEmacs 24.4のバグフィクスリリースであり、
+[[http://rubikitch.com/2014/10/21/emacs244/][Emacs24.3→Emacs24.4のような劇的な変更]] はありません。
+
+リリース直後に安心してアップグレードできます。
+
+逆にEmacs24.4で不満を感じていないならば、
+無理してアップグレードする必要はありません。
+** ビルドする
+僕のところのconfigureビルドオプションはこんな感じです。環境はGNU/Linuxです。
+
+Emacs24.4と変わらない方法でビルドできました。
+
+#+BEGIN_EXAMPLE
+$ wget -O- http://ftp.gnu.org/gnu/emacs/emacs-24.5.tar.xz | tar xJf -
+$ cd emacs-24.5
+$ ./configure --disable-largefile --with-x-toolkit=motif --without-toolkit-scroll-bars \
+  --without-xaw3d --without-xim --without-compress-info --without-sound --without-pop \
+  --without-sync-input --without-xpm --without-tiff --without-rsvg --without-gconf \
+  --without-gsettings --without-selinux --without-gpm --without-makeinfo --with-x && make \
+  && sudo make install
+#+END_EXAMPLE
+
+** ChangeLogを眺める
+ではさっそくetc/NEWSを見てみましょう。
+
+Emacs 24.5についてはたったこれだけです。
+
+#+BEGIN_SRC text
+,* Changes in Emacs 24.5
+
+,** This is mainly a bug-fix release, but there are some other changes.
+
+,** The default value of `history-length' has increased to 100.
+
+,** The variable `redisplay-dont-pause' is obsolete.
+
+
+,* Changes in Specialized Modes and Packages in Emacs 24.5
+
+,** `call-process-shell-command' and `process-file-shell-command' no longer take "&rest args".
+
+,** The option `browse-url-firefox-startup-arguments' no longer has an effect.
+
+,** ERC
+
+,*** New option `erc-rename-buffers'.
+
+,*** New faces `erc-my-nick-prefix-face' and `erc-nick-prefix-face'.
+
+,*** `erc-format-@nick' displays all user modes instead of only op and voice.
+
+,*** The display of irc commands in the current buffer has been disabled.
+
+,*** `erc-version' now follows the Emacs version.
+
+,** Obsolete packages
+
+,*** cc-compat.el
+
+,*** crisp.el (moved to elpa.gnu.org)
+
+,*** tpu-edt.el, ws-mode.el
+These emulations of old editors are believed to be no longer relevant
+ - contact emacs-devel@gnu.org if you disagree.
+
+,*** vi.el, vip.el (try M-x viper instead)
+
+#+END_SRC
+
+*start-process-shell-command* と *call-process-shell-command* 関数は
+なぜか引数の&rest argsを取っていましたが、意味がないのでなくなりました。
+
+使っている人はほとんどいないと思いますがね…
+
+&rest argsがあるなら *start-process* や *call-process* を使いましょう。
+
+*browse-url* で Firefox を使っているならば、
+*browse-url-firefox-startup-arguments* が意味をなくなったことは
+注意する必要があるかもしれません。
+
+IRCクライアントの *ERC* にはいくつか変更点があります。
+
+
+** org-modeはまったく更新されていない
+Emacs24.4でorg7→org8のバージョンアップの煽りを受け、
+org-modeの心配をしている人がいるかもしれませんが、
+org-modeはまったく変更されていませんので、安心してください！！
+
+実際 lisp/org/ChangeLog を見てもこうなっています。
+
+#+BEGIN_SRC text
+2015-04-01  Nicolas Petton  <nicolas@petton.fr>
+
+        ,* Version 24.5 released.
+
+2014-10-20  Glenn Morris  <rgm@gnu.org>
+
+        ,* Version 24.4 released.
+#+END_SRC
+
+** ChangeLogをdiredで見る
+*ChangeLog* はディレクトリごとにたくさん配置されているので、
+以下のコマンドを使えばdiredで一覧できます。便利！
+
+#+BEGIN_EXAMPLE
+M-x find-dired RET /tmp/emacs-24.5/ RET -name ChangeLog RET
+#+END_EXAMPLE
+
+# *find-dired* 
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

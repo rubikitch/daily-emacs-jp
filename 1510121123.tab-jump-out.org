@@ -1,0 +1,105 @@
+#+BLOG: rubikitch
+#+POSTID: 2073
+#+DATE: [2015-10-12 Mon 11:23]
+#+PERMALINK: tab-jump-out
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs
+#+EL_PKG_NAME: tab-jump-out
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, Eclipse, jump out of closing characters, relate:paredit, insert-parentheses, relate:smartparens, tab out, Visual Studio, TabJump, tab jumping, relate:yasnippet
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: EclipseのようにTABキーで閉括弧や区切り文字から脱出する
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージtab-jump-outの紹介
+#+MYTAGS: package:tab-jump-out, emacs 使い方, emacs コマンド, emacs, tab-jump-out, tab-jump-out.el, emacs lisp tab-jump-out, elisp tab-jump-out, emacs melpa tab-jump-out, emacs tab-jump-out 使い方, emacs tab-jump-out 設定, emacs パッケージ tab-jump-out, emacs tab-jump-out スクリーンショット, Eclipse, jump out of closing characters, relate:paredit, insert-parentheses, relate:smartparens, tab out, Visual Studio, TabJump, tab jumping, relate:yasnippet
+#+TAGS: package:tab-jump-out, emacs 使い方, emacs コマンド, emacs, tab-jump-out, tab-jump-out.el, emacs lisp tab-jump-out, elisp tab-jump-out, emacs melpa tab-jump-out, emacs tab-jump-out 使い方, emacs tab-jump-out 設定, emacs パッケージ tab-jump-out, emacs tab-jump-out スクリーンショット, Eclipse, jump out of closing characters, relate:paredit, insert-parentheses, relate:smartparens, tab out, Visual Studio, TabJump, tab jumping, relate:yasnippet, Emacs, tab-jump-out.el, M-x tab-jump-out-mode, tab-jump-out-delimiters, M-x tab-jump-out-mode, tab-jump-out-delimiters
+#+TITLE: emacs tab-jump-out.el : EclipseのようにTABキーで閉括弧や区切り文字から脱出する | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>tab-jump-out</td></tr>
+<tr><td>概要(原文)</td><td>Use tab to jump out of delimiter pairs.</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/cheunghy/tab-jump-out">https://github.com/cheunghy/tab-jump-out</a></td></tr>
+<tr><td>バージョン</td><td>20151005.1830</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:tab-jump-out/">package:tab-jump-out</a> <a href="http://rubikitch.com/tag/package:paredit/">package:paredit</a> <a href="http://rubikitch.com/tag/package:smartparens/">package:smartparens</a> <a href="http://rubikitch.com/tag/package:yasnippet/">package:yasnippet</a></td></tr>
+</table>
+<br />
+#+END_HTML
+*tab-jump-out.el* が提供するマイナーモード *M-x tab-jump-out-mode* を使うと、TABキーで閉括弧や区切り文字から脱出できるようになります。
+これはEclipseやVisual Studioの挙動を模倣しています。
+
+M-(やpareditやsmartparensなどで開括弧と同時に閉括弧も入力する場合に便利です。
+
+区切り文字は *tab-jump-out-delimiters* で制御できますが、デフォルトは以下の文字が対象になっています。
+- ;
+- )
+- ]
+- }
+- |
+- '
+- "
+- `
+
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151012113349.png]]
+Fig1: ここでTABを押すと
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151012113353.png]]
+Fig2: 閉括弧から脱出
+** tab-jump-out インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install tab-jump-out
+
+
+#+end:
+** 概要                                                             :noexport:
+*tab-jump-out.el* が提供するマイナーモード *M-x tab-jump-out-mode* を使うと、TABキーで閉括弧や区切り文字から脱出できるようになります。
+これはEclipseやVisual Studioの挙動を模倣しています。
+
+M-(やpareditやsmartparensなどで開括弧と同時に閉括弧も入力する場合に便利です。
+
+区切り文字は *tab-jump-out-delimiters* で制御できますが、デフォルトは以下の文字が対象になっています。
+- ;
+- )
+- ]
+- }
+- |
+- '
+- "
+- `
+
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151012113349.png]]
+Fig3: ここでTABを押すと
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151012113353.png]]
+Fig4: 閉括弧から脱出
+
+** 設定 [[http://rubikitch.com/f/151012113030.tab-jump-out.el][151012113030.tab-jump-out.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/151012/151012113030.tab-jump-out.el"
+#+BEGIN_SRC fundamental
+;;; yasnippetと併用する場合はこの設定をする
+(setq yas-fallback-behavior '(apply tab-jump-out 1))
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/151012113030.tab-jump-out.el
+$ emacs -Q -f package-initialize -l 151012113030.tab-jump-out.el
+#+END_EXAMPLE

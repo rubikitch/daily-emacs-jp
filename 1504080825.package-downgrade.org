@@ -1,0 +1,177 @@
+#+BLOG: rubikitch
+#+POSTID: 1457
+#+DATE: [2015-04-08 Wed 08:25]
+#+PERMALINK: package-downgrade
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, 
+#+DESCRIPTION: 
+#+MYTAGS: package 最新版 動かない, パッケージを更新したら動作しない, package:package, relate:package, emacs パッケージ 動かない, emacs パッケージ バージョンを戻したい, emacs パッケージをダウングレードする,  emacs パッケージを古いものに戻す, relate:cask, relate:el-get, relate:quelpa, quelpa, package:quelpa
+#+TITLE: emacs package.el(含quelpa)管轄パッケージをダウングレードする方法！「最新版にアップグレードしたら動かない」をズバリ解決
+#+begin: org2blog-tags
+#+TAGS: package 最新版 動かない, パッケージを更新したら動作しない, package:package, relate:package, emacs パッケージ 動かない, emacs パッケージ バージョンを戻したい, emacs パッケージをダウングレードする,  emacs パッケージを古いものに戻す, relate:cask, relate:el-get, relate:quelpa, quelpa, package:quelpa, Emacs, , helm, M-x list-packages, Packages
+#+end:
+パッケージをアップグレードして突然動かなくなった！
+ということがあると思います。
+
+開発者側がユーザの知らない間にファイルやコマンドを削除したケースは
+一般ユーザにとっては本当に困るものです。
+
+*helm* が特にそうで、いつの間にか動かなくなったということがよくあります。
+
+他にも新しいバージョンでバグが加わってしまったこともあります。
+
+開発が活発なのはいいですが、
+それを使っているユーザが振り回されてしまうのは困りものです。
+
+[[http://d.hatena.ne.jp/tarao/20150221/1424518030][el-getは超強力なパッケージ管理システム(外部サイト)]] ですが、
+無理に乗り換えなくても標準のpackage.elでもなんとかなります。
+
+[[http://rubikitch.com/tag/package:quelpa][package:quelpa(タグ)]] もpackage.el準拠なのでこの方法が適用できます。 
+
+** パッケージの特定のバージョンを削除する
+Emacs24ではパッケージシステム *package.el* が標準になり、
+簡単に外部パッケージをインストールできるようになりました。
+
+幸い、新しいバージョンをインストールしたら
+古いバージョンも残してくれます。
+
+しかし、最新パッケージにアップグレードして動かなくなった場合の
+対処法は用意されていません。
+
+*M-x list-packages* から該当するパッケージに
+dで削除マークを付け、xを押せば
+そのバージョンのパッケージは削除できます。
+
+たとえば手元のcompanyパッケージは4つのバージョンがインストールされています。
+
+#+BEGIN_EXAMPLE
+4 matches for "  company  " in buffer: *Packages*
+    304:  company            20150405.1148 available  melpa      Modular text completion framework
+   2335:  company            20141013.555  installed             Modular text completion framework
+   2843:  company            20140903.856  obsolete              Modular text completion framework
+   2844:  company            20141005.2219 obsolete              Modular text completion framework
+#+END_EXAMPLE
+
+有効になっているのが20141013.555で、
+最新版が20150405.1148です。
+
+古いバージョンが2つあります。
+
+ここで20141013.555でd xすればそのバージョンが削除され、
+20141005.2219がobsolete→installedになります。
+
+次回Emacsを起動したときには20141005.2219が使われるようになります。
+
+** 一時的にダウングレードする
+しかし、問題解決をするときに一時的にパッケージをダウングレードする場合、
+削除してしまうと戻せなくなってしまいます。
+
+そこで ~/.emacs.d/elpa/attic というディレクトリを作成し、
+動かなくなったパッケージを一時的に移動するといいです。
+
+#+BEGIN_EXAMPLE
+$ cd ~/.emacs.d/elpa
+$ mkdir attic
+#+END_EXAMPLE
+
+たとえばcompany-20141013.555が容疑者であれば、
+
+#+BEGIN_EXAMPLE
+$ mv company-20141013.555 attic
+#+END_EXAMPLE
+
+を実行し、Emacsを再起動してください。
+
+そうすると、Emacsからすれば削除されたと思い込ませられるので
+company-20141005.2219 が使われます。
+
+もしこれで動作すれば真犯人になりますし、
+それでもなお動作しなければ容疑者をatticから解放して
+Emacsを再起動してください。
+
+#+BEGIN_EXAMPLE
+$ mv attic/* .
+#+END_EXAMPLE
+
+そして、別な容疑者をattic行きにして調査を続けてください。
+
+** メカニズム
+(package-initialize) は以下のようになっています。
+
+#+BEGIN_SRC emacs-lisp :results silent
+(defun package-initialize (&optional no-activate)
+  "Load Emacs Lisp packages, and activate them.
+The variable `package-load-list' controls which packages to load.
+If optional arg NO-ACTIVATE is non-nil, don't activate packages."
+  (interactive)
+  (setq package-alist nil)
+  (package-load-all-descriptors) ; HERE
+  (package-read-all-archive-contents)
+  (unless no-activate
+    (dolist (elt package-alist)
+      (package-activate (car elt))))
+  (setq package--initialized t))
+#+END_SRC
+
+package-load-all-descriptorsはインストールされた
+パッケージの情報を読み取ります。
+
+#+BEGIN_SRC emacs-lisp :results silent
+(defun package-load-all-descriptors ()
+  "Load descriptors for installed Emacs Lisp packages.
+This looks for package subdirectories in `package-user-dir' and
+`package-directory-list'.  The variable `package-load-list'
+controls which package subdirectories may be loaded.
+
+In each valid package subdirectory, this function loads the
+description file containing a call to `define-package', which
+updates `package-alist'."
+  (dolist (dir (cons package-user-dir package-directory-list))
+    (when (file-directory-p dir)
+      (dolist (subdir (directory-files dir)) ; *1
+        (let ((pkg-dir (expand-file-name subdir dir)))
+          (when (file-directory-p pkg-dir)   ; *2
+            (package-load-descriptor pkg-dir)))))))
+#+END_SRC
+
+package-user-dir は ~/.emacs.d/elpa で、
+全パッケージがインストールされている場所です。
+
+そこで directory-files (1) と file-directory-p (2)で
+その中のディレクトリ(＝各々のパッケージ)に対して
+package-load-descriptor を呼びます。
+
+#+BEGIN_SRC emacs-lisp :results silent
+(defun package-load-descriptor (pkg-dir)
+  "Load the description file in directory PKG-DIR."
+  (let ((pkg-file (expand-file-name (package--description-file pkg-dir)
+                                    pkg-dir))           ; *1
+	(signed-file (concat pkg-dir ".signed")))
+    (when (file-exists-p pkg-file)                      ; *2
+      (with-temp-buffer
+        (insert-file-contents pkg-file)                 
+        (goto-char (point-min))
+        (let ((pkg-desc (package-process-define-package ; *3
+                         (read (current-buffer)) pkg-file)))
+          (setf (package-desc-dir pkg-desc) pkg-dir)
+	  (if (file-exists-p signed-file)
+	      (setf (package-desc-signed pkg-desc) t))
+          pkg-desc)))))
+#+END_SRC
+
+pkg-file というのは
+~/.emacs.d/elpa/pkgname-version/pkgname-pkg.el
+のことです。(1)
+
+もしpkg-fileが存在するならば、(2)
+package-process-define-package で読み込んで(3)
+そこにパッケージがあるということを宣言しています。
+
+だからこそ ~/.emacs.d/elpa/attic で
+一時的にパッケージを隠せばEmacsを騙せるのです。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

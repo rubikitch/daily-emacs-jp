@@ -1,0 +1,39 @@
+#+BLOG: rubikitch
+#+POSTID: 1625
+#+DATE: [2015-05-08 Fri 03:55]
+#+PERMALINK: melmag
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: メルマガ,
+#+DESCRIPTION: るびきち塾メルマガ『Emacsの鬼るびきちのココだけの話#180』の予告
+#+TITLE: 【メルマガ#180】最強の勉強法
+#+MYTAGS: 
+#+begin: org2blog-tags
+#+TAGS: , メルマガ,, 
+#+end:
+お待たせしました。
+
+今回は最強の勉強法についてお話します。
+
+多くの日本人が思っている勉強法は
+大人になったら正しくはありません。
+
+これは本当に最強なのですが、
+そのまま実践するのは難しいです。
+
+前回、前々回はゼロ円でできる
+心を整える方法についてお話しましたが、
+その準備をしておかないとおぼつかないからです。
+
+そしてこの方法で勉強していると
+ついやってしまいがちな落とし穴があります。
+
+この落とし穴をうまく回避し、
+実践し続けられるようにするための
+大事な心構えについても触れます。
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

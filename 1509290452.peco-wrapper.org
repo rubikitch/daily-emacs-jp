@@ -1,0 +1,166 @@
+#+BLOG: rubikitch
+#+POSTID: 2028
+#+DATE: [2015-09-29 Tue 04:52]
+#+PERMALINK: peco-wrapper
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, Ruby, helm, peco
+#+DESCRIPTION: pecoを端末以外から実行できるようにするラッパースクリプト。
+#+MYTAGS: relate:helm, relate:anything, relate:shell, relate:eshell, シェルでanythingの絞り込み, シェルでhelmの絞り込み, peco, percol, go, golang, zsh, bash, zaw, ターミナル版anything的なpercol, ターミナル版anything的なpeco, 端末版Unite.vimなpeco, pecoをemacsで動かす, pecoをeshellで動かす, , 端末エミュレータでpecoを動かす, ターミナルエミュレータでpecoを動作させる
+#+TITLE: 端末でhelm風絞り込み候補選択をするpecoを端末外から実行できるようにした
+#+begin: org2blog-tags
+#+TAGS: relate:helm, relate:anything, relate:shell, relate:eshell, シェルでanythingの絞り込み, シェルでhelmの絞り込み, peco, percol, go, golang, zsh, bash, zaw, ターミナル版anything的なpercol, ターミナル版anything的なpeco, 端末版Unite.vimなpeco, pecoをemacsで動かす, pecoをeshellで動かす, , 端末エミュレータでpecoを動かす, ターミナルエミュレータでpecoを動作させる, Emacs, Ruby, helm, peco, --xterm, --xterm
+#+end:
+
+<2015-10-01 Thu>スクリプトバグ修正・機能追加。
+- printfを使っていたため、入力を受け取りきれなかったバグを修正
+- 端末エミュレータを使っていても標準エラー出力を表示するように改良
+- 入力ファイルがある場合はfifoを使わないように改良
+- pecoのオプション解析をより厳密化するよう改良
+- =--xterm= オプションを追加
+
+<2015-09-30 Wed>
+peco 0.3.4でhit-a-hintが実装されたのでスクリプトを更新。
+旧pecoは[[http://rubikitch.com/f/peco.old]] に保存。
+
+今のEmacsならば定番となっている[[http://rubikitch.com/category/helm/][helm(カテゴリ)]] は
+絞り込みにより候補選択を行う素晴しいインターフェースです。
+
+それを端末の世界で行うのが[[https://github.com/peco/peco][peco]] です。
+
+[[https://github.com/mooz/percol][percol]] というPythonによる同種のプログラムをGoに移植したものです。
+
+https://github.com/peco/peco/releases/
+からダウンロードしてください。
+
+さすが並列処理が意識されたコンパイラ言語であるGoだけに、動作は高速です。
+
+しかし、emacs上のshell/eshellを使っている人にとってはそのままでは使えません。
+
+pecoは画面指向のプログラムなのでバッファによるシェルでは正しく動かないからです。
+
+eshellでは画面指向のプログラムはM-x termで動かすよう設定できますが
+pecoは標準入出力も使うのでそれではいけません。
+
+そこで、Emacsのシェルのように本物の端末以外から起動する場合には
+新しく端末エミュレータを立ち上げてその上でpecoを動かすラッパースクリプトを書きました。
+
+その判別は環境変数TERMを見て判断しています。
+
+スクリプトは同名なので、pecoバイナリよりもPATH優先度の高いディレクトリに
+放り込んで実行可能属性をつければ、本物のpecoの代わりとして端末以外からも使えます。
+
+pecoではなくてxpecoという名前で保存してもよいです。
+
+標準入力を使う場合はmkfifoコマンドを使っているので、
+Unix系OSでしか動かないと思います。
+
+
+<2015-10-01 Thu> =--xterm= オプションを追加することで、
+端末エミュレータのコマンドラインを細かく指定できるようにしました。
+
+使用例
+#+BEGIN_EXAMPLE
+$ peco --xterm='urxvt -fn xft:Ricty-80' /proc/meminfo
+#+END_EXAMPLE
+
+
+これまでeshellからhelmをなんとか呼び出そうと画策してきましたが、
+限界を感じたのでこれからはpecoを活用していこうと思います。
+
+他にもページをスクロールした後に絞り込み結果が出てこないバグを報告したところ、
+@lestrrat さんはすぐに修正してくれました。
+
+素晴しいプログラム、そして素早い対応に心から感謝しています。
+
+** コード [[http://rubikitch.com/f/peco][peco(以下のコードと同一)]]
+#+BEGIN: include :file "/r/gdgd/bin/peco"
+#+BEGIN_SRC fundamental
+#!/usr/bin/ruby
+# -*- coding: utf-8 -*-
+# pecoのdumb端末対応化
+## カスタマイズ定数
+# pecoバイナリ
+PECO = File.expand_path "~/gocode/bin/peco"
+# 端末エミュレータ
+XTERM = "urxvt"                 # or mlterm/xterm etc
+# 端末エミュレータを使うTERM環境変数
+TERMS_USE_XTERM = %w[dumb linux]
+
+require 'tempfile'
+require 'shellwords'
+require 'optparse'
+
+# 新しいコマンドライン
+def peco_cmdline
+  if input_file
+    "#{PECO} #{ARGV.shelljoin}"
+  else
+    "#{PECO} #{ARGV.shelljoin} < #{new_input_file}"
+  end
+end
+
+# xterm上でpecoを起動させる
+def xterm_peco(xterm)
+  out = Tempfile.new "peco-out"
+  err = Tempfile.new "peco-err"
+  system "#{xterm} -e sh -c '#{peco_cmdline} > #{out.path} 2> #{err.path}'"
+  print out.read
+  $stderr.print err.read
+end
+
+def input_file(argv=ARGV)
+  argv = argv.clone
+  until argv.empty?
+    case argv.first
+    when '-h', '--help', '--version', '--null'
+      argv.shift
+    when /^-/
+      argv.shift
+      argv.shift
+    else
+      return argv.first
+    end
+  end
+  nil
+end
+
+# 入力をfifoに変換する
+def new_input_file
+  fifo = "/tmp/peco#$$.fifo"
+  system "mkfifo", fifo
+  at_exit { File.unlink fifo }
+  Thread.start do
+    open(fifo, "w") do |fifo|
+      fifo.print while $stdin.gets
+    end
+  end
+  fifo
+end
+
+conf = {:xterm => XTERM}
+ARGV.each_with_index do |x, i|
+  case x
+  when "--xterm"
+    conf[:xterm] = ARGV[i+1]
+    ARGV[i..i+1] = nil
+  when /^--xterm=(.+)$/
+    conf[:xterm] = $1
+    ARGV[i] = nil
+  end
+end
+ARGV.compact!
+
+if TERMS_USE_XTERM.include? ENV['TERM']
+  xterm_peco conf[:xterm]
+else
+  exec PECO, *ARGV
+end
+#+END_SRC
+
+#+END:
+
+

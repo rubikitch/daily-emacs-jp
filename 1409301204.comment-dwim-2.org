@@ -1,0 +1,81 @@
+#+BLOG: rubikitch
+#+POSTID: 413
+#+DATE: [2014-09-30 Tue 12:04]
+#+PERMALINK: comment-dwim-2
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs
+#+EL_PKG_NAME: comment-dwim-2
+#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, emacs コメントアウト , emacs コメント 改良, emacs アンコメント, emacs M-; 改良, emacs comment-dwim 改良, emacs プログラミング 環境 改善, emacs reindent-comment kill-comment,
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: M-; (comment-dwim)を現在行をコメント・アンコメントできるように進化させる
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージcomment-dwim-2の紹介
+#+MYTAGS: package:comment-dwim-2, emacs 使い方, emacs コマンド, emacs, emacs lisp comment-dwim-2, elisp comment-dwim-2, emacs melpa comment-dwim-2, emacs comment-dwim-2 使い方, emacs comment-dwim-2 設定, emacs パッケージ comment-dwim-2, emacs comment-dwim-2 スクリーンショット, emacs コメントアウト , emacs コメント 改良, emacs アンコメント, emacs M-; 改良, emacs comment-dwim 改良, emacs プログラミング 環境 改善, emacs reindent-comment kill-comment,
+#+TITLE: emacs comment-dwim-2.el : M-; (comment-dwim)を現在行をコメント・アンコメントできるように進化させる | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>comment-dwim-2</td></tr>
+<tr><td>概要(原文)</td><td>An all-in-one comment command to rule them all</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/remyferre/comment-dwim-2">https://github.com/remyferre/comment-dwim-2</a></td></tr>
+<tr><td>バージョン</td><td>20141004.333</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:comment-dwim-2/">package:comment-dwim-2</a> </td></tr>
+</table>
+<br />
+#+END_HTML
+*comment-dwim-2.el* は、Emacs標準の *M-; (comment-dwim)* の進化形です。
+
+標準のcomment-dwimに加えて、現在行のコメント・アンコメントが
+できるように挙動を追加します。
+
+通常のM-;の挙動はそのまま継承されているので、
+導入の障壁は一切ありません。
+
+気軽に使ってみてください。
+
+[[https://github.com/remyferre/comment-dwim-2][作者のサイト]] にアニメーションgifによるデモがあります。
+** comment-dwim-2 インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install comment-dwim-2
+
+
+#+end:
+** 概要                                                             :noexport:
+*comment-dwim-2.el* は、Emacs標準の *M-; (comment-dwim)* の進化形です。
+
+標準のcomment-dwimに加えて、現在行のコメント・アンコメントが
+できるように挙動を追加します。
+
+通常のM-;の挙動はそのまま継承されているので、
+導入の障壁は一切ありません。
+
+気軽に使ってみてください。
+
+[[https://github.com/remyferre/comment-dwim-2][作者のサイト]] にアニメーションgifによるデモがあります。
+
+** 設定 [[http://rubikitch.com/f/140930120255.comment-dwim-2.el][140930120255.comment-dwim-2.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/140930/140930120255.comment-dwim-2.el"
+#+BEGIN_SRC fundamental
+(global-set-key (kbd "M-;") 'comment-dwim-2)
+;;; comment-dwimに近い動作をする
+(setq comment-dwim-2--inline-comment-behavior 'reindent-comment)
+;; ;;; 現在行のコメントをkillする(デフォルト)
+;; (setq comment-dwim-2--inline-comment-behavior 'kill-comment)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/140930120255.comment-dwim-2.el
+$ emacs -Q -f package-initialize -l 140930120255.comment-dwim-2.el
+#+END_EXAMPLE
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

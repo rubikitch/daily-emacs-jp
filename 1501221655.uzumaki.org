@@ -1,0 +1,170 @@
+#+BLOG: rubikitch
+#+POSTID: 987
+#+DATE: [2015-01-22 Thu 16:55]
+#+PERMALINK: uzumaki
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, Emacs 24.4, 
+#+EL_PKG_NAME: uzumaki
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, package:ido-vertical-mode, package:ido, relate:ido, relate:ido-vertical-mode, relate:quick-buffer-switch, relate:ace-jump-buffer, emacs 同じメジャーモード バッファ選択, バッファ選択, relate:cycle-buffer, relate:cycbuf, バッファ切り替え, emacs ido major-mode
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: 【コーディング支援】同じメジャーモード(言語)のバッファに一瞬で切り替える快適設定
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージuzumakiの紹介
+#+MYTAGS: package:uzumaki, emacs 使い方, emacs コマンド, emacs, uzumaki, uzumaki.el, emacs lisp uzumaki, elisp uzumaki, emacs melpa uzumaki, emacs uzumaki 使い方, emacs uzumaki 設定, emacs パッケージ uzumaki, emacs uzumaki スクリーンショット, package:ido-vertical-mode, package:ido, relate:ido, relate:ido-vertical-mode, relate:quick-buffer-switch, relate:ace-jump-buffer, emacs 同じメジャーモード バッファ選択, バッファ選択, relate:cycle-buffer, relate:cycbuf, バッファ切り替え, emacs ido major-mode
+#+TAGS: package:uzumaki, emacs 使い方, emacs コマンド, emacs, uzumaki, uzumaki.el, emacs lisp uzumaki, elisp uzumaki, emacs melpa uzumaki, emacs uzumaki 使い方, emacs uzumaki 設定, emacs パッケージ uzumaki, emacs uzumaki スクリーンショット, package:ido-vertical-mode, package:ido, relate:ido, relate:ido-vertical-mode, relate:quick-buffer-switch, relate:ace-jump-buffer, emacs 同じメジャーモード バッファ選択, バッファ選択, relate:cycle-buffer, relate:cycbuf, バッファ切り替え, emacs ido major-mode, Emacs, Emacs 24.4, , uzumaki.el, ido, uzumaki-minor-mode, ido-enable-flex-matching, M-x uzumaki-ido-buffers-cycle-by-mode, ido, uzumaki-minor-mode, ido-enable-flex-matching, M-x uzumaki-ido-buffers-cycle-by-mode
+#+TITLE: emacs uzumaki.el : 【コーディング支援】同じメジャーモード(言語)のバッファに一瞬で切り替える快適設定 | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>uzumaki</td></tr>
+<tr><td>概要(原文)</td><td>A simple buffer cycler</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/geyslan/uzumaki">https://github.com/geyslan/uzumaki</a></td></tr>
+<tr><td>バージョン</td><td>20150119.1706</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:uzumaki/">package:uzumaki</a> <a href="http://rubikitch.com/tag/package:ido/">package:ido</a> <a href="http://rubikitch.com/tag/package:ido-vertical-mode/">package:ido-vertical-mode</a> <a href="http://rubikitch.com/tag/package:quick-buffer-switch/">package:quick-buffer-switch</a> <a href="http://rubikitch.com/tag/package:ace-jump-buffer/">package:ace-jump-buffer</a> <a href="http://rubikitch.com/tag/package:cycle-buffer/">package:cycle-buffer</a> <a href="http://rubikitch.com/tag/package:cycbuf/">package:cycbuf</a></td></tr>
+</table>
+<br />
+#+END_HTML
+*uzumaki.el* は、同一メジャーモードのバッファを
+*ido* インターフェースで即選択できるようにします。
+
+他にもidoを使わずに直前直後のバッファに切り替えたり、
+特定のバッファのみ・全バッファを切り替え対象にしたりも
+できますが、それについては他のパッケージがやってくれます。
+
+*uzumaki-minor-mode* を有効にすると、
+uzumaki関連の他のコマンドがいくつか登録されますが、
+あまり必要性を感じませんでした。
+
+idoとくれば、やはり[[http://rubikitch.com/2015/01/06/ido-vertical-mode/][ido-vertical-mode(レビュー)]] と
+*ido-enable-flex-matching* (あいまいマッチ)は
+有効にしておかないと損です。
+
+C-,に *M-x uzumaki-ido-buffers-cycle-by-mode* を割り当て、
+さらにC-,を押すと次のバッファをidoで選択できるようになっています。
+
+不具合こそありますが、設定で修正しているので
+同じ言語の複数のソースコードを扱うときには
+かなり便利に使えます。
+** uzumaki インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install uzumaki
+
+
+#+end:
+本設定ではido-vertical-modeも使うのでも入れておきます。
+
+M-x package-install ido-vertical-mode
+** 概要                                                             :noexport:
+*uzumaki.el* は、同一メジャーモードのバッファを
+*ido* インターフェースで即選択できるようにします。
+
+他にもidoを使わずに直前直後のバッファに切り替えたり、
+特定のバッファのみ・全バッファを切り替え対象にしたりも
+できますが、それについては他のパッケージがやってくれます。
+
+*uzumaki-minor-mode* を有効にすると、
+uzumaki関連の他のコマンドがいくつか登録されますが、
+あまり必要性を感じませんでした。
+
+idoとくれば、やはり[[http://rubikitch.com/2015/01/06/ido-vertical-mode/][ido-vertical-mode(レビュー)]] と
+*ido-enable-flex-matching* (あいまいマッチ)は
+有効にしておかないと損です。
+
+C-,に *M-x uzumaki-ido-buffers-cycle-by-mode* を割り当て、
+さらにC-,を押すと次のバッファをidoで選択できるようになっています。
+
+不具合こそありますが、設定で修正しているので
+同じ言語の複数のソースコードを扱うときには
+かなり便利に使えます。
+** 不具合修正
+現時点において、以下の不具合や不可解な仕様があったので
+本設定ではアドバイスで修正しています。
+1. idoで選択しようとするとカレントバッファが選択されている
+2. なぜかバッファの選択順がアルファベット順になる
+
+バッファの並び順は最近使ったバッファで並べられるべきであり、
+それでこそ使いやすいものです。
+
+それをなぜわざわざソートしているのか、僕には理解できません。
+
+この修正には[[http://rubikitch.com/2014/10/30/nadvice/][nadvice.el(レビュー)]] を使っているので
+Emacs24.4以降を使ってください。
+
+
+** 設定 [[http://rubikitch.com/f/150122224053.uzumaki.1.el][150122224053.uzumaki.1.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/150122/150122224053.uzumaki.1.el"
+#+BEGIN_SRC fundamental
+;;; このときidoが使うwindowの高さは大きくした方がいい
+(setq ido-max-window-height 0.75)
+;;; あいまいマッチは入れておこう
+(setq ido-enable-flex-matching t)
+;; (ido-mode 'buffers)
+(ido-vertical-mode 1)
+(setq ido-vertical-define-keys 'C-n-and-C-p-only)
+
+(require 'uzumaki)  ;minor-modeを使わないなら必要
+;;; uzumaki-idoの表示をido-vertical-modeに合わせる
+(setq uzumaki-ido-decorations ido-vertical-decorations)
+
+;;; 不具合修正#1
+(defun uzumaki-buffers-ordered-by-current--remove-current (&rest them)
+  "なぜかカレントバッファが入っているので削除する"
+  (cl-destructuring-bind (cur . rest) (apply them)
+    (if (string= cur (buffer-name)) rest (cons cur rest))))
+(advice-add 'uzumaki-buffers-ordered-by-current :around
+            'uzumaki-buffers-ordered-by-current--remove-current)
+
+;;; 不具合修正#2
+(defun uzumaki-buffers--nosort (&rest them)
+  "ってかさぁ、なんでわざわざbuffer-listをsortする必要あるわけ？"
+  ;; sort関数を一時的に潰す
+  (cl-letf (((symbol-function 'sort) (lambda (it ignore) it)))
+    (apply them)))
+(advice-add 'uzumaki-buffers :around 'uzumaki-buffers--nosort)
+
+;;; C-, を何度か叩けば同じメジャーモードのバッファを選択できる
+(global-set-key (kbd "C-,") 'uzumaki-ido-buffers-cycle-by-mode)
+(defun ido-setup-hook--uzumaki ()
+  (define-key ido-common-completion-map (kbd "C-,") 'ido-next-match)
+  ;; 行きすぎたらC-M-,で戻る
+  (define-key ido-common-completion-map (kbd "C-M-,") 'ido-prev-match))
+(add-hook 'ido-setup-hook 'ido-setup-hook--uzumaki)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/150122224053.uzumaki.1.el
+$ emacs -Q -f package-initialize -l 150122224053.uzumaki.1.el
+#+END_EXAMPLE
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+[[file:/r/sync/screenshots/20150122224819.png]]
+Fig1: org anything helm subrの順に並んでる場合
+
+[[file:/r/sync/screenshots/20150122224833.png]]
+Fig2: C-,でanythingを選択
+
+[[file:/r/sync/screenshots/20150122224840.png]]
+Fig3: さらにC-,でhelmを選択 (この状態からC-M-,でanythingを選択)
+
+[[file:/r/sync/screenshots/20150122224856.png]]
+Fig4: srとクエリ(あいまいマッチ)を入力するとidoで絞り込めて
+
+[[file:/r/sync/screenshots/20150122224907.png]]
+Fig5: RETでバッファを選択！
+
+
+# /r/sync/screenshots/20150122224819.png http://rubikitch.com/wp-content/uploads/2015/01/wpid-20150122224819.png
+# /r/sync/screenshots/20150122224833.png http://rubikitch.com/wp-content/uploads/2015/01/wpid-20150122224833.png
+# /r/sync/screenshots/20150122224840.png http://rubikitch.com/wp-content/uploads/2015/01/wpid-20150122224840.png
+# /r/sync/screenshots/20150122224856.png http://rubikitch.com/wp-content/uploads/2015/01/wpid-20150122224856.png
+# /r/sync/screenshots/20150122224907.png http://rubikitch.com/wp-content/uploads/2015/01/wpid-20150122224907.png

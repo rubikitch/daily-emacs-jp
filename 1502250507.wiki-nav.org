@@ -1,0 +1,169 @@
+#+BLOG: rubikitch
+#+POSTID: 1212
+#+DATE: [2015-02-25 Wed 05:07]
+#+PERMALINK: wiki-nav
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs
+#+EL_PKG_NAME: wiki-nav
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, emacs wiki, emacs コメント ハイパーリンク, emacs ハイパーリンク, relate:ido, relate:org, relate:linkd, relate:orglink
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: 【ハイパーリンク】ソースコードのコメントをWiki化し、M-n/M-pで辿れるようにする
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージwiki-navの紹介
+#+MYTAGS: package:wiki-nav, emacs 使い方, emacs コマンド, emacs, wiki-nav, wiki-nav.el, emacs lisp wiki-nav, elisp wiki-nav, emacs melpa wiki-nav, emacs wiki-nav 使い方, emacs wiki-nav 設定, emacs パッケージ wiki-nav, emacs wiki-nav スクリーンショット, emacs wiki, emacs コメント ハイパーリンク, emacs ハイパーリンク, relate:ido, relate:org, relate:linkd, relate:orglink
+#+TAGS: package:wiki-nav, emacs 使い方, emacs コマンド, emacs, wiki-nav, wiki-nav.el, emacs lisp wiki-nav, elisp wiki-nav, emacs melpa wiki-nav, emacs wiki-nav 使い方, emacs wiki-nav 設定, emacs パッケージ wiki-nav, emacs wiki-nav スクリーンショット, emacs wiki, emacs コメント ハイパーリンク, emacs ハイパーリンク, relate:ido, relate:org, relate:linkd, relate:orglink, Emacs, org-mode, ハイパーリンク, wiki-nav.el, wiki-nav-mode, linkd.el, M-x wiki-nav-ido, ido, org-mode, ハイパーリンク, wiki-nav.el, wiki-nav-mode, linkd.el, M-x wiki-nav-ido, ido
+#+TITLE: emacs wiki-nav.el : 【ハイパーリンク】ソースコードのコメントをWiki化し、M-n/M-pで辿れるようにする | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>wiki-nav</td></tr>
+<tr><td>概要(原文)</td><td>Simple file navigation using [[WikiStrings]]</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/rolandwalker/button-lock">https://github.com/rolandwalker/button-lock</a></td></tr>
+<tr><td>バージョン</td><td>20150223.554</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:wiki-nav/">package:wiki-nav</a> <a href="http://rubikitch.com/tag/package:ido/">package:ido</a> <a href="http://rubikitch.com/tag/package:org/">package:org</a> <a href="http://rubikitch.com/tag/package:linkd/">package:linkd</a> <a href="http://rubikitch.com/tag/package:orglink/">package:orglink</a></td></tr>
+</table>
+<br />
+#+END_HTML
+<2015-03-09 Mon> [[http://rubikitch.com/2015/03/09/orglink/][org-link.el(レビュー)]] でorg-modeのリンクが使えます。
+
+*org-mode* のリンクはとても強力ですが、
+メジャーモードなのでorg-mode以外では使えません。
+
+ソースコードのコメントでも長くなると *ハイパーリンク* が欲しくなります。
+
+そこで *wiki-nav.el* でコメントをWikiっぽくしましょう。
+
+リンクとターゲットは以下のように記述します。
+(「;; 」はelispのコメントなので除く)
+
+#+BEGIN_EXAMPLE
+;; [[link]]  リンク
+;; [[<link]] ターゲット
+#+END_EXAMPLE
+
+本設定ではターゲットの記法を発見すると自動で
+マイナーモード *wiki-nav-mode* を有効にするので
+明示的に有効にする必要はありません。
+
+有効になるとM-pとM-nでリンク・ターゲット間をジャンプし、
+RET、C-c C-o、M-mで辿るように設定しています。
+
+デフォルトの設定だとC-c C-wでリンク・ターゲット間をジャンプしていますが、
+C-c C-wはメジャーモードで使われていることがあるのでよくないです。
+
+使えるリンク記法については設定ファイルを見てください。
+
+以前からあった *linkd.el* みたいなやつですね、これは。
+
+
+*M-x wiki-nav-ido* を使うと、 *ido* のインターフェースで
+リンク・ターゲットへジャンプします。
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+[[file:/r/sync/screenshots/20150225054216.png]]
+Fig1: リンクは色付けされる
+** wiki-nav インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install wiki-nav
+
+
+#+end:
+** 概要                                                             :noexport:
+<2015-03-09 Mon> [[http://rubikitch.com/2015/03/09/orglink/][org-link.el(レビュー)]] でorg-modeのリンクが使えます。
+
+*org-mode* のリンクはとても強力ですが、
+メジャーモードなのでorg-mode以外では使えません。
+
+ソースコードのコメントでも長くなると *ハイパーリンク* が欲しくなります。
+
+そこで *wiki-nav.el* でコメントをWikiっぽくしましょう。
+
+リンクとターゲットは以下のように記述します。
+(「;; 」はelispのコメントなので除く)
+
+#+BEGIN_EXAMPLE
+;; [[link]]  リンク
+;; [[<link]] ターゲット
+#+END_EXAMPLE
+
+本設定ではターゲットの記法を発見すると自動で
+マイナーモード *wiki-nav-mode* を有効にするので
+明示的に有効にする必要はありません。
+
+有効になるとM-pとM-nでリンク・ターゲット間をジャンプし、
+RET、C-c C-o、M-mで辿るように設定しています。
+
+デフォルトの設定だとC-c C-wでリンク・ターゲット間をジャンプしていますが、
+C-c C-wはメジャーモードで使われていることがあるのでよくないです。
+
+使えるリンク記法については設定ファイルを見てください。
+
+以前からあった *linkd.el* みたいなやつですね、これは。
+
+
+*M-x wiki-nav-ido* を使うと、 *ido* のインターフェースで
+リンク・ターゲットへジャンプします。
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+[[file:/r/sync/screenshots/20150225054216.png]]
+Fig1: リンクは色付けされる
+
+** 設定 [[http://rubikitch.com/f/150225045227.wiki-nav.1.el][150225045227.wiki-nav.1.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/150225/150225045227.wiki-nav.1.el"
+#+BEGIN_SRC fundamental
+;;; [[KeyBinding]]
+;;; [[EnableOnDemand]]
+;;; [[Examples]]
+;;; [[日本語]]
+;;; [[<KeyBinding]]
+;;; wiki link間をM-p/M-nで辿れるように
+(setq wiki-nav-find-any-link-keys '("M-n"))
+(setq wiki-nav-find-any-previous-link-keys '("M-p"))
+(setq wiki-nav-skip-to-next-keys '("<tab>" "M-n"))
+(setq wiki-nav-skip-to-previous-keys '("S-TAB" "S-<tab>" "<backtab>" "S-<iso-lefttab>" "M-p"))
+;;; wiki-nav内ではM-mとC-c C-o(org-mode風)でも辿れるように
+(setq wiki-nav-activate-keys '("RET" "M-m" "C-c C-o"))
+;;; なんでvisit:というスキームなの？file:くらいサポートすべきよね？？
+(setq wiki-nav-visit-link-pattern "\\`\\(?:file\\|visit\\):\\([^:\n]+?\\)\\(?:\\|:\\([^\n]*\\)\\)\\'")
+;;; [[<EnableOnDemand]]
+;;; wiki-nav記法があるときのみ有効にする
+(defun wiki-nav-enable-maybe ()
+  (unless (bound-and-true-p wiki-nav-mode)
+    (save-excursion
+      (goto-char (point-min))
+      (when (search-forward "[[<" nil t)
+        (wiki-nav-mode 1)
+        (run-at-time 0.5 nil 'message "Enable wiki-nav-mode.")))))
+;;; ファイルを開くときにwiki-nav記法をチェック
+(add-hook 'find-file-hook 'wiki-nav-enable-maybe)
+;;; 3秒間のアイドル時にwiki-nav記法をチェック
+(run-with-idle-timer 3 t 'wiki-nav-enable-maybe)
+;;; [[<Examples]]
+;;; [[http://rubikitch.com/]]
+;;; [[visit:~/.emacs.d/init.el]] ファイルへのリンク
+;;; [[visit:~/.emacs.d/init.el:line:3]] init.elの3行目へ
+;;; [[file:~/.emacs.d/init.el]]  これも使えるように設定
+;;; [[func:wiki-nav-enable-maybe]] ファイル内の関数へのリンク
+;;; [[function:wiki-nav-enable-maybe]] 同様
+;;; [[line:2]] 2行目へのリンク
+;;; [[<日本語]] 日本語もＯＫ
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/150225045227.wiki-nav.1.el
+$ emacs -Q -f package-initialize -l 150225045227.wiki-nav.1.el
+#+END_EXAMPLE
+
+# /r/sync/screenshots/20150225054216.png http://rubikitch.com/wp-content/uploads/2015/02/wpid-20150225054216.png

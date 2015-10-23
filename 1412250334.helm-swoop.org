@@ -1,0 +1,455 @@
+#+BLOG: rubikitch
+#+POSTID: 782
+#+DATE: [2014-12-25 Thu 03:34]
+#+PERMALINK: helm-swoop
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, helm, 
+#+EL_PKG_NAME: helm-swoop
+#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, package:helm, relate:all-ext, relate:helm, relate:helm-migemo, relate:highlight-symbol, relate:all, relate:all-ext, relate:migemo, emacs helm migemo, emacs 行 絞り込み検索, relate:ace-jump-mode, package:ace-isearch, emacs helm-occur, anything-c-moccur, emacs occur, relate:helm-anything, relate:helm-ag-r, relate:swiper, relate:loccur, relate:highlight-symbol
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: 【これはすごい】バッファ全体をMigemo絞り込み検索して走り回れ！Emacs Advent Calendar 2014
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージhelm-swoopの紹介
+#+MYTAGS: package:helm-swoop, emacs 使い方, emacs コマンド, emacs, emacs lisp helm-swoop, elisp helm-swoop, emacs melpa helm-swoop, emacs helm-swoop 使い方, emacs helm-swoop 設定, emacs パッケージ helm-swoop, emacs helm-swoop スクリーンショット, package:helm, relate:all-ext, relate:helm, relate:helm-migemo, relate:highlight-symbol, relate:all, relate:all-ext, relate:migemo, emacs helm migemo, emacs 行 絞り込み検索, relate:ace-jump-mode, package:ace-isearch, emacs helm-occur, anything-c-moccur, emacs occur, relate:helm-anything, relate:helm-ag-r, relate:swiper, relate:loccur, relate:highlight-symbol
+#+TAGS: package:helm-swoop, emacs 使い方, emacs コマンド, emacs, emacs lisp helm-swoop, elisp helm-swoop, emacs melpa helm-swoop, emacs helm-swoop 使い方, emacs helm-swoop 設定, emacs パッケージ helm-swoop, emacs helm-swoop スクリーンショット, package:helm, relate:all-ext, relate:helm, relate:helm-migemo, relate:highlight-symbol, relate:all, relate:all-ext, relate:migemo, emacs helm migemo, emacs 行 絞り込み検索, relate:ace-jump-mode, package:ace-isearch, emacs helm-occur, anything-c-moccur, emacs occur, relate:helm-anything, relate:helm-ag-r, relate:swiper, relate:loccur, relate:highlight-symbol, Emacs, helm, , helm, 絞り込み検索, M-x helm-occur, M-x helm-multi-occur, helm, 絞り込み検索, M-x helm-occur, M-x helm-multi-occur, インクリメンタル絞り込み検索, 候補選択, anything.el, cmigemo, helm-migemo, C-x c b, M-x helm-resume, シンボル検索, highlight-symbol.el, M-x helm-swoop-nomigemo, M-x all, M-x occur-edit-mode, ace-isearch, ace-jump-char-mode, M-x occur, M-g M-p, M-g M-n, next-error, helm-next-error, M-x occur, C-u C-s, C-u C-u C-s, helm-swoop-pre-input-function, helm-ag-r, M-x helm-mini
+#+TITLE: emacs helm-swoop.el : 【これはすごい】バッファ全体をMigemo絞り込み検索して走り回れ！Emacs Advent Calendar 2014 | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>helm-swoop</td></tr>
+<tr><td>概要(原文)</td><td>Efficiently hopping squeezed lines powered by helm interface</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/ShingoFukuyama/helm-swoop">https://github.com/ShingoFukuyama/helm-swoop</a></td></tr>
+<tr><td>バージョン</td><td>20150922.842</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:helm-swoop/">package:helm-swoop</a> <a href="http://rubikitch.com/tag/package:all-ext/">package:all-ext</a> <a href="http://rubikitch.com/tag/package:helm/">package:helm</a> <a href="http://rubikitch.com/tag/package:helm-migemo/">package:helm-migemo</a> <a href="http://rubikitch.com/tag/package:highlight-symbol/">package:highlight-symbol</a> <a href="http://rubikitch.com/tag/package:all/">package:all</a> <a href="http://rubikitch.com/tag/package:all-ext/">package:all-ext</a> <a href="http://rubikitch.com/tag/package:migemo/">package:migemo</a> <a href="http://rubikitch.com/tag/package:ace-jump-mode/">package:ace-jump-mode</a> <a href="http://rubikitch.com/tag/package:helm-anything/">package:helm-anything</a> <a href="http://rubikitch.com/tag/package:helm-ag-r/">package:helm-ag-r</a> <a href="http://rubikitch.com/tag/package:swiper/">package:swiper</a> <a href="http://rubikitch.com/tag/package:loccur/">package:loccur</a> <a href="http://rubikitch.com/tag/package:highlight-symbol/">package:highlight-symbol</a></td></tr>
+</table>
+<br />
+#+END_HTML
+<2015-03-23 Mon>isearchと併合しました。
+
+ども、[[http://qiita.com/advent-calendar/2014/emacs][Emacs Advent Calendar 2014]] の最後を
+務めさせていただきまするびきちです。
+
+昨日は[[http://g000001.cddddr.org/][g000001]] さんの[[http://g000001.cddddr.org/3628335601][M-gを活用しよう]] でした。
+
+僕は『日刊Emacs』というサイトを立ち上げ、
+文字通り毎日Emacsについて何か書いています。
+
+未熟者ですが、サイト・メルマガ・書籍によって
+僭越ながらもEmacs道の伝道に携わっています。
+
+今後とも広大なるEmacs界の道具として
+より一掃あなたの役に立ちたい気持ちでいっぱいです。
+
+
+さて、今回主役になるEmacs Lispは…
+/helm-swoopです！/
+
+これを一言で言うと、 *helm* インターフェースを使って
+バッファ内・全バッファを *絞り込み検索* するものです。
+
+*M-x helm-occur* 、 *M-x helm-multi-occur* の超強化版です。
+
+/『かゆいところに手が届く』helm-occur＋αです。/
+
+helm-swoopを使いこなすことで、
+あなたが日常行っている「検索」が
+一気に進化すること間違いありません。
+** helm-swoop インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install helm-swoop
+
+
+#+end:
+M-x package-install helm-migemo
+M-x package-install ace-isearch
+** 概要                                                             :noexport:
+<2015-03-23 Mon>isearchと併合しました。
+
+ども、[[http://qiita.com/advent-calendar/2014/emacs][Emacs Advent Calendar 2014]] の最後を
+務めさせていただきまするびきちです。
+
+昨日は[[http://g000001.cddddr.org/][g000001]] さんの[[http://g000001.cddddr.org/3628335601][M-gを活用しよう]] でした。
+
+僕は『日刊Emacs』というサイトを立ち上げ、
+文字通り毎日Emacsについて何か書いています。
+
+未熟者ですが、サイト・メルマガ・書籍によって
+僭越ながらもEmacs道の伝道に携わっています。
+
+今後とも広大なるEmacs界の道具として
+より一掃あなたの役に立ちたい気持ちでいっぱいです。
+
+
+さて、今回主役になるEmacs Lispは…
+/helm-swoopです！/
+
+これを一言で言うと、 *helm* インターフェースを使って
+バッファ内・全バッファを *絞り込み検索* するものです。
+
+*M-x helm-occur* 、 *M-x helm-multi-occur* の超強化版です。
+
+/『かゆいところに手が届く』helm-occur＋αです。/
+
+helm-swoopを使いこなすことで、
+あなたが日常行っている「検索」が
+一気に進化すること間違いありません。
+
+** helmとは
+*helm* とは *インクリメンタル絞り込み検索* を通じて
+*候補選択* をし、何らかのアクションを行うフレームワークです。
+
+少し前にEmacsを熱狂の渦に巻き込んだ *anything.el* の後継です。
+
+よくある使い方として、
+バッファや最近使ったファイルから串刺し検索をして
+開いたり内容を挿入したりとかです。
+
+そういうとファイルやバッファだけにしか使えないと思われがちですが、
+helmの中核は絞り込み検索にあるので、検索できるものであれば
+何にでも適用できます。
+
+この「何にでも」こそが前身anythingの由来です。
+
+helmは(anythingも)既存のEmacsとは抜本的に考え方が違うので
+アンチさんが少なからずいらっしゃいます。
+
+しかし、helmアンチさんにも今日紹介するhelm-swoopだけは
+ぜひとも使っていただきたいのです。
+
+helmの他の機能は使わなくていいので、
+helm-swoopは体験してほしいです。
+
+ただの先入観のせいでこんな素晴らしいパッケージを使っていないのは
+とてつもなく勿体ないですから…。
+
+http://rubikitch.com/f/20141224093733.png
+Fig1: M-x helm-miniで串刺し検索！
+
+
+** Migemoとhelm-migemoを導入しよう
+まずは準備段階で、 *Migemo* 環境を整えておく必要があります。
+
+というか、本記事を読んでいるくらいの人ならば
+おそらくMigemoは入っているとは思います。
+
+Migemoは日本人Emacserにとっては常識です。
+
+万一入っていないというのならば、
+http://rubikitch.com/2014/08/20/migemo/
+を見て
+/今すぐ設定してください！/
+
+Migemoとはローマ字で日本語検索するという神ツールで、
+検索時にわざわざ漢字変換しなくて済みます。
+
+Debian GNU/Linux系列ならば
+*cmigemo* がパッケージになっているので
+一撃でインストールできます。
+
+Windowsで初めてインストールする場合は
+もしかしたら手こずるかもしれませんが、
+ここはふんばり時です。
+
+一度Migemoの味を知ったら、
+これ無しでは生きてけなくなるので
+苦労は絶対に報われます。
+
+がんばりましょう。
+
+
+そして、helmでの検索にもMigemoを適用しようというのが
+*helm-migemo* パッケージです。
+
+helm-swoopはhelm-migemoに対応しているので、
+日本人ならばhelm-migemoは必須です。
+
+helmでmigemoが効かない不具合も設定で直しています。
+
+http://rubikitch.com/2014/12/19/helm-migemo/
+
+動作確認はhelm-swoopで行うので
+helm-migemoはインストール・設定だけでいいです。
+
+** M-x helm-swoopを使おう
+M-x helm-swoopを起動してください。
+
+すると、バッファ内の非空白行が*Helm Swoop*バッファに見えています。
+
+C-pやC-nで行を前後すると、バッファの対応位置を表示してくれます。
+
+http://rubikitch.com/f/20141224094103.png
+Fig2: M-x helm-swoop実行直後
+
+では何か入力してみましょう。
+
+Migemoが有効になっているのなら、ローマ字で入力します。
+
+検索対象バッファでもマッチした部分が
+ハイライトされているのが分かりやすいですね。
+
+http://rubikitch.com/f/20141224094146.png
+Fig3: defunにマッチする行を絞り込み
+
+スペースをはさんで検索語を入力すると、
+絞り込み検索が行われ、
+双方にマッチする行が表示されます。
+
+http://rubikitch.com/f/20141224094242.png
+Fig4: Migemoでローマ字絞り込み！
+
+「!」で始まる検索語を入力すれば、
+それにマッチしない行に絞り込まれます。
+
+http://rubikitch.com/f/20141224094525.png
+Fig5: title(Migemo)を含まない行に絞り込み
+
+そしてRETを押すと、その行にジャンプしてhelm-swoopを終了します。
+
+*C-x c b* (*M-x helm-resume*)で終了したhelm-swoopを復元します。
+
+
+ここまででも初めて使う人にとっては感激ものだとは思います。
+
+しかし、この程度のことはM-x helm-occurでも
+だいたい出来ていたことです。
+
+色が付いたり検索対象に自動的に移動するなど
+より洗練されていますが
+機能的にはM-x helm-occurとさほど変わらないです。
+
+helm-swoopは空気を読んでくれるので
+regionが指定してあるときはregionを、
+そうでないときは現在のシンボルを
+初期入力にしてくれます。
+
+** カーソル位置のシンボルを検索させる
+プログラミング中にものすごく役立つのが、
+カーソル位置の *シンボル検索* です。
+
+helm-swoopを使えば同じシンボル間をC-p/C-nで渡り歩けます。
+
+僕は今までシンボル間移動を *highlight-symbol.el* で
+やっていましたが、今ではhelm-swoopに取って代わっています。
+
+しかし、anything時代からのバグというか仕様として
+Migemo化された情報源は正規表現で絞り込めなくなります。
+
+このことが問題になるケースはめったにないのですが、
+helm-swoopでシンボル検索するときに問題になります。
+
+*M-x helm-swoop-nomigemo* を定義して
+複数の正規表現での絞り込み検索ができるようにします。
+
+設定は最後にまとめて示します。
+
+** M-x allやM-x occur-edit-modeのようにマッチした行をまとめて書き換えよう
+helm-swoopの機能はまだまだこんなものではありません。
+
+helm-swoopで絞り込んだ結果を編集して、
+それをバッファに反映する機能があります。
+
+*M-x all* や *M-x occur-edit-mode* のような機能です。
+
+使い方は、上(header-line)に書いてるようにC-c C-eを押します。
+
+そして、編集してC-x C-sでバッファに反映させます。
+
+http://rubikitch.com/f/20141224095406.png
+Fig6: fooが含まれる行を絞り込み
+
+http://rubikitch.com/f/20141224095413.png
+Fig7: C-c C-eでhelm-swoop-editに移行
+
+http://rubikitch.com/f/20141224095429.png
+Fig8: 置換！しかしまだバッファには未反映
+
+http://rubikitch.com/f/20141224095443.png
+Fig9: C-x C-sで初めて反映される
+
+
+[[http://d.hatena.ne.jp/rubikitch/20130202/all][helm/anythingの結果をM-x allで編集するall-ext.el]] を
+かつて作っていましたが、同じ機能が実装されてしまいました。
+
+/all-extいらないんじゃね？/
+
+とはいえall-ext.el(というかall.el)は
+*All*バッファの編集が即バッファに反映される違いがあります。
+
+即反映される方が好きな方はall-extを、
+一度に反映してほしい方はhelm-swoop版を使ってください。
+
+好みの問題なので。
+
+http://rubikitch.com/f/20141224095512.png
+Fig10: C-c C-aでhelm-swoopからallが起動！すぐに反映される
+
+** 究極合体ace-isearch！isearchからhelm-swoopする
+実は素のM-x helm-swoopはキーに割り当てる必要すらありません。
+
+というのは、isearchからM-iでhelm-swoopに移行できるからです。
+
+しかも *ace-isearch* と併用してしまえば、
+M-iを押す必要すらありません。
+
+http://rubikitch.com/2014/10/08/ace-isearch/
+
+ace-isearchは以下の挙動をします。
+
+- 1文字の場合は *ace-jump-char-mode*
+- 6文字以上の場合は「自動で」helm-swoop
+
+検索ツールのいいとこどりをしたace-isearch、
+/まさに究極合体ですね！！/
+
+僕の場合ace-isearchからは圧倒的にhelm-swoopが起動されますが、
+この名前ではhelm-swoopが連想できないので
+ちょっともったいない気がします。
+
+** M-x helm-next-errorでhelm-swoopを閉じてもマッチ行にジャンプする
+*M-x grep* や *M-x occur* は検索結果ウィンドウを閉じても
+*M-g M-p* と *M-g M-n* で検索結果に移動できます。
+# *next-error* *previous-error* *helm-next-error* *helm-previous-error*
+これをhelm-swoop等のhelm/anythingの結果にも適用できるように
+拡張したコードを用意しました。
+
+http://rubikitch.com/2014/11/27/helm-next-error/
+
+これでM-x occurは用済みとなりました(笑)
+
+helm-swoopにも対応し、さらにパワーアップした
+M-g M-p/M-g M-nをお楽しみください。
+
+
+この部分の設定は長くなるので本記事では設定していません。
+
+** M-x helm-multi-swoopで複数のバッファを検索
+helm-swoopでカレントバッファを検索しても見付からない場合、
+他のバッファに求める行が見付かるかもしれません。
+
+helm-swoopの結果を表示しているときにM-iを押せば
+開いているバッファすべてを検索対象とします。
+
+しかし、Emacs Lispで検索しているので動作は死ぬほど遅いです(泣)
+
+** <2015-03-23 Mon>C-u C-sでhelm-swoopする
+isearch＋helm-swoopはace-isearchもありますが、
+その場合はisearchが起動しているのでカーソルが移動してしまいます。
+
+*M-x occur* のようにマッチする行をリストしたい場合には不便です。
+
+そこで *C-u C-s* でM-x helm-swoopを起動させるようにしてしまいます。
+
+カーソルを移動させたくない場合はC-gでhelm-swoopを閉じればいいだけです。
+
+さらに *C-u C-u C-s* でM-x helm-swoop-nomigemoを起動させ、
+複数の正規表現で絞り込めるようになります。
+
+C-u C-sは本来正規表現isearchですがhelm-swoopに置き換えても
+違和感はありません。
+
+isearchと同様の使い勝手にするため、
+初期入力(*helm-swoop-pre-input-function*)を無効にしました。
+
+なお、この発想は類似品[[http://rubikitch.com/2015/03/18/swiper/][swiper.el(レビュー)]] のアイデアの応用です。
+
+** 妄想etc
+*M-x helm-multi-swoop* はとにかく遅いので
+移植性はなくなりますが実用性を重視して
+grepやagなどの外部プログラムを使った
+バージョンも欲しいところです。
+
+Migemo結果の正規表現をgrepに渡すことができるのだから、
+これを *helm-ag-r* のように絞り込めれば…
+
+また、helm-grepなどの結果にもhelm-swoopで提供している
+ハイライトやC-p/C-nによる該当行移動などができれば…
+
+いっそのことファイルのアクションのhelm-grepも丸々置き換えて
+*M-x helm-mini* などから起動できるようになってくれたら…
+
+と妄想は尽きません。
+
+#+BEGIN_EXAMPLE
+$ grep -nE `cmigemo -q -d /usr/local/share/migemo/utf-8/migemo-dict -w taiou` helm-swoop.org /dev/null
+helm-swoop.org:80:helm-swoopはhelm-migemoに対応しているので、
+helm-swoop.org:92:C-pやC-nで行を前後すると、バッファの対応位置を表示してくれます。
+#+END_EXAMPLE
+
+helm-swoopは一番活躍しているhelmコマンドなので、
+今後の発展を心から応援しています。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+
+** 設定 [[http://rubikitch.com/f/141225040059.helm-swoop.1.el][141225040059.helm-swoop.1.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/141225/141225040059.helm-swoop.1.el"
+#+BEGIN_SRC fundamental
+;;; この前にmigemoの設定が必要
+(require 'helm-migemo)
+;;; この修正が必要
+(eval-after-load "helm-migemo"
+  '(defun helm-compile-source--candidates-in-buffer (source)
+     (helm-aif (assoc 'candidates-in-buffer source)
+         (append source
+                 `((candidates
+                    . ,(or (cdr it)
+                           (lambda ()
+                             ;; Do not use `source' because other plugins
+                             ;; (such as helm-migemo) may change it
+                             (helm-candidates-in-buffer (helm-get-current-source)))))
+                   (volatile) (match identity)))
+       source)))
+
+
+(require 'helm-swoop)
+;;; isearchからの連携を考えるとC-r/C-sにも割り当て推奨
+(define-key helm-swoop-map (kbd "C-r") 'helm-previous-line)
+(define-key helm-swoop-map (kbd "C-s") 'helm-next-line)
+
+;;; 検索結果をcycleしない、お好みで
+(setq helm-swoop-move-to-line-cycle nil)
+
+(cl-defun helm-swoop-nomigemo (&key $query ($multiline current-prefix-arg))
+  "シンボル検索用Migemo無効版helm-swoop"
+  (interactive)
+  (let ((helm-swoop-pre-input-function
+         (lambda () (format "\\_<%s\\_> " (thing-at-point 'symbol)))))
+    (helm-swoop :$source (delete '(migemo) (copy-sequence (helm-c-source-swoop)))
+                :$query $query :$multiline $multiline)))
+;;; C-M-:に割り当て
+(global-set-key (kbd "C-M-:") 'helm-swoop-nomigemo)
+
+;;; [2014-11-25 Tue]
+(when (featurep 'helm-anything)
+  (defadvice helm-resume (around helm-swoop-resume activate)
+    "helm-anything-resumeで復元できないのでその場合に限定して無効化"
+    ad-do-it))
+
+;;; ace-isearch
+(global-ace-isearch-mode 1)
+
+;;; [2015-03-23 Mon]C-u C-s / C-u C-u C-s
+(defun isearch-forward-or-helm-swoop (use-helm-swoop)
+  (interactive "p")
+  (let (current-prefix-arg
+        (helm-swoop-pre-input-function 'ignore))
+    (call-interactively
+     (case use-helm-swoop
+       (1 'isearch-forward)
+       (4 'helm-swoop)
+       (16 'helm-swoop-nomigemo)))))
+(global-set-key (kbd "C-s") 'isearch-forward-or-helm-swoop)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/141225040059.helm-swoop.1.el
+$ emacs -Q -f package-initialize -l your-migemo-settings.el -l 141225040059.helm-swoop.1.el
+#+END_EXAMPLE

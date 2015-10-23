@@ -1,0 +1,174 @@
+#+BLOG: rubikitch
+#+POSTID: 1667
+#+DATE: [2015-05-20 Wed 06:50]
+#+PERMALINK: avy
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs
+#+EL_PKG_NAME: avy
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, relate:ace-jump-mode, emacs インクリメンタルサーチ, isearch, インクリメンタルサーチ, emacs カーソル移動, ace-jump-mode, relate:ace-pinyin, relate:ace-window, relate:ace-link
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: 【画面内移動】ace-jump-modeの新実装！より汎用的に使いやすく
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージavyの紹介
+#+MYTAGS: package:avy, emacs 使い方, emacs コマンド, emacs, avy, avy.el, emacs lisp avy, elisp avy, emacs melpa avy, emacs avy 使い方, emacs avy 設定, emacs パッケージ avy, emacs avy スクリーンショット, relate:ace-jump-mode, emacs インクリメンタルサーチ, isearch, インクリメンタルサーチ, emacs カーソル移動, ace-jump-mode, relate:ace-pinyin, relate:ace-window, relate:ace-link
+#+TAGS: package:avy, emacs 使い方, emacs コマンド, emacs, avy, avy.el, emacs lisp avy, elisp avy, emacs melpa avy, emacs avy 使い方, emacs avy 設定, emacs パッケージ avy, emacs avy スクリーンショット, relate:ace-jump-mode, emacs インクリメンタルサーチ, isearch, インクリメンタルサーチ, emacs カーソル移動, ace-jump-mode, relate:ace-pinyin, relate:ace-window, relate:ace-link, Emacs, avy.el, ace-jump-mode.el, avy-goto-char-timer, avy-goto-line, M-x avy-goto-char-timer, M-x ace-jump-char-mode, M-x avy-goto-line, M-x ace-jump-line-mode, M-x goto-line, avy.el, ace-jump-mode.el, avy-goto-char-timer, avy-goto-line, M-x avy-goto-char-timer, M-x ace-jump-char-mode, M-x avy-goto-line, M-x ace-jump-line-mode, M-x goto-line
+#+TITLE: emacs avy.el : 【画面内移動】ace-jump-modeの新実装！より汎用的に使いやすく | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>avy</td></tr>
+<tr><td>概要(原文)</td><td>set-based completion</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/abo-abo/avy">https://github.com/abo-abo/avy</a></td></tr>
+<tr><td>バージョン</td><td>20150519.529</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:avy/">package:avy</a> <a href="http://rubikitch.com/tag/package:ace-jump-mode/">package:ace-jump-mode</a> <a href="http://rubikitch.com/tag/package:ace-pinyin/">package:ace-pinyin</a> <a href="http://rubikitch.com/tag/package:ace-window/">package:ace-window</a> <a href="http://rubikitch.com/tag/package:ace-link/">package:ace-link</a></td></tr>
+</table>
+<br />
+#+END_HTML
+[[http://rubikitch.com/2014/10/09/ace-jump-mode/][ace-jump-mode.el(レビュー)]]は画面内の単語や文字に移動する
+高速なインターフェースとして人気があります。
+
+[[http://rubikitch.com/2015/04/18/ace-pinyin/][ace-pinyin.el(レビュー)]]と併用すれば日本語文字にも対応してくれます。
+
+*avy.el* も *ace-jump-mode.el* 同様ヒント文字を入力すると
+その場所に移動するパッケージです。
+
+ace-jump-modeは単独では素晴しいパッケージなのですが、
+いざ拡張しようとするとやりにくいものがあります。
+
+ace-jump-modeのインターフェースが気に入って他で使いたい
+elispプログラマならばace-jump-mode.elに固執するのではなく
+avy.elを使ってみましょう。
+
+同じ作者による[[http://rubikitch.com/2014/12/26/ace-window/][ace-window.el(レビュー)]]と[[http://rubikitch.com/2014/12/30/ace-link/][ace-link.el(レビュー)]] も
+名前はaceとついているものの、実際はavyを使っています。
+
+ace-jump-modeをすでに使っている人でも、
+avy.elが提供している2つのコマンドを使ってみることをおすすめします。
+
+- *avy-goto-char-timer*
+- *avy-goto-line*
+
+*M-x avy-goto-char-timer* は、 *M-x ace-jump-char-mode* の進化形です。
+
+- 1文字入力して0.5秒後にその文字に対応するヒント文字が出る
+- 0.5秒以内に2文字目も入力すると、2文字が連続する場所にヒント文字が出る
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150520073144.png]]
+Fig1: C-@の後にiを押すとiの前にヒント文字が付く
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150520073153.png]]
+Fig2: C-@の後に素早くisと押せばisの前にヒント文字が付く
+
+
+
+*M-x avy-goto-line* は、 *M-x ace-jump-line-mode* と
+標準の *M-x goto-line* を合体させたものです。
+
+- 行頭のヒント文字を打てばその行に移動
+- 数字を打ったらその時点でgoto-lineの働きをする
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150520073208.png]]
+Fig3: M-g M-gの後にヒント文字が付く
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150520073216.png]]
+Fig4: 数字を打てば標準のgoto-lineに移行
+
+よってM-g M-gをそのままavy-goto-lineに割り当てても問題ありません。
+** avy インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install avy
+
+
+#+end:
+** 概要                                                             :noexport:
+[[http://rubikitch.com/2014/10/09/ace-jump-mode/][ace-jump-mode.el(レビュー)]]は画面内の単語や文字に移動する
+高速なインターフェースとして人気があります。
+
+[[http://rubikitch.com/2015/04/18/ace-pinyin/][ace-pinyin.el(レビュー)]]と併用すれば日本語文字にも対応してくれます。
+
+*avy.el* も *ace-jump-mode.el* 同様ヒント文字を入力すると
+その場所に移動するパッケージです。
+
+ace-jump-modeは単独では素晴しいパッケージなのですが、
+いざ拡張しようとするとやりにくいものがあります。
+
+ace-jump-modeのインターフェースが気に入って他で使いたい
+elispプログラマならばace-jump-mode.elに固執するのではなく
+avy.elを使ってみましょう。
+
+同じ作者による[[http://rubikitch.com/2014/12/26/ace-window/][ace-window.el(レビュー)]]と[[http://rubikitch.com/2014/12/30/ace-link/][ace-link.el(レビュー)]] も
+名前はaceとついているものの、実際はavyを使っています。
+
+ace-jump-modeをすでに使っている人でも、
+avy.elが提供している2つのコマンドを使ってみることをおすすめします。
+
+- *avy-goto-char-timer*
+- *avy-goto-line*
+
+*M-x avy-goto-char-timer* は、 *M-x ace-jump-char-mode* の進化形です。
+
+- 1文字入力して0.5秒後にその文字に対応するヒント文字が出る
+- 0.5秒以内に2文字目も入力すると、2文字が連続する場所にヒント文字が出る
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150520073144.png]]
+Fig5: C-@の後にiを押すとiの前にヒント文字が付く
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150520073153.png]]
+Fig6: C-@の後に素早くisと押せばisの前にヒント文字が付く
+
+
+
+*M-x avy-goto-line* は、 *M-x ace-jump-line-mode* と
+標準の *M-x goto-line* を合体させたものです。
+
+- 行頭のヒント文字を打てばその行に移動
+- 数字を打ったらその時点でgoto-lineの働きをする
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150520073208.png]]
+Fig7: M-g M-gの後にヒント文字が付く
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150520073216.png]]
+Fig8: 数字を打てば標準のgoto-lineに移行
+
+よってM-g M-gをそのままavy-goto-lineに割り当てても問題ありません。
+** 併用が一番
+他にもace-jump-modeに対応するavyなコマンドが定義されていますが、
+日本語と併用する場合に表示がずれてしまいます。
+
+文字幅が考慮されていないのが原因です。
+
+これは我々日本人にとってはとても痛いです。
+
+作者がCJKを知らないようなので無理もないですが、
+今後のpull-reqが待たれるところです。
+
+よって、ace-jump-modeを置き換えるのではなく、
+併用していくのが一番ではないでしょうか。
+
+
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150520073243.png]]
+Fig9: ace-jump-word-modeでは日本語でもずれない
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150520073249.png]]
+Fig10: avy-goto-word-0ではずれてしまう＞＜
+

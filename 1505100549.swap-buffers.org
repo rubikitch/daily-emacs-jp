@@ -1,0 +1,135 @@
+#+BLOG: rubikitch
+#+POSTID: 1633
+#+DATE: [2015-05-10 Sun 05:49]
+#+PERMALINK: swap-buffers
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs
+#+EL_PKG_NAME: swap-buffers
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, emacs swap-screen, 分割した画面を入れ替える, 上下に分割した際に上下のバッファを入れ替えたくなる, switch between visible buffers, 上下または左右のバッファを入れ替える, relate:switch-window
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: 【多分割対応】ウィンドウを入れ替える新しいコマンド
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージswap-buffersの紹介
+#+MYTAGS: package:swap-buffers, emacs 使い方, emacs コマンド, emacs, swap-buffers, swap-buffers.el, emacs lisp swap-buffers, elisp swap-buffers, emacs melpa swap-buffers, emacs swap-buffers 使い方, emacs swap-buffers 設定, emacs パッケージ swap-buffers, emacs swap-buffers スクリーンショット, emacs swap-screen, 分割した画面を入れ替える, 上下に分割した際に上下のバッファを入れ替えたくなる, switch between visible buffers, 上下または左右のバッファを入れ替える, relate:switch-window
+#+TAGS: package:swap-buffers, emacs 使い方, emacs コマンド, emacs, swap-buffers, swap-buffers.el, emacs lisp swap-buffers, elisp swap-buffers, emacs melpa swap-buffers, emacs swap-buffers 使い方, emacs swap-buffers 設定, emacs パッケージ swap-buffers, emacs swap-buffers スクリーンショット, emacs swap-screen, 分割した画面を入れ替える, 上下に分割した際に上下のバッファを入れ替えたくなる, switch between visible buffers, 上下または左右のバッファを入れ替える, relate:switch-window, Emacs, M-x swap-screen, M-x swap-buffers, M-x swap-screen, M-x swap-buffers
+#+TITLE: emacs swap-buffers.el : 【多分割対応】ウィンドウを入れ替える新しいコマンド | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>swap-buffers</td></tr>
+<tr><td>概要(原文)</td><td>The quickest way to swap buffers between windows. Based on switch-window package.</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/ekazakov/swap-buffers">https://github.com/ekazakov/swap-buffers</a></td></tr>
+<tr><td>バージョン</td><td>20150506.1439</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:swap-buffers/">package:swap-buffers</a> <a href="http://rubikitch.com/tag/package:switch-window/">package:switch-window</a></td></tr>
+</table>
+<br />
+#+END_HTML
+フレームを2分割以上している状態で、
+ウィンドウを入れ替えたいことがあります。
+
+2分割された画面を入れ替える *M-x swap-screen* は
+[[http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=swap%2520screen][古くから存在します]] が、ここで紹介する *M-x swap-buffers* は
+3分割以上にも対応しています。
+
+2分割のときはswap-screenと変わりません。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150510055857.png]]
+Fig1: 2分割でM-x swap-buffersを実行すると
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150510055915.png]]
+Fig2: そのまま入れ替わる
+
+
+3分割以上のときは[[http://rubikitch.com/2014/12/15/switch-window/][switch-window.el(レビュー)]] のように
+ウィンドウにa, s, d ...という名前が振られ、
+それを選択する方式になっています。
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150510055937.png]]
+Fig3: 3分割以上でM-x swap-buffersすると
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150510055947.png]]
+Fig4: ウィンドウ選択になる
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150510055957.png]]
+Fig5: aを押すと…
+
+
+
+** swap-buffers インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install swap-buffers
+
+
+#+end:
+** 概要                                                             :noexport:
+フレームを2分割以上している状態で、
+ウィンドウを入れ替えたいことがあります。
+
+2分割された画面を入れ替える *M-x swap-screen* は
+[[http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=swap%2520screen][古くから存在します]] が、ここで紹介する *M-x swap-buffers* は
+3分割以上にも対応しています。
+
+2分割のときはswap-screenと変わりません。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150510055857.png]]
+Fig6: 2分割でM-x swap-buffersを実行すると
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150510055915.png]]
+Fig7: そのまま入れ替わる
+
+
+3分割以上のときは[[http://rubikitch.com/2014/12/15/switch-window/][switch-window.el(レビュー)]] のように
+ウィンドウにa, s, d ...という名前が振られ、
+それを選択する方式になっています。
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150510055937.png]]
+Fig8: 3分割以上でM-x swap-buffersすると
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150510055947.png]]
+Fig9: ウィンドウ選択になる
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150510055957.png]]
+Fig10: aを押すと…
+
+
+
+
+** 設定 [[http://rubikitch.com/f/150510060424.swap-buffers.el][150510060424.swap-buffers.el(以下のコードと同一)]]
+無設定で使えますが、swap-screenと同じような設定にしてみました。
+
+#+BEGIN: include :file "/r/sync/junk/150510/150510060424.swap-buffers.el"
+#+BEGIN_SRC fundamental
+(defun swap-buffers-keep-focus ()
+  (interactive)
+  (swap-buffers t))
+;;; 無設定で使えるが、swap-screenに倣ってf2/S-f2に割り当てる
+(global-set-key [f2] 'swap-buffers-keep-focus)
+(global-set-key [S-f2] 'swap-buffers)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/150510060424.swap-buffers.el
+$ emacs -Q -f package-initialize -l 150510060424.swap-buffers.el
+#+END_EXAMPLE

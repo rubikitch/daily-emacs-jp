@@ -1,0 +1,128 @@
+#+BLOG: rubikitch
+#+POSTID: 1400
+#+DATE: [2015-04-01 Wed 06:31]
+#+PERMALINK: smart-tab
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs
+#+EL_PKG_NAME: smart-tab
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs TAB 補完 インデント 自動判別, emacs TABを活用する, emacs TABで補完, relate:auto-complete, relate:hippie-exp, relate:dabbrev, emacs M-TABをTABで済ませる, emacs TABで補完とインデント, relate:yasnippet
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 
+#+EL_TITLE0: TABキーが補完・インデントと空気を読んでくれるヨ
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージsmart-tabの紹介
+#+MYTAGS: package:smart-tab, emacs 使い方, emacs コマンド, emacs, smart-tab, smart-tab.el, emacs lisp smart-tab, elisp smart-tab, emacs melpa smart-tab, emacs smart-tab 使い方, emacs smart-tab 設定, emacs パッケージ smart-tab, emacs TAB 補完 インデント 自動判別, emacs TABを活用する, emacs TABで補完, relate:auto-complete, relate:hippie-exp, relate:dabbrev, emacs M-TABをTABで済ませる, emacs TABで補完とインデント, relate:yasnippet
+#+TAGS: package:smart-tab, emacs 使い方, emacs コマンド, emacs, smart-tab, smart-tab.el, emacs lisp smart-tab, elisp smart-tab, emacs melpa smart-tab, emacs smart-tab 使い方, emacs smart-tab 設定, emacs パッケージ smart-tab, emacs TAB 補完 インデント 自動判別, emacs TABを活用する, emacs TABで補完, relate:auto-complete, relate:hippie-exp, relate:dabbrev, emacs M-TABをTABで済ませる, emacs TABで補完とインデント, relate:yasnippet, Emacs, smart-tab.el, emacs-lisp-mode, lisp-complete-symbol, text-mode, dabbrev-completion, hippie-expand, dabbrev-expand, M-x global-smart-tab-mode, org-mode, magit-mode, w3m-mode, eww-mode, smart-tab-mode, smart-tab.el, emacs-lisp-mode, lisp-complete-symbol, text-mode, dabbrev-completion, hippie-expand, dabbrev-expand, M-x global-smart-tab-mode, org-mode, magit-mode, w3m-mode, eww-mode, smart-tab-mode
+#+TITLE: emacs smart-tab.el : TABキーが補完・インデントと空気を読んでくれるヨ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>smart-tab</td></tr>
+<tr><td>概要(原文)</td><td>Intelligent tab completion and indentation.</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/genehack/smart-tab">https://github.com/genehack/smart-tab</a></td></tr>
+<tr><td>バージョン</td><td>20150327.2059</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:smart-tab/">package:smart-tab</a> <a href="http://rubikitch.com/tag/package:auto-complete/">package:auto-complete</a> <a href="http://rubikitch.com/tag/package:hippie-exp/">package:hippie-exp</a> <a href="http://rubikitch.com/tag/package:dabbrev/">package:dabbrev</a> <a href="http://rubikitch.com/tag/package:yasnippet/">package:yasnippet</a></td></tr>
+</table>
+<br />
+#+END_HTML
+
+*smart-tab.el* は、空気読むTAB(C-i)を実現します。
+
+これを導入すると、TABで補完すべきか
+インデントすべきかを自動判別してくれます。
+
+これまでM-TABで補完していたのがTABで済むようになります。
+
+以下の働きをします。
+
+1. regionが指定してある場合はインデントする
+2. C-u C-iでインデントする
+3. シンボルの直後なら補完を試みる
+
+Emacsにはいろいろな補完方法がありますが、
+うまく判断してくれます。
+
+1. [[http://rubikitch.com/2014/11/05/auto-complete/][auto-complete-mode(レビュー)]]  が有効ならばそれを使う
+2. モード独特の補完方法が設定してある場合はそれを使う
+   - *emacs-lisp-mode* ならば *lisp-complete-symbol*
+   - *text-mode* ならば *dabbrev-completion*
+3. それ以外ならば *hippie-expand* か *dabbrev-expand* (選択可)
+
+*M-x global-smart-tab-mode* は全体で有効になりますが、
+*org-mode* や *magit-mode* や *w3m-mode* など
+TABに独自の意味を持たせているモードでは対象外になります。
+
+とはいえ除外すべきモード は *eww-mode* など他にもあるので
+僕としてはモードフックに *smart-tab-mode* を
+設定することを推奨します。
+** smart-tab インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install smart-tab
+
+
+#+end:
+** 概要                                                             :noexport:
+
+*smart-tab.el* は、空気読むTAB(C-i)を実現します。
+
+これを導入すると、TABで補完すべきか
+インデントすべきかを自動判別してくれます。
+
+これまでM-TABで補完していたのがTABで済むようになります。
+
+以下の働きをします。
+
+1. regionが指定してある場合はインデントする
+2. C-u C-iでインデントする
+3. シンボルの直後なら補完を試みる
+
+Emacsにはいろいろな補完方法がありますが、
+うまく判断してくれます。
+
+1. [[http://rubikitch.com/2014/11/05/auto-complete/][auto-complete-mode(レビュー)]]  が有効ならばそれを使う
+2. モード独特の補完方法が設定してある場合はそれを使う
+   - *emacs-lisp-mode* ならば *lisp-complete-symbol*
+   - *text-mode* ならば *dabbrev-completion*
+3. それ以外ならば *hippie-expand* か *dabbrev-expand* (選択可)
+
+*M-x global-smart-tab-mode* は全体で有効になりますが、
+*org-mode* や *magit-mode* や *w3m-mode* など
+TABに独自の意味を持たせているモードでは対象外になります。
+
+とはいえ除外すべきモード は *eww-mode* など他にもあるので
+僕としてはモードフックに *smart-tab-mode* を
+設定することを推奨します。
+
+** 追記
+*yasnippet.el* とかぶってしまう難点があります。
+
+これについては少し考えるべきでしょう。
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+** 設定 [[http://rubikitch.com/f/150401063719.smart-tab.el][150401063719.smart-tab.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/150401/150401063719.smart-tab.el"
+#+BEGIN_SRC fundamental
+;;; nilならばdabbrev-expand, tならばhippie-expandで補完する
+(setq smart-tab-using-hippie-expand t)
+;;; モードごとの補完コマンドの設定
+(setq smart-tab-completion-functions-alist
+      '((emacs-lisp-mode . lisp-complete-symbol)
+        (text-mode       . dabbrev-completion)))
+;;; プログラミング言語のモードのみ有効にする
+(add-hook 'prog-mode-hook 'smart-tab-mode)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/150401063719.smart-tab.el
+$ emacs -Q -f package-initialize -l 150401063719.smart-tab.el
+#+END_EXAMPLE

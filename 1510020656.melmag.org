@@ -1,0 +1,28 @@
+#+BLOG: rubikitch
+#+POSTID: 2045
+#+DATE: [2015-10-02 Fri 06:56]
+#+PERMALINK: melmag
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: メルマガ,
+#+DESCRIPTION: るびきち塾メルマガ『Emacsの鬼るびきちのココだけの話#201』の予告
+#+TITLE: 【メルマガ#201】ブラウザ界の忍者
+#+MYTAGS: 
+#+begin: org2blog-tags
+#+TAGS: , メルマガ,, 
+#+end:
+僕には古くから使っているメインブラウザがあります。
+
+FirefoxでもChromeでもOperaでも
+ましてやIEでもありません。
+
+コンピュータが貧弱だった時代から使っていましたが
+Emacs同様、あまりにもお手入れになじんでしまったため
+潤沢なリソースを持つ現在でさえも最前線です。
+
+Emacsユーザなら、この機会に試してもいいでしょう。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

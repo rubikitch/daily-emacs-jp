@@ -1,0 +1,63 @@
+#+BLOG: rubikitch
+#+POSTID: 478
+#+DATE: [2014-10-16 Thu 12:57]
+#+PERMALINK: org-eshell
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, org-mode,
+#+DESCRIPTION: (require 'org-eshell)と加えてeshellでM-x org-store-link(C-c l) で eshell:COMMAND 形式のリンクが作成できる
+#+MYTAGS:
+#+TAGS: , Emacs, org-mode,, eshell, org-eshell.el
+#+TITLE: Emacs org-eshell: org-modeでeshellへのリンクを張る
+org-modeは標準添付ですが、デフォルトでは
+読み込まれていない機能がたくさんあります。
+
+*eshell* へのリンクを張る *org-eshell.el* もそのひとつです。
+
+requireするだけで「eshell: 」スキームのリンクが有効になります。
+
+使い方はeshellでも他と同じようにC-c lでリンクを保存し、
+orgバッファに貼り付けるだけです。
+
+#+BEGIN_EXAMPLE
+[[eshell:*eshell*:cd%20/r/sync/memo/][cd /r/sync/memo/]]
+#+END_EXAMPLE
+
+このリンクを開けば*eshell*バッファにて
+#+BEGIN_EXAMPLE
+cd /r/sync/memo/
+#+END_EXAMPLE
+を実行します。
+
+「shell: 」スキームでシェルコマンドを実行できますが、
+その親戚のような感じです。
+
+前者は*Org Shell Output*というバッファに結果がポップアップしますが、
+後者は*eshell*バッファに切り替えて実行します。
+
+#+BEGIN_EXAMPLE
+[[shell:ls]]
+[[eshell:ls]]
+#+END_EXAMPLE
+
+小ネタまでに。
+
+** 設定 [[http://rubikitch.com/f/141016130143.org-eshell.el][141016130143.org-eshell.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/141016/141016130143.org-eshell.el"
+#+BEGIN_SRC fundamental
+(require 'org-eshell)
+(global-set-key (kbd "C-c l") 'org-store-link)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/141016130143.org-eshell.el
+$ emacs -Q -f package-initialize -l 141016130143.org-eshell.el
+#+END_EXAMPLE
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

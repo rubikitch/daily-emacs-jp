@@ -1,0 +1,164 @@
+#+BLOG: rubikitch
+#+POSTID: 429
+#+DATE: [2014-10-05 Sun 16:58]
+#+PERMALINK: sd1407
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs,
+#+DESCRIPTION: Emacsは、ユーザに向かって開かれています。しかしその分厚い扉を何度でも叩き開こうとしなければ、Emacsのゾーン(zone)には入れません。何事も反復が大事なのです。今回は、困ったときの対処法とヘルプシステムおよび使いやすい初期設定を紹介します。
+#+MYTAGS: Emacs入門, Emacs 使い方, Emacs 設定, Emacs チュートリアル, Emacs 取り消し, Emacs 取り止め, Emacs keyboard-quit, Emacs undo, Emacs やり直し, Emacs ヘルプ, about-emacs, describe-copying, view-emacs-debugging, view-external-packages, view-emacs-FAQ, help-for-help, view-order-manuals, view-emacs-news, describe-distribution, view-emacs-problems, view-emacs-todo, describe-no-warranty, describe-input-method, display-local-help, help-for-help, describe-coding-system, Info-goto-emacs-command-node, describe-input-method, Info-goto-emacs-key-command-node, describe-language-environment, describe-package, info-lookup-symbol, apropos-command, describe-bindings, describe-key-briefly, apropos-documentation, view-echo-area-messages, describe-function, describe-gnu-project, view-hello-file, info, describe-key, view-lossage, describe-mode, view-emacs-news, finder-by-keyword, help-quit, info-emacs-manual, describe-syntax, help-with-tutorial, describe-variable, where-is, help-for-help, info-other-window, package:uniquify, package:goto-chg, package:redo+, package:saveplace, package:uniquify, package:package
+#+TAGS: Emacs入門, Emacs 使い方, Emacs 設定, Emacs チュートリアル, Emacs 取り消し, Emacs 取り止め, Emacs keyboard-quit, Emacs undo, Emacs やり直し, Emacs ヘルプ, about-emacs, describe-copying, view-emacs-debugging, view-external-packages, view-emacs-FAQ, help-for-help, view-order-manuals, view-emacs-news, describe-distribution, view-emacs-problems, view-emacs-todo, describe-no-warranty, describe-input-method, display-local-help, help-for-help, describe-coding-system, Info-goto-emacs-command-node, describe-input-method, Info-goto-emacs-key-command-node, describe-language-environment, describe-package, info-lookup-symbol, apropos-command, describe-bindings, describe-key-briefly, apropos-documentation, view-echo-area-messages, describe-function, describe-gnu-project, view-hello-file, info, describe-key, view-lossage, describe-mode, view-emacs-news, finder-by-keyword, help-quit, info-emacs-manual, describe-syntax, help-with-tutorial, describe-variable, where-is, help-for-help, info-other-window, package:uniquify, package:goto-chg, package:redo+, package:saveplace, package:uniquify, package:package, Emacs,, C-g, C-g, C-/, C-/, C-u C-SPC, ヘルプ, M-!, M-&, redo+.el, M-x buffer-enable-undo, M-x buffer-disable-undo, C-/, goto-chg.el, M-＜, M-＞, M-g M-g, C-s, C-r, C-SPC, マーク, region, C-u C-SPC, C-h, ＜f1＞ ＜f1＞, C-x C-f, C-x C-s, プレフィクスキー, 接頭辞, C-x 4 C-f, ＜f1＞ b, C-x C-h, C-c C-h, ~/.emacs.d/init.el, .emacs, Emacs Lisp, M-x ibuffer, M-x bs-show, M-x rcirc, M-x erc, M-x show-paren-mode, M-x global-hl-line-mode, saveplace.el, パッケージシステム, set-mark-command-repeat-pop, uniquify.el
+#+TITLE: #3 反復練習に勝るものなし -- 打鍵すべし！設定書くべし！ (Software Design 2014年7月号掲載記事) ヘルプシステム 困ったとき 初期設定
+Software Design連載記事を掲載します。
+
+株式会社技術評論社の許可を得て掲載しています。
+草稿なので細かい部分は実際の記事とは異なることがあります。
+
+1. 2014/05 [[http://rubikitch.com/2014/08/28/sd1405/][なぜEmacsをお勧めするのか？]]
+2. 2014/06 [[http://rubikitch.com/2014/09/04/sd1406/][スマートにEmacsを始めるための小さいけど重要なコツ]]
+
+* ちょっとずつ慣れてきましたか？
+　ども、Emacs廃人のるびきちです。本連載はEmacsを初めて使う人にでもEmacsのとりこになってもらうというコンセプトです。前回、前々回とEmacsの基礎概念について触れてきました。コードは1行も出てきていません。Emacsをすでに使っている人にとっては釈迦に説法だったと思いますが、今回からは実践的な内容になってきますので、楽しみにしててください。
+
+　前回の最後に紹介したように、＜f1＞ tを押せば日本語チュートリアルが起動します。これによりEmacsの基本操作を手を動かしながら独習できます。Emacsは手を動かしながら学ぶのが一番です。まだEmacsに慣れていないのであればチュートリアルをしながらコマンド表を御自分で作成してください。
+
+　そして、チュートリアルを何度か繰り返してください。子供の頃、何度も転びながらも、くじけずに練習した末やっと自転車に乗れましたよね。新たなスキルを習得するには反復練習が不可欠です。
+
+　Emacsの熟練度が低いうちは、ちょっとしたことで困るかと思います。たとえば、
+- 意図しないコマンドを実行してしまったとき
+- 打ち間違いをしたとき
+- コマンドがわからない
+- 詳しい説明が欲しい
+- いろいろと不便で使いづらい
+などといったことです。御安心ください。Emacsは困ったときにでも柔軟に対応できる力があります。その方法を初心者段階で知っておけば後々楽になることは間違いありません。今回は、困ったときにどうすればいいか、そして起こり得る不満を解消した設定をお話します。
+
+　はい、「設定」という言葉が出てきましたね。Emacsは「The extensible self-documenting text editor」と言われており、extensible(拡張可能)が大きな特徴です。好みの設定にするどころか、機能をガンガン拡張できるのです。ついに今回、初めてEmacs Lispのコードが登場します。
+
+* 困ったときには
+　Emacsを使っていて、困ったと思うときがありますが、大きく分けて以下の種類あります。
+
+1. 現在のコマンドを抜ける→ *C-g*
+2. Emacsが固まる→ *C-g*
+3. 編集をやり直す→ *C-/*
+4. カーソルが迷子になった→ *C-/* や *C-u C-SPC*
+5. 使い方がわからない→ *ヘルプ*
+
+** とにかく今の状況を抜け出すC-g
+　Emacsを使っていて行き詰まったら、とりあえずC-gを押してください。C-gはEmacsに「今の動作をやめろ」と伝えるコマンドです。
+
+　たとえば、C-x C-fでファイルを開こうとしたとき、ミニバッファにてファイル名を訊いてきます。そこで「やっぱやーめた」という場合、C-gを押せばQuitと表示されてC-x C-fのコマンドがなかったことにされます。C-x b等ミニバッファを使う他のコマンドでも同じです。
+
+　あるいは、時間がかかりすぎるコマンドを実行してしまったとき、それを取り止めたいケースもあります。この場合もC-gを押せばそのコマンドの動作はキャンセルされます。
+
+　たとえば、M-!はシェルコマンドを実行するのですが、普通に使う場合は実行終了までEmacsは待ち状態になります。あまりに待たされて「時間かかりすぎ、もういいよ」と思ったときにはC-gを押します。なお、こういうコマンドを実行するときは *M-!* の代わりに *M-&* を使えば、シェルコマンドを実行しながらEmacsが使えます。
+
+　極論を言えばEmacs Lispで無限ループを実行させても、C-gで中止できます。M-:の後に (while t) を入力したとき、無限ループのためにEmacsが固まりますが、C-gを押せば何もなかったかのように元の状態に戻ります。
+
+　もし、C-gを押しても戻らないときは再度C-gを押してください。
+
+　C-gには元々Emacs Lispの実行を中止したり、ミニバッファから抜ける役割がありますが、モードによっては他のコマンドが割り当てられていることもあります。それでも「動作をやめろ」という意味のコマンドが割り当てられていることが普通です。それ以外のコマンドが割り当てられているときには、Emacsユーザは強い違和感を感じます。
+** 編集を取り消すC-/
+　Emacsを使っていると意図しない編集をしてしまうことがあります。誤ったコマンドを実行して変な文字列が挿入されたとかそういうケースです。その場合は落ち着いて *C-/* を押してください。これはundoというコマンドで、直前のバッファの変更を元に戻してくれます。
+
+　C-/を繰り返すと、過去の変更をどんどん元に戻していきます。そして、最初の変更まで遡った後さらにC-/を押すと、戻りようがないのでエラーになります。
+
+　Emacs標準のundoにはやや癖があります。undoしすぎた場合にundoを取り消すにはC-fなどの無害なコマンドを実行した後C-/を押します。すると、「undo」という編集をundoするため、undoが取り消されるのです。この挙動が嫌な人は *redo+.el* を導入してください。
+
+　なお、undo情報を記録するかしないかは明示的に指定できます。デフォルトでは通常のバッファでは記録し、隠しバッファ(スペースから始まるバッファ名)では記録しません。もしなんらかの事情でundo情報が記録されていない場合は、 *M-x buffer-enable-undo* で記録を再開させてください。逆に *M-x buffer-disable-undo* で現時点での記録を破棄し、以後記録をしないようになります。
+** カーソル位置が迷子になったら
+　編集していくうちに現在のカーソル位置を見失ってしまうこともありますね。いわゆる迷子です。
+
+　もし、編集している位置を見失ってしまったときはundo情報を使います。 *C-/* を押したとき、バッファの内容が元に戻るだけでなく、カーソル位置もundoされた位置に移動してくれるのでそれを利用してあげます。具体的にはC-/ C-f C-/を押してundoしてそのundoを取り消します。これは便利なので、過去の編集位置に戻るコマンドを定義している *goto-chg.el* が存在します。
+
+　他にも意図せずに大域移動コマンドなどを実行してしまったときにも戻る方法があります。 *M-＜* (バッファの先頭へ移動)や *M-＞* (バッファの末尾へ移動)や *M-g M-g* (指定した行番号へ移動)や *C-s* ・ *C-r* (インクリメンタルサーチ)がそれに該当します。これらのコマンドを実行した後には後で戻れるように暗黙のマークがつけられます。いわば実行前に *C-SPC* が押されているようなものです。
+
+　 *マーク* は範囲(*region* という)を設定するためだけに使われていると思いがちですが、実は位置を記憶するためにも使われています。過去のマークに戻るには *C-u C-SPC* を押します。繰り返し実行することで、もっと遡ることができます。
+* ヘルプシステム
+　Emacsのヘルプ機能はきわめて強力で、わからないことがあったらまずはEmacsに質問するべきです。
+** The extensible "self-documenting" text editor
+　前述の通りEmacsはThe extensible self-documenting text editorと呼ばれています。先程はextensibleという点に触れましたが、今度はself-documentingという点に注目してください。自分自身を説明している、つまり、Emacsは自分自身についてよく知っているのです。これが何を意味するかというと、Emacsのコマンドや変数には説明文を入れることができ、いつでも参照できるのです。
+
+　多くのEmacsのコマンドはEmacs Lispというプログラミング言語によって記述されていますが、説明文を組み込む機能が言語レベルで塔載されています。これにより、標準コマンド以外にも外部Emacs Lispプログラムでもself-documentingの恩恵が受けられます。
+
+　self-documentingな性質は、Emacsに備わっているヘルプ機能で発揮されます。それではヘルプ機能について見てみましょう。
+** ＜f1＞ ＜f1＞
+　ヘルプコマンドは *＜f1＞* または *C-h* から始まります。C-hはシェルではバックスペースとして使われていてヘルプには使いたくないと思うので、＜f1＞と覚えてください。
+
+　＜f1＞から始まるコマンドは多数存在しますが、今回はとりあえず *＜f1＞ ＜f1＞* だけ覚えてください。これはヘルプのメニューがポップアップし、行頭に書いてあるキーを押すことでその項目を実行できるようになっています。例えば、以下の行はbを押せば現在使えるキーバインドをすべて表示します。最初から書くと＜f1＞ ＜f1＞ bになります。
+
+====
+b           Display all key bindings.
+====
+
+表1:主なヘルプコマンド(拙訳)
+| b          | 使えるキーバインドを表示する                           |
+| c KEYS     | そのキーのコマンド名をエコーエリアに表示する           |
+| e          | エコーエリアのログ(*Messages*バッファ)を表示する       |
+| f FUNCTION | 関数やコマンドの説明を表示する                         |
+| F COMMAND  | コマンドの説明をInfoで読む                             |
+| i          | Infoを開く                                             |
+| k KEYS     | キーに割り当てられたコマンドの説明を表示する           |
+| K KEYS     | キーに割り当てられたコマンドの説明をInfoで読む         |
+| l          | 最近300個のキーを表示する                              |
+| m          | カレントバッファのモードの説明・キーバインドを表示する |
+| n          | EmacsのNEWSを見る                                      |
+| r          | emacsのInfoを開く                                      |
+| t          | チュートリアルを開く                                   |
+| v VARIABLE | 変数の値と説明を表示する                               |
+| w COMMAND  | コマンドが割り当てられたキーを表示する                 |
+
+　各ヘルプコマンドはメニューを介しても介さなくても起動できます。たとえば＜f1＞ ＜f1＞ bを縮めて＜f1＞ bとも操作できます。うろ覚えの場合はメニューから、そうでない場合は＜f1＞からというスタンスで構いません。
+
+** プレフィクスキーから始まるコマンドのリストを表示する
+　Emacsには無数のコマンドがキーに割り当てられています。普通のGUIのショートカットでは1ストロークですが、Emacsでは2ストローク以上で起動するコマンドがたくさんあります。1ストロークではおさまりきれないほどのコマンドを登録するには、2ストローク以上必要になるからです。
+
+　最も代表的な例としてC-xから始まるキーが挙げられます。例えば *C-x C-f* でファイルを開き、 *C-x C-s* でファイルに保存します。このC-xを *プレフィクスキー* といいます。プレフィクスとは *接頭辞* という意味で、C-xを前置しているということです。 *C-x 4 C-f* においては、C-x 4がプレフィクスキーです。一般にNストローク必要なコマンドにおいてN-1番目までのキーがプレフィクスキーになります。
+
+　 *＜f1＞ b* は現在使えるキーバインドをすべてリストしますが、特定のプレフィクスキーから始まるものを列挙したいときがあります。プレフィクスキーを押したのはいいものの、その次がうろ覚えのときに役立ちます。
+
+　プレフィクスキーから始まるキーバインドを列挙するには、プレフィクスキーの後にC-hを押してください。例えば、 *C-x C-h* や *C-c C-h* のようになります。何気に地味な機能ですが、Emacsを使い始めて間がないときや、新しいEmacs Lispプログラムを使うときには重宝します。
+
+* 設定ファイル
+　Emacsは自由自在に設定可能です。ちょっと挙動を変更したり、欲しい機能を導入したり、はたまた自分でコマンドを作成することもできます。それにより、Emacsは十人十色な使い方ができるのです。そこがEmacsの奥深さであり、楽しさであり、難しさでもあります。
+
+　設定ファイルは *~/.emacs.d/init.el* に書きます。Emacs設定ファイルの代名詞として「 *.emacs* 」と言うこともありますが、かつて ~/.emacs や ~/.emacs.el に設定を書いていたからです。今でもそれらに記述することもできますが、非推奨なのでinit.elに書いてください。
+
+　現在主に使われているEmacsであるGNU Emacsは、今年で30歳になります。それくらい歴史のあるエディタです。Emacsの基本的な挙動や操作方法は昔と大きく変わらないように初期設定されています。Emacsは初期設定のままでも使えますが、歴史的事情から古くさいクセがあります。そのためデフォルトのままだと使いにくいと感じるケースが多々あります。
+
+　また、Emacsは *Emacs Lisp* という拡張言語によっていくらでも拡張できるので、Emacsユーザは好き勝手に自分の欲しい機能が作れます。長年に渡り多くのEmacsユーザによって作られたEmacs Lispプログラムは膨大なものであり、同じ目的を達成するEmacs Lispプログラムが複数個あることは日常茶飯事です。現存のプログラムのちょっとしたことが気になってみんなこぞって新たに自作してしまうからです。
+
+　Emacsには標準添付のEmacs Lispプログラムが多数含まれています。その中でも同じ目的を達成するものが複数個含まれているものもあります。たとえば、バッファメニューの *M-x ibuffer* や *M-x bs-show* 、IRCクライアントの *M-x rcirc* や *M-x erc* といった具合です。
+
+　標準の挙動を改善するEmacs Lispプログラムもたくさんあります。 *M-x show-paren-mode* は対応する括弧を知らせてくれます。 *M-x global-hl-line-mode* は現在行をわかりやすくハイライトしてくれます。 *saveplace.el* は開いたファイルの位置を永続的に記録して、再度開いたときにはその位置から開いてくれます。本来ならばテキストエディタとして当たり前とされる機能がなぜか無効になっていて、設定して初めて使えるということがEmacsではよくあるのです。せっかく標準添付なのだから有効にしないともったいないです。
+
+　外部Emacs Lispコミュニティの方も活発で、標準添付にはない斬新な機能が実装されていたりします。
+
+　このように、init.elに設定を書いていくことで、Emacsをあなた好みの使いやすいエディタに育てていけるのです。まるで新しい武器を見付けて装備するかのように、おもしろいEmacs Lispプログラムの設定を加えていく様はRPGや育成ゲームを思わせます。
+
+　ちなみに筆者のinit.elの行数はかつて15000行を超えていましたが、現在は4500行くらいに落ち着いています。もう使わない設定を削除したり、関数群をパッケージングしたことで大幅に行数を削減できたのです。
+
+　さあ、設定を書いてあなたのEmacsも覚醒させましょう！
+* 初期設定
+　それでは、おすすめの初期設定を示しておきます。
+
+====
+#+INCLUDE: /r/book/sd-emacs-rensai/init-defaults.el src
+====
+
+　Emacs24から *パッケージシステム* が標準でついてくるようになりました。PerlのCPAN、RubyのRubyGemsのように外部パッケージを簡単に導入できるようになりました。依存するパッケージもインストールしてくれるので、外部Emacs Lispプログラムを導入する手間を大幅に削減できます。この4行はおまじないと思ってinit.elの先頭に書いてください。
+
+　紹介したばかりのC-u C-SPCですが、過去のマークを辿るにはC-u C-SPC C-u C-SPC ...とC-uを毎回押す必要がありました。ですが、 *set-mark-command-repeat-pop* を設定することで、C-uを一度押した後はC-SPCを連続的に押すだけでマークを遡れます。
+
+　 *uniquify.el* を使えばディレクトリ違いの同じファイル名のファイルを開いたときにバッファ名にディレクトリが付くようになります。デフォルトでは＜2＞などという数字が付くだけなのでバッファ名で識別できず不便です。
+
+　C-hはシェルと同様BackSpace同様の挙動になるようにしています。シェルを使っていると打ち間違えたときに反射的にC-hを打つので、Emacsでも揃えておきます。
+
+　その他表示関係を中心とした細々とした設定をしています。
+* 一緒にEmacs力を高めませんか？
+　筆者は毎週土曜日にEmacsのメルマガを発行しています。多くの解説ではその機能の説明に終始しており具体例に乏しいため、理解するのにとても時間がかかる上、今の自分に必要なのかどうかを見極めることも難しいです。メルマガではチュートリアル形式で手を動かして学ぶ形式になっているので、たった5分でその内容を習得できるようになっています。わかりにくい資料で長時間悪戦苦闘するか、月々527円で時間差を買うかはあなた次第です。無制限メール相談権も付けています。初月無料なので安心して登録してください。http://www.mag2.com/m/0001373131.html Happy Emacsing！
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

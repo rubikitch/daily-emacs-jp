@@ -1,0 +1,184 @@
+#+BLOG: rubikitch
+#+POSTID: 1857
+#+DATE: [2015-07-27 Mon 23:16]
+#+PERMALINK: darktooth-theme
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, theme
+#+EL_PKG_NAME: darktooth-theme
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, color-theme, カラーテーマ
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: 灰色背景のカラーテーマ
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージdarktooth-themeの紹介
+#+MYTAGS: package:darktooth-theme, emacs 使い方, emacs コマンド, emacs, darktooth-theme, darktooth-theme.el, emacs lisp darktooth-theme, elisp darktooth-theme, emacs melpa darktooth-theme, emacs darktooth-theme 使い方, emacs darktooth-theme 設定, emacs パッケージ darktooth-theme, emacs darktooth-theme スクリーンショット, color-theme, カラーテーマ
+#+TAGS: package:darktooth-theme, emacs 使い方, emacs コマンド, emacs, darktooth-theme, darktooth-theme.el, emacs lisp darktooth-theme, elisp darktooth-theme, emacs melpa darktooth-theme, emacs darktooth-theme 使い方, emacs darktooth-theme 設定, emacs パッケージ darktooth-theme, emacs darktooth-theme スクリーンショット, color-theme, カラーテーマ, Emacs, theme, darktooth-theme.el
+#+TITLE: emacs darktooth-theme.el : 灰色背景のカラーテーマ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>darktooth-theme</td></tr>
+<tr><td>概要(原文)</td><td>Color theme for Emacs, when soothe and gruvbox collide</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/emacsfodder/emacs-theme-darktooth">https://github.com/emacsfodder/emacs-theme-darktooth</a></td></tr>
+<tr><td>バージョン</td><td>20150708.47</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:darktooth-theme/">package:darktooth-theme</a> </td></tr>
+</table>
+<br />
+#+END_HTML
+*darktooth-theme.el* は、灰色背景のカラーテーマです。
+
+
+# (save-window-excursion (async-shell-command "emacs-test -eval '(load-theme (quote darktooth) t)'"))
+以下のパッケージに対応しています。
+- whitespace
+- rainbow-delimiters
+- rainbow-identifiers
+- linum-relative
+- highlight-indentation
+- smartparens
+- elscreen
+- ag
+- magit
+- diff
+- ediff
+- js2
+- org
+- powerline
+- popup
+- pos-tip
+- anzu
+- company
+- helm
+- term
+- ansi-colors
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_theme_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150727231808.png]]
+Fig1: emacs-lisp-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150727231817.png]]
+Fig2: magit
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150727231820.png]]
+Fig3: grep
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150727231823.png]]
+Fig4: outline-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150727231826.png]]
+Fig5: org-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150727231831.png]]
+Fig6: dired
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150727231834.png]]
+Fig7: web-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150727231838.png]]
+Fig8: markdown-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150727231842.png]]
+Fig9: helm
+
+
+[[https://github.com/emacsfodder/emacs-theme-darktooth][本家サイト]] にも多数のスクリーンショットがあります。
+** darktooth-theme インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install darktooth-theme
+
+
+#+end:
+** 概要                                                             :noexport:
+*darktooth-theme.el* は、灰色背景のカラーテーマです。
+
+
+# (save-window-excursion (async-shell-command "emacs-test -eval '(load-theme (quote darktooth) t)'"))
+以下のパッケージに対応しています。
+- whitespace
+- rainbow-delimiters
+- rainbow-identifiers
+- linum-relative
+- highlight-indentation
+- smartparens
+- elscreen
+- ag
+- magit
+- diff
+- ediff
+- js2
+- org
+- powerline
+- popup
+- pos-tip
+- anzu
+- company
+- helm
+- term
+- ansi-colors
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_theme_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150727231808.png]]
+Fig10: emacs-lisp-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150727231817.png]]
+Fig11: magit
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150727231820.png]]
+Fig12: grep
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150727231823.png]]
+Fig13: outline-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150727231826.png]]
+Fig14: org-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150727231831.png]]
+Fig15: dired
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150727231834.png]]
+Fig16: web-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150727231838.png]]
+Fig17: markdown-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150727231842.png]]
+Fig18: helm
+
+
+[[https://github.com/emacsfodder/emacs-theme-darktooth][本家サイト]] にも多数のスクリーンショットがあります。
+
+** 設定
+#+BEGIN_SRC fundamental
+(load-theme 'darktooth t)
+#+END_SRC
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ emacs -Q -f package-initialize -eval '(load-theme (quote darktooth) t)'
+#+END_EXAMPLE
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

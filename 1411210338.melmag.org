@@ -1,0 +1,36 @@
+#+BLOG: rubikitch
+#+POSTID: 600
+#+DATE: [2014-11-21 Fri 03:38]
+#+PERMALINK: melmag
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: メルマガ,
+#+DESCRIPTION: Emacsの鬼るびきちのココだけの話#156
+#+MYTAGS:
+#+TITLE: プロジェクト管理あれこれ
+
+今週からはEmacsでプロジェクトを
+扱う方法をお話します。
+
+IDEでは古くからおなじみのプロジェクトの概念ですが、
+素のEmacsにはプロジェクトという概念は存在しません。
+
+しかし、プロジェクトの概念を実装するための
+基本的な機能は備わっています。
+
+そのため、プロジェクトの実装が乱立している状況です。
+
+今週は実際にプロジェクトを扱うパッケージを採り上げる前に
+以下の3つのローカル変数のお話をします。
+
+- バッファローカル変数
+- ファイルローカル変数
+- ディレクトリローカル変数
+
+特にディレクトリローカル変数はEmacs23で導入された
+比較的新しい機能なので注目です。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

@@ -1,0 +1,36 @@
+#+BLOG: rubikitch
+#+POSTID: 1699
+#+DATE: [2015-05-29 Fri 05:50]
+#+PERMALINK: melmag
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: メルマガ,
+#+DESCRIPTION: るびきち塾メルマガ『Emacsの鬼るびきちのココだけの話#183』の予告
+#+TITLE: 【メルマガ#183】スクリプト言語Emacs Lisp
+#+MYTAGS: 
+#+begin: org2blog-tags
+#+TAGS: , メルマガ,, 
+#+end:
+今回はelispで簡単なテキスト処理を行います。
+
+elispといっても、今回はかなり平易な内容で、
+簡単なシェルスクリプトが読めるのならば
+問題なく理解できるレベルです。
+
+ちょっと影が薄い関数が出てきますが、
+これらの関数を使うことによって
+elispも「スクリプト言語」なんだなと感じるでしょう。
+
+入出力はともにorg-modeにします。
+
+なぜならorg-modeは入力しやすい上、
+見出しに適切に色をつけてくれるので
+Emacs上での出力フォーマットにも向いているからです。
+
+これを機に自分でelispによる簡単な
+テキスト処理ができれば幸いです。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

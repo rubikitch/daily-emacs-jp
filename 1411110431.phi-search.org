@@ -1,0 +1,141 @@
+#+BLOG: rubikitch
+#+POSTID: 570
+#+DATE: [2014-11-11 Tue 04:31]
+#+PERMALINK: phi-search
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs
+#+EL_PKG_NAME: phi-search
+#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, emacs multiple-cursors, relate:multiple-cursors, emacs isearch, emacs インクリメンタルサーチ, relate:isearch, relate:phi-search-migemo, relate:phi-search-dired, multiple-cursorsでisearch, phi-replace, phi-replace-query, emacs 正規表現置換, emacs replace-regexp, emacs query-replace-regexp, emacs C-M-%%, emacs 置換, emacs re-builder 置換, relate:re-builder
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: 【2015-04-06更新】multiple-cursorsでisearch・正規表現置換できるよ！
+#+EL_URL: http://hins11.jugem.jp/?eid=38
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージphi-searchの紹介
+#+MYTAGS: package:phi-search, emacs 使い方, emacs コマンド, emacs, emacs lisp phi-search, elisp phi-search, emacs melpa phi-search, emacs phi-search 使い方, emacs phi-search 設定, emacs パッケージ phi-search, emacs phi-search スクリーンショット, emacs multiple-cursors, relate:multiple-cursors, emacs isearch, emacs インクリメンタルサーチ, relate:isearch, relate:phi-search-migemo, relate:phi-search-dired, multiple-cursorsでisearch, phi-replace, phi-replace-query, emacs 正規表現置換, emacs replace-regexp, emacs query-replace-regexp, emacs C-M-%, emacs 置換, emacs re-builder 置換, relate:re-builder
+#+TAGS: package:phi-search, emacs 使い方, emacs コマンド, emacs, emacs lisp phi-search, elisp phi-search, emacs melpa phi-search, emacs phi-search 使い方, emacs phi-search 設定, emacs パッケージ phi-search, emacs phi-search スクリーンショット, emacs multiple-cursors, relate:multiple-cursors, emacs isearch, emacs インクリメンタルサーチ, relate:isearch, relate:phi-search-migemo, relate:phi-search-dired, multiple-cursorsでisearch, phi-replace, phi-replace-query, emacs 正規表現置換, emacs replace-regexp, emacs query-replace-regexp, emacs C-M-%, emacs 置換, emacs re-builder 置換, relate:re-builder, Emacs, phi-search.el, isearch, M-x phi-search, anzu, phi-search.el, isearch, M-x phi-search, anzu, M-x re-builder
+#+TITLE: emacs phi-search.el : 【2015-04-06更新】multiple-cursorsでisearch・正規表現置換できるよ！ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>phi-search</td></tr>
+<tr><td>概要(原文)</td><td>another incremental search & replace, compatible with "multiple-cursors"</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>サイト</td><td><a href="http://hins11.jugem.jp/?eid=38">http://hins11.jugem.jp/?eid=38</td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/zk-phi/phi-search">https://github.com/zk-phi/phi-search</a></td></tr>
+<tr><td>バージョン</td><td>20150331.2245</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:phi-search/">package:phi-search</a> <a href="http://rubikitch.com/tag/package:multiple-cursors/">package:multiple-cursors</a> <a href="http://rubikitch.com/tag/package:isearch/">package:isearch</a> <a href="http://rubikitch.com/tag/package:phi-search-migemo/">package:phi-search-migemo</a> <a href="http://rubikitch.com/tag/package:phi-search-dired/">package:phi-search-dired</a> <a href="http://rubikitch.com/tag/package:re-builder/">package:re-builder</a></td></tr>
+</table>
+<br />
+#+END_HTML
+<2015-04-06 Mon>更新 生まれ変わりました！！！
+
+*phi-search.el* は[[http://rubikitch.com/2014/11/10/multiple-cursors/][multiple-cursors.el(レビュー)]]  対応の
+独自実装 *isearch* です。
+
+multiple-cursors.el とは、カーソルを複数に分身させる強力機能で、
+置換を超えた編集操作が可能になります。
+
+multiple-cursors.elを使っているならば、無設定でC-sとC-rが使えるので
+ぜひともインストールしましょう。
+
+*M-x phi-search* の特徴は、isearchの操作性を模倣し、
+検索しながらC-v/M-C-vでスクロールできる点です。
+
+それにより、C-sで検索→C-vでスクロール→C-sで再検索
+ということができます。
+
+また、 *anzu* のようにマッチ数も表示してくれます。
+
+初期レビュー時にはケチョンケチョンに書きましたが(笑)、
+今では[[http://rubikitch.com/2014/12/06/phi-search-migemo/][phi-search-migemo.el(レビュー)]] で[[http://rubikitch.com/2014/08/20/migemo/][Migemo(レビュー)]] 化され
+2015-01-13のバージョン2.2.0からはミニバッファで完結するようになり、
+本家isearchに近づきました。
+
+[[http://rubikitch.com/2015/04/05/phi-search-dired/][phi-search-dired.el(レビュー)]] はphi-searchを使って
+diredのファイル絞り込み・マークできます。
+
+現在はisearchとして違和感ないインターフェースにまで成長し、
+破壊的な威力を秘めたmultiple-cursors.elの専属isearchであり、
+dired内の強力な検索コマンドのベースとなっています。
+
+/まさに縁の下の力持ちです。/
+
+http://rubikitch.com/f/20141111043856.png
+Fig1: M-x phi-search旧インターフェース
+
+[[file:/r/sync/screenshots/20150406052147.png]]
+Fig2: M-x phi-search新インターフェース
+
+** phi-search インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install phi-search
+
+
+#+end:
+** 概要                                                             :noexport:
+<2015-04-06 Mon>更新 生まれ変わりました！！！
+
+*phi-search.el* は[[http://rubikitch.com/2014/11/10/multiple-cursors/][multiple-cursors.el(レビュー)]]  対応の
+独自実装 *isearch* です。
+
+multiple-cursors.el とは、カーソルを複数に分身させる強力機能で、
+置換を超えた編集操作が可能になります。
+
+multiple-cursors.elを使っているならば、無設定でC-sとC-rが使えるので
+ぜひともインストールしましょう。
+
+*M-x phi-search* の特徴は、isearchの操作性を模倣し、
+検索しながらC-v/M-C-vでスクロールできる点です。
+
+それにより、C-sで検索→C-vでスクロール→C-sで再検索
+ということができます。
+
+また、 *anzu* のようにマッチ数も表示してくれます。
+
+初期レビュー時にはケチョンケチョンに書きましたが(笑)、
+今では[[http://rubikitch.com/2014/12/06/phi-search-migemo/][phi-search-migemo.el(レビュー)]] で[[http://rubikitch.com/2014/08/20/migemo/][Migemo(レビュー)]] 化され
+2015-01-13のバージョン2.2.0からはミニバッファで完結するようになり、
+本家isearchに近づきました。
+
+[[http://rubikitch.com/2015/04/05/phi-search-dired/][phi-search-dired.el(レビュー)]] はphi-searchを使って
+diredのファイル絞り込み・マークできます。
+
+現在はisearchとして違和感ないインターフェースにまで成長し、
+破壊的な威力を秘めたmultiple-cursors.elの専属isearchであり、
+dired内の強力な検索コマンドのベースとなっています。
+
+/まさに縁の下の力持ちです。/
+
+http://rubikitch.com/f/20141111043856.png
+Fig1: M-x phi-search旧インターフェース
+
+[[file:/r/sync/screenshots/20150406052147.png]]
+Fig2: M-x phi-search新インターフェース
+
+
+** phi-replaceで置換も
+*M-x phi-replace-query* で
+[[http://rubikitch.com/2014/08/26/visual-regexp/][visual-regexp.el(レビュー)]] のように置換結果を見ながら置換もできます。
+
+*M-x re-builder* と正規表現置換を組み合わせた方法です。
+
+ただ、現時点においてはM-pで過去の置換文字列を辿れない欠点があります。
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150406053333.png]]
+Fig3: M-x phi-replace-query で置換元bufferを入力
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150406053339.png]]
+Fig4: 置換先BUFを入力
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+
+# /r/sync/screenshots/20150406052147.png http://rubikitch.com/wp-content/uploads/2015/04/wpid-201504060521471.png
+# /r/sync/screenshots/20150406053333.png http://rubikitch.com/wp-content/uploads/2015/04/wpid-201504060533331.png
+# /r/sync/screenshots/20150406053339.png http://rubikitch.com/wp-content/uploads/2015/04/wpid-201504060533391.png

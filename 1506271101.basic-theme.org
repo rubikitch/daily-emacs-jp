@@ -1,0 +1,190 @@
+#+BLOG: rubikitch
+#+POSTID: 1779
+#+DATE: [2015-06-27 Sat 11:01]
+#+PERMALINK: basic-theme
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, theme
+#+EL_PKG_NAME: basic-theme
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, color-theme, カラーテーマ, relate:base16-theme
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: 【アンチカラーテーマ】色の使用を最小限にしたカラーテーマ
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージbasic-themeの紹介
+#+MYTAGS: package:basic-theme, emacs 使い方, emacs コマンド, emacs, basic-theme, basic-theme.el, emacs lisp basic-theme, elisp basic-theme, emacs melpa basic-theme, emacs basic-theme 使い方, emacs basic-theme 設定, emacs パッケージ basic-theme, emacs basic-theme スクリーンショット, color-theme, カラーテーマ, relate:base16-theme
+#+TAGS: package:basic-theme, emacs 使い方, emacs コマンド, emacs, basic-theme, basic-theme.el, emacs lisp basic-theme, elisp basic-theme, emacs melpa basic-theme, emacs basic-theme 使い方, emacs basic-theme 設定, emacs パッケージ basic-theme, emacs basic-theme スクリーンショット, color-theme, カラーテーマ, relate:base16-theme, Emacs, theme, basic-theme.el
+#+TITLE: emacs basic-theme.el : 【アンチカラーテーマ】色の使用を最小限にしたカラーテーマ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>basic-theme</td></tr>
+<tr><td>概要(原文)</td><td>Minimalistic light color theme</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/fgeller/basic-theme.el">https://github.com/fgeller/basic-theme.el</a></td></tr>
+<tr><td>バージョン</td><td>20150405.2051</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:basic-theme/">package:basic-theme</a> <a href="http://rubikitch.com/tag/package:base16-theme/">package:base16-theme</a></td></tr>
+</table>
+<br />
+#+END_HTML
+*basic-theme.el* は、派手な色を使わない
+ミニマリストなカラーテーマです。
+
+font-lockの設定はしてありますが、
+なんと、一切色をつけていません！
+
+以下のようにフォアグラウンドとバックグラウンドを既定値にする設定が
+たくさん羅列してあるのです。
+
+#+BEGIN_SRC emacs-lisp :results silent
+`(font-lock-builtin-face ((t :foreground nil :background nil)))
+#+END_SRC
+
+カラーテーマといえば文字を派手に装飾するイメージですが、これは
+/アンチカラーテーマ/
+と言えるでしょう。
+
+しかもデフォルトの設定だと
+モードラインすら消し飛ばしてしまう潔さ！
+
+これはあんまりなので、本設定では復元してあります(笑)
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_theme_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150627110045.png]]
+Fig1: emacs-lisp-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150627110051.png]]
+Fig2: magit
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150627110057.png]]
+Fig3: grep
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150627110102.png]]
+Fig4: outline-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150627110107.png]]
+Fig5: org-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150627110113.png]]
+Fig6: dired
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150627110117.png]]
+Fig7: web-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150627110121.png]]
+Fig8: markdown-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150627110126.png]]
+Fig9: helm
+** basic-theme インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install basic-theme
+
+
+#+end:
+** 概要                                                             :noexport:
+*basic-theme.el* は、派手な色を使わない
+ミニマリストなカラーテーマです。
+
+font-lockの設定はしてありますが、
+なんと、一切色をつけていません！
+
+以下のようにフォアグラウンドとバックグラウンドを既定値にする設定が
+たくさん羅列してあるのです。
+
+#+BEGIN_SRC emacs-lisp :results silent
+`(font-lock-builtin-face ((t :foreground nil :background nil)))
+#+END_SRC
+
+カラーテーマといえば文字を派手に装飾するイメージですが、これは
+/アンチカラーテーマ/
+と言えるでしょう。
+
+しかもデフォルトの設定だと
+モードラインすら消し飛ばしてしまう潔さ！
+
+これはあんまりなので、本設定では復元してあります(笑)
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_theme_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150627110045.png]]
+Fig10: emacs-lisp-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150627110051.png]]
+Fig11: magit
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150627110057.png]]
+Fig12: grep
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150627110102.png]]
+Fig13: outline-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150627110107.png]]
+Fig14: org-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150627110113.png]]
+Fig15: dired
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150627110117.png]]
+Fig16: web-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150627110121.png]]
+Fig17: markdown-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150627110126.png]]
+Fig18: helm
+
+** 設定 [[http://rubikitch.com/f/150627105916.basic-theme.el][150627105916.basic-theme.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/150627/150627105916.basic-theme.el"
+#+BEGIN_SRC fundamental
+;;; README.orgより
+(defun mode-line-visual-toggle ()
+  (interactive)
+  (let ((faces-to-toggle '(mode-line mode-line-inactive))
+        (invisible-color "#e8e8e8")
+        (visible-color "#a1b56c"))
+    (cond ((string= visible-color (face-attribute 'mode-line :background))
+           (mapcar (lambda (face)
+                     (set-face-background face invisible-color)
+                     (set-face-attribute face nil :height 20))
+                   faces-to-toggle))
+          (t
+           (mapcar (lambda (face)
+                     (set-face-background face visible-color)
+                     (set-face-attribute face nil :height (face-attribute 'default :height)))
+                   faces-to-toggle)))))
+(load-theme 'basic t)
+;;; モードラインはつけようよ、ね？
+(mode-line-visual-toggle)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/150627105916.basic-theme.el
+$ emacs -Q -f package-initialize -l 150627105916.basic-theme.el
+#+END_EXAMPLE

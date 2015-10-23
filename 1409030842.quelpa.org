@@ -1,0 +1,81 @@
+#+BLOG: rubikitch
+#+POSTID: 275
+#+DATE: [2014-09-03 Wed 08:42]
+#+PERMALINK: quelpa
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs
+#+EL_PKG_NAME: quelpa
+#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, package:quelpa, emacs 使い方, emacs コマンド, emacs, emacs lisp quelpa, elisp quelpa, emacs  quelpa, emacs quelpa 使い方, emacs quelpa 設定, emacs パッケージ quelpa, relate:el-get, relate:magit, emacs melpa 不便, emacs パッケージ 管理, emacs el-get, emacs quelpa 遅い, emacs パッケージ 更新, emacs パッケージ update, emacs pacakge upgrade auto, emacs package update auto
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方
+#+EL_TITLE0: package.elラッパーquelpa.elを速くする設定
+#+DESCRIPTION: pacakge.elラッパーquelpa.elの各種設定
+#+MYTAGS: package:quelpa, emacs 使い方, emacs コマンド, emacs, emacs lisp quelpa, elisp quelpa, emacs  quelpa, emacs quelpa 使い方, emacs quelpa 設定, emacs パッケージ quelpa, package:quelpa, emacs 使い方, emacs コマンド, emacs, emacs lisp quelpa, elisp quelpa, emacs  quelpa, emacs quelpa 使い方, emacs quelpa 設定, emacs パッケージ quelpa, relate:el-get, relate:magit, emacs melpa 不便, emacs パッケージ 管理, emacs el-get, emacs quelpa 遅い, emacs パッケージ 更新, emacs パッケージ update, emacs pacakge upgrade auto, emacs package update auto
+#+TAGS: package:quelpa, emacs 使い方, emacs コマンド, emacs, emacs lisp quelpa, elisp quelpa, emacs  quelpa, emacs quelpa 使い方, emacs quelpa 設定, emacs パッケージ quelpa, package:quelpa, emacs 使い方, emacs コマンド, emacs, emacs lisp quelpa, elisp quelpa, emacs  quelpa, emacs quelpa 使い方, emacs quelpa 設定, emacs パッケージ quelpa, relate:el-get, relate:magit, emacs melpa 不便, emacs パッケージ 管理, emacs el-get, emacs quelpa 遅い, emacs パッケージ 更新, emacs パッケージ update, emacs pacakge upgrade auto, emacs package update auto, Emacs, MELPA, M-x quelpa-upgrade, cask, el-get
+#+TITLE: emacs quelpa.el : package.elラッパーquelpa.elを速くする設定 |  Emacs Lisp Elisp パッケージ インストール 設定 使い方
+** 別な設定
+[[http://rubikitch.com/2014/09/01/quelpa/][先日紹介したpackage.elラッパーのquelpa]] ですが、
+デフォルトの設定だと起動に時間がかかってしまいます。
+
+なぜなら、quelpaを読み込んだ時点で
+quelpa.elの更新＆MELPAの情報取得を行っているからです。
+
+起動をはやくするには、init.elの設定を置き換えてください。
+
+#+BEGIN_EXAMPLE
+(package-initialize)
+(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
+(if (require 'quelpa nil t)
+    (quelpa-self-upgrade)
+  (with-temp-buffer
+    (url-insert-file-contents "https://raw.github.com/quelpa/quelpa/master/bootstrap.el")
+    (eval-buffer)))
+#+END_EXAMPLE
+
+↓
+
+#+BEGIN_EXAMPLE
+(package-initialize)
+(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
+(setq quelpa-update-melpa-p nil)
+(require 'quelpa)
+#+END_EXAMPLE
+
+その反面、quelpa.el自体の更新が自動でできなくなりますし、
+パッケージの更新にも不具合をきたす可能性があります。
+
+すぐに終了するかネットにつながっていないEmacsであれば、
+*MELPA* の設定もせずに以下のように設定してもかまいません。
+
+このブログに載せるコードはこの方法で動作確認をしていきます。
+
+#+BEGIN_EXAMPLE
+(package-initialize)
+(setq quelpa-update-melpa-p nil)
+(require 'quelpa)
+;;; 以後に各種設定を書く
+#+END_EXAMPLE
+
+** 結論
+Emacsを何日も立ち上げっぱなしにする場合であれば、
+起動が数秒伸びるくらいは問題ないと思います。
+
+そのかわり *M-x quelpa-upgrade* で
+全パッケージの更新が一発でできるようになります。
+
+現時点において、quelpaはpackage.elベースでありながら
+その欠点を補ってくれるので導入する価値はあると思っています。
+
+*cask* や *el-get* の導入に踏み止まっているならば、
+quelpaは導入する価値があるでしょう。
+
+[[http://rubikitch.com/2014/09/02/helm-quelpa/][helmインターフェースを使えばREADMEやパッケージの履歴がすぐに見られます。]]
+
+quelpaを使ってインストールされたパッケージは、
+package.el管轄になります。
+
+もし気に入らなければquelpa自体をロードしなければいいだけです。
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

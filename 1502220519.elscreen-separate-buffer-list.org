@@ -1,0 +1,175 @@
+#+BLOG: rubikitch
+#+POSTID: 1190
+#+DATE: [2015-02-22 Sun 05:19]
+#+PERMALINK: elscreen-separate-buffer-list
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, Emacs 24.4, helm, 
+#+EL_PKG_NAME: elscreen-separate-buffer-list
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p,  relate:persp-mode, relate:elscreen, package:elscreen, relate:elscreen-persist, relate:perspective, helm buffer-list, ido buffer-list, relate:recentf, relate:helm, relate:ido, relate:elscreen, relate:windows, relate:spaces, emacs プロジェクト 切り替え, プロジェクト, ウィンドウ構成, ウィンドウ構成管理, relate:save-visited-files, 
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 
+#+EL_TITLE0: 【elscreenワークスペース化】screenごとに独自のバッファリスト(プロジェクト)を持たせる
+#+EL_URL: http://blog.wameiz.com/blog/2015/02/12/emacs-elscreen-separate-buffer-list/
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージelscreen-separate-buffer-listの紹介
+#+MYTAGS: package:elscreen-separate-buffer-list, emacs 使い方, emacs コマンド, emacs, elscreen-separate-buffer-list, elscreen-separate-buffer-list.el, emacs lisp elscreen-separate-buffer-list, elisp elscreen-separate-buffer-list, emacs melpa elscreen-separate-buffer-list, emacs elscreen-separate-buffer-list 使い方, emacs elscreen-separate-buffer-list 設定, emacs パッケージ elscreen-separate-buffer-list,  relate:persp-mode, relate:elscreen, package:elscreen, relate:elscreen-persist, relate:perspective, helm buffer-list, ido buffer-list, relate:recentf, relate:helm, relate:ido, relate:elscreen, relate:windows, relate:spaces, emacs プロジェクト 切り替え, プロジェクト, ウィンドウ構成, ウィンドウ構成管理, relate:save-visited-files, 
+#+TAGS: package:elscreen-separate-buffer-list, emacs 使い方, emacs コマンド, emacs, elscreen-separate-buffer-list, elscreen-separate-buffer-list.el, emacs lisp elscreen-separate-buffer-list, elisp elscreen-separate-buffer-list, emacs melpa elscreen-separate-buffer-list, emacs elscreen-separate-buffer-list 使い方, emacs elscreen-separate-buffer-list 設定, emacs パッケージ elscreen-separate-buffer-list,  relate:persp-mode, relate:elscreen, package:elscreen, relate:elscreen-persist, relate:perspective, helm buffer-list, ido buffer-list, relate:recentf, relate:helm, relate:ido, relate:elscreen, relate:windows, relate:spaces, emacs プロジェクト 切り替え, プロジェクト, ウィンドウ構成, ウィンドウ構成管理, relate:save-visited-files, , Emacs, Emacs 24.4, helm, , elscreen-separate-buffer-list.el, perspective, M-x elscreen-create, M-x elscreen-clone, elscreen-separate-buffer-list.el, perspective, M-x elscreen-create, M-x elscreen-clone, list-buffers, M-x ibuffer, M-x bs-show, ido-mode, ido-switch-buffer, ido-read-buffer, helm, M-x helm-mini, M-x helm-buffers-list, M-x anything-mini, M-x anything-buffers-list, buffer-list, recentf, M-x helm-mini
+#+TITLE: emacs elscreen-separate-buffer-list.el : 【elscreenワークスペース化】screenごとに独自のバッファリスト(プロジェクト)を持たせる | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>elscreen-separate-buffer-list</td></tr>
+<tr><td>概要(原文)</td><td>Separate buffer list manager for elscreen</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>サイト</td><td><a href="http://blog.wameiz.com/blog/2015/02/12/emacs-elscreen-separate-buffer-list/">http://blog.wameiz.com/blog/2015/02/12/emacs-elscreen-separate-buffer-list/</td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/wamei/elscreen-separate-buffer-list">https://github.com/wamei/elscreen-separate-buffer-list</a></td></tr>
+<tr><td>バージョン</td><td>20150222.134</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:elscreen-separate-buffer-list/">package:elscreen-separate-buffer-list</a> <a href="http://rubikitch.com/tag/package:persp-mode/">package:persp-mode</a> <a href="http://rubikitch.com/tag/package:elscreen/">package:elscreen</a> <a href="http://rubikitch.com/tag/package:elscreen-persist/">package:elscreen-persist</a> <a href="http://rubikitch.com/tag/package:perspective/">package:perspective</a> <a href="http://rubikitch.com/tag/package:recentf/">package:recentf</a> <a href="http://rubikitch.com/tag/package:helm/">package:helm</a> <a href="http://rubikitch.com/tag/package:ido/">package:ido</a> <a href="http://rubikitch.com/tag/package:elscreen/">package:elscreen</a> <a href="http://rubikitch.com/tag/package:windows/">package:windows</a> <a href="http://rubikitch.com/tag/package:spaces/">package:spaces</a> <a href="http://rubikitch.com/tag/package:save-visited-files/">package:save-visited-files</a></td></tr>
+</table>
+<br />
+#+END_HTML
+<2015-02-24 Tue> 設定を変更しました。
+<2015-02-23 Mon> idoを使うようになったため、不具合が修正されました！！
+
+[[http://rubikitch.com/2015/02/13/persp-mode/][persp-mode.el(レビュー)]] はEmacsでワークスペースを提供しますが、
+古くからある [[http://rubikitch.com/2014/09/05/elscreen/][elscreen.el(レビュー)]] とは別のインターフェースです。
+
+ワークスペースとはウィンドウ構成に加えて
+個別のバッファリストをも保持しています。
+
+元来elscreen.elにはウィンドウ構成をGNU Screen風に切り替えるものでしたが、
+この *elscreen-separate-buffer-list.el* を導入すれば
+screenごとのバッファリストを持たせられます。
+
+いわばelscreenを *perspective* 化するものです。
+
+perspectiveとは「視点・見通し」という意味があり、
+現在のワークスペースにおいて選択できるバッファを限定することで
+現在のタスクに視点を集中し、見通しを良くします。
+
+こうすることで、Emacs内で複数のプロジェクトを動かしているときに、
+そのプロジェクトに集中できるようになります。
+
+C-z c(*M-x elscreen-create*) は
+*scratch*と*Message*以外のバッファが見えない状態で
+新しいscreenを作成するように変更されます。
+
+対してC-z C(*M-x elscreen-clone*)は
+元のscreenのバッファリストをコピーします。
+
+なお、[[http://rubikitch.com/2014/10/30/nadvice/][Emacs24.4で導入されたnadvice.el]] を使っているので、
+Emacs24.4以降でないと動作しません。
+** elscreen-separate-buffer-list インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install elscreen-separate-buffer-list
+
+
+#+end:
+** 概要                                                             :noexport:
+<2015-02-24 Tue> 設定を変更しました。
+<2015-02-23 Mon> idoを使うようになったため、不具合が修正されました！！
+
+[[http://rubikitch.com/2015/02/13/persp-mode/][persp-mode.el(レビュー)]] はEmacsでワークスペースを提供しますが、
+古くからある [[http://rubikitch.com/2014/09/05/elscreen/][elscreen.el(レビュー)]] とは別のインターフェースです。
+
+ワークスペースとはウィンドウ構成に加えて
+個別のバッファリストをも保持しています。
+
+元来elscreen.elにはウィンドウ構成をGNU Screen風に切り替えるものでしたが、
+この *elscreen-separate-buffer-list.el* を導入すれば
+screenごとのバッファリストを持たせられます。
+
+いわばelscreenを *perspective* 化するものです。
+
+perspectiveとは「視点・見通し」という意味があり、
+現在のワークスペースにおいて選択できるバッファを限定することで
+現在のタスクに視点を集中し、見通しを良くします。
+
+こうすることで、Emacs内で複数のプロジェクトを動かしているときに、
+そのプロジェクトに集中できるようになります。
+
+C-z c(*M-x elscreen-create*) は
+*scratch*と*Message*以外のバッファが見えない状態で
+新しいscreenを作成するように変更されます。
+
+対してC-z C(*M-x elscreen-clone*)は
+元のscreenのバッファリストをコピーします。
+
+なお、[[http://rubikitch.com/2014/10/30/nadvice/][Emacs24.4で導入されたnadvice.el]] を使っているので、
+Emacs24.4以降でないと動作しません。
+
+** バッファリストはidoレベルで制御
+<2015-02-23 Mon> 更新
+
+elscreen-separate-buffer-list.elも
+perspective.elやpersp-mode.elと同様
+idoが作るバッファリストを操作しています。
+
+よって、buffer-list関数で全バッファが見えます。
+
+それにより、標準のC-x C-b (*list-buffers*)や
+*M-x ibuffer* や *M-x bs-show* では全バッファが見えます。
+
+それに対し、 *ido-mode* を有効にした状態で
+C-x bでバッファ選択(*ido-switch-buffer*)や
+*ido-read-buffer* を呼べばscreenごとのバッファリストになります。
+
+また、 *helm* のバッファリストはidoを介しているので、
+*M-x helm-mini* や *M-x helm-buffers-list* では
+screenごとのバッファリストが表示されます。
+
+対して直接buffer-listを呼んでいる
+*M-x anything-mini* や *M-x anything-buffers-list* は
+全バッファが表示されます。
+
+よって、elscreen-separate-buffer-list.elは
+helmやidoと併用することが前提となります。
+
+以前のバージョンでは直接 *buffer-list* 関数に
+アドバイスをかけていましたが、
+存在するバッファを存在しないものとみなされる不具合が生じていました。
+
+
+** ワークスペースを永続化するには
+Emacsでperspective(ワークスペース)を実現するには、
+[[http://rubikitch.com/2015/01/28/perspective/][perspective.el(レビュー)]] と [[http://rubikitch.com/2015/02/13/persp-mode/][persp-mode.el]] がありますが、
+前者は永続化できないのに対し、後者は永続化できます。
+
+elscreen + elscreen-separate-buffer-list だと永続化できませんが、
+さらに[[http://rubikitch.com/2014/12/11/elscreen-persist/][elscreen-persist.el(レビュー)]] も導入すれば永続化できます。
+
+それでも開いているファイルバッファまでは復元できないので、
+ファイルバッファも復元したければ [[http://rubikitch.com/2015/02/08/save-visited-files/][save-visited-files.el(レビュー)]] も
+導入してください。
+
+persp-mode.elはsave-visited-files.elのように
+ファイルバッファも復元するので、
+persp-mode.elと互角にするには以上の4つのelispを導入してください。
+
+僕個人としてはバッファを削除しない派なので
+save-visited-files.elの機能まではいらないです。
+
+*recentf* (*M-x helm-mini* 等)でファイルをすぐに開いてしまいます。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+** 設定 [[http://rubikitch.com/f/150222051252.elscreen-separate-buffer-list.el][150222051252.elscreen-separate-buffer-list.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/150222/150222051252.elscreen-separate-buffer-list.el"
+#+BEGIN_SRC fundamental
+(setq elscreen-prefix-key (kbd "C-z"))
+(elscreen-start)
+;; (elscreen-persist-mode 1)
+(elscreen-separate-buffer-list-mode 1)
+
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/150222051252.elscreen-separate-buffer-list.el
+$ emacs -Q -f package-initialize -l 150222051252.elscreen-separate-buffer-list.el
+#+END_EXAMPLE

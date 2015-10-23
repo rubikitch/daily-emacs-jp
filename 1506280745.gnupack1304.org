@@ -1,0 +1,42 @@
+#+BLOG: rubikitch
+#+POSTID: 1781
+#+DATE: [2015-06-28 Sun 07:45]
+#+PERMALINK: gnupack1304
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+#+CATEGORY: Emacs, gnupack, Emacs 24.5, 
+#+MYTAGS: Emacs 24.5 windows, Emacs24.5 cygwin, Emacs24.5 gnupack, recenter-positions, recenter-top-bottom, cygwin symlink ショートカット
+#+TITLE: 【gnupack 13.04リリース】Cygwin symlinkをショートカットとして使えるように変更
+#+begin: org2blog-tags
+#+TAGS: Emacs 24.5 windows, Emacs24.5 cygwin, Emacs24.5 gnupack, recenter-positions, recenter-top-bottom, cygwin symlink ショートカット, Emacs, gnupack, Emacs 24.5, , 
+#+end:
+http://d.hatena.ne.jp/ksugita0510/20150627/p1
+
+展開するだけで簡単にCygwin＆Emacs 24.5が使える
+gnupackですが、13.04にバージョンアップしました。
+
+Cygwinは13.03の時点から2.0.4です。
+
+#+BEGIN_QUOTE
+- シンボリックリンクの設定を winsymlinks:lnkに変更
+  cygwinで作成したシンボリックリンクをWindowsのショートカットでも扱えるように変更しました。
+#+END_QUOTE
+
+13.03の記事は書き忘れてしまいましたが、変更点は以下のものです。
+
+#+BEGIN_QUOTE
+- emacsの C-l設定を変更
+  emacsで C-l（recenter-top-bottom）実行時のポジション設定をmiddle、top、bottomに変更
+#+END_QUOTE
+
+これが本来のC-lの挙動です。
+
+以前Twitterでgnupack版のC-lの挙動がおかしいということで
+以下の設定を紹介しましたが、ついに直されたようです。
+
+#+BEGIN_SRC emacs-lisp :results silent
+(setq recenter-positions '(middle top bottom))
+#+END_SRC
+
+なんでgnupack版だと挙動が変わってしまったのかが謎です。

@@ -1,0 +1,138 @@
+#+BLOG: rubikitch
+#+POSTID: 748
+#+DATE: [2014-12-19 Fri 09:40]
+#+PERMALINK: helm-migemo
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, helm
+#+EL_PKG_NAME: helm-migemo
+#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, relate:migemo, package:helm, relate:helm
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: helmで正しくMigemoを動作させる！
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージhelm-migemoの紹介
+#+MYTAGS: package:helm-migemo, emacs 使い方, emacs コマンド, emacs, emacs lisp helm-migemo, elisp helm-migemo, emacs melpa helm-migemo, emacs helm-migemo 使い方, emacs helm-migemo 設定, emacs パッケージ helm-migemo, emacs helm-migemo スクリーンショット, relate:migemo, package:helm, relate:helm
+#+TAGS: package:helm-migemo, emacs 使い方, emacs コマンド, emacs, emacs lisp helm-migemo, elisp helm-migemo, emacs melpa helm-migemo, emacs helm-migemo 使い方, emacs helm-migemo 設定, emacs パッケージ helm-migemo, emacs helm-migemo スクリーンショット, relate:migemo, package:helm, relate:helm, Emacs, helm, helm-migemo.el, anything-migemo.el, lexical-binding, helm-swoop, helm-migemo.el, anything-migemo.el, lexical-binding, helm-swoop
+#+TITLE: emacs helm-migemo.el : helmで正しくMigemoを動作させる！ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>helm-migemo</td></tr>
+<tr><td>概要(原文)</td><td>Migemo plug-in for helm</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/emacs-jp/helm-migemo">https://github.com/emacs-jp/helm-migemo</a></td></tr>
+<tr><td>バージョン</td><td>20151001.816</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:helm-migemo/">package:helm-migemo</a> <a href="http://rubikitch.com/tag/package:migemo/">package:migemo</a> <a href="http://rubikitch.com/tag/package:helm/">package:helm</a></td></tr>
+</table>
+<br />
+#+END_HTML
+<2015-09-07 Mon> [[https://github.com/emacs-helm/helm/commit/b26db37][8/21の変更]] の煽りを受け、設定を更新しました。「補足」追加。
+
+*helm-migemo.el* は、かつて僕が作った *anything-migemo.el* を
+[[http://sheephead.homelinux.org/][myuheさん ]]がhelmに移植したものです。
+
+これを使えばhelmのMigemo対応情報源にてMigemo検索できるようになります。
+
+しかし、helmが *lexical-binding* 対応になったときから
+そのままでは動作しなくなってしまいました。
+
+本設定を使えば引き続きMigemoで絞り込めるようになります。
+
+Migemo対応情報源ではMigemo使えるが反面、
+正規表現が無効になってしまいます。
+
+*helm-swoop* などではそれが顕著に出てくるので注意してください。
+<2014-12-25 Thu> [[http://rubikitch.com/2014/12/25/helm-swoop/][Emacs Advent Calendar 2014にてhelm-swoopについて書きました！]] 
+
+情報源をMigemoに対応するには(migemo)を加えます。
+[[http://rubikitch.com/2014/11/22/helm-bm/][helm-bmの例を参考にしてください]] 。
+** helm-migemo インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install helm-migemo
+
+
+#+end:
+** 概要                                                             :noexport:
+<2015-09-07 Mon> [[https://github.com/emacs-helm/helm/commit/b26db37][8/21の変更]] の煽りを受け、設定を更新しました。「補足」追加。
+
+*helm-migemo.el* は、かつて僕が作った *anything-migemo.el* を
+[[http://sheephead.homelinux.org/][myuheさん ]]がhelmに移植したものです。
+
+これを使えばhelmのMigemo対応情報源にてMigemo検索できるようになります。
+
+しかし、helmが *lexical-binding* 対応になったときから
+そのままでは動作しなくなってしまいました。
+
+本設定を使えば引き続きMigemoで絞り込めるようになります。
+
+Migemo対応情報源ではMigemo使えるが反面、
+正規表現が無効になってしまいます。
+
+*helm-swoop* などではそれが顕著に出てくるので注意してください。
+<2014-12-25 Thu> [[http://rubikitch.com/2014/12/25/helm-swoop/][Emacs Advent Calendar 2014にてhelm-swoopについて書きました！]] 
+
+情報源をMigemoに対応するには(migemo)を加えます。
+[[http://rubikitch.com/2014/11/22/helm-bm/][helm-bmの例を参考にしてください]] 。
+
+** 設定 [[http://rubikitch.com/f/helm-migemo-fix.1.el][helm-migemo-fix.1.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/emacs/lisp/helm-migemo-fix.1.el"
+#+BEGIN_SRC fundamental
+(require 'helm-migemo)
+;;; この修正が必要
+(with-eval-after-load "helm-migemo"
+  (defun helm-compile-source--candidates-in-buffer (source)
+    (helm-aif (assoc 'candidates-in-buffer source)
+        (append source
+                `((candidates
+                   . ,(or (cdr it)
+                          (lambda ()
+                            ;; Do not use `source' because other plugins
+                            ;; (such as helm-migemo) may change it
+                            (helm-candidates-in-buffer (helm-get-current-source)))))
+                  (volatile) (match identity)))
+      source))
+  ;; [2015-09-06 Sun]helm-match-plugin -> helm-multi-match変更の煽りを受けて
+  (defalias 'helm-mp-3-get-patterns 'helm-mm-3-get-patterns)
+  (defalias 'helm-mp-3-search-base 'helm-mm-3-search-base))
+#+END_SRC
+
+#+END:
+
+** 実行方法
+動作させるには、migemoの設定をロードしてください。
+
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/helm-migemo-fix.1.el
+$ emacs -Q -f package-initialize -l your-migemo-settings.el -l helm-migemo-fix.1.el
+#+END_EXAMPLE
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+http://rubikitch.com/f/20141219095040.png
+Fig1: Migemoで絞り込み
+
+** <2015-09-07 Mon>補足:なぜ関数再定義が必要か
+Twitterで helm-compile-source--candidates-in-buffer の修正を外すと動作した
+という声がありましたが、この修正は必要です。
+
+確かに修正を施さなくても動く場合がありますが、
+candidates-in-bufferは動作しません。
+
+#+BEGIN_SRC emacs-lisp :results silent
+(helm '(((name . "candidates")
+         (candidates "ほげ" "ふが" "hoge")
+         (migemo))
+        ((name . "candidates-in-buffer")
+         (candidates-in-buffer)
+         (init . (lambda ()
+                   (with-current-buffer (helm-candidate-buffer 'global)
+                     (insert "ほげ\nふが\nhoge\n"))))
+         (migemo))))
+#+END_SRC
+
+上記のテストコードにおいて、hogeと入力したとき
+双方のsourceともに「ほげ」「hoge」と表示されるのが正しいです。
+
+修正を外した場合は後者の「ほげ」が表示されません。

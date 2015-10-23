@@ -1,0 +1,29 @@
+#+BLOG: rubikitch
+#+POSTID: 1116
+#+DATE: [2015-02-11 Wed 09:40]
+#+PERMALINK: insert-from-isearch
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: 記事更新情報, 
+#+DESCRIPTION: 
+#+MYTAGS: 
+#+TITLE: insert-from-isearchとace-isearchを仲裁しました
+#+begin: org2blog-tags
+#+TAGS: , 記事更新情報, , ace-isearch-use-function-from-isearch
+#+end:
+http://rubikitch.com/2015/01/30/insert-from-isearch/
+
+[[http://rubikitch.com/2015/01/30/insert-from-isearch/][insert-from-isearch]] (isearchにマッチした部分を挿入) は
+デフォルト設定の[[http://rubikitch.com/2014/12/23/isearch-dabbrev/][ace-isearch.el]] とケンカしてしまいます。
+
+というのはisearchのクエリが6文字以上になると
+自動で[[http://rubikitch.com/2014/12/25/helm-swoop/][helm-swoop]] が発動してしまうからです。
+
+そのため *ace-isearch-use-function-from-isearch* をnilにしました。
+
+http://rubikitch.com/2015/01/30/insert-from-isearch/
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

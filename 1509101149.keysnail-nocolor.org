@@ -1,0 +1,43 @@
+#+BLOG: rubikitch
+#+POSTID: 1968
+#+DATE: [2015-09-10 木 11:49]
+#+PERMALINK: keysnail-nocolor
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: KeySnail
+#+DESCRIPTION: 
+#+MYTAGS: Firefox, w3m
+#+TITLE: 【w3mもどき】Firefox/KeySnailで色情報をなくす設定
+#+begin: org2blog-tags
+#+TAGS: Firefox, w3m, KeySnail, 
+#+end:
+FirefoxをEmacs化してくれるKeySnail便利ですねー！
+将来使えなくなったら、[[http://conkeror.org/][Conkeror]] にでも乗り換えようと思っています。
+EmacsがLispで拡張できるように、KeySnailもJavaScriptで拡張できます。
+
+以下の設定は、M-cを押すことで色情報をトグルします。
+
+僕は通常のWebデザインのページはまぶしくてw3mで見ているので、
+同じように感じている方は試してみる価値があります。
+
+ついでにフォントも少し大きくしています。
+
+設定→コンテンツ→配色設定でお好みの色を設定しておいてください。
+
+#+BEGIN_SRC javascript :results silent
+key.setViewKey('M-c', function (aEvent, aArg) {
+    var p = "browser.display.use_system_colors";
+    var v = util.getBoolPref(p);
+    util.setPref(p, !v);
+    util.setPref("browser.display.document_color_use", v?2:0);
+    util.setPref("font.size.variable.ja", v?24:16);
+}, 'use_system_colors toggle', true);
+
+#+END_SRC
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+** 参考
+- [[http://rubikitch.com/2014/11/19/eww-nocolor][Emacs組み込みWebブラウザEWWで色設定を無効にする方法]]

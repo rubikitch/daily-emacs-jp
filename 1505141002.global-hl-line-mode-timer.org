@@ -1,0 +1,65 @@
+#+BLOG: rubikitch
+#+POSTID: 1647
+#+DATE: [2015-05-14 Thu 10:02]
+#+PERMALINK: global-hl-line-mode-timer
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, Emacs Lisp, 
+#+DESCRIPTION: 
+#+MYTAGS: package:hl-line, emacs アイドルタイマー, emacs post-command-hook timer, emacs カーソル移動 重い, emacs カーソル移動 遅い
+#+TITLE: 【高速化】Emacsのカーソル移動が重い？現在行ハイライトhl-line-modeに原因があるかも…
+#+begin: org2blog-tags
+#+TAGS: package:hl-line, emacs アイドルタイマー, emacs post-command-hook timer, emacs カーソル移動 重い, emacs カーソル移動 遅い, Emacs, Emacs Lisp, , global-hl-line-mode, pre-command-hook, post-command-hook, run-with-idle-timer
+#+end:
+現在行をハイライトする *global-hl-line-mode* は、
+当たり前すぎてもはや空気のようなマイナーモードだと思います。
+
+しかし、これを有効にするとカーソル移動がけっこう重くなります。
+
+Core i7でも重くなったと感じるくらいなので、
+多くのマシンで影響がでることでしょう。
+
+C-nで延々と下にカーソルを移動して描画が止まったら
+重くなった証拠です。
+
+原因は *pre-command-hook* と *post-command-hook* という
+各コマンドの前後に実行されるフックです。
+
+たくさんのパッケージを使っていると、
+これらのフックにたくさんの関数が登録されるため、
+どんどん重くなっていきます。
+
+確かに便利なフックですが、多用すると
+まるで足枷をはめながら動くことになります。
+
+では、どうすればいいかというと、代わりに
+*run-with-idle-timer* というアイドル時に実行される
+タイマー関数を設定すればよいことです。
+
+アイドル時に実行されるので、タイマーが実行される前に
+次のコマンドを実行すればその間は関数が実行されません。
+
+global-hl-line-modeを使う代わりに
+タイマーを使ってみてください。
+
+この設定で0.03秒後に現在行がハイライトされるようになります。
+
+#+BEGIN_SRC emacs-lisp :results silent
+(require 'hl-line)
+(defun global-hl-line-timer-function ()
+  (global-hl-line-unhighlight-all)
+  (let ((global-hl-line-mode t))
+    (global-hl-line-highlight)))
+(setq global-hl-line-timer
+      (run-with-idle-timer 0.03 t 'global-hl-line-timer-function))
+;; (cancel-timer global-hl-line-timer)
+#+END_SRC
+
+騙されたと思って設定してみてください。
+
+ほんと、カーソル移動が軽くなりますから！！
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

@@ -1,0 +1,84 @@
+#+BLOG: rubikitch
+#+POSTID: 1828
+#+DATE: [2015-07-15 Wed 04:01]
+#+PERMALINK: helm-add-actions
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, helm, Emacs Lisp, 
+#+DESCRIPTION: 
+#+MYTAGS: emacs, helm, helm アクション 追加, package:helm, relate:anything, helm-type-file-actions, helm-types, helm-type-buffer-actions, helm-type-timers-actions, helm-type-bookmark-actions, helm-type-command-actions, helm-type-function-actions
+#+TITLE: emacs helmにアクション・キーバインドを超簡単に追加する最新の方法！
+#+begin: org2blog-tags
+#+TAGS: emacs, helm, helm アクション 追加, package:helm, relate:anything, helm-type-file-actions, helm-types, helm-type-buffer-actions, helm-type-timers-actions, helm-type-bookmark-actions, helm-type-command-actions, helm-type-function-actions, Emacs, helm, Emacs Lisp, , Stat, Stat
+#+end:
+[[http://rubikitch.com/2015/02/02/helm-add-actions/][2/2にhelmにアクションを追加する方法を書きました]] が、
+7/7の更新により、型に応じたアクションがカスタマイズ可能になりました！！
+
+それにより旧式の方法は使えなくなりましたが、
+単に変数の設定で簡単にアクションを追加できます。
+** アクションを追加する
+前バージョンと同じく、file typeにstatアクションを追加します。
+
+appendで末尾にアクションを追加すればいいです。
+
+#+BEGIN: include :file "/r/sync/junk/150715/150715034831.helm-add-actions.stat.new.el"
+#+BEGIN_SRC fundamental
+;;; 追加するアクション関数
+(defun file-do-stat (filename)
+  (interactive "FStat File: ")
+  (shell-command (format "stat %s" (shell-quote-argument filename))
+                 "*Stat*"))
+;;; アクションを追加するためにはhelm/helm-typesをrequireする
+(require 'helm)
+(require 'helm-types)
+(setq helm-type-file-actions
+      ;; 末尾に追加！
+      (append helm-type-file-actions '(("Stat" . file-do-stat))))
+#+END_SRC
+
+#+END:
+
+ここではファイル型のアクションを追加しましたが、
+他の型にも対応する変数が存在します。
+
+- helm-type-buffer-actions
+- helm-type-timers-actions
+- helm-type-bookmark-actions
+- helm-type-command-actions
+- helm-type-function-actions
+
+** キーバインドを追加する
+キーバインドの追加は前バージョンと同じ方法でいけます。
+
+ここではfileな情報源にてC-c C-sでstatを実行するようにします。
+
+#+BEGIN: include :file "/r/sync/junk/150715/150715041023.helm-add-actions.keybind.el"
+#+BEGIN_SRC fundamental
+;;; -*- lexical-binding: t -*-
+(require 'helm)
+;;; closureを使っているのでlexical-binding必須！
+(defun helm-define-action-key (keymap key def)
+  "アクションをキーバインドに設定"
+  (define-key keymap key
+    (lambda ()
+      (interactive)
+      (with-helm-alive-p
+        (helm-quit-and-execute-action def)))))
+
+;;; 追加するアクション関数
+(defun file-do-stat (filename)
+  (interactive "FStat File: ")
+  (shell-command (format "stat %s" (shell-quote-argument filename))
+                 "*Stat*"))
+;;; 定義するキーバインド
+(require 'helm-files)
+(helm-define-action-key helm-generic-files-map (kbd "C-c C-s") 'file-do-stat)
+#+END_SRC
+
+#+END:
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

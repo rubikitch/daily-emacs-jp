@@ -1,0 +1,139 @@
+#+BLOG: rubikitch
+#+POSTID: 2065
+#+DATE: [2015-10-08 Thu 07:43]
+#+PERMALINK: sync-recentf
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs
+#+EL_PKG_NAME: sync-recentf
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, 最近開いたファイル, 最近使ったファイル, relate:recentf-ext, relate:recentf, 最近使ったファイルが上書きされる, recentfが失われる, recentfが消える, 複数のEmacsでrecentfを共有する, 
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 
+#+EL_TITLE0: recentf(最近開いたファイル)を複数のEmacs間で同期させる
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージsync-recentfの紹介
+#+MYTAGS: package:sync-recentf, emacs 使い方, emacs コマンド, emacs, sync-recentf, sync-recentf.el, emacs lisp sync-recentf, elisp sync-recentf, emacs melpa sync-recentf, emacs sync-recentf 使い方, emacs sync-recentf 設定, emacs パッケージ sync-recentf, 最近開いたファイル, 最近使ったファイル, relate:recentf-ext, relate:recentf, 最近使ったファイルが上書きされる, recentfが失われる, recentfが消える, 複数のEmacsでrecentfを共有する, 
+#+TAGS: package:sync-recentf, emacs 使い方, emacs コマンド, emacs, sync-recentf, sync-recentf.el, emacs lisp sync-recentf, elisp sync-recentf, emacs melpa sync-recentf, emacs sync-recentf 使い方, emacs sync-recentf 設定, emacs パッケージ sync-recentf, 最近開いたファイル, 最近使ったファイル, relate:recentf-ext, relate:recentf, 最近使ったファイルが上書きされる, recentfが失われる, recentfが消える, 複数のEmacsでrecentfを共有する, , Emacs, recentf-list, recentf-save-file, sync-recentf.el, recentf-save-list, recentf-cleanup, recentf-auto-cleanup, recentf-list, recentf-save-file, sync-recentf.el, recentf-save-list, recentf-cleanup, recentf-auto-cleanup
+#+TITLE: emacs sync-recentf.el : recentf(最近開いたファイル)を複数のEmacs間で同期させる | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>sync-recentf</td></tr>
+<tr><td>概要(原文)</td><td>Synchronize the recent files list between Emacs instances</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/ffevotte/sync-recentf">https://github.com/ffevotte/sync-recentf</a></td></tr>
+<tr><td>バージョン</td><td>20151005.326</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:sync-recentf/">package:sync-recentf</a> <a href="http://rubikitch.com/tag/package:recentf-ext/">package:recentf-ext</a> <a href="http://rubikitch.com/tag/package:recentf/">package:recentf</a></td></tr>
+</table>
+<br />
+#+END_HTML
+複数のEmacsを同時に立ち上げていると、
+最近開いたファイルが上書きされてしまう恐れがあります。
+
+なぜなら、最近開いたファイルは変数 *recentf-list* に記憶されており、
+その内容が変数 *recentf-save-file* が示すファイル(~/.emacs.d/recentf) に
+記憶されるからです。
+
+複数のEmacsがそのファイルを取り合いすると、上書きされてしまうのです。
+
+これは僕自身も体験したことであり、この事故により
+貴重な最近開いたファイルの情報が失われてしまいました。
+
+recentfを含むパッケージの動作確認をしているときに、
+その事故は起きました。
+
+この事故を防ぐには2つの方法があります
+
+1つはメインで使うEmacsの recentf-save-file を別なファイルにすることで、
+僕自身がやっている方法です。
+
+僕のように1つのEmacsインスタンスを使い回す人はこれでいいのですが、
+常に複数のEmacsを立ち上げている人は別のアプローチが必要です。
+
+それは、 *sync-recentf.el* を使って複数のEmacs間の
+recentf-list を同期させることです。
+
+最近開いたファイルは *recentf-save-list* によってファイルに書き出されますが、
+sync-recentf.el はファイル書き出し前に同期処理を加えるよう挙動を変更します。
+
+同期は recentf-save-file に保存された内容を読み込み、
+前回の同期時から追加されたファイルを加えて recentf-save-file に
+書き出すことで行います。
+
+また、 *recentf-cleanup* にも同期処理を行うようアドバイスがかけられており、
+*recentf-auto-cleanup* を設定することで一定時間おきに同期されることになります。
+
+最近開いたファイルに限らず、複数のEmacsインスタンスで
+ファイルの取り合いになるときにどのように解決しているのかを
+見ていくのはおもしろいのではないでしょうか。
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+** sync-recentf インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install sync-recentf
+
+
+#+end:
+** 概要                                                             :noexport:
+複数のEmacsを同時に立ち上げていると、
+最近開いたファイルが上書きされてしまう恐れがあります。
+
+なぜなら、最近開いたファイルは変数 *recentf-list* に記憶されており、
+その内容が変数 *recentf-save-file* が示すファイル(~/.emacs.d/recentf) に
+記憶されるからです。
+
+複数のEmacsがそのファイルを取り合いすると、上書きされてしまうのです。
+
+これは僕自身も体験したことであり、この事故により
+貴重な最近開いたファイルの情報が失われてしまいました。
+
+recentfを含むパッケージの動作確認をしているときに、
+その事故は起きました。
+
+この事故を防ぐには2つの方法があります
+
+1つはメインで使うEmacsの recentf-save-file を別なファイルにすることで、
+僕自身がやっている方法です。
+
+僕のように1つのEmacsインスタンスを使い回す人はこれでいいのですが、
+常に複数のEmacsを立ち上げている人は別のアプローチが必要です。
+
+それは、 *sync-recentf.el* を使って複数のEmacs間の
+recentf-list を同期させることです。
+
+最近開いたファイルは *recentf-save-list* によってファイルに書き出されますが、
+sync-recentf.el はファイル書き出し前に同期処理を加えるよう挙動を変更します。
+
+同期は recentf-save-file に保存された内容を読み込み、
+前回の同期時から追加されたファイルを加えて recentf-save-file に
+書き出すことで行います。
+
+また、 *recentf-cleanup* にも同期処理を行うようアドバイスがかけられており、
+*recentf-auto-cleanup* を設定することで一定時間おきに同期されることになります。
+
+最近開いたファイルに限らず、複数のEmacsインスタンスで
+ファイルの取り合いになるときにどのように解決しているのかを
+見ていくのはおもしろいのではないでしょうか。
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+** 設定 [[http://rubikitch.com/f/151008073113.sync-recentf.el][151008073113.sync-recentf.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/151008/151008073113.sync-recentf.el"
+#+BEGIN_SRC fundamental
+(require 'sync-recentf)
+(setq recentf-auto-cleanup 60)
+(recentf-mode 1)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/151008073113.sync-recentf.el
+$ emacs -Q -f package-initialize -l 151008073113.sync-recentf.el
+#+END_EXAMPLE

@@ -1,0 +1,132 @@
+#+BLOG: rubikitch
+#+POSTID: 223
+#+DATE: [2014-08-28 Thu 09:11]
+#+PERMALINK: elmacro
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs Lisp, Emacs,
+#+EL_PKG_NAME: elmacro
+#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, Emacs キーボードマクロ コマンド, Emacs キーボードマクロ Lisp, Emacs キーボードマクロ elisp, Emacs キーボードマクロ 保存, Emacs キーボードマクロ init.el, Emacs キーボードマクロ .emacs
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: キーボードマクロで超簡単に自作コマンドを作ろう！
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージelmacroの紹介
+#+MYTAGS: package:elmacro, emacs 使い方, emacs コマンド, emacs, emacs lisp elmacro, elisp elmacro, emacs melpa elmacro, emacs elmacro 使い方, emacs elmacro 設定, emacs パッケージ elmacro, emacs elmacro スクリーンショット, Emacs キーボードマクロ コマンド, Emacs キーボードマクロ Lisp, Emacs キーボードマクロ elisp, Emacs キーボードマクロ 保存, Emacs キーボードマクロ init.el, Emacs キーボードマクロ .emacs
+#+TITLE: emacs elmacro.el : キーボードマクロで超簡単に自作コマンドを作ろう！ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>elmacro</td></tr>
+<tr><td>概要(原文)</td><td>Convert keyboard macros to elisp</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/Silex/elmacro">https://github.com/Silex/elmacro</a></td></tr>
+<tr><td>バージョン</td><td>20141109.724</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:elmacro/">package:elmacro</a> </td></tr>
+</table>
+<br />
+#+END_HTML
+キーボードマクロ使っていますか？
+
+キーボードマクロは一連のキー操作を覚えて
+それを何度でも再現できるようにする仕組みです。
+
+F3でマクロ記録開始→覚える操作→F4で記録終了
+という流れです。
+
+以後F4を押せば最後に記録したマクロを実行できます。
+
+これだけだとキーボードマクロは1つしか使えないと思いがちですが、
+M-x *name-last-kbd-macro* でキーボードマクロに名前をつければ
+コマンドとして定義できます。
+
+M-x *insert-kbd-macro* で名前をつけたキーボードマクロの内容を
+Lisp式として書き下せるので、これをinit.elに貼り付ければ
+Emacsを再起動しても使えます。
+
+それをさらに便利にするのがこのelmacro.elです。
+
+elmacro.elはキーボードマクロをEmacs Lispに変換します。
+** elmacro インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install elmacro
+
+
+#+end:
+** 概要                                                             :noexport:
+キーボードマクロ使っていますか？
+
+キーボードマクロは一連のキー操作を覚えて
+それを何度でも再現できるようにする仕組みです。
+
+F3でマクロ記録開始→覚える操作→F4で記録終了
+という流れです。
+
+以後F4を押せば最後に記録したマクロを実行できます。
+
+これだけだとキーボードマクロは1つしか使えないと思いがちですが、
+M-x *name-last-kbd-macro* でキーボードマクロに名前をつければ
+コマンドとして定義できます。
+
+M-x *insert-kbd-macro* で名前をつけたキーボードマクロの内容を
+Lisp式として書き下せるので、これをinit.elに貼り付ければ
+Emacsを再起動しても使えます。
+
+それをさらに便利にするのがこのelmacro.elです。
+
+elmacro.elはキーボードマクロをEmacs Lispに変換します。
+
+** 注意:  [2014-08-28 Thu 10:18]追記
+mewとの相性が悪いようです。
+
+elmacro-modeを有効にした状態だと、
+mewでSPCを押してもスクロールしません。
+** 設定 [[http://rubikitch.com/f/140828091038.elmacro.el][140828091038.elmacro.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/140828/140828091038.elmacro.el"
+#+BEGIN_SRC fundamental
+(require 'elmacro)
+(elmacro-mode)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/140828091038.elmacro.el
+$ emacs -Q -f package-initialize -l 140828091038.elmacro.el
+#+END_EXAMPLE
+** 使用例
+たとえば現在行を消してキルリングに入れるにはC-a C-k C-kを使います。
+
+これをキーボードマクロとして記憶させるには
+F3 C-a C-k C-k F4
+と操作します。
+
+コマンドに変換するにはここで M-x *elmacro-show-last-macro* を実行します。
+
+すると、Emacs Lisp化されたキーボードマクロがポップアップします。
+
+現時点では「(kmacro-end-or-call-macro nil)」の行が入ってくるバグがあるので
+この部分は削除してください。
+
+#+BEGIN_EXAMPLE
+(defun kill-current-line ()
+  "現在行を削除する"
+  (interactive)
+  (move-beginning-of-line 1)
+  (kill-line nil)
+  (kill-line nil))
+#+END_EXAMPLE
+
+なお、insert-kbd-macroではこのような定義になります。
+
+#+BEGIN_EXAMPLE
+(fset 'kill-current-line "\C-a\C-k\C-k")
+#+END_EXAMPLE
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+http://rubikitch.com/f/20140828091640.png
+Fig1: M-x elmacro-show-last-macro

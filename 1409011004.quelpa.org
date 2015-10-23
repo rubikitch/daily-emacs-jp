@@ -1,0 +1,243 @@
+#+BLOG: rubikitch
+#+POSTID: 259
+#+DATE: [2014-09-01 Mon 10:04]
+#+PERMALINK: quelpa
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs
+#+EL_PKG_NAME: quelpa
+#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, relate:el-get, relate:magit, emacs melpa 不便, emacs パッケージ 管理, emacs el-get, emacs cask, relate:cask, relate:auto-install, emacs auto-install
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方
+#+EL_TITLE0: 【本邦初公開】MELPAを改善した新しいパッケージ管理システム
+#+EL_DOC: Build and install your Emacs Lisp packages on-the-fly and directly from source.
+#+EL_URL: https://github.com/quelpa/quelpa
+#+EL_VERSION: 出来立てホヤホヤだが使える
+#+begin: org2blog
+#+DESCRIPTION: Emacs Lispパッケージquelpaの紹介
+#+MYTAGS: package:quelpa, emacs 使い方, emacs コマンド, emacs, emacs lisp quelpa, elisp quelpa, emacs  quelpa, emacs quelpa 使い方, emacs quelpa 設定, emacs パッケージ quelpa, relate:el-get, relate:magit, emacs melpa 不便, emacs パッケージ 管理, emacs el-get, emacs cask, relate:cask, relate:auto-install, emacs auto-install
+#+TITLE: emacs quelpa.el : 【本邦初公開】MELPAを改善した新しいパッケージ管理システム |  Emacs Lisp Elisp パッケージ インストール 設定 使い方
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>quelpa</td></tr>
+<tr><td>概要(原文)</td><td>Build and install your Emacs Lisp packages on-the-fly and directly from source.</td></tr>
+<tr><td>リポジトリ</td><td>まだパッケージに登録されていない</td></tr>
+<tr><td>サイト</td><td><a href="https://github.com/quelpa/quelpa">https://github.com/quelpa/quelpa</td></tr>
+<tr><td>Quelpa設定</td><td><code>nil</code></td></tr>
+<tr><td>バージョン</td><td>出来立てホヤホヤだが使える</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:quelpa/">package:quelpa</a> <a href="http://rubikitch.com/tag/package:el-get/">package:el-get</a> <a href="http://rubikitch.com/tag/package:magit/">package:magit</a> <a href="http://rubikitch.com/tag/package:cask/">package:cask</a> <a href="http://rubikitch.com/tag/package:auto-install/">package:auto-install</a></td></tr>
+</table>
+<br />
+#+END_HTML
+*quelpa* は、 *M-x package-install* の欠点を解消する
+新しいパッケージシステム(というかpackage.elラッパー)です。
+
+以下のメリットがあります。
+
+- package.elユーザならばすぐに使える
+- README.mdやサンプルコードが見られる
+- リポジトリが保存されるのでパッケージの更新履歴が見られる
+- リポジトリのソースコードが見られる
+- MELPA管轄外のパッケージも管理できる。
+
+現在、package.el以外にも *Cask* や *el-get* などの
+パッケージシステムがありますが、quelpa作者は
+/どれもイライラさせるものだったので自作した/
+と言っています！
+
+これからが楽しみですね。
+
+なお、作者のEmacsページはここです。
+http://steckerhalter.co.vu/steckemacs.html
+** quelpa インストール
+これはまだパッケージ化されていないので、[[http://rubikitch.com/package-initialize/#sec-2][手動でインストール]] する必要があります。
+
+
+#+end:
+
+以下のコードをinit.elの先頭に加えてください。
+
+#+BEGIN_EXAMPLE
+(package-initialize)
+(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
+(if (require 'quelpa nil t)
+    (quelpa-self-upgrade)
+  (with-temp-buffer
+    (url-insert-file-contents "https://raw.github.com/quelpa/quelpa/master/bootstrap.el")
+    (eval-buffer)))
+#+END_EXAMPLE
+
+
+** 概要                                                             :noexport:
+*quelpa* は、 *M-x package-install* の欠点を解消する
+新しいパッケージシステム(というかpackage.elラッパー)です。
+
+以下のメリットがあります。
+
+- package.elユーザならばすぐに使える
+- README.mdやサンプルコードが見られる
+- リポジトリが保存されるのでパッケージの更新履歴が見られる
+- リポジトリのソースコードが見られる
+- MELPA管轄外のパッケージも管理できる。
+
+現在、package.el以外にも *Cask* や *el-get* などの
+パッケージシステムがありますが、quelpa作者は
+/どれもイライラさせるものだったので自作した/
+と言っています！
+
+これからが楽しみですね。
+
+なお、作者のEmacsページはここです。
+http://steckerhalter.co.vu/steckemacs.html
+** なぜ新しいパッケージシステムが必要か
+Emacsもパッケージシステムが標準添付されて
+パッケージという概念も当たり前になってきました。
+
+今では非公式パッケージアーカイブMELPAが隆盛ですね。
+
+設定を1行加えればMELPAの膨大なパッケージにアクセスできるのは嬉しい限りです。
+
+有名どころのパッケージはたいていカバーされています。
+
+そんなMELPAにも大きな欠点があります！
+
+M-x package-install でEmacs Lispをインストールしても、
+Emacs Lispファイルそのものしかインストールされないことです。
+
+その使い方が書いてある *README.md* がインストールされないで
+使い方を調べるにはわざわざぐぐる必要があります。
+
+ライブラリの場合、テストファイルやサンプルファイルも
+使い方を学ぶのには重要な資料です。
+
+それらが手軽に見られないのは
+本当に非効率極まりないです。
+
+パッケージをアップグレードしたとき変更点が知りたくても
+リポジトリがダウンロードされないので簡単には調べられません。
+
+そもそもMELPAに置いていないパッケージは管理できません。
+
+そこでquelpaの登場です！
+
+quelpaはMELPAに覆い被さるような作りでその欠点を解消します。
+
+また、必要に応じてEmacs起動時に最新パッケージに自動更新してくれます。
+
+quelpaでインストールされたパッケージはpackage.elで管理されるので、
+すでにpackage.elを使っている人ならばすぐに使い始められます。
+** 基本的な使い方
+init.elに
+(quelpa 'パッケージ名)
+と書き加えれば、そのパッケージを必要に応じて
+インストールして使用可能にします。
+
+たとえば
+#+BEGIN_EXAMPLE
+(quelpa 'magit)
+#+END_EXAMPLE
+
+などのようにします。
+
+また、起動時に常に最新のパッケージを使いたい場合は
+#+BEGIN_EXAMPLE
+(quelpa 'magit :upgrade t)
+#+END_EXAMPLE
+
+のように:upgrade tを加えてください。
+
+すべてのパッケージを自動更新するには
+#+BEGIN_EXAMPLE
+(setq quelpa-upgrade-p t)
+#+END_EXAMPLE
+
+をinit.elに加えます。
+
+ただし、自動更新は思わぬトラブルが生じることがあるので注意してください。
+
+非互換な変更やエンバグのせいで
+不意に問題解決に時間がとられるリスクがあるので
+僕の方としてはおすすめしません。
+** 手動でパッケージをインストールする
+手動でパッケージをインストールするには
+M-x *package-install* の代わりに
+M-x *quelpa* を実行してください。
+
+パッケージをアップグレードするには
+*C-u M-x quelpa* を実行します。
+
+** リポジトリのソースコードのありか
+quelpaでインストールされたパッケージのソースコード一式は
+*~/.emacs.d/quelpa/build/* 以下に存在します。
+
+たとえば、パッケージagのリポジトリは
+~/.emacs.d/quelpa/build/ag/
+以下にあります。
+
+README.mdは
+~/.emacs.d/quelpa/build/ag/README.md
+にありますし、
+C-u M-x *magit-status* ~/.emacs.d/quelpa/build/ag/
+で *magit* が起動し、さらに l l を押せば履歴が見られます！！！
+** MELPA管轄外のパッケージをquelpaで管理する
+いくらMELPAが偉大だといっても、すべてのパッケージはカバーできません。
+
+管轄外のパッケージだってあります。
+
+そこでquelpaにMELPA形式のレシピを渡すことでその問題を解決します。
+
+以下の例ではどれもMELPAに登録されていますが、あくまで例ということで。
+
+EmacsWikiにある *eval-sexp-fu.el* はこのように指定します。
+#+BEGIN_EXAMPLE
+(quelpa '(eval-sexp-fu :fetcher wiki :files ("eval-sexp-fu.el")))
+#+END_EXAMPLE
+
+
+githubにある *ag.el* はこうなります。
+#+BEGIN_EXAMPLE
+(quelpa '(ag :repo "Wilfred/ag.el" :fetcher github))
+#+END_EXAMPLE
+
+
+URLからインストールする *rainbow-mode.el* は次のように指定します。
+#+BEGIN_EXAMPLE
+(quelpa '(rainbow-mode :url "http://git.savannah.gnu.org/cgit/emacs/elpa.git/plain/packages/rainbow-mode/rainbow-mode.el" :fetcher url))
+#+END_EXAMPLE
+
+** まだ完璧ではない
+quelpaは現状でもかなり便利です。
+
+しかし、現状ではpackage.elの上に成り立っているので
+package.elが受け付けないフォーマットで書かれた
+Emacs Lispを指定するとエラーになってしまいます。
+
+たとえば、この前紹介した [[http://rubikitch.com/2014/08/26/oniisama/][妹を召喚するoniisama.el]] は
+#+BEGIN_EXAMPLE
+(quelpa '(oniisama :repo "yu-i9/oniisama" :fetcher github :files ("oniisama.el")))
+#+END_EXAMPLE
+
+と指定しても
+Packages lacks a file header
+と怒られてしまいます。
+
+<2014-09-02 Tue>追記: 怒られなくなりました。
+
+超強力なウィンドウ構成管理Emacs Lispの *windows.el* だって
+#+BEGIN_EXAMPLE
+(quelpa '(windows :url "http://www.gentei.org/~yuuji/software/euc/windows.el" :fetcher url))
+#+END_EXAMPLE
+
+と指定しても
+Quelpa: failed to checkout `windows': `Search failed: ";;; windows.el ends here"'
+と怒られてしまいます。
+
+エラーが起きるパッケージでも回避方法を指定して管理できるようになれば
+相当イケてるパッケージシステムになるのではないでしょうか。
+
+現状では [[http://rubikitch.com/package-initialize/#sec-2][auto-install]] などで個別にインストールすることになるでしょう。
+
+これからの成長が楽しみでなりません。
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

@@ -1,0 +1,25 @@
+#+BLOG: rubikitch
+#+POSTID: 1264
+#+DATE: [2015-03-09 Mon 08:27]
+#+PERMALINK: emacs24491
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, Emacs 24.5, 
+#+DESCRIPTION: 
+#+MYTAGS: 
+#+TITLE: Emacs24.5の2度目のpretest(Emacs 24.4.91)が出ました
+#+begin: org2blog-tags
+#+TAGS: , Emacs, Emacs 24.5, , 
+#+end:
+http://lists.gnu.org/archive/html/emacs-devel/2015-03/msg00184.html
+
+[[http://rubikitch.com/2015/02/18/emacs245-pretest/][2/18のpretest(24.4.90)]] に引き続き、
+再びEmacs 24.5リリースへ向けての
+pretestがリリースされました。
+
+ftp://alpha.gnu.org/gnu/emacs/pretest/emacs-24.4.91.tar.xz
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

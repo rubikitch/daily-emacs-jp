@@ -1,0 +1,509 @@
+#+BLOG: rubikitch
+#+POSTID: 325
+#+DATE: [2014-09-09 Tue 10:58]
+#+PERMALINK: use-package
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, Emacs Lisp,
+#+EL_PKG_NAME: use-package
+#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, John Wiegley, emacs init.el 整理, emacs init-loader, .emacs 整理, emacs define-key, emacs global-set-key, emacs キー割り当て, emacs キーバインド, emacs 初期設定, emacs init.el 設定方法, emacs bind-key, package:bind-key, relate:bind-key, bind-key.el
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方
+#+EL_TITLE0: Emacsの世界的権威が行っている最先端ラクラクinit.el整理術
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージuse-packageの紹介
+#+MYTAGS: package:use-package, emacs 使い方, emacs コマンド, emacs, emacs lisp use-package, elisp use-package, emacs melpa use-package, emacs use-package 使い方, emacs use-package 設定, emacs パッケージ use-package, John Wiegley, emacs init.el 整理, emacs init-loader, .emacs 整理, emacs define-key, emacs global-set-key, emacs キー割り当て, emacs キーバインド, emacs 初期設定, emacs init.el 設定方法, emacs bind-key, package:bind-key, relate:bind-key, bind-key.el
+#+TITLE: emacs use-package.el : Emacsの世界的権威が行っている最先端ラクラクinit.el整理術 | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>use-package</td></tr>
+<tr><td>概要(原文)</td><td>A use-package declaration for simplifying your .emacs</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/jwiegley/use-package">https://github.com/jwiegley/use-package</a></td></tr>
+<tr><td>バージョン</td><td>20141220.1645</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:use-package/">package:use-package</a> <a href="http://rubikitch.com/tag/package:bind-key/">package:bind-key</a></td></tr>
+</table>
+<br />
+#+END_HTML
+*use-package* マクロは、emacsのパッケージ設定を
+劇的に簡潔にして読みやすくするマクロです。
+
+<2014-12-12 Fri>更新: [[http://qiita.com/kai2nenobu/items/5dfae3767514584f5220][@kai2nenobuさんも詳しい記事をお書きになりました。]] 
+
+以下の定番の記述がすごいすっきり書けるようになります。
+
+- load-path
+- キー割り当て
+- autoload
+- auto-mode-alist
+- interpreter-mode-alist
+- パッケージ読み込み前に行う処理
+- パッケージ読み込み後に行う処理
+- Emacsがアイドル状態に行う処理
+- 一時的な設定の無効化
+
+特にキー割り当てに関しては [[http://rubikitch.com/2014/09/10/bind-key/][bind-key.el]] により
+とてもすっきり記述できます。
+
+作者はEmacs界の重鎮John Wiegley氏であり
+彼は様々なプロジェクトに関わっています。
+
+- [[http://www.emacswiki.org/][EmacsWiki]]
+- magit
+- eshell (標準添付)
+- org-mode (標準添付)
+- pcomplete.el (標準添付)
+- align.el (標準添付)
+- remember.el (標準添付)
+- isearchb.el (標準添付)
+などなど、有名どころが多いです。
+
+彼の名前が出てきたら安心してしまう僕がいるようです(笑)
+** use-package インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install use-package
+
+
+#+end:
+** 概要                                                             :noexport:
+*use-package* マクロは、emacsのパッケージ設定を
+劇的に簡潔にして読みやすくするマクロです。
+
+<2014-12-12 Fri>更新: [[http://qiita.com/kai2nenobu/items/5dfae3767514584f5220][@kai2nenobuさんも詳しい記事をお書きになりました。]] 
+
+以下の定番の記述がすごいすっきり書けるようになります。
+
+- load-path
+- キー割り当て
+- autoload
+- auto-mode-alist
+- interpreter-mode-alist
+- パッケージ読み込み前に行う処理
+- パッケージ読み込み後に行う処理
+- Emacsがアイドル状態に行う処理
+- 一時的な設定の無効化
+
+特にキー割り当てに関しては [[http://rubikitch.com/2014/09/10/bind-key/][bind-key.el]] により
+とてもすっきり記述できます。
+
+作者はEmacs界の重鎮John Wiegley氏であり
+彼は様々なプロジェクトに関わっています。
+
+- [[http://www.emacswiki.org/][EmacsWiki]]
+- magit
+- eshell (標準添付)
+- org-mode (標準添付)
+- pcomplete.el (標準添付)
+- align.el (標準添付)
+- remember.el (標準添付)
+- isearchb.el (標準添付)
+などなど、有名どころが多いです。
+
+彼の名前が出てきたら安心してしまう僕がいるようです(笑)
+
+** 使い方
+README.mdにいろいろ書いてあるのですが、
+マクロなので、説明を読むよりも *macroexpand* で
+展開結果を読む方が理解しやすいです。
+
+#+BEGIN_EXAMPLE
+(package-initialize)
+(require 'use-package)
+(use-package パッケージ名
+  キーワード 引数
+  キーワード 引数
+  ...)
+#+END_EXAMPLE
+** requireの代わりにする
+use-packageの一番シンプルな使い方は、
+そのままrequireの代わりにすることです。
+
+#+BEGIN_SRC emacs-lisp :results silent
+(use-package ruby-mode)
+#+END_SRC
+
+macroexpandすると…
+
+#+BEGIN_SRC emacs-lisp :results silent
+(macroexpand '(use-package ruby-mode))
+↓
+(progn nil
+       (eval-when-compile
+         (when
+             (bound-and-true-p byte-compile-current-file)
+           (with-demoted-errors
+             (require 'ruby-mode nil t))))
+       (if
+           (and t t)
+           (use-package-with-elapsed-timer "Loading package ruby-mode"
+             (if
+                 (not
+                  (require 'ruby-mode nil t))
+                 (message "Could not load package %s" "ruby-mode")
+               nil nil nil t))))
+#+END_SRC
+
+*progn* の方を見てください。
+
+*eval-when-compile* のくだりは、init.elをバイトコンパイルするときに
+ruby-modeをrequireすることで正しくコンパイルされるための記述です。
+
+実行時には関係ないので無視してください。
+
+#+BEGIN_EXAMPLE
+(require 'ruby-mode nil t)
+#+END_EXAMPLE
+
+は読み込みが失敗したらnilを返します。
+
+よって、読み込みに失敗したときにメッセージが出るようになります。
+
+複数のマシンでinit.elを共有していて、
+インストールされていないパッケージがあったら
+そのままその設定は使われないだけです。
+
+
+
+** :load-path: load-pathを指定する
+パッケージ管轄外のEmacs Lispを使う際は
+*load-path* を設定する必要がありますが、
+:load-path キーワードを使えば一発です。
+
+~/.emacs.d/ ( *user-emacs-directory* ) からの相対パスが指定できます。
+
+
+#+BEGIN_SRC emacs-lisp :results silent
+(use-package ess-site
+  :load-path "site-lisp/ess/lisp/"))
+#+END_SRC
+
+↓
+
+#+BEGIN_SRC emacs-lisp :results silent
+(progn nil
+       (add-to-list 'load-path "/r/.emacs.d/site-lisp/ess/lisp/")
+       (eval-when-compile
+         (when
+             (bound-and-true-p byte-compile-current-file)
+           (with-demoted-errors
+             (require 'ess-site nil t))))
+       (if
+           (and t t)
+           (use-package-with-elapsed-timer "Loading package ess-site"
+             (if
+                 (not
+                  (require 'ess-site nil t))
+                 (message "Could not load package %s" "ess-site")
+               nil nil nil t))))
+#+END_SRC
+
+
+** :bind : コマンドをglobal-mapに割り当てる
+use-package.elは [[http://rubikitch.com/2014/09/10/bind-key/][bind-key.el]] を内部で使っていて、
+キー割り当てを簡単に記述できるようになっています。
+
+たとえば、 *ace-jump-mode* と *ace-jump-line-mode* を
+キーに割り当てる設定はこうです。
+
+#+begin_src emacs-lisp :results silent
+(use-package ace-jump-mode
+  :bind (("C-." . ace-jump-mode)
+         ("C-," . ace-jump-line-mode)))
+#+end_src
+
+これをmacroexpandすると…
+
+#+BEGIN_SRC emacs-lisp :results silent
+(progn nil
+       (eval-when-compile
+         (when
+             (bound-and-true-p byte-compile-current-file)
+           (with-demoted-errors
+             (require 'ace-jump-mode nil t))))
+       (when t nil
+             (autoload #'ace-jump-mode "ace-jump-mode" nil t)
+             (autoload #'ace-jump-line-mode "ace-jump-mode" nil t)
+             (progn nil
+                    (bind-key "C-." 'ace-jump-mode)
+                    (bind-key "C-," 'ace-jump-line-mode))
+             nil t))
+#+END_SRC
+
+
+ここでやってることは、 *autoload* の設定と
+*bind-key* によるキー割り当ての設定です。
+
+このようにbindで設定されたコマンドはすべてautoloadされます。
+
+つまりC-.やC-,が押されるまで ace-jump-mode.el が
+読み込まれないので起動が早くなります。
+
+しかも、煩わしいautoloadの記述とは無縁になります！
+
+なお、メジャーモードやマイナーモードのキーマップを設定するための
+専用の記法は現在のところ用意されていないようです。
+
+:config と *bind-keys* で指定してください。
+
+** :commands : キーに割り当てないコマンドもautoloadする
+:bind で設定したコマンドはautoloadされますが、
+キーに割り当てないコマンドは:commandsでautoload設定します。
+
+#+BEGIN_SRC emacs-lisp :results silent
+(use-package ace-jump-mode
+  :commands (ace-jump-mode ace-jump-line-mode))
+#+END_SRC
+
+↓
+
+#+BEGIN_SRC emacs-lisp :results silent
+(progn nil
+       (eval-when-compile
+         (when
+             (bound-and-true-p byte-compile-current-file)
+           (with-demoted-errors
+             (require 'ace-jump-mode nil t))))
+       (when t nil
+             (autoload #'ace-jump-line-mode "ace-jump-mode" nil t)
+             (autoload #'ace-jump-mode "ace-jump-mode" nil t)
+             nil nil t))
+#+END_SRC
+
+
+** :init : パッケージが読み込まれる前に設定を行う
+:initキーワードを使えば、パッケージが読み込まれる前にコードを実行します。
+#+BEGIN_SRC emacs-lisp :results silent
+(use-package ace-jump-mode
+      :commands ace-jump-mode
+      :init
+      (progn (bind-key "C-." 'ace-jump-mode)))
+#+END_SRC
+
+上の設定ではprognは不要ですが、
+複文を指定するときに必要になるので
+わざと入れています。
+
+これをmacroexpandすると
+
+#+BEGIN_SRC emacs-lisp :results silent
+(progn nil
+       (eval-when-compile
+         (when
+             (bound-and-true-p byte-compile-current-file)
+           (with-demoted-errors
+             (require 'ace-jump-mode nil t))))
+       (when t nil
+             (autoload #'ace-jump-mode "ace-jump-mode" nil t)
+             (progn
+               (bind-key "C-." 'ace-jump-mode))
+             nil t))
+#+END_SRC
+
+あらゆる記述が:init を使って書けることがわかります。
+** :config : パッケージが読み込まれた後に設定を行う
+:configは:initと似ていますが、
+パッケージが読み込まれた後にコードを実行します。
+
+#+BEGIN_SRC emacs-lisp :results silent
+(use-package ace-jump-mode
+      :bind ("C-." . ace-jump-mode)
+      :config
+      (progn (message "Yay, ace-jump-mode was actually loaded!")))
+#+END_SRC
+
+↓
+
+#+BEGIN_SRC emacs-lisp :results silent
+(progn nil
+       (eval-when-compile
+         (when
+             (bound-and-true-p byte-compile-current-file)
+           (with-demoted-errors
+             (require 'ace-jump-mode nil t))))
+       (when t nil
+             (autoload #'ace-jump-mode "ace-jump-mode" nil t)
+             (progn nil
+                    (bind-key "C-." 'ace-jump-mode))
+             (eval-after-load 'ace-jump-mode
+               `(,(lambda nil
+                    (if t
+                        (use-package-with-elapsed-timer "Configuring package ace-jump-mode"
+                          (progn
+                            (message "Yay, ace-jump-mode was actually loaded!")))))))
+             t))
+#+END_SRC
+
+その証拠に *eval-after-load* が使われています。
+
+なお、 *use-package-with-elapsed-timer* は一定時間(デフォルト0.01秒)以上
+ロードに時間がかかったときかつ変数 *use-package-verbose* がtのときに
+メッセージを表示するマクロです。
+
+:initと:configは共存できます。
+
+#+BEGIN_SRC emacs-lisp :results silent
+(use-package haskell-mode
+  :commands haskell-mode
+  :init
+  (add-to-list 'auto-mode-alist '("\\.l?hs$" . haskell-mode))
+  :config
+  (progn
+    (use-package inf-haskell)
+    (use-package hs-lint)))
+#+END_SRC
+
+↓
+
+#+BEGIN_SRC emacs-lisp :results silent
+(progn nil
+       (eval-when-compile
+         (when
+             (bound-and-true-p byte-compile-current-file)
+           (with-demoted-errors
+             (require 'haskell-mode nil t))))
+       (when t nil
+             (autoload #'haskell-mode "haskell-mode" nil t)
+             (add-to-list 'auto-mode-alist
+                          '("\\.l?hs$" . haskell-mode))
+             (eval-after-load 'haskell-mode
+               `(,(lambda nil
+                    (if t
+                        (use-package-with-elapsed-timer "Configuring package haskell-mode"
+                          (progn
+                            (use-package inf-haskell)
+                            (use-package hs-lint)))))))
+             t))
+#+END_SRC
+
+add-to-listの後にeval-after-load→use-packageが
+続いていることからも明らかです。
+
+** :mode, :interpreter : auto-mode-alistとinterpreter-mode-alistの設定を行う
+:modeでファイル名の正規表現を指定すれば
+ *auto-mode-alist* へ登録されます。
+
+:interpreterでインタプリタ名を指定すれば
+*interpreter-mode-alist* へ登録されます。
+
+#+BEGIN_SRC emacs-lisp :results silent
+(use-package ruby-mode
+  :mode "\\.rb\\'"
+  :interpreter "ruby")
+#+END_SRC
+
+↓
+
+#+BEGIN_SRC emacs-lisp :results silent
+(progn nil
+       (eval-when-compile
+         (when
+             (bound-and-true-p byte-compile-current-file)
+           (with-demoted-errors
+             (require 'ruby-mode nil t))))
+       (when t nil
+             (autoload #'ruby-mode "ruby-mode" nil t)
+             (autoload #'ruby-mode "ruby-mode" nil t)
+             (progn
+               (progn nil
+                      (add-to-list 'auto-mode-alist
+                                   '("\\.rb\\'" . ruby-mode)))
+               (add-to-list 'interpreter-mode-alist
+                            '("ruby" . ruby-mode)))
+             nil t))
+#+END_SRC
+
+ruby-mode.elはメジャーモード名とファイル名が一致していたので
+上記のように簡単な記述になりましたが、必ずしもそうではありません。
+
+python-modeはpython.elにて登録されているので、
+pythonにおける設定はこうなります。
+
+#+BEGIN_SRC emacs-lisp :results silent
+(use-package python
+  :mode ("\\.py\\'" . python-mode)
+  :interpreter ("python" . python-mode))
+#+END_SRC
+
+↓
+
+#+BEGIN_SRC emacs-lisp :results silent
+(progn nil
+       (eval-when-compile
+         (when
+             (bound-and-true-p byte-compile-current-file)
+           (with-demoted-errors
+             (require 'python nil t))))
+       (when t nil
+             (autoload #'python-mode "python" nil t)
+             (autoload #'python-mode "python" nil t)
+             (progn
+               (progn nil
+                      (add-to-list 'auto-mode-alist
+                                   '("\\.py\\'" . python-mode)))
+               (add-to-list 'interpreter-mode-alist
+                            '("python" . python-mode)))
+             nil t))
+#+END_SRC
+** メジャーモードのキーを設定する
+メジャーモードのキーを設定するには、
+use-package使用時にすでに使えるマクロ
+*bind-keys* を使えば簡潔です。
+
+C-c C-iにimenu、C-c M-sにxmpを割り当てる例です。
+
+#+BEGIN_SRC emacs-lisp :results silent
+(use-package ruby-mode
+  :config
+  (bind-keys :map ruby-mode-map
+             ("C-c C-i" . imenu)
+             ("C-c M-s" . xmp)))
+#+END_SRC
+
+** :idle : Emacsが暇なときに実行させる
+:idleは:initや:configと似ていますが、
+Emacsがアイドル状態になったときに実行されます。
+
+とはいえ、:idleで指定されたコードにエラーが起きた際、
+問題解決が困難になるのでおすすめはしません。
+
+#+BEGIN_SRC emacs-lisp :results silent
+(use-package pabbrev
+  :commands global-pabbrev-mode
+  :idle (global-pabbrev-mode)
+  :idle-priority 3)
+#+END_SRC
+
+↓
+
+#+BEGIN_SRC emacs-lisp :results silent
+(progn nil
+       (eval-when-compile
+         (when
+             (bound-and-true-p byte-compile-current-file)
+           (with-demoted-errors
+             (require 'pabbrev nil t))))
+       (when t nil
+             (autoload #'global-pabbrev-mode "pabbrev" nil t)
+             (progn
+               (require 'use-package)
+               (use-package-init-on-idle
+                (lambda nil
+                  (global-pabbrev-mode))
+                3)
+               nil)
+             nil t))
+#+END_SRC
+** :disabled: 設定を一時的に無効にする
+:disbledを指定すれば、この設定は無効化されます。
+
+#+BEGIN_SRC emacs-lisp :results silent
+(use-package ess-site
+  :disabled t
+  :commands REST)
+#+END_SRC
+
+macroexpandしてもnilになるだけです。

@@ -1,0 +1,66 @@
+#+BLOG: rubikitch
+#+POSTID: 381
+#+DATE: [2014-09-24 Wed 10:37]
+#+PERMALINK: org-babel-results-output-raw
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t
+#+ISPAGE: nil
+#+DESCRIPTION: org-babelでorg文書を出力させるにはbegin_src行に「:results output raw」と書く
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, Ruby,
+#+DESCRIPTION:
+#+MYTAGS: org-babel, emacs org-mode ob babel, emacs ruby クローラー nokogiri xpath, package:org,
+#+TAGS: org-babel, emacs org-mode ob babel, emacs ruby クローラー nokogiri xpath, package:org,, Emacs, Ruby,, org-mode, Emacs, w3m
+#+TITLE: Emacs×Ruby: org-babelでorg文書を出力させる方法。Rubyクローラーの例あり。
+[[http://bit.ly/crawler_book][『Rubyによるクローラー開発技法』]] 、相変わらずamazonの在庫が戻らないです(泣)
+
+[[http://netnavi.appcard.jp/e/xl8w][みんなの反応]] で
+#+BEGIN_QUOTE
+5 ： koyancya@hatena 2014/07/31 14:06:18
+きっとページを開くと Emacs の本なんですよね
+#+END_QUOTE
+
+これに爆笑してしまいました。
+
+というわけで突如Emacs×Rubyクローラーな話題を。
+
+僕は、まあなんだかんだ言ってるけど *org-mode* 愛用してます。
+
+その中でもorg-babelは可能性があっておもしろいと感じています。
+
+僕は昔からWebサイトから情報を抜き出すスクリプト…
+クローラー(というほど大きな物ではない10行前後のもの)を
+たくさん作ってきました。
+
+個人的に情報を整理して *Emacs* や *w3m* で
+見やすい形に整形する目的が多いです。
+
+org-babelを使えば、ソースコードと実行結果を
+1つのファイルにまとめられます。
+
+短いスクリプトをorg文書に埋め込んでおいて、
+ソースコードの部分でC-c C-cを押すだけでorgファイルが
+書き変わります。
+
+org-babelの #+BEGIN_SRC 行で「:results output」を指定すると
+出力結果がソースコードの後に書き出されます。
+
+多くの場合はこれでいいのですが、org文書を吐き出すコードの場合は
+「#+begin_example 〜 #+end_example」で囲まれてしまうため、
+都合がよくありません。
+
+org文書を書き出す場合は「:results output raw」を指定します。
+
+以下の例は僕のサイトの記事一覧をとってきます。
+
+
+#+INCLUDE: ../../../junk/140924/org-babel-results.org src fundamental
+
+
+
+サイトマップ http://rubikitch.com/?sitemap の内容をNokogiriで解析し、
+class="sitemap"なるUL要素を取得し、
+内部のA要素からリンクとタイトルを得て、
+org文書に出力しているだけです。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

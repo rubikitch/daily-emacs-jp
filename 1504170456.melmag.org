@@ -1,0 +1,41 @@
+#+BLOG: rubikitch
+#+POSTID: 1518
+#+DATE: [2015-04-17 Fri 04:56]
+#+PERMALINK: melmag
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: メルマガ,
+#+DESCRIPTION: るびきち塾メルマガ『Emacsの鬼るびきちのココだけの話#177』の予告
+#+TITLE: 【メルマガ#177】新しいライブラリを習得する最短の道
+#+MYTAGS: 
+#+begin: org2blog-tags
+#+TAGS: , メルマガ,, 
+#+end:
+Emacsもついにパッケージ時代になり、
+新たなアプリケーションやライブラリに
+簡単にアクセスできるようになりました。
+
+パッケージシステムは依存関係を解決してくれるので
+ユーザにとってはライブラリについて知らなくてもいいですし、
+elisp開発者にとっては、標準関数にはない便利関数が
+身近に自由に使えるようになりました。
+
+まさしく「elisp新時代」が到来したのです。
+
+しかし、せっかくライブラリがあっても
+その使い方を学ぶのは大変ですね。
+
+それにライブラリの存在を知らないというのは
+時間も労力も無駄になってしまいます。
+
+さらに悪いことに、標準のpackage.elでは
+最小限のファイルしかインストールされないため
+ライブラリの使い方は簡単に学べません。
+
+今回はこの問題を一発で解決し、dash/s/f.elを例に
+ライブラリ学習の近道を提示します。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

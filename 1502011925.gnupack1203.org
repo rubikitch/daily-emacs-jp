@@ -1,0 +1,39 @@
+#+BLOG: rubikitch
+#+POSTID: 1055
+#+DATE: [2015-02-01 Sun 19:25]
+#+PERMALINK: gnupack1203
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, gnupack, Emacs 24.4, 
+#+DESCRIPTION: 
+#+MYTAGS: 
+#+TITLE: 【Windowsで展開するだけでCygwin Emacs】gnupack 12.03-2015.02.01出ました！
+#+begin: org2blog-tags
+#+TAGS: , Emacs, gnupack, Emacs 24.4, , Windows, Cygwin, Emacs24.4
+#+end:
+http://d.hatena.ne.jp/ksugita0510/20150201/p1
+
+*Windows* 環境で展開するだけで *Cygwin* ＋ *Emacs24.4* が
+使えるようになるgnupackの新バージョンが登場しました。
+
+#+BEGIN_QUOTE
+emacs未実行でもemacsclientでファイルオープンできるよう機能改修
+
+emacsclientを使うには、事前にemacsを実行する必要がありました。
+本バージョンのemacsclientではemacsの実行有無を判断し、
+emacs未実行時はemacsを起動するように作りこみました。
+#+END_QUOTE
+
+つまり、emacsclientだけでemacsが起動しようとしてまいと
+直接Emacsにファイルを送り込むことができるようになります。
+
+悪いことは言わないのでbasicではなくてdevelを選んでください。
+
+gnupackについて詳しく知るには
+[[http://rubikitch.com/category/gnupack/][gnupackカテゴリ]] の一連の記事を読んでください。
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

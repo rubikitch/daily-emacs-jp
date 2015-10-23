@@ -1,0 +1,29 @@
+#+BLOG: rubikitch
+#+POSTID: 1932
+#+DATE: [2015-08-28 Fri 06:08]
+#+PERMALINK: melmag
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: メルマガ,
+#+DESCRIPTION: るびきち塾メルマガ『Emacsの鬼るびきちのココだけの話#196』の予告
+#+TITLE: 【メルマガ#196】日刊Emacs発端の舞台裏
+#+MYTAGS: 
+#+begin: org2blog-tags
+#+TAGS: , メルマガ,, 
+#+end:
+今回は「日刊Emacs」の発端について暴露します。
+
+作ったきっかけ、その裏では何をやっているかなどなど、
+過去のサイトと比較も交えて語っていきます。
+
+はてなダイアリーが続かなかった理由とは？
+日刊にしたきっかけとは？
+WordPressでアクセス数を増やす方法とは？
+
+あなたがもしWordPressを使っているのであれば、
+きっと役立つかもしれません。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

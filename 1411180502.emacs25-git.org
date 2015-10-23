@@ -1,0 +1,111 @@
+#+BLOG: rubikitch
+#+POSTID: 590
+#+DATE: [2014-11-18 Tue 05:02]
+#+PERMALINK: emacs25-git
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, Emacs 25.0
+#+DESCRIPTION: 開発版Emacs(Emacs 25)のインストール手順とGitリポジトリ情報。
+#+MYTAGS: Emacs25 インストール, Emacs25 コンパイル, emacs git コンパイル, emacs git インストール, emacs 開発版 インストール, emacs 開発版 コンパイル, package:eww
+#+TAGS: Emacs25 インストール, Emacs25 コンパイル, emacs git コンパイル, emacs git インストール, emacs 開発版 インストール, emacs 開発版 コンパイル, package:eww, Emacs, Emacs 25.0, eww, M-x rename-buffer, M-x rename-uniquely, eww-after-render-hook, autoconf, automake, configure
+#+TITLE: 開発版Emacs25がGit化されたのでコンパイルしてみた！インストール手順とリポジトリ情報
+ついにEmacsがGitで管理されるようになりました！
+
+10ヶ月にもわたる作業だったらしく、その苦労は大変なものだったでしょう。
+
+開発者の皆様、お疲れ様です。
+
+そして、生涯のパートナーともいえるほどの
+素晴らしいソフトウェアをありがとうございます。
+
+早くも [[http://git.savannah.gnu.org/cgit/emacs.git/plain/etc/NEWS][etc/NEWS]] にはEmacs 25の新機能が出ているので、
+僕もこれから追跡してみます。
+
+** ewwがアツい
+まだ起動しただけですが、 *magit* でログを見てみたところ、
+Emacs組み込みブラウザ *eww* が活発に更新されているのが目立ちました。
+
+Emacs 24.4では*eww*バッファに固定されているのですが、
+Emacs 25では *M-x rename-buffer* や *M-x rename-uniquely* で
+複数のewwバッファを持ってもバグが起きないとか…
+
+*eww-after-render-hook* の登場により、レンダリング後の処理が
+書けるようになったのも嬉しいです。
+
+ewwは個人的にものすごい注目しているので、
+あえてEmacs 25版のewwを使ってみたいと思っていたりします。
+
+emacs-w3mの倍以上高速にレンダリングする軽快さはたまりません。
+** 各ファイルをブラウザで参照する
+各ファイルについては
+[[http://git.savannah.gnu.org/cgit/emacs.git/plain/]]
+以下で見られます。
+
+例えば etc/NEWS は
+http://git.savannah.gnu.org/cgit/emacs.git/plain/etc/NEWS
+となります。
+** コンパイル・インストール手順
+コンパイル・インストールの手順は以下のようにします。
+
+*autoconf*, *automake* が必要です。
+
+*configure* オプションは僕の好みです。
+
+#+BEGIN_EXAMPLE
+$ git clone git://git.sv.gnu.org/emacs.git
+7分くらいかかるのでじっと待つ。
+$ ./autogen.sh
+Checking whether you have the necessary tools...
+(Read INSTALL.REPO for more details on building Emacs)
+
+Checking for autoconf (need at least version 2.65)...
+ok
+Checking for automake (need at least version 1.11)...
+ok
+Your system has the required tools.
+Running 'autoreconf -fi -I m4' ...
+configure.ac:713: installing 'build-aux/compile'
+configure.ac:139: installing 'build-aux/config.guess'
+configure.ac:139: installing 'build-aux/config.sub'
+configure.ac:136: installing 'build-aux/install-sh'
+configure.ac:136: installing 'build-aux/missing'
+lib/Makefile.am: installing 'build-aux/depcomp'
+You can now run './configure'.
+$ ./configure --disable-largefile --with-x-toolkit=motif \
+--without-toolkit-scroll-bars --without-xaw3d --without-xim \
+--without-compress-info --without-sound --without-pop --without-sync-input \
+--without-xpm --without-tiff --without-rsvg --without-gconf \
+--without-gsettings --without-selinux --without-gpm \
+--without-makeinfo --with-x && time make
+省略
+make  743.02s user 31.12s system 579% cpu 2:13.64 total
+$ du -s
+459072	.
+$ sudo make install
+#+END_EXAMPLE
+
+リポジトリで500MB弱、さすがでかい…
+パッケージ版と違い*.elcも作成するからmakeに2分以上もかかってもうた…
+
+そして起動！
+
+#+BEGIN_EXAMPLE
+$ ./src/emacs --version
+GNU Emacs 25.0.50.1
+Copyright (C) 2014 Free Software Foundation, Inc.
+GNU Emacs comes with ABSOLUTELY NO WARRANTY.
+You may redistribute copies of Emacs
+under the terms of the GNU General Public License.
+For more information about these matters, see the file named COPYING.
+#+END_EXAMPLE
+
+ちゃんと 25.0 と出ましたね！！
+
+Gitリポジトリの情報と開発手順については
+ [[http://www.emacswiki.org/emacs/GitQuickStartForEmacsDevs][EmacsWiki::GitQuickStartForEmacsDevs]] を参照してください。
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

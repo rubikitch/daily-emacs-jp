@@ -1,0 +1,77 @@
+#+BLOG: rubikitch
+#+POSTID: 366
+#+DATE: [2014-09-20 Sat 08:28]
+#+PERMALINK: dired-async
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs
+#+EL_PKG_NAME: async
+#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, dired コピー 非同期化, dired コピー 待たされる, dired コピー バックグラウンド, dired copy async, package:dired, relate:dired
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方
+#+EL_TITLE0: diredでのコピーなどをバックグラウンドで行うたった1行の設定
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージasyncの紹介
+#+MYTAGS: package:async, emacs 使い方, emacs コマンド, emacs, emacs lisp async, elisp async, emacs melpa async, emacs async 使い方, emacs async 設定, emacs パッケージ async, dired コピー 非同期化, dired コピー 待たされる, dired コピー バックグラウンド, dired copy async, package:dired, relate:dired
+#+TITLE: emacs async.el : diredでのコピーなどをバックグラウンドで行うたった1行の設定 | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>async</td></tr>
+<tr><td>概要(原文)</td><td>Asynchronous processing in Emacs</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/jwiegley/emacs-async">https://github.com/jwiegley/emacs-async</a></td></tr>
+<tr><td>バージョン</td><td>20141224.2140</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:async/">package:async</a> <a href="http://rubikitch.com/tag/package:dired/">package:dired</a></td></tr>
+</table>
+<br />
+#+END_HTML
+diredではファイルをコピーや移動などができますが、
+大きいファイルを処理したりリモートに転送するときは
+どうしても待たされてしまいます。
+
+そういうときはどうしてもdiredを使うのをためらってしまいますね。
+
+でも大丈夫！asyncパッケージに含まれている *dired-async.el* を読み込めば、
+ファイル処理を非同期にやってくれるようになります。
+
+設定は簡単で、requireするだけです。
+
+あとはいつも通りdiredでコピーしてください。
+** async インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install async
+
+
+#+end:
+** 概要                                                             :noexport:
+diredではファイルをコピーや移動などができますが、
+大きいファイルを処理したりリモートに転送するときは
+どうしても待たされてしまいます。
+
+そういうときはどうしてもdiredを使うのをためらってしまいますね。
+
+でも大丈夫！asyncパッケージに含まれている *dired-async.el* を読み込めば、
+ファイル処理を非同期にやってくれるようになります。
+
+設定は簡単で、requireするだけです。
+
+あとはいつも通りdiredでコピーしてください。
+** 設定 [[http://rubikitch.com/f/140920083408.dired-async.el][140920083408.dired-async.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/140920/140920083408.dired-async.el"
+#+BEGIN_SRC fundamental
+(eval-after-load "dired-aux" '(require 'dired-async))
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/140920083408.dired-async.el
+$ emacs -Q -f package-initialize -l 140920083408.dired-async.el
+#+END_EXAMPLE
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

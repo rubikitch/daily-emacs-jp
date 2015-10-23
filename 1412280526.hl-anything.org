@@ -1,0 +1,149 @@
+#+BLOG: rubikitch
+#+POSTID: 799
+#+DATE: [2014-12-28 Sun 05:26]
+#+PERMALINK: hl-anything
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs
+#+EL_PKG_NAME: hl-anything
+#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, relate:helm-swoop, relate:highlight-symbol, relate:hi-lock, font-lock, font-lock-mode, relate:hl-todo, , relate:highlight-symbol
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: シンボル・regionを「永続的に」色付けする！全バッファ対応
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージhl-anythingの紹介
+#+MYTAGS: package:hl-anything, emacs 使い方, emacs コマンド, emacs, emacs lisp hl-anything, elisp hl-anything, emacs melpa hl-anything, emacs hl-anything 使い方, emacs hl-anything 設定, emacs パッケージ hl-anything, emacs hl-anything スクリーンショット, relate:helm-swoop, relate:highlight-symbol, relate:hi-lock, font-lock, font-lock-mode, relate:hl-todo, , relate:highlight-symbol
+#+TAGS: package:hl-anything, emacs 使い方, emacs コマンド, emacs, emacs lisp hl-anything, elisp hl-anything, emacs melpa hl-anything, emacs hl-anything 使い方, emacs hl-anything 設定, emacs パッケージ hl-anything, emacs hl-anything スクリーンショット, relate:helm-swoop, relate:highlight-symbol, relate:hi-lock, font-lock, font-lock-mode, relate:hl-todo, , relate:highlight-symbol, Emacs, hl-anything.el, hl-lock.el, M-x highlight-regexp, hl-lock.el, M-x highlight-regexp, M-x hl-highlight-thingatpt-global, M-x hl-unhighlight-all-local, M-x hl-unhighlight-all-global, M-x hl-find-thing-forwardly, M-x hl-find-thing-backwardly
+#+TITLE: emacs hl-anything.el : シンボル・regionを「永続的に」色付けする！全バッファ対応 | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>hl-anything</td></tr>
+<tr><td>概要(原文)</td><td>Highlight symbols, selections, enclosing parens and more.</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/boyw165/hl-anything">https://github.com/boyw165/hl-anything</a></td></tr>
+<tr><td>バージョン</td><td>20150219.531</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:hl-anything/">package:hl-anything</a> <a href="http://rubikitch.com/tag/package:helm-swoop/">package:helm-swoop</a> <a href="http://rubikitch.com/tag/package:highlight-symbol/">package:highlight-symbol</a> <a href="http://rubikitch.com/tag/package:hi-lock/">package:hi-lock</a> <a href="http://rubikitch.com/tag/package:hl-todo/">package:hl-todo</a> <a href="http://rubikitch.com/tag/package:highlight-symbol/">package:highlight-symbol</a></td></tr>
+</table>
+<br />
+#+END_HTML
+*hl-anything.el* は、シンボルやregionを色付けします。
+
+<2015-01-10 Sat> end-of-bufferのエラーが本家で修正されました！
+
+ただこれだけの説明だと標準添付の *hl-lock.el* が提供する
+*M-x highlight-regexp* とあまり変わりないように感じます。
+
+しかし、hl-anything.elは以下の点で勝っています。
+
+- シンボルを認識してハイライトする
+- regionが指定しているときはregionをハイライトする
+- 全バッファにハイライトを設定できる！
+- ハイライト情報をEmacs再起動時に復元できる！
+
+なお、<2014-12-28 Sun>においていくつか
+バグがあるので手元で修正しました。
+
+- symbolの認識が甘いので正規表現を \_<〜\_> で囲んだ
+- +end-of-bufferのエラー+ <2015-01-10 Sat>修正 
+- regionを指定したときにハイライトを設定したらregionが残ったまま
+
+なお、名前とはうらはらにanything.elとは何の関係もありません(笑)
+
+色の設定はM-x customize-group hl-anythingでできます。
+** hl-anything インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install hl-anything
+
+
+#+end:
+** 概要                                                             :noexport:
+*hl-anything.el* は、シンボルやregionを色付けします。
+
+<2015-01-10 Sat> end-of-bufferのエラーが本家で修正されました！
+
+ただこれだけの説明だと標準添付の *hl-lock.el* が提供する
+*M-x highlight-regexp* とあまり変わりないように感じます。
+
+しかし、hl-anything.elは以下の点で勝っています。
+
+- シンボルを認識してハイライトする
+- regionが指定しているときはregionをハイライトする
+- 全バッファにハイライトを設定できる！
+- ハイライト情報をEmacs再起動時に復元できる！
+
+なお、<2014-12-28 Sun>においていくつか
+バグがあるので手元で修正しました。
+
+- symbolの認識が甘いので正規表現を \_<〜\_> で囲んだ
+- +end-of-bufferのエラー+ <2015-01-10 Sat>修正 
+- regionを指定したときにハイライトを設定したらregionが残ったまま
+
+なお、名前とはうらはらにanything.elとは何の関係もありません(笑)
+
+色の設定はM-x customize-group hl-anythingでできます。
+
+** 設定 [[http://rubikitch.com/f/141228045535.hl-anything.el][141228045535.hl-anything.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/141228/141228045535.hl-anything.el"
+#+BEGIN_SRC fundamental
+(require 'cl-lib)
+(defun hl-thingatpt--symbol-regexp (&rest them)
+  "せっかく (bounds-of-thing-at-point 'symbol) してるんだから
+\\_<〜\\_>で囲もうぜ？"
+  (if (use-region-p)
+      (apply them)
+    (cl-destructuring-bind (regexp &rest rest)
+        (apply them)
+      `(,(format "\\_<%s\\_>" regexp) ,@rest))))
+(advice-add 'hl-thingatpt :around 'hl-thingatpt--symbol-regexp)
+
+;;; regionを指定したときに解除されないのを修正
+(advice-add 'hl-highlight-thingatpt-local :after 'deactivate-mark)
+(advice-add 'hl-highlight-thingatpt-global :after 'deactivate-mark)
+
+;;; ハイライト情報を保存・復元
+(add-hook 'find-file-hook 'hl-restore-highlights)
+(add-hook 'kill-emacs-hook 'hl-save-highlights)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/141228045535.hl-anything.el
+$ emacs -Q -f package-initialize -l 141228045535.hl-anything.el
+#+END_EXAMPLE
+
+** 使い方
+- *M-x hl-highlight-thingatpt-local* :: カレントバッファを色付け・色消し
+- *M-x hl-highlight-thingatpt-global* :: 全バッファを色付け・色消し
+- *M-x hl-unhighlight-all-local* :: カレントバッファをすべて色消し
+- *M-x hl-unhighlight-all-global* :: 全バッファをすべて色消し
+
+一番よく使うコマンドはM-x hl-highlight-thingatpt-localです。
+
+regionが指定されているときはそのregionを、
+そうでないときは現在のシンボルを色付けします。
+
+トグルになっているので、色付けしている場合は色消しします。
+
+「-global」とついているコマンドは全バッファに適用します。
+
+*M-x hl-find-thing-forwardly* と
+*M-x hl-find-thing-backwardly*
+は、現在のシンボルの文字列を検索しますが、
+シンボルそのものを探すわけでもないし、
+ハイライトされている文字列を移動するわけでもありません。
+
+[[http://rubikitch.com/2014/12/25/helm-swoop/][helm-swoop.el(大々的レビュー記事)]] の前には児戯に等しいです(笑)
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+[[file:/r/sync/screenshots/20141228055052.png]]
+Fig1: ハイライト！
+
+
+# /r/sync/screenshots/20141228055052.png http://rubikitch.com/wp-content/uploads/2014/12/wpid-20141228055052.png

@@ -1,0 +1,55 @@
+#+BLOG: rubikitch
+#+POSTID: 172
+#+DATE: [2014-08-16 Sat 03:16]
+#+PERMALINK: melmag
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: メルマガ,
+#+DESCRIPTION: Emacsの鬼るびきちのココだけの話 142号
+#+MYTAGS: Emacs, emacs キーマップ, emacs global-map, emacs emacs define-key, emacs help, emacs ヘルプ, emacs 操作方法, emacs キーバインド, Emacsの鬼るびきちのココだけの話, emacs メルマガ
+#+TAGS: Emacs, emacs キーマップ, emacs global-map, emacs emacs define-key, emacs help, emacs ヘルプ, emacs 操作方法, emacs キーバインド, Emacsの鬼るびきちのココだけの話, emacs メルマガ, メルマガ,,
+#+TITLE: あふれ返るキーにどう対処する？
+Emacsを使っていると、ありますよね、
+無数のキーバインドに溺れてしまうことが…
+
+ただでさえ常時使えるキーバインド(global-map)が
+無数に登録されているのにたくさんの
+メジャーモード独自のキーバインドがあって、
+さらに自分が書き加えた設定も存在します。
+
+プレフィクスキーC-x rにはたくさんの矩形・レジスタ
+関係のコマンドが割り当てられています。
+
+ある矩形の操作をしたいんだけど、
+操作方法を忘れてしまった、
+なんてこともありますよね。
+
+Emacs歴が長くて以前は知っていたコマンドも、
+使用頻度が少なすぎると忘れてしまうものです。
+
+メジャーモードといえば、常用しているメジャーモードの
+操作を完全に把握してなかったりとか、新しいメジャー
+モードの操作方法がまったく分からなかったりとか…
+
+逆に、コマンド名が与えられていて
+そのコマンドはどのキーに割り当てられているのかな？
+という疑問があったりもします。
+
+今回のメルマガでは、これらキーバインド関連の
+疑問をどんどん解消し、再発防止の方法を伝授します。
+
+キーバインドを調べるすべての基本となるコマンドは
+/<f1> b/ です。
+
+これはカレントバッファで使えるすべてのキーバインドを
+リストするコマンドで、以下のものを含みます。
+
+1. マイナーモードキーマップ
+2. メジャーモードキーマップ
+3. Emacs全体で使えるもの(global-map)
+
+ここからはメルマガでお話します。
+↓
