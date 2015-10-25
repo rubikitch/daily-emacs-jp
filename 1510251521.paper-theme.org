@@ -1,0 +1,101 @@
+#+DATE: [2015-10-25 Sun 15:21]
+#+PERMALINK: paper-theme
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, theme
+#+EL_PKG_NAME: paper-theme
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, color-theme, カラーテーマ
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: 「紙」をイメージした最小主義なカラーテーマ
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージpaper-themeの紹介
+#+MYTAGS: package:paper-theme, emacs 使い方, emacs コマンド, emacs, paper-theme, paper-theme.el, emacs lisp paper-theme, elisp paper-theme, emacs melpa paper-theme, emacs paper-theme 使い方, emacs paper-theme 設定, emacs パッケージ paper-theme, emacs paper-theme スクリーンショット, color-theme, カラーテーマ
+#+TAGS: package:paper-theme, emacs 使い方, emacs コマンド, emacs, paper-theme, paper-theme.el, emacs lisp paper-theme, elisp paper-theme, emacs melpa paper-theme, emacs paper-theme 使い方, emacs paper-theme 設定, emacs パッケージ paper-theme, emacs paper-theme スクリーンショット, color-theme, カラーテーマ, Emacs, theme, paper-theme.el
+#+TITLE: emacs paper-theme.el : 「紙」をイメージした最小主義なカラーテーマ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>paper-theme</td></tr>
+<tr><td>概要(原文)</td><td>A minimal Emacs colour theme.</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/cadadr/paper-theme">https://github.com/cadadr/paper-theme</a></td></tr>
+<tr><td>バージョン</td><td>20151023.445</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:paper-theme/">package:paper-theme</a> </td></tr>
+</table>
+<br />
+#+END_HTML
+*paper-theme.el* は、以下のパッケージに対応したカラーテーマです。
+- org
+- font-lock
+- mode-line
+** paper-theme インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install paper-theme
+
+
+#+end:
+** 概要                                                             :noexport:
+*paper-theme.el* は、以下のパッケージに対応したカラーテーマです。
+- org
+- font-lock
+- mode-line
+** スクリーンショット
+# (save-window-excursion (async-shell-command "emacs-test -l paper-theme -eval '(push (file-name-as-directory (file-name-directory (locate-library \"paper-theme\"))) custom-theme-load-path)' -eval '(load-theme (quote paper) t)'"))
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_theme_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151025153626.png]]
+Fig1: emacs-lisp-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151025153634.png]]
+Fig2: magit
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151025153638.png]]
+Fig3: grep
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151025153643.png]]
+Fig4: outline-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151025153647.png]]
+Fig5: org-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151025153651.png]]
+Fig6: dired
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151025153654.png]]
+Fig7: web-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151025153657.png]]
+Fig8: markdown-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151025153704.png]]
+Fig9: helm
+
+# (when (and (boundp 'custom-theme-load-path) load-file-name) (add-to-list 'custom-theme-load-path (file-name-as-directory (file-name-directory load-file-name))))
+
+** 設定
+#+BEGIN_SRC fundamental
+;; autoloadが設定されていない
+(push (file-name-as-directory (file-name-directory (locate-library "paper-theme")))
+      custom-theme-load-path)
+(load-theme 'paper t)
+#+END_SRC
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ emacs -Q -f package-initialize -eval '(push (file-name-as-directory (file-name-directory (locate-library \"paper-theme\"))) custom-theme-load-path)' -eval '(load-theme (quote paper) t)'
+#+END_EXAMPLE
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
