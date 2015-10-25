@@ -1,3 +1,5 @@
+#+BLOG: rubikitch
+#+POSTID: 2113
 #+DATE: [2015-10-25 Sun 15:21]
 #+PERMALINK: paper-theme
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -86,6 +88,8 @@ Fig9: helm
 # (when (and (boundp 'custom-theme-load-path) load-file-name) (add-to-list 'custom-theme-load-path (file-name-as-directory (file-name-directory load-file-name))))
 
 ** 設定
+pull-requestを送ったので、取り込まれ次第custom-theme-load-pathは不要になります。
+
 #+BEGIN_SRC fundamental
 ;; autoloadが設定されていない
 (push (file-name-as-directory (file-name-directory (locate-library "paper-theme")))
