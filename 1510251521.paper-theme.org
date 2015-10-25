@@ -99,7 +99,7 @@ pull-requestを送ったので、取り込まれ次第custom-theme-load-pathは�
 
 ** 実行方法
 #+BEGIN_EXAMPLE
-$ emacs -Q -f package-initialize -eval '(push (file-name-as-directory (file-name-directory (locate-library \"paper-theme\"))) custom-theme-load-path)' -eval '(load-theme (quote paper) t)'
+$ emacs -Q -f package-initialize -eval '(push (file-name-as-directory (file-name-directory (locate-library "paper-theme"))) custom-theme-load-path)' -eval '(load-theme (quote paper) t)'
 #+END_EXAMPLE
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
