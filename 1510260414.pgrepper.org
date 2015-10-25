@@ -1,0 +1,181 @@
+#+DATE: [2015-10-26 Mon 04:14]
+#+PERMALINK: pgrepper
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, Ruby, peco, helm, 自作プログラム
+#+DESCRIPTION: grepやcmigemo等を呼んで絞り込み検索をするpgrepper 1.0をリリースしました。pecoやhelmやanythingで使えます。
+#+MYTAGS: pgrepper, percol, peco, helm, anything, emacs, grep, ag, sary, csearch, nkf, パイプ, Rubyスクリプト, シェルスクリプト, migemo, cmigemo
+#+TITLE: peco/helm/anythingにMigemo/否定/単語検索機能等を追加するpgrepperを作りました
+#+begin: org2blog-tags
+#+TAGS: pgrepper, percol, peco, helm, anything, emacs, grep, ag, sary, csearch, nkf, パイプ, Rubyスクリプト, シェルスクリプト, migemo, cmigemo, Emacs, Ruby, peco, helm, 自作プログラム, --searcher, --migemo, --searcher, --fold=N, --dummy, -n
+#+end:
+端末でもhelm/anythingな絞り込みをするpecoは便利ですよね！
+動作は速く、[[http://rubikitch.com/2015/09/30/peco034/][0.3.4で実装されたHit-a-Hint]] により少量の候補でも素早く選択できるようになりました。
+そんなpecoに僕はぞっこん惚れ込んでしまいました。
+
+しかし！pecoには大きな不満があります。
+peco組み込みの絞り込み検索の機能が弱いことです。
+スペースで絞り込み検索はできるのですが、helm/anythingがサポートしている機能がないのです。
+- スペース2つでスペースそのものに一致
+- Migemo検索
+- 「!」を前置することによる否定絞り込み検索
+また、pecoで絞り込み検索する前に入力をpecoに読み込ませないと検索できないので大量の入力が来るととても遅くなります。
+おまけに長い行を折り返してくれないので左右スクロールする必要があって不便です。
+
+幸いpecoにはCustom Filter機能があるので絞り込み検索を行う外部プログラムを指定すれば、それを使ってくれます。
+僕が作ったpgrepperは、以上の不満をすべて解消してしまいます！！
+
+http://github.com/rubikitch/pgrepper/
+
+** デモ
+#+ATTR_HTML: :width 480
+file:/r/sync/screenshots/20151023175416.gif
+Fig1: pecoで英辞郎検索！
+
+** 特徴
+pgrepperは以下のことができます。
+- スペースで区切られた最初のクエリに対してgrep以外のプログラムが使える(=--searcher= オプション)
+- [[%E2%96%BChttp://www.kaoriya.net/software/cmigemo/][cmigemo]] によるMigemo検索
+  - =--migemo= オプションで全クエリに対してMigemo化
+  - クエリに「m:」を前置することで個別にMigemo化
+- クエリに「w:」を前置することで単語検索
+- クエリに「g:」を前置することで全体検索(=--searcher= を使用している場合でも)
+- クエリに「!」を前置することで否定絞り込み検索
+- スペース2つでスペースそのものに一致
+- =--fold=N= オプションでN桁以上の行を折り畳む
+- =--dummy= オプションでクエリそのものを候補にする
+- ファイル名を指定することでpecoに読み込ませることなく高速検索ができる！
+
+これだけの機能がありながらも、pgrepperはわずか70行程度の短さです。
+それはpgrepper自体が検索をするのではなく、grep等を適宜呼び出すzshスクリプトを組み立てているからです。
+pgrepper自体はただの変換器に過ぎません。
+
+** インストール
+単一ファイルのRubyスクリプトなのでインストールは簡単です。
+
+#+BEGIN_EXAMPLE
+$ wget -O ~/bin/pgrepper https://raw.githubusercontent.com/rubikitch/pgrepper/master/pgrepper
+$ chmod +x ~/bin/pgrepper
+#+END_EXAMPLE
+
+or
+
+#+BEGIN_EXAMPLE
+$ hub clone rubikitch/pgrepper
+#+END_EXAMPLE
+
+実行の際には呼び出すプログラムが必要です。
+- zsh
+- grep
+- cmigemo
+- nkf
+- sary (必要あれば)
+- csearch (必要あれば)
+
+** ~/.config/peco/config.json の設定例
+以下のようにCustomFilterのエントリを設定します。
+- eijiro - 英辞郎検索
+- default - 標準的なpgrepperの設定
+- migemo - クエリ全体をMigemo化する設定
+- filelist - 巨大なファイルリスト検索
+
+#+BEGIN_EXAMPLE
+{
+    "CustomFilter": {
+        "eijiro": {
+            "Cmd": "/r/src/pgrepper/pgrepper",
+            "Args": ["--searcher=sary -i", "--fold=90", "--dummy=no", "$QUERY", "/log2/sary/eijiro.all.utf8.txt"]
+        },
+        "default": {
+            "Cmd": "/r/src/pgrepper/pgrepper",
+            "Args": ["$QUERY", "--dummy=last"],
+            "BufferThreshold": 10000
+        },
+        "migemo": {
+            "Cmd": "/r/src/pgrepper/pgrepper",
+            "Args": ["--migemo", "$QUERY", "--dummy=last"],
+            "BufferThreshold": 100000
+        },
+        "filelist": {
+            "Cmd": "/r/src/pgrepper/pgrepper",
+            "Args": ["--dummy=first", "$QUERY",
+                     "/tmp/.recentf", "/log2/sary/all.filelist"],
+            "BufferThreshold": 100000
+        }
+    },
+    略
+}
+#+END_EXAMPLE
+
+** helmでの使用例
+helmでも使えます。
+#+BEGIN_SRC emacs-lisp :results silent
+(defun peco-pgrepper-sample-helm ()
+  (interactive)
+  (helm :sources '(((name . "pgrepper sample")
+                    (candidates-process
+                     . (lambda ()
+                         (start-process "pgrepper" nil
+                                        "/r/src/pgrepper/pgrepper" helm-pattern
+                                        "/r/.emacs.d/init.el")))))))
+#+END_SRC
+
+** anythingでの使用例
+anythingでも使えます。
+#+BEGIN_SRC emacs-lisp :results silent
+(defun peco-pgrepper-sample-anything ()
+  (interactive)
+  (anything :sources '(((name . "pgrepper sample")
+                        (candidates
+                         . (lambda ()
+                             (start-process "pgrepper" nil
+                                            "/r/src/pgrepper/pgrepper" anything-pattern
+                                            "/r/.emacs.d/init.el")))))))
+#+END_SRC
+
+** 具体的に呼び出すコマンド
+=-n= オプションをつけると、実際には実行せずにコマンドラインを出力します。
+これを参考にお好みの設定を見付けてください。
+
+#+BEGIN_EXAMPLE
+$ ./pgrepper -n 'foo bar'
+grep -Ehi foo |grep -Ei  bar
+$ ./pgrepper -n 'foo  bar'
+grep -Ehi foo\ bar 
+$ ./pgrepper -n 'foo&bar'
+grep -Ehi foo\&bar 
+$ ./pgrepper -n --searcher='sary -i' 'foo&bar'
+sary -i foo\&bar 
+$ ./pgrepper -n 'foo&bar !baz'
+grep -Ehi foo\&bar |grep -Ei -v baz
+$ ./pgrepper -n 'foo bar' file1 
+grep -Ehi foo file1|grep -Ei  bar
+$ ./pgrepper -n --searcher='sary -i' 'foo bar' file1 
+sary -i foo file1|grep -Ei  bar
+$ ./pgrepper -n 'foo bar' file1 file2
+grep -Ehi foo file1 file2|grep -Ei  bar
+$ ./pgrepper -n computer /log2/sary/eijiro.all.utf8.txt
+grep -Ehi computer /log2/sary/eijiro.all.utf8.txt
+$ ./pgrepper -n --fold computer /log2/sary/eijiro.all.utf8.txt
+grep -Ehi computer /log2/sary/eijiro.all.utf8.txt|nkf -wF80
+$ ./pgrepper -n --fold=90 computer /log2/sary/eijiro.all.utf8.txt
+grep -Ehi computer /log2/sary/eijiro.all.utf8.txt|nkf -wF90
+$ ./pgrepper -n --dummy=first 'foo bar'
+grep -Ehi foo |grep -Ei  bar
+$ ./pgrepper -n --dummy=last 'foo bar'
+grep -Ehi foo |grep -Ei  bar
+$ ./pgrepper -n --dummy=no 'foo bar'
+grep -Ehi foo |grep -Ei  bar
+$ ./pgrepper -n 'm:nihongo' file
+(a=`cmigemo -n -q -d /usr/share/cmigemo/utf-8/migemo-dict -w nihongo`;grep -Ei $a file)
+$ ./pgrepper -n --searcher='sary -i' 'm:nihongo' file
+(a=`cmigemo -n -q -d /usr/share/cmigemo/utf-8/migemo-dict -w nihongo`;grep -Ei $a file)
+$ ./pgrepper -n --migemo 'migemo dayo' --migemo-dict=/tmp/migemo.dict
+(a=`cmigemo -n -q -d /tmp/migemo.dict -w migemo`;grep -Ei $a )|\
+(a=`cmigemo -n -q -d /tmp/migemo.dict -w dayo`;grep -Ei $a )
+#+END_EXAMPLE
+
+
