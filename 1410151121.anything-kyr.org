@@ -7,7 +7,7 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs
+#+CATEGORY: Emacs, 自作プログラム
 #+EL_PKG_NAME: anything-kyr
 #+EL_DOC: Show context-aware commands
 #+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, relate:anything, relate:helm, relate:trace, relate:org, relate:yaoddmuse
@@ -16,6 +16,7 @@
 #+begin: org2blog
 #+DESCRIPTION: Emacs Lispパッケージanything-kyrの紹介
 #+MYTAGS: package:anything-kyr, emacs 使い方, emacs コマンド, emacs, emacs lisp anything-kyr, elisp anything-kyr, emacs  anything-kyr, emacs anything-kyr 使い方, emacs anything-kyr 設定, emacs パッケージ anything-kyr, relate:anything, relate:helm, relate:trace, relate:org, relate:yaoddmuse
+#+TAGS: package:anything-kyr, emacs 使い方, emacs コマンド, emacs, emacs lisp anything-kyr, elisp anything-kyr, emacs  anything-kyr, emacs anything-kyr 使い方, emacs anything-kyr 設定, emacs パッケージ anything-kyr, relate:anything, relate:helm, relate:trace, relate:org, relate:yaoddmuse, Emacs, 自作プログラム, anything-kyr.el, org-mode, anything-kyr-commands-by-major-mode, anything-kyr-commands-by-condition, anything-kyr-commands-by-file-name, anything.el, helm, M-x anything-kyr, anything-c-source-kyr, org-mode, anything-kyr-commands-by-major-mode, anything-kyr-commands-by-condition, anything-kyr-commands-by-file-name, anything.el, helm, M-x anything-kyr, anything-c-source-kyr
 #+TITLE: emacs anything-kyr.el : 空気を読んで必要なコマンドを提示してくれる古えの最終兵器…anything.elの秘蔵っ子 |  Emacs Lisp Elisp パッケージ インストール 設定 使い方
 #+BEGIN_HTML
 <table>
