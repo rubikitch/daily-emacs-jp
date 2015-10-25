@@ -38,7 +38,7 @@ Fig1: pecoで英辞郎検索！
 ** 特徴
 pgrepperは以下のことができます。
 - スペースで区切られた最初のクエリに対してgrep以外のプログラムが使える(=--searcher= オプション)
-- [[%E2%96%BChttp://www.kaoriya.net/software/cmigemo/][cmigemo]] によるMigemo検索
+- [[http://www.kaoriya.net/software/cmigemo/][cmigemo]] によるMigemo検索
   - =--migemo= オプションで全クエリに対してMigemo化
   - クエリに「m:」を前置することで個別にMigemo化
 - クエリに「w:」を前置することで単語検索
