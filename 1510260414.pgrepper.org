@@ -112,6 +112,10 @@ $ hub clone rubikitch/pgrepper
 }
 #+END_EXAMPLE
 
+全クエリをMigemo化したいならば
+「peco --initial-filter migemo」
+のようにpecoを起動します。
+
 ** helmでの使用例
 helmでも使えます。
 #+BEGIN_SRC emacs-lisp :results silent
