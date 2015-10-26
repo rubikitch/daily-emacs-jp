@@ -1,3 +1,5 @@
+#+BLOG: rubikitch
+#+POSTID: 2118
 #+DATE: [2015-10-26 Mon 04:14]
 #+PERMALINK: pgrepper
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -179,3 +181,5 @@ $ ./pgrepper -n --migemo 'migemo dayo' --migemo-dict=/tmp/migemo.dict
 #+END_EXAMPLE
 
 
+
+# /r/sync/screenshots/20151023175416.gif http://rubikitch.com/wp-content/uploads/2015/10/wpid-20151023175416.gif

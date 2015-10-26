@@ -1,3 +1,5 @@
+#+BLOG: rubikitch
+#+POSTID: 2121
 #+DATE: [2015-10-24 Sat 03:30]
 #+PERMALINK: all-pages-in-github
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
