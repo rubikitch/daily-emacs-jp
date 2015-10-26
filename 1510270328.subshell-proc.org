@@ -1,0 +1,93 @@
+#+DATE: [2015-10-27 Tue 03:28]
+#+PERMALINK: subshell-proc
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs
+#+EL_PKG_NAME: subshell-proc
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, シェルコマンド, call-process, call-process-shell-command, start-process, start-process-shell-command, comint-run, make-comint, M-x shell, comint, async-shell-command, 外部プログラム, 外部コマンド, comint-mode
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: 【Emacsランチャー】シェルコマンドを実行するEmacsコマンドを一発登録する！
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージsubshell-procの紹介
+#+MYTAGS: package:subshell-proc, emacs 使い方, emacs コマンド, emacs, subshell-proc, subshell-proc.el, emacs lisp subshell-proc, elisp subshell-proc, emacs melpa subshell-proc, emacs subshell-proc 使い方, emacs subshell-proc 設定, emacs パッケージ subshell-proc, emacs subshell-proc スクリーンショット, シェルコマンド, call-process, call-process-shell-command, start-process, start-process-shell-command, comint-run, make-comint, M-x shell, comint, async-shell-command, 外部プログラム, 外部コマンド, comint-mode
+#+TAGS: package:subshell-proc, emacs 使い方, emacs コマンド, emacs, subshell-proc, subshell-proc.el, emacs lisp subshell-proc, elisp subshell-proc, emacs melpa subshell-proc, emacs subshell-proc 使い方, emacs subshell-proc 設定, emacs パッケージ subshell-proc, emacs subshell-proc スクリーンショット, シェルコマンド, call-process, call-process-shell-command, start-process, start-process-shell-command, comint-run, make-comint, M-x shell, comint, async-shell-command, 外部プログラム, 外部コマンド, comint-mode, Emacs, アプリケーションランチャー, subshell-proc.el, defproc, subshell-proc.el, defproc
+#+TITLE: emacs subshell-proc.el : 【Emacsランチャー】シェルコマンドを実行するEmacsコマンドを一発登録する！ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>subshell-proc</td></tr>
+<tr><td>概要(原文)</td><td>Functions for working with comints</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/andrewmains12/subshell-proc">https://github.com/andrewmains12/subshell-proc</a></td></tr>
+<tr><td>バージョン</td><td>20130122.1322</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:subshell-proc/">package:subshell-proc</a> </td></tr>
+</table>
+<br />
+#+END_HTML
+Emacsは *アプリケーションランチャー* です！
+なぜなら外部プログラムを呼び出せるからです。
+しかし、プログラムを起動するEmacsコマンドを定義するマクロが標準で用意されていないのは悲しいことです。
+
+そこで、 *subshell-proc.el* の *defproc* マクロを使えば一発です！
+comint-mode(shell-modeの元となるモード)を使っているのでシェルのような対話的プログラムにも対応しています。
+
+#+BEGIN_EXAMPLE
+(defproc コマンド名 プログラム プログラムの引数リスト &optional 説明文字列)
+#+END_EXAMPLE
+
+引数リストは定義するコマンド内で評価されるので、buffer-file-nameやdefault-directoryなども渡せます。
+たとえば文字列と buffer-file-name と default-directory を表示するだけのM-x echo-testはこのように定義されます。
+
+#+BEGIN_EXAMPLE
+(require 'subshell-proc)
+(defproc echo-test "echo" `("string" ,buffer-file-name ,default-directory))
+#+END_EXAMPLE
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151027035125.png]]
+Fig1: M-x echo-test
+
+よって、得意な言語でサッとスクリプトを書いてdefprocで定義してキーに割り当ててしまえば、すぐにEmacsで呼び出せます。
+
+正直、僕はこのような手軽に使えるelispが登場するのを待っていました。
+** subshell-proc インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install subshell-proc
+
+
+#+end:
+** 概要                                                             :noexport:
+Emacsは *アプリケーションランチャー* です！
+なぜなら外部プログラムを呼び出せるからです。
+しかし、プログラムを起動するEmacsコマンドを定義するマクロが標準で用意されていないのは悲しいことです。
+
+そこで、 *subshell-proc.el* の *defproc* マクロを使えば一発です！
+comint-mode(shell-modeの元となるモード)を使っているのでシェルのような対話的プログラムにも対応しています。
+
+#+BEGIN_EXAMPLE
+(defproc コマンド名 プログラム プログラムの引数リスト &optional 説明文字列)
+#+END_EXAMPLE
+
+引数リストは定義するコマンド内で評価されるので、buffer-file-nameやdefault-directoryなども渡せます。
+たとえば文字列と buffer-file-name と default-directory を表示するだけのM-x echo-testはこのように定義されます。
+
+#+BEGIN_EXAMPLE
+(require 'subshell-proc)
+(defproc echo-test "echo" `("string" ,buffer-file-name ,default-directory))
+#+END_EXAMPLE
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151027035125.png]]
+Fig2: M-x echo-test
+
+よって、得意な言語でサッとスクリプトを書いてdefprocで定義してキーに割り当ててしまえば、すぐにEmacsで呼び出せます。
+
+正直、僕はこのような手軽に使えるelispが登場するのを待っていました。
+
