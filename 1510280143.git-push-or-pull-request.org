@@ -1,0 +1,44 @@
+#+DATE: [2015-10-28 Wed 01:43]
+#+PERMALINK: git-push-or-pull-request
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, 自作プログラム
+#+DESCRIPTION: シェルスクリプトgit-push-or-pull-requestをリリース。EmacsでC-x v pで実行する設定も付けました。
+#+MYTAGS: git, github, hub pull-request, git push, vc, relate:vc, emacs vc git, C-x v p, relate:magit, emacs git pull-request, make-comint, shell-mode, comint-mode, comint-run
+#+TITLE: 自動判別でGitHubにpush/pull-requestするスクリプトを作りました(Emacsの設定付)
+#+begin: org2blog-tags
+#+TAGS: git, github, hub pull-request, git push, vc, relate:vc, emacs vc git, C-x v p, relate:magit, emacs git pull-request, make-comint, shell-mode, comint-mode, comint-run, Emacs, 自作プログラム, 
+#+end:
+https://github.com/rubikitch/git-push-or-pull-request
+
+今更ながらGitHubを活用しようと思い立ち、環境を整えています。
+一連のコミットをGitHubへの送信する場合
+- 自分のリポジトリならばgit push origin master
+- 他人のリポジトリならばhub fork; git push $user $branch; hub pull-request
+でだいたいまかなえると思います。
+
+よってリポジトリを自動判別して上記の操作を行うシェルスクリプトを作成しました。
+
+[[https://raw.githubusercontent.com/rubikitch/git-push-or-pull-request/master/git-push-or-pull-request][→直リンク]]
+
+実行属性をつければすぐに使えます。(要[[https://github.com/github/hub][hub]])
+
+Emacsで以下のように設定するとC-x v pで実行できます。
+
+#+BEGIN_SRC emacs-lisp
+(defun vc-git-push-or-pull-request ()
+  (interactive)
+  (display-buffer (make-comint "git-push-or-pull-request" "git-push-or-pull-request"
+                               nil default-directory)))
+(global-set-key (kbd "C-x v p") 'git-push-or-pull-request)
+#+END_SRC
+
+僕自身シェルスクリプトをめったに書かないのですが、なかなかいいものですね。
+おかげでGitHubでの活動が円滑に行えています。
+
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
