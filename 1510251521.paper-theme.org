@@ -24,7 +24,7 @@
 <tr><td>概要(原文)</td><td>A minimal Emacs colour theme.</td></tr>
 <tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
 <tr><td>取得先</td><td><a href="https://github.com/cadadr/paper-theme">https://github.com/cadadr/paper-theme</a></td></tr>
-<tr><td>バージョン</td><td>20151023.445</td></tr>
+<tr><td>バージョン</td><td>20151025.800</td></tr>
 <tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:paper-theme/">package:paper-theme</a> </td></tr>
 </table>
 <br />
@@ -89,17 +89,15 @@ Fig9: helm
 
 ** 設定
 pull-requestを送ったので、取り込まれ次第custom-theme-load-pathは不要になります。
+→取り込まれました
 
 #+BEGIN_SRC fundamental
-;; autoloadが設定されていない
-(push (file-name-as-directory (file-name-directory (locate-library "paper-theme")))
-      custom-theme-load-path)
 (load-theme 'paper t)
 #+END_SRC
 
 ** 実行方法
 #+BEGIN_EXAMPLE
-$ emacs -Q -f package-initialize -eval '(push (file-name-as-directory (file-name-directory (locate-library "paper-theme"))) custom-theme-load-path)' -eval '(load-theme (quote paper) t)'
+$ emacs -Q -f package-initialize -eval '(load-theme (quote paper) t)'
 #+END_EXAMPLE
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
