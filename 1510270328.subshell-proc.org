@@ -1,3 +1,5 @@
+#+BLOG: rubikitch
+#+POSTID: 2124
 #+DATE: [2015-10-27 Tue 03:28]
 #+PERMALINK: subshell-proc
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
