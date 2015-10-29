@@ -1,3 +1,5 @@
+#+BLOG: rubikitch
+#+POSTID: 2129
 #+DATE: [2015-10-29 Thu 10:50]
 #+PERMALINK: yas-new-snippet-with-region
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,10 +9,10 @@
 #+BLOG: rubikitch
 #+CATEGORY: Emacs
 #+DESCRIPTION: M-x yas-new-snippetがregionを受け付けるようにしてみました。
-#+MYTAGS: Emacs, yasnippet リージョンからスニペットを作成, yasnippet from region, relate:yasnippet, yas-new-snippet, yasnippet 新規作成, emacs テンプレート, テンプレート, スニペット, snippet, template, skeleton
+#+MYTAGS: Emacs, yasnippet リージョンからスニペットを作成, yasnippet from region, relate:yasnippet, yas-new-snippet, yasnippet 新規作成, emacs テンプレート, テンプレート, スニペット, snippet, template, skeleton, package:yasnippet
 #+TITLE: Emacs: yasnippetの新規作成時にregionの内容をデフォルトの内容にする
 #+begin: org2blog-tags
-#+TAGS: Emacs, yasnippet リージョンからスニペットを作成, yasnippet from region, relate:yasnippet, yas-new-snippet, yasnippet 新規作成, emacs テンプレート, テンプレート, スニペット, snippet, template, skeleton, Emacs, yasnippet.el, M-x yas-new-snippet, new snippet
+#+TAGS: Emacs, yasnippet リージョンからスニペットを作成, yasnippet from region, relate:yasnippet, yas-new-snippet, yasnippet 新規作成, emacs テンプレート, テンプレート, スニペット, snippet, template, skeleton, package:yasnippet, Emacs, yasnippet.el, M-x yas-new-snippet, new snippet
 #+end:
 *yasnippet.el* でスニペットを新規作成するのは *M-x yas-new-snippet* です。
 regionの内容を足掛かりにスニペットを作成できれば便利ではないでしょうか？
