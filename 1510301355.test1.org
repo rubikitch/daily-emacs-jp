@@ -1,0 +1,19 @@
+#+BLOG: rubikitch
+#+POSTID: 2133
+#+DATE: [2015-10-30 Fri 13:55]
+#+PERMALINK: test1
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, 
+#+DESCRIPTION: 
+#+MYTAGS: 
+#+TITLE: test
+#+begin: org2blog-tags
+#+TAGS: , Emacs, , 
+#+end:
+post test 
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
