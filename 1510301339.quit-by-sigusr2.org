@@ -1,3 +1,5 @@
+#+BLOG: rubikitch
+#+POSTID: 2131
 #+DATE: [2015-10-30 金 13:39]
 #+PERMALINK: quit-by-sigusr2
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
