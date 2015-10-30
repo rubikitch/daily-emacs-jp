@@ -1,0 +1,35 @@
+#+DATE: [2015-10-30 金 13:39]
+#+PERMALINK: quit-by-sigusr2
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, 
+#+DESCRIPTION: シェルからpkill -USR2 emacsを実行すればEmacsで走っているLispプログラムを強制的に中断できます
+#+MYTAGS: emacs, C-gが効かない, emacs 停止, 中断, emacs quit, signal, keyboard-quit, keyboard-escape-quit, debug-on-event, emacs debugger, pkill -USR2 emacs, SIGUSR2, SIGUSR1
+#+TITLE: 死んだかもしれないEmacsを蘇生させられるかもしれない方法!？
+#+begin: org2blog-tags
+#+TAGS: emacs, C-gが効かない, emacs 停止, 中断, emacs quit, signal, keyboard-quit, keyboard-escape-quit, debug-on-event, emacs debugger, pkill -USR2 emacs, SIGUSR2, SIGUSR1, Emacs, , inhibit-quit, debug-on-event
+#+end:
+Emacsはごくたまに暴走してC-gを押しまくっても反応しないことがあります。
+たとえば、 *inhibit-quit* が t のときはquitできないようになりますが、その時に無限ループが発生したら止まらなくなります。
+(実際にはC-gを3回押せば止まるようです。)
+#+BEGIN_EXAMPLE
+(defun death-loop ()
+  (interactive)
+  (let ((inhibit-quit t))
+    (while t)))
+#+END_EXAMPLE
+
+何かしらの原因でEmacsが応答しなくなったときは、外部からSIGUSR2シグナルを送信すればEmacsはデバッガに入り実行中のコードを取り止めます。
+
+#+BEGIN_EXAMPLE
+$ pkill -USR2 emacs
+#+END_EXAMPLE
+
+一度試してみては？
+
+ちなみにこのSIGUSR2というのは *debug-on-event* 変数で指定されるものです。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
