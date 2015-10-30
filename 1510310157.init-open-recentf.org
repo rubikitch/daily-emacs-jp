@@ -1,0 +1,92 @@
+#+BLOG: rubikitch
+#+POSTID: 2141
+#+DATE: [2015-10-31 Sat 01:57]
+#+PERMALINK: init-open-recentf
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, ido, helm
+#+EL_PKG_NAME: init-open-recentf
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, relate:helm, relate:anything, relate:ido, relate:recentf, package:recentf, Emacs起動時に最近開いたファイルを開く
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: Emacs起動時にrecentfを開く(ido/anything/helm対応)
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージinit-open-recentfの紹介
+#+MYTAGS: package:init-open-recentf, emacs 使い方, emacs コマンド, emacs, init-open-recentf, init-open-recentf.el, emacs lisp init-open-recentf, elisp init-open-recentf, emacs melpa init-open-recentf, emacs init-open-recentf 使い方, emacs init-open-recentf 設定, emacs パッケージ init-open-recentf, emacs init-open-recentf スクリーンショット, relate:helm, relate:anything, relate:ido, relate:recentf, package:recentf, Emacs起動時に最近開いたファイルを開く
+#+TAGS: package:init-open-recentf, emacs 使い方, emacs コマンド, emacs, init-open-recentf, init-open-recentf.el, emacs lisp init-open-recentf, elisp init-open-recentf, emacs melpa init-open-recentf, emacs init-open-recentf 使い方, emacs init-open-recentf 設定, emacs パッケージ init-open-recentf, emacs init-open-recentf スクリーンショット, relate:helm, relate:anything, relate:ido, relate:recentf, package:recentf, Emacs起動時に最近開いたファイルを開く, Emacs, ido, helm, init-open-recentf.el
+#+TITLE: emacs init-open-recentf.el : Emacs起動時にrecentfを開く(ido/anything/helm対応) | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>init-open-recentf</td></tr>
+<tr><td>概要(原文)</td><td>Open recentf immediately after Emacs is started</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/zonuexe/init-open-recentf.el">https://github.com/zonuexe/init-open-recentf.el</a></td></tr>
+<tr><td>バージョン</td><td>20151029.512</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:init-open-recentf/">package:init-open-recentf</a> <a href="http://rubikitch.com/tag/package:helm/">package:helm</a> <a href="http://rubikitch.com/tag/package:anything/">package:anything</a> <a href="http://rubikitch.com/tag/package:ido/">package:ido</a> <a href="http://rubikitch.com/tag/package:recentf/">package:recentf</a></td></tr>
+</table>
+<br />
+#+END_HTML
+*init-open-recentf.el* はEmacs起動時にrecentf(最近開いたファイル)を開きます。
+Emacsを起動したらとりあえずrecentfからファイルを開く人ならば試してみる価値があります。
+Emacsにひきこもらず、すぐにEmacsを終了する使い方をするならば特に役立つことでしょう。
+逆にEmacsに何日もひきこもっている人にとってはさほど恩恵を感じないでしょう。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151031020240.png]]
+Fig1: ido
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151031015706.png]]
+Fig2: helm
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151031020210.png]]
+Fig3: anything
+
+** init-open-recentf インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install init-open-recentf
+
+
+#+end:
+** 概要                                                             :noexport:
+*init-open-recentf.el* はEmacs起動時にrecentf(最近開いたファイル)を開きます。
+Emacsを起動したらとりあえずrecentfからファイルを開く人ならば試してみる価値があります。
+Emacsにひきこもらず、すぐにEmacsを終了する使い方をするならば特に役立つことでしょう。
+逆にEmacsに何日もひきこもっている人にとってはさほど恩恵を感じないでしょう。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151031020240.png]]
+Fig4: ido
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151031015706.png]]
+Fig5: helm
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151031020210.png]]
+Fig6: anything
+
+
+** 設定 [[http://rubikitch.com/f/151031014951.init-open-recentf.1.el][151031014951.init-open-recentf.1.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/151031/151031014951.init-open-recentf.1.el"
+#+BEGIN_SRC fundamental
+(recentf-mode 1)
+;; ido/anything/helmのうちどれかを指定する
+(setq init-open-recentf-interface 'helm)
+(init-open-recentf)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/151031014951.init-open-recentf.1.el
+$ emacs -Q -f package-initialize -l 151031014951.init-open-recentf.1.el
+#+END_EXAMPLE
