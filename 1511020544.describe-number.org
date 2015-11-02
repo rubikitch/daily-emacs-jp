@@ -1,5 +1,5 @@
 #+BLOG: rubikitch
-#+POSTID: 2145
+#+POSTID: 2147
 #+DATE: [2015-11-02 Mon 05:44]
 #+PERMALINK: describe-number
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -38,12 +38,14 @@
 
 1と0のみの数値を入力したときは、2進数とみなしたときの結果を表示し、0〜7の場合は8進数、A〜Fが含まれる場合は16進数の結果も表示します。
 
-
-
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
 #+ATTR_HTML: :width 480
 [[file:/r/sync/screenshots/20151102144035.png]]
 Fig1: ThisにてM-x describe-number-at-point
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151102144217.png]]
+Fig2: 他の例(テキストだとエラーになるため画像で)
 ** describe-number インストール
 このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
 
@@ -62,10 +64,12 @@ M-x package-install describe-number
 
 1と0のみの数値を入力したときは、2進数とみなしたときの結果を表示し、0〜7の場合は8進数、A〜Fが含まれる場合は16進数の結果も表示します。
 
-
-
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
 #+ATTR_HTML: :width 480
 [[file:/r/sync/screenshots/20151102144035.png]]
-Fig2: ThisにてM-x describe-number-at-point
+Fig3: ThisにてM-x describe-number-at-point
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151102144217.png]]
+Fig4: 他の例(テキストだとエラーになるため画像で)
 
