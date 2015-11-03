@@ -1,0 +1,154 @@
+#+BLOG: rubikitch
+#+POSTID: 2154
+#+DATE: [2015-11-04 Wed 02:25]
+#+PERMALINK: jbeans-theme
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, theme
+#+EL_PKG_NAME: jbeans-theme
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, color-theme, カラーテーマ
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: jellybeans.vimから移植された黒いカラーテーマ
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージjbeans-themeの紹介
+#+MYTAGS: package:jbeans-theme, emacs 使い方, emacs コマンド, emacs, jbeans-theme, jbeans-theme.el, emacs lisp jbeans-theme, elisp jbeans-theme, emacs melpa jbeans-theme, emacs jbeans-theme 使い方, emacs jbeans-theme 設定, emacs パッケージ jbeans-theme, emacs jbeans-theme スクリーンショット, color-theme, カラーテーマ
+#+TAGS: package:jbeans-theme, emacs 使い方, emacs コマンド, emacs, jbeans-theme, jbeans-theme.el, emacs lisp jbeans-theme, elisp jbeans-theme, emacs melpa jbeans-theme, emacs jbeans-theme 使い方, emacs jbeans-theme 設定, emacs パッケージ jbeans-theme, emacs jbeans-theme スクリーンショット, color-theme, カラーテーマ, Emacs, theme, jbeans-theme.el
+#+TITLE: emacs jbeans-theme.el : jellybeans.vimから移植された黒いカラーテーマ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>jbeans-theme</td></tr>
+<tr><td>概要(原文)</td><td>Jbeans theme for GNU Emacs 24 (deftheme)</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/synic/jbeans-emacs">https://github.com/synic/jbeans-emacs</a></td></tr>
+<tr><td>バージョン</td><td>20151101.1333</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:jbeans-theme/">package:jbeans-theme</a> </td></tr>
+</table>
+<br />
+#+END_HTML
+*jbeans-theme.el* は、以下のパッケージに対応したカラーテーマです。
+- alchemist
+- company
+- compilation
+- dired
+- emmet
+- elixir
+- erc
+- eshell
+- evil
+- fci-ruler
+- font-lock
+- helm
+- isearch
+- ido
+- linum
+- ediff
+- flycheck
+- flyspell
+- git
+- magit
+- modeline
+- neotree
+- org
+- shm
+- smerge
+- smartparens
+- smaceline
+- spacemacs
+- whitespace
+- web-mode
+** jbeans-theme インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install jbeans-theme
+
+
+#+end:
+** 概要                                                             :noexport:
+*jbeans-theme.el* は、以下のパッケージに対応したカラーテーマです。
+- alchemist
+- company
+- compilation
+- dired
+- emmet
+- elixir
+- erc
+- eshell
+- evil
+- fci-ruler
+- font-lock
+- helm
+- isearch
+- ido
+- linum
+- ediff
+- flycheck
+- flyspell
+- git
+- magit
+- modeline
+- neotree
+- org
+- shm
+- smerge
+- smartparens
+- smaceline
+- spacemacs
+- whitespace
+- web-mode
+
+** スクリーンショット
+# (save-window-excursion (async-shell-command "emacs-test -eval '(load-theme (quote jbeans) t)'"))
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_theme_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151104022815.png]]
+Fig1: emacs-lisp-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151104022820.png]]
+Fig2: magit
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151104022824.png]]
+Fig3: grep
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151104022827.png]]
+Fig4: outline-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151104022830.png]]
+Fig5: org-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151104022833.png]]
+Fig6: dired
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151104022836.png]]
+Fig7: web-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151104022839.png]]
+Fig8: markdown-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151104022843.png]]
+Fig9: helm
+
+
+** 設定
+#+BEGIN_SRC fundamental
+(load-theme 'jbeans t)
+#+END_SRC
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ emacs -Q -f package-initialize -eval '(load-theme (quote jbeans) t)'
+#+END_EXAMPLE
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
