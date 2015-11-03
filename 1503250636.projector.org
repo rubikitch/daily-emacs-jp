@@ -9,14 +9,14 @@
 #+BLOG: rubikitch
 #+CATEGORY: Emacs
 #+EL_PKG_NAME: projector
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, package:projectile, relate:projectile, package:ido, relate:ido, package:ido-occasional, relate:ido-occasional, ido, M-!をprojectileに対応させる, relate:alert, package:alert
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, package:projectile, relate:projectile, package:ido, relate:ido, package:ido-occasional, relate:ido-occasional, ido, M-!をprojectileに対応させる, relate:alert, package:alert, relate:bpr
 #+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
 #+EL_TITLE0: 【M-!カイゼン】シェルコマンド履歴をido化し専用バッファで実行させる！projectile対応
 #+EL_URL: 
 #+begin: org2blog
 #+DESCRIPTION: MELPAのEmacs Lispパッケージprojectorの紹介
-#+MYTAGS: package:projector, emacs 使い方, emacs コマンド, emacs, projector, projector.el, emacs lisp projector, elisp projector, emacs melpa projector, emacs projector 使い方, emacs projector 設定, emacs パッケージ projector, emacs projector スクリーンショット, package:projectile, relate:projectile, package:ido, relate:ido, package:ido-occasional, relate:ido-occasional, ido, M-!をprojectileに対応させる, relate:alert, package:alert
-#+TAGS: package:projector, emacs 使い方, emacs コマンド, emacs, projector, projector.el, emacs lisp projector, elisp projector, emacs melpa projector, emacs projector 使い方, emacs projector 設定, emacs パッケージ projector, emacs projector スクリーンショット, package:projectile, relate:projectile, package:ido, relate:ido, package:ido-occasional, relate:ido-occasional, ido, M-!をprojectileに対応させる, relate:alert, package:alert, Emacs, M-!, ido, projector-always-background-regex, growlnotify, projectile, M-x projector-run-shell-command-current-directory, M-x projector-run-shell-command-project-root, projector.el, completing-read, ido, projector-always-background-regex, growlnotify, projectile, M-x projector-run-shell-command-current-directory, M-x projector-run-shell-command-project-root, projector.el, completing-read
+#+MYTAGS: package:projector, emacs 使い方, emacs コマンド, emacs, projector, projector.el, emacs lisp projector, elisp projector, emacs melpa projector, emacs projector 使い方, emacs projector 設定, emacs パッケージ projector, emacs projector スクリーンショット, package:projectile, relate:projectile, package:ido, relate:ido, package:ido-occasional, relate:ido-occasional, ido, M-!をprojectileに対応させる, relate:alert, package:alert, relate:bpr
+#+TAGS: package:projector, emacs 使い方, emacs コマンド, emacs, projector, projector.el, emacs lisp projector, elisp projector, emacs melpa projector, emacs projector 使い方, emacs projector 設定, emacs パッケージ projector, emacs projector スクリーンショット, package:projectile, relate:projectile, package:ido, relate:ido, package:ido-occasional, relate:ido-occasional, ido, M-!をprojectileに対応させる, relate:alert, package:alert, relate:bpr, Emacs, M-!, ido, projector-always-background-regex, growlnotify, projectile, M-x projector-run-shell-command-current-directory, M-x projector-run-shell-command-project-root, projector.el, completing-read, ido, projector-always-background-regex, growlnotify, projectile, M-x projector-run-shell-command-current-directory, M-x projector-run-shell-command-project-root, projector.el, completing-read
 #+TITLE: emacs projector.el : 【M-!カイゼン】シェルコマンド履歴をido化し専用バッファで実行させる！projectile対応 | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
 #+BEGIN_HTML
 <table>
@@ -24,8 +24,8 @@
 <tr><td>概要(原文)</td><td>Lightweight library for managing project/repository-aware shell and command buffers</td></tr>
 <tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
 <tr><td>取得先</td><td><a href="https://github.com/waymondo/projector.el">https://github.com/waymondo/projector.el</a></td></tr>
-<tr><td>バージョン</td><td>20141121.1212</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:projector/">package:projector</a> <a href="http://rubikitch.com/tag/package:projectile/">package:projectile</a> <a href="http://rubikitch.com/tag/package:ido/">package:ido</a> <a href="http://rubikitch.com/tag/package:ido-occasional/">package:ido-occasional</a> <a href="http://rubikitch.com/tag/package:alert/">package:alert</a></td></tr>
+<tr><td>バージョン</td><td>20150921.838</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:projector/">package:projector</a> <a href="http://rubikitch.com/tag/package:projectile/">package:projectile</a> <a href="http://rubikitch.com/tag/package:ido/">package:ido</a> <a href="http://rubikitch.com/tag/package:ido-occasional/">package:ido-occasional</a> <a href="http://rubikitch.com/tag/package:alert/">package:alert</a> <a href="http://rubikitch.com/tag/package:bpr/">package:bpr</a></td></tr>
 </table>
 <br />
 #+END_HTML
@@ -113,11 +113,11 @@ M-!をちょっとカイゼンしたいならば入れておいて損はあり�
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
 #+ATTR_HTML: :width 480
 [[file:/r/sync/screenshots/20150325065951.png]]
-Fig1: idoでコマンド履歴を選択
+Fig3: idoでコマンド履歴を選択
 
 #+ATTR_HTML: :width 480
 [[file:/r/sync/screenshots/20150325070001.png]]
-Fig2: 実行結果は専用バッファで表示！
+Fig4: 実行結果は専用バッファで表示！
 
 ** 設定 [[http://rubikitch.com/f/150325061231.projector.1.el][150325061231.projector.1.el(以下のコードと同一)]]
 #+BEGIN: include :file "/r/sync/junk/150325/150325061231.projector.1.el"
