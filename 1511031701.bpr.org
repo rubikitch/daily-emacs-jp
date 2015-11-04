@@ -36,7 +36,8 @@
 
 エントリポイントは *M-x bpr-spawn* でシェルコマンドを入力すれば使えます。
 Emacsコマンド化したければbpr-spawnを呼び出すコマンドを定義します。
-記事執筆時点ではautoload化されていないのでrequireが必要ですがpull requestを送信しました。
+記事執筆時点ではautoload化されていないのでrequireが必要ですがpull requestを送信しました。→受理されました。
+
 
 bpr-spawnに渡すコマンドの例
 - make long-build
@@ -72,7 +73,8 @@ M-x package-install bpr
 
 エントリポイントは *M-x bpr-spawn* でシェルコマンドを入力すれば使えます。
 Emacsコマンド化したければbpr-spawnを呼び出すコマンドを定義します。
-記事執筆時点ではautoload化されていないのでrequireが必要ですがpull requestを送信しました。
+記事執筆時点ではautoload化されていないのでrequireが必要ですがpull requestを送信しました。→受理されました。
+
 
 bpr-spawnに渡すコマンドの例
 - make long-build
@@ -96,8 +98,6 @@ Fig4: M-x bpr-fail-test
 ** 設定例 [[http://rubikitch.com/f/151103171655.bpr-example.el][151103171655.bpr-example.el(以下のコードと同一)]]
 #+BEGIN: include :file "/r/sync/junk/151103/151103171655.bpr-example.el"
 #+BEGIN_SRC fundamental
-(require 'shell)
-(require 'bpr)
 (defun bpr-success-test ()
   (interactive)
   (bpr-spawn "sleep 3; echo OK; exit 0"))
