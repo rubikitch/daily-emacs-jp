@@ -36,8 +36,6 @@
 
 エントリポイントは *M-x bpr-spawn* でシェルコマンドを入力すれば使えます。
 Emacsコマンド化したければbpr-spawnを呼び出すコマンドを定義します。
-記事執筆時点ではautoload化されていないのでrequireが必要ですがpull requestを送信しました。→受理されました。
-
 
 bpr-spawnに渡すコマンドの例
 - make long-build
@@ -73,8 +71,6 @@ M-x package-install bpr
 
 エントリポイントは *M-x bpr-spawn* でシェルコマンドを入力すれば使えます。
 Emacsコマンド化したければbpr-spawnを呼び出すコマンドを定義します。
-記事執筆時点ではautoload化されていないのでrequireが必要ですがpull requestを送信しました。→受理されました。
-
 
 bpr-spawnに渡すコマンドの例
 - make long-build
