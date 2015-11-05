@@ -1,0 +1,29 @@
+#+BLOG: rubikitch
+#+POSTID: 2160
+#+DATE: [2015-11-06 Fri 04:18]
+#+PERMALINK: melmag
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: メルマガ,
+#+DESCRIPTION: るびきち塾メルマガ『Emacsの鬼るびきちのココだけの話#206』の予告
+#+TITLE: 【メルマガ#206】peco×eshellの熱愛
+#+MYTAGS: 
+#+begin: org2blog-tags
+#+TAGS: , メルマガ,, 
+#+end:
+pecoによりhelm/anythingの遺伝子がEmacsの外に流出しました。
+
+つまり、絞り込み検索の恩恵がシェルの世界でも受けられるようになったのです。
+
+この事実は改めてシェルとUnixの思想の素晴しさを思い出させてくれました。
+
+そしてシェルスクリプトの大きな可能性にも気付かせてくれました。
+
+今回はeshellを用いてpecoとシェルのつきあい方をお話します。
+
+シェルでここまでできるということを感じ取っていただけると幸いです。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
