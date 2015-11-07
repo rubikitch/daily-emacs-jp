@@ -1,0 +1,66 @@
+#+BLOG: rubikitch
+#+POSTID: 2162
+#+DATE: [2015-11-07 Sat 12:57]
+#+PERMALINK: dired-toggle-sudo
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, dired, 
+#+EL_PKG_NAME: sudo状態でdiredを開く
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p,  emacs sudo dired, relate:dired, relate:tramp, sudo, sudoedit, visudo, /sudo:root, sudoでdiredを開く, emacs システム管理, 
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 
+#+EL_TITLE0: FILLIT
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: Emacs Lispパッケージsudo状態でdiredを開くの紹介
+#+MYTAGS: package:sudo状態でdiredを開く, emacs 使い方, emacs コマンド, emacs, sudo状態でdiredを開く, sudo状態でdiredを開く.el, emacs lisp sudo状態でdiredを開く, elisp sudo状態でdiredを開く, emacs  sudo状態でdiredを開く, emacs sudo状態でdiredを開く 使い方, emacs sudo状態でdiredを開く 設定, emacs パッケージ sudo状態でdiredを開く,  emacs sudo dired, relate:dired, relate:tramp, sudo, sudoedit, visudo, /sudo:root, sudoでdiredを開く, emacs システム管理, 
+#+TAGS: package:sudo状態でdiredを開く, emacs 使い方, emacs コマンド, emacs, sudo状態でdiredを開く, sudo状態でdiredを開く.el, emacs lisp sudo状態でdiredを開く, elisp sudo状態でdiredを開く, emacs  sudo状態でdiredを開く, emacs sudo状態でdiredを開く 使い方, emacs sudo状態でdiredを開く 設定, emacs パッケージ sudo状態でdiredを開く,  emacs sudo dired, relate:dired, relate:tramp, sudo, sudoedit, visudo, /sudo:root, sudoでdiredを開く, emacs システム管理, , Emacs, dired, , dired-toggle-sudo.el, M-x dired-toggle-sudo, M-x dired-toggle-sudo
+#+TITLE: emacs sudo状態でdiredを開く.el : FILLIT |  Emacs Lisp Elisp パッケージ インストール 設定 使い方 
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>sudo状態でdiredを開く</td></tr>
+<tr><td>概要(原文)</td><td>EL_DOCに説明文を入れてください</td></tr>
+<tr><td>リポジトリ</td><td>まだパッケージに登録されていない</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:sudo状態でdiredを開く/">package:sudo状態でdiredを開く</a> <a href="http://rubikitch.com/tag/package:dired/">package:dired</a> <a href="http://rubikitch.com/tag/package:tramp/">package:tramp</a></td></tr>
+</table>
+<br />
+#+END_HTML
+*dired-toggle-sudo.el* を使えばsudo状態でdiredを開くことができます。
+一般ユーザでは見られないディレクトリやファイルを開くときにとても便利です。
+trampを使って /sudo:root@hostname:dir で開けばいいのですが、覚えにくいのでC-c C-s (*M-x dired-toggle-sudo*)で一般ユーザ→sudoの切替えをした方がよいでしょう。
+toggleと名乗っているように、sudo状態から通常の一般ユーザでのdiredへも切替えられます。
+わざわざrootで慣れないviを起動しなくても、いつものEmacsでシステムファイルを編集できるのは嬉しいのではないでしょうか。
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+** sudo状態でdiredを開く インストール
+これはまだパッケージ化されていないので、[[http://rubikitch.com/package-initialize/#sec-2][手動でインストール]] する必要があります。
+
+
+#+end:
+** 概要                                                             :noexport:
+*dired-toggle-sudo.el* を使えばsudo状態でdiredを開くことができます。
+一般ユーザでは見られないディレクトリやファイルを開くときにとても便利です。
+trampを使って /sudo:root@hostname:dir で開けばいいのですが、覚えにくいのでC-c C-s (*M-x dired-toggle-sudo*)で一般ユーザ→sudoの切替えをした方がよいでしょう。
+toggleと名乗っているように、sudo状態から通常の一般ユーザでのdiredへも切替えられます。
+わざわざrootで慣れないviを起動しなくても、いつものEmacsでシステムファイルを編集できるのは嬉しいのではないでしょうか。
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+** 設定 [[http://rubikitch.com/f/151107124324.dired-toggle-sudo.el][151107124324.dired-toggle-sudo.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/151107/151107124324.dired-toggle-sudo.el"
+#+BEGIN_SRC fundamental
+(require 'tramp)
+(with-eval-after-load 'dired
+  (define-key dired-mode-map (kbd "C-c C-s") 'dired-toggle-sudo))
+(with-eval-after-load 'tramp
+  ;; Allow to use: /sudo:user@host:/path/to/file
+  (add-to-list 'tramp-default-proxies-alist
+               '(".*" "\\`.+\\'" "/ssh:%h:")))
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/151107124324.dired-toggle-sudo.el
+$ emacs -Q -f package-initialize -l 151107124324.dired-toggle-sudo.el
+#+END_EXAMPLE
