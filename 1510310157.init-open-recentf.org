@@ -9,6 +9,7 @@
 #+BLOG: rubikitch
 #+CATEGORY: Emacs, ido, helm
 #+EL_PKG_NAME: init-open-recentf
+#+EL_URL: http://qiita.com/tadsan/items/3d4c5d14850cff7fbcb5
 #+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, relate:helm, relate:anything, relate:ido, relate:recentf, package:recentf, Emacs起動時に最近開いたファイルを開く
 #+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
 #+EL_TITLE0: Emacs起動時にrecentfを開く(ido/anything/helm対応)
@@ -22,6 +23,7 @@
 <tr><td>パッケージ名</td><td>init-open-recentf</td></tr>
 <tr><td>概要(原文)</td><td>Open recentf immediately after Emacs is started</td></tr>
 <tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>サイト</td><td><a href="http://qiita.com/tadsan/items/3d4c5d14850cff7fbcb5">http://qiita.com/tadsan/items/3d4c5d14850cff7fbcb5</td></tr>
 <tr><td>取得先</td><td><a href="https://github.com/zonuexe/init-open-recentf.el">https://github.com/zonuexe/init-open-recentf.el</a></td></tr>
 <tr><td>バージョン</td><td>20151029.512</td></tr>
 <tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:init-open-recentf/">package:init-open-recentf</a> <a href="http://rubikitch.com/tag/package:helm/">package:helm</a> <a href="http://rubikitch.com/tag/package:anything/">package:anything</a> <a href="http://rubikitch.com/tag/package:ido/">package:ido</a> <a href="http://rubikitch.com/tag/package:recentf/">package:recentf</a></td></tr>
