@@ -8,22 +8,24 @@
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
 #+CATEGORY: Emacs, dired, 
-#+EL_PKG_NAME: sudo状態でdiredを開く
+#+EL_PKG_NAME: dired-toggle-sudo
 #+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p,  emacs sudo dired, relate:dired, relate:tramp, sudo, sudoedit, visudo, /sudo:root, sudoでdiredを開く, emacs システム管理, 
 #+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 
-#+EL_TITLE0: FILLIT
+#+EL_TITLE0: sudo状態でdiredを開く
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: Emacs Lispパッケージsudo状態でdiredを開くの紹介
-#+MYTAGS: package:sudo状態でdiredを開く, emacs 使い方, emacs コマンド, emacs, sudo状態でdiredを開く, sudo状態でdiredを開く.el, emacs lisp sudo状態でdiredを開く, elisp sudo状態でdiredを開く, emacs  sudo状態でdiredを開く, emacs sudo状態でdiredを開く 使い方, emacs sudo状態でdiredを開く 設定, emacs パッケージ sudo状態でdiredを開く,  emacs sudo dired, relate:dired, relate:tramp, sudo, sudoedit, visudo, /sudo:root, sudoでdiredを開く, emacs システム管理, 
-#+TAGS: package:sudo状態でdiredを開く, emacs 使い方, emacs コマンド, emacs, sudo状態でdiredを開く, sudo状態でdiredを開く.el, emacs lisp sudo状態でdiredを開く, elisp sudo状態でdiredを開く, emacs  sudo状態でdiredを開く, emacs sudo状態でdiredを開く 使い方, emacs sudo状態でdiredを開く 設定, emacs パッケージ sudo状態でdiredを開く,  emacs sudo dired, relate:dired, relate:tramp, sudo, sudoedit, visudo, /sudo:root, sudoでdiredを開く, emacs システム管理, , Emacs, dired, , dired-toggle-sudo.el, M-x dired-toggle-sudo, M-x dired-toggle-sudo
-#+TITLE: emacs sudo状態でdiredを開く.el : FILLIT |  Emacs Lisp Elisp パッケージ インストール 設定 使い方 
+#+DESCRIPTION: MELPAのEmacs Lispパッケージdired-toggle-sudoの紹介
+#+MYTAGS: package:dired-toggle-sudo, emacs 使い方, emacs コマンド, emacs, dired-toggle-sudo, dired-toggle-sudo.el, emacs lisp dired-toggle-sudo, elisp dired-toggle-sudo, emacs melpa dired-toggle-sudo, emacs dired-toggle-sudo 使い方, emacs dired-toggle-sudo 設定, emacs パッケージ dired-toggle-sudo,  emacs sudo dired, relate:dired, relate:tramp, sudo, sudoedit, visudo, /sudo:root, sudoでdiredを開く, emacs システム管理, 
+#+TAGS: package:dired-toggle-sudo, emacs 使い方, emacs コマンド, emacs, dired-toggle-sudo, dired-toggle-sudo.el, emacs lisp dired-toggle-sudo, elisp dired-toggle-sudo, emacs melpa dired-toggle-sudo, emacs dired-toggle-sudo 使い方, emacs dired-toggle-sudo 設定, emacs パッケージ dired-toggle-sudo,  emacs sudo dired, relate:dired, relate:tramp, sudo, sudoedit, visudo, /sudo:root, sudoでdiredを開く, emacs システム管理, , Emacs, dired, , dired-toggle-sudo.el, M-x dired-toggle-sudo, M-x dired-toggle-sudo
+#+TITLE: emacs dired-toggle-sudo.el : sudo状態でdiredを開く | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 
 #+BEGIN_HTML
 <table>
-<tr><td>パッケージ名</td><td>sudo状態でdiredを開く</td></tr>
-<tr><td>概要(原文)</td><td>EL_DOCに説明文を入れてください</td></tr>
-<tr><td>リポジトリ</td><td>まだパッケージに登録されていない</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:sudo状態でdiredを開く/">package:sudo状態でdiredを開く</a> <a href="http://rubikitch.com/tag/package:dired/">package:dired</a> <a href="http://rubikitch.com/tag/package:tramp/">package:tramp</a></td></tr>
+<tr><td>パッケージ名</td><td>dired-toggle-sudo</td></tr>
+<tr><td>概要(原文)</td><td>Browse directory with sudo privileges.</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/renard/dired-toggle-sudo">https://github.com/renard/dired-toggle-sudo</a></td></tr>
+<tr><td>バージョン</td><td>20131022.626</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:dired-toggle-sudo/">package:dired-toggle-sudo</a> <a href="http://rubikitch.com/tag/package:dired/">package:dired</a> <a href="http://rubikitch.com/tag/package:tramp/">package:tramp</a></td></tr>
 </table>
 <br />
 #+END_HTML
@@ -33,8 +35,11 @@ trampを使って /sudo:root@hostname:dir で開けばいいのですが、覚�
 toggleと名乗っているように、sudo状態から通常の一般ユーザでのdiredへも切替えられます。
 わざわざrootで慣れないviを起動しなくても、いつものEmacsでシステムファイルを編集できるのは嬉しいのではないでしょうか。
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
-** sudo状態でdiredを開く インストール
-これはまだパッケージ化されていないので、[[http://rubikitch.com/package-initialize/#sec-2][手動でインストール]] する必要があります。
+** dired-toggle-sudo インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install dired-toggle-sudo
 
 
 #+end:
