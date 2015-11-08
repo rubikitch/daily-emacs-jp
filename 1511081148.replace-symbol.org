@@ -54,6 +54,8 @@ replace-regexpをLispから呼ぶのは非推奨ですが、これは単なる�
 
 同様にsexp間もバッファ間も置換範囲を指定すればそれで目的が達成されるのではないでしょうか。
 
+それはさておき、シンボル正規表現を入力するのが面倒なので使う価値はあると思います。
+
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
 ** replace-symbol インストール
 このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
@@ -88,5 +90,7 @@ replace-regexpをLispから呼ぶのは非推奨ですが、これは単なる�
 #+END_EXAMPLE
 
 同様にsexp間もバッファ間も置換範囲を指定すればそれで目的が達成されるのではないでしょうか。
+
+それはさておき、シンボル正規表現を入力するのが面倒なので使う価値はあると思います。
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
