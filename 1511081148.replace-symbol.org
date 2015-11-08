@@ -1,0 +1,92 @@
+#+BLOG: rubikitch
+#+POSTID: 2168
+#+DATE: [2015-11-08 Sun 11:48]
+#+PERMALINK: replace-symbol
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs
+#+EL_PKG_NAME: replace-symbol
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, , emacs リファクタリング, シンボル置換, relate:highlight-symbol, M-x highlight-symbol-query-replace, M-x replace-symbol-in-defun
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 
+#+EL_TITLE0: 【リファクタリング】S式・バッファ(・関数)全体のシンボルを置換する
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージreplace-symbolの紹介
+#+MYTAGS: package:replace-symbol, emacs 使い方, emacs コマンド, emacs, replace-symbol, replace-symbol.el, emacs lisp replace-symbol, elisp replace-symbol, emacs melpa replace-symbol, emacs replace-symbol 使い方, emacs replace-symbol 設定, emacs パッケージ replace-symbol, , emacs リファクタリング, シンボル置換, relate:highlight-symbol, M-x highlight-symbol-query-replace, M-x replace-symbol-in-defun
+#+TAGS: package:replace-symbol, emacs 使い方, emacs コマンド, emacs, replace-symbol, replace-symbol.el, emacs lisp replace-symbol, elisp replace-symbol, emacs melpa replace-symbol, emacs replace-symbol 使い方, emacs replace-symbol 設定, emacs パッケージ replace-symbol, , emacs リファクタリング, シンボル置換, relate:highlight-symbol, M-x highlight-symbol-query-replace, M-x replace-symbol-in-defun, Emacs, replace-symbol.el, M-x replace-symbol-in-sexp, M-x replace-symbol-in-buffer, M-x replace-symbol-in-defun, M-x replace-symbol-in-sexp, M-x replace-symbol-in-buffer, M-x replace-symbol-in-defun
+#+TITLE: emacs replace-symbol.el : 【リファクタリング】S式・バッファ(・関数)全体のシンボルを置換する | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>replace-symbol</td></tr>
+<tr><td>概要(原文)</td><td>Rename symbols in expressions or buffers</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/bmastenbrook/replace-symbol-el">https://github.com/bmastenbrook/replace-symbol-el</a></td></tr>
+<tr><td>バージョン</td><td>20151030.1657</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:replace-symbol/">package:replace-symbol</a> <a href="http://rubikitch.com/tag/package:highlight-symbol/">package:highlight-symbol</a></td></tr>
+</table>
+<br />
+#+END_HTML
+*replace-symbol.el* はシンボル置換を行うリファクタリング支援elispです。
+*M-x replace-symbol-in-sexp* は現在のS式においてシンボルを置換し、
+*M-x replace-symbol-in-buffer* はバッファ全体のシンボルを置換します。
+
+ただ、コードを読んでいて疑問に感じたのは、なぜ正規表現によるシンボル置換を使っていないのかなということです。
+正規表現「\_<symbol\_>」でsymbolシンボルにマッチする正規表現になります。
+
+ちょうど手元に僕が昔定義した *M-x replace-symbol-in-defun* がありますが、こんなに短いです。
+replace-symbol-in-sexpと違い、C-M-aする必要がないのでよく使っています。
+replace-regexpをLispから呼ぶのは非推奨ですが、これは単なるラッパーなのであえて呼んでいます。
+
+#+BEGIN_EXAMPLE
+(defun replace-symbol-in-defun (symbol to-string)
+  (interactive
+   (let ((common (query-replace-read-args "Replace symbol in defun" nil)))
+     (list (nth 0 common) (nth 1 common))))
+  (save-excursion
+    (beginning-of-defun)
+    (let ((end-of-defun (save-excursion (end-of-defun) (point))))
+      (replace-regexp (concat "\\_<" (regexp-quote symbol) "\\_>") to-string nil
+                      (point) end-of-defun))))
+#+END_EXAMPLE
+
+同様にsexp間もバッファ間も置換範囲を指定すればそれで目的が達成されるのではないでしょうか。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+** replace-symbol インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install replace-symbol
+
+
+#+end:
+** 概要                                                             :noexport:
+*replace-symbol.el* はシンボル置換を行うリファクタリング支援elispです。
+*M-x replace-symbol-in-sexp* は現在のS式においてシンボルを置換し、
+*M-x replace-symbol-in-buffer* はバッファ全体のシンボルを置換します。
+
+ただ、コードを読んでいて疑問に感じたのは、なぜ正規表現によるシンボル置換を使っていないのかなということです。
+正規表現「\_<symbol\_>」でsymbolシンボルにマッチする正規表現になります。
+
+ちょうど手元に僕が昔定義した *M-x replace-symbol-in-defun* がありますが、こんなに短いです。
+replace-symbol-in-sexpと違い、C-M-aする必要がないのでよく使っています。
+replace-regexpをLispから呼ぶのは非推奨ですが、これは単なるラッパーなのであえて呼んでいます。
+
+#+BEGIN_EXAMPLE
+(defun replace-symbol-in-defun (symbol to-string)
+  (interactive
+   (let ((common (query-replace-read-args "Replace symbol in defun" nil)))
+     (list (nth 0 common) (nth 1 common))))
+  (save-excursion
+    (beginning-of-defun)
+    (let ((end-of-defun (save-excursion (end-of-defun) (point))))
+      (replace-regexp (concat "\\_<" (regexp-quote symbol) "\\_>") to-string nil
+                      (point) end-of-defun))))
+#+END_EXAMPLE
+
+同様にsexp間もバッファ間も置換範囲を指定すればそれで目的が達成されるのではないでしょうか。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
