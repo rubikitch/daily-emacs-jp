@@ -1,0 +1,26 @@
+#+BLOG: rubikitch
+#+POSTID: 2171
+#+DATE: [2015-11-09 Mon 11:52]
+#+PERMALINK: gnupack1306
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, 
+#+DESCRIPTION: 
+#+MYTAGS: Emacs 24.5 windows, Emacs24.5 cygwin, Emacs24.5 gnupack, W32-IME emacs, cygwin 2.2.1, 
+#+TITLE: 【gnupack 13.06リリース】cygwin 2.2.1にバージョンアップ
+#+begin: org2blog-tags
+#+TAGS: Emacs 24.5 windows, Emacs24.5 cygwin, Emacs24.5 gnupack, W32-IME emacs, cygwin 2.2.1, , Emacs, , 
+#+end:
+http://d.hatena.ne.jp/ksugita0510/20151108/p1
+
+展開するだけで簡単にCygwin＆Emacs 24.5が使えるgnupackですが、13.06にバージョンアップしました。
+
+Cygwinは11/8時点での最新版である2.2.1になりました。
+
+IME周りの設定が[[http://www49.atwiki.jp/ntemacs/pages/45.html][NTEmacs @ ウィキ - W32-IME を快適に使うための設定]] をもとに変更されました。
+これにより、IMEの設定に悩むことなく導入できるでしょう。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
