@@ -12,7 +12,7 @@
 #+MYTAGS: Emacs 開発を追い掛ける, Emacs 開発, emacs-devel ブラウザで開く, emacs-devel rss, emacs-devel atom, 
 #+TITLE: 【開発状況を追い掛けたい人へ】EmacsのメーリングリストをEmacsから開く！
 #+begin: org2blog-tags
-#+TAGS: Emacs 開発を追い掛ける, Emacs 開発, emacs-devel ブラウザで開く, emacs-devel rss, emacs-devel atom, , Emacs, Emacs Lisp, , メーリングリスト, fset, emacs-devel, bug-gnu-emacs, emacs-bug-tracker, emacs-buildstatus, emacs-diffs, emacs-elpa-diffs, gnu-emacs-sources, help-emacs-windows, help-gnu-emacs, info-gnu-emacs, レキシカルクロージャ, lexical-binding
+#+TAGS: Emacs 開発を追い掛ける, Emacs 開発, emacs-devel ブラウザで開く, emacs-devel rss, emacs-devel atom, , Emacs, Emacs Lisp, , メーリングリスト, fset, emacs-devel, bug-gnu-emacs, emacs-bug-tracker, emacs-buildstatus, emacs-diffs, emacs-elpa-diffs, gnu-emacs-sources, help-emacs-windows, help-gnu-emacs, info-gnu-emacs, emacs-tangents, レキシカルクロージャ, lexical-binding
 #+end:
 今月のEmacsの *メーリングリスト* をブラウザで開く短いコードです。
 
@@ -39,6 +39,7 @@ Emacsから開くようにしています。
 - M-x *help-emacs-windows*
 - M-x *help-gnu-emacs*
 - M-x *info-gnu-emacs*
+- M-x *emacs-tangents* (<2015-11-11 Wed>追加)
 
 *レキシカルクロージャ* を使っているので
 *lexical-binding* = t です。
@@ -52,8 +53,8 @@ Emacsから開くようにしています。
                       name (format-time-string "%Y-%m"))))
 (dolist (ml '(emacs-devel bug-gnu-emacs emacs-bug-tracker emacs-buildstatus emacs-diffs
                           emacs-elpa-diffs gnu-emacs-sources help-emacs-windows
-                          help-gnu-emacs info-gnu-emacs))
-  (fset ml (lambda () (interactive) (open-emacs-ml ml)))) 
+                          help-gnu-emacs info-gnu-emacs emacs-tangents))
+  (fset ml (lambda () (interactive) (open-emacs-ml ml))))
 
 (provide 'mylisp-emacs-ml)
 #+END_SRC
