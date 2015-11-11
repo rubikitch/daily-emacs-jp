@@ -82,9 +82,9 @@ ido/helm/defaultで選べますが、デフォルトのidoが無難でしょう�
                       ("rust-test" . "cargo test")))
         ;; c++-modeでは1つのアクション
         ;; %make-dir は Makefile の存在するディレクトリ
+        ;; (multi-compile-template参照)
         (c++-mode . (("cpp-run" . "make --no-print-directory -C %make-dir")))
         ;; *.txt (ファイル名の正規表現指定) もできる
-        ;; %file-nameはファイル名に置換 (multi-compile-template参照)
         ("\\.txt\\'" . (("text-filename" . "echo %file-name")))))
 
 ;;; 使えるテンプレート
