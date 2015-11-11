@@ -1,0 +1,119 @@
+#+BLOG: rubikitch
+#+POSTID: 2176
+#+DATE: [2015-11-11 Wed 09:10]
+#+PERMALINK: multi-compile
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, helm, ido
+#+EL_PKG_NAME: multi-compile
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, relate:compile, relate:smart-compile, relate:quickrun, , relate:executable, relate:helm, relate:ido, emacs コンパイル, relate:smarter-compile, emacs シェルコマンド, シェルコマンド, relate:bpr
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: M-x compileに複数の選択肢を！コンパイルにテストに実行なんでもあれ
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージmulti-compileの紹介
+#+MYTAGS: package:multi-compile, emacs 使い方, emacs コマンド, emacs, multi-compile, multi-compile.el, emacs lisp multi-compile, elisp multi-compile, emacs melpa multi-compile, emacs multi-compile 使い方, emacs multi-compile 設定, emacs パッケージ multi-compile, emacs multi-compile スクリーンショット, relate:compile, relate:smart-compile, relate:quickrun, , relate:executable, relate:helm, relate:ido, emacs コンパイル, relate:smarter-compile, emacs シェルコマンド, シェルコマンド, relate:bpr
+#+TAGS: package:multi-compile, emacs 使い方, emacs コマンド, emacs, multi-compile, multi-compile.el, emacs lisp multi-compile, elisp multi-compile, emacs melpa multi-compile, emacs multi-compile 使い方, emacs multi-compile 設定, emacs パッケージ multi-compile, emacs multi-compile スクリーンショット, relate:compile, relate:smart-compile, relate:quickrun, , relate:executable, relate:helm, relate:ido, emacs コンパイル, relate:smarter-compile, emacs シェルコマンド, シェルコマンド, relate:bpr, Emacs, helm, ido, multi-compile.el, M-x compile, smart-compile.el, multi-compile-alist, multi-compile-template, multi-compile-completion-system, M-x compile, smart-compile.el, multi-compile-alist, multi-compile-template, multi-compile-completion-system
+#+TITLE: emacs multi-compile.el : M-x compileに複数の選択肢を！コンパイルにテストに実行なんでもあれ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>multi-compile</td></tr>
+<tr><td>概要(原文)</td><td>Multi target interface to compile.</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/ReanGD/emacs-multi-compile">https://github.com/ReanGD/emacs-multi-compile</a></td></tr>
+<tr><td>バージョン</td><td>20151021.1502</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:multi-compile/">package:multi-compile</a> <a href="http://rubikitch.com/tag/package:compile/">package:compile</a> <a href="http://rubikitch.com/tag/package:smart-compile/">package:smart-compile</a> <a href="http://rubikitch.com/tag/package:quickrun/">package:quickrun</a> <a href="http://rubikitch.com/tag/package:executable/">package:executable</a> <a href="http://rubikitch.com/tag/package:helm/">package:helm</a> <a href="http://rubikitch.com/tag/package:ido/">package:ido</a> <a href="http://rubikitch.com/tag/package:smarter-compile/">package:smarter-compile</a> <a href="http://rubikitch.com/tag/package:bpr/">package:bpr</a></td></tr>
+</table>
+<br />
+#+END_HTML
+*multi-compile.el* は名前が示すとおり、 *M-x compile* にメジャーモードやファイル名に応じて複数のコンパイルコマンド(アクション)を持たせるものです。
+
+昔からある *smart-compile.el* に似ていますが、コンパイルコマンドを1つしか指定できません。
+その点こちらの方が優位です。
+シェルでhelm/anything風候補選択を行う[[http://rubikitch.com/category/peco/][peco]] を使えば同じ効果は得られますが、こちらはEmacsで閉じています。
+
+これを使うには *multi-compile-alist* にメジャーモード・ファイル名とアクションを設定する必要があります。
+
+コマンドは以下のテンプレートが使えますが、 *multi-compile-template* を指定すれば自由に増やせます。
+
+アクションの選択インターフェースは *multi-compile-completion-system* に指定します。
+ido/helm/defaultで選べますが、デフォルトのidoが無難でしょう。
+任意の関数も指定できます。
+
+本設定ではデフォルトの設定に少し手を加えたものにコメントをつけます。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+** multi-compile インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install multi-compile
+
+
+#+end:
+** 概要                                                             :noexport:
+*multi-compile.el* は名前が示すとおり、 *M-x compile* にメジャーモードやファイル名に応じて複数のコンパイルコマンド(アクション)を持たせるものです。
+
+昔からある *smart-compile.el* に似ていますが、コンパイルコマンドを1つしか指定できません。
+その点こちらの方が優位です。
+シェルでhelm/anything風候補選択を行う[[http://rubikitch.com/category/peco/][peco]] を使えば同じ効果は得られますが、こちらはEmacsで閉じています。
+
+これを使うには *multi-compile-alist* にメジャーモード・ファイル名とアクションを設定する必要があります。
+
+コマンドは以下のテンプレートが使えますが、 *multi-compile-template* を指定すれば自由に増やせます。
+
+アクションの選択インターフェースは *multi-compile-completion-system* に指定します。
+ido/helm/defaultで選べますが、デフォルトのidoが無難でしょう。
+任意の関数も指定できます。
+
+本設定ではデフォルトの設定に少し手を加えたものにコメントをつけます。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+** 設定 [[http://rubikitch.com/f/151111092847.multi-compile.el][151111092847.multi-compile.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/151111/151111092847.multi-compile.el"
+#+BEGIN_SRC fundamental
+(setq multi-compile-alist
+      '(;; rust-modeでは3つのアクション
+        (rust-mode . (("rust-debug" . "cargo run")
+                      ("rust-release" . "cargo run --release")
+                      ("rust-test" . "cargo test")))
+        ;; c++-modeでは1つのアクション
+        ;; %make-dir は Makefile の存在するディレクトリ
+        (c++-mode . (("cpp-run" . "make --no-print-directory -C %make-dir")))
+        ;; *.txt (ファイル名の正規表現指定) もできる
+        ;; %file-nameはファイル名に置換 (multi-compile-template参照)
+        ("\\.txt\\'" . (("text-filename" . "echo %file-name")))))
+
+;;; 使えるテンプレート
+(setq multi-compile-template
+      '(
+        ;; /path/to/base.ext
+        ("%path" . (buffer-file-name))
+        ;; /path/to/
+        ("%dir" . (file-name-directory (buffer-file-name)))
+        ;; base.ext
+        ("%file-name" . (file-name-nondirectory (buffer-file-name)))
+        ;; base
+        ("%file-sans" . (file-name-sans-extension (file-name-nondirectory (buffer-file-name))))
+        ;; ext
+        ("%file-ext" . (file-name-extension (file-name-nondirectory (buffer-file-name))))
+        ;; Makefileのあるディレクトリ
+        ("%make-dir" . (locate-dominating-file (buffer-file-name) "Makefile"))
+        ;;; ここから追加！
+        ;; Rakefileのあるディレクトリ
+        ("%rake-dir" . (locate-dominating-file (buffer-file-name) "Rakefile"))
+        ;; project-root (projectileを使用)
+        ("%proj" . (projectile-project-root))
+        ))
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/151111092847.multi-compile.el
+$ emacs -Q -f package-initialize -l 151111092847.multi-compile.el
+#+END_EXAMPLE
