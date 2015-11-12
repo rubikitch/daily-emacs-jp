@@ -55,7 +55,7 @@ GitHubについては何周分も遅れてしまいましたが、今やっと�
 ** 活動報告
 
 10/19の再デビュー後、毎日GitHubで活動しています。
-というのは、11/24に本サイト全体をGitHubに置き、ポスト後自動コミットしているのでサイトを更新すれば自動的にGitHub連続活動日として記録されます(笑)
+というのは、10/24に本サイト全体をGitHubに置き、ポスト後自動コミットしているのでサイトを更新すれば自動的にGitHub連続活動日として記録されます(笑)
 そうでなくても、レビューを書くときにソースコードを読むのですが、ちょくちょく修正pull-requestを送っているのでコミットは多くなります。
 10/19〜12/11のコミットは総数146、pull-requestは27です。
 *** 10/19、10/20 [[https://github.com/howardabrams/demo-it][howardabrams/demo-it]]
@@ -66,7 +66,7 @@ GitHubについては何周分も遅れてしまいましたが、今やっと�
 - autoload付加
 *** 10/23 [[http://rubikitch.com/2015/10/26/pgrepper/][pgrepper(解説)]] 登録！
 grepなどを用いてpecoの検索を超強化する自作プログラム
-*** 11/24 [[http://rubikitch.com/2015/10/24/all-pages-in-github-2/][rubikitch/daily-emacs-jp(解説)]]
+*** 10/24 [[http://rubikitch.com/2015/10/24/all-pages-in-github-2/][rubikitch/daily-emacs-jp(解説)]]
 本サイト全体をGitHubに置きました！！
 *** 10/25 [[http://rubikitch.com/2015/10/25/paper-theme/][cadadr/paper-theme(レビュー)]]
 - autoload付加でemacs -Qからでもエラーが起きないようにした
