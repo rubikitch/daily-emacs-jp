@@ -1,0 +1,23 @@
+#+BLOG: rubikitch
+#+POSTID: 2184
+#+DATE: [2015-11-13 Fri 06:08]
+#+PERMALINK: melmag
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: メルマガ,
+#+DESCRIPTION: るびきち塾メルマガ『Emacsの鬼るびきちのココだけの話#207』の予告
+#+TITLE: 【メルマガ#207】らすとpeco
+#+MYTAGS: 
+#+begin: org2blog-tags
+#+TAGS: , メルマガ,, 
+#+end:
+今回は一連のpeco特集の最終回です。
+
+英和辞典検索を題材にpecoインターフェースの有用性を証明します。
+
+pecoとpgrepper(内部でgrepとnkfを呼ぶ)があれば単純なシェルスクリプトひとつで専用インターフェースに負けず劣らずの操作性が実現できることを感じ取ってください。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
