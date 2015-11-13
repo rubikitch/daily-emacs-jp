@@ -1,0 +1,174 @@
+#+BLOG: rubikitch
+#+POSTID: 2186
+#+DATE: [2015-11-14 Sat 07:19]
+#+PERMALINK: dracula-theme
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, theme
+#+EL_PKG_NAME: dracula-theme
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, color-theme, カラーテーマ
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: ドラキュラをモチーフにしたダークなカラーテーマ
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージdracula-themeの紹介
+#+MYTAGS: package:dracula-theme, emacs 使い方, emacs コマンド, emacs, dracula-theme, dracula-theme.el, emacs lisp dracula-theme, elisp dracula-theme, emacs melpa dracula-theme, emacs dracula-theme 使い方, emacs dracula-theme 設定, emacs パッケージ dracula-theme, emacs dracula-theme スクリーンショット, color-theme, カラーテーマ
+#+TAGS: package:dracula-theme, emacs 使い方, emacs コマンド, emacs, dracula-theme, dracula-theme.el, emacs lisp dracula-theme, elisp dracula-theme, emacs melpa dracula-theme, emacs dracula-theme 使い方, emacs dracula-theme 設定, emacs パッケージ dracula-theme, emacs dracula-theme スクリーンショット, color-theme, カラーテーマ, Emacs, theme, dracula-theme.el
+#+TITLE: emacs dracula-theme.el : ドラキュラをモチーフにしたダークなカラーテーマ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>dracula-theme</td></tr>
+<tr><td>概要(原文)</td><td>Dracula Theme</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/zenorocha/dracula-theme">https://github.com/zenorocha/dracula-theme</a></td></tr>
+<tr><td>バージョン</td><td>20151109.845</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:dracula-theme/">package:dracula-theme</a> </td></tr>
+</table>
+<br />
+#+END_HTML
+*dracula-theme.el* は、Emacs以外にも多くのソフトウェアに対応したカラーテーマです。
+
+- [[http://atom.io/][Atom]]
+- [[http://www.alfredapp.com/][Alfred]]
+- [[http://www.iterm2.com/][iTerm]]
+- [[http://slack.com][Slack]]
+- [[http://www.sublimetext.com/3][Sublime Text]]
+- [[http://macromates.com/][TextMate]]
+- [[http://en.wikipedia.org/wiki/Terminal_%28OS_X%29][Terminal.app]]
+- [[http://www.vim.org/][Vim]]
+- [[https://itunes.apple.com/us/app/xcode/id497799835][Xcode]]
+- [[http://www.zsh.org/][Zsh]]
+
+以下のパッケージに対応しています。
+- font-lock
+- hi-line
+- show-paren
+- isearch
+- mode-line
+- linum
+- org
+- latex
+- ido
+- gnus
+- mu4e
+- ffap
+- js2-mode
+- js3-mode
+- auto-complete
+- info
+- icomplete+
+- undo-tree
+- slime
+- rainbow-delimiters
+- magit
+- term
+- helm
+- company
+- web-mode
+- jde
+- enh-ruby-mode
+** dracula-theme インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install dracula-theme
+
+
+#+end:
+** 概要                                                             :noexport:
+*dracula-theme.el* は、Emacs以外にも多くのソフトウェアに対応したカラーテーマです。
+
+- [[http://atom.io/][Atom]]
+- [[http://www.alfredapp.com/][Alfred]]
+- [[http://www.iterm2.com/][iTerm]]
+- [[http://slack.com][Slack]]
+- [[http://www.sublimetext.com/3][Sublime Text]]
+- [[http://macromates.com/][TextMate]]
+- [[http://en.wikipedia.org/wiki/Terminal_%28OS_X%29][Terminal.app]]
+- [[http://www.vim.org/][Vim]]
+- [[https://itunes.apple.com/us/app/xcode/id497799835][Xcode]]
+- [[http://www.zsh.org/][Zsh]]
+
+以下のパッケージに対応しています。
+- font-lock
+- hi-line
+- show-paren
+- isearch
+- mode-line
+- linum
+- org
+- latex
+- ido
+- gnus
+- mu4e
+- ffap
+- js2-mode
+- js3-mode
+- auto-complete
+- info
+- icomplete+
+- undo-tree
+- slime
+- rainbow-delimiters
+- magit
+- term
+- helm
+- company
+- web-mode
+- jde
+- enh-ruby-mode
+
+** スクリーンショット
+# (save-window-excursion (async-shell-command "emacs-test -eval '(load-theme (quote dracula) t)'"))
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_theme_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151114072214.png]]
+Fig1: emacs-lisp-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151114072219.png]]
+Fig2: magit
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151114072223.png]]
+Fig3: grep
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151114072227.png]]
+Fig4: outline-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151114072230.png]]
+Fig5: org-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151114072233.png]]
+Fig6: dired
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151114072236.png]]
+Fig7: web-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151114072239.png]]
+Fig8: markdown-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151114072243.png]]
+Fig9: helm
+
+
+** 設定
+#+BEGIN_SRC fundamental
+(load-theme 'dracula t)
+#+END_SRC
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ emacs -Q -f package-initialize -eval '(load-theme (quote dracula) t)'
+#+END_EXAMPLE
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
