@@ -9,14 +9,14 @@
 #+BLOG: rubikitch
 #+CATEGORY: Emacs
 #+EL_PKG_NAME: emojify
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, emoji, 絵文字, 絵文字 表示, 
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, emoji, 絵文字, 絵文字 表示, relate:emoji-cheat-sheet-plus
 #+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
 #+EL_TITLE0: Emacsのバッファに絵文字を表示させる
 #+EL_URL: 
 #+begin: org2blog
 #+DESCRIPTION: MELPAのEmacs Lispパッケージemojifyの紹介
-#+MYTAGS: package:emojify, emacs 使い方, emacs コマンド, emacs, emojify, emojify.el, emacs lisp emojify, elisp emojify, emacs melpa emojify, emacs emojify 使い方, emacs emojify 設定, emacs パッケージ emojify, emacs emojify スクリーンショット, emoji, 絵文字, 絵文字 表示, 
-#+TAGS: package:emojify, emacs 使い方, emacs コマンド, emacs, emojify, emojify.el, emacs lisp emojify, elisp emojify, emacs melpa emojify, emacs emojify 使い方, emacs emojify 設定, emacs パッケージ emojify, emacs emojify スクリーンショット, emoji, 絵文字, 絵文字 表示, , Emacs, emojify.el, M-x emojify-mode, M-x global-emojify-mode, emojify-inhibit-major-modes, emojify-inhibit-in-buffer-functions, M-x emojify-mode, M-x global-emojify-mode, emojify-inhibit-major-modes, emojify-inhibit-in-buffer-functions
+#+MYTAGS: package:emojify, emacs 使い方, emacs コマンド, emacs, emojify, emojify.el, emacs lisp emojify, elisp emojify, emacs melpa emojify, emacs emojify 使い方, emacs emojify 設定, emacs パッケージ emojify, emacs emojify スクリーンショット, emoji, 絵文字, 絵文字 表示, relate:emoji-cheat-sheet-plus
+#+TAGS: package:emojify, emacs 使い方, emacs コマンド, emacs, emojify, emojify.el, emacs lisp emojify, elisp emojify, emacs melpa emojify, emacs emojify 使い方, emacs emojify 設定, emacs パッケージ emojify, emacs emojify スクリーンショット, emoji, 絵文字, 絵文字 表示, relate:emoji-cheat-sheet-plus, Emacs, emojify.el, M-x emojify-mode, M-x global-emojify-mode, emojify-inhibit-major-modes, emojify-inhibit-in-buffer-functions, M-x emojify-mode, M-x global-emojify-mode, emojify-inhibit-major-modes, emojify-inhibit-in-buffer-functions
 #+TITLE: emacs emojify.el : Emacsのバッファに絵文字を表示させる | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
 #+BEGIN_HTML
 <table>
@@ -24,8 +24,8 @@
 <tr><td>概要(原文)</td><td>Display emojis in Emacs</td></tr>
 <tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
 <tr><td>取得先</td><td><a href="https://github.com/iqbalansari/emacs-emojify">https://github.com/iqbalansari/emacs-emojify</a></td></tr>
-<tr><td>バージョン</td><td>20151111.637</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:emojify/">package:emojify</a> </td></tr>
+<tr><td>バージョン</td><td>20151115.1942</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:emojify/">package:emojify</a> <a href="http://rubikitch.com/tag/package:emoji-cheat-sheet-plus/">package:emoji-cheat-sheet-plus</a></td></tr>
 </table>
 <br />
 #+END_HTML
