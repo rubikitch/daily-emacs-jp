@@ -45,6 +45,8 @@
 *emojify-inhibit-major-modes* と *emojify-inhibit-in-buffer-functions* によって絵文字表示を無効にできます。
 デフォルトではhelm関連のバッファ、ミニバッファ、dired等です。
 
+絵文字を選択入力したければ[[http://rubikitch.com/2015/11/17/emoji-cheat-sheet-plus/][emoji-cheat-sheet-plus.el(レビュー)]]を！
+
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
 #+ATTR_HTML: :width 480
 #+ATTR_HTML: :width 480
@@ -83,6 +85,8 @@ M-x package-install emojify
 すべてのバッファにおいて有効にしたければ *M-x global-emojify-mode* です。
 *emojify-inhibit-major-modes* と *emojify-inhibit-in-buffer-functions* によって絵文字表示を無効にできます。
 デフォルトではhelm関連のバッファ、ミニバッファ、dired等です。
+
+絵文字を選択入力したければ[[http://rubikitch.com/2015/11/17/emoji-cheat-sheet-plus/][emoji-cheat-sheet-plus.el(レビュー)]]を！
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
 #+ATTR_HTML: :width 480
