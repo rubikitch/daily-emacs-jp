@@ -1,0 +1,119 @@
+#+BLOG: rubikitch
+#+POSTID: 2193
+#+DATE: [2015-11-17 Tue 03:55]
+#+PERMALINK: emoji-cheat-sheet-plus
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, helm
+#+EL_PKG_NAME: emoji-cheat-sheet-plus
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, relate:emojify, emoji, 絵文字, 絵文字 表示, 絵文字 入力
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: 絵文字を選択・入力・表示する with helm I/F
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージemoji-cheat-sheet-plusの紹介
+#+MYTAGS: package:emoji-cheat-sheet-plus, emacs 使い方, emacs コマンド, emacs, emoji-cheat-sheet-plus, emoji-cheat-sheet-plus.el, emacs lisp emoji-cheat-sheet-plus, elisp emoji-cheat-sheet-plus, emacs melpa emoji-cheat-sheet-plus, emacs emoji-cheat-sheet-plus 使い方, emacs emoji-cheat-sheet-plus 設定, emacs パッケージ emoji-cheat-sheet-plus, emacs emoji-cheat-sheet-plus スクリーンショット, relate:emojify, emoji, 絵文字, 絵文字 表示, 絵文字 入力
+#+TAGS: package:emoji-cheat-sheet-plus, emacs 使い方, emacs コマンド, emacs, emoji-cheat-sheet-plus, emoji-cheat-sheet-plus.el, emacs lisp emoji-cheat-sheet-plus, elisp emoji-cheat-sheet-plus, emacs melpa emoji-cheat-sheet-plus, emacs emoji-cheat-sheet-plus 使い方, emacs emoji-cheat-sheet-plus 設定, emacs パッケージ emoji-cheat-sheet-plus, emacs emoji-cheat-sheet-plus スクリーンショット, relate:emojify, emoji, 絵文字, 絵文字 表示, 絵文字 入力, Emacs, helm, emoji-cheat-sheet-plus.el, M-x emoji-cheat-sheet-plus-buffer, M-x emoji-cheat-sheet-plus-insert, emoji-cheat-sheet-plus-display-mode, emoji-mode, M-x emoji-cheat-sheet-plus-buffer, M-x emoji-cheat-sheet-plus-insert, emoji-cheat-sheet-plus-display-mode, emoji-mode
+#+TITLE: emacs emoji-cheat-sheet-plus.el : 絵文字を選択・入力・表示する with helm I/F | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>emoji-cheat-sheet-plus</td></tr>
+<tr><td>概要(原文)</td><td>emoji-cheat-sheet for emacs</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/syl20bnr/emacs-emoji-cheat-sheet-plus">https://github.com/syl20bnr/emacs-emoji-cheat-sheet-plus</a></td></tr>
+<tr><td>バージョン</td><td>20150617.631</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:emoji-cheat-sheet-plus/">package:emoji-cheat-sheet-plus</a> <a href="http://rubikitch.com/tag/package:emojify/">package:emojify</a></td></tr>
+</table>
+<br />
+#+END_HTML
+*emoji-cheat-sheet-plus.el* は絵文字を選択・入力・表示するelispです。
+[[http://rubikitch.com/2015/11/15/emojify/][emojify.el(レビュー)]]では絵文字の表示のみでしたが、これは入力もサポートしています。
+
+絵文字を使うには絵文字用のコード(「:eyes:」など)を入力する必要がありますが、覚えるのは困難です。
+そのため絵文字リストから選択するのが現実的です。
+そのインターフェースは2つ用意しています。
+
+- *M-x emoji-cheat-sheet-plus-buffer* で*emoji*バッファから選択
+- *M-x emoji-cheat-sheet-plus-insert* でhelmインターフェースで入力
+
+使える絵文字全体を見たかったり絵文字に慣れていない人は前者を、絵文字コードに少し慣れてきて確認しながら入力したければ後者を使いましょう。
+
+また、 *emoji-cheat-sheet-plus-display-mode* マイナーモードは *emoji-mode* 同様絵文字を画像表示します。
+前者は絵文字コードすべてを絵文字画像として表示しますが、後者はソースコード内においては文字列リテラルのみ絵文字を画像表示します。
+こちらの方が単純な実装です。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151117040904.png]]
+Fig1: M-x emoji-cheat-sheet-plus-buffer (RETでkill-ring入り)
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151117040929.png]]
+Fig2: M-x emoji-cheat-sheet-plus-insertで候補表示
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151117040936.png]]
+Fig3: RETで選択し入力
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151117040943.png]]
+Fig4: M-x emoji-cheat-sheet-plus-display-modeで絵文字を画像表示
+** emoji-cheat-sheet-plus インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install emoji-cheat-sheet-plus
+
+
+#+end:
+** 概要                                                             :noexport:
+*emoji-cheat-sheet-plus.el* は絵文字を選択・入力・表示するelispです。
+[[http://rubikitch.com/2015/11/15/emojify/][emojify.el(レビュー)]]では絵文字の表示のみでしたが、これは入力もサポートしています。
+
+絵文字を使うには絵文字用のコード(「:eyes:」など)を入力する必要がありますが、覚えるのは困難です。
+そのため絵文字リストから選択するのが現実的です。
+そのインターフェースは2つ用意しています。
+
+- *M-x emoji-cheat-sheet-plus-buffer* で*emoji*バッファから選択
+- *M-x emoji-cheat-sheet-plus-insert* でhelmインターフェースで入力
+
+使える絵文字全体を見たかったり絵文字に慣れていない人は前者を、絵文字コードに少し慣れてきて確認しながら入力したければ後者を使いましょう。
+
+また、 *emoji-cheat-sheet-plus-display-mode* マイナーモードは *emoji-mode* 同様絵文字を画像表示します。
+前者は絵文字コードすべてを絵文字画像として表示しますが、後者はソースコード内においては文字列リテラルのみ絵文字を画像表示します。
+こちらの方が単純な実装です。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151117040904.png]]
+Fig5: M-x emoji-cheat-sheet-plus-buffer (RETでkill-ring入り)
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151117040929.png]]
+Fig6: M-x emoji-cheat-sheet-plus-insertで候補表示
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151117040936.png]]
+Fig7: RETで選択し入力
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151117040943.png]]
+Fig8: M-x emoji-cheat-sheet-plus-display-modeで絵文字を画像表示
+
+** 設定 [[http://rubikitch.com/f/151117040736.emoji-cheat-sheet-plus.el][151117040736.emoji-cheat-sheet-plus.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/151117/151117040736.emoji-cheat-sheet-plus.el"
+#+BEGIN_SRC fundamental
+;;; markdownにおいて絵文字を画像表示する
+(add-hook 'markdown-mode-hook 'emoji-cheat-sheet-plus-display-mode)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/151117040736.emoji-cheat-sheet-plus.el
+$ emacs -Q -f package-initialize -l 151117040736.emoji-cheat-sheet-plus.el
+#+END_EXAMPLE
