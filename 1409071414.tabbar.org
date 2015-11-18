@@ -9,21 +9,22 @@
 #+BLOG: rubikitch
 #+CATEGORY: Emacs
 #+EL_PKG_NAME: tabbar
-#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, relate:elscreen, relate:ace-jump-buffer, relate:helm, emacs ace-jump-buffer.el, emacs helm.el, emacs バッファ切り替え, emacs elscreen 乗り変え, emacs タブエディタ,
+#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, relate:elscreen, relate:ace-jump-buffer, relate:helm, emacs ace-jump-buffer.el, emacs helm.el, emacs バッファ切り替え, emacs elscreen 乗り変え, emacs タブエディタ, relate:buffer-flip
 #+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
 #+EL_TITLE0: Emacsをタブエディタ化し、バッファを俯瞰する
 #+begin: org2blog
 #+DESCRIPTION: MELPAのEmacs Lispパッケージtabbarの紹介
-#+MYTAGS: package:tabbar, emacs 使い方, emacs コマンド, emacs, emacs lisp tabbar, elisp tabbar, emacs melpa tabbar, emacs tabbar 使い方, emacs tabbar 設定, emacs パッケージ tabbar, emacs tabbar スクリーンショット, relate:elscreen, relate:ace-jump-buffer, relate:helm, emacs ace-jump-buffer.el, emacs helm.el, emacs バッファ切り替え, emacs elscreen 乗り変え, emacs タブエディタ,
+#+MYTAGS: package:tabbar, emacs 使い方, emacs コマンド, emacs, emacs lisp tabbar, elisp tabbar, emacs melpa tabbar, emacs tabbar 使い方, emacs tabbar 設定, emacs パッケージ tabbar, emacs tabbar スクリーンショット, relate:elscreen, relate:ace-jump-buffer, relate:helm, emacs ace-jump-buffer.el, emacs helm.el, emacs バッファ切り替え, emacs elscreen 乗り変え, emacs タブエディタ, relate:buffer-flip
+#+TAGS: package:tabbar, emacs 使い方, emacs コマンド, emacs, emacs lisp tabbar, elisp tabbar, emacs melpa tabbar, emacs tabbar 使い方, emacs tabbar 設定, emacs パッケージ tabbar, emacs tabbar スクリーンショット, relate:elscreen, relate:ace-jump-buffer, relate:helm, emacs ace-jump-buffer.el, emacs helm.el, emacs バッファ切り替え, emacs elscreen 乗り変え, emacs タブエディタ, relate:buffer-flip, Emacs, elscreen.el, header-line, elscreen.el, header-line, helm
 #+TITLE: emacs tabbar.el : Emacsをタブエディタ化し、バッファを俯瞰する | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
 #+BEGIN_HTML
 <table>
 <tr><td>パッケージ名</td><td>tabbar</td></tr>
-<tr><td>概要(原文)</td><td>No description available.</td></tr>
+<tr><td>概要(原文)</td><td>Display a tab bar in the header line</td></tr>
 <tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
 <tr><td>取得先</td><td><a href="https://github.com/dholm/tabbar">https://github.com/dholm/tabbar</a></td></tr>
 <tr><td>バージョン</td><td>20141109.143</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:tabbar/">package:tabbar</a> <a href="http://rubikitch.com/tag/package:elscreen/">package:elscreen</a> <a href="http://rubikitch.com/tag/package:ace-jump-buffer/">package:ace-jump-buffer</a> <a href="http://rubikitch.com/tag/package:helm/">package:helm</a></td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:tabbar/">package:tabbar</a> <a href="http://rubikitch.com/tag/package:elscreen/">package:elscreen</a> <a href="http://rubikitch.com/tag/package:ace-jump-buffer/">package:ace-jump-buffer</a> <a href="http://rubikitch.com/tag/package:helm/">package:helm</a> <a href="http://rubikitch.com/tag/package:buffer-flip/">package:buffer-flip</a></td></tr>
 </table>
 <br />
 #+END_HTML
