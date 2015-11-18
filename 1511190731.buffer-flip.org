@@ -1,0 +1,86 @@
+#+BLOG: rubikitch
+#+POSTID: 2199
+#+DATE: [2015-11-19 Thu 07:31]
+#+PERMALINK: buffer-flip
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs
+#+EL_PKG_NAME: buffer-flip
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, , relate:cycbuf, relate:bs, relate:ace-jump-buffer, relate:uzumaki, relate:helm, relate:ido,relate:tabbar, emacs バッファ切り替え, emacs Alt+Tab, relate:key-chord
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 
+#+EL_TITLE0: key-chordを使ってWindowsのAlt+Tabのようにバッファを切替える
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージbuffer-flipの紹介
+#+MYTAGS: package:buffer-flip, emacs 使い方, emacs コマンド, emacs, buffer-flip, buffer-flip.el, emacs lisp buffer-flip, elisp buffer-flip, emacs melpa buffer-flip, emacs buffer-flip 使い方, emacs buffer-flip 設定, emacs パッケージ buffer-flip, , relate:cycbuf, relate:bs, relate:ace-jump-buffer, relate:uzumaki, relate:helm, relate:ido,relate:tabbar, emacs バッファ切り替え, emacs Alt+Tab, relate:key-chord
+#+TAGS: package:buffer-flip, emacs 使い方, emacs コマンド, emacs, buffer-flip, buffer-flip.el, emacs lisp buffer-flip, elisp buffer-flip, emacs melpa buffer-flip, emacs buffer-flip 使い方, emacs buffer-flip 設定, emacs パッケージ buffer-flip, , relate:cycbuf, relate:bs, relate:ace-jump-buffer, relate:uzumaki, relate:helm, relate:ido,relate:tabbar, emacs バッファ切り替え, emacs Alt+Tab, relate:key-chord, Emacs, buffer-flip.el, key-chord.el, buffer-flip.el, key-chord.el
+#+TITLE: emacs buffer-flip.el : key-chordを使ってWindowsのAlt+Tabのようにバッファを切替える | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>buffer-flip</td></tr>
+<tr><td>概要(原文)</td><td>Use key-chord to cycle through buffers like Alt-Tab in Windows</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/killdash9/buffer-flip.el">https://github.com/killdash9/buffer-flip.el</a></td></tr>
+<tr><td>バージョン</td><td>20151113.1830</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:buffer-flip/">package:buffer-flip</a> <a href="http://rubikitch.com/tag/package:cycbuf/">package:cycbuf</a> <a href="http://rubikitch.com/tag/package:bs/">package:bs</a> <a href="http://rubikitch.com/tag/package:ace-jump-buffer/">package:ace-jump-buffer</a> <a href="http://rubikitch.com/tag/package:uzumaki/">package:uzumaki</a> <a href="http://rubikitch.com/tag/package:helm/">package:helm</a> <a href="http://rubikitch.com/tag/package:ido/">package:ido</a> <a href="http://rubikitch.com/tag/package:tabbar/">package:tabbar</a> <a href="http://rubikitch.com/tag/package:key-chord/">package:key-chord</a></td></tr>
+</table>
+<br />
+#+END_HTML
+WindowsのAlt+Tabは最近使ったウィンドウの順にウィンドウを切替える優れたインターフェースです。
+この操作性をバッファ切り替えで使おうというのがこの *buffer-flip.el* です。
+
+とはいえAlt+Tabをそのまま真似しているのではなくて、 *key-chord.el* によるキー同時押しで疑似的に実現しています。
+デフォルトではu8同時押しで直前のバッファに戻り、以後8を押すたびに前へ前へとバッファが戻り、*を押すたびに逆方向に戻ります。
+なぜ8と*なのかというと英語キーボードでは*がShift+8だからです。
+C-gを押せば元のバッファに戻ります。
+
+本設定ではu8は同じですが、隣のキーである9でバッファを戻せるようにしています。
+
+これは手軽に使えるので、試してみる価値があるでしょう。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+** buffer-flip インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install buffer-flip
+
+
+#+end:
+** 概要                                                             :noexport:
+WindowsのAlt+Tabは最近使ったウィンドウの順にウィンドウを切替える優れたインターフェースです。
+この操作性をバッファ切り替えで使おうというのがこの *buffer-flip.el* です。
+
+とはいえAlt+Tabをそのまま真似しているのではなくて、 *key-chord.el* によるキー同時押しで疑似的に実現しています。
+デフォルトではu8同時押しで直前のバッファに戻り、以後8を押すたびに前へ前へとバッファが戻り、*を押すたびに逆方向に戻ります。
+なぜ8と*なのかというと英語キーボードでは*がShift+8だからです。
+C-gを押せば元のバッファに戻ります。
+
+本設定ではu8は同じですが、隣のキーである9でバッファを戻せるようにしています。
+
+これは手軽に使えるので、試してみる価値があるでしょう。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+** 設定 [[http://rubikitch.com/f/151119072754.buffer-flip.el][151119072754.buffer-flip.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/151119/151119072754.buffer-flip.el"
+#+BEGIN_SRC fundamental
+;;; buffer-flip-keysでbuffer-flipのキーを登録するが
+;;; マイナーモードを有効にする前かbuffer-flip.elロード前に設定する必要あり
+;;; u8*の日本語バージョン
+;; (setq buffer-flip-keys "u8(")
+;;; こっちの方が操作性がよいだろう
+(setq buffer-flip-keys "u89")
+(key-chord-mode 1)
+(buffer-flip-mode 1)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/151119072754.buffer-flip.el
+$ emacs -Q -f package-initialize -l 151119072754.buffer-flip.el
+#+END_EXAMPLE
