@@ -1,0 +1,29 @@
+#+BLOG: rubikitch
+#+POSTID: 2201
+#+DATE: [2015-11-20 Fri 10:29]
+#+PERMALINK: melmag
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: メルマガ,
+#+DESCRIPTION: るびきち塾メルマガ『Emacsの鬼るびきちのココだけの話#208』の予告
+#+TITLE: 【メルマガ#208】Emacs的メディアプレイヤーで音楽を楽しもう！
+#+MYTAGS: 
+#+begin: org2blog-tags
+#+TAGS: , メルマガ,, 
+#+end:
+今回は再び「Emacs的ソフトウェア」の話に戻ります。
+
+今回と次回はEmacs的メディアプレイヤーを採り上げます。
+
+このプレイヤーはLua言語で拡張できるようになっていて、
+Emacsが起動時にinit.elを読み込むように
+自動的にユーザスクリプトとして読み込まれます。
+
+言語こそ違えど拡張方法はEmacsでフックを設定するのとそっくりです。
+
+Luaスクリプトを通じてDJ Mixを楽しむのが今回のテーマとなります。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
