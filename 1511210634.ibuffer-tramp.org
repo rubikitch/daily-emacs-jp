@@ -1,0 +1,77 @@
+#+BLOG: rubikitch
+#+POSTID: 2203
+#+DATE: [2015-11-21 Sat 06:34]
+#+PERMALINK: ibuffer-tramp
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs
+#+EL_PKG_NAME: ibuffer-tramp
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット, relate:ibuffer-vc, package:ibuffer, relate:ibuffer, Emacs バッファリスト tramp, バッファリスト, ibuffer, ibuffer tramp
+#+EL_TITLE0: ibufferにtrampのグループを作る
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージibuffer-trampの紹介
+#+MYTAGS: package:ibuffer-tramp, emacs 使い方, emacs コマンド, emacs, ibuffer-tramp, ibuffer-tramp.el, emacs lisp ibuffer-tramp, elisp ibuffer-tramp, emacs melpa ibuffer-tramp, emacs ibuffer-tramp 使い方, emacs ibuffer-tramp 設定, emacs パッケージ ibuffer-tramp, emacs ibuffer-tramp スクリーンショット
+#+TAGS: package:ibuffer-tramp, emacs 使い方, emacs コマンド, emacs, ibuffer-tramp, ibuffer-tramp.el, emacs lisp ibuffer-tramp, elisp ibuffer-tramp, emacs melpa ibuffer-tramp, emacs ibuffer-tramp 使い方, emacs ibuffer-tramp 設定, emacs パッケージ ibuffer-tramp, emacs ibuffer-tramp スクリーンショット, Emacs, ibuffer-tramp.el, M-x ibuffer, M-x ibuffer
+#+TITLE: emacs ibuffer-tramp.el : ibufferにtrampのグループを作る | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット, relate:ibuffer-vc, package:ibuffer, relate:ibuffer, Emacs バッファリスト tramp, バッファリスト, ibuffer, ibuffer tramp
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>ibuffer-tramp</td></tr>
+<tr><td>概要(原文)</td><td>Group ibuffer's list by TRAMP connection</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/svend/ibuffer-tramp">https://github.com/svend/ibuffer-tramp</a></td></tr>
+<tr><td>バージョン</td><td>20151118.939</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:ibuffer-tramp/">package:ibuffer-tramp</a> </td></tr>
+</table>
+<br />
+#+END_HTML
+*ibuffer-tramp.el* は高機能バッファリスト *M-x ibuffer* にtrampのグループを作成します。
+trampでsudoやリモートファイルを多用する人ならば使ってみるとよいでしょう。
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151121064118.png]]
+Fig1: 通常のibuffer
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151121064148.png]]
+Fig2: ibuffer-trampの設定後
+** ibuffer-tramp インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install ibuffer-tramp
+
+
+#+end:
+** 概要                                                             :noexport:
+*ibuffer-tramp.el* は高機能バッファリスト *M-x ibuffer* にtrampのグループを作成します。
+trampでsudoやリモートファイルを多用する人ならば使ってみるとよいでしょう。
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151121064118.png]]
+Fig3: 通常のibuffer
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151121064148.png]]
+Fig4: ibuffer-trampの設定後
+
+** 設定 [[http://rubikitch.com/f/151121063432.ibuffer-tramp.el][151121063432.ibuffer-tramp.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/151121/151121063432.ibuffer-tramp.el"
+#+BEGIN_SRC fundamental
+(add-hook 'ibuffer-hook
+  (lambda ()
+    (ibuffer-tramp-set-filter-groups-by-tramp-connection)
+    (ibuffer-do-sort-by-alphabetic)))
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/151121063432.ibuffer-tramp.el
+$ emacs -Q -f package-initialize -l 151121063432.ibuffer-tramp.el
+#+END_EXAMPLE
