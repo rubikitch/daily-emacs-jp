@@ -101,9 +101,10 @@ Fig9: helm
 #+ATTR_HTML: :width 480
 [[https://github.com/bkruczyk/badwolf-emacs/raw/master/screenshots/cljs.png]]
 Fig10: 本家スクリーンショット/Clojurescript
+
 #+ATTR_HTML: :width 480
-Fig11: 本家スクリーンショット/ruby
 [[https://github.com/bkruczyk/badwolf-emacs/raw/master/screenshots/ruby.png]]
+Fig11: 本家スクリーンショット/ruby
 
 ** 設定
 #+BEGIN_SRC fundamental
