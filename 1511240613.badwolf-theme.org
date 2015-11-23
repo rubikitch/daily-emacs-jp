@@ -100,10 +100,10 @@ Fig9: helm
 
 #+ATTR_HTML: :width 480
 Fig10: 本家スクリーンショット/Clojurescript
-[[file:~/sync/emacs/quelpa/build/badwolf-theme/screenshots/cljs.png]]
+[[https://github.com/bkruczyk/badwolf-emacs/blob/master/screenshots/cljs.png]]
 #+ATTR_HTML: :width 480
 Fig11: 本家スクリーンショット/ruby
-[[file:~/sync/emacs/quelpa/build/badwolf-theme/screenshots/ruby.png]]
+[[https://github.com/bkruczyk/badwolf-emacs/blob/master/screenshots/ruby.png]]
 
 ** 設定
 #+BEGIN_SRC fundamental
