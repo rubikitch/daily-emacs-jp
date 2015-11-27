@@ -1,0 +1,31 @@
+#+BLOG: rubikitch
+#+POSTID: 2221
+#+DATE: [2015-11-27 Fri 11:11]
+#+PERMALINK: melmag
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: メルマガ,
+#+DESCRIPTION: るびきち塾メルマガ『Emacsの鬼るびきちのココだけの話#209』の予告
+#+TITLE: 【メルマガ#209】mpvで視聴できるサイトを拡張しよう
+#+MYTAGS: 
+#+begin: org2blog-tags
+#+TAGS: , メルマガ,, 
+#+end:
+前回はEmacs的メディアプレイヤーmpvでDJ Mixを楽しむ話題でした。
+
+mpvを実行している端末でセットリスト(楽曲リスト)が表示されるので、
+どの曲が再生されているのかがわかるようになりました。
+
+今回はmpvのもうひとつの大きな機能である動画サイト対応を拡張します。
+
+現在でもすでに500以上のサイトに対応していますが、
+今回は未対応のサイトにいくつか対応させてみます。
+
+そのためのスクリプトも公開します。
+
+このスクリプトを読み解けば他のサイトに対応させることも容易です。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
