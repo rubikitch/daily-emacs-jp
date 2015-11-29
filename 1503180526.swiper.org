@@ -9,14 +9,14 @@
 #+BLOG: rubikitch
 #+CATEGORY: Emacs
 #+EL_PKG_NAME: swiper
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, emacs isearch, emacs 正規表現検索, relate:re-builder, relate:helm-swoop, relate:isearch, relate:ivy, relate:helm, re-builder isearch, emacs helm-occur, anything-c-moccur, emacs occur, relate:visual-regexp, relate:loccur
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, emacs isearch, emacs 正規表現検索, relate:re-builder, relate:helm-swoop, relate:isearch, relate:ivy, relate:helm, re-builder isearch, emacs helm-occur, anything-c-moccur, emacs occur, relate:visual-regexp, relate:loccur, relate:hide-lines
 #+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
 #+EL_TITLE0: 一覧付き正規表現isearch！C-u C-sを置き換えろ
 #+EL_URL: 
 #+begin: org2blog
 #+DESCRIPTION: MELPAのEmacs Lispパッケージswiperの紹介
-#+MYTAGS: package:swiper, emacs 使い方, emacs コマンド, emacs, swiper, swiper.el, emacs lisp swiper, elisp swiper, emacs melpa swiper, emacs swiper 使い方, emacs swiper 設定, emacs パッケージ swiper, emacs swiper スクリーンショット, emacs isearch, emacs 正規表現検索, relate:re-builder, relate:helm-swoop, relate:isearch, relate:ivy, relate:helm, re-builder isearch, emacs helm-occur, anything-c-moccur, emacs occur, relate:visual-regexp, relate:loccur
-#+TAGS: package:swiper, emacs 使い方, emacs コマンド, emacs, swiper, swiper.el, emacs lisp swiper, elisp swiper, emacs melpa swiper, emacs swiper 使い方, emacs swiper 設定, emacs パッケージ swiper, emacs swiper スクリーンショット, emacs isearch, emacs 正規表現検索, relate:re-builder, relate:helm-swoop, relate:isearch, relate:ivy, relate:helm, re-builder isearch, emacs helm-occur, anything-c-moccur, emacs occur, relate:visual-regexp, relate:loccur, Emacs, swiper.el, helm, helm-swoop.el, swiper.el, M-x occur, M-x re-builder, M-x swiper, swiper.el, helm, helm-swoop.el, swiper.el, M-x occur, M-x re-builder, M-x swiper
+#+MYTAGS: package:swiper, emacs 使い方, emacs コマンド, emacs, swiper, swiper.el, emacs lisp swiper, elisp swiper, emacs melpa swiper, emacs swiper 使い方, emacs swiper 設定, emacs パッケージ swiper, emacs swiper スクリーンショット, emacs isearch, emacs 正規表現検索, relate:re-builder, relate:helm-swoop, relate:isearch, relate:ivy, relate:helm, re-builder isearch, emacs helm-occur, anything-c-moccur, emacs occur, relate:visual-regexp, relate:loccur, relate:hide-lines
+#+TAGS: package:swiper, emacs 使い方, emacs コマンド, emacs, swiper, swiper.el, emacs lisp swiper, elisp swiper, emacs melpa swiper, emacs swiper 使い方, emacs swiper 設定, emacs パッケージ swiper, emacs swiper スクリーンショット, emacs isearch, emacs 正規表現検索, relate:re-builder, relate:helm-swoop, relate:isearch, relate:ivy, relate:helm, re-builder isearch, emacs helm-occur, anything-c-moccur, emacs occur, relate:visual-regexp, relate:loccur, relate:hide-lines, Emacs, swiper.el, helm, helm-swoop.el, swiper.el, M-x occur, M-x re-builder, M-x swiper, swiper.el, helm, helm-swoop.el, swiper.el, M-x occur, M-x re-builder, M-x swiper
 #+TITLE: emacs swiper.el : 一覧付き正規表現isearch！C-u C-sを置き換えろ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
 #+BEGIN_HTML
 <table>
@@ -24,8 +24,8 @@
 <tr><td>概要(原文)</td><td>Isearch with an overview. Oh, man!</td></tr>
 <tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
 <tr><td>取得先</td><td><a href="https://github.com/abo-abo/swiper">https://github.com/abo-abo/swiper</a></td></tr>
-<tr><td>バージョン</td><td>20150612.840</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:swiper/">package:swiper</a> <a href="http://rubikitch.com/tag/package:re-builder/">package:re-builder</a> <a href="http://rubikitch.com/tag/package:helm-swoop/">package:helm-swoop</a> <a href="http://rubikitch.com/tag/package:isearch/">package:isearch</a> <a href="http://rubikitch.com/tag/package:ivy/">package:ivy</a> <a href="http://rubikitch.com/tag/package:helm/">package:helm</a> <a href="http://rubikitch.com/tag/package:visual-regexp/">package:visual-regexp</a> <a href="http://rubikitch.com/tag/package:loccur/">package:loccur</a></td></tr>
+<tr><td>バージョン</td><td>20151127.1421</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:swiper/">package:swiper</a> <a href="http://rubikitch.com/tag/package:re-builder/">package:re-builder</a> <a href="http://rubikitch.com/tag/package:helm-swoop/">package:helm-swoop</a> <a href="http://rubikitch.com/tag/package:isearch/">package:isearch</a> <a href="http://rubikitch.com/tag/package:ivy/">package:ivy</a> <a href="http://rubikitch.com/tag/package:helm/">package:helm</a> <a href="http://rubikitch.com/tag/package:visual-regexp/">package:visual-regexp</a> <a href="http://rubikitch.com/tag/package:loccur/">package:loccur</a> <a href="http://rubikitch.com/tag/package:hide-lines/">package:hide-lines</a></td></tr>
 </table>
 <br />
 #+END_HTML
