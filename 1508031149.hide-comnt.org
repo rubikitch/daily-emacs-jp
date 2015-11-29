@@ -9,14 +9,14 @@
 #+BLOG: rubikitch
 #+CATEGORY: Emacs
 #+EL_PKG_NAME: hide-comnt
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, コメント, relate:hideshow, relate:hideshowvis, relate:fold-this, コメントを隠す, コードリーディング
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, コメント, relate:hideshow, relate:hideshowvis, relate:fold-this, コメントを隠す, コードリーディング, relate:hide-lines
 #+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
 #+EL_TITLE0: ソースコードのコメントを一時的に隠す
 #+EL_URL: 
 #+begin: org2blog
 #+DESCRIPTION: MELPAのEmacs Lispパッケージhide-comntの紹介
-#+MYTAGS: package:hide-comnt, emacs 使い方, emacs コマンド, emacs, hide-comnt, hide-comnt.el, emacs lisp hide-comnt, elisp hide-comnt, emacs melpa hide-comnt, emacs hide-comnt 使い方, emacs hide-comnt 設定, emacs パッケージ hide-comnt, emacs hide-comnt スクリーンショット, コメント, relate:hideshow, relate:hideshowvis, relate:fold-this, コメントを隠す, コードリーディング
-#+TAGS: package:hide-comnt, emacs 使い方, emacs コマンド, emacs, hide-comnt, hide-comnt.el, emacs lisp hide-comnt, elisp hide-comnt, emacs melpa hide-comnt, emacs hide-comnt 使い方, emacs hide-comnt 設定, emacs パッケージ hide-comnt, emacs hide-comnt スクリーンショット, コメント, relate:hideshow, relate:hideshowvis, relate:fold-this, コメントを隠す, コードリーディング, Emacs, hide-comnt.el, M-x hide/show-comments-toggle, hide-comnt.el, M-x hide/show-comments-toggle
+#+MYTAGS: package:hide-comnt, emacs 使い方, emacs コマンド, emacs, hide-comnt, hide-comnt.el, emacs lisp hide-comnt, elisp hide-comnt, emacs melpa hide-comnt, emacs hide-comnt 使い方, emacs hide-comnt 設定, emacs パッケージ hide-comnt, emacs hide-comnt スクリーンショット, コメント, relate:hideshow, relate:hideshowvis, relate:fold-this, コメントを隠す, コードリーディング, relate:hide-lines
+#+TAGS: package:hide-comnt, emacs 使い方, emacs コマンド, emacs, hide-comnt, hide-comnt.el, emacs lisp hide-comnt, elisp hide-comnt, emacs melpa hide-comnt, emacs hide-comnt 使い方, emacs hide-comnt 設定, emacs パッケージ hide-comnt, emacs hide-comnt スクリーンショット, コメント, relate:hideshow, relate:hideshowvis, relate:fold-this, コメントを隠す, コードリーディング, relate:hide-lines, Emacs, hide-comnt.el, M-x hide/show-comments-toggle, hide-comnt.el, M-x hide/show-comments-toggle
 #+TITLE: emacs hide-comnt.el : ソースコードのコメントを一時的に隠す | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
 #+BEGIN_HTML
 <table>
@@ -24,8 +24,8 @@
 <tr><td>概要(原文)</td><td>Hide/show comments in code.</td></tr>
 <tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
 <tr><td>取得先</td><td><a href="http://www.emacswiki.org/hide-comnt.el">http://www.emacswiki.org/hide-comnt.el</a></td></tr>
-<tr><td>バージョン</td><td>20150104.2218</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:hide-comnt/">package:hide-comnt</a> <a href="http://rubikitch.com/tag/package:hideshow/">package:hideshow</a> <a href="http://rubikitch.com/tag/package:hideshowvis/">package:hideshowvis</a> <a href="http://rubikitch.com/tag/package:fold-this/">package:fold-this</a></td></tr>
+<tr><td>バージョン</td><td>20150801.920</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:hide-comnt/">package:hide-comnt</a> <a href="http://rubikitch.com/tag/package:hideshow/">package:hideshow</a> <a href="http://rubikitch.com/tag/package:hideshowvis/">package:hideshowvis</a> <a href="http://rubikitch.com/tag/package:fold-this/">package:fold-this</a> <a href="http://rubikitch.com/tag/package:hide-lines/">package:hide-lines</a></td></tr>
 </table>
 <br />
 #+END_HTML
