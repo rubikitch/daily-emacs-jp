@@ -9,14 +9,14 @@
 #+BLOG: rubikitch
 #+CATEGORY: Emacs
 #+EL_PKG_NAME: fold-this
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, relate:hideif, relate:hideshow, relate:view, relate:hide-comnt
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, relate:hideif, relate:hideshow, relate:view, relate:hide-comnt, relate:hide-lines
 #+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
 #+EL_TITLE0: 【コードリーディング支援】region/S式を一時的に隠すシンプルなコマンド
 #+EL_URL: 
 #+begin: org2blog
 #+DESCRIPTION: MELPAのEmacs Lispパッケージfold-thisの紹介
-#+MYTAGS: package:fold-this, emacs 使い方, emacs コマンド, emacs, fold-this, fold-this.el, emacs lisp fold-this, elisp fold-this, emacs melpa fold-this, emacs fold-this 使い方, emacs fold-this 設定, emacs パッケージ fold-this, emacs fold-this スクリーンショット, relate:hideif, relate:hideshow, relate:view, relate:hide-comnt
-#+TAGS: package:fold-this, emacs 使い方, emacs コマンド, emacs, fold-this, fold-this.el, emacs lisp fold-this, elisp fold-this, emacs melpa fold-this, emacs fold-this 使い方, emacs fold-this 設定, emacs パッケージ fold-this, emacs fold-this スクリーンショット, relate:hideif, relate:hideshow, relate:view, relate:hide-comnt, Emacs, org-mode, outline-mode, fold-this.el, M-x fold-this, M-x fold-this-all, M-x fold-this--this-or-all, view-mode, outline-mode, fold-this.el, M-x fold-this, M-x fold-this-all, M-x fold-this--this-or-all, view-mode
+#+MYTAGS: package:fold-this, emacs 使い方, emacs コマンド, emacs, fold-this, fold-this.el, emacs lisp fold-this, elisp fold-this, emacs melpa fold-this, emacs fold-this 使い方, emacs fold-this 設定, emacs パッケージ fold-this, emacs fold-this スクリーンショット, relate:hideif, relate:hideshow, relate:view, relate:hide-comnt, relate:hide-lines
+#+TAGS: package:fold-this, emacs 使い方, emacs コマンド, emacs, fold-this, fold-this.el, emacs lisp fold-this, elisp fold-this, emacs melpa fold-this, emacs fold-this 使い方, emacs fold-this 設定, emacs パッケージ fold-this, emacs fold-this スクリーンショット, relate:hideif, relate:hideshow, relate:view, relate:hide-comnt, relate:hide-lines, Emacs, org-mode, outline-mode, fold-this.el, M-x fold-this, M-x fold-this-all, M-x fold-this--this-or-all, view-mode, outline-mode, fold-this.el, M-x fold-this, M-x fold-this-all, M-x fold-this--this-or-all, view-mode
 #+TITLE: emacs fold-this.el : 【コードリーディング支援】region/S式を一時的に隠すシンプルなコマンド | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
 #+BEGIN_HTML
 <table>
@@ -25,7 +25,7 @@
 <tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
 <tr><td>取得先</td><td><a href="https://github.com/magnars/fold-this.el">https://github.com/magnars/fold-this.el</a></td></tr>
 <tr><td>バージョン</td><td>20150601.342</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:fold-this/">package:fold-this</a> <a href="http://rubikitch.com/tag/package:hideif/">package:hideif</a> <a href="http://rubikitch.com/tag/package:hideshow/">package:hideshow</a> <a href="http://rubikitch.com/tag/package:view/">package:view</a> <a href="http://rubikitch.com/tag/package:hide-comnt/">package:hide-comnt</a></td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:fold-this/">package:fold-this</a> <a href="http://rubikitch.com/tag/package:hideif/">package:hideif</a> <a href="http://rubikitch.com/tag/package:hideshow/">package:hideshow</a> <a href="http://rubikitch.com/tag/package:view/">package:view</a> <a href="http://rubikitch.com/tag/package:hide-comnt/">package:hide-comnt</a> <a href="http://rubikitch.com/tag/package:hide-lines/">package:hide-lines</a></td></tr>
 </table>
 <br />
 #+END_HTML
