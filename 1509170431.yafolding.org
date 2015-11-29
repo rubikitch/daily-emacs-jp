@@ -9,14 +9,14 @@
 #+BLOG: rubikitch
 #+CATEGORY: Emacs
 #+EL_PKG_NAME: yafolding
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, relate:cn-outline, relate:fold-this, コードリーディング, 詳細を隠す, 深いインデントを隠す, 
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, relate:cn-outline, relate:fold-this, コードリーディング, 詳細を隠す, 深いインデントを隠す, , relate:hide-lines
 #+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
 #+EL_TITLE0: インデントが深い部分を隠す
 #+EL_URL: 
 #+begin: org2blog
 #+DESCRIPTION: MELPAのEmacs Lispパッケージyafoldingの紹介
-#+MYTAGS: package:yafolding, emacs 使い方, emacs コマンド, emacs, yafolding, yafolding.el, emacs lisp yafolding, elisp yafolding, emacs melpa yafolding, emacs yafolding 使い方, emacs yafolding 設定, emacs パッケージ yafolding, emacs yafolding スクリーンショット, relate:cn-outline, relate:fold-this, コードリーディング, 詳細を隠す, 深いインデントを隠す, 
-#+TAGS: package:yafolding, emacs 使い方, emacs コマンド, emacs, yafolding, yafolding.el, emacs lisp yafolding, elisp yafolding, emacs melpa yafolding, emacs yafolding 使い方, emacs yafolding 設定, emacs パッケージ yafolding, emacs yafolding スクリーンショット, relate:cn-outline, relate:fold-this, コードリーディング, 詳細を隠す, 深いインデントを隠す, , Emacs, yafolding.el, yafolding.el
+#+MYTAGS: package:yafolding, emacs 使い方, emacs コマンド, emacs, yafolding, yafolding.el, emacs lisp yafolding, elisp yafolding, emacs melpa yafolding, emacs yafolding 使い方, emacs yafolding 設定, emacs パッケージ yafolding, emacs yafolding スクリーンショット, relate:cn-outline, relate:fold-this, コードリーディング, 詳細を隠す, 深いインデントを隠す, , relate:hide-lines
+#+TAGS: package:yafolding, emacs 使い方, emacs コマンド, emacs, yafolding, yafolding.el, emacs lisp yafolding, elisp yafolding, emacs melpa yafolding, emacs yafolding 使い方, emacs yafolding 設定, emacs パッケージ yafolding, emacs yafolding スクリーンショット, relate:cn-outline, relate:fold-this, コードリーディング, 詳細を隠す, 深いインデントを隠す, , relate:hide-lines, Emacs, yafolding.el, yafolding.el
 #+TITLE: emacs yafolding.el : インデントが深い部分を隠す | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
 #+BEGIN_HTML
 <table>
@@ -25,7 +25,7 @@
 <tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
 <tr><td>取得先</td><td><a href="https://github.com/zenozeng/yafolding.el">https://github.com/zenozeng/yafolding.el</a></td></tr>
 <tr><td>バージョン</td><td>20141202.2056</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:yafolding/">package:yafolding</a> <a href="http://rubikitch.com/tag/package:cn-outline/">package:cn-outline</a> <a href="http://rubikitch.com/tag/package:fold-this/">package:fold-this</a></td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:yafolding/">package:yafolding</a> <a href="http://rubikitch.com/tag/package:cn-outline/">package:cn-outline</a> <a href="http://rubikitch.com/tag/package:fold-this/">package:fold-this</a> <a href="http://rubikitch.com/tag/package:hide-lines/">package:hide-lines</a></td></tr>
 </table>
 <br />
 #+END_HTML
