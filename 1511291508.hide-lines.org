@@ -1,0 +1,86 @@
+#+BLOG: rubikitch
+#+POSTID: 2231
+#+DATE: [2015-11-29 日 15:08]
+#+PERMALINK: hide-lines
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs
+#+EL_PKG_NAME: hide-lines
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, keep-lines, flush-lines, delete-matching-lines, delete-non-matching-lines, occur, ioccur, relate:swiper, relate:helm-swoop, relate:hide-comnt, relate:yafolding, relate:fold-this
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: 正規表現にマッチ(する|しない)行を一時的に隠す
+#+EL_URL: http://www.emacswiki.org/emacs/HideLines
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージhide-linesの紹介
+#+MYTAGS: package:hide-lines, emacs 使い方, emacs コマンド, emacs, hide-lines, hide-lines.el, emacs lisp hide-lines, elisp hide-lines, emacs melpa hide-lines, emacs hide-lines 使い方, emacs hide-lines 設定, emacs パッケージ hide-lines, emacs hide-lines スクリーンショット, keep-lines, flush-lines, delete-matching-lines, delete-non-matching-lines, occur, ioccur, relate:swiper, relate:helm-swoop, relate:hide-comnt, relate:yafolding, relate:fold-this
+#+TAGS: package:hide-lines, emacs 使い方, emacs コマンド, emacs, hide-lines, hide-lines.el, emacs lisp hide-lines, elisp hide-lines, emacs melpa hide-lines, emacs hide-lines 使い方, emacs hide-lines 設定, emacs パッケージ hide-lines, emacs hide-lines スクリーンショット, keep-lines, flush-lines, delete-matching-lines, delete-non-matching-lines, occur, ioccur, relate:swiper, relate:helm-swoop, relate:hide-comnt, relate:yafolding, relate:fold-this, Emacs, hide-lines.el, M-x hide-lines, M-x hide-lines, C-u M-x hide-lines, C-u C-u M-x hide-lines, M-x keep-lines, M-x delete-non-matching-lines, M-x flush-lines, M-x delete-matching-lines, M-x hide-lines, M-x hide-lines, C-u M-x hide-lines, C-u C-u M-x hide-lines, M-x keep-lines, M-x delete-non-matching-lines, M-x flush-lines, M-x delete-matching-lines
+#+TITLE: emacs hide-lines.el : 正規表現にマッチ(する|しない)行を一時的に隠す | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>hide-lines</td></tr>
+<tr><td>概要(原文)</td><td>Commands for hiding lines based on a regexp</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>サイト</td><td><a href="http://www.emacswiki.org/emacs/HideLines">http://www.emacswiki.org/emacs/HideLines</td></tr>
+<tr><td>取得先</td><td><a href="http://www.emacswiki.org/hide-lines.el">http://www.emacswiki.org/hide-lines.el</a></td></tr>
+<tr><td>バージョン</td><td>20151127.1040</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:hide-lines/">package:hide-lines</a> <a href="http://rubikitch.com/tag/package:swiper/">package:swiper</a> <a href="http://rubikitch.com/tag/package:helm-swoop/">package:helm-swoop</a> <a href="http://rubikitch.com/tag/package:hide-comnt/">package:hide-comnt</a> <a href="http://rubikitch.com/tag/package:yafolding/">package:yafolding</a> <a href="http://rubikitch.com/tag/package:fold-this/">package:fold-this</a></td></tr>
+</table>
+<br />
+#+END_HTML
+*hide-lines.el* は正規表現にマッチする行・しない行を一時的に隠すパッケージです。
+すべての機能は *M-x hide-lines* に集約されています。
+- *M-x hide-lines* :: 正規表現にマッチする行を隠す
+- *C-u M-x hide-lines* :: 正規表現にマッチしない行を隠す
+- *C-u C-u M-x hide-lines* :: 隠した行を表示する
+
+Emacsの標準コマンド *M-x keep-lines* (*M-x delete-non-matching-lines*) 、 *M-x flush-lines* (*M-x delete-matching-lines*) は正規表現に応じて実際にバッファの内容を変更しますが、hide-linesはオーバーレイによって一時的に隠すだけです。
+
+regionを一時的に隠すならば [[http://rubikitch.com/2015/05/16/fold-this/][fold-this.el(レビュー)]] を使ってください。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151129151830.png]]
+Fig1: 元の状態(C-u C-u M-x hide-linesでここに戻る)
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151129151839.png]]
+Fig2: M-x hide-lines defun でdefunの行が隠れる
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151129151851.png]]
+Fig3: C-u M-x hide-lines defun でdefunの行のみが表示される
+** hide-lines インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install hide-lines
+
+
+#+end:
+** 概要                                                             :noexport:
+*hide-lines.el* は正規表現にマッチする行・しない行を一時的に隠すパッケージです。
+すべての機能は *M-x hide-lines* に集約されています。
+- *M-x hide-lines* :: 正規表現にマッチする行を隠す
+- *C-u M-x hide-lines* :: 正規表現にマッチしない行を隠す
+- *C-u C-u M-x hide-lines* :: 隠した行を表示する
+
+Emacsの標準コマンド *M-x keep-lines* (*M-x delete-non-matching-lines*) 、 *M-x flush-lines* (*M-x delete-matching-lines*) は正規表現に応じて実際にバッファの内容を変更しますが、hide-linesはオーバーレイによって一時的に隠すだけです。
+
+regionを一時的に隠すならば [[http://rubikitch.com/2015/05/16/fold-this/][fold-this.el(レビュー)]] を使ってください。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151129151830.png]]
+Fig4: 元の状態(C-u C-u M-x hide-linesでここに戻る)
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151129151839.png]]
+Fig5: M-x hide-lines defun でdefunの行が隠れる
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151129151851.png]]
+Fig6: C-u M-x hide-lines defun でdefunの行のみが表示される
+
