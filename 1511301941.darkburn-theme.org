@@ -1,0 +1,302 @@
+#+BLOG: rubikitch
+#+POSTID: 2233
+#+DATE: [2015-11-30 Mon 19:41]
+#+PERMALINK: darkburn-theme
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, theme
+#+EL_PKG_NAME: darkburn-theme
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, color-theme, カラーテーマ
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: zenburn似の黒背景のカラーテーマ
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージdarkburn-themeの紹介
+#+MYTAGS: package:darkburn-theme, emacs 使い方, emacs コマンド, emacs, darkburn-theme, darkburn-theme.el, emacs lisp darkburn-theme, elisp darkburn-theme, emacs melpa darkburn-theme, emacs darkburn-theme 使い方, emacs darkburn-theme 設定, emacs パッケージ darkburn-theme, emacs darkburn-theme スクリーンショット, color-theme, カラーテーマ
+#+TAGS: package:darkburn-theme, emacs 使い方, emacs コマンド, emacs, darkburn-theme, darkburn-theme.el, emacs lisp darkburn-theme, elisp darkburn-theme, emacs melpa darkburn-theme, emacs darkburn-theme 使い方, emacs darkburn-theme 設定, emacs パッケージ darkburn-theme, emacs darkburn-theme スクリーンショット, color-theme, カラーテーマ, Emacs, theme, darkburn-theme.el
+#+TITLE: emacs darkburn-theme.el : zenburn似の黒背景のカラーテーマ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>darkburn-theme</td></tr>
+<tr><td>概要(原文)</td><td>A not-so-low contrast color theme for Emacs.</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/gorauskas/darkburn-theme">https://github.com/gorauskas/darkburn-theme</a></td></tr>
+<tr><td>バージョン</td><td>20151003.100</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:darkburn-theme/">package:darkburn-theme</a> </td></tr>
+</table>
+<br />
+#+END_HTML
+*darkburn-theme.el* は、以下のパッケージに対応したカラーテーマです。
+- header-line
+- compilation
+- completions
+- grep
+- isearch
+- font lock
+- newsticker
+- ace-jump
+- anzu
+- full-ack
+- auctex
+- auto-complete
+- android mode
+- avy
+- company-mode
+- bm
+- cider
+- circe
+- coq
+- ctable
+- diff
+- diff-hl
+- dim-autoload
+- dired+
+- ediff
+- ert
+- eshell
+- flx
+- flycheck
+- flymake
+- flyspell
+- erc
+- git-commit
+- git-gutter
+- git-gutter-fr
+- git-rebase
+- gnus
+- guide-key
+- helm
+- helm-swoop
+- hl-line-mode
+- hl-sexp
+- hydra
+- ido-mode
+- iedit-mode
+- js2-mode
+- jabber-mode
+- ledger-mode
+- lui
+- linum-mode
+- macrostep
+- magit
+  - headings and diffs
+  - popup
+  - process
+  - log
+  - sequence
+  - bisect
+  - blame
+  - references etc
+- egg
+- message-mode
+- mew
+- mic-paren
+- mingus
+- nav
+- mu4e
+- mumamo
+- org-mode
+- outline
+- p4
+- perspective
+- powerline
+- proofgeneral
+- racket-mode
+- rainbow-delimiters
+- rcirc
+- rpm-mode
+- rst-mode
+- sh-mode
+- show-paren
+- smart-mode-line
+- smartparens
+- sml-mode-line
+- SLIME
+- speedbar
+- tabbar
+- term
+- undo-tree
+- volatile-highlights
+- elfeed
+- emacs-w3m
+- web-mode
+- whitespace-mode
+- wanderlust
+- which-func-mode
+- yascroll
+- ansi-color
+- fill-column-indicator
+- nrepl-client
+- vc-annotate
+** darkburn-theme インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install darkburn-theme
+
+
+#+end:
+** 概要                                                             :noexport:
+*darkburn-theme.el* は、以下のパッケージに対応したカラーテーマです。
+- header-line
+- compilation
+- completions
+- grep
+- isearch
+- font lock
+- newsticker
+- ace-jump
+- anzu
+- full-ack
+- auctex
+- auto-complete
+- android mode
+- avy
+- company-mode
+- bm
+- cider
+- circe
+- coq
+- ctable
+- diff
+- diff-hl
+- dim-autoload
+- dired+
+- ediff
+- ert
+- eshell
+- flx
+- flycheck
+- flymake
+- flyspell
+- erc
+- git-commit
+- git-gutter
+- git-gutter-fr
+- git-rebase
+- gnus
+- guide-key
+- helm
+- helm-swoop
+- hl-line-mode
+- hl-sexp
+- hydra
+- ido-mode
+- iedit-mode
+- js2-mode
+- jabber-mode
+- ledger-mode
+- lui
+- linum-mode
+- macrostep
+- magit
+  - headings and diffs
+  - popup
+  - process
+  - log
+  - sequence
+  - bisect
+  - blame
+  - references etc
+- egg
+- message-mode
+- mew
+- mic-paren
+- mingus
+- nav
+- mu4e
+- mumamo
+- org-mode
+- outline
+- p4
+- perspective
+- powerline
+- proofgeneral
+- racket-mode
+- rainbow-delimiters
+- rcirc
+- rpm-mode
+- rst-mode
+- sh-mode
+- show-paren
+- smart-mode-line
+- smartparens
+- sml-mode-line
+- SLIME
+- speedbar
+- tabbar
+- term
+- undo-tree
+- volatile-highlights
+- elfeed
+- emacs-w3m
+- web-mode
+- whitespace-mode
+- wanderlust
+- which-func-mode
+- yascroll
+- ansi-color
+- fill-column-indicator
+- nrepl-client
+- vc-annotate
+
+** スクリーンショット
+# (save-window-excursion (async-shell-command "emacs-test -eval '(load-theme (quote darkburn) t)'"))
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_theme_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151130194602.png]]
+Fig1: emacs-lisp-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151130194607.png]]
+Fig2: magit
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151130194610.png]]
+Fig3: grep
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151130194613.png]]
+Fig4: outline-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151130194616.png]]
+Fig5: org-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151130194618.png]]
+Fig6: dired
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151130194621.png]]
+Fig7: web-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151130194623.png]]
+Fig8: markdown-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151130194626.png]]
+Fig9: helm
+
+
+#+ATTR_HTML: :width 480
+[[https://github.com/gorauskas/darkburn-theme/raw/master/Emacs24-DarkBurnTheme.png]]
+Fig10: 本家スクリーンショット
+
+
+
+** 設定
+#+BEGIN_SRC fundamental
+(load-theme 'darkburn t)
+#+END_SRC
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ emacs -Q -f package-initialize -eval '(load-theme (quote darkburn) t)'
+#+END_EXAMPLE
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
