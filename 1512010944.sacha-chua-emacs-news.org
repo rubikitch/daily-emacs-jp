@@ -1,0 +1,30 @@
+#+BLOG: rubikitch
+#+POSTID: 2235
+#+DATE: [2015-12-01 Tue 09:44]
+#+PERMALINK: sacha-chua-emacs-news
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, 
+#+DESCRIPTION: 
+#+MYTAGS: Emacs News, Sacha Chua, sachac, reddit.com/r/emacs, Hacker News, planet.emacsen.org, Youtube, the Emacs commit log, Emacs NEWS file,  emacs-devel. emacs-tangents, beginner tips, org-mode, relate:org, coding, configuration, dev news, Sandra Jean Chua
+#+TITLE: 最新のEmacs情報を追い掛けたいならばこのブログだけは見ておけ！
+#+begin: org2blog-tags
+#+TAGS: Emacs News, Sacha Chua, sachac, reddit.com/r/emacs, Hacker News, planet.emacsen.org, Youtube, the Emacs commit log, Emacs NEWS file,  emacs-devel. emacs-tangents, beginner tips, org-mode, relate:org, coding, configuration, dev news, Sandra Jean Chua, Emacs, , 
+#+end:
+http://sachachua.com/blog/category/emacs-news
+
+Emacs界の女傑[[http://sachachua.com/][Sacha Chua]]氏は10/26から毎週月曜日にEmacs Newsという記事をブログに書いています。
+彼女は自分が学んだことをシェアするのが大変好きで、運営するブログ「living an awesome life」は[[http://sachachua.com/blog/archive/][2001年から今に至るまで]] 書き続けています。
+内容はEmacsに限らず、IT全般だったり、ビジネスだったり、人生など多岐に渡ります。
+そのアウトプット量は尋常ではありません。
+org-modeのヘビーユーザーで、ちょくちょくorg-modeに対するコードを見掛けます。
+また、日本語も勉強していて本サイトへリンクしてくれたこともあります。
+
+Emacs Newsは彼女の目から見て有用なリンクを掲載しています。
+内容はorg-modeやコーディング、最新パッケージなどバラエティーに富んでいます。
+Emacsに詳しくなりたければRSSに登録するか、メール配信サービスに登録してみましょう。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
