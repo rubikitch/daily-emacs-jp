@@ -1,0 +1,105 @@
+#+BLOG: rubikitch
+#+POSTID: 2239
+#+DATE: [2015-12-03 Thu 06:09]
+#+PERMALINK: gitty
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs
+#+EL_PKG_NAME: gitty
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, relate:vc, relate:magit, relate:git-dwim
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: よく使うGitのコマンドをVCから操作できるようにする
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージgittyの紹介
+#+MYTAGS: package:gitty, emacs 使い方, emacs コマンド, emacs, gitty, gitty.el, emacs lisp gitty, elisp gitty, emacs melpa gitty, emacs gitty 使い方, emacs gitty 設定, emacs パッケージ gitty, emacs gitty スクリーンショット, relate:vc, relate:magit, relate:git-dwim
+#+TAGS: package:gitty, emacs 使い方, emacs コマンド, emacs, gitty, gitty.el, emacs lisp gitty, elisp gitty, emacs melpa gitty, emacs gitty 使い方, emacs gitty 設定, emacs パッケージ gitty, emacs gitty スクリーンショット, relate:vc, relate:magit, relate:git-dwim, Emacs, gitty.el, gitty-mode, M-x gitty-checkout, M-x gitty-status, M-x gitty-update-modelines, M-x gitty-stash-save, M-x gitty-stash-pop, gitty-mode, M-x gitty-checkout, M-x gitty-status, M-x gitty-update-modelines, M-x gitty-stash-save, M-x gitty-stash-pop
+#+TITLE: emacs gitty.el : よく使うGitのコマンドをVCから操作できるようにする | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>gitty</td></tr>
+<tr><td>概要(原文)</td><td>vc-mode extension for fast git interaction</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/jorgenschaefer/gitty">https://github.com/jorgenschaefer/gitty</a></td></tr>
+<tr><td>バージョン</td><td>20151120.2348</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:gitty/">package:gitty</a> <a href="http://rubikitch.com/tag/package:vc/">package:vc</a> <a href="http://rubikitch.com/tag/package:magit/">package:magit</a> <a href="http://rubikitch.com/tag/package:git-dwim/">package:git-dwim</a></td></tr>
+</table>
+<br />
+#+END_HTML
+*gitty.el* はGitでよく使うコマンドをVC(Emacs標準のバージョン管理システムインターフェース)から使えるようにします。
+VCは汎用バージョン管理システムのインターフェースなのでGitに特化していない分Magitのような機能性はありません。
+しかし、手軽に使えるメリットがあります。
+
+グローバルマイナーモード *gitty-mode* を有効にすると、以下のコマンドが使えるようになります。
+
+- *M-x gitty-checkout* (C-x v b) :: ブランチを切替える
+- *M-x gitty-status* (C-x v s) :: git status
+- *M-x gitty-update-modelines* (C-x v L) :: すべてのバッファのGit関係のモードラインを更新する(不要なので設定で割り当て解除)
+- *M-x gitty-stash-save* (C-x v S) :: git stash save
+- *M-x gitty-stash-pop* (C-x v P) :: git stash pop
+
+M-x gitty-checkoutはすでに存在するブランチならばそのまま切替え、存在しない場合は新規作成するか聞いてきます。
+
+M-x gitty-update-modelinesはその他のコマンドを実行したら自動で実行されるので割り当てる必要はありません。
+
+MagitのコマンドをC-x vプレフィクスキーに割り当てている人は個別にコマンドを割り当ててもいいでしょう。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151203062635.png]]
+Fig1: M-x gitty-status
+** gitty インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install gitty
+
+
+#+end:
+** 概要                                                             :noexport:
+*gitty.el* はGitでよく使うコマンドをVC(Emacs標準のバージョン管理システムインターフェース)から使えるようにします。
+VCは汎用バージョン管理システムのインターフェースなのでGitに特化していない分Magitのような機能性はありません。
+しかし、手軽に使えるメリットがあります。
+
+グローバルマイナーモード *gitty-mode* を有効にすると、以下のコマンドが使えるようになります。
+
+- *M-x gitty-checkout* (C-x v b) :: ブランチを切替える
+- *M-x gitty-status* (C-x v s) :: git status
+- *M-x gitty-update-modelines* (C-x v L) :: すべてのバッファのGit関係のモードラインを更新する(不要なので設定で割り当て解除)
+- *M-x gitty-stash-save* (C-x v S) :: git stash save
+- *M-x gitty-stash-pop* (C-x v P) :: git stash pop
+
+M-x gitty-checkoutはすでに存在するブランチならばそのまま切替え、存在しない場合は新規作成するか聞いてきます。
+
+M-x gitty-update-modelinesはその他のコマンドを実行したら自動で実行されるので割り当てる必要はありません。
+
+MagitのコマンドをC-x vプレフィクスキーに割り当てている人は個別にコマンドを割り当ててもいいでしょう。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151203062635.png]]
+Fig2: M-x gitty-status
+
+** 設定 [[http://rubikitch.com/f/151203062351.gitty.el][151203062351.gitty.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/151203/151203062351.gitty.el"
+#+BEGIN_SRC fundamental
+(require 'gitty)
+(gitty-mode 1)
+;;; gitty-update-modelinesは不要なので割り当てを解除
+(define-key gitty-mode-map (kbd "C-x v L") nil)
+;; gitty-modeを使わない場合は個別に割り当てる
+;;; (global-set-key (kbd "C-x v S") 'gitty-stash-save)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/151203062351.gitty.el
+$ emacs -Q -f package-initialize -l 151203062351.gitty.el
+#+END_EXAMPLE
