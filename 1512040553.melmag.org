@@ -1,0 +1,35 @@
+#+BLOG: rubikitch
+#+POSTID: 2241
+#+DATE: [2015-12-04 Fri 05:53]
+#+PERMALINK: melmag
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: メルマガ,
+#+DESCRIPTION: るびきち塾メルマガ『Emacsの鬼るびきちのココだけの話#210』の予告
+#+TITLE: 【メルマガ#210】作業記録を絶対安心にバックアップする方法
+#+MYTAGS: 
+#+begin: org2blog-tags
+#+TAGS: , メルマガ,, 
+#+end:
+はやいもので2015年も師走を迎えてしまいました。
+
+年末にかけて、いろいろ忙しいとは思いますがコンピュータまわりも整理してみましょう。
+
+コンピュータを使う者にとって一番大切なのは自分で作成したデータです。
+
+せっかく苦労して作業したものが故障や災害で失われては取り返しがつきません。
+
+そこで大切なのがバックアップです。
+
+事故というのはえてしてバックアップを怠った時に訪れるものです。
+
+今回はEmacsで編集したファイルをローカルとオンラインストレージに自動バックアップする話です。
+
+cronは使わないので頻繁に電源を落とすコンピュータでも使えます。
+
+自分のデータはしっかり保護して安心して作業しましょう！
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
