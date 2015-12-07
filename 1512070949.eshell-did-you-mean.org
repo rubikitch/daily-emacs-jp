@@ -1,0 +1,101 @@
+#+BLOG: rubikitch
+#+POSTID: 2247
+#+DATE: [2015-12-07 Mon 09:49]
+#+PERMALINK: eshell-did-you-mean
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs
+#+EL_PKG_NAME: eshell-did-you-mean
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, 
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 
+#+EL_TITLE0: eshellでコマンドのミスタイプを教えてくれる
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージeshell-did-you-meanの紹介
+#+MYTAGS: package:eshell-did-you-mean, emacs 使い方, emacs コマンド, emacs, eshell-did-you-mean, eshell-did-you-mean.el, emacs lisp eshell-did-you-mean, elisp eshell-did-you-mean, emacs melpa eshell-did-you-mean, emacs eshell-did-you-mean 使い方, emacs eshell-did-you-mean 設定, emacs パッケージ eshell-did-you-mean, 
+#+TAGS: package:eshell-did-you-mean, emacs 使い方, emacs コマンド, emacs, eshell-did-you-mean, eshell-did-you-mean.el, emacs lisp eshell-did-you-mean, elisp eshell-did-you-mean, emacs melpa eshell-did-you-mean, emacs eshell-did-you-mean 使い方, emacs eshell-did-you-mean 設定, emacs パッケージ eshell-did-you-mean, , Emacs, eshell-did-you-mean.el, eshell, eshell
+#+TITLE: emacs eshell-did-you-mean.el : eshellでコマンドのミスタイプを教えてくれる | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>eshell-did-you-mean</td></tr>
+<tr><td>概要(原文)</td><td>command not found ("did you mean…" feature) in Eshell</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/xuchunyang/eshell-did-you-mean">https://github.com/xuchunyang/eshell-did-you-mean</a></td></tr>
+<tr><td>バージョン</td><td>20150915.1252</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:eshell-did-you-mean/">package:eshell-did-you-mean</a> </td></tr>
+</table>
+<br />
+#+END_HTML
+*eshell-did-you-mean.el* は *eshell* でコマンドが見付からないときに、
+それらしきコマンドを提示してくれます。
+
+#+BEGIN_EXAMPLE
+$ grepp
+grepp: command not found
+
+Did you mean one of these?
+	grep
+	cgrep
+	dgrep
+	egrep
+	fgrep
+	graph
+	grops
+	lgrep
+	pgrep
+	repl
+	rgrep
+	zgrep
+
+#+END_EXAMPLE
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+** eshell-did-you-mean インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install eshell-did-you-mean
+
+
+#+end:
+** 概要                                                             :noexport:
+*eshell-did-you-mean.el* は *eshell* でコマンドが見付からないときに、
+それらしきコマンドを提示してくれます。
+
+#+BEGIN_EXAMPLE
+$ grepp
+grepp: command not found
+
+Did you mean one of these?
+	grep
+	cgrep
+	dgrep
+	egrep
+	fgrep
+	graph
+	grops
+	lgrep
+	pgrep
+	repl
+	rgrep
+	zgrep
+
+#+END_EXAMPLE
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+** 設定 [[http://rubikitch.com/f/151207095129.eshell-did-you-mean.el][151207095129.eshell-did-you-mean.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/151207/151207095129.eshell-did-you-mean.el"
+#+BEGIN_SRC fundamental
+(eshell-did-you-mean-setup)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/151207095129.eshell-did-you-mean.el
+$ emacs -Q -f package-initialize -l 151207095129.eshell-did-you-mean.el
+#+END_EXAMPLE
