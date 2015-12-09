@@ -1,0 +1,299 @@
+#+BLOG: rubikitch
+#+POSTID: 2253
+#+DATE: [2015-12-09 Wed 10:48]
+#+PERMALINK: material-theme
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, theme
+#+EL_PKG_NAME: material-theme
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, color-theme, カラーテーマ
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: Google Material Designに基いたカラーテーマ
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージmaterial-themeの紹介
+#+MYTAGS: package:material-theme, emacs 使い方, emacs コマンド, emacs, material-theme, material-theme.el, emacs lisp material-theme, elisp material-theme, emacs melpa material-theme, emacs material-theme 使い方, emacs material-theme 設定, emacs パッケージ material-theme, emacs material-theme スクリーンショット, color-theme, カラーテーマ
+#+TAGS: package:material-theme, emacs 使い方, emacs コマンド, emacs, material-theme, material-theme.el, emacs lisp material-theme, elisp material-theme, emacs melpa material-theme, emacs material-theme 使い方, emacs material-theme 設定, emacs パッケージ material-theme, emacs material-theme スクリーンショット, color-theme, カラーテーマ, Emacs, theme, material-theme.el
+#+TITLE: emacs material-theme.el : Google Material Designに基いたカラーテーマ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>material-theme</td></tr>
+<tr><td>概要(原文)</td><td>A Theme based on the colors of the Google Material Design</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/cpaulik/emacs-material-theme">https://github.com/cpaulik/emacs-material-theme</a></td></tr>
+<tr><td>バージョン</td><td>20151125.25</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:material-theme/">package:material-theme</a> </td></tr>
+</table>
+<br />
+#+END_HTML
+*material-theme.el* は、以下のパッケージに対応したカラーテーマ群です。
+
+- ace-window 
+- ace-jump-mode
+- Flycheck
+- highlight indentation
+- Flymake
+- Clojure errors
+- EDTS errors
+- For Brian Carper's extended clojure syntax table
+- Rainbow-delimiters
+- MMM-mode
+- Search
+- Evil
+- iedit
+- ahs
+- Anzu
+- IDO
+- flx-ido
+- which-function
+- Emacs interface
+- Parenthesis matching (built-in)
+- Smartparens paren matching
+- Parenthesis matching (mic-paren)
+- Parenthesis dimming (parenface)
+- macrostep
+- undo-tree
+- dired+
+- Magit
+- git-gutter
+- git-gutter-fringe
+- Compilation (most faces politely inherit from 'success, 'error, 'warning etc.)
+- Grep
+- Helm
+- guide-key
+- which-key
+- mark-multiple
+- Python-specific overrides
+- ein (emacs-ipython-notebook) specific colors
+- js2-mode
+- js3-mode
+- coffee-mode
+- nxml
+- RHTML
+- Message-mode
+- cfw emacs calendar
+- Jabber
+- Company autocomplete
+- Powerline
+- Spaceline
+- Outline
+- Ledger-mode
+- mu4e
+- Gnus
+- emms
+- stripe-buffer
+- erc
+- twittering-mode
+- ansi-term
+- highlight-sexp-mode
+
+
+以下のカラーテーマが定義されています。
+
+- material
+- material-light
+
+
+** material-theme インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install material-theme
+
+
+#+end:
+** 概要                                                             :noexport:
+*material-theme.el* は、以下のパッケージに対応したカラーテーマ群です。
+
+- ace-window 
+- ace-jump-mode
+- Flycheck
+- highlight indentation
+- Flymake
+- Clojure errors
+- EDTS errors
+- For Brian Carper's extended clojure syntax table
+- Rainbow-delimiters
+- MMM-mode
+- Search
+- Evil
+- iedit
+- ahs
+- Anzu
+- IDO
+- flx-ido
+- which-function
+- Emacs interface
+- Parenthesis matching (built-in)
+- Smartparens paren matching
+- Parenthesis matching (mic-paren)
+- Parenthesis dimming (parenface)
+- macrostep
+- undo-tree
+- dired+
+- Magit
+- git-gutter
+- git-gutter-fringe
+- Compilation (most faces politely inherit from 'success, 'error, 'warning etc.)
+- Grep
+- Helm
+- guide-key
+- which-key
+- mark-multiple
+- Python-specific overrides
+- ein (emacs-ipython-notebook) specific colors
+- js2-mode
+- js3-mode
+- coffee-mode
+- nxml
+- RHTML
+- Message-mode
+- cfw emacs calendar
+- Jabber
+- Company autocomplete
+- Powerline
+- Spaceline
+- Outline
+- Ledger-mode
+- mu4e
+- Gnus
+- emms
+- stripe-buffer
+- erc
+- twittering-mode
+- ansi-term
+- highlight-sexp-mode
+
+
+以下のカラーテーマが定義されています。
+#+begin: org2blog-sub-color-themes
+- material
+- material-light
+
+#+end:
+
+** theme: material
+# *material-theme.el*
+*** スクリーンショット
+# (save-window-excursion (async-shell-command "emacs-test -eval '(load-theme (quote material) t)'"))
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_theme_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151209105109.png]]
+Fig1: emacs-lisp-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151209105114.png]]
+Fig2: magit
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151209105117.png]]
+Fig3: grep
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151209105119.png]]
+Fig4: outline-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151209105122.png]]
+Fig5: org-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151209105124.png]]
+Fig6: dired
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151209105129.png]]
+Fig7: web-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151209105131.png]]
+Fig8: markdown-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151209105135.png]]
+Fig9: helm
+
+#+ATTR_HTML: :width 480
+[[https://github.com/cpaulik/emacs-material-theme/raw/master/rainbow-delimiters.png]]
+Fig10:本家スクリーンショット
+
+
+*** 設定
+#+BEGIN_SRC fundamental
+(load-theme 'material t)
+#+END_SRC
+
+*** 実行方法
+#+BEGIN_EXAMPLE
+$ emacs -Q -f package-initialize -eval '(load-theme (quote material) t)'
+#+END_EXAMPLE
+
+** theme: material-light
+# *material-light-theme.el*
+*** スクリーンショット
+# (save-window-excursion (async-shell-command "emacs-test -eval '(load-theme (quote material-light) t)'"))
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_theme_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151209105248.png]]
+Fig11: emacs-lisp-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151209105254.png]]
+Fig12: magit
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151209105257.png]]
+Fig13: grep
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151209105301.png]]
+Fig14: outline-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151209105303.png]]
+Fig15: org-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151209105306.png]]
+Fig16: dired
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151209105308.png]]
+Fig17: web-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151209105311.png]]
+Fig18: markdown-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151209105314.png]]
+Fig19: helm
+
+#+ATTR_HTML: :width 480
+[[https://github.com/cpaulik/emacs-material-theme/raw/master/material-theme.png]]
+Fig20:本家スクリーンショット
+
+#+ATTR_HTML: :width 480
+[[https://github.com/cpaulik/emacs-material-theme/raw/master/org-mode-demo.png]]
+Fig21:本家スクリーンショット
+
+#+ATTR_HTML: :width 480
+[[https://github.com/cpaulik/emacs-material-theme/raw/master/ace-window.png]]
+Fig22:本家スクリーンショット
+
+
+*** 設定
+#+BEGIN_SRC fundamental
+(load-theme 'material-light t)
+#+END_SRC
+
+*** 実行方法
+#+BEGIN_EXAMPLE
+$ emacs -Q -f package-initialize -eval '(load-theme (quote material-light) t)'
+#+END_EXAMPLE
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
