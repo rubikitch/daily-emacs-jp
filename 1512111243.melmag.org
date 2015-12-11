@@ -1,0 +1,31 @@
+#+BLOG: rubikitch
+#+POSTID: 2257
+#+DATE: [2015-12-11 Fri 12:43]
+#+PERMALINK: melmag
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: メルマガ,
+#+DESCRIPTION: るびきち塾メルマガ『Emacsの鬼るびきちのココだけの話#211』の予告
+#+TITLE: 【メルマガ#211】総集編1〜2月
+#+MYTAGS: 
+#+begin: org2blog-tags
+#+TAGS: , メルマガ,, 
+#+end:
+今回からは2015年を一気に振り返ります。
+
+1/10 163☆偉人の力をあなたに…
+1/17 164☆新時代WebブラウザEmacs！
+1/24 165☆るびきちの秘密兵器
+1/31 166☆37 in 1！
+2/07 167☆カンタン！org日記
+2/14 168☆org自動日記！
+2/21 169☆Emacsで心のデトックス
+2/28 170☆diredの本質をhelmとanythingに移植
+
+本来は4月までを振り返る予定でしたが
+体調悪化により少なくなってしまいました。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
