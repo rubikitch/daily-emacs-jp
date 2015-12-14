@@ -1,0 +1,347 @@
+#+BLOG: rubikitch
+#+POSTID: 2263
+#+DATE: [2015-12-14 Mon 19:32]
+#+PERMALINK: tao-theme
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, theme
+#+EL_PKG_NAME: tao-theme
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, color-theme, カラーテーマ
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: グレースケールな明暗カラーテーマ(黄金比使用)
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージtao-themeの紹介
+#+MYTAGS: package:tao-theme, emacs 使い方, emacs コマンド, emacs, tao-theme, tao-theme.el, emacs lisp tao-theme, elisp tao-theme, emacs melpa tao-theme, emacs tao-theme 使い方, emacs tao-theme 設定, emacs パッケージ tao-theme, emacs tao-theme スクリーンショット, color-theme, カラーテーマ
+#+TAGS: package:tao-theme, emacs 使い方, emacs コマンド, emacs, tao-theme, tao-theme.el, emacs lisp tao-theme, elisp tao-theme, emacs melpa tao-theme, emacs tao-theme 使い方, emacs tao-theme 設定, emacs パッケージ tao-theme, emacs tao-theme スクリーンショット, color-theme, カラーテーマ, Emacs, theme, tao-theme.el
+#+TITLE: emacs tao-theme.el : グレースケールな明暗カラーテーマ(黄金比使用) | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>tao-theme</td></tr>
+<tr><td>概要(原文)</td><td>Tao, light & dark themes for Emacs with greyscale palettes generated from the golden mean.</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/11111000000/tao-theme-emacs">https://github.com/11111000000/tao-theme-emacs</a></td></tr>
+<tr><td>バージョン</td><td>20151126.558</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:tao-theme/">package:tao-theme</a> </td></tr>
+</table>
+<br />
+#+END_HTML
+*tao-theme.el* は、以下のパッケージに対応したカラーテーマ群です。
+- link
+- header-line
+- compilation
+- grep
+- make
+- isearch
+- font lock
+- newsticker
+- Third-party
+- highlight-symbol
+- ace-jump
+- anzu
+- full-ack
+- auctex
+- auto-complete
+- android mode
+- bm
+- clojure-test-mode
+- coq
+- ctable
+- diff
+- dired
+- dired+
+- ediff
+- ert
+- eshell
+- flx
+- flycheck
+- flymake
+- flyspell
+- erc
+- git-gutter
+- git-gutter-fr
+- gnus
+- guide-key
+- helm
+- hl-line-mode
+- hl-sexp
+- ido-mode
+- iedit-mode
+- js2-mode
+- jabber-mode
+- ledger-mode
+- linum-mode
+- macrostep
+- magit
+- egg
+- message-mode
+- mew
+- mic-paren
+- mingus
+- nav
+- mu4e
+- mumamo
+- org-mode
+- outline
+- p4
+- perspective
+- powerline
+- proofgeneral
+- rainbow-delimiters
+- rcirc
+- rpm-mode
+- rst-mode
+- sh-mode
+- show-paren
+- smartparens
+- sml-mode-line
+- SLIME
+- speedbar
+- tabbar
+- term
+- undo-tree
+- volatile-highlights
+- emacs-w3m
+- web-mode
+- whitespace-mode
+- wanderlust
+- which-func-mode
+- yascroll
+- html fold/unfold face
+- markdown mode
+- swoop
+- company
+- eval-sexp-fu
+- neotree
+- geiser
+
+
+以下のカラーテーマが定義されています。
+
+- tao-yin
+- tao-yang
+
+
+** tao-theme インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install tao-theme
+
+
+#+end:
+** 概要                                                             :noexport:
+*tao-theme.el* は、以下のパッケージに対応したカラーテーマ群です。
+- link
+- header-line
+- compilation
+- grep
+- make
+- isearch
+- font lock
+- newsticker
+- Third-party
+- highlight-symbol
+- ace-jump
+- anzu
+- full-ack
+- auctex
+- auto-complete
+- android mode
+- bm
+- clojure-test-mode
+- coq
+- ctable
+- diff
+- dired
+- dired+
+- ediff
+- ert
+- eshell
+- flx
+- flycheck
+- flymake
+- flyspell
+- erc
+- git-gutter
+- git-gutter-fr
+- gnus
+- guide-key
+- helm
+- hl-line-mode
+- hl-sexp
+- ido-mode
+- iedit-mode
+- js2-mode
+- jabber-mode
+- ledger-mode
+- linum-mode
+- macrostep
+- magit
+- egg
+- message-mode
+- mew
+- mic-paren
+- mingus
+- nav
+- mu4e
+- mumamo
+- org-mode
+- outline
+- p4
+- perspective
+- powerline
+- proofgeneral
+- rainbow-delimiters
+- rcirc
+- rpm-mode
+- rst-mode
+- sh-mode
+- show-paren
+- smartparens
+- sml-mode-line
+- SLIME
+- speedbar
+- tabbar
+- term
+- undo-tree
+- volatile-highlights
+- emacs-w3m
+- web-mode
+- whitespace-mode
+- wanderlust
+- which-func-mode
+- yascroll
+- html fold/unfold face
+- markdown mode
+- swoop
+- company
+- eval-sexp-fu
+- neotree
+- geiser
+
+
+以下のカラーテーマが定義されています。
+#+begin: org2blog-sub-color-themes
+- tao-yin
+- tao-yang
+
+#+end:
+
+** theme: tao-yin
+# *tao-yin-theme.el*
+*** スクリーンショット
+# (save-window-excursion (async-shell-command "emacs-test -eval '(load-theme (quote tao-yin) t)'"))
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_theme_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151214193404.png]]
+Fig1: emacs-lisp-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151214193409.png]]
+Fig2: magit
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151214193411.png]]
+Fig3: grep
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151214193414.png]]
+Fig4: outline-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151214193416.png]]
+Fig5: org-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151214193419.png]]
+Fig6: dired
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151214193421.png]]
+Fig7: web-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151214193423.png]]
+Fig8: markdown-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151214193427.png]]
+Fig9: helm
+
+
+#+ATTR_HTML: :width 480
+[[https://cloud.githubusercontent.com/assets/977130/9500092/3134df24-4c2c-11e5-9646-9646a042b679.png]]
+Fig10: 本家スクリーンショット
+
+*** 設定
+#+BEGIN_SRC fundamental
+(load-theme 'tao-yin t)
+#+END_SRC
+
+*** 実行方法
+#+BEGIN_EXAMPLE
+$ emacs -Q -f package-initialize -eval '(load-theme (quote tao-yin) t)'
+#+END_EXAMPLE
+
+** theme: tao-yang
+# *tao-yang-theme.el*
+*** スクリーンショット
+# (save-window-excursion (async-shell-command "emacs-test -eval '(load-theme (quote tao-yang) t)'"))
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_theme_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151214193441.png]]
+Fig11: emacs-lisp-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151214193445.png]]
+Fig12: magit
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151214193447.png]]
+Fig13: grep
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151214193449.png]]
+Fig14: outline-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151214193452.png]]
+Fig15: org-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151214193454.png]]
+Fig16: dired
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151214193456.png]]
+Fig17: web-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151214193459.png]]
+Fig18: markdown-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151214193503.png]]
+Fig19: helm
+
+
+#+ATTR_HTML: :width 480
+[[https://cloud.githubusercontent.com/assets/977130/9500093/3137dbfc-4c2c-11e5-87b4-27603fa676d2.png]]
+Fig20: 本家スクリーンショット
+
+*** 設定
+#+BEGIN_SRC fundamental
+(load-theme 'tao-yang t)
+#+END_SRC
+
+*** 実行方法
+#+BEGIN_EXAMPLE
+$ emacs -Q -f package-initialize -eval '(load-theme (quote tao-yang) t)'
+#+END_EXAMPLE
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
