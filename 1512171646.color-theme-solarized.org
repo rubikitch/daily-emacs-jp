@@ -1,0 +1,202 @@
+#+BLOG: rubikitch
+#+POSTID: 2272
+#+DATE: [2015-12-17 Thu 16:46]
+#+PERMALINK: color-theme-solarized
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, theme
+#+EL_PKG_NAME: color-theme-solarized
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, color-theme, カラーテーマ
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: もうひとつのsolarizedカラーテーマ
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージcolor-theme-solarizedの紹介
+#+MYTAGS: package:color-theme-solarized, emacs 使い方, emacs コマンド, emacs, color-theme-solarized, color-theme-solarized.el, emacs lisp color-theme-solarized, elisp color-theme-solarized, emacs melpa color-theme-solarized, emacs color-theme-solarized 使い方, emacs color-theme-solarized 設定, emacs パッケージ color-theme-solarized, emacs color-theme-solarized スクリーンショット, color-theme, カラーテーマ
+#+TAGS: package:color-theme-solarized, emacs 使い方, emacs コマンド, emacs, color-theme-solarized, color-theme-solarized.el, emacs lisp color-theme-solarized, elisp color-theme-solarized, emacs melpa color-theme-solarized, emacs color-theme-solarized 使い方, emacs color-theme-solarized 設定, emacs パッケージ color-theme-solarized, emacs color-theme-solarized スクリーンショット, color-theme, カラーテーマ, Emacs, theme, color-theme-solarized.el
+#+TITLE: emacs color-theme-solarized.el : もうひとつのsolarizedカラーテーマ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>color-theme-solarized</td></tr>
+<tr><td>概要(原文)</td><td>Solarized themes for Emacs</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/sellout/emacs-color-theme-solarized">https://github.com/sellout/emacs-color-theme-solarized</a></td></tr>
+<tr><td>バージョン</td><td>20150619.1734</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:color-theme-solarized/">package:color-theme-solarized</a> </td></tr>
+</table>
+<br />
+#+END_HTML
+*color-theme-solarized.el* は、以下のパッケージに対応したカラーテーマです。
+- link
+- linum
+- header-line
+- hl-line
+- isearch
+- mode-line
+- comint
+- compilation
+- custom
+- diff
+- IDO
+- emacs-wiki
+- eshell
+- font-lock
+- info
+- org
+- table
+- outline
+- show-paren
+- speedbar
+- widgets
+- alert
+- col-highlight
+- ace-jump-mode
+- bm
+- Flymake
+- column-marker
+- jabber
+- git-gutter
+- gnus
+- helm
+- markdown
+- Message
+- minimap
+- parenface
+- paren-face
+- rainbow-delimiters
+- powerline
+- slime
+- smartparens
+- whitespace
+- rcirc
+- font-latex
+- flyspell
+- rst-mode
+- ansi-term
+- company
+- hydra
+- guide-key
+- magit
+- undo-tree
+** color-theme-solarized インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install color-theme-solarized
+
+
+#+end:
+** 概要                                                             :noexport:
+*color-theme-solarized.el* は、以下のパッケージに対応したカラーテーマです。
+- link
+- linum
+- header-line
+- hl-line
+- isearch
+- mode-line
+- comint
+- compilation
+- custom
+- diff
+- IDO
+- emacs-wiki
+- eshell
+- font-lock
+- info
+- org
+- table
+- outline
+- show-paren
+- speedbar
+- widgets
+- alert
+- col-highlight
+- ace-jump-mode
+- bm
+- Flymake
+- column-marker
+- jabber
+- git-gutter
+- gnus
+- helm
+- markdown
+- Message
+- minimap
+- parenface
+- paren-face
+- rainbow-delimiters
+- powerline
+- slime
+- smartparens
+- whitespace
+- rcirc
+- font-latex
+- flyspell
+- rst-mode
+- ansi-term
+- company
+- hydra
+- guide-key
+- magit
+- undo-tree
+
+** スクリーンショット
+# (save-window-excursion (async-shell-command "emacs-test -eval '(load-theme (quote solarized) t)'"))
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_theme_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151217164851.png]]
+Fig1: emacs-lisp-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151217164858.png]]
+Fig2: magit
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151217164901.png]]
+Fig3: grep
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151217164903.png]]
+Fig4: outline-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151217164905.png]]
+Fig5: org-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151217164907.png]]
+Fig6: dired
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151217164909.png]]
+Fig7: web-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151217164911.png]]
+Fig8: markdown-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151217164915.png]]
+Fig9: helm
+
+
+#+ATTR_HTML: :width 480
+[[https://github.com/altercation/solarized/raw/master/img/solarized-vim.png]]
+Fig10: 本家スクリーンショット
+
+
+
+** 設定
+#+BEGIN_SRC fundamental
+(load-theme 'solarized t)
+#+END_SRC
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ emacs -Q -f package-initialize -eval '(load-theme (quote solarized) t)'
+#+END_EXAMPLE
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
