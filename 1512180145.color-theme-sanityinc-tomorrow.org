@@ -1,0 +1,444 @@
+#+BLOG: rubikitch
+#+POSTID: 2274
+#+DATE: [2015-12-18 Fri 01:45]
+#+PERMALINK: color-theme-sanityinc-tomorrow
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, theme
+#+EL_PKG_NAME: color-theme-sanityinc-tomorrow-theme
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, color-theme, カラーテーマ
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: 5種類から選べるカラーテーマ
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: Emacs Lispパッケージcolor-theme-sanityinc-tomorrow-themeの紹介
+#+MYTAGS: package:color-theme-sanityinc-tomorrow-theme, emacs 使い方, emacs コマンド, emacs, color-theme-sanityinc-tomorrow-theme, color-theme-sanityinc-tomorrow-theme.el, emacs lisp color-theme-sanityinc-tomorrow-theme, elisp color-theme-sanityinc-tomorrow-theme, emacs  color-theme-sanityinc-tomorrow-theme, emacs color-theme-sanityinc-tomorrow-theme 使い方, emacs color-theme-sanityinc-tomorrow-theme 設定, emacs パッケージ color-theme-sanityinc-tomorrow-theme, emacs color-theme-sanityinc-tomorrow-theme スクリーンショット, color-theme, カラーテーマ
+#+TAGS: package:color-theme-sanityinc-tomorrow-theme, emacs 使い方, emacs コマンド, emacs, color-theme-sanityinc-tomorrow-theme, color-theme-sanityinc-tomorrow-theme.el, emacs lisp color-theme-sanityinc-tomorrow-theme, elisp color-theme-sanityinc-tomorrow-theme, emacs  color-theme-sanityinc-tomorrow-theme, emacs color-theme-sanityinc-tomorrow-theme 使い方, emacs color-theme-sanityinc-tomorrow-theme 設定, emacs パッケージ color-theme-sanityinc-tomorrow-theme, emacs color-theme-sanityinc-tomorrow-theme スクリーンショット, color-theme, カラーテーマ, Emacs, theme, color-theme-sanityinc-tomorrow-theme.el
+#+TITLE: emacs color-theme-sanityinc-tomorrow-theme.el : 5種類から選べるカラーテーマ |  Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>color-theme-sanityinc-tomorrow-theme</td></tr>
+<tr><td>概要(原文)</td><td>EL_DOCに説明文を入れてください</td></tr>
+<tr><td>リポジトリ</td><td>まだパッケージに登録されていない</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:color-theme-sanityinc-tomorrow-theme/">package:color-theme-sanityinc-tomorrow-theme</a> </td></tr>
+</table>
+<br />
+#+END_HTML
+*color-theme-sanityinc-tomorrow-theme.el* は、以下のパッケージに対応したカラーテーマ群です。
+- font-lock
+- Flycheck
+- Flymake
+- Clojure errors
+- EDTS errors
+- Rainbow-delimiters
+- MMM-mode
+- Search
+- Anzu
+- IDO
+- flx-ido
+- Ivy
+- which-function
+- Emacs interface
+- Parenthesis matching (built-in)
+- Smartparens paren matching
+- Parenthesis matching (mic-paren)
+- Parenthesis dimming (parenface)
+- macrostep
+- undo-tree
+- dired+
+- Magit
+- git-gutter
+- git-gutter-fringe
+- guide-key
+- Compilation
+- Grep
+- mark-multiple
+- helm
+- company
+- hl-line-mode
+- Hydra
+- our palette
+- Python-specific overrides
+- js2-mode
+- js3-mode
+- coffee-mode
+- nxml
+- RHTML
+- Message-mode
+- Jabber
+- Powerline
+- Powerline-evil
+- Outline
+- Ledger-mode
+- EMMS
+- mu4e
+- Gnus
+- twittering-mode
+- ansi-term
+- ansi-color
+
+
+以下のカラーテーマが定義されています。
+
+- sanityinc-tomorrow-bright
+- sanityinc-tomorrow-night
+- sanityinc-tomorrow-eighties
+- sanityinc-tomorrow-blue
+- sanityinc-tomorrow-day
+
+
+** color-theme-sanityinc-tomorrow-theme インストール
+これはまだパッケージ化されていないので、[[http://rubikitch.com/package-initialize/#sec-2][手動でインストール]] する必要があります。
+
+
+#+end:
+** 概要                                                             :noexport:
+*color-theme-sanityinc-tomorrow-theme.el* は、以下のパッケージに対応したカラーテーマ群です。
+- font-lock
+- Flycheck
+- Flymake
+- Clojure errors
+- EDTS errors
+- Rainbow-delimiters
+- MMM-mode
+- Search
+- Anzu
+- IDO
+- flx-ido
+- Ivy
+- which-function
+- Emacs interface
+- Parenthesis matching (built-in)
+- Smartparens paren matching
+- Parenthesis matching (mic-paren)
+- Parenthesis dimming (parenface)
+- macrostep
+- undo-tree
+- dired+
+- Magit
+- git-gutter
+- git-gutter-fringe
+- guide-key
+- Compilation
+- Grep
+- mark-multiple
+- helm
+- company
+- hl-line-mode
+- Hydra
+- our palette
+- Python-specific overrides
+- js2-mode
+- js3-mode
+- coffee-mode
+- nxml
+- RHTML
+- Message-mode
+- Jabber
+- Powerline
+- Powerline-evil
+- Outline
+- Ledger-mode
+- EMMS
+- mu4e
+- Gnus
+- twittering-mode
+- ansi-term
+- ansi-color
+
+
+以下のカラーテーマが定義されています。
+#+begin: org2blog-sub-color-themes
+- sanityinc-tomorrow-bright
+- sanityinc-tomorrow-night
+- sanityinc-tomorrow-eighties
+- sanityinc-tomorrow-blue
+- sanityinc-tomorrow-day
+
+#+end:
+
+** theme: sanityinc-tomorrow-bright
+# *sanityinc-tomorrow-bright-theme.el*
+*** スクリーンショット
+# (save-window-excursion (async-shell-command "emacs-test -eval '(load-theme (quote sanityinc-tomorrow-bright) t)'"))
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_theme_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151218015016.png]]
+Fig1: emacs-lisp-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151218015029.png]]
+Fig2: magit
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151218015032.png]]
+Fig3: grep
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151218015033.png]]
+Fig4: outline-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151218015035.png]]
+Fig5: org-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151218015036.png]]
+Fig6: dired
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151218015038.png]]
+Fig7: web-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151218015039.png]]
+Fig8: markdown-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151218015042.png]]
+Fig9: helm
+
+
+#+ATTR_HTML: :width 480
+[[http://emacsthemes.caisah.info/wp-content/uploads/2014/01/sanityinc-tomorrow-black-150x150.png]]
+Fig10: 本家スクリーンショット
+
+*** 設定
+#+BEGIN_SRC fundamental
+(load-theme 'sanityinc-tomorrow-bright t)
+#+END_SRC
+
+*** 実行方法
+#+BEGIN_EXAMPLE
+$ emacs -Q -f package-initialize -eval '(load-theme (quote sanityinc-tomorrow-bright) t)'
+#+END_EXAMPLE
+
+** theme: sanityinc-tomorrow-night
+# *sanityinc-tomorrow-night-theme.el*
+*** スクリーンショット
+# (save-window-excursion (async-shell-command "emacs-test -eval '(load-theme (quote sanityinc-tomorrow-night) t)'"))
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_theme_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151218015114.png]]
+Fig11: emacs-lisp-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151218015118.png]]
+Fig12: magit
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151218015119.png]]
+Fig13: grep
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151218015121.png]]
+Fig14: outline-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151218015123.png]]
+Fig15: org-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151218015124.png]]
+Fig16: dired
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151218015126.png]]
+Fig17: web-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151218015127.png]]
+Fig18: markdown-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151218015130.png]]
+Fig19: helm
+
+
+#+ATTR_HTML: :width 480
+[[http://emacsthemes.caisah.info/wp-content/uploads/2014/01/sanityinc-tomorrow-night-150x150.png]]
+Fig20: 本家スクリーンショット
+
+*** 設定
+#+BEGIN_SRC fundamental
+(load-theme 'sanityinc-tomorrow-night t)
+#+END_SRC
+
+*** 実行方法
+#+BEGIN_EXAMPLE
+$ emacs -Q -f package-initialize -eval '(load-theme (quote sanityinc-tomorrow-night) t)'
+#+END_EXAMPLE
+
+** theme: sanityinc-tomorrow-eighties
+# *sanityinc-tomorrow-eighties-theme.el*
+*** スクリーンショット
+# (save-window-excursion (async-shell-command "emacs-test -eval '(load-theme (quote sanityinc-tomorrow-eighties) t)'"))
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_theme_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151218015148.png]]
+Fig21: emacs-lisp-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151218015152.png]]
+Fig22: magit
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151218015154.png]]
+Fig23: grep
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151218015156.png]]
+Fig24: outline-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151218015157.png]]
+Fig25: org-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151218015158.png]]
+Fig26: dired
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151218015200.png]]
+Fig27: web-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151218015201.png]]
+Fig28: markdown-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151218015203.png]]
+Fig29: helm
+
+
+#+ATTR_HTML: :width 480
+[[http://emacsthemes.caisah.info/wp-content/uploads/2014/01/sanityinc-tomorrow-eighties-150x150.png]]
+Fig30: 本家スクリーンショット
+
+*** 設定
+#+BEGIN_SRC fundamental
+(load-theme 'sanityinc-tomorrow-eighties t)
+#+END_SRC
+
+*** 実行方法
+#+BEGIN_EXAMPLE
+$ emacs -Q -f package-initialize -eval '(load-theme (quote sanityinc-tomorrow-eighties) t)'
+#+END_EXAMPLE
+
+** theme: sanityinc-tomorrow-blue
+# *sanityinc-tomorrow-blue-theme.el*
+*** スクリーンショット
+# (save-window-excursion (async-shell-command "emacs-test -eval '(load-theme (quote sanityinc-tomorrow-blue) t)'"))
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_theme_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151218015221.png]]
+Fig31: emacs-lisp-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151218015224.png]]
+Fig32: magit
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151218015225.png]]
+Fig33: grep
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151218015227.png]]
+Fig34: outline-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151218015228.png]]
+Fig35: org-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151218015229.png]]
+Fig36: dired
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151218015230.png]]
+Fig37: web-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151218015231.png]]
+Fig38: markdown-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151218015234.png]]
+Fig39: helm
+
+
+#+ATTR_HTML: :width 480
+[[http://emacsthemes.caisah.info/wp-content/uploads/2014/01/sanityinc-tomorrow-blue-150x150.png]]
+Fig40: 本家スクリーンショット
+
+*** 設定
+#+BEGIN_SRC fundamental
+(load-theme 'sanityinc-tomorrow-blue t)
+#+END_SRC
+
+*** 実行方法
+#+BEGIN_EXAMPLE
+$ emacs -Q -f package-initialize -eval '(load-theme (quote sanityinc-tomorrow-blue) t)'
+#+END_EXAMPLE
+
+** theme: sanityinc-tomorrow-day
+# *sanityinc-tomorrow-day-theme.el*
+*** スクリーンショット
+# (save-window-excursion (async-shell-command "emacs-test -eval '(load-theme (quote sanityinc-tomorrow-day) t)'"))
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_theme_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151218015251.png]]
+Fig41: emacs-lisp-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151218015254.png]]
+Fig42: magit
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151218015256.png]]
+Fig43: grep
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151218015258.png]]
+Fig44: outline-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151218015300.png]]
+Fig45: org-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151218015301.png]]
+Fig46: dired
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151218015303.png]]
+Fig47: web-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151218015304.png]]
+Fig48: markdown-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151218015307.png]]
+Fig49: helm
+
+
+#+ATTR_HTML: :width 480
+[[http://emacsthemes.caisah.info/wp-content/uploads/2014/01/sanityinc-tomorrow-day-150x150.png]]
+Fig50: 本家スクリーンショット
+
+*** 設定
+#+BEGIN_SRC fundamental
+(load-theme 'sanityinc-tomorrow-day t)
+#+END_SRC
+
+*** 実行方法
+#+BEGIN_EXAMPLE
+$ emacs -Q -f package-initialize -eval '(load-theme (quote sanityinc-tomorrow-day) t)'
+#+END_EXAMPLE
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
