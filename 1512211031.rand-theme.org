@@ -1,0 +1,85 @@
+#+BLOG: rubikitch
+#+POSTID: 2280
+#+DATE: [2015-12-21 Mon 10:31]
+#+PERMALINK: rand-theme
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, theme
+#+EL_PKG_NAME: rand-theme
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, , カラーテーマ, theme
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 
+#+EL_TITLE0: 起動時にランダムなカラーテーマを設定する
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージrand-themeの紹介
+#+MYTAGS: package:rand-theme, emacs 使い方, emacs コマンド, emacs, rand-theme, rand-theme.el, emacs lisp rand-theme, elisp rand-theme, emacs melpa rand-theme, emacs rand-theme 使い方, emacs rand-theme 設定, emacs パッケージ rand-theme, , カラーテーマ, theme
+#+TAGS: package:rand-theme, emacs 使い方, emacs コマンド, emacs, rand-theme, rand-theme.el, emacs lisp rand-theme, elisp rand-theme, emacs melpa rand-theme, emacs rand-theme 使い方, emacs rand-theme 設定, emacs パッケージ rand-theme, , カラーテーマ, theme, Emacs, theme, rand-theme.el, rand-theme-unwanted, rand-theme-wanted, M-x rand-theme-iterate, rand-theme-unwanted, rand-theme-wanted, M-x rand-theme-iterate, only
+#+TITLE: emacs rand-theme.el : 起動時にランダムなカラーテーマを設定する | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>rand-theme</td></tr>
+<tr><td>概要(原文)</td><td>Random Emacs theme at start-up!</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/gopar/rand-theme">https://github.com/gopar/rand-theme</a></td></tr>
+<tr><td>バージョン</td><td>20151219.1535</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:rand-theme/">package:rand-theme</a> </td></tr>
+</table>
+<br />
+#+END_HTML
+*rand-theme.el* は、ランダムなカラーテーマを設定します。
+使用前に予め *rand-theme-unwanted* あるいは *rand-theme-wanted* で使うカラーテーマの設定をしておいてください。
+
+また、 *M-x rand-theme-iterate* で別なカラーテーマに変更できます。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+** rand-theme インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install rand-theme
+
+
+#+end:
+** 概要                                                             :noexport:
+*rand-theme.el* は、ランダムなカラーテーマを設定します。
+使用前に予め *rand-theme-unwanted* あるいは *rand-theme-wanted* で使うカラーテーマの設定をしておいてください。
+
+また、 *M-x rand-theme-iterate* で別なカラーテーマに変更できます。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+** 設定(特定のカラーテーマを除外) [[http://rubikitch.com/f/151221103032.rand-theme-1.el][151221103032.rand-theme-1.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/151221/151221103032.rand-theme-1.el"
+#+BEGIN_SRC fundamental
+(require 'rand-theme)
+;; Themes I never want to be selected
+(setq rand-theme-unwanted '(leuven tango adwaita light-blue tsdh-light dichromacy whiteboard))
+(rand-theme)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/151221103032.rand-theme-1.el
+$ emacs -Q -f package-initialize -l 151221103032.rand-theme-1.el
+#+END_EXAMPLE
+
+** 設定(特定のカラーテーマのみを使用) [[http://rubikitch.com/f/151221103255.rand-theme-2.el][151221103255.rand-theme-2.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/151221/151221103255.rand-theme-2.el"
+#+BEGIN_SRC fundamental
+(require 'rand-theme)
+;; Themes I *only* want to be selected
+(setq rand-theme-wanted '(abyss lush manoj-dark))
+(rand-theme)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/151221103255.rand-theme-2.el
+$ emacs -Q -f package-initialize -l 151221103255.rand-theme-2.el
+#+END_EXAMPLE
