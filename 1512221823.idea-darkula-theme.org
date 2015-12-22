@@ -1,0 +1,116 @@
+#+BLOG: rubikitch
+#+POSTID: 2282
+#+DATE: [2015-12-22 Tue 18:23]
+#+PERMALINK: idea-darkula-theme
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, theme
+#+EL_PKG_NAME: idea-darkula-theme
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, color-theme, カラーテーマ
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: IntelliJ IDEAから移植されたダークなカラーテーマ
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージidea-darkula-themeの紹介
+#+MYTAGS: package:idea-darkula-theme, emacs 使い方, emacs コマンド, emacs, idea-darkula-theme, idea-darkula-theme.el, emacs lisp idea-darkula-theme, elisp idea-darkula-theme, emacs melpa idea-darkula-theme, emacs idea-darkula-theme 使い方, emacs idea-darkula-theme 設定, emacs パッケージ idea-darkula-theme, emacs idea-darkula-theme スクリーンショット, color-theme, カラーテーマ
+#+TAGS: package:idea-darkula-theme, emacs 使い方, emacs コマンド, emacs, idea-darkula-theme, idea-darkula-theme.el, emacs lisp idea-darkula-theme, elisp idea-darkula-theme, emacs melpa idea-darkula-theme, emacs idea-darkula-theme 使い方, emacs idea-darkula-theme 設定, emacs パッケージ idea-darkula-theme, emacs idea-darkula-theme スクリーンショット, color-theme, カラーテーマ, Emacs, theme, idea-darkula-theme.el
+#+TITLE: emacs idea-darkula-theme.el : IntelliJ IDEAから移植されたダークなカラーテーマ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>idea-darkula-theme</td></tr>
+<tr><td>概要(原文)</td><td>Color theme based on IntelliJ IDEA Darkula color theme</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/fourier/idea-darkula-theme">https://github.com/fourier/idea-darkula-theme</a></td></tr>
+<tr><td>バージョン</td><td>20151210.1110</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:idea-darkula-theme/">package:idea-darkula-theme</a> </td></tr>
+</table>
+<br />
+#+END_HTML
+*idea-darkula-theme.el* は、以下のパッケージに対応したカラーテーマです。
+- ecb
+- font-lock
+- log4j
+- info
+- python
+- helm
+- dired+
+- nxml
+** idea-darkula-theme インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install idea-darkula-theme
+
+
+#+end:
+** 概要                                                             :noexport:
+*idea-darkula-theme.el* は、以下のパッケージに対応したカラーテーマです。
+- ecb
+- font-lock
+- log4j
+- info
+- python
+- helm
+- dired+
+- nxml
+
+** スクリーンショット
+# (save-window-excursion (async-shell-command "emacs-test -eval '(load-theme (quote idea-darkula) t)'"))
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_theme_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151222182429.png]]
+Fig1: emacs-lisp-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151222182433.png]]
+Fig2: magit
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151222182435.png]]
+Fig3: grep
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151222182437.png]]
+Fig4: outline-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151222182439.png]]
+Fig5: org-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151222182441.png]]
+Fig6: dired
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151222182443.png]]
+Fig7: web-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151222182445.png]]
+Fig8: markdown-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151222182448.png]]
+Fig9: helm
+
+
+#+ATTR_HTML: :width 480
+[[https://raw.githubusercontent.com/fourier/idea-darkula-theme/master/screenshot.png]]
+Fig10: 本家スクリーンショット
+
+
+
+** 設定
+#+BEGIN_SRC fundamental
+(load-theme 'idea-darkula t)
+#+END_SRC
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ emacs -Q -f package-initialize -eval '(load-theme (quote idea-darkula) t)'
+#+END_EXAMPLE
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
