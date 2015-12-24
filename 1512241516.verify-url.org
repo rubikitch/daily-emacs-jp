@@ -1,0 +1,72 @@
+#+BLOG: rubikitch
+#+POSTID: 2286
+#+DATE: [2015-12-24 Thu 15:16]
+#+PERMALINK: verify-url
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs
+#+EL_PKG_NAME: verify-url
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p,  リンク切れ検出, url 存在確認
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 
+#+EL_TITLE0: 【リンク切れ検出】バッファ全体/region内のURLの存在確認をする
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージverify-urlの紹介
+#+MYTAGS: package:verify-url, emacs 使い方, emacs コマンド, emacs, verify-url, verify-url.el, emacs lisp verify-url, elisp verify-url, emacs melpa verify-url, emacs verify-url 使い方, emacs verify-url 設定, emacs パッケージ verify-url,  リンク切れ検出, url 存在確認
+#+TAGS: package:verify-url, emacs 使い方, emacs コマンド, emacs, verify-url, verify-url.el, emacs lisp verify-url, elisp verify-url, emacs melpa verify-url, emacs verify-url 使い方, emacs verify-url 設定, emacs パッケージ verify-url,  リンク切れ検出, url 存在確認, Emacs, M-x verify-url
+#+TITLE: emacs verify-url.el : 【リンク切れ検出】バッファ全体/region内のURLの存在確認をする | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>verify-url</td></tr>
+<tr><td>概要(原文)</td><td>find out invalid urls in the buffer or region</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/lujun9972/verify-url">https://github.com/lujun9972/verify-url</a></td></tr>
+<tr><td>バージョン</td><td>20151221.1526</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:verify-url/">package:verify-url</a> </td></tr>
+</table>
+<br />
+#+END_HTML
+*M-x verify-url* は、テキストに含まれるURL(file/ftp/http/https)が使えるかどうかをチェックします。
+ページが存在しなかったり、アクセス禁止だったり、サーバエラーのときはinvalid urlとみなされます。
+
+regionを指定すればその範囲を、指定しなかったらバッファ全体が対象となります。
+
+#+BEGIN_EXAMPLE
+http://rubikitch.com/
+http://not-found.hogehohoge.com/
+#+END_EXAMPLE
+↓ M-x verify-url
+#+BEGIN_EXAMPLE
+invalid urls:
+http://not-found.hogehohoge.com/
+#+END_EXAMPLE
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+** verify-url インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install verify-url
+
+
+#+end:
+** 概要                                                             :noexport:
+*M-x verify-url* は、テキストに含まれるURL(file/ftp/http/https)が使えるかどうかをチェックします。
+ページが存在しなかったり、アクセス禁止だったり、サーバエラーのときはinvalid urlとみなされます。
+
+regionを指定すればその範囲を、指定しなかったらバッファ全体が対象となります。
+
+#+BEGIN_EXAMPLE
+http://rubikitch.com/
+http://not-found.hogehohoge.com/
+#+END_EXAMPLE
+↓ M-x verify-url
+#+BEGIN_EXAMPLE
+invalid urls:
+http://not-found.hogehohoge.com/
+#+END_EXAMPLE
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
