@@ -1,0 +1,64 @@
+#+BLOG: rubikitch
+#+POSTID: 2298
+#+DATE: [2015-12-30 水 19:12]
+#+PERMALINK: path-headerline-mode
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs
+#+EL_PKG_NAME: path-headerline-mode
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, header-line
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: フルパスをheader-line(画面上部)に表示させる
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージpath-headerline-modeの紹介
+#+MYTAGS: package:path-headerline-mode, emacs 使い方, emacs コマンド, emacs, path-headerline-mode, path-headerline-mode.el, emacs lisp path-headerline-mode, elisp path-headerline-mode, emacs melpa path-headerline-mode, emacs path-headerline-mode 使い方, emacs path-headerline-mode 設定, emacs パッケージ path-headerline-mode, emacs path-headerline-mode スクリーンショット, header-line
+#+TAGS: package:path-headerline-mode, emacs 使い方, emacs コマンド, emacs, path-headerline-mode, path-headerline-mode.el, emacs lisp path-headerline-mode, elisp path-headerline-mode, emacs melpa path-headerline-mode, emacs path-headerline-mode 使い方, emacs path-headerline-mode 設定, emacs パッケージ path-headerline-mode, emacs path-headerline-mode スクリーンショット, header-line, Emacs, path-headerline-mode.el
+#+TITLE: emacs path-headerline-mode.el : フルパスをheader-line(画面上部)に表示させる | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>path-headerline-mode</td></tr>
+<tr><td>概要(原文)</td><td>Displaying file path on headerline.</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/7696122/path-headerline-mode">https://github.com/7696122/path-headerline-mode</a></td></tr>
+<tr><td>バージョン</td><td>20140423.632</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:path-headerline-mode/">package:path-headerline-mode</a> </td></tr>
+</table>
+<br />
+#+END_HTML
+*path-headerline-mode.el* は開いているファイルのフルパスをheader-lineに表示します。
+mode-lineはフルパスを表示させるには狭すぎるし、header-lineはあまり使われていないのでフルパスを表示させるにはうってつけの場所です。
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151230191235.png]]
+Fig1: フルパスを表示
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151230191248.png]]
+Fig2: 横幅が狭いときはディレクトリを表示
+** path-headerline-mode インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install path-headerline-mode
+
+
+#+end:
+** 概要                                                             :noexport:
+*path-headerline-mode.el* は開いているファイルのフルパスをheader-lineに表示します。
+mode-lineはフルパスを表示させるには狭すぎるし、header-lineはあまり使われていないのでフルパスを表示させるにはうってつけの場所です。
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151230191235.png]]
+Fig3: フルパスを表示
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20151230191248.png]]
+Fig4: 横幅が狭いときはディレクトリを表示
