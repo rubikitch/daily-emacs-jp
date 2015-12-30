@@ -62,3 +62,16 @@ Fig3: フルパスを表示
 #+ATTR_HTML: :width 480
 [[file:/r/sync/screenshots/20151230191248.png]]
 Fig4: 横幅が狭いときはディレクトリを表示
+** 設定 [[http://rubikitch.com/f/151230191710.path-headerline-mode][151230191710.path-headerline-mode(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/151230/151230191710.path-headerline-mode"
+#+BEGIN_SRC fundamental
+(path-headerline-mode +1)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/151230191710.path-headerline-mode
+$ emacs -Q -f package-initialize -l 151230191710.path-headerline-mode
+#+END_EXAMPLE
