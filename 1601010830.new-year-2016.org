@@ -1,0 +1,24 @@
+#+BLOG: rubikitch
+#+POSTID: 2303
+#+DATE: [2016-01-01 金 08:30]
+#+PERMALINK: new-year-2016
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: 
+#+DESCRIPTION: 
+#+MYTAGS: 
+#+TITLE: 明けまして、おめでとうございます
+#+begin: org2blog-tags
+#+TAGS: , nil, 
+#+end:
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+明けまして、おめでとうございます。
+昨年はいろいろありながらも毎日ブログを更新することができました。
+途中、風邪をひいたりとか身体が自由に動かなくなったりとかもありましたが、無事に日刊Emacsとしての責務を果たすことができました。
+今年も日本のEmacs界の発展を願って微力ながらも活動していけたらと思っています。
+よろしくお願いします。
