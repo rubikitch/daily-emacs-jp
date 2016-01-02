@@ -1,0 +1,117 @@
+#+BLOG: rubikitch
+#+POSTID: 2305
+#+DATE: [2016-01-02 Sat 18:36]
+#+PERMALINK: inkpot-theme
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, theme
+#+EL_PKG_NAME: inkpot-theme
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, color-theme, カラーテーマ
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: vimから移植されたダークなカラーテーマ
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージinkpot-themeの紹介
+#+MYTAGS: package:inkpot-theme, emacs 使い方, emacs コマンド, emacs, inkpot-theme, inkpot-theme.el, emacs lisp inkpot-theme, elisp inkpot-theme, emacs melpa inkpot-theme, emacs inkpot-theme 使い方, emacs inkpot-theme 設定, emacs パッケージ inkpot-theme, emacs inkpot-theme スクリーンショット, color-theme, カラーテーマ
+#+TAGS: package:inkpot-theme, emacs 使い方, emacs コマンド, emacs, inkpot-theme, inkpot-theme.el, emacs lisp inkpot-theme, elisp inkpot-theme, emacs melpa inkpot-theme, emacs inkpot-theme 使い方, emacs inkpot-theme 設定, emacs パッケージ inkpot-theme, emacs inkpot-theme スクリーンショット, color-theme, カラーテーマ, Emacs, theme, inkpot-theme.el
+#+TITLE: emacs inkpot-theme.el : vimから移植されたダークなカラーテーマ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>inkpot-theme</td></tr>
+<tr><td>概要(原文)</td><td>port of vim's inkpot theme</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/siovan/emacs24-inkpot">https://github.com/siovan/emacs24-inkpot</a></td></tr>
+<tr><td>バージョン</td><td>20120505.708</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:inkpot-theme/">package:inkpot-theme</a> </td></tr>
+</table>
+<br />
+#+END_HTML
+*inkpot-theme.el* は、以下のパッケージに対応したカラーテーマです。
+- show-paren
+- isearch
+- mode-line
+- font-lock
+- w3m
+- info
+- message
+- gnus
+- org
+- font-latex
+** inkpot-theme インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install inkpot-theme
+
+
+#+end:
+** 概要                                                             :noexport:
+*inkpot-theme.el* は、以下のパッケージに対応したカラーテーマです。
+- show-paren
+- isearch
+- mode-line
+- font-lock
+- w3m
+- info
+- message
+- gnus
+- org
+- font-latex
+
+** スクリーンショット
+# (save-window-excursion (async-shell-command "emacs-test -eval '(load-theme (quote inkpot) t)'"))
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_theme_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160102183732.png]]
+Fig1: emacs-lisp-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160102183737.png]]
+Fig2: magit
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160102183739.png]]
+Fig3: grep
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160102183741.png]]
+Fig4: outline-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160102183742.png]]
+Fig5: org-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160102183744.png]]
+Fig6: dired
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160102183746.png]]
+Fig7: web-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160102183748.png]]
+Fig8: markdown-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160102183752.png]]
+Fig9: helm
+
+
+
+
+
+** 設定
+#+BEGIN_SRC fundamental
+(load-theme 'inkpot t)
+#+END_SRC
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ emacs -Q -f package-initialize -eval '(load-theme (quote inkpot) t)'
+#+END_EXAMPLE
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
