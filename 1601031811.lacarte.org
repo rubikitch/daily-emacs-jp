@@ -1,0 +1,127 @@
+#+BLOG: rubikitch
+#+POSTID: 2307
+#+DATE: [2016-01-03 Sun 18:11]
+#+PERMALINK: lacarte
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, 
+#+EL_PKG_NAME: lacarte
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, relate:helm, helm補完
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: 【helm対応】キーボードでメニューを操作する
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージlacarteの紹介
+#+MYTAGS: package:lacarte, emacs 使い方, emacs コマンド, emacs, lacarte, lacarte.el, emacs lisp lacarte, elisp lacarte, emacs melpa lacarte, emacs lacarte 使い方, emacs lacarte 設定, emacs パッケージ lacarte, emacs lacarte スクリーンショット, relate:helm, helm補完
+#+TAGS: package:lacarte, emacs 使い方, emacs コマンド, emacs, lacarte, lacarte.el, emacs lisp lacarte, elisp lacarte, emacs melpa lacarte, emacs lacarte 使い方, emacs lacarte 設定, emacs パッケージ lacarte, emacs lacarte スクリーンショット, relate:helm, helm補完, Emacs, , lacarte.el, M-x lacarte-execute-menu-command, helm-mode, lacarte.el, M-x lacarte-execute-menu-command, helm-mode
+#+TITLE: emacs lacarte.el : 【helm対応】キーボードでメニューを操作する | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>lacarte</td></tr>
+<tr><td>概要(原文)</td><td>Execute menu items as commands, with completion.</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="http://www.emacswiki.org/lacarte.el">http://www.emacswiki.org/lacarte.el</a></td></tr>
+<tr><td>バージョン</td><td>20151231.1409</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:lacarte/">package:lacarte</a> <a href="http://rubikitch.com/tag/package:helm/">package:helm</a></td></tr>
+</table>
+<br />
+#+END_HTML
+Emacsでも他のアプリケーションのようにメニューバーがあります。
+主なコマンドをメニュー選択できるの便利です。
+しかし、それを操作するにはマウスを使う必要があります。
+Emacsユーザならば *lacarte.el* を使ってキーボードで操作しましょう。
+
+*M-x lacarte-execute-menu-command* はメニューをEmacsの補完インターフェースで選択します。
+確かにキーボードで操作できますが、何度もTABを押す必要があって面倒です。
+
+
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160103181920.png]]
+Fig1: M-x lacarte-execute-menu-command →fiと入力
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160103181922.png]]
+Fig2: TAB補完
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160103181925.png]]
+Fig3: もう一度TABを押してメニューを一覧する
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160103181930.png]]
+Fig4: openと入力してTAB
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160103181933.png]]
+Fig5: fiと入力してTAB
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160103181935.png]]
+Fig6: 選択すればM-x find-fileを実行
+
+
+そこでhelmをインストールして *helm-mode* を有効にすれば一覧できる上、一発で選択できます。
+作者は同じ作者によるiciclesをインストールすればいいと言っていますが、やはりhelmにはかなわないでしょう。
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160103181953.png]]
+Fig7: helmなら一発！
+
+** lacarte インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install lacarte
+
+
+#+end:
+** 概要                                                             :noexport:
+Emacsでも他のアプリケーションのようにメニューバーがあります。
+主なコマンドをメニュー選択できるの便利です。
+しかし、それを操作するにはマウスを使う必要があります。
+Emacsユーザならば *lacarte.el* を使ってキーボードで操作しましょう。
+
+*M-x lacarte-execute-menu-command* はメニューをEmacsの補完インターフェースで選択します。
+確かにキーボードで操作できますが、何度もTABを押す必要があって面倒です。
+
+
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160103181920.png]]
+Fig8: M-x lacarte-execute-menu-command →fiと入力
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160103181922.png]]
+Fig9: TAB補完
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160103181925.png]]
+Fig10: もう一度TABを押してメニューを一覧する
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160103181930.png]]
+Fig11: openと入力してTAB
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160103181933.png]]
+Fig12: fiと入力してTAB
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160103181935.png]]
+Fig13: 選択すればM-x find-fileを実行
+
+
+そこでhelmをインストールして *helm-mode* を有効にすれば一覧できる上、一発で選択できます。
+作者は同じ作者によるiciclesをインストールすればいいと言っていますが、やはりhelmにはかなわないでしょう。
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160103181953.png]]
+Fig14: helmなら一発！
+
+
