@@ -1,0 +1,116 @@
+#+BLOG: rubikitch
+#+POSTID: 2313
+#+DATE: [2016-01-06 Wed 21:57]
+#+PERMALINK: autumn-light-theme
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, theme
+#+EL_PKG_NAME: autumn-light-theme
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, color-theme, カラーテーマ
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: 20年試行錯誤の末に生まれたライトなカラーテーマ
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージautumn-light-themeの紹介
+#+MYTAGS: package:autumn-light-theme, emacs 使い方, emacs コマンド, emacs, autumn-light-theme, autumn-light-theme.el, emacs lisp autumn-light-theme, elisp autumn-light-theme, emacs melpa autumn-light-theme, emacs autumn-light-theme 使い方, emacs autumn-light-theme 設定, emacs パッケージ autumn-light-theme, emacs autumn-light-theme スクリーンショット, color-theme, カラーテーマ
+#+TAGS: package:autumn-light-theme, emacs 使い方, emacs コマンド, emacs, autumn-light-theme, autumn-light-theme.el, emacs lisp autumn-light-theme, elisp autumn-light-theme, emacs melpa autumn-light-theme, emacs autumn-light-theme 使い方, emacs autumn-light-theme 設定, emacs パッケージ autumn-light-theme, emacs autumn-light-theme スクリーンショット, color-theme, カラーテーマ, Emacs, theme, autumn-light-theme.el
+#+TITLE: emacs autumn-light-theme.el : 20年試行錯誤の末に生まれたライトなカラーテーマ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>autumn-light-theme</td></tr>
+<tr><td>概要(原文)</td><td>A light color theme with muted, autumnal colors.</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/aalpern/emacs-color-theme-autumn-light">https://github.com/aalpern/emacs-color-theme-autumn-light</a></td></tr>
+<tr><td>バージョン</td><td>20150515.747</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:autumn-light-theme/">package:autumn-light-theme</a> </td></tr>
+</table>
+<br />
+#+END_HTML
+*autumn-light-theme.el* は、以下のパッケージに対応したカラーテーマです。
+- link
+- show-paren
+- font-lock    
+- powerline    
+- git-gutter   
+- web-mode     
+- js3-mode     
+- markdown-mode
+** autumn-light-theme インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install autumn-light-theme
+
+
+#+end:
+** 概要                                                             :noexport:
+*autumn-light-theme.el* は、以下のパッケージに対応したカラーテーマです。
+- link
+- show-paren
+- font-lock    
+- powerline    
+- git-gutter   
+- web-mode     
+- js3-mode     
+- markdown-mode
+
+** スクリーンショット
+# (save-window-excursion (async-shell-command "emacs-test -eval '(load-theme (quote autumn-light) t)'"))
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_theme_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160106215917.png]]
+Fig1: emacs-lisp-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160106215920.png]]
+Fig2: magit
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160106215922.png]]
+Fig3: grep
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160106215924.png]]
+Fig4: outline-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160106215926.png]]
+Fig5: org-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160106215927.png]]
+Fig6: dired
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160106215929.png]]
+Fig7: web-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160106215931.png]]
+Fig8: markdown-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160106215934.png]]
+Fig9: helm
+
+
+#+ATTR_HTML: :width 480
+[[https://github.com/aalpern/emacs-color-theme-autumn-light/raw/master/autumn-light-theme.png]]
+Fig10: 本家スクリーンショット
+
+
+
+** 設定
+#+BEGIN_SRC fundamental
+(load-theme 'autumn-light t)
+#+END_SRC
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ emacs -Q -f package-initialize -eval '(load-theme (quote autumn-light) t)'
+#+END_EXAMPLE
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
