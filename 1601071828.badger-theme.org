@@ -1,0 +1,125 @@
+#+BLOG: rubikitch
+#+POSTID: 2315
+#+DATE: [2016-01-07 Thu 18:28]
+#+PERMALINK: badger-theme
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, theme
+#+EL_PKG_NAME: badger-theme
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, color-theme, カラーテーマ
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: wombatから派生したダークなカラーテーマ
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージbadger-themeの紹介
+#+MYTAGS: package:badger-theme, emacs 使い方, emacs コマンド, emacs, badger-theme, badger-theme.el, emacs lisp badger-theme, elisp badger-theme, emacs melpa badger-theme, emacs badger-theme 使い方, emacs badger-theme 設定, emacs パッケージ badger-theme, emacs badger-theme スクリーンショット, color-theme, カラーテーマ
+#+TAGS: package:badger-theme, emacs 使い方, emacs コマンド, emacs, badger-theme, badger-theme.el, emacs lisp badger-theme, elisp badger-theme, emacs melpa badger-theme, emacs badger-theme 使い方, emacs badger-theme 設定, emacs パッケージ badger-theme, emacs badger-theme スクリーンショット, color-theme, カラーテーマ, Emacs, theme, badger-theme.el
+#+TITLE: emacs badger-theme.el : wombatから派生したダークなカラーテーマ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>badger-theme</td></tr>
+<tr><td>概要(原文)</td><td>A dark theme for Emacs 24.</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/ccann/badger-theme">https://github.com/ccann/badger-theme</a></td></tr>
+<tr><td>バージョン</td><td>20140716.1932</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:badger-theme/">package:badger-theme</a> </td></tr>
+</table>
+<br />
+#+END_HTML
+*badger-theme.el* は、以下のパッケージに対応したカラーテーマです。
+- isearch
+- show-paren
+- mode-line
+- linum
+- font-lock
+- org
+- elpy
+- ipython
+- auto-complete
+- popup
+- smart-mode-line
+** badger-theme インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install badger-theme
+
+
+#+end:
+** 概要                                                             :noexport:
+*badger-theme.el* は、以下のパッケージに対応したカラーテーマです。
+- isearch
+- show-paren
+- mode-line
+- linum
+- font-lock
+- org
+- elpy
+- ipython
+- auto-complete
+- popup
+- smart-mode-line
+** スクリーンショット
+# (save-window-excursion (async-shell-command "emacs-test -eval '(load-theme (quote badger) t)'"))
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_theme_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160107183054.png]]
+Fig1: emacs-lisp-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160107183059.png]]
+Fig2: magit
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160107183101.png]]
+Fig3: grep
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160107183103.png]]
+Fig4: outline-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160107183104.png]]
+Fig5: org-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160107183106.png]]
+Fig6: dired
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160107183107.png]]
+Fig7: web-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160107183109.png]]
+Fig8: markdown-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160107183112.png]]
+Fig9: helm
+
+
+#+ATTR_HTML: :width 480
+[[https://raw.github.com/ccann/badger-theme/master/img/python-preview.png]]
+Fig10: 本家スクリーンショット
+
+#+ATTR_HTML: :width 480
+[[https://raw.github.com/ccann/badger-theme/master/img/strikethrough.png]]
+Fig11: 本家スクリーンショット
+
+
+
+** 設定
+#+BEGIN_SRC fundamental
+(load-theme 'badger t)
+#+END_SRC
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ emacs -Q -f package-initialize -eval '(load-theme (quote badger) t)'
+#+END_EXAMPLE
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
