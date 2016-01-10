@@ -1,0 +1,65 @@
+#+BLOG: rubikitch
+#+POSTID: 2322
+#+DATE: [2016-01-10 Sun 17:46]
+#+PERMALINK: ido-occur
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs
+#+EL_PKG_NAME: ido-occur
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, relate:swiper
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: バッファ内検索をidoで行う
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージido-occurの紹介
+#+MYTAGS: package:ido-occur, emacs 使い方, emacs コマンド, emacs, ido-occur, ido-occur.el, emacs lisp ido-occur, elisp ido-occur, emacs melpa ido-occur, emacs ido-occur 使い方, emacs ido-occur 設定, emacs パッケージ ido-occur, emacs ido-occur スクリーンショット, relate:swiper
+#+TAGS: package:ido-occur, emacs 使い方, emacs コマンド, emacs, ido-occur, ido-occur.el, emacs lisp ido-occur, elisp ido-occur, emacs melpa ido-occur, emacs ido-occur 使い方, emacs ido-occur 設定, emacs パッケージ ido-occur, emacs ido-occur スクリーンショット, relate:swiper, Emacs, M-x ido-occur, M-x occur, M-x occur
+#+TITLE: emacs ido-occur.el : バッファ内検索をidoで行う | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>ido-occur</td></tr>
+<tr><td>概要(原文)</td><td>Yet another `occur' with `ido'.</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/danil/ido-occur">https://github.com/danil/ido-occur</a></td></tr>
+<tr><td>バージョン</td><td>20151228.837</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:ido-occur/">package:ido-occur</a> <a href="http://rubikitch.com/tag/package:swiper/">package:swiper</a></td></tr>
+</table>
+<br />
+#+END_HTML
+*M-x ido-occur* は *M-x occur* のようなバッファ内検索を行い、結果をidoで選択します。
+[[http://rubikitch.com/2015/03/18/swiper/][swiper.el(レビュー)]] と似ていますが、絞り込み検索はできないようです。
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160110174946.png]]
+Fig1: M-x ido-occur
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160110174951.png]]
+Fig2: wikと入力
+** ido-occur インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install ido-occur
+
+
+#+end:
+** 概要                                                             :noexport:
+*M-x ido-occur* は *M-x occur* のようなバッファ内検索を行い、結果をidoで選択します。
+[[http://rubikitch.com/2015/03/18/swiper/][swiper.el(レビュー)]] と似ていますが、絞り込み検索はできないようです。
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160110174946.png]]
+Fig3: M-x ido-occur
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160110174951.png]]
+Fig4: wikと入力
+
