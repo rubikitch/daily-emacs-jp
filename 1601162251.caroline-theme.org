@@ -1,0 +1,127 @@
+#+BLOG: rubikitch
+#+POSTID: 2336
+#+DATE: [2016-01-16 Sat 22:51]
+#+PERMALINK: caroline-theme
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, theme
+#+EL_PKG_NAME: caroline-theme
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, color-theme, カラーテーマ
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: ダークなカラーテーマ
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージcaroline-themeの紹介
+#+MYTAGS: package:caroline-theme, emacs 使い方, emacs コマンド, emacs, caroline-theme, caroline-theme.el, emacs lisp caroline-theme, elisp caroline-theme, emacs melpa caroline-theme, emacs caroline-theme 使い方, emacs caroline-theme 設定, emacs パッケージ caroline-theme, emacs caroline-theme スクリーンショット, color-theme, カラーテーマ
+#+TAGS: package:caroline-theme, emacs 使い方, emacs コマンド, emacs, caroline-theme, caroline-theme.el, emacs lisp caroline-theme, elisp caroline-theme, emacs melpa caroline-theme, emacs caroline-theme 使い方, emacs caroline-theme 設定, emacs パッケージ caroline-theme, emacs caroline-theme スクリーンショット, color-theme, カラーテーマ, Emacs, theme, caroline-theme.el
+#+TITLE: emacs caroline-theme.el : ダークなカラーテーマ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>caroline-theme</td></tr>
+<tr><td>概要(原文)</td><td>A trip down to New Orleans...</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/xjackk/caroline-theme">https://github.com/xjackk/caroline-theme</a></td></tr>
+<tr><td>バージョン</td><td>20151030.1604</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:caroline-theme/">package:caroline-theme</a> </td></tr>
+</table>
+<br />
+#+END_HTML
+*caroline-theme.el* は、以下のパッケージに対応したカラーテーマです。
+- header-line
+- flycheck
+- flymake
+- mode-line
+- org
+- web-mode
+- cperl-mode
+- font-lock
+** caroline-theme インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install caroline-theme
+
+
+#+end:
+** 概要                                                             :noexport:
+*caroline-theme.el* は、以下のパッケージに対応したカラーテーマです。
+- header-line
+- flycheck
+- flymake
+- mode-line
+- org
+- web-mode
+- cperl-mode
+- font-lock
+** スクリーンショット
+# (save-window-excursion (async-shell-command "emacs-test -eval '(load-theme (quote caroline) t)'"))
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_theme_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160116225256.png]]
+Fig1: emacs-lisp-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160116225301.png]]
+Fig2: magit
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160116225303.png]]
+Fig3: grep
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160116225304.png]]
+Fig4: outline-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160116225306.png]]
+Fig5: org-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160116225307.png]]
+Fig6: dired
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160116225309.png]]
+Fig7: web-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160116225310.png]]
+Fig8: markdown-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160116225313.png]]
+Fig9: helm
+
+
+#+ATTR_HTML: :width 480
+[[https://github.com/xjackk/caroline-theme/raw/master/caroline.png]]
+Fig10: 本家スクリーンショット
+
+#+ATTR_HTML: :width 480
+[[https://github.com/xjackk/caroline-theme/raw/master/caroline2.png]]
+Fig11: 本家スクリーンショット
+
+#+ATTR_HTML: :width 480
+[[https://github.com/xjackk/caroline-theme/raw/master/caroline3.png]]
+Fig12: 本家スクリーンショット
+
+#+ATTR_HTML: :width 480
+[[https://github.com/xjackk/caroline-theme/raw/master/caroline4.png]]
+Fig13: 本家スクリーンショット
+
+
+
+** 設定
+#+BEGIN_SRC fundamental
+(load-theme 'caroline t)
+#+END_SRC
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ emacs -Q -f package-initialize -eval '(load-theme (quote caroline) t)'
+#+END_EXAMPLE
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
