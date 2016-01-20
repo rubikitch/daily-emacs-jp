@@ -1,0 +1,150 @@
+#+BLOG: rubikitch
+#+POSTID: 2344
+#+DATE: [2016-01-20 Wed 23:14]
+#+PERMALINK: dakrone-theme
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, theme
+#+EL_PKG_NAME: dakrone-theme
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, color-theme, カラーテーマ
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: ダークなカラーテーマ
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージdakrone-themeの紹介
+#+MYTAGS: package:dakrone-theme, emacs 使い方, emacs コマンド, emacs, dakrone-theme, dakrone-theme.el, emacs lisp dakrone-theme, elisp dakrone-theme, emacs melpa dakrone-theme, emacs dakrone-theme 使い方, emacs dakrone-theme 設定, emacs パッケージ dakrone-theme, emacs dakrone-theme スクリーンショット, color-theme, カラーテーマ
+#+TAGS: package:dakrone-theme, emacs 使い方, emacs コマンド, emacs, dakrone-theme, dakrone-theme.el, emacs lisp dakrone-theme, elisp dakrone-theme, emacs melpa dakrone-theme, emacs dakrone-theme 使い方, emacs dakrone-theme 設定, emacs パッケージ dakrone-theme, emacs dakrone-theme スクリーンショット, color-theme, カラーテーマ, Emacs, theme, dakrone-theme.el
+#+TITLE: emacs dakrone-theme.el : ダークなカラーテーマ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>dakrone-theme</td></tr>
+<tr><td>概要(原文)</td><td>dakrone's custom dark theme</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/dakrone/dakrone-theme">https://github.com/dakrone/dakrone-theme</a></td></tr>
+<tr><td>バージョン</td><td>20140211.2045</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:dakrone-theme/">package:dakrone-theme</a> </td></tr>
+</table>
+<br />
+#+END_HTML
+*dakrone-theme.el* は、以下のパッケージに対応したカラーテーマです。
+- inum
+- info
+- diary
+- calendar
+- show-paren
+- font-lock
+- erc
+- eshell
+- org
+- sgml
+- custom
+- vc
+- message
+- font-latex
+- widget
+- swbuff
+- ediff
+- header-line
+- magit
+- diff
+- mode-line
+- powerline
+- clojure
+** dakrone-theme インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install dakrone-theme
+
+
+#+end:
+** 概要                                                             :noexport:
+*dakrone-theme.el* は、以下のパッケージに対応したカラーテーマです。
+- inum
+- info
+- diary
+- calendar
+- show-paren
+- font-lock
+- erc
+- eshell
+- org
+- sgml
+- custom
+- vc
+- message
+- font-latex
+- widget
+- swbuff
+- ediff
+- header-line
+- magit
+- diff
+- mode-line
+- powerline
+- clojure
+
+** スクリーンショット
+# (save-window-excursion (async-shell-command "emacs-test -eval '(load-theme (quote dakrone) t)'"))
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_theme_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160120231635.png]]
+Fig1: emacs-lisp-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160120231639.png]]
+Fig2: magit
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160120231641.png]]
+Fig3: grep
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160120231643.png]]
+Fig4: outline-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160120231645.png]]
+Fig5: org-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160120231647.png]]
+Fig6: dired
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160120231649.png]]
+Fig7: web-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160120231651.png]]
+Fig8: markdown-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160120231653.png]]
+Fig9: helm
+
+
+#+ATTR_HTML: :width 480
+[[http://i.imgur.com/ehOF29B.png]]
+Fig10: 本家スクリーンショット
+
+#+ATTR_HTML: :width 480
+[[http://i.imgur.com/wSdOnTM.png]]
+Fig11: 本家スクリーンショット
+
+
+
+** 設定
+#+BEGIN_SRC fundamental
+(load-theme 'dakrone t)
+#+END_SRC
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ emacs -Q -f package-initialize -eval '(load-theme (quote dakrone) t)'
+#+END_EXAMPLE
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
