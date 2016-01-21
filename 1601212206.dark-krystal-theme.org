@@ -1,0 +1,132 @@
+#+BLOG: rubikitch
+#+POSTID: 2346
+#+DATE: [2016-01-21 Thu 22:06]
+#+PERMALINK: dark-krystal-theme
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, theme
+#+EL_PKG_NAME: dark-krystal-theme
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, color-theme, カラーテーマ
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: ダークなカラーテーマ
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージdark-krystal-themeの紹介
+#+MYTAGS: package:dark-krystal-theme, emacs 使い方, emacs コマンド, emacs, dark-krystal-theme, dark-krystal-theme.el, emacs lisp dark-krystal-theme, elisp dark-krystal-theme, emacs melpa dark-krystal-theme, emacs dark-krystal-theme 使い方, emacs dark-krystal-theme 設定, emacs パッケージ dark-krystal-theme, emacs dark-krystal-theme スクリーンショット, color-theme, カラーテーマ
+#+TAGS: package:dark-krystal-theme, emacs 使い方, emacs コマンド, emacs, dark-krystal-theme, dark-krystal-theme.el, emacs lisp dark-krystal-theme, elisp dark-krystal-theme, emacs melpa dark-krystal-theme, emacs dark-krystal-theme 使い方, emacs dark-krystal-theme 設定, emacs パッケージ dark-krystal-theme, emacs dark-krystal-theme スクリーンショット, color-theme, カラーテーマ, Emacs, theme, dark-krystal-theme.el
+#+TITLE: emacs dark-krystal-theme.el : ダークなカラーテーマ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>dark-krystal-theme</td></tr>
+<tr><td>概要(原文)</td><td>an Emacs 24 theme based on Dark Krystal (tmTheme)</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/emacsfodder/emacs-dark-krystal-theme">https://github.com/emacsfodder/emacs-dark-krystal-theme</a></td></tr>
+<tr><td>バージョン</td><td>20141115.2301</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:dark-krystal-theme/">package:dark-krystal-theme</a> </td></tr>
+</table>
+<br />
+#+END_HTML
+*dark-krystal-theme.el* は、以下のパッケージに対応したカラーテーマです。
+- linum
+- link
+- button
+- header-line
+- mode-line
+- isearch
+- tooltip
+- js3
+- cua-rectangle
+- magit
+- flyspell-mode
+- flymake-mode
+- git-gutter
+- diff
+- font-lock
+- rainbow-delimiters
+** dark-krystal-theme インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install dark-krystal-theme
+
+
+#+end:
+** 概要                                                             :noexport:
+*dark-krystal-theme.el* は、以下のパッケージに対応したカラーテーマです。
+- linum
+- link
+- button
+- header-line
+- mode-line
+- isearch
+- tooltip
+- js3
+- cua-rectangle
+- magit
+- flyspell-mode
+- flymake-mode
+- git-gutter
+- diff
+- font-lock
+- rainbow-delimiters
+
+** スクリーンショット
+# (save-window-excursion (async-shell-command "emacs-test -eval '(load-theme (quote dark-krystal) t)'"))
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_theme_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160121220858.png]]
+Fig1: emacs-lisp-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160121220902.png]]
+Fig2: magit
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160121220904.png]]
+Fig3: grep
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160121220906.png]]
+Fig4: outline-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160121220907.png]]
+Fig5: org-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160121220909.png]]
+Fig6: dired
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160121220911.png]]
+Fig7: web-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160121220912.png]]
+Fig8: markdown-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160121220915.png]]
+Fig9: helm
+
+
+#+ATTR_HTML: :width 480
+[[https://github.com/emacsfodder/emacs-dark-krystal-theme/raw/master/dark-krystal-theme.png]]
+Fig10: 本家スクリーンショット
+
+
+
+** 設定
+#+BEGIN_SRC fundamental
+(load-theme 'dark-krystal t)
+#+END_SRC
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ emacs -Q -f package-initialize -eval '(load-theme (quote dark-krystal) t)'
+#+END_EXAMPLE
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
