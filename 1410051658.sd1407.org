@@ -7,7 +7,7 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs,
+#+CATEGORY: Emacs,連載『るびきち流Emacs超入門』
 #+DESCRIPTION: Emacsは、ユーザに向かって開かれています。しかしその分厚い扉を何度でも叩き開こうとしなければ、Emacsのゾーン(zone)には入れません。何事も反復が大事なのです。今回は、困ったときの対処法とヘルプシステムおよび使いやすい初期設定を紹介します。
 #+MYTAGS: Emacs入門, Emacs 使い方, Emacs 設定, Emacs チュートリアル, Emacs 取り消し, Emacs 取り止め, Emacs keyboard-quit, Emacs undo, Emacs やり直し, Emacs ヘルプ, about-emacs, describe-copying, view-emacs-debugging, view-external-packages, view-emacs-FAQ, help-for-help, view-order-manuals, view-emacs-news, describe-distribution, view-emacs-problems, view-emacs-todo, describe-no-warranty, describe-input-method, display-local-help, help-for-help, describe-coding-system, Info-goto-emacs-command-node, describe-input-method, Info-goto-emacs-key-command-node, describe-language-environment, describe-package, info-lookup-symbol, apropos-command, describe-bindings, describe-key-briefly, apropos-documentation, view-echo-area-messages, describe-function, describe-gnu-project, view-hello-file, info, describe-key, view-lossage, describe-mode, view-emacs-news, finder-by-keyword, help-quit, info-emacs-manual, describe-syntax, help-with-tutorial, describe-variable, where-is, help-for-help, info-other-window, package:uniquify, package:goto-chg, package:redo+, package:saveplace, package:uniquify, package:package
 #+TAGS: Emacs入門, Emacs 使い方, Emacs 設定, Emacs チュートリアル, Emacs 取り消し, Emacs 取り止め, Emacs keyboard-quit, Emacs undo, Emacs やり直し, Emacs ヘルプ, about-emacs, describe-copying, view-emacs-debugging, view-external-packages, view-emacs-FAQ, help-for-help, view-order-manuals, view-emacs-news, describe-distribution, view-emacs-problems, view-emacs-todo, describe-no-warranty, describe-input-method, display-local-help, help-for-help, describe-coding-system, Info-goto-emacs-command-node, describe-input-method, Info-goto-emacs-key-command-node, describe-language-environment, describe-package, info-lookup-symbol, apropos-command, describe-bindings, describe-key-briefly, apropos-documentation, view-echo-area-messages, describe-function, describe-gnu-project, view-hello-file, info, describe-key, view-lossage, describe-mode, view-emacs-news, finder-by-keyword, help-quit, info-emacs-manual, describe-syntax, help-with-tutorial, describe-variable, where-is, help-for-help, info-other-window, package:uniquify, package:goto-chg, package:redo+, package:saveplace, package:uniquify, package:package, Emacs,, C-g, C-g, C-/, C-/, C-u C-SPC, ヘルプ, M-!, M-&, redo+.el, M-x buffer-enable-undo, M-x buffer-disable-undo, C-/, goto-chg.el, M-＜, M-＞, M-g M-g, C-s, C-r, C-SPC, マーク, region, C-u C-SPC, C-h, ＜f1＞ ＜f1＞, C-x C-f, C-x C-s, プレフィクスキー, 接頭辞, C-x 4 C-f, ＜f1＞ b, C-x C-h, C-c C-h, ~/.emacs.d/init.el, .emacs, Emacs Lisp, M-x ibuffer, M-x bs-show, M-x rcirc, M-x erc, M-x show-paren-mode, M-x global-hl-line-mode, saveplace.el, パッケージシステム, set-mark-command-repeat-pop, uniquify.el
@@ -145,7 +145,7 @@ b           Display all key bindings.
 　それでは、おすすめの初期設定を示しておきます。
 
 ====
-#+INCLUDE: /r/book/sd-emacs-rensai/init-defaults.el src
+#+INCLUDE: /r/book/sd-emacs-rensai/init-defaults.el 
 ====
 
 　Emacs24から *パッケージシステム* が標準でついてくるようになりました。PerlのCPAN、RubyのRubyGemsのように外部パッケージを簡単に導入できるようになりました。依存するパッケージもインストールしてくれるので、外部Emacs Lispプログラムを導入する手間を大幅に削減できます。この4行はおまじないと思ってinit.elの先頭に書いてください。
