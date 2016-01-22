@@ -44,7 +44,9 @@ Query replacing a with A: (? for help)
 
 　この場合に手軽に使える標準コマンドがM-s o(occur)です。実行すると、表示する行の正規表現を訊いてきます。たとえば、Fig1の上の画面に表示されているテキストにおいてM-s oの後に「-」を押すと、「-」が含まれている行が下に表示されます。
 
-Fig1 http://rubikitch.com/f/occur-1.png
+#+ATTR_HTML: :width 480
+[[http://rubikitch.com/f/occur-1.png]]
+Fig1 
 
 　occurの実行後、マッチした行にジャンプできます。そのための方法は2つあります。
 1. *Occur*バッファから、該当行にジャンプする
@@ -107,7 +109,9 @@ Fig1 http://rubikitch.com/f/occur-1.png
 
 　すると、置換しただけで元のバッファが変更されます(Fig2)。M-x occur-and-selectを使えば1は省略できます。
 
-Fig2 http://rubikitch.com/f/occur-edit-1.png
+#+ATTR_HTML: :width 480
+[[http://rubikitch.com/f/occur-edit-1.png]]
+Fig2 
 
 ** カスタマイズはほどほどに
 　なお、いきなりoccur-edit-modeに入るコマンドM-x occur-and-editを定義することはできますが、筆者はやりすぎだと思います。なぜなら、割に合わないからです。M-x occurの目的は普通にバッファ内grepとして使うことが多く、occur-edit-modeを使う頻度は多くありません。それにたった1ストロークでoccur-edit-modeに入れます。たかが1ストロークを節約するために頻度の低いコマンドを定義するのはコストに見合わないのです。M-x occur-and-editで起動するとなると、M-s o→C-x o→eでoccur-and-editを起動する場合よりもかえってストロークが多くなってしまいます。
@@ -132,7 +136,9 @@ Fig2 http://rubikitch.com/f/occur-edit-1.png
 
 　M-x grepを実行したら、別ウィンドウの*grep*バッファに検索結果が出てきます(Fig3)。grepを実行するのは時間がかかることがあるので、grepプログラム実行中でもEmacsの操作ができます。grepプログラムが出力するたびに*grep*バッファが更新されます。実行中であっても、現時点での検索結果にアクセスできます。
 
-Fig3 http://rubikitch.com/f/grep-1.png  Ricty-35.8:bold
+#+ATTR_HTML: :width 480
+[[http://rubikitch.com/f/grep-1.png]]
+Fig3   Ricty-35.8:bold
 
 　M-x grepの検索結果にアクセスする方法は、M-x occurとまったく同じです。*grep*バッファでRETを押すか、M-g M-n/M-g M-pを実行するかです。
 
@@ -169,8 +175,14 @@ M-x package-install wgrep
 
 　wgrepで複数のファイルを変更し、すべてのファイルを保存するにはC-x sの後に!を押してください。
 
-Fig4 http://rubikitch.com/f/wgrep-1.png
-Fig5 http://rubikitch.com/f/wgrep-2.png
+#+ATTR_HTML: :width 480
+[[http://rubikitch.com/f/wgrep-1.png]]
+Fig4
+
+#+ATTR_HTML: :width 480
+[[http://rubikitch.com/f/wgrep-2.png]]
+Fig5
+
 
 　このようにwgrepは大きな編集をこなせる超強力なコマンドです。言うまでもなくM-x grepの強味は生きており、任意のgrep -nH形式のプログラムの出力結果を編集してファイルに反映できます。wgrepはさほど使用頻度が高いわけではありませんが、飛び道具として覚えておいてください。
 * 終わりに
