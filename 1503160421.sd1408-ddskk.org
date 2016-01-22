@@ -7,12 +7,12 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, SKK, 
+#+CATEGORY: Emacs, SKK, 連載『るびきち流Emacs超入門』
 #+DESCRIPTION: Emacsによる文字入力一元化を実現するために、スムーズな日本語入力は必要不可欠なものです。本稿では、それを手助けするシンプルな日本語入力システム「SKK」、習得が簡単な拡張ローマ字入力システム「AZIK」を紹介しています。実際にインストール＆入力してみて、その便利さ、普段の日本語入力との違いを実感してください。
 #+MYTAGS: Emacs 日本語入力, ＜f1＞ c, package:ddskk
 #+TITLE: #4 SKK＋AZIKで快適・効率的な日本語入力を！ (Software Design 2014年8月号掲載記事) Emacs DDSKK インストール 設定 使い方
 #+begin: org2blog-tags
-#+TAGS: Emacs 日本語入力, ＜f1＞ c, package:ddskk, Emacs, SKK, , ddskk, 文字入力の一元化, SKK, Simple Kana to Kanji conversion program, 文節の区切り, 単語変換＋文節マニュアル指定, 特殊変換, 固有名詞, 新語, 再帰的単語登録, 簡単なデータベース, Google日本語入力, ddskk, Daredevil SKK, チュートリアル, M-x skk-tutorial, ローマ字入力, T-Code, AZIK, M-x skk-restart, skk-sticky-key, Shiftを使わずに, <f1> c
+#+TAGS: Emacs 日本語入力, ＜f1＞ c, package:ddskk, Emacs, SKK, 連載『るびきち流Emacs超入門』, ddskk, 文字入力の一元化, SKK, Simple Kana to Kanji conversion program, 文節の区切り, 単語変換＋文節マニュアル指定, 特殊変換, 固有名詞, 新語, 再帰的単語登録, 簡単なデータベース, Google日本語入力, ddskk, Daredevil SKK, チュートリアル, M-x skk-tutorial, ローマ字入力, T-Code, AZIK, M-x skk-restart, skk-sticky-key, Shiftを使わずに, <f1> c
 #+end:
 Software Design連載記事を掲載します。
 
