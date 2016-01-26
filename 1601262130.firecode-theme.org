@@ -1,0 +1,132 @@
+#+BLOG: rubikitch
+#+POSTID: 2361
+#+DATE: [2016-01-26 Tue 21:30]
+#+PERMALINK: firecode-theme
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, theme
+#+EL_PKG_NAME: firecode-theme
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, color-theme, カラーテーマ
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: ダークなカラーテーマ
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージfirecode-themeの紹介
+#+MYTAGS: package:firecode-theme, emacs 使い方, emacs コマンド, emacs, firecode-theme, firecode-theme.el, emacs lisp firecode-theme, elisp firecode-theme, emacs melpa firecode-theme, emacs firecode-theme 使い方, emacs firecode-theme 設定, emacs パッケージ firecode-theme, emacs firecode-theme スクリーンショット, color-theme, カラーテーマ
+#+TAGS: package:firecode-theme, emacs 使い方, emacs コマンド, emacs, firecode-theme, firecode-theme.el, emacs lisp firecode-theme, elisp firecode-theme, emacs melpa firecode-theme, emacs firecode-theme 使い方, emacs firecode-theme 設定, emacs パッケージ firecode-theme, emacs firecode-theme スクリーンショット, color-theme, カラーテーマ, Emacs, theme, firecode-theme.el
+#+TITLE: emacs firecode-theme.el : ダークなカラーテーマ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>firecode-theme</td></tr>
+<tr><td>概要(原文)</td><td>an Emacs 24 theme based on FireCode (tmTheme)</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/emacsfodder/emacs-firecode-theme">https://github.com/emacsfodder/emacs-firecode-theme</a></td></tr>
+<tr><td>バージョン</td><td>20141115.2302</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:firecode-theme/">package:firecode-theme</a> </td></tr>
+</table>
+<br />
+#+END_HTML
+*firecode-theme.el* は、以下のパッケージに対応したカラーテーマです。
+- linum
+- link
+- button
+- header-line
+- mode-line
+- isearch
+- tooltip
+- js3
+- cua-rectangle
+- magit
+- flyspell-mode
+- flymake-mode
+- git-gutter
+- diff
+- font-lock
+- rainbow-delimiters
+** firecode-theme インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install firecode-theme
+
+
+#+end:
+** 概要                                                             :noexport:
+*firecode-theme.el* は、以下のパッケージに対応したカラーテーマです。
+- linum
+- link
+- button
+- header-line
+- mode-line
+- isearch
+- tooltip
+- js3
+- cua-rectangle
+- magit
+- flyspell-mode
+- flymake-mode
+- git-gutter
+- diff
+- font-lock
+- rainbow-delimiters
+
+** スクリーンショット
+# (save-window-excursion (async-shell-command "emacs-test -eval '(load-theme (quote firecode) t)'"))
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_theme_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160126213133.png]]
+Fig1: emacs-lisp-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160126213137.png]]
+Fig2: magit
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160126213139.png]]
+Fig3: grep
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160126213141.png]]
+Fig4: outline-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160126213143.png]]
+Fig5: org-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160126213145.png]]
+Fig6: dired
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160126213147.png]]
+Fig7: web-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160126213149.png]]
+Fig8: markdown-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160126213152.png]]
+Fig9: helm
+
+
+#+ATTR_HTML: :width 480
+[[https://github.com/emacsfodder/emacs-firecode-theme/raw/master/firecode-theme.png]]
+Fig10: 本家スクリーンショット
+
+
+
+** 設定
+#+BEGIN_SRC fundamental
+(load-theme 'firecode t)
+#+END_SRC
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ emacs -Q -f package-initialize -eval '(load-theme (quote firecode) t)'
+#+END_EXAMPLE
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
