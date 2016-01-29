@@ -1,0 +1,220 @@
+#+BLOG: rubikitch
+#+POSTID: 2367
+#+DATE: [2016-01-29 Fri 12:10]
+#+PERMALINK: flatland-theme
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, theme
+#+EL_PKG_NAME: flatland-theme
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, color-theme, カラーテーマ
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: Sublime Textから移植されたダークなカラーテーマ
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージflatland-themeの紹介
+#+MYTAGS: package:flatland-theme, emacs 使い方, emacs コマンド, emacs, flatland-theme, flatland-theme.el, emacs lisp flatland-theme, elisp flatland-theme, emacs melpa flatland-theme, emacs flatland-theme 使い方, emacs flatland-theme 設定, emacs パッケージ flatland-theme, emacs flatland-theme スクリーンショット, color-theme, カラーテーマ
+#+TAGS: package:flatland-theme, emacs 使い方, emacs コマンド, emacs, flatland-theme, flatland-theme.el, emacs lisp flatland-theme, elisp flatland-theme, emacs melpa flatland-theme, emacs flatland-theme 使い方, emacs flatland-theme 設定, emacs パッケージ flatland-theme, emacs flatland-theme スクリーンショット, color-theme, カラーテーマ, Emacs, theme, flatland-theme.el
+#+TITLE: emacs flatland-theme.el : Sublime Textから移植されたダークなカラーテーマ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>flatland-theme</td></tr>
+<tr><td>概要(原文)</td><td>A simple theme for Emacs based on the Flatland theme for Sublime Text</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/gchp/flatland-emacs">https://github.com/gchp/flatland-emacs</a></td></tr>
+<tr><td>バージョン</td><td>20140805.305</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:flatland-theme/">package:flatland-theme</a> </td></tr>
+</table>
+<br />
+#+END_HTML
+*flatland-theme.el* は、以下のパッケージに対応したカラーテーマです。
+- button
+- link
+- header-line
+- compilation
+- grep
+- isearch
+- mode-line
+- font-lock
+- newsticker
+- ace-jump-mode
+- anzu
+- full-ack
+- auctex (font-latex)
+- auto-complete
+- popup
+- android-mode
+- bm
+- clojure-test-mode
+- ctable
+- diff
+- dired+
+- ediff
+- ert
+- eshell
+- flx
+- flycheck
+- flymake
+- flyspell
+- erc
+- git-gutter
+- git-gutter-fr
+- gnus
+- guide-key
+- helm
+- hl-line-mode
+- hl-sexp
+- ido
+- iedit-mode
+- js2-mode
+- jabber-mode
+- linum-mode
+- macrostep
+- magit
+- egg
+- message-mode
+- mew
+- mic-paren
+- mingus
+- nav
+- mu4e
+- mumamo
+- org
+- outline
+- p4
+- perspective
+- powerline
+- rainbow-delimiters
+- rcirc
+- rpm-mode
+- rst-mode
+- show-paren
+- smartparens
+- sml-mode-line
+- slime
+- tabbar
+- term
+- volatile-highlights
+- emacs-w3m
+- web-mode
+- css-mode
+- whitespace-mode
+- wanderlust
+- which-func-mode
+- yascroll
+- ansi-color
+- fill-column-indicator
+- vc-annotate
+
+** flatland-theme インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install flatland-theme
+
+
+#+end:
+** 概要                                                             :noexport:
+*flatland-theme.el* は、以下のパッケージに対応したカラーテーマです。
+- button
+- link
+- header-line
+- compilation
+- grep
+- isearch
+- mode-line
+- font-lock
+- newsticker
+- ace-jump-mode
+- anzu
+- full-ack
+- auctex (font-latex)
+- auto-complete
+- popup
+- android-mode
+- bm
+- clojure-test-mode
+- ctable
+- diff
+- dired+
+- ediff
+- ert
+- eshell
+- flx
+- flycheck
+- flymake
+- flyspell
+- erc
+- git-gutter
+- git-gutter-fr
+- gnus
+- guide-key
+- helm
+- hl-line-mode
+- hl-sexp
+- ido
+- iedit-mode
+- js2-mode
+- jabber-mode
+- linum-mode
+- macrostep
+- magit
+- egg
+- message-mode
+- mew
+- mic-paren
+- mingus
+- nav
+- mu4e
+- mumamo
+- org
+- outline
+- p4
+- perspective
+- powerline
+- rainbow-delimiters
+- rcirc
+- rpm-mode
+- rst-mode
+- show-paren
+- smartparens
+- sml-mode-line
+- slime
+- tabbar
+- term
+- volatile-highlights
+- emacs-w3m
+- web-mode
+- css-mode
+- whitespace-mode
+- wanderlust
+- which-func-mode
+- yascroll
+- ansi-color
+- fill-column-indicator
+- vc-annotate
+
+
+** スクリーンショット
+# (save-window-excursion (async-shell-command "emacs-test -eval '(load-theme (quote flatland) t)'"))
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_theme_template" t))
+
+#+ATTR_HTML: :width 480
+[[https://raw.github.com/gregchapple/flatland-emacs/master/flatland-emacs.png]]
+Fig1: 本家スクリーンショット
+
+
+
+** 設定
+#+BEGIN_SRC fundamental
+(load-theme 'flatland t)
+#+END_SRC
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ emacs -Q -f package-initialize -eval '(load-theme (quote flatland) t)'
+#+END_EXAMPLE
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
