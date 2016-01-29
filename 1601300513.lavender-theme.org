@@ -1,0 +1,132 @@
+#+BLOG: rubikitch
+#+POSTID: 2369
+#+DATE: [2016-01-30 Sat 05:13]
+#+PERMALINK: lavender-theme
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, theme
+#+EL_PKG_NAME: lavender-theme
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, color-theme, カラーテーマ
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: ダークなカラーテーマ
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージlavender-themeの紹介
+#+MYTAGS: package:lavender-theme, emacs 使い方, emacs コマンド, emacs, lavender-theme, lavender-theme.el, emacs lisp lavender-theme, elisp lavender-theme, emacs melpa lavender-theme, emacs lavender-theme 使い方, emacs lavender-theme 設定, emacs パッケージ lavender-theme, emacs lavender-theme スクリーンショット, color-theme, カラーテーマ
+#+TAGS: package:lavender-theme, emacs 使い方, emacs コマンド, emacs, lavender-theme, lavender-theme.el, emacs lisp lavender-theme, elisp lavender-theme, emacs melpa lavender-theme, emacs lavender-theme 使い方, emacs lavender-theme 設定, emacs パッケージ lavender-theme, emacs lavender-theme スクリーンショット, color-theme, カラーテーマ, Emacs, theme, lavender-theme.el
+#+TITLE: emacs lavender-theme.el : ダークなカラーテーマ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>lavender-theme</td></tr>
+<tr><td>概要(原文)</td><td>an Emacs 24 theme based on Lavender (tmTheme)</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/emacsfodder/emacs-lavender-theme">https://github.com/emacsfodder/emacs-lavender-theme</a></td></tr>
+<tr><td>バージョン</td><td>20141115.2302</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:lavender-theme/">package:lavender-theme</a> </td></tr>
+</table>
+<br />
+#+END_HTML
+*lavender-theme.el* は、以下のパッケージに対応したカラーテーマです。
+- linum
+- link
+- button
+- header-line
+- mode-line
+- isearch
+- tooltip
+- js3
+- cua-rectangle
+- magit
+- flyspell-mode
+- flymake-mode
+- git-gutter
+- diff
+- font-lock
+- rainbow-delimiters
+** lavender-theme インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install lavender-theme
+
+
+#+end:
+** 概要                                                             :noexport:
+*lavender-theme.el* は、以下のパッケージに対応したカラーテーマです。
+- linum
+- link
+- button
+- header-line
+- mode-line
+- isearch
+- tooltip
+- js3
+- cua-rectangle
+- magit
+- flyspell-mode
+- flymake-mode
+- git-gutter
+- diff
+- font-lock
+- rainbow-delimiters
+
+** スクリーンショット
+# (save-window-excursion (async-shell-command "emacs-test -eval '(load-theme (quote lavender) t)'"))
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_theme_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160130051423.png]]
+Fig1: emacs-lisp-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160130051427.png]]
+Fig2: magit
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160130051429.png]]
+Fig3: grep
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160130051432.png]]
+Fig4: outline-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160130051434.png]]
+Fig5: org-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160130051436.png]]
+Fig6: dired
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160130051438.png]]
+Fig7: web-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160130051440.png]]
+Fig8: markdown-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160130051443.png]]
+Fig9: helm
+
+
+#+ATTR_HTML: :width 480
+[[https://github.com/emacsfodder/emacs-lavender-theme/raw/master/lavender-theme.png]]
+Fig10: 本家スクリーンショット
+
+
+
+** 設定
+#+BEGIN_SRC fundamental
+(load-theme 'lavender t)
+#+END_SRC
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ emacs -Q -f package-initialize -eval '(load-theme (quote lavender) t)'
+#+END_EXAMPLE
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
