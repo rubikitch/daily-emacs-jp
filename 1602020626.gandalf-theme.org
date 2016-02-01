@@ -1,0 +1,125 @@
+#+BLOG: rubikitch
+#+POSTID: 2375
+#+DATE: [2016-02-02 Tue 06:26]
+#+PERMALINK: gandalf-theme
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, theme
+#+EL_PKG_NAME: gandalf-theme
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, color-theme, カラーテーマ
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: 白背景なカラーテーマ
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージgandalf-themeの紹介
+#+MYTAGS: package:gandalf-theme, emacs 使い方, emacs コマンド, emacs, gandalf-theme, gandalf-theme.el, emacs lisp gandalf-theme, elisp gandalf-theme, emacs melpa gandalf-theme, emacs gandalf-theme 使い方, emacs gandalf-theme 設定, emacs パッケージ gandalf-theme, emacs gandalf-theme スクリーンショット, color-theme, カラーテーマ
+#+TAGS: package:gandalf-theme, emacs 使い方, emacs コマンド, emacs, gandalf-theme, gandalf-theme.el, emacs lisp gandalf-theme, elisp gandalf-theme, emacs melpa gandalf-theme, emacs gandalf-theme 使い方, emacs gandalf-theme 設定, emacs パッケージ gandalf-theme, emacs gandalf-theme スクリーンショット, color-theme, カラーテーマ, Emacs, theme, gandalf-theme.el
+#+TITLE: emacs gandalf-theme.el : 白背景なカラーテーマ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>gandalf-theme</td></tr>
+<tr><td>概要(原文)</td><td>Gandalf color theme</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/ptrv/gandalf-theme-emacs">https://github.com/ptrv/gandalf-theme-emacs</a></td></tr>
+<tr><td>バージョン</td><td>20130809.247</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:gandalf-theme/">package:gandalf-theme</a> </td></tr>
+</table>
+<br />
+#+END_HTML
+*gandalf-theme.el* は、以下のパッケージに対応したカラーテーマです。
+- font-lock
+- mode-line
+- isearch
+- hl-line
+- erc
+- ido
+- magit
+- rainbow-delimiters
+- undo-tree
+- markdown-mode
+- flymake
+- eshell
+- diff
+** gandalf-theme インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install gandalf-theme
+
+
+#+end:
+** 概要                                                             :noexport:
+*gandalf-theme.el* は、以下のパッケージに対応したカラーテーマです。
+- font-lock
+- mode-line
+- isearch
+- hl-line
+- erc
+- ido
+- magit
+- rainbow-delimiters
+- undo-tree
+- markdown-mode
+- flymake
+- eshell
+- diff
+** スクリーンショット
+# (save-window-excursion (async-shell-command "emacs-test -eval '(load-theme (quote gandalf) t)'"))
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_theme_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160202062822.png]]
+Fig1: emacs-lisp-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160202062826.png]]
+Fig2: magit
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160202062828.png]]
+Fig3: grep
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160202062830.png]]
+Fig4: outline-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160202062832.png]]
+Fig5: org-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160202062834.png]]
+Fig6: dired
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160202062836.png]]
+Fig7: web-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160202062838.png]]
+Fig8: markdown-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160202062841.png]]
+Fig9: helm
+
+
+#+ATTR_HTML: :width 480
+[[https://github.com/ptrv/gandalf-theme-emacs/raw/master/screenshot.png]]
+Fig10: 本家スクリーンショット
+
+
+
+** 設定
+#+BEGIN_SRC fundamental
+(load-theme 'gandalf t)
+#+END_SRC
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ emacs -Q -f package-initialize -eval '(load-theme (quote gandalf) t)'
+#+END_EXAMPLE
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
