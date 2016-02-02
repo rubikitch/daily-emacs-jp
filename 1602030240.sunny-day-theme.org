@@ -1,0 +1,131 @@
+#+BLOG: rubikitch
+#+POSTID: 2377
+#+DATE: [2016-02-03 Wed 02:40]
+#+PERMALINK: sunny-day-theme
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, theme
+#+EL_PKG_NAME: sunny-day-theme
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, color-theme, カラーテーマ
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: 黄色背景なカラーテーマ
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージsunny-day-themeの紹介
+#+MYTAGS: package:sunny-day-theme, emacs 使い方, emacs コマンド, emacs, sunny-day-theme, sunny-day-theme.el, emacs lisp sunny-day-theme, elisp sunny-day-theme, emacs melpa sunny-day-theme, emacs sunny-day-theme 使い方, emacs sunny-day-theme 設定, emacs パッケージ sunny-day-theme, emacs sunny-day-theme スクリーンショット, color-theme, カラーテーマ
+#+TAGS: package:sunny-day-theme, emacs 使い方, emacs コマンド, emacs, sunny-day-theme, sunny-day-theme.el, emacs lisp sunny-day-theme, elisp sunny-day-theme, emacs melpa sunny-day-theme, emacs sunny-day-theme 使い方, emacs sunny-day-theme 設定, emacs パッケージ sunny-day-theme, emacs sunny-day-theme スクリーンショット, color-theme, カラーテーマ, Emacs, theme, sunny-day-theme.el
+#+TITLE: emacs sunny-day-theme.el : 黄色背景なカラーテーマ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>sunny-day-theme</td></tr>
+<tr><td>概要(原文)</td><td>Emacs24 theme with a light background.</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/mswift42/sunny-day-theme">https://github.com/mswift42/sunny-day-theme</a></td></tr>
+<tr><td>バージョン</td><td>20140413.1425</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:sunny-day-theme/">package:sunny-day-theme</a> </td></tr>
+</table>
+<br />
+#+END_HTML
+*sunny-day-theme.el* は、以下のパッケージに対応したカラーテーマです。
+- font-lock
+- hl-line
+- isearch
+- show-paren
+- mode-line
+- link
+- org
+- font-latex
+- ido
+- gnus
+- magit
+- auto-complete
+- change-log
+- diff
+- js2-mode
+- slime
+** sunny-day-theme インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install sunny-day-theme
+
+
+#+end:
+** 概要                                                             :noexport:
+*sunny-day-theme.el* は、以下のパッケージに対応したカラーテーマです。
+- font-lock
+- hl-line
+- isearch
+- show-paren
+- mode-line
+- link
+- org
+- font-latex
+- ido
+- gnus
+- magit
+- auto-complete
+- change-log
+- diff
+- js2-mode
+- slime
+** スクリーンショット
+# (save-window-excursion (async-shell-command "emacs-test -eval '(load-theme (quote sunny-day) t)'"))
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_theme_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160203024123.png]]
+Fig1: emacs-lisp-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160203024127.png]]
+Fig2: magit
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160203024129.png]]
+Fig3: grep
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160203024131.png]]
+Fig4: outline-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160203024133.png]]
+Fig5: org-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160203024134.png]]
+Fig6: dired
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160203024136.png]]
+Fig7: web-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160203024138.png]]
+Fig8: markdown-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160203024141.png]]
+Fig9: helm
+
+
+#+ATTR_HTML: :width 480
+[[https://github.com/mswift42/sunny-day-theme/raw/master/Screenshot.png]]
+Fig10: 本家スクリーンショット
+
+
+
+** 設定
+#+BEGIN_SRC fundamental
+(load-theme 'sunny-day t)
+#+END_SRC
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ emacs -Q -f package-initialize -eval '(load-theme (quote sunny-day) t)'
+#+END_EXAMPLE
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
