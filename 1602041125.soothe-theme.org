@@ -1,0 +1,170 @@
+#+BLOG: rubikitch
+#+POSTID: 2379
+#+DATE: [2016-02-04 Thu 11:25]
+#+PERMALINK: soothe-theme
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, theme
+#+EL_PKG_NAME: soothe-theme
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, color-theme, カラーテーマ
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: 黒背景のカラーテーマ
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージsoothe-themeの紹介
+#+MYTAGS: package:soothe-theme, emacs 使い方, emacs コマンド, emacs, soothe-theme, soothe-theme.el, emacs lisp soothe-theme, elisp soothe-theme, emacs melpa soothe-theme, emacs soothe-theme 使い方, emacs soothe-theme 設定, emacs パッケージ soothe-theme, emacs soothe-theme スクリーンショット, color-theme, カラーテーマ
+#+TAGS: package:soothe-theme, emacs 使い方, emacs コマンド, emacs, soothe-theme, soothe-theme.el, emacs lisp soothe-theme, elisp soothe-theme, emacs melpa soothe-theme, emacs soothe-theme 使い方, emacs soothe-theme 設定, emacs パッケージ soothe-theme, emacs soothe-theme スクリーンショット, color-theme, カラーテーマ, Emacs, theme, soothe-theme.el
+#+TITLE: emacs soothe-theme.el : 黒背景のカラーテーマ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>soothe-theme</td></tr>
+<tr><td>概要(原文)</td><td>a dark colorful theme for Emacs24.</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/jasonm23/emacs-soothe-theme">https://github.com/jasonm23/emacs-soothe-theme</a></td></tr>
+<tr><td>バージョン</td><td>20141027.741</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:soothe-theme/">package:soothe-theme</a> </td></tr>
+</table>
+<br />
+#+END_HTML
+*soothe-theme.el* は、以下のパッケージに対応したカラーテーマです。
+- hl-line
+- font-lock
+- link
+- mode-line
+- which-func
+- isearch
+- auto-complete
+- tooltip
+- popup
+- dired
+- js3-mode
+- diff
+- linum
+- show-paren-mode
+- ido
+- whitespace-mode
+- flyspell-mode
+- flymake-mode
+- dropdown-list
+- git-gutter
+- magit
+- diff-hl
+- iedit
+- highlight-indentation-mode
+- ecb
+- org
+- cua-mode
+- hl-sexp
+- rainbow-delimiters
+- powerline
+- fill-column-indicator
+** soothe-theme インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install soothe-theme
+
+
+#+end:
+** 概要                                                             :noexport:
+*soothe-theme.el* は、以下のパッケージに対応したカラーテーマです。
+- hl-line
+- font-lock
+- link
+- mode-line
+- which-func
+- isearch
+- auto-complete
+- tooltip
+- popup
+- dired
+- js3-mode
+- diff
+- linum
+- show-paren-mode
+- ido
+- whitespace-mode
+- flyspell-mode
+- flymake-mode
+- dropdown-list
+- git-gutter
+- magit
+- diff-hl
+- iedit
+- highlight-indentation-mode
+- ecb
+- org
+- cua-mode
+- hl-sexp
+- rainbow-delimiters
+- powerline
+- fill-column-indicator
+
+** スクリーンショット
+# (save-window-excursion (async-shell-command "emacs-test -eval '(load-theme (quote soothe) t)'"))
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_theme_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160204112753.png]]
+Fig1: emacs-lisp-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160204112759.png]]
+Fig2: magit
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160204112801.png]]
+Fig3: grep
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160204112803.png]]
+Fig4: outline-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160204112804.png]]
+Fig5: org-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160204112806.png]]
+Fig6: dired
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160204112808.png]]
+Fig7: web-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160204112809.png]]
+Fig8: markdown-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160204112812.png]]
+Fig9: helm
+
+
+#+ATTR_HTML: :width 480
+[[https://raw.githubusercontent.com/emacsfodder/emacs-soothe-theme/master/soothe-terminal.png]]
+Fig10: 本家スクリーンショット
+
+#+ATTR_HTML: :width 480
+[[https://raw.githubusercontent.com/emacsfodder/emacs-soothe-theme/master/soothe-ruby.png]]
+Fig11: 本家スクリーンショット
+
+#+ATTR_HTML: :width 480
+[[https://raw.githubusercontent.com/emacsfodder/emacs-soothe-theme/master/soothe-html.png]]
+Fig12: 本家スクリーンショット
+
+
+
+** 設定
+#+BEGIN_SRC fundamental
+(load-theme 'soothe t)
+#+END_SRC
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ emacs -Q -f package-initialize -eval '(load-theme (quote soothe) t)'
+#+END_EXAMPLE
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
