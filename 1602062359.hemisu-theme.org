@@ -1,0 +1,181 @@
+#+BLOG: rubikitch
+#+POSTID: 2383
+#+DATE: [2016-02-06 Sat 23:59]
+#+PERMALINK: hemisu-theme
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, theme
+#+EL_PKG_NAME: helmisu-theme
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, color-theme, カラーテーマ
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: 白背景・黒背景カラーテーマセット
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: Emacs Lispパッケージhelmisu-themeの紹介
+#+MYTAGS: package:helmisu-theme, emacs 使い方, emacs コマンド, emacs, helmisu-theme, helmisu-theme.el, emacs lisp helmisu-theme, elisp helmisu-theme, emacs  helmisu-theme, emacs helmisu-theme 使い方, emacs helmisu-theme 設定, emacs パッケージ helmisu-theme, emacs helmisu-theme スクリーンショット, color-theme, カラーテーマ
+#+TAGS: package:helmisu-theme, emacs 使い方, emacs コマンド, emacs, helmisu-theme, helmisu-theme.el, emacs lisp helmisu-theme, elisp helmisu-theme, emacs  helmisu-theme, emacs helmisu-theme 使い方, emacs helmisu-theme 設定, emacs パッケージ helmisu-theme, emacs helmisu-theme スクリーンショット, color-theme, カラーテーマ, Emacs, theme, helmisu-theme.el
+#+TITLE: emacs helmisu-theme.el : 白背景・黒背景カラーテーマセット |  Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>helmisu-theme</td></tr>
+<tr><td>概要(原文)</td><td>EL_DOCに説明文を入れてください</td></tr>
+<tr><td>リポジトリ</td><td>まだパッケージに登録されていない</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:helmisu-theme/">package:helmisu-theme</a> </td></tr>
+</table>
+<br />
+#+END_HTML
+*helmisu-theme.el* は、以下のパッケージに対応したカラーテーマ群です。
+- button
+- font-lock
+- header-line
+- mode-line
+- fill-column-indicator
+
+以下のカラーテーマが定義されています。
+
+- hemisu-dark
+- hemisu-light
+
+
+
+#+ATTR_HTML: :width 480
+[[https://raw.github.com/andrzejsliwa/hemisu-theme/master/screenshot.png]]
+Fig1: 本家スクリーンショット
+
+
+** helmisu-theme インストール
+これはまだパッケージ化されていないので、[[http://rubikitch.com/package-initialize/#sec-2][手動でインストール]] する必要があります。
+
+
+#+end:
+** 概要                                                             :noexport:
+*helmisu-theme.el* は、以下のパッケージに対応したカラーテーマ群です。
+- button
+- font-lock
+- header-line
+- mode-line
+- fill-column-indicator
+
+以下のカラーテーマが定義されています。
+#+begin: org2blog-sub-color-themes
+- hemisu-dark
+- hemisu-light
+
+#+end:
+
+#+ATTR_HTML: :width 480
+[[https://raw.github.com/andrzejsliwa/hemisu-theme/master/screenshot.png]]
+Fig2: 本家スクリーンショット
+
+
+
+** theme: hemisu-dark
+# *hemisu-dark-theme.el*
+*** スクリーンショット
+# (save-window-excursion (async-shell-command "emacs-test -eval '(load-theme (quote hemisu-dark) t)'"))
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_theme_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160207000139.png]]
+Fig3: emacs-lisp-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160207000143.png]]
+Fig4: magit
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160207000146.png]]
+Fig5: grep
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160207000148.png]]
+Fig6: outline-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160207000151.png]]
+Fig7: org-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160207000153.png]]
+Fig8: dired
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160207000155.png]]
+Fig9: web-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160207000157.png]]
+Fig10: markdown-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160207000200.png]]
+Fig11: helm
+
+
+*** 設定
+#+BEGIN_SRC fundamental
+(load-theme 'hemisu-dark t)
+#+END_SRC
+
+*** 実行方法
+#+BEGIN_EXAMPLE
+$ emacs -Q -f package-initialize -eval '(load-theme (quote hemisu-dark) t)'
+#+END_EXAMPLE
+
+** theme: hemisu-light
+# *hemisu-light-theme.el*
+*** スクリーンショット
+# (save-window-excursion (async-shell-command "emacs-test -eval '(load-theme (quote hemisu-light) t)'"))
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_theme_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160207000238.png]]
+Fig12: emacs-lisp-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160207000242.png]]
+Fig13: magit
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160207000244.png]]
+Fig14: grep
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160207000246.png]]
+Fig15: outline-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160207000247.png]]
+Fig16: org-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160207000249.png]]
+Fig17: dired
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160207000251.png]]
+Fig18: web-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160207000253.png]]
+Fig19: markdown-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160207000256.png]]
+Fig20: helm
+
+
+
+*** 設定
+#+BEGIN_SRC fundamental
+(load-theme 'hemisu-light t)
+#+END_SRC
+
+*** 実行方法
+#+BEGIN_EXAMPLE
+$ emacs -Q -f package-initialize -eval '(load-theme (quote hemisu-light) t)'
+#+END_EXAMPLE
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
