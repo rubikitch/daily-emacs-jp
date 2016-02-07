@@ -9,7 +9,7 @@
 #+BLOG: rubikitch
 #+CATEGORY: Emacs, 連載『るびきち流Emacs超入門』
 #+DESCRIPTION:今回のテーマは、ディレクトリ内のファイルの一覧、各種操作を行えるファイラー「dired」。ファイルのコピーや削除といった基本操作から、マーク・削除フラグの使い方、画面のカスタマイズ、シェルコマンドとの連携をお教えします。ファイルのリネームなどを直観的に行える「wdired」も紹介します。
-#+MYTAGS: package:dired, package:wdired, dired-do-shell-command
+#+TAGS: package:dired, package:wdired, dired-do-shell-command
 #+TITLE: #7 多機能ファイラー「dired」 (Software Design 2014年11月号掲載記事) Emacs dired wdired インストール 設定 使い方
 Software Design連載記事を掲載します。
 
