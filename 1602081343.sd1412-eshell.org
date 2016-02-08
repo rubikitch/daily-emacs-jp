@@ -1,0 +1,441 @@
+#+BLOG: rubikitch
+#+POSTID: 2388
+#+DATE: [2016-02-08 Mon 13:43]
+#+PERMALINK: sd1412-eshell
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, 連載『るびきち流Emacs超入門』
+#+DESCRIPTION:
+#+TAGS:package:eshell, emacs shell, 
+#+TITLE: #8 カスタマブルな Emacs Lisp 製シェル「eshell」 (Software Design 2014年12月号掲載記事) Emacs  インストール 設定 使い方
+Software Design連載記事を掲載します。
+
+株式会社技術評論社の許可を得て掲載しています。
+草稿なので細かい部分は実際の記事とは異なることがあります。
+
+他の記事は左下にある「■雑誌連載中(全文公開)」から見られます。
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+* eshellとは
+　Emacs 24.4がリリースされましたね！筆者のサイト「日刊Emacs」でも新機能レビューしています。http://rubikitch.com/category/emacs-24-4/
+
+　Emacsでは様々なアプリケーションがEmacs Lispで書かれています。eshellはEmacs Lispで書かれたシェルです。Emacsとシェルといえば通常のシェル(bash、zshなど)をEmacsのバッファで動かすM-x shellがありますが、eshellはそれよりもEmacsとの親和性が強いです。シェルスクリプトよりもEmacsが好きな筆者は、eshellを愛用しています。
+
+　eshellはすべてがEmacs Lispで書かれています。その事実はたくさんのメリットをもたらします。
+
+　まず、eshellはプラットフォームを選びません。Emacsが動く環境であればすべての環境でeshellが動きます。特にUnix系OSを得意とする人がWindowsを使わされている場合、eshellは強い味方になります。WindowsでもGNU Screenやzshなどを導入できますが、eshellはEmacsさえインストールすれば即座に使える手軽さがあります。代表的なUnixコマンドもEmacs Lispで実装されているので、そのままでcpやmvなどが実行できます。WindowsでもUnix系OSに負けない強力なシェルが使えるということです。
+
+　そして、前回のdiredのところでお話したように、Emacs Lispで書かれているということは、すべての挙動がコントロール可能ということです。他のシェルでもシェルスクリプトで柔軟にカスタマイズできますが、それにも限界があります。シェルのコアとなる部分がＣ言語で書かれているので、コアに触れるカスタマイズまではできません。対してeshellはコアも含めてEmacs Lispで書かれているので、コアを再定義できます。新機能追加も自由自在で、あっさりとオレオレeshellが構築できます。
+
+　M-x shellのメリットはすべて受け継いでいます。バッファに出力が蓄積するのでスクロールしてしまった出力をあっさり遡れます。入力補完機能も当然あります。コマンドの出力を他のバッファに貼り付けるのも楽勝です。
+
+　とはいえM-x shellではシェル本来の機能を発揮しきれない欠点があります。とくにzshには、Emacsではないかと錯覚してしまうほどの能力を持っています。実際zshにおいてM-xをタイプすると、様々なコマンドが実行できます。zshは実際のところ行指向どころか画面指向のシェルという様相です。設定すればM-x tetrisでzshでテトリスが遊べてしまいます。M-x shellでは、シェル独自の機能を殺してしまうのです。eshellはそれ自体が完結されたシェルであるため、当然M-x shellよりもシェルとして作り込まれています。
+
+　eshellはEmacsのシェルだけあって、Emacs Lispとの連携ができます。具体的にはeshellから直接Emacs Lisp式を評価させたり、Emacsのコマンドを実行したりもできます。さらにおもしろいことに、Emacs Lispの任意の関数をシェル形式で呼び出せます。とにかくeshellからはすべてのEmacsの機能が呼び出せるので、eshellのバックにはすべてのEmacsの関数・コマンドが味方についているのです。Emacsのスキルが上がれば自動的にeshellも強化されます。まさにEmacsヘビーユーザーにとって最強のシェルといえるでしょう。
+
+　eshellはそれ自体がシェルの働きをするので、シェルの基本的な機能はすべておさえてあります。リダイレクト・パイプ、複文、コマンド・ファイル名補完、バッククォート、シェル変数、エイリアスも実装されています。複雑なので本稿では解説しませんが、状況に応じて補完できるプログラマブル補完(pcomplete)もあります。また、zshのグロブ(ワイルドカード)も実装されています。
+
+　一方でeshellはEmacsの機能にシェルのインターフェースでアクセスしているものと考えることができます。Emacsは元来テキストエディタであり2次元ですが、シェルのコマンドラインは1次元です。テキストエディタがシェルを模倣するのは容易いことです。eshellで書かれた命令を内部でLispに変換してEmacsに送信しています。
+
+* 起動
+　eshellを起動するには、M-x eshellを実行します。すると、M-x shell同様なプロンプトが出てきます。あとは通常通りシェルとして使っていけばいいです。
+
+　eshellは複数枚立ち上げられます。C-u M-x eshellで新しいeshellバッファが作成されます。C-u 数字 M-x eshellで *eshell*<数字> バッファが作成されます。それぞれのeshellバッファは独立したカレントディレクトリが持てます。複数のディレクトリで作業する場合に便利です。
+
+#+ATTR_HTML: :width 480
+http://rubikitch.com/f/20140910091545.png
+Fig1: M-x eshell
+
+#+ATTR_HTML: :width 480
+http://rubikitch.com/f/20140910091602.png
+Fig2: C-u 22 M-x eshell
+
+　M-x eshell-commandは、M-!のeshell版です。eshellで一回だけコマンドを実行するのに便利です。
+
+* リダイレクト・パイプ
+　eshellは出力リダイレクト・パイプが実装されています。使い方は通常のシェルと変わりません。
+
+#+BEGIN_EXAMPLE
+~ $ echo xxx > test.txt
+~ $ cat test.txt
+xxx
+~ $ echo foo | wc
+      0       1       3
+#+END_EXAMPLE
+　zshと同様に複数のファイルに書き込んだり、リダイレクト後にパイプを通すことも可能です。eshell版echoはデフォルトでは改行を入れないので-nで改行を入れています。
+
+#+BEGIN_EXAMPLE
+~ $ echo -n hoge > a > b > c | wc
+      1       1       5
+~ $ cat a
+hoge
+~ $ cat b
+hoge
+~ $ cat c
+hoge
+#+END_EXAMPLE
+　eshellならではの仮想デバイスもあります。/dev/nullはeshell側で実装されているのでWindowsでも使えます。
+
+#+BEGIN_EXAMPLE
+~ $ echo test > /dev/null
+[出力を非表示にする]
+~ $ echo test > /dev/kill
+[出力をキルリングに入れる(内容:test)]
+~ $ echo test >> /dev/kill
+[出力をキルリングに追記する(内容:testtest)]
+~ $ echo test > /dev/clip
+[出力をクリップボードに入れる]
+#+END_EXAMPLE
+
+　リダイレクト先にバッファも指定できるのはさすがEmacs上のシェルです。話の都合上、先に出してしまいましたが、eshellではLisp式を評価させることができます。
+
+#+BEGIN_EXAMPLE
+~ $ echo buf > #<buffer output>
+[バッファoutputに出力する]
+~ $ (with-current-buffer "output" (buffer-string))
+[バッファoutputの内容を表示する]
+buf
+~ $ echo buf >> #<buffer output>
+[バッファoutputに追記する]
+~ $ (with-current-buffer "output" (buffer-string))
+bufbuf
+~ $ (with-current-buffer "output" (goto-char 4))
+[バッファoutputのカーソルを移動させる]
+4
+~ $ echo X >>> #<buffer output>
+[バッファoutputの現カーソル位置に出力する]
+~ $ (with-current-buffer "output" (buffer-string))
+bufXbuf
+#+END_EXAMPLE
+* 複文
+　eshellでの複文はUnixシェルと同じです。
+
+- 「;」で続けてコマンドを実行
+- 「&&」で前のコマンドが正常終了なら次のコマンドを実行
+- 「||」で前のコマンドが異常終了なら次のコマンドを実行
+
+
+#+BEGIN_EXAMPLE
+~ $ echo a; echo b
+[echo aとecho bを実行する]
+a
+b
+
+~ $ sh -c 'exit 0' && echo normal
+[終了ステータス0(正常終了)なのでnormalが表示される]
+normal
+~ $ sh -c 'exit 1' && echo normal
+[終了ステータスが1(異常終了)なのでnormalは表示されない]
+~ $ sh -c 'exit 0' || echo abnormal
+[正常終了なのでechoは実行されない]
+~ $ sh -c 'exit 1' || echo abnormal
+[異常終了なのでechoは実行される]
+abnormal
+
+#+END_EXAMPLE
+* シェル変数
+　eshellにおけるシェル変数はEmacsの変数です。シェル変数を設定するにはsetqコマンドを使います。シェル変数は変数名の前に$をつけて参照します。
+
+#+BEGIN_EXAMPLE
+~ $ setq a 10
+10
+~ $ echo $a
+10
+~ $ echo a=$a
+a=10
+
+#+END_EXAMPLE
+　文字列は通常のシェル同様""と''で囲むことができ、両者の違いも同じです。
+
+#+BEGIN_EXAMPLE
+~ $ echo "a=$a"
+a=10
+~ $ echo 'a=$a'
+a=$a
+~ $ echo "a"$a"a"
+a10a
+~ $ echo a$a"a"
+a10a
+
+#+END_EXAMPLE
+* コマンド実行結果を引数にする
+　eshellでコマンド実行結果を引数にするには {〜} を使います。シェルのバッククォートとは異なるので気をつけてください。{〜}の中はeshellのコマンドそのものなので、Lisp式も書けます。文字列に埋め込むには${〜}を使います。
+
+#+BEGIN_EXAMPLE
+~ $ cd /
+/ $ pwd
+/
+/ $ echo `pwd`
+`pwd`
+/ $ echo {pwd}
+/
+/ $ echo ${pwd}
+/
+/ $ echo pwd=${pwd}
+pwd=/
+/ $ echo "pwd=${pwd}"
+pwd=/
+/ $ echo {(+ 3 4)}
+7
+
+#+END_EXAMPLE
+* Lisp式評価
+　eshellはEmacs Lispで書かれたシェルなので、eshellの中でLisp式を評価させることも簡単です。関数呼び出し(開括弧から始まる)についてはそのまま実行できます。なおconcat関数は引数に指定した文字列を結合した文字列を返します。
+
+#+BEGIN_EXAMPLE
+~ $ (+ 1 2)
+3
+~ $ (concat "foo" "bar")
+foobar
+
+#+END_EXAMPLE
+　関数呼び出しそのものもeshellのコマンドになるので、「;」で区切って複数の実行結果を得ることもできます。
+
+#+BEGIN_EXAMPLE
+~ $ (+ 1 2); (+ 3 4)
+3
+7
+
+#+END_EXAMPLE
+　関数呼び出しの結果を文字列に埋め込むには$(〜)を使います。なお、*echoはeshellの内部コマンドのechoではなくて外部コマンドのechoを呼び出します。内部コマンドのechoは複数の引数をリスト化する性質があります。
+
+#+BEGIN_EXAMPLE
+~ $ echo $(+ 1 2) $(+ 3 4)
+(3 7)
+~ $ echo "$(+ 1 2) $(+ 3 4)"
+3 7
+~ $ *echo $(+ 1 2) $(+ 3 4)
+3 7
+#+END_EXAMPLE
+　ただし、変数の値を得る場合は変数名がコマンド名とみなされるため、そのままではうまくいきません。Lisp式の評価値を表示するeshell/e関数を定義することで、eshellでeコマンドが使えるようにしておきます。(List1)
+
+　eコマンドは変数の評価値をきれいな表示形式(pp形式)で出力します。表示形式にすると文字列は""で囲まれ、nilはnilと表示されます。通常の表示形式(prin1形式)ではなくてきれいな表示形式にすると、ネストしたリストは複数行に分けて見やすく表示してくれます。
+
+
+==== List1:Emacs Lisp評価関数
+#+INCLUDE: ~/book/sd-emacs-rensai/08-e.el src emacs-lisp
+====
+
+#+BEGIN_EXAMPLE
+~ $ setq a 1
+1
+~ $ a
+a: command not found
+~ $ echo $a
+1
+~ $ e a
+1
+~ $ e emacs-version
+"24.4.1"
+~ $ e nil
+nil
+
+#+END_EXAMPLE
+　元々Emacs Lispをシェル的インターフェースで評価するM-x ielmがありますが、eshellを使えばもはや不要です。
+
+* Emacs Lispをシェル的に実行させる
+　eshellにおいては、Lisp関数をシェルコマンドのように呼び出せます。Lisp関数呼び出しは
+(関数名 引数 引数...)
+の形式ですが、この機能を使うことで括弧が省けます。
+
+#+BEGIN_EXAMPLE
+<書式>
+関数名 引数 引数...
+#+END_EXAMPLE
+
+#+BEGIN_EXAMPLE
+~ $ find-file ~/.emacs.d/init.el
+#<buffer init.el>
+#+END_EXAMPLE
+　この場合、Emacs Lispをeshellのコマンドとして実行しています。このように実体がEmacs Lispであってもeshellの文法に則り、$で変数の値を参照します。
+
+#+BEGIN_EXAMPLE
+~ $ find-file $user-init-file
+#<buffer init.el>
+
+#+END_EXAMPLE
+
+　引数に渡されたオブジェクトは適宜型変換されます。たとえば整数を渡したら整数型に、小数を渡したら浮動小数点数型になります。型変換を抑制し、文字列そのものとして渡すには""か''で囲みます。
+
+　シンボルを渡すには「`」でバッククオートします。Emacs Lispにおいてバッククォートはリスト展開機能を含むクオート(')で、複雑なリストを作成したりマクロを定義するときに使われます。Emacs Lispの関数呼び出しにおいて、シンボルを渡すにはシンボル名にクオートするのとバッククォートするのとでは同じ結果になります。eshellではクオートはシェルの文字列表現として使われているので、バッククォートがeshellにおけるシンボル渡しに適任なのです。eshellでシェル的バッククォートが使えないのは、こういう背景があるからです。
+
+#+BEGIN_EXAMPLE
+~ $ symbol-name `a
+a
+
+#+END_EXAMPLE
+
+　バッククォートが``のように囲まれている場合は、文字列としてそのまま渡されます。
+
+#+BEGIN_EXAMPLE
+~ $ echo `pwd`
+`pwd`
+~ $ echo `pwd
+pwd
+
+#+END_EXAMPLE
+　引数にリストを渡す場合もバッククォートします。eコマンドにリストを渡したらそれを関数呼び出しとして評価します。そのため、関数を評価するときにはバッククォートを置く必要があります。
+
+#+BEGIN_EXAMPLE
+~ $ e (concat "foo" "bar")
+[評価結果foobarを変数名として参照するため未定義エラー]
+Symbol's value as variable is void: foobar
+~ $ e `(concat "foo" "bar")
+"foobar"
+~ $ e `(+ 1 2)
+3
+~ $ e `(symbol-name `a)
+"a"
+#+END_EXAMPLE
+
+** 優先順位
+　なお、Lisp関数のシェル的呼び出しが使えるのには条件があります。この条件がなければ、同名のシェルコマンドが存在するのに実行できなくなり、意図しない結果になるからです。
+
+1. eshell/CMD関数が定義されているときはそれを実行
+2. CMDシェルコマンドが存在するときはシェルコマンドを実行
+3. CMD関数が定義されているときはそれを実行
+
+　eshell/CMDはeshell専用のコマンドで、シェルコマンドよりも優先されます。さきほど定義したeshell/eがまさにその例で、eshellでのみeコマンドが使えるようになりました。e関数として定義してしまうと、Emacs全体で使えるようになり範囲が広すぎます。おまけにeシェルコマンドが存在するときはそれが実行されてしまうことになります。
+
+　この優先順位の差をうまく使っているのがeshell/grepです。eshell上でファイルに対してgrepを呼び出すとM-x grepが実行されます。grepシェルコマンドが存在し、grep関数(M-x grep)も定義されていますが、eshell/grepはeshellで渡された引数をM-x grepに合うように変換してM-x grepを実行しています。他にもeshell/egrepやeshell/fgrepやeshell/agrepも定義されており、同名のシェルコマンドの実行結果をM-x grepで実行するようになっています。
+
+　eshell/grepは賢い挙動をします。ファイルに対してgrepを実行したらgrep -nをM-x grepで表示します。対して、パイプ経由でgrepが呼ばれた場合はM-x grepを使いません。このように、eshell/grepは空気を読んでくれます。あなたは、ただ普通にgrepを実行するだけでいいのです。
+
+* エイリアス
+　eshellにもエイリアス機能があります。eshellのエイリアスは定義すると即座にファイルに保存され、永続化されます。
+
+
+#+BEGIN_EXAMPLE
+<書式>
+alias 別名 '定義'
+#+END_EXAMPLE
+
+　「ll」を「ls -l」のエイリアスに定義します。それでは、以下のように打ち込んでください。
+
+#+BEGIN_EXAMPLE
+~ $ alias ll 'ls -l $*'
+#+END_EXAMPLE
+
+　他のシェルとは異なり、エイリアスに渡された引数に展開する$*が必要です。また、$*をそのまま渡す必要があるため、エイリアス定義には' 'で囲む必要もあります。
+
+　定義を省略することで、そのエイリアスを削除します。
+
+#+BEGIN_EXAMPLE
+~ $ alias ll
+#+END_EXAMPLE
+
+
+　エイリアスはコマンド実行の優先順位では最上位に位置します。そのため、たとえeshell/ll関数が定義されていたとしても、エイリアスllが定義されているときには、ls -lにエイリアス展開されます。
+
+
+* 弱点
+　eshellは魅力的なシェルですが、弱点もいくつかあります。弱点はeshellがEmacs Lispで書かれていることとEmacsのバッファに起因します。ですが、ちゃんと抜け道もあるので安心してください。筆者はeshellを愛用しているのは、それぞれの弱点を克服する方法があり、eshellのメリットが強力だからです。そもそも弱点にひっかかる頻度は多くないです。
+
+- リダイレクト・パイプの処理速度がとても遅い
+- 他の文字コード・バイナリデータが扱えない
+- 入力リダイレクトが未実装
+- 画面指向プログラムがそのまま実行できない
+- Emacs Lisp版Unixコマンドが遅い
+
+** リダイレクト・パイプの弱点を克服する
+　リダイレクト・パイプもelispで実装されていて、バッファを経由します。これはWindowsでもそのまま動作する利点はあるものの、欠点の方が目立ちます。
+
+　まず、処理速度が通常のシェルと比べて圧倒的に遅いです。少量のデータならば問題ないですが、大量のデータは扱えません。
+
+　次にエンコーディングの問題です。通常のシェルではバイナリデータとして扱いますが、eshellではいつものエンコーディング(UTF-8など)で処理してしまいます。そのため、バイナリファイルや他のエンコーディングのテキストを扱うときに混乱してしまいます。
+
+　おまけに、入力リダイレクトも実装されていません。おそらく使用頻度が低いことと、実装が困難だからでしょう。入力リダイレクトは使えないもののcatとパイプで代用する方法もあります。
+
+　これらの問題を克服するには本物のシェルを呼び出します。zsh -c '〜'で(shでも可)囲んでしまいます。「'」の中で「'」を埋め込むには「''」を使います。
+
+#+BEGIN_EXAMPLE
+~ $ zsh -c 'echo ''foo'''
+foo
+~ $ wc ~/.emacs.d/init.el
+ 11  32 388 /r/.emacs.d/init.el
+~ $ zsh -c 'wc < ~/.emacs.d/init.el'
+ 11  32 388
+~ $ cat ~/.emacs.d/init.el | wc
+     11      32     388
+~ $ zsh -c 'nkf -e utf8.txt > euc.txt'
+
+#+END_EXAMPLE
+
+　アーカイブをダウンロードしながら展開する場合もeshellでは困難です。かといってシェルを呼び出しても冗長になります。こういう場合はエイリアスでカバーしましょう。dextgzのエイリアス定義はクオートの関係でちょっと複雑です。エイリアス定義の際には""で囲まれた中で$もそのまま渡しておきたいので、\$と指定しています。もちろん専用のシェルスクリプトを書く方法もあります。
+
+#+BEGIN_EXAMPLE
+~ $ zsh -c 'curl -s http://example.com/foo.tar.gz | tar xzvf -'
+~ $ alias dextgz zsh -c "\"curl -s '\$1' | tar xzvf -\""
+~ $ dextgz http://example.com/foo.tar.gz
+
+#+END_EXAMPLE
+** 画面指向のプログラムを実行する
+　eshellはEmacsのバッファで実装されているため、画面全体を使うコンソールアプリはそのままでは動きません。たとえばw3mやlynxといったテキストブラウザ、topなどのcursesアプリケーションです。これらをeshellで直接動かすとeshell自体が混乱してしまいます。そこで端末エミュレーターを使って起動させるように設定します。
+
+　eshell-visual-commands(List2)に指定したコマンドをeshellから起動すると、端末エミュレーターを使います。
+
+List1:eshell-visual-commands初期値
+#+BEGIN_EXAMPLE
+(setq eshell-visual-commands
+  '("vi"                                ; what is going on??
+    "screen" "top"                      ; ok, a valid program...
+    "less" "more"                       ; M-x view-file
+    "lynx" "ncftp"                      ; w3.el, ange-ftp
+    "pine" "tin" "trn" "elm")           ; GNUS!!
+   )
+#+END_EXAMPLE
+
+　eshellで使う端末エミュレーターはEmacs Lispで書かれたtermがデフォルトですが、いかんせん動作が遅いです。そこでtermの代わりにxtermなどを使うとよいです。筆者は高速軽量なrxvt-unicode(urxvt)を使っています。eshellがtermを呼び出すeshell-exec-visual関数を丸ごと再定義しています。(List3)
+
+List2:eshellからurxvtを呼び出す設定
+#+BEGIN_EXAMPLE
+(require 'em-term)
+(defun eshell-exec-visual (&rest args)
+  (apply 'start-process
+         "eshell-exec-visual" " eshell-exec-visual"
+         "urxvt" "-title" "eshell-exec-visual" "-e" args)
+  nil)
+#+END_EXAMPLE
+
+** Unixコマンドエミュレーションを無効にする
+　eshellには内部コマンドとしてcpやmvなどの基本的なUnixコマンドが定義されています。このおかげでWindowsでもそれらのコマンドが使えます。
+
+　しかし、それらはelispで実装されているため、動作はとても遅いです。しかもコピー動作中はEmacsが固まってしまうので、大きいファイルを扱うときには耐えがたい苦痛です。おまけにサポートされているオプションが本物よりも少ないです。
+
+　この「劣化Unixコマンド問題」を回避するには以下をeshell関連の設定の先頭に加えます。eshellはモジュール構成になっているので、不要なモジュールを読み込まないようにすればいいのです。(List4)
+
+List3:Unixコマンドエミュレーション無効化
+#+BEGIN_EXAMPLE
+(eval-after-load "esh-module"
+    '(setq eshell-modules-list (delq 'eshell-ls (delq 'eshell-unix eshell-modules-list))))
+#+END_EXAMPLE
+
+
+　eshellの挙動の一貫性を保つためだとは思いますが、本物のUnixコマンドが存在するのにEmacs Lisp版がデフォルトで実行されるのは、やりすぎだと筆者は考えています。それならば、Windowsであってもgnupack(Cygwin含む日本語Emacs環境)等で基本的なUnixコマンドをインストールした方が快適です。
+
+　ですが根本的にはGNU/LinuxなどのUnix系OSをメイン環境にすることが一番です。Windowsでは外部プログラム周りで余計な苦労をします。まるで持病のようです。特にCygwinとMinGWとWindowsネイティブ間でのくい違いはあまりにも痛いです。確かにパッケージマネージャーChocolateyは便利ですが提供されているバイナリが古いこともあります。
+
+　Windowsしか使っていないのであれば、この機会にぜひ一度GNU/Linuxを試してみてください。Emacsに限らず最新ソフトウェアをコマンド一発でインストールできます。Windowsでは動作しなかった、あるいは動作させるのにものすごく苦労したものがGNU/Linuxではあっさり動作することが多々あります。非本質的な問題によるストレスから解放された喜びをぜひとも感じていただきたいです。Emacsをここまで乗りこなせたあなたならばすぐに慣れます。
+* まとめ
+　eshellの主な操作方法を表にまとめておきます。eshellはとても奥が深い世界であり、ここで伝えたことはほんのさわりに過ぎません。シェルコマンドとEmacs Lispが絶妙なバランスで調和した世界をお楽しみください。
+
+表:eshell操作方法のまとめ
+| キー    | 解説                                |
+|---------+-------------------------------------|
+| RET     | コマンド実行                        |
+| M-p     | 前の履歴を取り出す                  |
+| M-n     | 後の履歴を取り出す                  |
+| C-a     | コマンドラインの行頭へ              |
+| C-c C-c | コマンドを強制終了                  |
+| C-c C-d | EOFを送信                           |
+| C-c C-e | コマンドラインを最下行に持っていく  |
+| C-c C-r | 直前のコマンド出力の先頭へ          |
+| C-c C-l | 履歴を一覧表示                      |
+| C-c C-m | 現在のコマンドラインをコピー        |
+| C-c C-p | 前のコマンドラインへ                |
+| C-c C-n | 後のコマンドラインへ                |
+| C-c C-u | コマンドラインをキル                |
+| C-c C-y | 直前の引数をコピー                  |
+ 
