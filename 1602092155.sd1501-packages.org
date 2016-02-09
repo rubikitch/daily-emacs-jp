@@ -1,0 +1,256 @@
+#+BLOG: rubikitch
+#+POSTID: 2390
+#+DATE: [2016-02-09 Tue 21:55]
+#+PERMALINK: sd1501-packages
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, 連載『るびきち流Emacs超入門』, ido
+#+DESCRIPTION:
+#+TAGS:package:ido package:bs package:ffap package:recentf-ext package:point-undo package:goto-chg package:bm package:imenu package:visual-regexp package:rectangle-mark-mode package:browse-kill-ring#+TITLE: #9 すぐに使える！　便利な 11 のパッケージ (Software Design 2015年1月号掲載記事) Emacs ido bs ffap recentf-ext point-undo goto-chg bm imenu visual-regexp rectangle-mark-mode browse-kill-ring 
+Software Design連載記事を掲載します。
+
+株式会社技術評論社の許可を得て掲載しています。
+草稿なので細かい部分は実際の記事とは異なることがあります。
+
+他の記事は左下にある「■雑誌連載中(全文公開)」から見られます。
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+* 便利なパッケージたち
+　ども、るびきちです。今回は日常的に使える便利なパッケージたちを紹介していきます。
+
+　今ではここで紹介しているパッケージよりも強力なインターフェースが存在しますが、物事には順序があります。それを使うにはEmacsの定番機能を知ってからでも遅くはありません。もちろん本連載でも取り上げますので、楽しみにしててください。
+
+* ファイル・バッファ切り替え
+　本節ではファイルとバッファの切り替えをカイゼンするパッケージを紹介します。主に標準添付のパッケージですが、知るだけで使い勝手が劇的によくなります。
+
+** ido: バッファ・ファイルを選択して開く
+　バッファを切り替えるにはC-x bを使いますが、使い勝手はイマイチです。バッファ名入力が面倒だからです。確かに昔よりは便利になっています。元々は先頭一致でしかバッファ名を選択できませんでしたが、今は部分文字列が使えます。ただし、バッファ名の先頭が一致するとそれが優先されます。たとえば、*scratch*バッファを選択するのにratと入力してTABを押せば*scratch*と補完されます。しかし、ratpoisonというバッファがあるときはそれで確定されてしまいます。
+
+　C-x C-fでファイルを開く場合もデフォルトではファイル名の先頭から入力する必要があります。
+
+　idoはバッファ切り替え・ファイル名入力をカイゼンします。C-x bやC-x C-fで入力時に文字列をタイプすると、候補がC-sとC-rで選択できるようになります。部分文字列を数文字タイプするだけで数個にしぼれてきます。
+
+　また、idoではバッファ・ファイルを連続して削除する機能もあります。idoではRETを押すことで選択しますが、RETの代わりにC-kを押せばそのバッファ・ファイルを削除します。一連の削除が終わりましたら、C-gを押してください。もはやC-x kで別なバッファを削除する必がなくなります。
+
+　さらに、ido内でC-x C-fを押すとidoをとりやめてファイルを開くことができます。バッファを選択しようとしたけど存在しなかった場合、C-gでキャンセルすることなく流れるように望みのファイルを開けるのです。
+
+==== List1:idoの初期設定
+#+INCLUDE: ~/book/sd-emacs-rensai/ido-init.el src emacs-lisp
+====
+
+#+ATTR_HTML: :width 480
+http://rubikitch.com/f/20141119044108.png
+Fig1: idoでバッファ選択
+
+
+** bs: 手軽にバッファ選択
+　C-x C-b (list-buffers)は、バッファ一覧を表示しますが、そこから選択するにはわざわざそのウィンドウにフォーカスする必要があります。Emacsの初期からあるこのコマンドは、極めて原始的なインターフェースです。そこで、この操作性を改善するいくつものパッケージが登場してきました。
+
+　今回紹介する標準添付のbsもそのひとつです。M-x bs-showで起動します。ですが、元のM-x list-buffersを完全に置き換えるので、C-x C-bに割り当ててしまいましょう。
+
+==== List2:C-x C-bを置き換える
+#+INCLUDE: ~/book/sd-emacs-rensai/bs-init.el src emacs-lisp
+====
+
+
+
+　M-x bs-showを起動すると、*buffer-selection*バッファが適切に調節された高さでポップアップします。おかげさまで、バッファリストの使用目的に合わせてほどよい操作性を実現しています。バッファリストの目的は大きく分けて3つです。
+
+- どんなバッファが開かれているかを見る
+- バッファを選択する
+- バッファを連続して削除する
+
+#+ATTR_HTML: :width 480
+http://rubikitch.com/f/20141119044352.png
+Fig2: M-x bs-show
+
+
+
+　バッファリストを閲覧するだけならば、見終わったらC-gで閉じられます。C-gは元々中止を意味するコマンドなのでこの割り当ては直感的です。バッファを選択するのは、普通にRETです。バッファを削除するのはdを押すだけで、わざわざ質問したりはしません。
+
+　M-x bs-showは元々ファイルと関連付けられたバッファしか表示しませんが、Cの後にallを選択すれば隠しバッファ以外のすべてのバッファが表示されます。
+** ffap: C-x C-fにカーソル位置のファイル・URLを開く機能を追加する
+
+　ffapは、C-x C-fを強化する標準パッケージです。ffapとはFind File At Pointの略で、現在位置のファイル名を認識して、ファイルを開くときのデフォルトにしてくれます。もし現在位置がファイル名ならばC-x C-f RETでそのファイルが開けます。
+
+　また、URLにも対応していて、同じ方法で現在位置のURLもをブラウザで開けます。開きたいURLを直接入力することも可能です。
+
+　また、ffapはファイルの存在確認にも使えます。もし現在位置のファイルが存在するときはffapのデフォルトになりますが、存在しないときはデフォルトにはなりません。存在を確認したらC-gで中断してください。
+
+　ffapにより、C-x C-fはファイルを開くだけでなく、
+- URLを開く
+- 現在位置のファイルを開く
+- 現在位置のURLを開く
+- ファイルの存在確認
+と多目的に働けるようになりました。ぜひとも入れておきたい設定です。
+
+==== List3: ffapの初期設定
+#+INCLUDE: ~/book/sd-emacs-rensai/ffap-init.el src emacs-lisp
+====
+
+http://rubikitch.com/f/20141119044524.png
+#+ATTR_HTML: :width 480
+Fig3: C-x C-fで現在位置のファイル名がデフォルトになる
+
+** recentf-ext: 最近使ったファイルを開く
+　最近使ったファイルというのは、再び使われる可能性が高いです。recentfは、最近開いたファイルを開きやすくする標準パッケージです。しかも、最近開いたファイルのリストはファイルに保存され、Emacs再起動時に復元されます。
+
+　ファイルを開くときに、もう長ったらしいフルパスを入力する必要はありません。最近開いたファイルであれば、C-x C-fを使う必要はないです。
+
+　M-x recentf-open-files は、最近開いたファイル一覧をバッファに表示します。直近10個までのファイルならば、その後に番号を押せばそのまま開けます。もし、そこから見つからなくてもisearchを使えばすぐ素早く目的のファイルを探し出せます。GUIのダイアログボックスとは違い、Emacsのバッファは検索できるのが嬉しいですね。
+
+#+ATTR_HTML: :width 480
+http://rubikitch.com/f/20141119044712.png
+Fig4: M-x recentf-open-files
+
+　さらに拙作recentf-extを導入すればさらにパワーアップします。recentfが扱うのは、厳密には「最近使ったファイル」ではなく「最近開いたファイル」です。Emacsを長時間起動していれば、最初に開いたファイルに再びアクセスしても、奥の方に隠れてしまいます。recentf-extでは、そのファイルバッファを表示した時点でrecentfの先頭に持っていくので、「最近使ったファイル」としてアクセスしやすくなります。
+
+　また、オリジナルのrecentfではディレクトリ(dired)を除外していますが、recentf-extではディレクトリも「最近使ったファイル」として扱えるようにします。
+
+　どれくらいのファイルを記憶するかは recentf-max-saved-items で制御できますが、デフォルト値の20は少なすぎて本領発揮できません。検索することも考えれば100や500など大きめの値にすればいいです。
+
+　なお、recentf-extはMELPAからインストールできます。
+
+==== List4:パッケージを使うための初期設定
+#+INCLUDE: ~/book/sd-emacs-rensai/init-package.el src emacs-lisp
+====
+
+M-x package-refresh-contents
+M-x package-install recentf-ext
+
+==== List5:recentfの設定
+#+INCLUDE: ~/book/sd-emacs-rensai/recentf-init.el src emacs-lisp
+====
+
+* カーソル移動
+　カーソル移動を強化するパッケージたちを紹介しています。これらは筆者も現役で使っているものばかりです。
+** point-undo: カーソル位置を戻す
+　Emacsを使っていて、迷子になったことはありますか？つまり、操作ミスによりカーソル位置が意図しない場所に向かってしまったことです。筆者もたまにあります。あわてふためく前にワンタッチでカーソル位置を戻せたらいいですね。
+
+　そこで拙作point-undoを使ってみてください。確かにisearchやM-<といった大域移動コマンドは自動でマークされるためC-u C-SPCで戻れますが、そうじゃないコマンドもあります。M-x point-undoは、自動マークとは関係なく働いてくれます。
+
+　また、同じカーソル位置であってもウィンドウの表示範囲が異なっていると、別な場所に移動したような錯覚になります。そこでカーソル位置だけでなくウィンドウ表示開始位置も記憶しているので、画面上の見た目も復元されます。
+
+　M-x point-redoはM-x point-undoで戻しすぎたカーソル位置を修正します。戻しすぎてしまっても安心です。
+
+　M-x point-undoとM-x point-redoは、それぞれ<f7>とM-<f7>に割り当てています。
+
+M-x package-refresh-contents
+M-x package-install point-undo
+
+==== List6:point-undoの初期設定
+#+INCLUDE: ~/book/sd-emacs-rensai/point-undo-init.el src emacs-lisp
+====
+
+** goto-chg: 編集箇所の履歴をたどる
+　テキストエディタは、カーソルをいろいろな場所に移動して書き換えます。よくある挙動として、他の場所に移動した後に元の位置に戻ったり、別な場所を編集してから元の場所を編集したりします。たとえば文章を書いていて、ふと誤字脱字が目に付いて、そこを修正した後、再び元の位置に戻って文章の続きを書くといったケースです。そんなときに便利なのがgoto-chgです。
+
+　マークを多用している人ならば、そういうときはC-SPCでマークして、C-u C-SPCで戻るでしょう。しかし、Emacsはどこを書き換えたかという足跡情報をすべて記憶しているので、その必要はありません。
+
+　M-x goto-last-changeは、変更履歴という足跡をたどり、過去の変更箇所にカーソルを移動します。戻りすぎたときはM-x goto-last-change-reverseで戻します。
+
+　前項のpoint-undoはすべてのカーソル移動を追跡しているのに対し、goto-chgは変更箇所を追跡します。よって、編集位置をたどることに関してはgoto-chgの方が早く目的の位置に到達します。両者をうまく使い分けましょう。
+
+　M-x point-undoとM-x point-redoは、それぞれ<f8>とM-<f8>に割り当てています。
+
+M-x package-refresh-contents
+M-x package-install goto-chg
+
+==== List7:goto-chg初期設定
+#+INCLUDE: ~/book/sd-emacs-rensai/goto-chg-init.el src emacs-lisp
+====
+
+** bm: 現在位置をハイライト付きで永続的に記憶させる
+　バッファの現在位置を記憶する標準的な手法はマークとレジスタです。しかし、マークした位置が目に見えません。レジスタもいまいち操作性がよくありません。そこでbmを使うと記憶した行がハイライトされてわかりやすくなります。しかも、Emacsを終了しても再起動時に記憶した位置を復元できます。筆者も長らくお世話になっているパッケージです。
+
+　使い方は簡単で、M-x bm-toggleでbmをつけたり解除したりします。M-x bm-previousとM-x bm-nextでbm間を移動します。基本的にはこれらのコマンドだけで便利です。それぞれM-SPC、M-[、M-]に割り当てています。
+
+　M-x bm-showでカレントバッファでのbm一覧、M-x bm-show-allで全バッファでのbm一覧を表示します。RETでその位置に移動し、qで一覧を閉じます。
+
+M-x package-refresh-contents
+M-x package-install bm
+
+==== List8:bm初期設定
+#+INCLUDE: ~/book/sd-emacs-rensai/bm-init.el src emacs-lisp
+====
+
+#+ATTR_HTML: :width 480
+[[http://rubikitch.com/f/20141119044921.png]]
+Fig5: 現在位置を目に見えるようにマーク
+
+#+ATTR_HTML: :width 480
+http://rubikitch.com/f/20141119050212.png
+Fig6: M-x bm-showでbm一覧
+
+
+** imenu: 見出し・関数定義にジャンプする
+　構造化されたテキストファイルは見出し行を見るだけで全体像がわかります。見出し行とは、そのファイルに目次を作るとしたときに載せる行のことです。プログラミング言語の場合は関数(クラス・メソッド)定義、マークアップ言語の場合は見出しです。
+
+　関数定義に移動したいために関数名をisearchしようとすると、関数呼び出しなどにも止まっていまいます。そこでM-x imenuを実行するとバッファの目次を作成し、そこで関数名や見出しを指定すれば見出し行に素早くジャンプします。もちろんTABキーによる補完も効きます。Emacs標準コマンドである上、あらゆるメジャーモードに対応しているので役立つ機会はとても多いです。
+
+#+ATTR_HTML: :width 480
+http://rubikitch.com/f/20141119050505.png
+Fig7: M-x imenuを実行し候補を一覧表示させる
+
+
+
+* 編集
+　ここでは基本的な編集コマンドを強化するパッケージを紹介します。
+** visual-regexp: 正規表現置換を対話的に行う
+　正規表現置換は強力な編集機能ですが、扱いが難しいです。代替案として10月号ではM-x occurの結果を編集することで正規表現置換と同等のことができることを紹介しました。置換される行を絞り込んでから編集するので、安心できるというメリットもあります。
+
+　このvisual-regexpはこれとはアプローチを変えまして、正規表現置換を対話的に行うのが狙いです。置換のための正規表現を組み立てているときに、視覚的なフィードバックがあると劇的に使いやすくなります。
+
+　標準コマンドのM-x re-builderは対話的に正規表現を組み立て、後の正規表現置換やEmacs Lispプログラミングに活かすのですが、visual-regexpはre-builderと置換を合体させたものです。M-x vr/query-replaceをM-%に割り当てると手軽に正規表現置換の恩恵を受けられます。
+
+M-x package-refresh-contents
+M-x package-install visual-regexp
+
+==== List9: visual-regexp初期設定
+#+INCLUDE: ~/emacs/init.d/50visual-regexp.el src emacs-lisp
+====
+
+#+ATTR_HTML: :width 480
+http://rubikitch.com/f/20141119050634.png
+Fig8: 正規表現入力時点でハイライト
+
+#+ATTR_HTML: :width 480
+http://rubikitch.com/f/20141119050642.png
+Fig9: 置換の様子が表示される
+
+
+
+** rectangle-mark-mode: Emacs 24.4で使いやすくなった矩形編集
+　Emacs 24.4では矩形編集がとても使いやすくなりました。C-x SPCは矩形選択コマンドです。C-x SPCの後にC-w/M-w/C-yを使うと、矩形のコピー＆ペーストになります。もう煩わしい旧来の矩形コマンドを無理して使う必要はありません。
+
+　C-x SPCを押すタイミングは2通りあります。マーク開始時点かマーク終了時点です。C-x SPCをC-SPCの代わりに使うと、regionは矩形方向に広がります。C-SPCでマークした後にregionを設定してC-x SPCを押すと、その間の矩形を選択してくれます。そのため、使い勝手はかなり良いです。
+
+　C-x SPCの後でC-oを押すと、その矩形の部分を空白にしてくれます。C-x r oと同じです。
+
+　C-x SPCの後でC-tを押すと、矩形の各行を同じ文字列で置き換えます。特に横方向がゼロの場合、同じ文字列を各行に挿入することになります。筆者は旧来のコマンドC-x r tで多用しています。
+
+#+ATTR_HTML: :width 480
+http://rubikitch.com/f/20141119050852.png
+Fig10: C-x SPCで矩形選択
+
+　これはEmacs 24.1から使えますが、C-x r Nは各行に番号を付けるコマンドです。C-u C-x r Nでは開始番号と書式を指定できるので、こちらの方が便利でしょう。
+** browse-kill-ring: kill-ringをフル活用する
+　EmacsではC-wでカット、M-wでコピー、C-yでペーストができます。Emacsでのコピー＆ペーストは現在のGUIのそれよりもはるかに進化しています。なぜなら、Emacsでのクリップボードに相当するkill-ringには、複数の文字列を記憶できるからです。実際、C-yの直後にM-yを1回以上押すと、過去に保存したテキストを呼び起こせます。
+
+　しかし、M-yでは過去にkill-ringに保存したテキストを一覧できません。過去60個(kill-ring-max変数で調節可能)ものテキストを記憶できるのに、もったいないです。そこで、browse-kill-ringでkill-ringのテキストを一覧・選択できるようにしましょう。
+
+　M-x browse-kill-ringを実行すると、*Kill Ring*バッファにkill-ring一覧が表示されていて、pとnで選択できます。RETで貼り付け、qで中止です。一覧はバッファなので、isearchで目的のテキストに素早く到達できます。M-yを置き換えましょう。
+
+M-x package-refresh-contents
+M-x package-install browse-kill-ring
+
+==== List10:browse-kill-ring初期設定
+#+INCLUDE: ~/junk/140814/140814110949.browse-kill-ring.el src emacs-lisp
+====
+
+#+ATTR_HTML: :width 480
+http://rubikitch.com/f/20141119051016.png
+Fig11: kill-ringの履歴を表示
+
