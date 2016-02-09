@@ -9,7 +9,8 @@
 #+BLOG: rubikitch
 #+CATEGORY: Emacs, 連載『るびきち流Emacs超入門』, ido
 #+DESCRIPTION:
-#+TAGS:package:ido package:bs package:ffap package:recentf-ext package:point-undo package:goto-chg package:bm package:imenu package:visual-regexp package:rectangle-mark-mode package:browse-kill-ring#+TITLE: #9 すぐに使える！　便利な 11 のパッケージ (Software Design 2015年1月号掲載記事) Emacs ido bs ffap recentf-ext point-undo goto-chg bm imenu visual-regexp rectangle-mark-mode browse-kill-ring 
+#+TAGS:package:ido package:bs package:ffap package:recentf-ext package:point-undo package:goto-chg package:bm package:imenu package:visual-regexp package:rectangle-mark-mode package:browse-kill-ring
+#+TITLE: #9 すぐに使える！　便利な 11 のパッケージ (Software Design 2015年1月号掲載記事) Emacs ido bs ffap recentf-ext point-undo goto-chg bm imenu visual-regexp rectangle-mark-mode browse-kill-ring 
 Software Design連載記事を掲載します。
 
 株式会社技術評論社の許可を得て掲載しています。
