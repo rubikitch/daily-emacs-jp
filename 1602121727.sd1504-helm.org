@@ -1,0 +1,289 @@
+#+BLOG: rubikitch
+#+POSTID: 2399
+#+DATE: [2016-02-12 Fri 17:27]
+#+PERMALINK: sd1504-helm
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, 連載『るびきち流Emacs超入門』, helm
+#+DESCRIPTION:
+#+TAGS:package:helm, package:helm-migemo, package:migemo, relate:migemo, relate:recentf-ext, package:recentf-ext, 
+#+TITLE: #12 Emacs に革命を起こすパッケージ「helm」 (Software Design 2015年4月号掲載記事) Emacs helm migemo インストール 設定 使い方
+Software Design連載記事を掲載します。
+
+株式会社技術評論社の許可を得て掲載しています。
+草稿なので細かい部分は実際の記事とは異なることがあります。
+
+他の記事は左下にある「■雑誌連載中(全文公開)」から見られます。
+
+なお、現在のhelmはmigemoが組み込まれているので、helm-migemoパッケージは *インストール不要* です。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+* もっと深くhelmを知ろう
+　ども、るびきちです。先月のhelmの記事はいかがだったでしょうか？helmは従来のEmacsのあり方を根底から覆し、しかもあまりにも多くの機能があるため、1回では説明しきれません。それどころか、すべてのhelmコマンド、helmのカスタマイズ、helmコマンド作成方法、新しいアクションの追加、情報源の作成など全貌を解説するには一冊の本になってしまいます。今回は色々なhelmコマンドを見ていきます。
+* helmの強力なバッファ検索
+　実は前回M-x helm-miniを解説しましたが、スペースの関係で解説しきれない部分がありました。とはいえ、本節で解説するバッファ検索機能を知らなくても実用的に使えますので、あえて今回にまわすことにいたしました。
+
+　helmは情報源によって専用の検索機能を持たせることができます。この最も顕著な例がバッファ選択です。helmのバッファ選択は、通常の絞り込み検索だけでなく、メジャーモード、バッファの内容、ディレクトリ名でも絞り込めます。これらすべてを組み合わせられるのがすごいところです。
+
+　M-x ibufferという多機能な標準添付のバッファリストがあります。ibufferには、条件によってリストするバッファを絞り込むフィルタ機能があるのですが、やはりhelmの前には霞んで見えてしまいます。それでは1つ1つ見てみましょう。
+
+#+begin_src emacs-lisp :results silent :tangle 12.el :exports none
+(find-function 'find-file)
+#+end_src
+
+[[file:/r/sync/screenshots/20150208104923.png]]
+Fig1: メジャーモードにlispが含まれバッファ名にfilesが含まれるバッファ
+
+
+
+** メジャーモードで絞る
+　検索語に「*」を前置することで、メジャーモードで絞り込めます。「*org」と入力するとorg-modeのバッファが羅列します。
+
+　「,」で区切れば2つ以上のメジャーモードのOR検索になります。「*org,eshell」でorg-modeとeshellとなります。
+
+　メジャーモードの前に「!」を前置すれば、それ以外となります。「*!lisp,!org,!ruby」でlisp-mode、org-mode、ruby-mode以外になります。
+
+** バッファの内容で絞る
+　検索語に「@」を前置すれば、バッファに検索語が含まれるものをリストします。M-x multi-occurに似ていますが、一度でもマッチしているかどうかを検査しているだけなので遅くはなりません。
+
+　まずは「@pattern」でpatternを含むバッファを見付け、それが目的のバッファであるならば、改めて後程解説するhelm-swoopで検索すればよいです。
+
+** ディレクトリ名で絞る
+　検索語に「/」を前置すれば、そのバッファに結び付けられたファイル名のディレクトリ部分にマッチします。これはファイルの情報源と相性がよいです。M-x helm-miniで「/emacs」と入力すればemacsディレクトリ内のファイルバッファと、/emacsが含まれる最近開いたファイルを表示します。
+
+* helm-miniより強力にファイルを検索する
+　M-x helm-miniにはその兄貴分のM-x helm-for-filesが存在します。これは、バッファ、最近開いたファイルに加えて、ブックマーク、ファイルキャッシュ、カレントディレクトリ、locateの情報源を持ちます。
+
+　ブックマークはEmacsの標準機能で、C-x r mでファイルの特定の位置に対して名前をつけて保存します。そして、C-x r jでジャンプ、C-x r lで一覧します。ファイル名とは別の名前が付けられます。M-x helm-for-filesはC-x r jとC-x r lの機能を含み、それ以外にもブックマークの削除や名前の変更ができます。
+
+　ファイルキャッシュもEmacsの標準機能で、よく使われるファイルを予め登録します。しかし、よく使われるファイルは最近開いたファイルになっているので、登録不要なrecentfに比べると霞んでしまいます。recentf-extはrequireするだけで「最近開いたファイル」を「最近使ったファイル」にパワーアップさせるパッケージです。バッファを表示した時点でrecentfのトップに持って行きます。recentf-ext.elはMELPAに登録されています。
+
+M-x package-refresh-contents
+M-x package-install recentf-ext
+
+　locateはUnix系OSで使われるファイル名データベースです。updatedbでファイル名をファイルリストに集め、locateでマッチしたファイルを取り出します。当然ファイル名の集合は変化するので、cronなどで定期的にupdatedbで更新しておく必要があります。なおWindowsではesコマンドが使われます。
+
+　M-x helm-for-filesで使われる情報源は変数helm-for-files-preferred-listでカスタマイズできます。もしブックマークを愛用しているのであれば、ブックマークを設定する情報源helm-source-bookmark-setを加えておくと快適になります。
+
+[[file:/r/sync/screenshots/20150208105326.png]]
+Fig2: M-x helm-for-filesはブックマークの設定もできる！
+
+
+
+List1:パッケージを使うための初期設定
+#+BEGIN_SRC emacs-lisp :results silent :tangle 12.el
+(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
+(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
+(package-initialize)
+#+END_SRC
+
+List2: helm-for-filesを快適に使う設定
+#+BEGIN_SRC emacs-lisp :results silent :tangle 12.el
+;; 最近のファイル500個を保存する
+(setq recentf-max-saved-items 500)
+;; 最近使ったファイルに加えないファイルを
+;; 正規表現で指定する
+(setq recentf-exclude
+      '("/TAGS$" "/var/tmp/"))
+;; recentfをディレクトリにも拡張した上に、
+;; 「最近開いたファイル」を「最近使ったファイル」に進化させる
+(require 'recentf-ext)
+(setq helm-for-files-preferred-list
+      '(helm-source-buffers-list
+        helm-source-recentf
+        helm-source-bookmarks
+        helm-source-file-cache
+        helm-source-files-in-current-dir
+        ;; 必要とあれば
+        helm-source-bookmark-set
+        helm-source-locate))
+#+END_SRC
+
+* Migemo検索する
+　一部のhelmの情報源には、Migemoに対応しているものがあります。
+
+　Migemoとは去年の9月号で紹介したように、ローマ字で日本語文字列を検索する素晴らしいプログラムです。たとえば、「nihongo」で「日本語」が、「ugoKu」で「動く」がヒットします。そのためにはまずmigemoパッケージとcmigemoをインストールします。
+
+　Debian系列のGNU/Linuxならば両者ともパッケージ化されているのでインストールは簡単です。「sudo apt-get install cmigemo migemo-el」を実行するだけで、初期設定までしてくれて、そのまま使えます。多くのGNU/Linuxはパッケージシステムがあるため、インストール・設定・管理がとても楽です。
+
+　パッケージ化されていない場合はcmigemoとmigemo.elは別個でインストールし、初期設定も行う必要があります。Macは「brew install cmigemo」で、Windowsは http://www.kaoriya.net/software/cmigemo/ からcmigemoのバイナリを取ってきます。
+
+　migemo.elはMELPAからインストールし、初期設定でHEREと書かれた部分は環境に合わせて書き換えてください。インストールが終われば、init.elに設定を書き加えてください。
+
+M-x package-install migemo
+
+List3: migemo.elからcmigemoを使う初期設定
+#+BEGIN_SRC emacs-lisp :results silent :tangle 12.el
+(when (locate-library "migemo")
+  (setq migemo-command "/usr/local/bin/cmigemo") ; HERE cmigemoバイナリ
+  (setq migemo-options '("-q" "--emacs"))
+  (setq migemo-dictionary "/usr/local/share/migemo/utf-8/migemo-dict") ; HERE Migemo辞書
+  (setq migemo-user-dictionary nil)
+  (setq migemo-regex-dictionary nil)
+  (setq migemo-coding-system 'utf-8-unix)
+  (load-library "migemo")
+  (migemo-init))
+#+END_SRC
+
+　その後にhelm-migemo.elをインストールします。ただ、helm開発者は日本語について明るくないので設定しないと動作してくれません。
+
+M-x package-install helm-migemo
+
+#+BEGIN_SRC emacs-lisp :results silent :tangle 12.el
+(require 'helm-migemo)
+;;; この修正が必要
+(eval-after-load "helm-migemo"
+  '(defun helm-compile-source--candidates-in-buffer (source)
+     (helm-aif (assoc 'candidates-in-buffer source)
+         (append source
+                 `((candidates
+                    . ,(or (cdr it)
+                           (lambda ()
+                             ;; Do not use `source' because other plugins
+                             ;; (such as helm-migemo) may change it
+                             (helm-candidates-in-buffer (helm-get-current-source)))))
+                   (volatile) (match identity)))
+       source)))
+#+END_SRC
+
+　helmの情報源の多くはデフォルトではMigemoが有効になっていません。有効にするには以下のようにpushを使ってください。
+
+#+BEGIN_SRC emacs-lisp :results silent :tangle 12.el
+(require 'helm-w3m) ; 情報源の定義元をrequire
+(push '(migemo) helm-source-w3m-bookmarks)
+#+END_SRC
+
+* バッファ内を絞り込み検索する
+　helmの絞り込み検索はとても強力なので、バッファ中から目的の行を見つけ出すのにも向いています。M-x helm-occurはまさにその目的です。Migemoを有効にした状態では複数の文字列を入力することで、簡単に絞り込み検索できます。
+
+[[file:/r/sync/screenshots/20150126072924.png]]
+Fig3: M-x helm-occur (Migemo有効)
+
+　さらに該当行をハイライトしたり、カーソル位置のシンボルを検索させたり等より使いやすくしたものがhelm-swoop.elです。特にシンボル検索は、プログラミングにおいて欠かせない機能です。筆者の一番好きなパッケージのひとつなので、サイトでも詳しく解説しています。http://rubikitch.com/2014/12/25/helm-swoop
+
+* その他のhelmコマンド
+　他にもたくさんのhelmコマンドが用意されています。
+
+** 過去のkill-ringを一覧し、取り出す
+　M-x helm-show-kill-ringは、過去のkill-ringを一覧し、そこから選択して貼り付けます。レジスタを使わなくても、コピーしたい内容を次々にkill-ringに放り込んで、M-yで貼り付けられます。1月号ではbrowse-kill-ring.elを紹介しましたが、絞り込み検索できる点でこちらが優位です。
+
+　M-yを違和感なく置き換えられるように、C-y直後に実行した場合は別の内容に置き換えます。
+
+　なお、M-x helm-show-kill-ringはC-x c M-yに割り当てられていますが、実用面を考えると元のコマンドを置き換えた方がよいです。他のhelm化された標準コマンドについても言えます。
+
+#+BEGIN_SRC emacs-lisp :results silent :tangle 12.el
+(global-set-key (kbd "M-y") 'helm-show-kill-ring)
+#+END_SRC
+
+[[file:/r/sync/screenshots/20150127084637.png]]
+Fig4: M-yでkill-ring一覧
+
+
+** レジスタを一覧し、取り出す
+　M-x helm-registerはレジスタに保存された内容を一覧します。
+
+　レジスタとは、まだ本連載では採り上げていませんが、1つの文字に対して文字列、バッファの位置、数値、ウィンドウ構成、フレームセットを記憶させる標準機能です。複数の文字列を記憶させて貼り付けるためにはkill-ringでは(helm化しないと)M-yを連打する必要があって面倒ですが、レジスタに記憶させればスムーズに取り出せます。とはいえレジスタ操作コマンド自体が3ストロークのキーに割り当てられており、その上でレジスタの文字も指定する必要があるので、1回のレジスタ操作コマンドを実行するのに4ストロークも必要になってしまいます。おまけにレジスタに記憶した内容に応じてコマンドを使い分ける必要もあります。そのため、使いづらいと敬遠されてしまい、より使いやすいインターフェースを好む人が多くなってしまいました。
+
+　レジスタに記憶させる内容の多くはregionです。C-x r s (あるいはC-x r x)でregionをレジスタに登録し、C-x r iでその内容を貼り付けます。そして、M-x helm-registerでレジスタの内容を一覧し、貼り付けます。もちろん、文字列以外を記憶した場合はそれに応じたアクションを実行します。
+
+　レジスタ関連は使いやすいキーにさえ割り当て直せば便利なので、これを機に使ってみてください。
+
+#+begin_src emacs-lisp :results silent :tangle 12.el :exports none
+(ignore-errors (load-file "~/.emacs.register"))
+#+end_src
+
+[[file:/r/sync/screenshots/20150208105959.png]]
+Fig5: レジスタを絞り込み検索！
+
+
+** パッケージを管理する
+　M-x helm-list-elisp-packagesはM-x list-packagesのhelmインターフェースです。つまり、このコマンドを使ってパッケージのインストール・アップグレードや削除が行えます。
+
+　しかし、このままではパッケージ名でしか絞り込めないため、「こんなパッケージないかな」とパッケージを検索しても、検索語が説明文にある場合は見付けてくれません。たとえば、メディアプレイヤーが欲しくてmediaと入力してもemms(Emacs Multi Media System)にマッチしません。それに対処するためには、この設定を加えます。
+
+#+BEGIN_SRC emacs-lisp :results silent :tangle 12.el
+(require 'helm-elisp-package)
+(let ((it (helm-make-source "list packages" 'helm-list-el-package-source)))
+  (setq helm-source-list-el-package (delq (assq 'match-part it) it)))
+#+END_SRC
+
+[[file:/r/sync/screenshots/20150203072023.png]]
+Fig6: 説明文も検索できるよう改良したM-x helm-list-elisp-packages
+
+** helmからInfoを読む
+　Emacsには伝統的にInfo形式のドキュメントが使われています。Info形式はツリー構造を成したドキュメントであり、検索やインデックスやハイパーリンクなど基本的な機能が整っています。通常Infoを読むには<f1> i (info)の後にdを押してわざわざ読みたいドキュメントを探す必要があるのですが、helmでは予めInfoの目次を作成し、すぐに目的のページまで到達できるようにしてくれます。
+
+　helmからInfoを読むには2通りの方法があります。M-x helm-info-at-pointとM-x helm-info系列のコマンドです。前者はカーソル位置のシンボルをInfoで索きます。デフォルトではelisp、cl、eieio、info名を串刺し検索します。後者はhelm-info-(info文書名)のコマンドがたくさん定義されていて、見たいinfoの名前を直接コマンドで指定します。たとえばwgetのInfoが見たければM-x helm-info-wgetを実行します。
+
+[[file:/r/sync/screenshots/20150208110131.png]]
+Fig7: M-x helm-info-at-pointでカーソル位置のシンボルをinfoで調べる
+
+[[file:/r/sync/screenshots/20150208110211.png]]
+Fig8: M-x helm-info-wget
+** フォントを切り替えたりプレビューする
+　M-x helm-select-xfontはX Window Systemのフォントを絞り込み検索します。アクションはフォント名をコピーする(デフォルト)と、そのフォントに設定することです。
+
+　このコマンドが秀逸なのはC-z(persistent-action)にて、フォントをプレビューできることです。C-zを押したら、そのフォントに切り替わり、2秒待つか、何かキーを押したら元のフォントに戻ります。この機能を使い、お好きなフォントを見つけてみてください。
+
+[[file:/r/sync/screenshots/20150208110415.png]]
+Fig9: M-x helm-select-xfontで絞り込み検索しC-zでフォントのプレビュー
+
+** findを実行し、サブディレクトリ以下のファイルを開く
+　Unix系OS限定になりますが、M-x helm-findはfindプログラムを実行して、サブディレクトリ以下のファイルを開きます。深いサブディレクトリのファイルを開いたり、多くのファイルがあるディレクトリ内のファイルを開くのに便利です。もちろんhelmコマンドなので、ファイルを開く以外の様々なアクションが行えます。
+
+[[file:/r/sync/screenshots/20150208110523.png]]
+Fig10: M-x helm-findでサブディレクトリ以下を一気に検索！
+** シンボル名を検索する
+　M-x helm-aproposは、シンボル名をhelmで検索し、関数・変数などの説明を表示したり、定義にジャンプしたりします。フェイスにも対応していて、そこからカスタマイズもできます。ただし、毎回シンボルをかき集めるため、開くまで数秒かかる欠点があります。
+
+[[file:/r/sync/screenshots/20150208110847.png]]
+Fig11: M-x helm-aproposであらゆるシンボルを検索！
+
+
+# Global Bindings Starting With C-x c:
+# C-x c C-c 	Prefix Command
+# C-x c C-x 	Prefix Command
+# C-x c ESC 	Prefix Command
+# C-x c #   	helm-emms
+# C-x c /   	helm-find
+# C-x c 8   	helm-ucs
+# C-x c F   	helm-select-xfont
+# C-x c a   	helm-apropos
+# C-x c b   	helm-resume
+# C-x c c   	helm-colors
+# C-x c e   	helm-etags-select
+# C-x c f   	helm-for-files
+# C-x c h   	Prefix Command
+# C-x c i   	helm-semantic-or-imenu
+# C-x c l   	helm-locate
+# C-x c m   	helm-man-woman
+# C-x c p   	helm-list-emacs-process
+# C-x c r   	helm-regexp
+# C-x c s   	helm-surfraw
+# C-x c t   	helm-top
+# C-x c w   	helm-w3m-bookmarks
+# C-x c x   	helm-firefox-bookmarks
+# C-x c C-, 	helm-calcul-expression
+# C-x c C-: 	helm-eval-expression-with-eldoc
+# C-x c <tab>	helm-lisp-completion-at-point
+# C-x c h g 	helm-info-gnus
+# C-x c h i 	helm-info-at-point
+# C-x c h r 	helm-info-emacs
+# C-x c C-c C-x	helm-run-external-command
+# C-x c C-c SPC	helm-all-mark-rings
+# C-x c C-c f	helm-recentf
+# C-x c C-c g	helm-google-suggest
+# C-x c M-g 	Prefix Command
+# C-x c M-s 	Prefix Command
+# C-x c M-x 	helm-M-x
+# C-x c M-y 	helm-show-kill-ring
+# C-x c M-s o	helm-occur
+# C-x c M-g s	helm-do-grep
+# C-x c C-x C-b	helm-buffers-list
+# C-x c C-x C-f	helm-find-files
+# C-x c C-x r	Prefix Command
+# C-x c C-x r b	helm-filtered-bookmarks
+# C-x c C-x r i	helm-register
