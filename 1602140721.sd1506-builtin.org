@@ -1,0 +1,276 @@
+#+BLOG: rubikitch
+#+POSTID: 2403
+#+DATE: [2016-02-14 Sun 07:21]
+#+PERMALINK: sd1506-builtin
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, 連載『るびきち流Emacs超入門』
+#+DESCRIPTION:
+#+TAGS:mark, yank, kill-ring, mark-ring, exchange-point-and-mark, set-mark-command-repeat-pop, global-mark, mark-word, mark-sexp, mark-whole-buffer, rectangle-mark-mode, キーボードマクロ, kmacro, centimacro, relate:centimacro, capitalize, relate:sequential-command, package:sequential-command, count-words-region, count-lines-page, what-cursor-position, find-library, recenter-top-bottom, balance-windows, shrink-window-if-larger-than-buffer, text-scale-adjust, set-selective-display, package:cn-outline, 
+#+TITLE: #14 地味だけどあなどれない標準コマンドたち (Software Design 2015年6月号掲載記事) Emacs 使い方
+Software Design連載記事を掲載します。
+
+株式会社技術評論社の許可を得て掲載しています。
+草稿なので細かい部分は実際の記事とは異なることがあります。
+
+他の記事は左下にある「■雑誌連載中(全文公開)」から見られます。
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+* ちょっと影が薄い標準コマンドたち
+　ども、るびきちです。先回はキーに割り当てられた標準コマンドの全体像を示しました。今回もちょっと地味な標準コマンドに光を当てていきます。意外な発見があるかもしれません。
+* マーク関係
+　Emacsにおいてマークは超基本的な機能です。C-SPC でマークし、M-wでコピー、C-wでカット、C-yでペーストというのが基本です。C-y直後にM-yを押せば過去のコピー履歴(kill-ring)に置き換えます。ここではいわゆる普通のコピペ以外の機能を紹介します。マークをもう少し活用してみませんか？
+
+** マーク履歴をたどる
+　現在のEmacsでは、C-SPCでマークしてカーソルを移動させると、マーク・カーソル間(region)はハイライトされます。そして、たまにカーソルとマークのを入れ替えたいことがあります。それにはC-x C-x (exchange-point-and-mark)あるいはC-u C-SPCを使います。
+
+　実は過去にマークした場所はすべてmark-ringという変数に記憶されています。C-u C-SPCを繰り返せば、過去のマークをどんどん遡れます。
+
+　このことは、regionを作成する以外にも一時的に場所を記憶するためにマークを活用できることを意味します。この目的ではハイライトは不要なのでC-SPC C-SPCでハイライトなしでマークしてください。C-u C-SPCでその場所に戻れます。もちろん、bm.elを使ってもいいです。
+
+　とはいえ、マークを遡るのにC-u C-SPC C-u C-SPC ...と繰り返すのは面倒です。そこで、以下の設定を加えればC-u C-SPC C-SPC ...とC-SPC連打でどんどん遡れるようになって便利です。
+
+#+begin_src emacs-lisp :results silent :tangle 14.el
+(setq set-mark-command-repeat-pop t)
+#+end_src
+
+　マークを遡れるC-u C-SPC対し、C-x C-xは単にマークとカーソル位置を入れ替えるだけのコマンドです。
+
+　明示的にするマーク以外にも、コマンド実行後に自動的にマークされる「暗黙のマーク」もあります。isearchやM-< (beginning-of-buffer)、M-> (end-of-buffer)、C-M-a (beginning-of-defun)、C-M-e (end-of-defun)等、長距離を移動するコマンドは暗黙のマークがなされます。このおかげでisearchで遠い場所に移動してもC-u C-SPCを押せば一瞬で元の場所に戻れるようになります。
+
+　プログラミングにおいてライブラリをrequireしたいときは暗黙のマークを使うといいです。M-<やC-r requireでrequireの羅列に移動し、requireを書き加え、C-u C-SPC で元の場所に戻る、という操作が可能になります。
+** グローバルマーク
+　「暗黙のマーク」含めマークし、かつ別のバッファに切り替えた際には通常のmark-ring以外にもglobal-mark-ringにも記憶されます。これは、マークしたバッファの履歴を辿れることを意味します。
+
+　set-mark-command-repeat-popを設定すればC-x C-SPC C-SPC ...と次々とバッファを切り替えられます。ただ、少し挙動が理解しづらいので筆者は使っていません。
+
+** 単語やS式やバッファ全体をマークする
+　regionを作るためには基本的にはC-SPCでマークしてからカーソルを移動させます。しかし、単語とS式については一発でマークするコマンドが用意されています。それぞれM-@ (mark-word)、C-M-SPC (mark-sexp)です。また、連続して使えば次々と単語やS式のregionを広げていきます。C-SPC→M-f、C-M-fと比べると1ストローク差ですが、かなり便利に感じます。筆者は好んでC-M-SPC を多用します。
+
+　C-x h (mark-whole-buffer)はバッファ全体をマークし、カーソルをバッファの先頭に移動します。使用頻度は多くないですが、regionを渡すコマンドに対してバッファ全体を渡したいときには便利です。
+** 矩形regionモード
+　Emacs 24.4では矩形regionが導入され、矩形のコピペがとても使いやすくなりました。C-x SPCの後にC-w/M-w/C-yを使うと、矩形のコピペになります。もう煩わしい旧来の矩形コマンドを無理して使う必要はありません。
+
+　C-x SPCを押すタイミングは2通りあります。マーク開始時点かマーク終了時点です。C-x SPCをC-SPCの代わりに使うと、regionは矩形方向に広がります。C-SPCでマークした後にregionを設定してC-x SPCを押すと、その間の矩形を選択してくれます。そのため、使い勝手はかなり良いです。
+
+* キーボードマクロ
+　キーボードマクロは一連のキー操作を記憶し、後で何度でも呼び出せるようにする機能です。同じ操作を繰り返す場合において確実に手早く処理させられます。Emacsのコマンドをたくさん知っていれば知っているほどキーボードマクロでできることが増えていきます。
+
+　キーボードマクロはプログラミングと異なり、実際にコマンドを実行しながら定義するのでわかりやすいです。繰り返し処理の1回目でキーボードマクロを定義し、以後はキーボードマクロを呼び出せばいいです。
+
+　キーボードマクロは<f3>で定義を開始し、<f4>で定義を終了します。キーボードマクロ実行も<f4>を使います。
+
+　キーボードマクロで繰り返し処理を効率的に行うコツは、定義終了時点において次の繰り返し開始位置に移動することです。そうすることで繰り返し回数が少ない場合に<f4>を連打するだけで次々と実行できるようになります。
+
+　繰り返し回数が多い場合は3つの実行方法があります。
+- C-u 回数 <f4> で回数を指定する
+- C-u 0 <f4> でエラー(バッファ末尾など)が出るまで繰り返す
+- C-x C-k rでregion各行に対してマクロを実行する
+
+　文字列の長さが異なる場合は単語、S式単位の移動やisearchを使ってください。
+
+　キーボードマクロを複数個同時に使いたいならばcentimacroパッケージが便利です。著者の筆者のサイト [[http://rubikitch.com/2015/03/31/centimacro/]]  で紹介しています。
+* 地味なコマンドたち
+　使用頻度こそ低いものの、知っておくと便利な標準機能を紹介します。
+
+** 制御文字を入力する
+　C-q は次にタイプする文字をそのまま入力します。表示文字以外の制御文字も含まれます。たとえばタブを入力するときはC-q TAB あるいはC-q C-iと操作します。あまりないですがC-aを文字として入力する場合はC-q C-aと操作します。すると別な色で「^A」と表示されます。
+
+　ミニバッファに改行を入力するときはC-q C-jと操作します。たとえばM-%で改行を含む文字列に置換しようとするときにはこの知識が必要となります。
+** 大文字小文字変換
+　大文字化・小文字化・キャピタライズ(単語の先頭文字を大文字、その後を小文字にする)のコマンドも揃っています。それぞれ、単語・regionに対応しています。
+
+　M-uは単語を大文字化、M-lは小文字化、M-cはキャピタライズします。これらのコマンドで注意する必要があるのは、カーソル位置から単語の境界までが適用範囲であることです。たとえば「word」のwの位置にカーソルがあるときにM-cを押せば「Word」になりますが、dの後にあるときは変化しません。oの位置ならば「wOrd」になります。
+
+　C-x C-u、C-x C-l、M-x capitalize-regionはそれらのregion版です。C-x C-cはEmacs終了コマンドなので、capitalize-regionはキーに割り当てられていません。
+
+　これらのコマンドはクセがあります。文字入力してから変換するには、単語先頭に戻るか負引数をつける必要があります。たとえば直前の単語を大文字化するにはM-b M-uあるいはM-- M-uと操作する必要があります。直前3単語ならばM-- M-3 M-uです。あるいは、「ここから変換するよ」という意味でC-SPCでマークし、後でC-x C-uと操作する方法もあります。
+
+　筆者はそれがあまりにも我慢できなかったので、2009年にsequential-commandというパッケージを作成し、M-u/M-l/M-cをデフォルトで直前の単語に作用するように置き換えています。連続的に使った場合はもっと前の単語に作用するようになっています。MELPAに登録してあるので「M-x package-install sequential-command」を実行後、「(sequential-command-setup-keys)」と設定を加えれば使えます。もはやC-x C-uなどを使うことはなくなりました。
+
+Fig1: sequential-command.elでのM-uの挙動
+#+BEGIN_EXAMPLE
+this is a pen.
+↓.の後にカーソルを置いてM-u
+this is a PEN.
+↓M-u
+this is A PEN.
+↓M-u
+this IS A PEN.
+↓M-u
+THIS IS A PEN.
+#+END_EXAMPLE
+
+* 情報取得コマンド
+　バッファやregion、現在位置の情報を表示するコマンドがいくつかあります。
+
+** region・バッファの単語数、行数、文字数を表示する
+　M-= (count-words-region)は名前とはうらはらにregionの単語数だけでなく行数と文字数も表示します。
+
+　C-u M-=はバッファ全体が対象になります。エコーエリアに「Buffer has 102 lines, 1073 words, and 3639 characters.」などと表示されます。
+
+** ページ(バッファ)の行数、現在行を表示する
+　Emacsには「ページ」という概念があります。ページとは改ページ文字(^L)で区切られた区間です。改ページ文字が含まれない場合はバッファ全体で1ページとなります。改ページ文字はC-q C-lで入力できます。
+
+　C-x l (count-lines-page)は現ページの行数、及びページ先頭からの行数、末尾への行数を表示します。エコーエリアに「Page has 104 lines (68 + 37)」などと表示されます。この場合、ページ先頭から68行目で、末尾まで73行の計104行ということです。末尾までの行数には現在行もカウントされ、現在行がだぶって数えられるので合計行数が1異なります。
+
+　改ページ文字が含まれない場合はバッファ全体が対象になるので、現在行がバッファのどれくらいに位置するかがわかります。
+
+** カーソル位置の情報を得る
+　C-x = (what-cursor-position)は現在のカーソル位置の文字についての情報(文字コード・コードポイント)、バッファ内での位置、バッファサイズ、現在桁を表示します。行頭の「#」で実行するとエコーエリアに「Char: # (35, #o43, #x23) point=3151 of 4077 (77%) column=0」などと表示されます。「#」という文字の文字コードは十進数で35、8進数で43、16進数で23です。バッファサイズが4077で現在位置が3151で、バッファの77%に位置します。行頭なので桁は0です。
+
+　C-u C-x =はそれだけでなく、文字の詳しい情報やフォント、テキストプロパティ、オーバーレイの情報も表示します。表示関係のデバッグでも重宝するコマンドです。
+
+* 表示関係
+　カーソル位置、ウィンドウ・フォントのリサイズ、特定行を隠すなどの表示系のコマンドたちです。
+
+#+begin_src emacs-lisp :results silent :tangle 14.el :exports none
+(find-library "helm" )
+#+end_src
+
+** カーソルの画面内での位置
+　C-l (recenter-top-bottom)は、元々カーソル位置を画面中央に持っていくコマンドですが、現在では拡張されています。C-lを連続的に実行することで画面上部、画面下部に表示させられます。
+# setfont:50
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150410073220.png]]
+Fig2: 初期位置
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150410073225.png]]
+Fig3: C-lで画面中央
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150410073333.png]]
+Fig4: さらにC-lで画面上部
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150410073339.png]]
+Fig5: さらにC-lで画面下部
+
+
+** ウィンドウの大きさを自動調整
+　C-x + (balance-windows)は、ウィンドウのサイズを揃えるコマンドです。C-x 2やC-x 3で画面分割をすると現在のウィンドウを半分にするので大きさが不釣合いになりますが、C-x +で幅や高さが揃います。
+
+　C-x - (shrink-window-if-larger-than-buffer)もウィンドウの高さを調整します。バッファの内容よりもウィンドウが大きくて余白がある場合は、バッファの内容すべてがすっぽり収まるようにウィンドウを縮めます。余白が多すぎて画面がもったいないと思ったら使ってください。
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150410073653.png]]
+Fig6: 不揃いなウィンドウも
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150410073703.png]]
+Fig7: C-x +で均等な大きさに！
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150410073808.png]]
+Fig8: C-x -でウィンドウの余白を除去！
+
+
+
+** フォントの大きさを変更する
+　C-x C-0、C-x C-+、C-x C-- (どれもtext-scale-adjust)は、カレントバッファのフォントの大きさを変更するモードに入ります。以後、+で大きく、-で小さく、0で元の大きさに戻ります。それら以外のキーを押すと大きさ変更モードは解除され、元の挙動をします。フォントの大きさが不適切で画面が見辛い場合に使ってみてください。
+** 字下げしている行を隠す(選択的な表示)
+　Emacsにはバッファの内容の一部を隠せることはorg-modeで見てきた通りです。org-modeでは見出しと本文の関係性が定義されていて、本文や子見出しを隠せるのでした。実はこのような構文的な要素ではなく、もっと原始的な基準で行を隠す標準コマンドが存在します。
+
+　C-x $ (set-selective-display)は数引数で指定した以上インデントしている行を隠します。このコマンドを使えば、プログラムのアウトラインを簡単に概観できます。メジャーモードの機能を知らなくても、プログラムの全体像が分かります。たとえば、メジャーモードとしてサポートされていないプログラミング言語や設定ファイルであっても、インデントさえしてあれば使えるということです。
+
+　たとえば、インデントされていない行のみ、すなわち1桁目から始まるトップレベルの式・文を表示するにはC-1 C-x $ とします。もう少し深く見たいときはC-3 C-x $ などとします。行を隠すことをやめるには引数なしのC-x $を使います。
+
+　ここで注意していただきたいのは、C-x $はあくまでも行頭のスペースの数のみで判断していることです。改行を含む文字列リテラルの2行目以降はC-1 C-x $しても表示されます。
+
+　なお、数引数ではなくて現在の桁を基準に「選択的な表示」を使うにはMELPAに登録されているcn-outlineパッケージを使います。
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150410073936.png]]
+Fig9: 元の表示
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150410073942.png]]
+Fig10: C-1 C-x $で概観表示
+* まとめ
+　今回採り上げたコマンドを表にまとめます。
+
+Table1: コピペの基本
+| C-SPC | マークをする                 | set-mark-command |
+| M-w   | コピー                       | kill-ring-save   |
+| C-w   | カット                       | kill-region      |
+| C-y   | ペースト                     | yank             |
+| M-y   | 過去のコピー履歴に置き換える | yank-pop         |
+
+Table2: マーク間の移動
+| C-x C-x   | カーソルとマークを入れ替える       | exchange-point-and-mark |
+| C-u C-SPC | 過去にマークした位置に移動         | set-mark-command        |
+| C-x C-SPC | 過去にマークしたバッファへ切り替え | pop-global-mark         |
+
+Table3: 暗黙のマークをする長距離移動コマンド
+| C-s   | インクリメンタルサーチ | isearch-forward     |
+| C-r   | インクリメンタルサーチ | isearch-backward    |
+| M-<   | バッファ先頭へ移動     | beginning-of-buffer |
+| M->   | バッファ末尾へ移動     | end-of-buffer       |
+| C-M-a | 関数定義の先頭へ移動   | beginning-of-defun  |
+| C-M-e | 関数定義の末尾へ移動   | end-of-defun        |
+
+Table4: 単位ごとのマーク
+| M-@     | 単語をマーク         | mark-word         |
+| C-M-SPC | S式をマーク          | mark-sexp         |
+| C-x h   | バッファ全体をマーク | mark-whole-buffer |
+
+Table5: 矩形region
+| C-x SPC | 矩形regionモードへの移行 | rectangle-mark-mode |
+
+
+Table6: キーボードマクロ
+| <f3>          | 定義開始                     | kmacro-start-macro-or-insert-counter |
+| <f4>          | 定義終了・実行               | kmacro-end-or-call-macro             |
+| C-x C-k r     | 各行で実行                   | apply-macro-to-region-lines          |
+|---------------+------------------------------+--------------------------------------|
+| C-u 回数 <f4> | 指定した回数だけ実行         |                                      |
+| C-u 0 <f4>    | エラーが出るまで繰り返し実行 |                                      |
+
+Table7: 制御文字を入力
+| C-q     | 次に入力する文字を直接入力 | quoted-insert |
+|---------+----------------------------+---------------|
+| C-q C-i | タブを入力                 |               |
+| C-q C-j | ミニバッファで改行を入力   |               |
+
+Table8: 大文字小文字変換
+| M-u     | 単語を大文字化         | upcase-word       |
+| M-l     | 単語を小文字化         | downcase-word     |
+| M-c     | 単語をキャピタライズ   | capitalize-word   |
+|---------+------------------------+-------------------|
+| C-x C-u | regionを大文字化       | upcase-region     |
+| C-x C-l | regionを小文字化       | downcase-region   |
+|         | regionをキャピタライズ | capitalize-region |
+
+Table9: 情報取得コマンド
+| M-=       | regionの行数、単語数、文字数を表示                 | count-words-region   |
+| C-u M-=   | バッファの行数、単語数、文字数を表示               | count-words-region   |
+| C-x l     | ページの行数を表示                                 | count-lines-page     |
+| C-x =     | 現在位置の文字、位置、バッファサイズ、現在行の表示 | what-cursor-position |
+| C-u C-x = | 別バッファによる、より詳細な表示                   | what-cursor-position |
+
+Table10: 表示関係
+| C-l        | カーソル表示位置を画面中央・上部・下部に移動 | recenter-top-bottom                 |
+| C-x +      | ウィンドウのサイズを均等に揃える             | balance-windows                     |
+| C-x -      | 余白をなくすようウィンドウの高さを調節       | shrink-window-if-larger-than-buffer |
+| C-x C-0    | フォントの大きさを変更                       | text-scale-adjust                   |
+| C-x C-+    | フォントの大きさを変更                       | text-scale-adjust                   |
+| C-x C--    | フォントの大きさを変更                       | text-scale-adjust                   |
+| C-数 C-x $ | その数よりインデントしている行を隠す         | set-selective-display               |
+| C-x $      | 隠された行を表示する                         | set-selective-display               |
+
+Table11: 電卓
+| M-:     | elisp式を評価してエコーエリアに結果表示 | eval-expression |
+| C-u M-: | elisp式を評価してカレントバッファに挿入 | eval-expression |
+|---------+-----------------------------------------+-----------------|
+| C-x *   | Calcへの入口                            | calc-dispatch   |
+| C-x * q | 「ふつうの記法」による関数電卓          | quick-calc      |
+| C-x * i | Calcのinfoを開く                        | calc-info       |
+
+
+* 終わりに
+　いかがだったでしょうか？パッケージ全盛時代でつい外部パッケージに目が行ってしまいがちな今日この頃ですが、あえて標準コマンドに立ち帰ってみました。意外な発見がありましたでしょうか？
+
+　筆者は「日刊Emacs」以外にもEmacs病院兼メルマガのサービスを運営しています。Emacsに関すること関しないこと、わかる範囲でなんでも御答えします。「こんなパッケージ知らない？」「挙動がおかしいからなんとかしてよ！」はもちろんのこと、自作elispプログラムの添削もします。集中力を上げるなどのライフハック・マインド系も得意としています。登録はこちら→http://www.mag2.com/m/0001373131.html
