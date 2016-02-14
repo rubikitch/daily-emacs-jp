@@ -1,0 +1,353 @@
+#+BLOG: rubikitch
+#+POSTID: 2405
+#+DATE: [2016-02-15 Mon 00:40]
+#+PERMALINK: sd1507-builtin
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, 連載『るびきち流Emacs超入門』, theme
+#+DESCRIPTION:
+#+TAGS:zap-to-char, zap-up-to-char, package:zop-to-char, forward-to-word, backward-to-word, copy-from-above-command, sort-lines, sort-numeric-fields, reverse-region, shell-command-on-region, eval-last-sexp, eval-region, eval-expression, package:calc, calc-dispatch, color-theme, カラーテーマ, package:replace-colorthemes, 
+#+TITLE: #15 知っておくと必ず役立つニッチな標準コマンド (Software Design 2015年7月号掲載記事) Emacs 使い方
+Software Design連載記事を掲載します。
+
+株式会社技術評論社の許可を得て掲載しています。
+草稿なので細かい部分は実際の記事とは異なることがあります。
+
+他の記事は左下にある「■雑誌連載中(全文公開)」から見られます。
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+* 地味な標準コマンドその亜種・仲間
+** M-zで特定の文字までを削除する
+　M-z (zap-to-char)は、標準編集コマンドの中でかなり目立たないコマンドです。カーソル位置からM-zを押した後に入力した文字までを削除し、kill-ringに入れます。たとえば、abcdという文字列があり、カーソル位置がaだとしてM-z cとすると、abcが削除されます。その状態でC-yを押せばabcが貼り付けられます。「カーソル位置から特定の文字までを削除したい」と思ったらM-zの出番です。
+
+#+BEGIN_EXAMPLE
+abcd
+↓M-z c
+d
+#+END_EXAMPLE
+
+** M-zの亜種M-z zap-up-to-char
+　実はM-zにはM-x zap-up-to-charという亜種があります。M-zは入力した文字も削除されますが、M-x zap-up-to-charは入力した文字の直前までが削除されます。これは英文やプログラミング言語などスペースで区切られたテキストに対して特に有効で、「特定の文字の直前までを削除してくれ」とEmacsに命令できます。これをM-zで行うとスペースを入力することになり、目的の場所まで削除されず、不便です。
+
+#+BEGIN_EXAMPLE
+abcd
+↓M-x zap-up-to-char c
+cd
+#+END_EXAMPLE
+
+
+#+BEGIN_EXAMPLE
+The quick brown fox
+↓M-z SPC
+quick brown fox
+↓M-z SPC
+brown fox
+
+The quick brown fox
+↓M-x zap-up-to-char b
+brown fox
+#+END_EXAMPLE
+
+　けっこう便利なコマンドですが、このコマンドに知名度がない最大の原因は「標準コマンドなのにそのままじゃ使えない」ことに原因があります。misc.elを読み込む必要があります。このファイルには、日常使っているコマンドの亜種などが登録されています。もし、M-zの代わりとして日常的に使いたいならば、以下のように設定します。
+
+#+begin_src emacs-lisp :results silent :tangle 15.el
+(require 'misc)
+(global-set-key (kbd "M-z") 'zap-up-to-char)
+#+end_src
+
+** M-zを見える化するzop-to-char.el
+　M-zを使うようになると、今度は削除したい場所の文字が直前の方に現れてしまう不満にさらされることになります。たとえば、「I love Emacs」を「Emacs」に書き換えようとM-z e (zap-up-to-charに再定義済み)と押しても「e Emacs」になってしまい、再度実行する羽目になります。zap-to-char/zap-up-to-charは数引数を指定すればN番目に登場した文字を指定できますが、わかりづらいです。そこでMELPAに登録されている外部パッケージzop-to-char.elの出番となります。今回は標準コマンドに焦点を当てていますが、関連しているので紹介しておきます。
+
+#+begin_src emacs-lisp :results silent :tangle 15.el
+(global-set-key (kbd "M-z") 'zop-up-to-char)
+#+end_src
+
+　M-x zop-up-to-charはM-x zap-up-to-charの進化形で、削除対象をハイライトしてくれます。ハイライトされている間は文字入力を受け付け、カーソル位置の次に登場する入力文字までハイライトを広げ、RETでを押した後に削除します。筆者も愛用しています。
+
+　zap-to-charに対応するM-x zop-to-charもあります。
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150422071350.png]]
+Fig1: M-z e
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150422071447.png]]
+Fig2: さらにeを押すと次のeへ進む
+
+
+** 単語移動の亜種
+　M-f (forward-word)とM-b (backward-word)にはそれぞれforward-to-wordとbackward-to-wordという亜種があります。どれも単語単位の移動ですが、移動先が先頭・末尾になるという違いがあります。forward-wordは末尾に移動しますが、forward-to-wordは先頭に移動します。backward-wordは先頭ですが、backward-to-wordは末尾です。細かい挙動の違いですが、デフォルトの挙動が微妙にしっくりこない方は試してみる価値があるでしょう。
+
+　双方ともmisc.elにて定義されており、M-f/M-bを置き換えればいいです。
+
+#+begin_src emacs-lisp :results silent :tangle 15.el
+(require 'misc)
+(global-set-key (kbd "M-f") 'forward-to-word)
+(global-set-key (kbd "M-b") 'backward-to-word)
+#+end_src
+
+
+** 上の行を複製する
+　現在のすぐ上の行を複製するには通常はコピー＆ペーストが使われると思いますが、misc.elにはM-x copy-from-above-commandというコマンドが用意されています。数引数をつけると、先頭からその文字数だけ複製します。気に入ったのならばキーに割り当てるとよいです。
+
+#+BEGIN_EXAMPLE
+123456
+↓M-x copy-from-above-command RET
+123456
+123456
+↓C-3 M-x copy-from-above-command
+123456
+123456
+123
+#+END_EXAMPLE
+
+* 行をソートする
+** アルファベット順にソートする
+　Emacsにはregion内の行をソートするコマンドがいくつか用意されています。最も簡単なのがM-x sort-linesでアルファベット順にソートします。C-uをつけると逆順にします。
+
+#+BEGIN_EXAMPLE
+c
+x
+a
+#+END_EXAMPLE
+↓M-x sort-lines
+#+BEGIN_EXAMPLE
+a
+c
+x
+#+END_EXAMPLE
+↓C-u M-x sort-lines
+#+BEGIN_EXAMPLE
+x
+c
+a
+#+END_EXAMPLE
+** 数値でソートする
+　数値でソートするM-x sort-numeric-fieldsもあります。逆順にするには、ソートの直後M-x reverse-regionを実行してください。
+
+#+BEGIN_EXAMPLE
+8
+10
+2
+#+END_EXAMPLE
+↓M-x sort-numeric-fields
+#+BEGIN_EXAMPLE
+2
+8
+10
+#+END_EXAMPLE
+↓M-x reverse-region
+#+BEGIN_EXAMPLE
+10
+8
+2
+#+END_EXAMPLE
+
+　M-x sort-numeric-fieldsの数引数は、ソートするフィールドを表します。フィールドとは空白文字で区切られた部分です。これらの行の2番目のフィールドの数値でソートしたい場合です。
+
+#+BEGIN_EXAMPLE
+ジュース 110
+チョコ 20
+ポテトチップス 140
+#+END_EXAMPLE
+↓C-2 M-x sort-numeric-fields
+#+BEGIN_EXAMPLE
+チョコ 20
+ジュース 110
+ポテトチップス 140
+#+END_EXAMPLE
+
+** C-u M-|でsortプログラムを呼び出す
+　これらのソートコマンドはそれなりに役立ちますが、あまり強力ではありません。もっと複雑なソートをしたいときはUnixツールのsortシェルコマンドに頼るといいです。たとえM-x sort-numeric-fieldsの使い方を忘れてしまったとしても、sortシェルコマンドさえ知っていればC-u M-|で呼び出せます。シェルコマンドはEmacsの外でも使える知識なので極論すればC-u M-|さえ知っていればM-x sort-linesさえ知らなくていいです。
+
+　M-| (shell-command-on-region) はregionを標準入力としてシェルコマンドを実行します。C-uをつけない場合は出力結果を別ウィンドウで表示し、C-uをつけた場合はregionを置き換えます。M-|は「困ったらとりあえず使え」というほど万能なのでぜひとも知っておくべきです。
+
+　:で区切られた行の2番目のフィールドを数値でソートするにはGNU Coreutilsのsortコマンドではsort -k2 -t: -nを使います。他にも多数のオプションがあるので興味ある方はM-x man sortで使い方を見てみるとよいでしょう。
+
+#+BEGIN_EXAMPLE
+ジュース:110
+チョコ:20
+ポテトチップス:140
+#+END_EXAMPLE
+↓C-u M-| sort -k2 -t: -n
+#+BEGIN_EXAMPLE
+チョコ:20
+ジュース:110
+ポテトチップス:140
+#+END_EXAMPLE
+
+
+* elispを評価する
+** C-x C-eでカーソル直前のelispを評価する
+　Emacsには多くの標準コマンドがありますが、C-x C-e (eval-last-sexp)は能力を過小評価されていると思います。このコマンドはカーソル直前のelispの式を評価して、その結果をエコーエリアに表示します。
+
+　機能の説明からすると、一見elispプログラミング中しか使えないと誤解されがちです。しかし、プレフィクスキーがC-xであることから、すべての場面で使えるコマンドだと分かります。任意のバッファで「(+ 3 4)」と入力し、C-x C-eを押してください。7とエコーエリアに表示されます。
+
+　C-x C-eはポイント直前の式を評価するので、ネストした式の内部で使えば、内部の式を評価します。
+
+#+BEGIN_EXAMPLE
+(+ (* 3 5)
+   (- 10 7)
+   3)
+#+END_EXAMPLE
+
+の1行目ならば15、2行目ならば3となります。3行目は対応する括弧が1行目なので式全体が評価されて21となります。
+
+　C-u C-x C-eで式の評価結果をカレントバッファに挿入します。
+
+** ハイパーリンクとしてelispを使う
+　C-x C-eがすべてのバッファで使えるということは、いつでもelispの式を評価できることに他なりません。また、コマンド呼び出しは式としても記述できます。このことは、任意のテキストファイルにelispを埋め込んで評価できるということを意味します。
+
+　プログラミング言語や設定ファイルにはコメントが記述できますが、その中にelispを書けば、C-e C-x C-eで即座に評価できます。行末移動＋評価ですが、exe(execute、実行)となっているのは面白い偶然です。
+
+　筆者のxmodmap (X Window Systemのキーボード設定プログラム)の設定ファイルはこのように書いてあります。行頭の「!」はコメントです。普段いじらないファイルなので、いざ修正するときはそれに関連する知識を忘れてしまいます。こんな場合には関連情報を開くelispを書いていれば助かります。
+
+#+BEGIN_EXAMPLE
+! xmodmapのマニュアルページを開く
+!   (man "xmodmap")
+! xmodmap -pkeを実行し、キーコード一覧を表示する
+!   (shell-command "xmodmap -pke")
+! ファイルを別ウィンドウで開き、キーの名前を調べる
+!   (find-file-other-window "/usr/include/X11/keysymdef.h")
+keycode 49 = Escape
+...
+#+END_EXAMPLE
+
+　これはまさしくelispによるハイパーリンクに他なりません。しかもファイルを開く以外の任意の関数が呼び出せるのでelispでできることなら何でもできます。elispの括弧まみれの構文だからこそ、何も小細工せずに優れたハイパーリンクシステムになったのです。Wikiのような機能を導入しなくても、ハイパーリンクされるのは嬉しいことではないでしょうか。
+** 一連のelispを評価する
+　1つのelispの式を評価するならばC-x C-eで十分ですが、複数の式をまとめて評価したいことがあります。M-x eval-regionはregionをelispのコードとして評価し、M-x eval-bufferはバッファ全体を評価します。これらはキーにこそ割り当てられていませんが、いつでもどこでも使えるコマンドです。
+
+　特にeval-regionはelispのコードを含むバッファから直接実行できるので便利です。Emacsについて書いてあるメール・ドキュメントから使えます。Emacs 24.4で標準装備となったWebブラウザEWWでEmacsについて書いてあるサイトを開いたときにも威力を発揮します。EWWはemacs-w3mよりも数倍高速に動作するので、普段のネットサーフィンにはきついですが、Emacsについての調べ事をする際にはとても便利に使えます。
+* 電卓として使う
+　Emacsは電卓になります。簡単な計算をするくらいで別なアプリケーションを立ち上げたり、電卓を横に置いておく必要はありません。Emacsの機能を使ってください。
+** elispで計算する
+　M-: (eval-expression)はelispの式を評価してエコーエリアに結果を表示します。C-u M-:とすれば、結果をカレントバッファに挿入します。
+
+　elispはれっきとしたプログラミング言語なので四則計算や数学関数が一通り揃っています。そのため、M-:はelispプログラミングにおいて変数の値や関数呼び出しの結果を見る以外に、普通に関数電卓としても使えます。筆者は簡単な計算をするときは必ずM-:を使っています。
+
+　もちろんelispなのでLispの記法で式を書く必要がありますが、使っていくにつれて慣れます。四則演算(+-*/)と剰余(%)は他言語と同じですが、累乗はexptという関数を使う必要があります。
+
+　たとえば、「30+3^3-4×5」を計算するには、「M-: (+ 30 (expt 3 3) (* -4 5))」と入力し、37という答えを得ます。四則演算は引数を3つ以上取れるので、日常使っている中置記法よりも簡潔になることがあります。
+
+　「(30−4)×5」は「M-: (* (- 30 4) 5)」と入力し、130を得ます。慣れないうちは次のように入力すればよいです。括弧の前後のスペースは省略できます。
+
+#+BEGIN_EXAMPLE
+(- 30 4)
+↓C-aの後に(*と入力
+(*(- 30 4)
+↓C-eの後に5)と入力
+(*(- 30 4)5)
+#+END_EXAMPLE
+
+　ただし、除算については注意が必要です。整数どうしで除算をすると答えが整数になるので、小数点以下を求めるならば小数を含める必要があります。
+
+#+begin_src emacs-lisp :results silent :tangle 14.el
+(/ 10 3)     ; => 3
+(/ 10.0 3)   ; => 3.333333
+#+end_src
+
+　exptの別名を定義すれば「^」や「**」で累乗演算子として使えます。
+#+begin_src emacs-lisp :results silent :tangle 15.el
+(defalias '^ 'expt)
+(defalias '** 'expt)
+(+ 30 (expt 3 3) (* -4 5))  ; => 37
+(+ 30 (^ 3 3) (* -4 5))     ; => 37
+(+ 30 (** 3 3) (* -4 5))    ; => 37
+#+end_src
+
+** Calcを使う
+　Emacsにはelispで書かれた数学関数ライブラリ・関数電卓アプリケーションCalcが標準でついてきます。ものすごく多機能で複雑な計算ができます。しかし、関数電卓としてはM-:で間に合っているし、複雑な計算には他のプログラミング言語を使うので筆者は使っていません。
+
+　CalcにはC-x * (calc-dispatch)というプレフィクスキーからアクセスします。
+#+BEGIN_EXAMPLE
+C-x *  (Type ? for a list of Calc options)
+#+END_EXAMPLE
+
+と出てくるので?を押すと以下のように表示されます。もう一度?を押すと*Help*に詳細が一覧されます。
+
+#+BEGIN_EXAMPLE
+Calc options: Calc, Keypad, Quick, Embed; eXit; Info, Tutorial; Grab; ?=more
+#+END_EXAMPLE
+
+　とりあえずC-x * qで普通の計算式で計算してエコーエリアに表示できます。C-x * q (30-4)*5と入力すれば130と出ます。
+
+　興味ある人はC-x * iでCalcのinfoが見られます。
+
+
+* カラーテーマ
+** 面倒なフェイス設定
+　今更言うまでもありませんが、Emacsは文字に色をつけることができます。Emacsでの文字の表現方法をフェイスと呼びます。フェイスは背景色、文字色、文字の大きさ、太さ、アンダーラインなどの設定項目があります。そして、M-x list-faces-displayからフェイスをカスタマイズできます。
+
+# 画像。
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150508083838.png]]
+Fig3: M-x list-faces-display
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20150508083923.png]]
+Fig4: isearchでRETを押しカスタマイズ画面
+
+
+　しかし、1つのフェイスをカスタマイズしても色の相性が悪いと、かえって文字が読みづらくなってしまいます。それに伴い、他のフェイスも変更する必要が出てきて、それの繰り返しになってしまいます。その結果、自分の望んだ色設定になるまで長期間を要してしまいます。
+** カラーテーマ登場
+　個々のフェイスの設定レベルで色を変更しているようでは、なかなかゴールにたどり着けません。そこで先人たちが試行錯誤の末に見付けた色設定集がたくさん用意されています。これをカラーテーマ(color theme)といいます。
+
+　カラーテーマを使えばその開発者の色設定があなたのEmacsに一発で反映されるのであなたは色の相性問題から解放されます。あなたはお気に入りのテーマを選べばいいだけです。
+
+　では、それぞれのテーマはどういう色使いになるのか前もって見ておきたいものです。幸いテーマのスクリーンショットを公開しているサイトがありますので、お気に入りのテーマがありましたら、インストール・設定してください。
+https://github.com/emacs-jp/replace-colorthemes/
+にたくさんのテーマが集められており、スクリーンショットは
+https://github.com/emacs-jp/replace-colorthemes/blob/master/screenshots.md
+で見られます。
+　また、MELPAにもたくさんのテーマが登録されています。M-x list-packagesからM-s o themeとoccurを実行すれば120以上マッチします。
+** テーマを設定する
+　テーマを設定するにはGUIから行うか、init.elに設定を加えます。
+
+　GUIならばM-x customize-themesでテーマ一覧が出てくるので、望みのテーマでRETを押して選択し、C-x C-sで設定を恒久化します。
+
+　init.elに加える場合は、themeを定義しているelispファイルのファイル名から-theme.el、パッケージ名から-themeを抜いた文字列をload-theme関数に設定します。たとえばcalmer-forest-themeならば
+#+BEGIN_EXAMPLE
+(load-theme 'calmer-forest t)
+#+END_EXAMPLE
+と記述します。
+
+　Emacsをあなた色に染めてください。
+
+* まとめ
+Table1: misc.elのコマンドたち
+| M-x zap-up-to-char          | 入力した文字の直前までをkill |
+| M-x forward-to-word         | 次の単語の先頭まで移動       |
+| M-x backward-to-word        | 前の単語の末尾まで移動       |
+| M-x copy-from-above-command | 上の行を複製                 |
+
+Table2: ソート
+| M-x sort-lines                | アルファベット順に昇順ソート                       |
+| C-u M-x sort-lines            | アルファベット順に降順ソート                       |
+| M-x sort-numeric-fields       | 数値順に昇順ソート                                 |
+| C-u N M-x sort-numeric-fields | N番目のフィールドを数値順にソート                  |
+| M-x reverse-region            | 行を逆順に並べる                                   |
+| M-｜                          | regionを標準入力にしてシェルコマンド実行           |
+| C-u M-｜                      | regionを標準入力にしてシェルコマンド実行結果に置換 |
+
+
+Table3: elisp評価
+| C-x C-e         | カーソル直前のelispを評価           |
+| C-u C-x C-e     | カーソル直前のelispの評価結果を挿入 |
+| C-e C-x C-e     | 現在行のelispを評価(ハイパーリンク) |
+| M-:             | elisp式を評価                       |
+| C-u M-:         | elisp式の評価結果を挿入             |
+| M-x eval-region | regionのelispコードを評価           |
+| M-x eval-buffer | バッファ全体のelispコードを評価     |
+
+Table4: Calc
+| C-x *   | Calcへの入口                            |
+| C-x * q | 「ふつうの記法」による関数電卓          |
+| C-x * i | Calcのinfoを開く                        |
+
+
+* 終わりに
+　いかがだったでしょうか？パッケージ全盛時代でつい外部パッケージに目が行ってしまいがちな今日この頃ですが、あえて標準コマンドに立ち帰ってみました。意外な発見がありましたでしょうか？
+
+　筆者は「日刊Emacs」以外にもEmacs病院兼メルマガのサービスを運営しています。Emacsに関すること関しないこと、わかる範囲でなんでも御答えします。「こんなパッケージ知らない？」「挙動がおかしいからなんとかしてよ！」はもちろんのこと、自作elispプログラムの添削もします。集中力を上げるなどのライフハック・マインド系も得意としています。登録はこちら→http://www.mag2.com/m/0001373131.html
