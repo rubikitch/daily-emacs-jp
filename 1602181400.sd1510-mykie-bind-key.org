@@ -1,0 +1,388 @@
+#+BLOG: rubikitch
+#+POSTID: 2411
+#+DATE: [2016-02-18 Thu 14:00]
+#+PERMALINK: sd1510-mykie-bind-key
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, 連載『るびきち流Emacs超入門』
+#+DESCRIPTION:
+#+TAGS:package:bind-key, package:mykie, global-set-key, define-key, kbd, global-map, smex, package:smex, キーバインド, キー操作
+#+TITLE: #18 操作性アップ！　スマートなキーバインド設定 (Software Design 2015年10月号掲載記事) Emacs mykie bind-key smex インストール 設定 使い方
+Software Design連載記事を掲載します。
+
+株式会社技術評論社の許可を得て掲載しています。
+草稿なので細かい部分は実際の記事とは異なることがあります。
+
+他の記事は左下にある「■雑誌連載中(全文公開)」から見られます。
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+* キーバインドを設定するいろいろな方法
+ども、るびきちです。
+本連載も18回目、連載開始から1年半が経過しました。
+今までいろいろなテーマについて書いてきましたが、重要なことを書き忘れていました。
+それは、「Emacsの使い勝手は操作性で決まる」ということです。
+操作性を大きく左右する要因は、やはりキーバインドを賢く設定することです。
+今回はキーバインドを設定するあらゆる方法を紹介します。
+* 標準の方法
+** global-set-key
+まずはキーバインドを設定する標準の方法を紹介します。
+Emacs全体で使えるキーバインドを設定するには、global-set-key関数を使います。
+この関数はこれまでの連載記事でのパッケージの設定で何度も出て来ましたが、改めて述べておきます。
+
+global-set-keyは、グローバルキーマップ(global-map)にてコマンドをキーに割り当てます。
+すでにコマンドが割り当てられている場合は新たなコマンドに置き換わります。
+キーの指定方法はいくつかありますが、kbd関数を使ってEmacs記法で指定するのが一番わかりやすいです。
+<f1> cでそのキーのEmacs記法と現在割り当てられているコマンドがわかります。
+
+以下の例では、C-tにother-windowを割り当てています。
+デフォルトではC-tにはtranspose-charsが割り当てられていますが、other-windowに取って代わられます。
+
+#+begin_src emacs-lisp :results silent :tangle 18.el
+(global-set-key (kbd "C-t") 'other-window)
+#+end_src
+
+global-mapは優先度が低いことに注意してください。
+global-mapに割り当てられているキーにメジャーモードでキーを割り当てている場合はメジャーモード側が優先されます。
+さらに有効なマイナーモードで割り当てられている場合は、マイナーモード側が優先されます。
+diredでpやnを押せば文字入力されるかわりにカーソルが上下移動するのはdired側がキーを割り当てているからです。
+
+常にC-tをother-windowにしたい場合、上記の設定ではうまくいきません。
+diredでのC-tはimage-dired関係のプレフィクスキーになっているため、diredでC-tを押してもother-windowは実行されません。
+
+** define-key
+キーバインドを設定する汎用的な関数はdefine-keyです。
+define-keyはキーマップ、キー、コマンドの順に指定します。
+キーマップをglobal-mapにしたとき、global-set-keyと等価になります。
+
+メジャーモードのキーマップは慣習的にモード名に「-map」をつけた変数になります。
+たとえば、emacs-lisp-modeならばemacs-lisp-mode-mapです。
+メジャーモードはM-: major-modeを実行すればわかります。
+emacs-lisp-modeと出たのならば、M-: emacs-lisp-mode-mapを実行してみてください。
+そこで長々とした出力があるならば、そのメジャーモードに対するキーマップだとわかります。
+もしキーマップの名前が違う場合は「void」というエラーが出ます。
+
+また、コマンドにnilを指定すればそのキーマップにおけるキー割り当てを解除します。
+たとえばdiredでもC-tをother-windowにしたいのならば上の設定に加えてこうします。
+この時点でC-tはdired-mode-mapから消えたのでglobal-mapを読みに行きます。
+
+#+begin_src emacs-lisp :results silent :tangle 18.el
+(require 'dired)
+(define-key dired-mode-map (kbd "C-t") nil)
+#+end_src
+
+** 新しいコマンドに割り当て直す
+global-set-keyやdefine-keyには、元のコマンドを新しいコマンドに割り当て直す機能があります。
+この機能をうまく活用しているわかりやすい例がdiredです。
+C-nは通常はnext-lineですが、diredにおいてはdired-next-lineに割り当てられています。
+dired-next-lineはdiredに特化した「次の行へ移動」コマンドです。
+
+dired.elを読むと、次のように書かれています。
+(わかりやすくするために少しアレンジしています)
+
+#+begin_src emacs-lisp :results silent :tangle 18.el
+(define-key dired-mode-map [remap next-line] 'dired-next-line)
+#+end_src
+
+これはdired-mode-mapにおいてnext-lineに割り当てられているすべてのキーにdired-next-lineを割り当てるという意味です。
+
+「next-lineに割り当てられているすべてキー」というのがポイントです。
+本来はC-nですがユーザ側が別なキーにnext-lineを割り当て直していても違和感なくdired-next-lineが使えるようになります。
+下カーソルキーも同じくdired-next-lineになります。
+
+一方、ffap(find-file-at-point)では直接C-x C-fに割り当てています。
+これだとC-x C-f以外にfind-fileを割り当てている場合は、そのキーがfind-file-at-pointになってくれません。
+
+#+begin_src emacs-lisp :results silent :tangle 18.el
+(global-set-key (kbd "C-x C-f") 'find-file-at-point)
+#+end_src
+
+
+** 自分用プレフィクスキーを探せ
+Emacsの操作性を上げるには、やはり自分用の押しやすいプレフィクスキーを持つことが大事です。
+他で使われないプレフィクスキーがひとつあれば何十ものコマンドを自由に割り当てられるからです。
+とくにホームポジションにあるC-;とC-:は端末(emacs -nw下)では使えませんが、何も割り当てられていません。
+C-l、C-q、C-t、C-zあたりもおすすめです。
+
+* 個人用キー割り当てパッケージbind-keyを使う
+** 簡単・お手軽に個人用キーバインド管理
+キーバインドを設定するだけならば普通にglobal-set-keyやdefine-keyを使えばいいだけです。
+しかし、Emacsのカスタマイズが進んでいくにつれて、自分が割り当てたキーを管理したくなります。
+そこでMELPAのbind-keyパッケージが登場します。
+
+以下の特徴があります。
+- 短く簡潔に記述できる
+- モードに左右されずに常に同じコマンドを割り当てられる
+- 自分が割り当てたキーバインドをリストできる
+
+とても簡単なのでぜひとも使ってみてください。
+
+パッケージの設定を1つのS式にまとめて記述できるuse-packageパッケージにもbind-keyが使われています。
+
+** kdb不要でスマートに記述
+bind-keyパッケージはキーバインドを定義するbind-keyマクロが定義してあります。
+これはユーザカスタマイズに特化したdefine-key相当物です。
+global-set-keyやdefine-keyからkbdを取り去った短い記述でキーバインドを定義できます。
+
+#+BEGIN_EXAMPLE
+書式
+
+(global-set-key (kbd "キー") 'コマンド)
+↓
+(bind-key "キー" 'コマンド)
+
+(define-key キーマップ (kbd "キー") 'コマンド)
+↓
+(bind-key "キー" 'コマンド キーマップ)
+#+END_EXAMPLE
+
+bind-keyマクロはautoloadされないので、使う際にはrequireする必要があります。
+
+ここで、さきほど登場したglobal-set-keyとdefine-keyをbind-keyに置き換えてみましょう。
+
+#+begin_src emacs-lisp :results silent :tangle 18.el
+(require 'bind-key)
+(require 'dired)
+(bind-key "C-t" 'other-window)
+(bind-key "C-t" nil dired-mode-map)
+#+end_src
+
+いたって簡単です。
+しかし、この短い記述の裏では管理のための複雑なカラクリが仕掛けてあります。
+
+** メジャーモード・マイナーモードに上書きされない強制設定
+自分用のキーバインドを設定したつもりが、時として意図した通りに動作しないことがあります。
+それは、キーマップ探索の優先順位が低いキーマップにキーとコマンドを割り当てているため、より高い優先順位のキーマップに割り当てられたコマンドが有効になっているためです。
+global-mapよりもメジャーモードの方が優先され、メジャーモードよりもマイナーモードの方が優先されます。
+そのため、global-mapのC-tにother-windowを割り当ててもdired-mode-mapでC-tが使われているため、diredではother-windowが動作しないことになります。
+
+bind-keyの亜種bind-key*マクロは最高優先度のキーマップにキーを割り当て、常に意図したコマンドが実行されるようにします。
+メジャーモードはおろかマイナーモードでさえも阻むことはできません。
+
+#+begin_src emacs-lisp :results silent :tangle 18.el
+(require 'bind-key)
+(bind-key* "C-t" 'other-window)
+#+end_src
+
+これは「劇薬」というほど強力な方法なので、注意する必要があります。
+メジャーモード・マイナーモードでそのキーに割り当てられたコマンドが使えなくなるからです。
+そのキーに割り当てられたコマンドが重要なコマンドである場合は、改めてそのコマンドを別なキーに割り当てる必要があります。
+** 個人用キーバインドを列挙する
+bind-keyには、自分が設定したキーバインドを列挙する機能があります。
+それこそがカスタマイズ用に特化したdefine-keyである所以です。
+
+bind-key・bind-key*を実行したら、割り当てたキーバインドと元のキーバインドを内部的に記憶しています。
+そして、M-x describe-personal-keybindingsでそれらをリストできます。
+
+たとえば、C-tにother-windowを割り当てたときには、以下のような表示になります。
+
+#+BEGIN_EXAMPLE
+Key name   Command         Comments
+---------- --------------- ---------------------
+C-t        `other-window'  was `transpose-chars'
+#+END_EXAMPLE
+
+デフォルトのtranspose-charsを上書きしてother-windowに割り当てていることがわかります。
+ここではglobal-mapの変更しか書いていませんが、他のキーマップの変更点も表示されます。
+
+よってinit.elでのキーバインドの設定をbind-keyに置き換えることで、自分が割り当てたキーバインドを一覧できます。
+標準のEmacsのキーバインドからどれだけ離れているかもわかります。
+新しく割り当てるべきキーを見出すきっかけにもなるでしょう。
+
+* 状況で挙動を変更させるmykieパッケージ
+** コマンドと「状況」
+Emacsのコマンドは、動作するための条件が必要な場合があります。
+たとえばC-wやM-wはregionが設定されている場合のみ動作します。
+regionが設定されていない場合はバッファに変更を及ぼしません。
+
+一方で、C-uを付けることでまったく別の挙動をするコマンドも存在します。
+たとえばC-SPCはマークをするコマンドですが、C-u C-SPCで過去にマークされた位置に移動します。
+C-uにより、ひとつのコマンドに複数の機能を持たせられることを意味します。
+
+Emacsにはすでに無数のコマンドがキーに割り当てられていて、新たに割り当てるキーを探すのは一苦労です。
+操作性や記憶力の限界がくるからです。
+
+そこで状況に応じて挙動を変化するコマンドをキーに割り当てれば、キーバインドの資源を有効活用できます。
+標準コマンドで使っているキーを多機能コマンドに割り当て直せば、記憶を圧迫することなく自然に新しい機能が使えるようになります。
+
+たとえば、C-wはC-uを付けても付けなくても挙動が変わらないので、C-u C-wに別なコマンドを割り当てる余地があります。
+regionが設定されていないときには変化がないので、現在行をkillするように設定できます。
+
+これを容易にするのがMELPAのmykieパッケージです。
+
+** C-wに挙動を追加する
+mykieパッケージを使うにはmykie:global-set-keyとmykie:define-keyという2つのマクロを知っていればいいです。
+これらは名前の示す通りmykie定義に基づく挙動をキーに割り当てます。
+mykie定義とは、状況とコマンドを対応させるキーワード引数です。
+
+#+BEGIN_EXAMPLE
+書式
+(mykie:global-set-key "キー(Emacs記法)" mykie定義...)
+(mykie:define-key キーマップ "キー(Emacs記法)" mykie定義...)
+#+END_EXAMPLE
+
+それでは実例を示しましょう。
+C-wはデフォルトの状態ではregionが有効のときのみ使えるコマンドです。
+また、C-uを付けても挙動が変わりません。
+よって、regionが無効なときとC-uをつけたときの挙動を追加させられます。
+そこで、regionなしのときはkill-whole-line、region有のときはkill-region、region有かつC-uをつけた場合にfold-thisを実行させたければ、以下のようになります。
+
+なお、fold-thisコマンドはregionを一時的に隠すもので、fold-thisパッケージをインストールして使えます。
+見かけ上regionが消えるのでC-u C-wに割り当てても違和感を感じません。
+
+#+begin_src emacs-lisp :results silent :tangle 18.el
+(mykie:global-set-key "C-w"
+  :default kill-whole-line
+  :region kill-region
+  :region&C-u fold-this)
+#+end_src
+
+** S式をコマンド化する
+上のmykie定義ではコマンド名を指定しましたが、S式を指定することもできます。
+そのときはそのS式を実行します。
+
+以下の例ではC-@を押したときに「Pressed C-@」と表示します。
+
+#+begin_src emacs-lisp :results silent :tangle 18.el
+(mykie:global-set-key "C-@"
+  :default (message "Pressed C-@"))
+#+end_src
+
+同様の働きを通常のglobal-set-keyで定義するには以下のような面倒な記述が必要になります。
+
+#+begin_src emacs-lisp :results silent :tangle 18.el
+(global-set-key (kbd "C-@")
+                (lambda ()
+                  (interactive)
+                  (message "Pressed C-@")))
+#+end_src
+
+これは、elisp開発に役立つことでしょう。
+
+** あらゆるキーワード引数
+mykieはregionやC-uだけでも使えればとても便利ですが、他にも多数のキーワードが使用可能です。
+mykieで複雑な設定をする前に、どのコマンドが実行されるのかを確認するといいです。
+筆者は以下のようにmykie:testerマクロを定義して使っています。
+
+#+begin_src emacs-lisp :results silent :tangle 18.el
+(defmacro mykie:tester (&rest args)
+  `(mykie:global-set-key "C-x C-z"
+     ,@(cl-loop for a in args
+                for msg = `(message "%sが実行されます" ,a)
+                append (list a msg))))
+#+end_src
+
+このマクロを
+
+#+begin_src emacs-lisp :results silent :tangle 18.el
+(mykie:tester :C-u :default)
+#+end_src
+として呼び出した場合、以下のように展開されます。
+
+#+begin_src emacs-lisp :results silent :tangle 18.el
+(mykie:global-set-key "C-x C-z"
+  :C-u (message "%sが実行されます" :C-u)
+  :default (message "%sが実行されます" :default))
+#+end_src
+
+つまり、C-u C-x C-zで「:C-uが実行されます」と表示され、C-x C-zで「:defaultが実行されます」と表示されます。
+
+使えるキーワードはhelmを導入した上でM-x helm-show-mykie-keywordsを実行すれば調べられます。
+
+* M-xを有効活用する
+** あえてキーに割り当てない選択 
+Emacsユーザは新しいコマンドが使えるようになったとき、ついついキーに割り当てたくなるものです。
+
+プレフィクスキーのおかげで理論上は無限にキーに割り当てられます。
+たとえばC-:を自分用プレフィクスキーにしたとき、C-: C-:やC-: C-: C-:もプレフィクスキーにできます。
+しかし、それではプレフィクスキーが長くなってしまい、コマンドの発動に時間がかかります。
+使い勝手を考えるとせいぜいプレフィクスキーは2ストローク…つまりキーシーケンスは3ストローク…が限界です。
+
+そして、もう一つの限界が記憶力です。
+人間の儚い記憶力では長いキーシーケンスと対応するコマンドを覚えるのは困難です。
+何個も自分用プレフィクスキーを用意する方法でも記憶力の限界に到達します。
+割り当てるコマンドとキーシーケンスの関連がない場合は、とても覚えにくいです。
+
+いずれにせよ現実的にはキーマップは有限な資源になります。
+そう何個も何個もキーに割り当てられません。
+
+そういう場合は無理にキーに割り当てず、コマンド名で覚えてM-xで呼び出せばいいです。
+** コマンドに別名をつける
+キーバインドが狂っていたり、コマンド名が長かったり、覚えにくかったりする場合は、自分で勝手に別名をつけるといいです。
+たとえば、C-M-% (query-replace-regexp)をそれなりの頻度で使う場合、無理にC-M-%を押さずにM-x qrrで呼び出せばいいです。
+
+#+begin_src emacs-lisp :results silent :tangle 18.el
+(defalias 'qrr 'query-replace-regexp)
+#+end_src
+
+
+筆者は文章を書くときにはolivetti-modeというマイナーモードを使い、画面中央に文章を表示させて執筆に集中します。
+しかしolivetti-modeという名前がどうしても覚えられないので、勝手にwriting-modeと名付けています。
+
+#+begin_src emacs-lisp :results silent :tangle 18.el
+(defalias 'writing-mode 'olivetti-mode)
+#+end_src
+
+また、常に別名を使っていれば実体が変わっても同じ名前を使い続けられます。
+筆者は今はqrrをvr/query-replaceにしています。
+vr/query-replaceはvisual-regexpパッケージで定義されているquery-replace-regexpの進化形です。
+re-builderのように正規表現を確認しつつ置換を行うコマンドです。
+
+#+begin_src emacs-lisp :results silent :tangle 18.el
+(defalias 'qrr 'vr/query-replace)
+#+end_src
+
+olivetti-modeには類似品writeroom-mode、tabula-rasaがあります。
+乗り換える場合はwriting-modeの別名を付け替えるだけで済みます。
+
+シェルでは別名が当たり前ですが、元々の動機はコマンドを呼び出しやすくすることです。
+同様の発想でEmacsのコマンドにおいても別名を使ってみてください。
+** M-xを超強化するsmexパッケージ
+コマンドを名前で呼び出す頻度が多くなれば、必然的にM-xの使用頻度も上がります。
+そうなると、より進化したM-xが欲しくなるでしょう。
+MELPAのsmexはまさに「スーパーM-x」にふさわしい強力なパッケージです。
+smexは過去に使用したコマンドを列挙しつつ、コマンド名を曖昧検索・選択できるようにします。
+
+類似品であるhelm-M-x(helm版M-x)よりも動作が軽く、しかも賢いです。
+smexはコマンドの使用頻度や履歴に基いて最初に提示するコマンドを適切に選択しています。
+使用頻度のデータベースは保存されるのでEmacsを再起動しても受け継がれます。
+
+smexはidoインターフェースなので、MELPAのido-vertical-modeと併用すると縦に候補が表示されて見やすくなります。
+
+#+begin_src emacs-lisp :results silent :tangle 18.el
+(setq ido-max-window-height 0.75)
+(setq ido-enable-flex-matching t)
+(ido-vertical-mode 1)
+(setq ido-vertical-define-keys 'C-n-and-C-p-only)
+(smex-initialize)
+(require 'bind-key)
+(bind-key "M-x" 'smex)
+(bind-key "M-X" 'smex-major-mode-commands)
+#+end_src
+
+[[file:/r/sync/screenshots/20150106055458.png]]
+
+図ではM-x fifiでfind-fileなどが出ていることに注目してください。
+idoの曖昧検索によりfifiという入力が正規表現f.*i.*f.*iに変換されるからです。
+つまり、各文字間に任意の文字が入ったコマンドにもマッチします。
+よって、長いコマンドも少ない打鍵数で呼び出せるようになります。
+しかも一度呼び出したら次に呼び出せるように最初の候補に登ってきます。
+
+候補選択はhelm同様C-p/C-nで直感的に行えます。
+
+メジャーモードに関連するコマンドはM-Xで呼び出せるようになります。
+
+しかも素晴しいことにRETでコマンド実行するかわりに他のキーを押せば実行以外のこともできます。
+C-h wでそのコマンドの説明を表示(describe-function)し、C-h wで割り当てられたキーを表示(where-is)し、M-.でコマンドの定義(find-function)を開きます。
+smexはひとつのコマンドでありながら複数のアクションを持つ、まさにhelm的なコマンドといえます。
+* 終わりに
+今回はキーバインド特集ということで、基本からその進化形を紹介しました。
+キーバインドの方法は他にもあるのですが、残念ながら紙面が足りなくなってしまっため、来月にまわします。
+
+筆者はサイト「日刊Emacs」を運営し、毎日パッケージの紹介記事を書いています。
+マイナーなものも紹介しているので、新たなパッケージを求めている人の役に立てば幸いです。
+
+また、EmacsユーザのQOLを上げるための厳選した情報を週間メルマガで配信しています。
+Emacsについてはもちろんのこと、ライフハックなどいろいろな分野について書いています。
+登録はこちら→http://www.mag2.com/m/0001373131.html
