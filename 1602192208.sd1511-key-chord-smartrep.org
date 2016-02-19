@@ -1,0 +1,230 @@
+#+BLOG: rubikitch
+#+POSTID: 2413
+#+DATE: [2016-02-19 Fri 22:08]
+#+PERMALINK: sd1511-key-chord-smartrep
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, 連載『るびきち流Emacs超入門』
+#+DESCRIPTION:
+#+TAGS:package:key-chord, package:smartrep, global-set-key, define-key, bind-key, describe-personal-keybindings, relate:bind-key, relate:mykie, package:bind-key, package:mykie, package:smex, view-mode, key-chord-define-global, key-chord-define, key-chord-mode, key-chord-two-keys-delay, key-chord-one-key-delay, repeat, org-mode, package:org, other-window, delete-window, delete-other-windows, split-window-below, split-window-right, shrink-window-horizontally, enlarge-window-horizontally, balance-windows, enlarge-window, shrink-window, package:key-combo, package:mag-menu
+#+TITLE: #19 同時押し＆リピート　少し特殊なキー設定 (Software Design 2015年11月号掲載記事) Emacs key-chord smartrep インストール 設定 使い方
+Software Design連載記事を掲載します。
+
+株式会社技術評論社の許可を得て掲載しています。
+草稿なので細かい部分は実際の記事とは異なることがあります。
+
+他の記事は左下にある「■雑誌連載中(全文公開)」から見られます。
+
+#+BEGIN_QUOTE
+　前回に引き続き、Emacs の操作性を決定づけるキーバインド設定についてお話します。前半では「同時押し」というEmacsには今までなかった操作を導入するパッケージ「key-chord」を、後半では繰り返し入力するようなコマンドを短くできるパッケージ「smartrep」を紹介します。
+#+END_QUOTE
+* 操作性を高めよう
+ども、るびきちです。
+「Emacsの使い勝手は操作性で決まる」という流れで先週はキーバインドの設定を中心にお話してきました。
+Emacsはキーボード操作が中心なので、いかに賢くキーバインドを設定するかが操作性を決定付けます。
+
+言うまでもありませんが、よく使うコマンドはキーに割り当てて然るべきです。
+そのためには、標準でglobal-set-keyとdefine-key関数が用意されています。
+ですが、個人的にキーバインドの設定をする際にはbind-keyパッケージの同名のマクロを使用する方が賢明です。
+短く記述でき、モードに上書きされない強制設定(bind-key*)ができ、個人用キーバインドの列挙(M-x describe-personal-keybindings)もできるからです。
+
+キーバインドの資源は有限なので、なんでもかんでもキーに割り当てるわけにはいきません。
+regionやC-uの有無で挙動を変化させるコマンドを定義するmykieパッケージはキーバインドを有効活用してくれます。
+これを使えばたとえばC-u C-wやregion無しのC-wに機能を割り当てられるからです。
+mykieで設定できる「状況」はとても多いので、突き詰めていけば1つのキーにたくさんの機能を割り当てられます。
+
+あまり使用頻度が高くないコマンドはキーバインドよりも名前で覚えるでしょう。
+M-xを非常に使いやすくするsmexパッケージを使えば、そういうコマンドをすぐに呼び出せます。
+また、長い名前のコマンドや押しづらいキーバインドのコマンドはdefaliasで短い別名を付けるとM-xから呼び出しやすくなります。
+
+今回は一風変わったキーバインド設定方法を紹介します。
+* 同時押し・連打にキーを割り当てるkey-chord
+** キーボード同時押しという新たな境地
+割り当てられるキーを増やすには、自分用のプレフィクスキーを用意するのがEmacs的に最も自然な方法です。
+複数個プレフィクスキーを用意したり、あまり割り当てられていないプレフィクスキー(M-sやM-g)を使えばかなりの数のコマンドをキーに割り当てられます。
+
+そんな中、ちょっと変わったキー割り当て方法を提供するのがMELPAのkey-chordパッケージです。
+chordとは和音であり、key-chordとはキー同時押しを意味します。
+たとえばkとlを同時に押すことでview-modeを実行する…なんてことができるようになります。
+当然、同時押しによるコマンド発動はEmacs的にはまったく新しい発想であり、どのパッケージにも使われていません。
+同時押し対象の2つのキーを自由に選べばいいのです。
+マウスジェスチャーがクリックとドラッグしか能がないマウスに新しい風を吹き込んだように、key-chordは新たな操作性を提供します。
+** 本当の「同時押し」はない
+少し考えてみればわかることですが、本当に寸分の狂いもなく同時にキーを押すことは不可能です。
+どうしても0.01秒単位のタイムラグが生じます。
+そこで、2つのキーが押された間隔が一定時間よりも短いときに「同時押し」とみなされます。
+その間隔の設定は実際に使ってみて試行錯誤する必要があります。
+間隔が短すぎれば同時押ししたつもりでもコマンドが発動しません。
+逆に長すぎれば別々のキーのつもりが同時押しとみなされてコマンドが誤爆してしまいます。
+
+たとえばjとkの同時押しはホームポジション上なので押しやすいです。
+通常のローマ字入力では使わないのできわめて有効な選択となります。
+しかし、拡張ローマ字AZIKでは「じん」「くん」と入力するときに使うので誤爆の可能性が出てきます。
+AZIKユーザはvや@を使えば誤爆しにくくなります。
+** 素早く連打する
+2つのキーは同一のキーを選択することもできます。
+そのときは同時押しではなくて、素早く連打することでコマンドを発動させます。
+この場合でも当然、誤爆のリスクと背中合わせです。
+2つのキー(文字)が立て続けに登場する確率が低くなるキーを選択する必要があります。
+間隔も適度に短く設定しなければなりません。
+
+さらに、文字キーを連打キーに設定した場合、入力してから表示されるまでのタイムラグが生じます。
+連打によるコマンド発動を待っているのだから当然です。
+次の文字を素早く打てば問題ありません。
+** key-chord.elの導入
+#+BEGIN_SRC emacs-lisp :results silent
+(require 'key-chord)
+;;; タイムラグを設定
+(setq key-chord-two-keys-delay 0.04)
+(setq key-chord-one-key-delay 0.15)
+(key-chord-mode 1)
+;;; 設定例
+(key-chord-define-global "kl" 'view-mode)
+(key-chord-define emacs-lisp-mode-map "df" 'describe-function)
+(key-chord-define-global "vv" 'find-file)
+#+END_SRC
+
+それではkey-chordの設定例を示しましょう。
+タイムラグの設定は必須です。
+ここでは同時押しで0.04秒、連打で0.15秒に設定しています。
+連打は本気で素早く打たないと発動しません。
+
+関数名から推測されるようにグローバルマップに作用する key-chord-define-global と任意のキーマップに作用する key-chord-define があります。
+それぞれglobal-set-keyと define-key に相当します。
+
+* リピートを活用する
+** 立て続けに実行されるコマンドは1ストロークで
+Emacsのコマンドには立て続けに実行されうるものと、そうでないものがあります。
+カーソル移動やウィンドウのリサイズは連続的に実行されやすいです。
+そういうコマンドは1ストロークであればとても実行しやすいです。
+C-fやM-fは連打するだけで移動を繰り返せます。
+
+一方、ウィンドウのリサイズを行うC-x {やC-x }は連続的に実行されうるにもかかわらず2ストロークです。
+ウィンドウの大きさを視覚的に確認しながらリサイズするにはC-x {を繰り返す必要があって面倒です。
+
+よって、連続して実行されうるコマンドは1ストロークのキーに割り当てることが望ましいです。
+「M-英大文字」は会いているのでそういうコマンドを割り当てるとよいでしょう。
+
+また、グローバルマップではM-pとM-nにはコマンドを割り当てていません。
+それはメジャーモードにとって相応しいカーソル移動コマンドを割り当てられる余地を残しています。
+
+** repeatを活用する
+C-x {のように繰り返し実行される複数ストロークコマンドにも救済措置が用意されています。
+それはC-x zに割り当てられているrepeatコマンドです。
+C-x zは直前のコマンドを繰り返します。
+さらに繰り返すにはプレフィクスキーC-xは不要でzを押すだけです。
+C-x zは次項で紹介するsmartrep的なコマンドです。
+これによりC-x {を3回実行する場合はC-x { C-x z zと、1ストローク節約できます。
+
+とはいえ「立て続けに実行されるコマンドは1ストロークに割り当てる」という原則にならえば、repeatも1ストロークのキーに割り当て直した方が快適です。
+たとえば、「C-,」に割り当てたとすれば、C-x {×3はC-x { C-, C-,と、2ストローク節約できます。
+
+M-x repeatをC-,に割り当てる設定はこうなります。
+
+#+begin_src emacs-lisp :results silent :tangle 19.el
+(global-set-key (kbd "C-,") 'repeat)
+#+end_src
+
+または
+
+#+begin_src emacs-lisp :results silent :tangle 19.el
+(require 'bind-key)
+(bind-key* "C-," 'repeat)
+#+end_src
+
+
+** プレフィクスキーを省略させるsmartrep
+特定のコマンドを繰り返し実行するときにプレフィクスキーを省略させるsmartrepパッケージがMELPAにあります。
+smartrepはsmart repeatの略で、繰り返しを快適にします。
+repeatを1ストロークに割り当てれば、直前のコマンドのみのプレフィクスキーを省略できますが、smartrepを導入すれば省略対象のコマンドを複数個持てます。
+hydraという類似品が最近登場しましたが、本稿の対象読者を考慮して日本人作かつユーザ数の多いsmartrepを紹介します。
+
+smartrepを使うにはrequireした後にsmartrep-define-key関数を使います。
+それでは2つ具体例からsmartrepの使い方を見ていきましょう。
+** org-modeで見出し移動を快適にする
+org-modeには見出し移動コマンドがたくさん用意されています。
+一度見出し移動コマンドを実行したら、次も見出し移動コマンドが実行される可能性があります。
+
+| C-c C-n | 次の見出しへ             |
+| C-c C-p | 前の見出しへ             |
+| C-c C-u | 上の見出しへ             |
+| C-c C-f | 同じレベルの次の見出しへ |
+| C-c C-b | 同じレベルの前の見出しへ |
+
+これらのコマンドを実行中にC-cを省略できるようにするには、以下の設定をします。
+
+#+begin_src emacs-lisp :results silent :tangle 19.el
+(require 'smartrep)
+(require 'org)
+(smartrep-define-key org-mode-map "C-c"
+  '(("C-n" . org-next-visible-heading)
+    ("C-p" . org-previous-visible-heading)
+    ("C-u" . outline-up-heading)
+    ("C-f" . org-forward-heading-same-level)
+    ("C-b" . org-backward-heading-same-level)))
+#+end_src
+
+これによりC-c C-u C-c C-f C-c C-nがC-c C-u C-f C-nのように操作できます。
+実際にやってみると、見出し移動がとても快適になることがわかります。
+smartrep状態を解除するにはC-gを押すか、登録されていないキーを押します。
+登録されていないキーを押すと、元のコマンドが実行されます。
+たとえばaを押すとaが入力されます。
+
+** ウィンドウ操作をひとまとめにする
+ウィンドウを操作する代表的なコマンドはC-xをプレフィクスキーにしています。
+ウィンドウの分割状態を作成するには、分割したりリサイズするコマンドを連続的に使う必要があります。
+そういう場合にsmartrepはとても威力を発揮します。
+
+ここでは以下のウィンドウ操作コマンドをsmartrepで扱えるようにします。
+ついでにC-x -でウィンドウを縦方向に縮めるコマンドにしておきます。
+元々はそのウィンドウの行数に合わせてウィンドウを縮めますが、ここではC-x ^の対になるコマンドが欲しいからです。
+
+| C-x o | 隣のウィンドウに切替える       |
+| C-x 0 | ウィンドウを削除する           |
+| C-x 1 | 他のウィンドウをすべて削除する |
+| C-x 2 | 上下分割する                   |
+| C-x 3 | 左右分割する                   |
+| C-x { | ウィンドウを横方向に縮める     |
+| C-x } | ウィンドウを横方向に広げる     |
+| C-x + | ウィンドウの大きさをそろえる   |
+| C-x ^ | ウィンドウを縦方向に広げる     |
+|-------+--------------------------------|
+| C-x - | ウィンドウを縦方向に縮める     |
+
+#+begin_src emacs-lisp :results silent :tangle 19.el
+(require 'smartrep)
+(smartrep-define-key global-map "C-x"
+  '(("o" . other-window)
+    ("0" . delete-window)
+    ("1" . delete-other-windows)
+    ("2" . split-window-below)
+    ("3" . split-window-right)
+    ("{" . shrink-window-horizontally)
+    ("}" . enlarge-window-horizontally)
+    ("+" . balance-windows)
+    ("^" . enlarge-window)
+    ("-" . shrink-window)))
+#+end_src
+
+使ってみればわかりますが、この設定を施した後はウィンドウを適切な大きさに分割させることが楽しくなることうけあいです。
+
+* その他の方法
+　操作性を快適にする方法は他にもいろいろあります。
+　key-comboパッケージは同じキーを連続的に使用したときの挙動を変えられます。C-a 2回でバッファ先頭に移動したりできます。
+　mag-menuパッケージは強力なメニューインターフェースを提供します。メニューを経由して複数の機能をひとまとめにできます。
+
+* 終わりに
+今回も前回に引き続きキーバインド特集でしたが、今回は一風変わった方法を紹介しました
+
+筆者はサイト「日刊Emacs」を運営し、毎日パッケージの紹介記事を書いています。
+マイナーなものも紹介しているので、新たなパッケージを求めている人の役に立てば幸いです。
+
+また、EmacsユーザのQOLを上げるための厳選した情報を週間メルマガで配信しています。
+Emacsについてはもちろんのこと、ライフハックなどいろいろな分野について書いています。
+登録はこちら→http://www.mag2.com/m/0001373131.html
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
