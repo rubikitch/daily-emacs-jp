@@ -1,0 +1,280 @@
+#+BLOG: rubikitch
+#+POSTID: 2417
+#+DATE: [2016-02-21 Sun 13:06]
+#+PERMALINK: sd1601-auto-yasnippet
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, 連載『るびきち流Emacs超入門』
+#+DESCRIPTION:
+#+TAGS:package:yasnippet, package:auto-yasnippet, yas-global-mode, yas-prompt-functions, yas-ido-prompt, advice-add, yas-insert-snippet, yas-new-snippet, yas-tryout-snippet, placeholder, set-goal-column, aya-create-with-newline, aya-expand, aya-create, emacs テンプレート展開, emacs スニペット, emacs スケルトン 使いづらい, スケルトン
+#+TITLE: #21 定型文を瞬時に入力　yasnippet の実力 (Software Design 2016年1月号掲載記事) Emacs auto-yasnippet インストール 設定 使い方
+Software Design連載記事を掲載します。
+
+株式会社技術評論社の許可を得て掲載しています。
+草稿なので細かい部分は実際の記事とは異なることがあります。
+
+他の記事は左下にある「■雑誌連載中(全文公開)」から見られます。
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+#+BEGIN_QUOTE
+　今回は前回少し紹介した、穴埋め式で定型文を入力できるパッケージ「yasnippet」について深堀りしていきます。スニペット作成のチュートリアルから、auto-yasnippet パッケージによる即席スニペットの使い方までを解説します。
+#+END_QUOTE
+* スニペット展開の王道yasnippet
+ども、るびきちです。
+11/8にJohn Wiegley氏がEmacsのメンテナに就任し、Emacs25リリースへ向けての動きで盛り上がっています。
+彼は前世紀からたくさんのelispプログラムに関わっていて、長年熱心に活動しているのでこれからのEmacs界が楽しみです。
+執筆時点で25.1への仕様凍結がされたので、そう遠くない日にリリースされるでしょう。
+
+前回は基本的な入力支援機能に触れてから、yasnippetという強力なスニペット(テンプレート)展開パッケージを紹介しました。
+yasnippetはMELPAダウンロードランキングのベスト10入りするほど定番になってきました。
+これを使えば穴埋め式で定型文を確実に入力できるので、コーディングや文書作成が捗ります。
+
+#+begin_src emacs-lisp :results silent :tangle 21.el
+(yas-global-mode 1)
+;;; スニペット名をidoで選択する
+(setq yas-prompt-functions '(yas-ido-prompt))
+#+end_src
+
+
+* スニペットを定義する
+yasnippetはインストールした時点で各メジャーモード用にスニペットが用意されていますが、やはり自分で定義してこそyasnippetを使いこなしていると言えます。
+
+特にコーディングの場面においては定型文入力の繰返しになります。
+関数・クラス・メソッドにはイディオムのような決まった使い方があります。
+それを登録することで確実に効率よく入力できます。
+
+** スニペット登録例
+スニペット登録例として、前回登場したアドバイス定義のコードにします。
+前回は完成形スニペットをスニペットの例として示しましたが、そこに到達するまでの道のりを解説します。
+
+以下は筆者が実際に使っている設定です。
+C-x v lでバージョン管理システムのログを表示し、そこでdを押したらM-x log-view-diffが実行されて前回のコミットとのdiffが表示ます。
+しかしその後diffを表示しているウィンドウを選択してしまうのが不満なのでそれを解消するアドバイスを書きました。
+
+#+BEGIN_EXAMPLE
+(defun log-view-diff--noselect (&rest them)
+  (other-window -1))
+(advice-add 'log-view-diff :after 'log-view-diff--noselect)
+#+END_EXAMPLE
+
+アドバイスを定義するには、アドバイスの内容となる関数を定義し、advice-addでその関数を登録します。
+関数名は任意ですが、どの関数に対するアドバイスかを明確にするため、筆者は「元の関数名--アドバイス名」の形式にしています。
+
+その骨格だけを抜き出すと、次のようになります。
+
+#+BEGIN_EXAMPLE
+(defun log-view-diff--noselect (&rest them)
+  )
+(advice-add 'log-view-diff :after 'log-view-diff--noselect)
+#+END_EXAMPLE
+
+
+** 3つのdirective
+手始めに、これをスニペットにしましょう。
+M-x yas-new-snippetを実行します。
+すると、*new snippet*バッファに切り替わり、name、key、bindingという3つのdirectiveが表示されます。
+この時点で新規スニペット登録用スニペットが展開されています。
+
+#+BEGIN_EXAMPLE
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: 
+# key: 
+# binding: direct-keybinding
+# --
+#+END_EXAMPLE
+
+nameはスニペット名なのですが、実際はスニペットの1行説明文で何を定義しているかを書きます。
+略語(key)を思い出せなくてもM-x yas-insert-snippetを使えばnameを手がかりにスニペットを展開できます。
+そのため、スニペットに使われているキーワードをスペースで区切って羅列するのは良いアイデアです。
+
+keyはスニペットを展開する略語です。
+特に使用頻度の高いスニペットに対しては短くて覚えやすいものを設定しておくことで劇的に使い勝手が向上します。
+使用頻度が低いものについては忘却の彼方へ追い遣られるので適当に考えてもよいでしょう。
+
+bindingはそのスニペットを展開するキーバインドです。
+たとえばC-x C-i C-iを指定すれば、そのキーでスニペットを展開できます。
+使わない場合はC-dで入力をキャンセルしてください。
+
+** スニペット本体を記述する
+スニペット本体は「# --」以下の行に記述します。
+基本的にはここに記述した文字列がそのままスニペットになるのですが、スニペット展開の指令に使われる「$」と「`」、そして「\」そのものについてはそれぞれ「\$」、「\`」、「\\」とエスケープする必要があります。
+この例ではエスケープ不要なのでそのまま貼り付ければいいです。
+nameとkeyはそれぞれadvice-add、adviceと指定し、bindingは無指定にしました。
+
+#+BEGIN_EXAMPLE
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: advice-add
+# key: advice
+# --
+(defun log-view-diff--noselect (&rest them)
+  )
+(advice-add 'log-view-diff :after 'log-view-diff--noselect)
+#+END_EXAMPLE
+
+** スニペットをテストする
+ここでC-c C-tを押せばスニペットが正しく展開されるかテストができます。
+そのまま貼り付けた場合であってもエスケープ漏れの可能性があるので、テストすることをおすすめします。
+
+場合によってはスニペット自体は正しくてもテスト展開でエラーになることがあります。
+スニペットにはelispの式を埋め込めるのですが、テスト時と実運用時では環境が異なるためです。
+たとえばファイル名を表す変数・関数の buffer-file-name はテストバッファではnilとなるため、elisp式展開部分ではerrorと表示されます。
+それでも、他の部分ではテストができるので役立たずではありません。
+テストでエラーが起きたときには、元のバッファで展開してください。
+これでうまくいったのであれば問題ありません。
+
+** スニペットを登録する
+無事にテストがうまくいったらスニペットのバッファに戻り、C-c C-cで登録します。
+すると、「Choose or enter a table」というプロンプトが出て登録するメジャーモードを尋ねてきます。
+多くの場合M-x yas-new-snippetを実行したバッファのメジャーモードとなるので、そのままRETで確定します。
+次に新規作成したスニペットについては「Looks like a library or new snippet. Save to new file」と尋ねてきますが、これもそのままyで確定します。
+これでスニペットの登録が終わり、元のバッファに戻ります。
+
+
+** 穴埋めを設定する
+この時点でadvice TABと入力することで貼り付けたスニペットがそのまま展開されます。
+これはこれで使用例を貼り付けたことになるので役立つのですが、機能的には略語展開となんら変わりありません。
+スニペットがスニペットらしくあるためには穴埋めを設定してナンボです。
+
+とはいえ穴埋めを設定するかどうかは、そのスニペットの使用頻度と相談すべきです。
+あまりにも使用頻度が低いと、穴埋め設定が面倒に感じてしまいyasnippetに悪い印象を与えかねないからです。
+使用例を貼り付けただけのスニペットでも、十分な場合があることも事実です。
+今回のアドバイスのスニペットのようにこれからも使用されることが予想される場合は迷わず穴埋めを設定してください。
+
+穴埋めは「$数字」($1、$2〜)あるいはデフォルト値付きで「${数字:デフォルト値}」と指定します。
+スニペットを展開すると、数字の順番でカーソル位置が穴埋め位置に移動し、入力できるようになります。
+圧巻は同じ番号の穴埋めを複数個置いたときで、入力するたびに同時に該当する穴埋めの文字列が変化することです。
+スニペット登録時にnameを入力すると同時にkeyにも同じ文字列が入力されたのも、この現象です。
+
+「$0」は特別な意味があり、スニペット展開終了後に置かれるカーソル位置を示します。
+
+これらをふまえた上で穴埋めを設定しましょう。
+コードから生まれたスニペットの場合はデフォルト値はそのまま保持しておくと記憶をたどりやすいです。
+$1と$2は同じ文字列になるので、2度目の登場以降はデフォルト値なしで記述します。
+
+#+BEGIN_EXAMPLE
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: advice-add
+# key: advice
+# --
+(defun ${1:log-view-diff}--#{2:noselect} (${3:&rest them})
+  $0)
+(advice-add '$1 :${4:after} '$1--$2)
+#+END_EXAMPLE
+
+他にも「`」で囲んでelisp式を埋め込んだり「${数字:$$(yas-choose-value 文字列リスト)}」で文字列の選択肢を表示できたりします。
+
+* 即席スニペットでもっと身近に！
+** 普段の文字入力で起こる同じパターンの入力
+yasnippetは入力をとても効率よくしてくれますが、それだけでは予め定義されたスニペットでしか有効ではありません。
+普段の文字入力でも同じようなパターンを入力することはよくあります。
+たとえば以下の3行を入力する場合を考えてみましょう。
+これは僕が関わったelispプログラムの一部です。
+
+#+BEGIN_EXAMPLE
+(key (plist-get args :key))
+(switch (plist-get args :switch))
+(before (plist-get args :before))
+#+END_EXAMPLE
+
+おそらく共通部分だけを書いてコピーして異なる部分を後で入力することを真っ先に思い付くことでしょう。
+
+#+BEGIN_EXAMPLE
+( (plist-get args :))
+#+END_EXAMPLE
+
+と書いてから一旦C-a C-k C-kでカットし、C-yを3回押せば3つになります。
+
+#+BEGIN_EXAMPLE
+( (plist-get args :))
+( (plist-get args :))
+( (plist-get args :))
+#+END_EXAMPLE
+
+その後でkey/switch/beforeを埋め込みむのですが、少しEmacsに慣れているならばC-x C-n (set-goal-column)を使うと便利です。
+これを実行すると、C-p/C-nで行移動したときに、現在位置の真上/真下ではなくて実行したときの桁に移動するというものです。
+「:」の後にカーソルを移動した後にC-x C-nを押してからkeyと入力します。
+次にC-nを押すと次の行の:の後に移動するのでswitch、さらに下のbeforeと入力します。
+
+#+BEGIN_EXAMPLE
+( (plist-get args :key))
+( (plist-get args :switch))
+( (plist-get args :before))
+#+END_EXAMPLE
+
+そして、1行目の最初の括弧に移動しC-x C-nを押して、key/switch/beforeと埋めていけばおしまいです。
+入力が終わったらC-u C-x C-nでgoal columnを解除しておきます。
+なぜ後の方を最初に入力したかというと、前の方を入力すると桁がずれてしまうからです。
+
+キーボードマクロを使うの方法の方が楽です。
+予め以下のように入力しておきます。
+
+#+BEGIN_EXAMPLE
+key
+switch
+before
+#+END_EXAMPLE
+
+そして、C-kでカットし、その単語が現れる部分をC-yで貼り付けながら入力して次の行に移動するところまでをキーボードマクロにすれば楽にいけます。
+** auto-yasnippetを使う
+こういう場合にyasnippetの展開が使えれば便利ですが、たった1度の入力のためにスニペットを定義するのはあまりにも大袈裟すぎます。
+そこでauto-yasnippetパッケージによる即席スニペットを使えば普段の文字入力においてもyasnippetの展開の恩恵が受けられます。
+「M-x package-install auto-yasnippet」でインストールしましょう。
+ついでにmykieパッケージもインストールしておけば対になるコマンドを1つのキーに割り当てられて便利です。
+以下の設定をしましょう。
+
+#+begin_src emacs-lisp :results silent :tangle 21.el
+(setq aya-create-with-newline t)
+(mykie:global-set-key "C-x C-y"
+  :default aya-expand :C-u! aya-create)
+#+end_src
+
+yasnippetのスニペットは読みやすいですが即席で使うにはいささか煩雑です。
+そこでauto-yasnippetではより入力しやすいシンプルな構文を採用し、内部でスニペットに変換しています。
+** お手軽1行即席スニペット
+auto-yasnippetには2つのタイプの即席スニペットがあります。
+お手軽タイプは現在行を即席スニペットにする機能限定版です。
+regionが設定されていない状態で、かつ穴埋め部分が1つ、かつその行に「~」が含まれていないときに使えます。
+先程のplist-getの場合がまさにこれが使えるケースです。
+お手軽タイプは穴埋め部分を「$」と入力して使います。
+
+#+BEGIN_EXAMPLE
+($ (plist-get args :$))
+#+END_EXAMPLE
+
+行末にてC-u C-x C-y (aya-create)を実行すると「$」が消えスニペット展開状態になるのでkey TABと入力すればいいです。
+すでにこの状態で即席スニペットが登録されたので、次の行にてC-x C-y (aya-expand)で展開します。
+同じように展開されるのでswitchと入力し、同様にbeforeも入力します。
+** フルバージョン即席スニペット
+お手軽タイプは確かに便利ですがキーボードマクロに毛が生えた程度のものに過ぎません。
+穴埋め部分が複数個ある場合や即席スニペットが複数行にわたる場合はフルバージョンを使う必要があります。
+フルバージョンは穴埋め部分の前に「~」を付けるか「`〜'」で囲みます。
+「~」の後は英数字・ハイフン・アンダーバーまでが穴埋め部分とみなされます。
+それら以外を含む場合は「`〜'」を使うことになります。
+
+plist-getをフルバージョンにすると、下記のどれかになります。
+
+#+BEGIN_EXAMPLE
+(~key (plist-get args :~key))
+(`key' (plist-get args :`key'))
+#+END_EXAMPLE
+
+C-u C-x C-yを押すと穴埋め部分を指定する記号が削除され、即席スニペットが登録されます。
+あとは同様にC-x C-yで展開していきます。
+
+このように穴埋め部分の文字列が同じ場合は同じものとみなされます。
+フルバージョンでは穴埋め部分を複数個指定できるようになった代償として、同じ文字列を入力する必要があります。
+明らかに穴埋め部分が1つの場合はお手軽タイプが楽です。
+
+フルバージョンが本領発揮するのは、複数行にわたる即席スニペットです。
+この場合はregionを指定してからC-u C-x C-yで登録してください。
+
+* 終わりに
+筆者のサイト「日刊Emacs」は日本語版Emacs辞典を目指すべく日々更新しています。
+手元でgrep検索できるよう全文をGitHubに置いています。
+またEmacs病院兼メルマガのサービスを運営しています。
+Emacsに関すること関しないこと、わかる範囲でなんでも御答えします。
+「こんなパッケージ知らない？」「挙動がおかしいからなんとかしてよ！」はもちろんのこと、自作elispプログラムの添削もします。
+集中力を上げるなどのライフハック・マインド系も得意としています。
+登録はこちら→http://www.mag2.com/m/0001373131.html
