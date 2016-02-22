@@ -1,0 +1,187 @@
+#+BLOG: rubikitch
+#+POSTID: 2419
+#+DATE: [2016-02-22 Mon 10:06]
+#+PERMALINK: sd1602-autoinsert-yatemplate-yasnippet
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, 連載『るびきち流Emacs超入門』
+#+DESCRIPTION:
+#+TAGS:テンプレート, スニペット, スケルトン, package:yasnippet, package:autoinsert, auto-insert-mode, package:yatemplate, auto-insert-alist, Emacs Lisp Header, yatemplate-fill-alist, ファイル新規作成
+#+TITLE: #22 auto-insert-mode でファイル新規作成を迅速に (Software Design 2016年2月号掲載記事) Emacs yatemplate yasnippet インストール 設定 使い方
+Software Design連載記事を掲載します。
+
+株式会社技術評論社の許可を得て掲載しています。
+草稿なので細かい部分は実際の記事とは異なることがあります。
+
+他の記事は左下にある「■雑誌連載中(全文公開)」から見られます。
+
+#+BEGIN_QUOTE
+　特定の拡張子やファイル名のファイルを新規作成したとき、テンプレートが自動で挿入されると便利ですよね。今回はそれを可能にするauto-insert-modeを紹介します。既存の auto-insert-alistを変更する方法、yatemplateを使って新しく設定を追加する方法、2 つのアプローチを解説します。
+#+END_QUOTE
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+* 2016年！
+ども、るびきちです。
+新年を迎えましたがあなたのEmacsの調子はいいですか？
+おかげさまで本連載ももうすぐ2年になろうとしています。
+Emacsの世界はとてつもなく広大で、これまで書いてきたことは氷山の一角に過ぎません。
+まだまだあなたに伝えなければならないことは、山程残っています。
+しかもEmacs自身も絶え間なく進化していて、今年中にEmacs25がリリースされるのは間違いありません。
+Emacs25は、webkit埋め込み機能とダイナミックリンク(拡張ライブラリ)がサポートされます。
+前者はたとえばグラフィカルなWebブラウザをEmacsのバッファで表示させることができます。
+後者はユーザがＣ言語でEmacsの関数を記述できるようになり、elispだと遅くて実用的でなかったことが実現できるようになります。
+将来的には「標準拡張ライブラリ」という形で標準関数が充実するでしょう。
+また、パッケージシステムも拡張ライブラリ対応になり、高速な拡張ライブラリとelispの混成パッケージも登場することでしょう。
+PerlのCPANやRubyのRubyGemsと同じような道になるのではないでしょうか。
+Emacs24ではパッケージシステムにより、開発者・ユーザともに一気にelispの世界が開けましたが、Emacs25も大きな動きとなるのは間違いありません。
+楽しみですね！
+
+* ファイル作成時に予め内容を用意しておく
+** テンプレートとスニペット
+今回は新規ファイルの作成を迅速に行う方法をお話します。
+ここで用語を明確に定義させてください。
+yasnippetの解説において「テンプレート」と「スニペット」を同じ意味の言葉として使ってきましたが、今回は明確に区別することにいたします。
+どちらも定型文、とくに穴埋めが含まれる文字列の雛型を意味しますが、対象が異なります。
+テンプレートとは、ファイル全体の雛型で新規作成時に予め展開(挿入)されるべき内容を意味することにします。
+今回は「テンプレート」が話題の中心になります。
+スニペットとは、任意のタイミングで展開される定型文を意味することにします。
+当然、yasnippetのスニペットは「スニペット」であり、スケルトンの類もスニペットになります。
+テンプレートはスニペットを使って定義されるので、スニペットの使用例のひとつと言えます。
+** 新規ファイルのテンプレート
+新規ファイルのテンプレートを扱うには、Emacs標準のauto-insert-modeを使います。
+グローバルマイナーモードなので、以下の1行を設定に加えればテンプレートが使用可能になります。
+
+#+begin_src emacs-lisp :results silent :tangle 22.el
+(auto-insert-mode 1)
+#+end_src
+
+テンプレートを定義する変数auto-insert-alistには予め以下のテンプレートが用意されています。
+
+- C / C++ヘッダ
+- C / C++コード
+- HTML
+- LaTeX
+- Ada
+- Man page
+- elisp
+- Texinfo
+
+Emacsユーザにとって一番身近な例はelispのヘッダではないでしょうか。
+elispを公開する場合、セミコロンの数も合わせて以下のテンプレートに従うよう規約に定められているのですが、毎回手作業で入力するのは馬鹿げています。
+そういう決まり文句は*.elを新規作成したときにauto-insert-modeによって自動的に入力されるのが一番です。
+
+#+BEGIN_EXAMPLE
+;;; ファイル名 --- 説明
+
+;; Copyright (C) 年 著者
+
+;; Author: 著者 <メールアドレス>
+;; Keywords: キーワード
+
+;; This program is free software; you can redistribute it and/or modify
+;; (略)
+
+;;; Commentary:
+
+;;; Code:
+
+(provide 'ファイル名から拡張子を取り除いた文字列)
+;;; ファイル名 ends here
+#+END_EXAMPLE
+** auto-insert-alistを詳しく見てみる
+auto-insert-alistは各要素が
+#+BEGIN_EXAMPLE
+(条件 . アクション)
+あるいは
+((条件 . 説明) . アクション)
+#+END_EXAMPLE
+の形をしたリストです。
+条件はファイル名の正規表現かメジャーモードです。
+また、自動挿入される内容に対して説明文をつけることもできます。
+デフォルトの設定における条件・説明を抜き出すと、このようになります。
+
+#+BEGIN_EXAMPLE
+(("\\.\\([Hh]\\|hh\\|hpp\\)\\'" . "C / C++ header")
+ ("\\.\\([Cc]\\|cc\\|cpp\\)\\'" . "C / C++ program")
+ ("[Mm]akefile\\'" . "Makefile")
+ html-mode plain-tex-mode bibtex-mode latex-mode
+ ("/bin/.*[^/]\\'" . "Shell-Script mode magic number")
+ ada-mode
+ ("\\.[1-9]\\'" . "Man page skeleton")
+ ("\\.el\\'" . "Emacs Lisp header")
+ ("\\.texi\\(nfo\\)?\\'" . "Texinfo file skeleton"))
+#+END_EXAMPLE
+
+アクションはスケルトン、自動挿入されるファイルのファイル名、あるいは実行される関数を指定します。
+ベクタ(配列)を指定すれば立て続けにアクションを実行できます。
+
+** auto-insert-alistを変更する
+auto-insert-modeを愛用するようになると、当然auto-insert-alistを変更せざるを得なくなります。
+多くの場合はauto-insert-alistに新しい設定を追加することになると思いますが、それは次節に回します。
+ここではauto-insert-alistにすでに登録されている内容を変更する方法です。
+実際デフォルトのauto-insert-alistに登録されているEmacs Lisp Headerはスケルトンでありながらも出来がよいからです。
+しかしながら、*.elを新規作成するたびにわざわざEmacs Lisp Headerを展開しますかと聞かれるのは煩わしいものです。
+ヘッダが要求されるのはあくまでも公開用elispのみであり、個人設定では不要です。
+多くの場合、新規作成されるのは個人設定ファイルです。
+そこでEmacs Lisp Headerを展開するのを「*.el」から「src/*.el」に変更し、公開用elispはsrcディレクトリに置けば解決できます。
+
+#+begin_src emacs-lisp :results silent :tangle 22.el
+(require 'autoinsert)
+(dolist (x auto-insert-alist)
+  (when (equal "\\.el\\'" (car-safe (car x)))
+    (setcar (car x) "/src/.+\\.el\\'")))
+#+end_src
+
+この設定内容を詳しく説明するのは少し難しいですが、setcar関数によって auto-insert-alist 中の "\\.el\\'" をピンポイントで "/src/.+\\.el\\'" に変更してします。
+
+* ファイル作成時にスニペットを展開させる
+** 扱いづらいauto-insert-alist
+<f1> v auto-insert-alistでその値を表示してみると、紙面に掲載しきれないほどとてつもなく長くなります。
+そのため前節では概略を説明するにとどめました。
+auto-insert-modeを実用化するにあたってはauto-insert-alistを直接変更するのは賢明ではないからです。
+auto-insert-alistで指定できるのは、スケルトン・穴埋めなしテンプレートファイル・関数のいずれかであり、どれも中途半端です。
+スケルトンは表現力こそあれど可読性が低く、スニペット展開機能としてyasnippetに取って代わられました。
+テンプレートファイルを指定しても、そのファイルの内容を字面通り挿入することしかできません。
+関数定義は一般ユーザには荷が重すぎます。
+そのままでは、せいぜい穴埋めなしテンプレートファイルで我慢するのが精一杯でしょう。
+** yasnippetをテンプレートにできないか！？
+もしyasnippetファイルをテンプレートにできればとても嬉しいのではないでしょうか。
+auto-insert-alistでアクションにベクタを指定すれば立て続けにアクションを実行できるので、yasnippetファイルの内容を挿入してからそれをyasnippetスニペットとして展開すれば可能です。
+ファイル名に規約を設ければauto-insert-alistの設定も自動化できるでしょう。
+ユーザ側がauto-insert-alistをいじらないでyasnippetをテンプレートにしてくれるパッケージはないでしょうか？
+それを行うのがMELPAにあるyatemplateパッケージです。
+M-x package-install yatemplateでインストールしてください。
+** yatemplateファイル名規約
+yatemplateをインストールすると ~/.emacs.d/templates 以下に配置しているyasnippetファイルをテンプレートファイルとしてauto-insert-alistに登録します。
+ファイル名は「数字 コロン 正規表現」のように指定します。
+たとえば、Pythonのテンプレートならば以下のようになります。
+#+BEGIN_EXAMPLE
+00:test_.*.py
+01:.*.py
+#+END_EXAMPLE
+数字は若い方が優先度が高くなります。
+内部的には
+#+BEGIN_EXAMPLE
+(".*.py" . ACTION)
+("test_.*.py" . ACTION)
+#+END_EXAMPLE
+の順にauto-insert-alistに登録されます。
+** yatemplateを使う
+yatemplateを使うには以下の設定をします。
+#+begin_src emacs-lisp :results silent :tangle 22.el
+(yatemplate-fill-alist)
+(auto-insert-mode 1)
+#+end_src
+
+新しくyatemplateファイルを追加すると、自動的にauto-insert-alistに反映されます。
+これでauto-insert-alistをいじることなく手軽に高機能テンプレートを設定できるようになりました。
+* 終わりに
+筆者のサイト「日刊Emacs」は日本語版Emacs辞典を目指すべく日々更新しています。
+手元でgrep検索できるよう全文をGitHubに置いています。
+またEmacs病院兼メルマガのサービスを運営しています。
+Emacsに関すること関しないこと、わかる範囲でなんでも御答えします。
+「こんなパッケージ知らない？」「挙動がおかしいからなんとかしてよ！」はもちろんのこと、自作elispプログラムの添削もします。
+集中力を上げるなどのライフハック・マインド系も得意としています。
+登録はこちら→http://www.mag2.com/m/0001373131.html
