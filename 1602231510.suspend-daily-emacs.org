@@ -1,0 +1,51 @@
+#+BLOG: rubikitch
+#+POSTID: 2421
+#+DATE: [2016-02-23 Tue 15:10]
+#+PERMALINK: suspend-daily-emacs
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: 記事更新情報, 
+#+DESCRIPTION: 
+#+MYTAGS: 
+#+TITLE: M-x suspend-daily-emacs
+#+begin: org2blog-tags
+#+TAGS: , 記事更新情報, , 
+#+end:
+病気のため、本日よりサイトの更新を一時停止します。
+Software Design連載と [[http://www.mag2.com/m/0001373131.html][るびきち塾(メルマガ)]] にエネルギーを注ぎ込みます。
+治りましたら更新を再開しますのでそれまでお待ちください。
+
+連載『るびきち流Emacs超入門』の先月号の草稿を置いておきます。
+
+#+BEGIN_HTML
+<ul>
+<li><a href="http://rubikitch.com/2014/08/28/sd1405/">2014年05月掲載 #01 なぜEmacsをお勧めするのか？</a></li>
+<li><a href="http://rubikitch.com/2014/09/04/sd1406/">2014年06月掲載 #02 スマートにEmacsを始めるための小さいけど重要なコツ</a></li>
+<li><a href="http://rubikitch.com/2014/10/05/sd1407/">2014年07月掲載 #03 反復練習に勝るものなし〜打鍵すべし！設定を書くべし！</a></li>
+<li><a href="http://rubikitch.com/2015/03/16/sd1408-ddskk/">2014年08月掲載 #04 SKK＋AZIKで快適・効率的な日本語入力を！</a></li>
+<li><a href="http://rubikitch.com/2015/03/19/sd1409-migemo-ace-jump-mode-dabbrev/">2014年09月掲載 #05 カーソル移動と入力支援でスピードアップ！</a></li>
+<li><a href="http://rubikitch.com/2016/01/22/sd1410-search-replace">2014年10月掲載 #06 検索、置換でピンポイント編集! </a></li>
+<li><a href="http://rubikitch.com/2016/02/07/sd1411-dired-wdired">2014年11月掲載 #07 多機能ファイラー「dired」！</a></li>
+<li><a href="http://rubikitch.com/2016/02/08/sd1412-eshell">2014年12月掲載 #08 カスタマブルなEmacs Lisp製シェル「eshell」！</a></li>
+<li><a href="http://rubikitch.com/2016/02/09/sd1501-packages">2015年01月掲載 #09 すぐに使える！便利な11のパッケージ</a></li>
+<li><a href="http://rubikitch.com/2016/02/10/sd1502-org-mode">2015年02月掲載 #10 巨大なオーガナイズシステム「org-mode」の世界</a></li>
+<li><a href="http://rubikitch.com/2016/02/11/sd1503-helm">2015年03月掲載 #11 Emacsに革命を起こすパッケージ「helm」(前編)</a></li>
+<li><a href="http://rubikitch.com/2016/02/12/sd1504-helm">2015年04月掲載 #12 Emacsに革命を起こすパッケージ「helm」(後編)</a></li>
+<li><a href="http://rubikitch.com/2016/02/13/sd1505-builtin">2015年05月掲載 #13 標準コマンドから改めてみるEmacs</a></li>
+<li><a href="http://rubikitch.com/2016/02/14/sd1506-builtin">2015年06月掲載 #14 地味だけどあなどれない標準コマンドたち</a></li>
+<li><a href="http://rubikitch.com/2016/02/15/sd1507-builtin">2015年07月掲載 #15 知っておくと必ず役立つニッチな標準コマンド</a></li>
+<li><a href="http://rubikitch.com/2016/02/16/sd1508-emacs-column">2015年08月掲載 #16 Emacsと長く付き合っていくために</a></li>
+<li><a href="http://rubikitch.com/2016/02/17/sd1509-safeguard-undo-redo">2015年09月掲載 #17 “手遅れ”を防ぐ　Emacsのセーフガードシステム</a></li>
+<li><a href="http://rubikitch.com/2016/02/18/sd1510-mykie-bind-key">2015年10月掲載 #18 操作性アップ！　スマートなキーバインド設定</a></li>
+<li><a href="http://rubikitch.com/2016/02/19/sd1511-key-chord-smartrep">2015年11月掲載 #19 同時押し＆リピート　少し特殊なキー設定</a></li>
+<li><a href="http://rubikitch.com/2016/02/20/sd1512-dabbrev-hippie-skeleton-yasnippet">2015年12月掲載 #20 標準機能からyasnippetまで　Emacs の入力支援</a></li>
+<li><a href="http://rubikitch.com/2016/02/21/sd1601-auto-yasnippet">2016年01月掲載 #21 定型文を瞬時に入力　yasnippet の実力</a></li>
+<li><a href="http://rubikitch.com/2016/02/22/sd1602-autoinsert-yatemplate-yasnippet">2016年02月掲載 #22 auto-insert-mode でファイル新規作成を迅速に</a></li>
+</ul>
+
+#+END_HTML
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
