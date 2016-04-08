@@ -8,7 +8,7 @@
 #+CATEGORY: Emacs, 連載『るびきち流Emacs超入門』
 #+TAGS: 検索, 置換, isearch, query-replace, M-%, 正規表現, C-M-%, occur, M-s o, ace-jump-mode, package:ace-jump-mode, transpose-chars, color-moccur, occur-edit-mode, カスタマイズ, M-x grep , grep, multi-occur, package:wgrep, 
 #+DESCRIPTION:長いコード・文章を書いていて間違いに気づいたとき、始めから1つずつ修正するのは骨が折れますよね。そんなときは、「occur」、「grep」での全検索、「query-replace」での文字列置換がとても便利です。それらの発展として、複数のファイルの中身を変更できる「wgrep」も紹介します。
-#+TITLE: #5 検索、置換でピンポイント編集！ (Software Design 2014年10月号掲載記事) Emacs occur replace grep wgrep ace-jump-mode インストール 設定 使い方
+#+TITLE: #6 検索、置換でピンポイント編集！ (Software Design 2014年10月号掲載記事) Emacs occur replace grep wgrep ace-jump-mode インストール 設定 使い方
 Software Design連載記事を掲載します。
 
 株式会社技術評論社の許可を得て掲載しています。
