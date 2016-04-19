@@ -42,7 +42,7 @@ thing-at-point--bounds-of-well-formed-url 関数が絡んでいます。
 (require 'thingatpt)
 (defun thing-at-point--bounds-of-well-formed-url--strip-last-apostrophe (&rest them)
   (let ((orig (apply them)))
-    (if (memq (char-before (cdr orig)) '(?'))
+    (if (and orig (memq (char-before (cdr orig)) '(?')))
         (cons (car orig) (1- (cdr orig)))
       orig)))
 (advice-add 'thing-at-point--bounds-of-well-formed-url :around
