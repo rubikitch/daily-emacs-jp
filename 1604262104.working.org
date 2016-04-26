@@ -15,5 +15,15 @@
 #+end:
 記事にする前の調査中の事柄についてこのページにメモしておきます。
 記事化できた時点で該当項目を削除します。
+** wrap-region
+regionで文字キーを押すと囲んでくれるマイナーモード。
+これは何気に便利。
+理解もしやすい。
+
+#+BEGIN_SRC emacs-lisp :results silent
+(wrap-region-global-mode t)
+(wrap-region-add-wrapper "$" "$" nil 'latex-mode)
+(wrap-region-add-wrapper "\\fgnt{" "}" "f" 'latex-mode)
+#+END_SRC
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
