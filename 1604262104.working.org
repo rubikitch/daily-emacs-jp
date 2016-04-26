@@ -15,7 +15,7 @@
 #+end:
 記事にする前の調査中の事柄についてこのページにメモしておきます。
 記事化できた時点で該当項目を削除します。
-** wrap-region
+** <2016-04-26 Tue>wrap-region
 regionで文字キーを押すと囲んでくれるマイナーモード。
 これは何気に便利。
 理解もしやすい。
@@ -25,5 +25,17 @@ regionで文字キーを押すと囲んでくれるマイナーモード。
 (wrap-region-add-wrapper "$" "$" nil 'latex-mode)
 (wrap-region-add-wrapper "\\fgnt{" "}" "f" 'latex-mode)
 #+END_SRC
+** <2016-04-26 Tue>embrace
+wrap-regionに似ている。
+expand-regionと組み合わせるっぽい。
+
+#+BEGIN_SRC emacs-lisp :results silent
+(global-set-key (kbd "C-,") #'embrace-commander)
+#+END_SRC
+
+のち、 C-, a で囲む。
+regionでくるむ必要がないがsemantic-unitを選ぶ必要があり面倒。
+しかもregionありだとうまく動いてくれないっぽい。
+wrap-regionの方が理解しやすいな。
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
