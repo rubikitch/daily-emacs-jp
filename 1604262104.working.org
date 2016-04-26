@@ -1,0 +1,19 @@
+#+POSTID: 2426
+#+DATE: [2016-04-26 Tue 21:04]
+#+PERMALINK: working
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: t
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, 
+#+DESCRIPTION: 
+#+MYTAGS: 
+#+TITLE: 作業メモ
+#+begin: org2blog-tags
+#+TAGS: , Emacs, , 
+#+end:
+記事にする前の調査中の事柄についてこのページにメモしておきます。
+記事化できた時点で該当項目を削除します。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
