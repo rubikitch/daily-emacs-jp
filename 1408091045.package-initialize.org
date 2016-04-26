@@ -10,7 +10,7 @@
 #+DESCRIPTION:
 #+MYTAGS: パッケージ, ELPA, MELPA, Marmalade, package-install, package-refresh-contents, list-packages, package-list-packages, Emacs パッケージ インストール, Emacs パッケージ 設定, package.el, emacs package.el
 #+TAGS: パッケージ, ELPA, MELPA, Marmalade, package-install, package-refresh-contents, list-packages, package-list-packages, Emacs パッケージ インストール, Emacs パッケージ 設定, package.el, emacs package.el, Emacs, Emacs Lisp,,
-#+TITLE: パッケージの初期設定
+#+TITLE: 初期設定
 ** package.elの設定
 Emacs24からパッケージシステムが標準添付されるようになり、
 Emacs Lispプログラムのインストールが一気に楽になりました。
