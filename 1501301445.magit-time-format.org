@@ -14,6 +14,8 @@
 #+begin: org2blog-tags
 #+TAGS: emacs magit, package:magit, magit time format, , Emacs, , magit.el, git, magit-log
 #+end:
+<2016-04-27 Wed>最新版でエラーになるので修正。
+
 *magit.el* は *git* をとても使いやすくしてくれます。
 
 しかし、 *magit-log* にてコミット日時が「1 year」などと
@@ -40,10 +42,10 @@ Fig1: 時刻表示！
 (advice-add 'magit-format-duration :override
             'magit-format-duration--format-date)
 (defun magit-log-margin-set-timeunit-width--fixed ()
-  (setq magit-log-margin-timeunit-width 12))
+  (setq magit-log-margin-timeunit-width 9))
 (advice-add 'magit-log-margin-set-timeunit-width :override
             'magit-log-margin-set-timeunit-width--fixed)
-(setq magit-log-margin-spec '(33 nil magit-duration-spec))
+(setq magit-log-margin-spec '(24 9 magit-duration-spec))
 #+END_SRC
 
 # /r/sync/screenshots/20150130145101.png http://rubikitch.com/wp-content/uploads/2015/01/wpid-20150130145101.png
