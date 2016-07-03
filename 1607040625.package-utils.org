@@ -1,0 +1,68 @@
+#+BLOG: rubikitch
+#+POSTID: 2436
+#+DATE: [2016-07-04 Mon 06:25]
+#+PERMALINK: package-utils
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs
+#+EL_PKG_NAME: package-utils
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, package:package, package upgrade, package update, pakcage-installできない
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方
+#+EL_TITLE0: パッケージを簡単にアップグレード・削除する
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージpackage-utilsの紹介
+#+MYTAGS: package:package-utils, emacs 使い方, emacs コマンド, emacs, package-utils, package-utils.el, emacs lisp package-utils, elisp package-utils, emacs melpa package-utils, emacs package-utils 使い方, emacs package-utils 設定, emacs パッケージ package-utils, emacs package-utils スクリーンショット, package:package, package upgrade, package update, pakcage-installできない
+#+TAGS: package:package-utils, emacs 使い方, emacs コマンド, emacs, package-utils, package-utils.el, emacs lisp package-utils, elisp package-utils, emacs melpa package-utils, emacs package-utils 使い方, emacs package-utils 設定, emacs パッケージ package-utils, emacs package-utils スクリーンショット, package:package, package upgrade, package update, pakcage-installできない, Emacs, M-x package-install, M-x list-packages, M-x package-list-package, M-x package-utils-upgrade-by-name, M-x package-utils-remove-by-name, M-x package-utils-upgrade-all, M-x package-install, M-x list-packages, M-x package-list-package, M-x package-utils-upgrade-by-name, M-x package-utils-remove-by-name, M-x package-utils-upgrade-all
+#+TITLE: emacs package-utils.el : パッケージを簡単にアップグレード・削除する | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>package-utils</td></tr>
+<tr><td>概要(原文)</td><td>Extensions for package.el</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/Silex/package-utils">https://github.com/Silex/package-utils</a></td></tr>
+<tr><td>バージョン</td><td>20160627.909</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:package-utils/">package:package-utils</a> </td></tr>
+</table>
+<br />
+#+END_HTML
+パッケージをアップグレードしたいとき、あなたはどうしますか？
+*M-x package-install* ではすでにインストールされているパッケージは選択肢に入ってきません。
+標準機能のままでやる場合は *M-x list-packages* (*M-x package-list-package*)で表示させてからやることになるでしょう。
+
+そこでpackage-utilsパッケージが役に立ちます。
+
+*M-x package-utils-upgrade-by-name* はアップグレードすときにM-x package-installの代わりに使います。
+
+*M-x package-utils-remove-by-name* はパッケージを削除します。
+
+なお、 *M-x package-utils-upgrade-all* による全体のアップグレードはおすすめできません。
+アップグレードによるトラブルに遭遇する確率が高いからです。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+** package-utils インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install package-utils
+
+
+#+end:
+** 概要                                                             :noexport:
+パッケージをアップグレードしたいとき、あなたはどうしますか？
+*M-x package-install* ではすでにインストールされているパッケージは選択肢に入ってきません。
+標準機能のままでやる場合は *M-x list-packages* (*M-x package-list-package*)で表示させてからやることになるでしょう。
+
+そこでpackage-utilsパッケージが役に立ちます。
+
+*M-x package-utils-upgrade-by-name* はアップグレードすときにM-x package-installの代わりに使います。
+
+*M-x package-utils-remove-by-name* はパッケージを削除します。
+
+なお、 *M-x package-utils-upgrade-all* による全体のアップグレードはおすすめできません。
+アップグレードによるトラブルに遭遇する確率が高いからです。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
