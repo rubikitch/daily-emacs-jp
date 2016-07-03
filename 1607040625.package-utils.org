@@ -9,14 +9,14 @@
 #+BLOG: rubikitch
 #+CATEGORY: Emacs
 #+EL_PKG_NAME: package-utils
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, package:package, package upgrade, package update, pakcage-installできない
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, relate:package, relate:package-safe-delete, relate:epl, package upgrade, package update, pakcage-installできない
 #+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方
 #+EL_TITLE0: パッケージを簡単にアップグレード・削除する
 #+EL_URL: 
 #+begin: org2blog
 #+DESCRIPTION: MELPAのEmacs Lispパッケージpackage-utilsの紹介
-#+MYTAGS: package:package-utils, emacs 使い方, emacs コマンド, emacs, package-utils, package-utils.el, emacs lisp package-utils, elisp package-utils, emacs melpa package-utils, emacs package-utils 使い方, emacs package-utils 設定, emacs パッケージ package-utils, emacs package-utils スクリーンショット, package:package, package upgrade, package update, pakcage-installできない
-#+TAGS: package:package-utils, emacs 使い方, emacs コマンド, emacs, package-utils, package-utils.el, emacs lisp package-utils, elisp package-utils, emacs melpa package-utils, emacs package-utils 使い方, emacs package-utils 設定, emacs パッケージ package-utils, emacs package-utils スクリーンショット, package:package, package upgrade, package update, pakcage-installできない, Emacs, M-x package-install, M-x list-packages, M-x package-list-package, M-x package-utils-upgrade-by-name, M-x package-utils-remove-by-name, M-x package-utils-upgrade-all, M-x package-install, M-x list-packages, M-x package-list-package, M-x package-utils-upgrade-by-name, M-x package-utils-remove-by-name, M-x package-utils-upgrade-all
+#+MYTAGS: package:package-utils, emacs 使い方, emacs コマンド, emacs, package-utils, package-utils.el, emacs lisp package-utils, elisp package-utils, emacs melpa package-utils, emacs package-utils 使い方, emacs package-utils 設定, emacs パッケージ package-utils, emacs package-utils スクリーンショット, relate:package, relate:package-safe-delete, relate:epl, package upgrade, package update, pakcage-installできない
+#+TAGS: package:package-utils, emacs 使い方, emacs コマンド, emacs, package-utils, package-utils.el, emacs lisp package-utils, elisp package-utils, emacs melpa package-utils, emacs package-utils 使い方, emacs package-utils 設定, emacs パッケージ package-utils, emacs package-utils スクリーンショット, relate:package, relate:package-safe-delete, relate:epl, package upgrade, package update, pakcage-installできない, Emacs, M-x package-install, M-x list-packages, M-x package-list-package, M-x package-utils-upgrade-by-name, M-x package-utils-remove-by-name, M-x package-utils-upgrade-all, M-x package-install, M-x list-packages, M-x package-list-package, M-x package-utils-upgrade-by-name, M-x package-utils-remove-by-name, M-x package-utils-upgrade-all
 #+TITLE: emacs package-utils.el : パッケージを簡単にアップグレード・削除する | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方
 #+BEGIN_HTML
 <table>
@@ -25,7 +25,7 @@
 <tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
 <tr><td>取得先</td><td><a href="https://github.com/Silex/package-utils">https://github.com/Silex/package-utils</a></td></tr>
 <tr><td>バージョン</td><td>20160627.909</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:package-utils/">package:package-utils</a> </td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:package-utils/">package:package-utils</a> <a href="http://rubikitch.com/tag/package:package/">package:package</a> <a href="http://rubikitch.com/tag/package:package-safe-delete/">package:package-safe-delete</a> <a href="http://rubikitch.com/tag/package:epl/">package:epl</a></td></tr>
 </table>
 <br />
 #+END_HTML
