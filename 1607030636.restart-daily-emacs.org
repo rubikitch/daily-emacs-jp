@@ -13,7 +13,6 @@
 #+begin: org2blog-tags
 #+TAGS: , 記事更新情報, , 
 #+end:
-test
 お待たせしました！
 今日から「日刊Emacs」を復活させることにしました。
 
