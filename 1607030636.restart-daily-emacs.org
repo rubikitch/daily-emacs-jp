@@ -1,0 +1,26 @@
+#+DATE: [2016-07-03 Sun 06:36]
+#+POSTID: 2433
+#+PERMALINK: restart-daily-emacs
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: 記事更新情報, 
+#+DESCRIPTION: 
+#+MYTAGS: 
+#+TITLE: M-x restart-daily-emacs | 「日刊Emacs」復活！
+#+begin: org2blog-tags
+#+TAGS: , 記事更新情報, , 
+#+end:
+test
+お待たせしました！
+今日から「日刊Emacs」を復活させることにしました。
+
+とはいえ、まだ完治していないので以前のように毎日パッケージのレビューをすることはできませんが、記事紹介やTipsなども交じえて日々更新することにしました。
+小さくてもいいから、毎日何かしらのアウトプットをすることに意味があると思ったからです。
+更新停止中も日々レビュー候補のパッケージを選定していました。
+
+今後も「日刊Emacs」をよろしくお願いします。
+すべてのEmacs使いに幸あれ。
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
