@@ -1,0 +1,48 @@
+#+BLOG: rubikitch
+#+POSTID: 2449
+#+DATE: [2016-07-06 水 11:01]
+#+PERMALINK: emacs245-manual-ja
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, Emacs 24.5, Emacs 25.0, 
+#+DESCRIPTION: 
+#+MYTAGS: emacs24.5 日本語マニュアル, emacs 日本語info, emacs info マニュアル, 
+#+TITLE: 【大偉業】Emacs24.5日本語マニュアル登場！！info作成方法【感謝】
+#+begin: org2blog-tags
+#+TAGS: emacs24.5 日本語マニュアル, emacs 日本語info, emacs info マニュアル, , Emacs, Emacs 24.5, Emacs 25.0, , 
+#+end:
+https://ayatakesi.github.io/
+
+待望のEmacs 24.5の日本語マニュアルが登場しました。
+Emacsの日本語マニュアルは以前から存在していましたが、21.3.50という大昔のものでした。
+そこでAyanokoji Takesiさんが最新版Emacsマニュアルの邦訳という偉業をやってのけました！！
+お疲れ様です、そして、ありがとうございます。
+日本人にとってEmacsへの敷居が低くなることは間違いありません。
+上記のサイトにはTexinfo以外にもhtmlやpdfフォーマットも置いてあります。
+
+さらに彼はEmacs25の日本語マニュアルを作成していて、Emacs 25.1リリース同時にtexi版を公開予定です。
+** 日本語infoを作成する
+texiのアーカイブをダウンロードしてmakeinfoで日本語infoを作成してみました。
+
+#+BEGIN_EXAMPLE
+$ cd /tmp
+$ wget https://ayatakesi.github.io/emacs/24.5/emacs.texis.tar.gz
+$ tar xzvf emacs.texis.tar.gz
+$ cd emacs.texis
+$ makeinfo --document-language=ja --no-split -o emacs245-ja.info emacs.texi
+Wide character in warn at /usr/bin/makeinfo line 710.
+./arevert-xtra.texi:62: warning: `.' or `,' must follow @xref, not を
+$ ls -l emacs245-ja.info
+-rw-r--r-- 1 rubikitch users 3031276  7月  5 19:43 emacs245-ja.info
+#+END_EXAMPLE
+
+C-u M-x info /tmp/emacs.texis/emacs245-ja.info
+で作成されたinfoをすぐに読むことができます。
+
+もちろんinfoをインストールしても構いません。
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
