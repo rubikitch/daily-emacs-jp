@@ -7,12 +7,12 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, Emacs Lisp, org-mode
+#+CATEGORY: Emacs, Emacs Lisp, org-mode, 
 #+DESCRIPTION: 
 #+MYTAGS: emacs lisp ソースコードを読む, elisp 読むべきソースコード, emacs lisp コードリーディング, どのソースコードを読むべき？, 短いelispパッケージ, emacs lispを学ぶ
 #+TITLE: Emacs Lisp学習者向け！このパッケージを読めランキング
 #+begin: org2blog-tags
-#+TAGS: emacs lisp ソースコードを読む, elisp 読むべきソースコード, emacs lisp コードリーディング, どのソースコードを読むべき？, 短いelispパッケージ, emacs lispを学ぶ, Emacs, Emacs Lisp, org-mode, 
+#+TAGS: emacs lisp ソースコードを読む, elisp 読むべきソースコード, emacs lisp コードリーディング, どのソースコードを読むべき？, 短いelispパッケージ, emacs lispを学ぶ, Emacs, Emacs Lisp, org-mode, , 
 #+end:
 Emacsを深く使うにあたってはEmacs Lispを学ぶことは避けられません。
 Lispレベルまで理解していれば、様々な問題に対して自分で解決できますし、自分が欲しい機能を自分で実装できたりするからです。
