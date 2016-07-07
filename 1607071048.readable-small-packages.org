@@ -10,7 +10,7 @@
 #+CATEGORY: Emacs, Emacs Lisp, org-mode
 #+DESCRIPTION: 
 #+MYTAGS: emacs lisp ソースコードを読む, elisp 読むべきソースコード, emacs lisp コードリーディング, どのソースコードを読むべき？, 短いelispパッケージ, emacs lispを学ぶ
-#+TITLE: Emacs Lisp学習者向け！ソースコード短さランキング
+#+TITLE: Emacs Lisp学習者向け！このパッケージを読めランキング
 #+begin: org2blog-tags
 #+TAGS: emacs lisp ソースコードを読む, elisp 読むべきソースコード, emacs lisp コードリーディング, どのソースコードを読むべき？, 短いelispパッケージ, emacs lispを学ぶ, Emacs, Emacs Lisp, org-mode, 
 #+end:
@@ -47,7 +47,6 @@ els = pkgs.map{|d| "#{Dir.pwd}/#{d}/#{d}.el"}.select{|el| File.exist?(el)}
   els.map{|el| [code_lines(el), File.size(el), File.basename(el,".el")]}.sort)
 #+END_SRC
 
-#+RESULTS:
 |  行数 | バイト数 | パッケージ名                    |
 |-------+----------+---------------------------------|
 |     1 |      308 | python3-info                    |
