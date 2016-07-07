@@ -1,0 +1,38 @@
+#+BLOG: rubikitch
+#+POSTID: 2454
+#+DATE: [2016-07-08 Fri 07:02]
+#+PERMALINK: melmag
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: メルマガ,
+#+DESCRIPTION: るびきち塾メルマガ『Emacsの鬼るびきちのココだけの話#241』の予告
+#+TITLE: 【メルマガ#241】闘病から日刊Emacs復活の舞台裏
+#+MYTAGS: 
+#+begin: org2blog-tags
+#+TAGS: , メルマガ,, 
+#+end:
+今回のメルマガは、日刊Emacs復活の舞台裏を紹介します。
+その裏で僕は何をやっていたのでしょうか？
+そこにはちょっとしたドラマがあります。
+
+去年の今頃から今年初めくらいまで、ほとんど寝たきりに近い状態で外出がままなりませんでした。
+そこから少し動けるようになってから、あることをすることでみるみるうちに回復してきました。
+僕はいったい何をしたのでしょうか？
+そのときには運命の人との出会いがありました！
+今こうして日刊Emacsを書けているのもその人のおかげです。
+この闘病記、そしてそこから得た教訓は万人に共通するものなので、読んでみる価値があります。
+
+健康のうちは健康はあたりまえのものですが、
+病気になってこそ健康のありがたみがわかるものです。
+僕みたいにならないためにも、このメルマガに書いてあることをやってみてください。
+
+その他、読者からのお便りにも返答しています。
+- ストレスで手の痛みに悩んでいる人へ向けての言葉
+- 打鍵数を減らす方法
+- C-lをプレフィクスキーにする方法
+などなど。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
