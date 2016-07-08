@@ -9,10 +9,10 @@
 #+BLOG: rubikitch
 #+CATEGORY: Emacs, Emacs 24.5, Emacs 25.0, 
 #+DESCRIPTION: 
-#+MYTAGS: emacs24.5 日本語マニュアル, emacs 日本語info, emacs info マニュアル, 
+#+MYTAGS: emacs24.5 日本語マニュアル, emacs 日本語info, emacs info マニュアル, emacs 日本語マニュアル, emacs24.4 日本語マニュアル, emacs24 日本語マニュアル, emacs24 日本語info, emacs 翻訳マニュアル, emacs 使い方, emacs 入門, emacs 初心者, emacs マニュアル 最新版 日本語, 
 #+TITLE: 【大偉業】Emacs24.5日本語マニュアル登場！！info作成方法【感謝】
 #+begin: org2blog-tags
-#+TAGS: emacs24.5 日本語マニュアル, emacs 日本語info, emacs info マニュアル, , Emacs, Emacs 24.5, Emacs 25.0, , 
+#+TAGS: emacs24.5 日本語マニュアル, emacs 日本語info, emacs info マニュアル, emacs 日本語マニュアル, emacs24.4 日本語マニュアル, emacs24 日本語マニュアル, emacs24 日本語info, emacs 翻訳マニュアル, emacs 使い方, emacs 入門, emacs 初心者, emacs マニュアル 最新版 日本語, , Emacs, Emacs 24.5, Emacs 25.0, , 
 #+end:
 https://ayatakesi.github.io/
 
