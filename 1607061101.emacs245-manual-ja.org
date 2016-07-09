@@ -14,6 +14,9 @@
 #+begin: org2blog-tags
 #+TAGS: emacs24.5 日本語マニュアル, emacs 日本語info, emacs info マニュアル, emacs 日本語マニュアル, emacs24.4 日本語マニュアル, emacs24 日本語マニュアル, emacs24 日本語info, emacs 翻訳マニュアル, emacs 使い方, emacs 入門, emacs 初心者, emacs マニュアル 最新版 日本語, , Emacs, Emacs 24.5, Emacs 25.0, , 
 #+end:
+
+<2016-07-09 Sat>透過的に日本語infoへアクセスできる設定を公開。
+
 https://ayatakesi.github.io/
 
 待望のEmacs 24.5の日本語マニュアルが登場しました。
@@ -37,12 +40,36 @@ Wide character in warn at /usr/bin/makeinfo line 710.
 ./arevert-xtra.texi:62: warning: `.' or `,' must follow @xref, not を
 $ ls -l emacs245-ja.info
 -rw-r--r-- 1 rubikitch users 3031276  7月  5 19:43 emacs245-ja.info
+$ mkdir -p ~/info
+$ cp emacs245-ja.info ~/info
 #+END_EXAMPLE
 
 C-u M-x info /tmp/emacs.texis/emacs245-ja.info
 で作成されたinfoをすぐに読むことができます。
 
 もちろんinfoをインストールしても構いません。
+** <2016-07-09 Sat>透過的に日本語infoにアクセスする設定
+せっかく全訳してくださったのですから、emacs.infoへ参照をemacs245-ja.infoの参照に飛ばしてしまいましょう。
+つまり、 (info "(emacs)Top") のようなリンクやS式を自動的に (info "(emacs245-ja)Top") にすり替えてしまいます。
+それならばわざわざ英文を読まなくても日本語でinfoが読めます。
+前項の最後の2コマンドで ~/info/emacs245-ja.info が存在することを前提とします。
 
+#+BEGIN_SRC emacs-lisp :results silent
+(add-to-list 'Info-directory-list "~/info/")
+(defun Info-find-node--info-ja (orig-fn filename &rest args)
+  (apply orig-fn
+         (pcase filename
+           ("emacs" "emacs245-ja")
+           (t filename))
+         args))
+(advice-add 'Info-find-node :around 'Info-find-node--info-ja)
+#+END_SRC
+
+動作確認として
+#+BEGIN_EXAMPLE
+M-: (info "(elisp)Creating Frames") RET
+#+END_EXAMPLE
+でelispのあるページを開き、「*note X Resources: (emacs)」のリンクを辿ってください。
+(info "(emacs)X Resources") が (info "(emacs245-ja)X Resources") になっていることに気付きます。
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
