@@ -1,0 +1,88 @@
+#+BLOG: rubikitch
+#+POSTID: 2459
+#+DATE: [2016-07-10 Sun 14:49]
+#+PERMALINK: switch-buffer-functions
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs
+#+EL_PKG_NAME: switch-buffer-functions
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, バッファ切り替え フック, emacs switch-to-buffer hook, buffer, hook
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 
+#+EL_TITLE0: 【ありそうでなかった】バッファ切り替え時に実行されるフック
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージswitch-buffer-functionsの紹介
+#+MYTAGS: package:switch-buffer-functions, emacs 使い方, emacs コマンド, emacs, switch-buffer-functions, switch-buffer-functions.el, emacs lisp switch-buffer-functions, elisp switch-buffer-functions, emacs melpa switch-buffer-functions, emacs switch-buffer-functions 使い方, emacs switch-buffer-functions 設定, emacs パッケージ switch-buffer-functions, バッファ切り替え フック, emacs switch-to-buffer hook, buffer, hook
+#+TAGS: package:switch-buffer-functions, emacs 使い方, emacs コマンド, emacs, switch-buffer-functions, switch-buffer-functions.el, emacs lisp switch-buffer-functions, elisp switch-buffer-functions, emacs melpa switch-buffer-functions, emacs switch-buffer-functions 使い方, emacs switch-buffer-functions 設定, emacs パッケージ switch-buffer-functions, バッファ切り替え フック, emacs switch-to-buffer hook, buffer, hook, Emacs, window-configuration-change-hook, switch-buffer-functions, post-command-hook, window-configuration-change-hook, switch-buffer-functions, post-command-hook
+#+TITLE: emacs switch-buffer-functions.el : 【ありそうでなかった】バッファ切り替え時に実行されるフック | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>switch-buffer-functions</td></tr>
+<tr><td>概要(原文)</td><td>Hook run when current buffer changed</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/10sr/switch-buffer-functions-el">https://github.com/10sr/switch-buffer-functions-el</a></td></tr>
+<tr><td>バージョン</td><td>20160702.2157</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:switch-buffer-functions/">package:switch-buffer-functions</a> </td></tr>
+</table>
+<br />
+#+END_HTML
+switch-buffer-functions.elは同名のhookを提供する超短いelispです。
+*window-configuration-change-hook* というウィンドウ構成が変更されたときに実行されるフックは用意されているものの、なぜかカレントバッファを変更したときに実行されるフックは用意されていません。
+そこで、このパッケージをインストールすると *switch-buffer-functions* というフックによってカレントバッファの変更を追跡できます。
+インストールした時点でフックが使えるようになっているので、requireは不要です。
+
+以下のように使用します。
+
+#+BEGIN_SRC emacs-lisp :results silent
+(add-hook 'switch-buffer-functions
+          (lambda (prev cur) (message "%S -> %S" prev cur)))
+#+END_SRC
+
+フックの関数は2引数関数となっていて、直前のバッファとカレントバッファを引数にとります。
+
+上記の設定ならば
+
+#+BEGIN_EXAMPLE
+#<buffer *eshell*> -> #<buffer README.adoc>
+#+END_EXAMPLE
+
+などとエコーエリアに表示されます。
+
+なお、このelisp自体が各コマンド実行後に実行されるフック *post-command-hook* を用いた簡単な例になっているので、興味ある方は読んでみてください。
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+** switch-buffer-functions インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install switch-buffer-functions
+
+
+#+end:
+** 概要                                                             :noexport:
+switch-buffer-functions.elは同名のhookを提供する超短いelispです。
+*window-configuration-change-hook* というウィンドウ構成が変更されたときに実行されるフックは用意されているものの、なぜかカレントバッファを変更したときに実行されるフックは用意されていません。
+そこで、このパッケージをインストールすると *switch-buffer-functions* というフックによってカレントバッファの変更を追跡できます。
+インストールした時点でフックが使えるようになっているので、requireは不要です。
+
+以下のように使用します。
+
+#+BEGIN_SRC emacs-lisp :results silent
+(add-hook 'switch-buffer-functions
+          (lambda (prev cur) (message "%S -> %S" prev cur)))
+#+END_SRC
+
+フックの関数は2引数関数となっていて、直前のバッファとカレントバッファを引数にとります。
+
+上記の設定ならば
+
+#+BEGIN_EXAMPLE
+#<buffer *eshell*> -> #<buffer README.adoc>
+#+END_EXAMPLE
+
+などとエコーエリアに表示されます。
+
+なお、このelisp自体が各コマンド実行後に実行されるフック *post-command-hook* を用いた簡単な例になっているので、興味ある方は読んでみてください。
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
