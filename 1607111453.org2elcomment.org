@@ -1,0 +1,199 @@
+#+BLOG: rubikitch
+#+POSTID: 2461
+#+DATE: [2016-07-11 Mon 14:53]
+#+PERMALINK: org2elcomment
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, org-mode, Emacs Lisp, 
+#+EL_PKG_NAME: org2elcomment
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, 開発者向け, README.org, org-modeでelispドキュメントを書く, github, Commentary, パッケージ ドキュメント, package documentation, package commentary org-mode, org-export, 
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 
+#+EL_TITLE0: 【一本化】パッケージのドキュメントをREADME.orgで書いてCommentaryに変換する
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージorg2elcommentの紹介
+#+MYTAGS: package:org2elcomment, emacs 使い方, emacs コマンド, emacs, org2elcomment, org2elcomment.el, emacs lisp org2elcomment, elisp org2elcomment, emacs melpa org2elcomment, emacs org2elcomment 使い方, emacs org2elcomment 設定, emacs パッケージ org2elcomment, 開発者向け, README.org, org-modeでelispドキュメントを書く, github, Commentary, パッケージ ドキュメント, package documentation, package commentary org-mode, org-export, 
+#+TAGS: package:org2elcomment, emacs 使い方, emacs コマンド, emacs, org2elcomment, org2elcomment.el, emacs lisp org2elcomment, elisp org2elcomment, emacs melpa org2elcomment, emacs org2elcomment 使い方, emacs org2elcomment 設定, emacs パッケージ org2elcomment, 開発者向け, README.org, org-modeでelispドキュメントを書く, github, Commentary, パッケージ ドキュメント, package documentation, package commentary org-mode, org-export, , Emacs, org-mode, Emacs Lisp, , org-export-default-language
+#+TITLE: emacs org2elcomment.el : 【一本化】パッケージのドキュメントをREADME.orgで書いてCommentaryに変換する | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>org2elcomment</td></tr>
+<tr><td>概要(原文)</td><td>Convert Org file to Elisp comments</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/cute-jumper/org2elcomment">https://github.com/cute-jumper/org2elcomment</a></td></tr>
+<tr><td>バージョン</td><td>20160707.1319</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:org2elcomment/">package:org2elcomment</a> </td></tr>
+</table>
+<br />
+#+END_HTML
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+
+今では多くのelispパッケージがGitHubで開発されています。
+GitHubではREADMEを書くことでリポジトリのトップページにそれが載るようになっています。
+READMEはorg-modeで書く(README.org)ことができます。
+これは我々Emacsユーザにとっては朗報ですよね。
+
+一方で、elispファイルの方でもCommentaryセクションで説明を書く必要があります。
+ここでREADME.orgと別の内容を書いていたら、説明の二重化になり管理に問題が出てきます。
+そこで登場するのがorg2elcomment.elです。
+これを使えばカレントバッファのorgファイルをelispのCommentaryのコメントに変換してくれます。
+つまりREADME.orgを更新した後にM-x org2elcommentを実行すれば自動的にCommentaryがREADME.orgの内容になるわけです。
+** org2elcomment インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install org2elcomment
+
+
+#+end:
+** 概要                                                             :noexport:
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+
+今では多くのelispパッケージがGitHubで開発されています。
+GitHubではREADMEを書くことでリポジトリのトップページにそれが載るようになっています。
+READMEはorg-modeで書く(README.org)ことができます。
+これは我々Emacsユーザにとっては朗報ですよね。
+
+一方で、elispファイルの方でもCommentaryセクションで説明を書く必要があります。
+ここでREADME.orgと別の内容を書いていたら、説明の二重化になり管理に問題が出てきます。
+そこで登場するのがorg2elcomment.elです。
+これを使えばカレントバッファのorgファイルをelispのCommentaryのコメントに変換してくれます。
+つまりREADME.orgを更新した後にM-x org2elcommentを実行すれば自動的にCommentaryがREADME.orgの内容になるわけです。
+** 使用例
+試しに/tmp/test.elを作成し、autoinsertによるヘッダが挿入された状態にします。
+
+#+BEGIN_SRC emacs-lisp :results silent
+;;; test.el --- org2elcomment test                   -*- lexical-binding: t; -*-
+
+;; Copyright (C) 2016  rubikitch
+
+;; Author: rubikitch <rubikitch@ruby-lang.org>
+;; Keywords:
+
+;; This program is free software; you can redistribute it and/or modify
+;; it under the terms of the GNU General Public License as published by
+;; the Free Software Foundation, either version 3 of the License, or
+;; (at your option) any later version.
+
+;; This program is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+;; GNU General Public License for more details.
+
+;; You should have received a copy of the GNU General Public License
+;; along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+;;; Commentary:
+
+;;
+
+;;; Code:
+
+
+
+(provide 'test)
+;;; test.el ends here
+
+#+END_SRC
+
+
+そこでorg2elcommentのREADME.orgでM-x org2elcomment RET /tmp/test.el を実行すると、/tmp/test.elは以下の内容に変わります。
+
+#+BEGIN_SRC emacs-lisp :results silent
+;;; test.el --- org2elcomment test                   -*- lexical-binding: t; -*-
+
+;; Copyright (C) 2016  rubikitch
+
+;; Author: rubikitch <rubikitch@ruby-lang.org>
+;; Keywords:
+
+;; This program is free software; you can redistribute it and/or modify
+;; it under the terms of the GNU General Public License as published by
+;; the Free Software Foundation, either version 3 of the License, or
+;; (at your option) any later version.
+
+;; This program is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+;; GNU General Public License for more details.
+
+;; You should have received a copy of the GNU General Public License
+;; along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+;;; Commentary:
+
+;;                             _______________
+;; 
+;;                              ORG2ELCOMMENT
+;; 
+;;                                rubikitch
+;;                             _______________
+;; 
+;; 
+;; Table of Contents
+;; _________________
+;; 
+;; 1 Overview
+;; 2 Usage
+;; 3 Customization
+;; 
+;; 
+;; Convert `org-mode' file to Elisp comments.
+;; 
+;; 
+;; 1 Overview
+;; ==========
+;; 
+;;   This simple package is mainly used for Elisp package writers. After
+;;   you've written the `README.org' for your package, you can use
+;;   `org2elcomment' to convert the org file to Elisp comments in the
+;;   corresponding source code file.
+;; 
+;; 
+;; 2 Usage
+;; =======
+;; 
+;;   Make sure your source code file has `;;; Commentary:' and `;;; Code:'
+;;   lines. The generated comments will be put between these two lines. If
+;;   you use `auto-insert', it will take care of generating a standard file
+;;   header that contains these two lines in your source code.
+;; 
+;;   In your Org file, invoke `org2elcomment', select the source code file,
+;;   and done! Now take a look at your source code file, you can see your
+;;   Org file has been converted to the comments in your source code file.
+;; 
+;; 
+;; 3 Customization
+;; ===============
+;; 
+;;   Behind the scenes, this package uses `org-export-as' function and the
+;;   default backend is `ascii'. You can change to whatever backend that
+;;   your org-mode export engine supports, such as `md' (for markdown):
+
+;;; Code:
+
+
+
+(provide 'test)
+;;; test.el ends here
+
+#+END_SRC
+
+もちろん、README.orgを更新して再実行した場合は、以前の内容が消され、新しい内容が反映されます。
+前の内容が残ったりはしません。
+** カスタマイズしている人は注意！
+*org-ascii-text-width* や *org-export-default-language* を変更している人は、以下のアドバイスを使う必要があります。
+org-ascii-text-widthが長すぎる場合は80桁を飛び出してしまいますし、org-export-default-languageをjaにしている場合はTable of Contentsが「目次」と出てきてしまいます。
+
+#+BEGIN_SRC emacs-lisp :results silent
+(defun org2elcomment--export-settings (&rest them)
+  (let ((org-ascii-text-width 72)
+        (org-export-default-language "en"))
+    (apply them)))
+(advice-add 'org2elcomment :around 'org2elcomment--export-settings)
+#+END_SRC
