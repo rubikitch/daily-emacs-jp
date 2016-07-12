@@ -1,0 +1,80 @@
+#+BLOG: rubikitch
+#+POSTID: 2463
+#+DATE: [2016-07-12 Tue 08:31]
+#+PERMALINK: my-quickrun
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, Emacs Lisp, helm, 
+#+DESCRIPTION: 
+#+MYTAGS: package:quickrun, emacs 使い方, emacs コマンド, emacs, emacs lisp quickrun, elisp quickrun, emacs melpa quickrun, emacs quickrun 使い方, emacs quickrun 設定, emacs パッケージ quickrun, emacs quickrun スクリーンショット, c-mode, c++-mode, objc-mode, csharp-mode, perl-mode, cperl-mode, ruby-mode, python-mode, php-mode, emacs-lisp-mode, lisp-mode, scheme-mode, javascript-mode, js-mode, js2-mode, clojure-mode, erlang-mode, ocaml-mode, tuareg-mode, fsharp-mode, go-mode, io-mode, lua-mode, haskell-mode, java-mode, d-mode, fortran-mode, markdown-mode, coffee-mode, jsx-mode, typescript-mode, scala-mode, groove-mode, haml-mode, sass-mode, less-mode, less-css-mode, sh-mode, awk-mode, rust-mode, dart-mode, elixir-mode, tcl-mode, swift-mode, ats-mode, ess-mode, relate:helm, relate:anything, relate:compile, relate:executable, quickrunを使いやすく, quickrun 使いづらい, quickrun 不満, quickrun 改良, quickrun 魔改造
+#+TITLE: quickrunを魔改造して開発中のプログラムの実行をチョーチョー簡単にする！
+#+begin: org2blog-tags
+#+TAGS: package:quickrun, emacs 使い方, emacs コマンド, emacs, emacs lisp quickrun, elisp quickrun, emacs melpa quickrun, emacs quickrun 使い方, emacs quickrun 設定, emacs パッケージ quickrun, emacs quickrun スクリーンショット, c-mode, c++-mode, objc-mode, csharp-mode, perl-mode, cperl-mode, ruby-mode, python-mode, php-mode, emacs-lisp-mode, lisp-mode, scheme-mode, javascript-mode, js-mode, js2-mode, clojure-mode, erlang-mode, ocaml-mode, tuareg-mode, fsharp-mode, go-mode, io-mode, lua-mode, haskell-mode, java-mode, d-mode, fortran-mode, markdown-mode, coffee-mode, jsx-mode, typescript-mode, scala-mode, groove-mode, haml-mode, sass-mode, less-mode, less-css-mode, sh-mode, awk-mode, rust-mode, dart-mode, elixir-mode, tcl-mode, swift-mode, ats-mode, ess-mode, relate:helm, relate:anything, relate:compile, relate:executable, quickrunを使いやすく, quickrun 使いづらい, quickrun 不満, quickrun 改良, quickrun 魔改造, Emacs, Emacs Lisp, helm, , M-x executable-interpret, M-x quickrun, M-x quickrun-with-arg, M-x quickrun-shell, quickrun-option-args, eshell, outputter, quickrun-option-outputter, M-x add-file-local-variable, M-x normal-mode, C-x C-v RET, バッファローカル変数
+#+end:
+quickrunパッケージは、 *M-x executable-interpret* の進化形ともいえるもので、多種多様な言語に対応していて、開発中のプログラムの実行を簡単にしてくれます。
+
+機能性には注目していたのですが、僕には不満点がいろいろと目に付いて使っていませんでした。
+そこで重い足を上げてquickrunの機能を再整理することで僕的には満足する仕上がりになりました。
+これでやっとquickrunの恩恵を受けられて嬉しいです。
+以後愛用します。
+
+作者のsyohexさんの考えとは異なるかもしれませんが、このようなquickrunユーザがいるということです。
+機能の再整理をするのはとても簡単なことでした。
+それはひとえにわかりやすいコードを書いたsyohexさんの腕前によるものです。
+感謝いたします。
+
+** 不満点1:コマンドが多すぎる
+僕がquickrunに対して思った不満点は2つです。
+
+1つめはquickrun関連のコマンドが多すぎることです。
+*M-x quickrun* だけでなく、 *M-x quickrun-with-arg* 、 *M-x quickrun-shell* と、実行関係でも3つのコマンドに分かれている点が我慢なりませんでした。
+とくにM-x quickrunはquickすぎて引数・入力なしでいきなり実行してしまいます。
+引数を付ける際にはわざわざ別のコマンドM-x quickrun-with-argを実行する必要があります。
+しかもバグなのか仕様なのかわかりませんが、M-x quickrun-with-argで指定した引数が *quickrun-option-args* に反映されていないため、同じ引数で実行する場合はM-x quickrunではなくて再びM-x quickrun-with-argを使う必要があります。
+おまけにM-x quickrun-with-argのデフォルト引数が空であり前回のものになっていません。
+これらは簡単な変更で解決できるので仕様だと思います。
+
+M-x quickrun-shellは *eshell* を使って何度も実行する便利な機能です。
+とくに標準入力を含むプログラムの場合、いろいろな入力を試せます。
+しかし、コマンドライン引数は指定できないという欠点があります。
+
+quickrunには *outputter* という機構があり、様々な出力方法を指定できるようになっています。
+ファイルローカル変数 *quickrun-option-outputter* にmessageと指定することで、ウィンドウ分割ではなくてエコーエリアに出力結果を出力してくれます。
+ちょっとしか出力しないプログラムの開発にはmessage outputterは便利です。
+「とにかく黙れ！」って言いたいときはnullを指定します。
+
+でも、現状のoutputterよりも大きな枠で考えるとM-x quickrun-shell(eshell)も実行方法の1つではないでしょうか？
+僕的にはdefault/message/nullとともにeshellも付け加えたいと思うところです。
+
+** 不満点2:ファイルローカル変数
+2つめは細かい制御をする際には *ファイルローカル変数* を使う必要があることです。
+ファイルローカル変数、確かに便利な機能ですが、僕はいまいち好きになれません。
+なぜなら、 *M-x add-file-local-variable* を実行しても *M-x normal-mode* や *C-x C-v RET* などでわざわざ反映させる必要があるからです。
+M-x add-file-local-variableの時点で反映させてもいいのではと疑問に思っています。
+それにquickrunという自分の環境に依存した設定をソースコードに書きたくないというのがあります。
+特に実行時の引数を指定するquickrun-option-argsをわざわざファイルローカル変数にすると、変更するのも面倒です。
+引数や入力が伴う場合、現状では全然quickとは言えないと思います。
+
+** 解決策！
+そこで僕は *M-x my-quickrun* というたった1つのコマンドでquickrunのほとんどの機能をカバーすることを考えました。
+anythingの開発者としては、コマンドは少ないに越したことはないと考えています。
+M-x my-quickrunでは、ファイルを開いて初めて実行する際には以下の情報を尋ねるようにしました。
+- qrinput系(qriput, qrinput2,qrinput3などのファイルが存在するとき)はhelmインターフェースによる入力ファイルの選択
+  - C-z (persistent-action)により入力ファイルの内容を確かめられる
+- 実行方法(default/message/null/eshell)の選択
+- 引数の入力
+
+それらの情報は *バッファローカル変数* になっているので二度目のM-x my-quickrunの実行は文字通りquickです！
+C-u M-x my-quickrunでこれらの情報の変更ができます。
+
+たったこれだけの改良で、多くの場合はファイルローカル変数に頼ることもなく、たった1つのコマンドでquickrunの多機能の恩恵が受けられるようになりました。
+
+** コード
+
+#+INCLUDE: ~/.emacs.d/init.d/mylisp-quickrun.el src
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
