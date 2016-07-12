@@ -74,7 +74,7 @@ C-u M-x my-quickrunでこれらの情報の変更ができます。
 
 ** コード
 
-#+INCLUDE: ~/.emacs.d/init.d/mylisp-quickrun.el src
+#+INCLUDE: ~/.emacs.d/init.d/mylisp-quickrun.el src emacs-lisp
 
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
