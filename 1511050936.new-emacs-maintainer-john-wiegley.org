@@ -7,12 +7,12 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, Emacs 25.0, 
+#+CATEGORY: Emacs, Emacs 25.0, 記事紹介
 #+DESCRIPTION: 
 #+MYTAGS: John Wiegley, Stefan Monnier, メンテナ, メンテナ就任, 
 #+TITLE: Emacsの新メンテナがJohn Wiegley氏に決まりました
 #+begin: org2blog-tags
-#+TAGS: John Wiegley, Stefan Monnier, メンテナ, メンテナ就任, , Emacs, Emacs 25.0, , 
+#+TAGS: John Wiegley, Stefan Monnier, メンテナ, メンテナ就任, , Emacs, Emacs 25.0, 記事紹介, 
 #+end:
 長きにわたってEmacsのメンテナを務めていたStefan Monnier氏が [[http://rubikitch.com/2015/09/22/new-maintainer-emacs25/][9/21に辞退しましたが、]] 後継者が決まりました。
 大昔から数々のelispの開発に携ってきたJohn Wiegley氏です。
