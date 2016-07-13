@@ -37,6 +37,7 @@
 
 それではフルキーボード操作の世界を楽しみましょう。
 
+#+ATTR_HTML: :width 480
 [[https://github.com/purcell/disable-mouse/raw/master/disable-mouse-cat.jpg]]
 Fig1: ぬこ様！
 
@@ -58,7 +59,22 @@ M-x package-install disable-mouse
 
 それではフルキーボード操作の世界を楽しみましょう。
 
+#+ATTR_HTML: :width 480
 [[https://github.com/purcell/disable-mouse/raw/master/disable-mouse-cat.jpg]]
 Fig2: ぬこ様！
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+** 設定 [[http://rubikitch.com/f/160714065314.disable-mouse.el][160714065314.disable-mouse.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/160714/160714065314.disable-mouse.el"
+#+BEGIN_SRC fundamental
+(require 'disable-mouse)
+(global-disable-mouse-mode)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/160714065314.disable-mouse.el
+$ emacs -Q -f package-initialize -l 160714065314.disable-mouse.el
+#+END_EXAMPLE
