@@ -9,14 +9,14 @@
 #+BLOG: rubikitch
 #+CATEGORY: Emacs
 #+EL_PKG_NAME: disable-mouse
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, ratpoison, マウスを無効にする, マウスいらず, トラックボール無効, トラックパッド無効, フルキーボード操作, マウスイベント, マウスイベントを無視する
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, ratpoison, マウスを無効にする, マウスいらず, トラックボール無効, トラックパッド無効, フルキーボード操作, マウスイベント, マウスイベントを無視する, unclutter, マウスカーソルを消滅させる
 #+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
 #+EL_TITLE0: マウスなどいらん！マウスイベントを強制的に無効化
 #+EL_URL: 
 #+begin: org2blog
 #+DESCRIPTION: MELPAのEmacs Lispパッケージdisable-mouseの紹介
-#+MYTAGS: package:disable-mouse, emacs 使い方, emacs コマンド, emacs, disable-mouse, disable-mouse.el, emacs lisp disable-mouse, elisp disable-mouse, emacs melpa disable-mouse, emacs disable-mouse 使い方, emacs disable-mouse 設定, emacs パッケージ disable-mouse, ratpoison, マウスを無効にする, マウスいらず, トラックボール無効, トラックパッド無効, フルキーボード操作, マウスイベント, マウスイベントを無視する
-#+TAGS: package:disable-mouse, emacs 使い方, emacs コマンド, emacs, disable-mouse, disable-mouse.el, emacs lisp disable-mouse, elisp disable-mouse, emacs melpa disable-mouse, emacs disable-mouse 使い方, emacs disable-mouse 設定, emacs パッケージ disable-mouse, ratpoison, マウスを無効にする, マウスいらず, トラックボール無効, トラックパッド無効, フルキーボード操作, マウスイベント, マウスイベントを無視する, Emacs, 
+#+MYTAGS: package:disable-mouse, emacs 使い方, emacs コマンド, emacs, disable-mouse, disable-mouse.el, emacs lisp disable-mouse, elisp disable-mouse, emacs melpa disable-mouse, emacs disable-mouse 使い方, emacs disable-mouse 設定, emacs パッケージ disable-mouse, ratpoison, マウスを無効にする, マウスいらず, トラックボール無効, トラックパッド無効, フルキーボード操作, マウスイベント, マウスイベントを無視する, unclutter, マウスカーソルを消滅させる
+#+TAGS: package:disable-mouse, emacs 使い方, emacs コマンド, emacs, disable-mouse, disable-mouse.el, emacs lisp disable-mouse, elisp disable-mouse, emacs melpa disable-mouse, emacs disable-mouse 使い方, emacs disable-mouse 設定, emacs パッケージ disable-mouse, ratpoison, マウスを無効にする, マウスいらず, トラックボール無効, トラックパッド無効, フルキーボード操作, マウスイベント, マウスイベントを無視する, unclutter, マウスカーソルを消滅させる, Emacs, 
 #+TITLE: emacs disable-mouse.el : マウスなどいらん！マウスイベントを強制的に無効化 | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
 #+BEGIN_HTML
 <table>
