@@ -17,7 +17,7 @@
 John Wiegley「Welcoming a new co-maintainer: Eli Zaretskii」
 http://lists.gnu.org/archive/html/emacs-devel/2016-07/msg00373.html
 
-John Wiegley氏は今は忙しく時間が限られているため、毎日すべての議論についていくのが厳しい状況です。
+現EmacsのメンテナJohn Wiegley氏は今は忙しく時間が限られているため、毎日すべての議論についていくのが厳しい状況です。
 そこでEli Zaretskii氏がEmacsの共同メンテナに就任しました。
 彼は今までバグ修正、議論、パッチとたくさん活動してきたので適任です。
 合言葉は
