@@ -1,0 +1,29 @@
+#+BLOG: rubikitch
+#+POSTID: 2468
+#+DATE: [2016-07-13 Wed 09:37]
+#+PERMALINK: new-emacs-co-maintainer-eli-zaretskii
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, Emacs 25.0, 記事紹介
+#+DESCRIPTION: 
+#+MYTAGS: John Wiegley, メンテナ, メンテナ就任, Eli Zaretskii, 共同メンテナ, co-maintainer, maintainer
+#+TITLE: Eli Zaretskii氏がEmacsの共同メンテナになりました
+#+begin: org2blog-tags
+#+TAGS: John Wiegley, メンテナ, メンテナ就任, Eli Zaretskii, 共同メンテナ, co-maintainer, maintainer, Emacs, Emacs 25.0, 記事紹介, 
+#+end:
+John Wiegley「Welcoming a new co-maintainer: Eli Zaretskii」
+http://lists.gnu.org/archive/html/emacs-devel/2016-07/msg00373.html
+
+John Wiegley氏は今は忙しく時間が限られているため、毎日すべての議論についていくのが厳しい状況です。
+そこでEli Zaretskii氏がEmacsの共同メンテナに就任しました。
+彼は今までバグ修正、議論、パッチとたくさん活動してきたので適任です。
+合言葉は
+/よりよいEmacsを！/
+二人で力を合わせれば、その目標達成が早くなることでしょう。
+
+僕も応援しています。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
