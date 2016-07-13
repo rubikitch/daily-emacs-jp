@@ -39,7 +39,7 @@
 
 #+ATTR_HTML: :width 480
 [[https://github.com/purcell/disable-mouse/raw/master/disable-mouse-cat.jpg]]
-Fig1: ぬこ様！
+Fig1: ぬこ様！(作者の飼い猫)
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
 ** disable-mouse インストール
@@ -61,7 +61,7 @@ M-x package-install disable-mouse
 
 #+ATTR_HTML: :width 480
 [[https://github.com/purcell/disable-mouse/raw/master/disable-mouse-cat.jpg]]
-Fig2: ぬこ様！
+Fig2: ぬこ様！(作者の飼い猫)
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
 ** 設定 [[http://rubikitch.com/f/160714065314.disable-mouse.el][160714065314.disable-mouse.el(以下のコードと同一)]]
