@@ -43,7 +43,7 @@ CSSなどを書いていこくと #ff00ff などの色文字列が出てきま�
 ** rainbow-mode インストール
 このパッケージはELPAにあるので、パッケージの初期設定は不要です。
 
-%sM-x package-refresh-contents
+M-x package-refresh-contents
 M-x package-install rainbow-mode
 
 
@@ -86,3 +86,6 @@ $ emacs -Q -f package-initialize -l 160716074813.rainbow-mode.1.el
 #+END_EXAMPLE
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+
+# /r/sync/screenshots/20160716074909.png http://rubikitch.com/wp-content/uploads/2016/07/20160716074909.png
+# /r/sync/screenshots/20160716074929.png http://rubikitch.com/wp-content/uploads/2016/07/20160716074929.png
