@@ -9,27 +9,37 @@
 #+BLOG: rubikitch
 #+CATEGORY: Emacs
 #+EL_PKG_NAME: rainbow-mode
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, css, scss, php, html, 色文字列, relate:contrast-color, rgbに色をつける, css-mode-hook, scss-mode-hook, php-mode-hook, html-mode-hook, web-mode-hook, latex, html, ansi
 #+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+EL_TITLE0: FILLIT
+#+EL_TITLE0: 【CSS書くなら持っとけ】色文字列に色をつける！
 #+EL_URL: 
 #+begin: org2blog
 #+DESCRIPTION: ELPAのEmacs Lispパッケージrainbow-modeの紹介
-#+MYTAGS: package:rainbow-mode, emacs 使い方, emacs コマンド, emacs, rainbow-mode, rainbow-mode.el, emacs lisp rainbow-mode, elisp rainbow-mode, emacs gnu rainbow-mode, emacs rainbow-mode 使い方, emacs rainbow-mode 設定, emacs パッケージ rainbow-mode, emacs rainbow-mode スクリーンショット
-#+TAGS: package:rainbow-mode, emacs 使い方, emacs コマンド, emacs, rainbow-mode, rainbow-mode.el, emacs lisp rainbow-mode, elisp rainbow-mode, emacs gnu rainbow-mode, emacs rainbow-mode 使い方, emacs rainbow-mode 設定, emacs パッケージ rainbow-mode, emacs rainbow-mode スクリーンショット, Emacs, 
-#+TITLE: emacs rainbow-mode.el : FILLIT | ELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+MYTAGS: package:rainbow-mode, emacs 使い方, emacs コマンド, emacs, rainbow-mode, rainbow-mode.el, emacs lisp rainbow-mode, elisp rainbow-mode, emacs gnu rainbow-mode, emacs rainbow-mode 使い方, emacs rainbow-mode 設定, emacs パッケージ rainbow-mode, emacs rainbow-mode スクリーンショット, css, scss, php, html, 色文字列, relate:contrast-color, rgbに色をつける, css-mode-hook, scss-mode-hook, php-mode-hook, html-mode-hook, web-mode-hook, latex, html, ansi
+#+TAGS: package:rainbow-mode, emacs 使い方, emacs コマンド, emacs, rainbow-mode, rainbow-mode.el, emacs lisp rainbow-mode, elisp rainbow-mode, emacs gnu rainbow-mode, emacs rainbow-mode 使い方, emacs rainbow-mode 設定, emacs パッケージ rainbow-mode, emacs rainbow-mode スクリーンショット, css, scss, php, html, 色文字列, relate:contrast-color, rgbに色をつける, css-mode-hook, scss-mode-hook, php-mode-hook, html-mode-hook, web-mode-hook, latex, html, ansi, Emacs, 
+#+TITLE: emacs rainbow-mode.el : 【CSS書くなら持っとけ】色文字列に色をつける！ | ELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
 #+BEGIN_HTML
 <table>
 <tr><td>パッケージ名</td><td>rainbow-mode</td></tr>
 <tr><td>概要(原文)</td><td>Colorize color names in buffers</td></tr>
 <tr><td>リポジトリ</td><td><a href="https://elpa.gnu.org/">ELPA(公式リポジトリ)</a></td></tr>
 <tr><td>バージョン</td><td>0.12</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:rainbow-mode/">package:rainbow-mode</a> </td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:rainbow-mode/">package:rainbow-mode</a> <a href="http://rubikitch.com/tag/package:contrast-color/">package:contrast-color</a></td></tr>
 </table>
 <br />
 #+END_HTML
+CSSなどを書いていこくと #ff00ff などの色文字列が出てきます。
+そこでM-x rainbow-modeを実行すれば、これらの色文字列が表す色をEmacsが示してくれます。
 
-# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+ここではrainbow-mode.elを一旦fundamental-modeにしてからM-x rainbow-modeにしたスクリーンショットです。
+
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160716074909.png]]
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160716074929.png]]
+
 ** rainbow-mode インストール
 このパッケージはELPAにあるので、パッケージの初期設定は不要です。
 
@@ -39,5 +49,40 @@ M-x package-install rainbow-mode
 
 #+end:
 ** 概要                                                             :noexport:
+CSSなどを書いていこくと #ff00ff などの色文字列が出てきます。
+そこでM-x rainbow-modeを実行すれば、これらの色文字列が表す色をEmacsが示してくれます。
+
+ここではrainbow-mode.elを一旦fundamental-modeにしてからM-x rainbow-modeにしたスクリーンショットです。
+
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160716074909.png]]
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160716074929.png]]
+
+
+** 設定 [[http://rubikitch.com/f/160716074813.rainbow-mode.1.el][160716074813.rainbow-mode.1.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/160716/160716074813.rainbow-mode.1.el"
+#+BEGIN_SRC fundamental
+;;; 色文字列に色をつける
+(setq rainbow-html-colors t)
+(setq rainbow-x-colors t)
+(setq rainbow-latex-colors t)
+(setq rainbow-ansi-colors t)
+(add-hook 'css-mode-hook 'rainbow-mode)
+(add-hook 'scss-mode-hook 'rainbow-mode)
+(add-hook 'php-mode-hook 'rainbow-mode)
+(add-hook 'html-mode-hook 'rainbow-mode)
+;; (save-window-excursion (shell-command (format "emacs-test -l test-minimum -l %s %s &" buffer-file-name buffer-file-name)))
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/160716074813.rainbow-mode.1.el
+$ emacs -Q -f package-initialize -l 160716074813.rainbow-mode.1.el
+#+END_EXAMPLE
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
