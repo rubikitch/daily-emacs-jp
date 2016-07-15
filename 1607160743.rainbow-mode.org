@@ -1,0 +1,43 @@
+#+BLOG: rubikitch
+#+POSTID: 2478
+#+DATE: [2016-07-16 Sat 07:43]
+#+PERMALINK: rainbow-mode
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs
+#+EL_PKG_NAME: rainbow-mode
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: FILLIT
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: ELPAのEmacs Lispパッケージrainbow-modeの紹介
+#+MYTAGS: package:rainbow-mode, emacs 使い方, emacs コマンド, emacs, rainbow-mode, rainbow-mode.el, emacs lisp rainbow-mode, elisp rainbow-mode, emacs gnu rainbow-mode, emacs rainbow-mode 使い方, emacs rainbow-mode 設定, emacs パッケージ rainbow-mode, emacs rainbow-mode スクリーンショット
+#+TAGS: package:rainbow-mode, emacs 使い方, emacs コマンド, emacs, rainbow-mode, rainbow-mode.el, emacs lisp rainbow-mode, elisp rainbow-mode, emacs gnu rainbow-mode, emacs rainbow-mode 使い方, emacs rainbow-mode 設定, emacs パッケージ rainbow-mode, emacs rainbow-mode スクリーンショット, Emacs, 
+#+TITLE: emacs rainbow-mode.el : FILLIT | ELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>rainbow-mode</td></tr>
+<tr><td>概要(原文)</td><td>Colorize color names in buffers</td></tr>
+<tr><td>リポジトリ</td><td><a href="https://elpa.gnu.org/">ELPA(公式リポジトリ)</a></td></tr>
+<tr><td>バージョン</td><td>0.12</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:rainbow-mode/">package:rainbow-mode</a> </td></tr>
+</table>
+<br />
+#+END_HTML
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+** rainbow-mode インストール
+このパッケージはELPAにあるので、パッケージの初期設定は不要です。
+
+%sM-x package-refresh-contents
+M-x package-install rainbow-mode
+
+
+#+end:
+** 概要                                                             :noexport:
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
