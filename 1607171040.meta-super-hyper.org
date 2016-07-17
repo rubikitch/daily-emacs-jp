@@ -1,0 +1,30 @@
+#+BLOG: rubikitch
+#+POSTID: 2484
+#+DATE: [2016-07-17 Sun 10:40]
+#+PERMALINK: meta-super-hyper
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, 記事紹介, 
+#+DESCRIPTION: 
+#+MYTAGS: 
+#+TITLE: Meta/Super/Hyperキーの秘密
+#+begin: org2blog-tags
+#+TAGS: , Emacs, 記事紹介, , 
+#+end:
+http://www.catonmat.net/blog/why-emacs-uses-meta-key/
+
+Emacsユーザの疑問のひとつとして、
+「なぜAltキーのことをメタキーと言うのか」
+というのがあると思います。
+
+その歴史的経緯を上のページで紹介してあります。
+
+昔のキーボードはHyperやSuperキーがあったのですよ！
+画像は必見です。
+
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
