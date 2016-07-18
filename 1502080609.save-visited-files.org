@@ -9,14 +9,14 @@
 #+BLOG: rubikitch
 #+CATEGORY: Emacs
 #+EL_PKG_NAME: save-visited-files
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, relate:desktop, relate:windows, relate:psession, relate:recentf, relate:helm, relate:anything, emacs 状態復元 再起動, emacs 終了 ファイル 復元, emacs バッファリスト 保存 復元, desktop.el 動かない, relate:persp-mode
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, relate:desktop, relate:windows, relate:psession, relate:recentf, relate:helm, relate:anything, emacs 状態復元 再起動, emacs 終了 ファイル 復元, emacs バッファリスト 保存 復元, desktop.el 動かない, relate:persp-mode, 頻繁にEmacsを再起動する場合
 #+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 
 #+EL_TITLE0: 現在開いているファイルを再起動時に復元させる！突然死対応
 #+EL_URL: 
 #+begin: org2blog
 #+DESCRIPTION: MELPAのEmacs Lispパッケージsave-visited-filesの紹介
-#+MYTAGS: package:save-visited-files, emacs 使い方, emacs コマンド, emacs, save-visited-files, save-visited-files.el, emacs lisp save-visited-files, elisp save-visited-files, emacs melpa save-visited-files, emacs save-visited-files 使い方, emacs save-visited-files 設定, emacs パッケージ save-visited-files, relate:desktop, relate:windows, relate:psession, relate:recentf, relate:helm, relate:anything, emacs 状態復元 再起動, emacs 終了 ファイル 復元, emacs バッファリスト 保存 復元, desktop.el 動かない, relate:persp-mode
-#+TAGS: package:save-visited-files, emacs 使い方, emacs コマンド, emacs, save-visited-files, save-visited-files.el, emacs lisp save-visited-files, elisp save-visited-files, emacs melpa save-visited-files, emacs save-visited-files 使い方, emacs save-visited-files 設定, emacs パッケージ save-visited-files, relate:desktop, relate:windows, relate:psession, relate:recentf, relate:helm, relate:anything, emacs 状態復元 再起動, emacs 終了 ファイル 復元, emacs バッファリスト 保存 復元, desktop.el 動かない, relate:persp-mode, Emacs, desktop.el, save-visited-files.el, windows.el, anything.el, M-x helm-mini, M-x helm-for-files, M-x anything-mini, M-x anything-filelist+, recentf, kill-emacs-hook, auto-save-hook, desktop.el, save-visited-files.el, windows.el, anything.el, M-x helm-mini, M-x helm-for-files, M-x anything-mini, M-x anything-filelist+, recentf, kill-emacs-hook, auto-save-hook
+#+MYTAGS: package:save-visited-files, emacs 使い方, emacs コマンド, emacs, save-visited-files, save-visited-files.el, emacs lisp save-visited-files, elisp save-visited-files, emacs melpa save-visited-files, emacs save-visited-files 使い方, emacs save-visited-files 設定, emacs パッケージ save-visited-files, relate:desktop, relate:windows, relate:psession, relate:recentf, relate:helm, relate:anything, emacs 状態復元 再起動, emacs 終了 ファイル 復元, emacs バッファリスト 保存 復元, desktop.el 動かない, relate:persp-mode, 頻繁にEmacsを再起動する場合
+#+TAGS: package:save-visited-files, emacs 使い方, emacs コマンド, emacs, save-visited-files, save-visited-files.el, emacs lisp save-visited-files, elisp save-visited-files, emacs melpa save-visited-files, emacs save-visited-files 使い方, emacs save-visited-files 設定, emacs パッケージ save-visited-files, relate:desktop, relate:windows, relate:psession, relate:recentf, relate:helm, relate:anything, emacs 状態復元 再起動, emacs 終了 ファイル 復元, emacs バッファリスト 保存 復元, desktop.el 動かない, relate:persp-mode, 頻繁にEmacsを再起動する場合, Emacs, desktop.el, save-visited-files.el, windows.el, anything.el, M-x helm-mini, M-x helm-for-files, M-x anything-mini, M-x anything-filelist+, recentf, kill-emacs-hook, auto-save-hook, desktop.el, save-visited-files.el, windows.el, anything.el, M-x helm-mini, M-x helm-for-files, M-x anything-mini, M-x anything-filelist+, recentf, kill-emacs-hook, auto-save-hook
 #+TITLE: emacs save-visited-files.el : 現在開いているファイルを再起動時に復元させる！突然死対応 | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 
 #+BEGIN_HTML
 <table>
@@ -24,7 +24,7 @@
 <tr><td>概要(原文)</td><td>save opened files across sessions</td></tr>
 <tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
 <tr><td>取得先</td><td><a href="https://github.com/nflath/save-visited-files">https://github.com/nflath/save-visited-files</a></td></tr>
-<tr><td>バージョン</td><td>20141120.2031</td></tr>
+<tr><td>バージョン</td><td>20151021.1043</td></tr>
 <tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:save-visited-files/">package:save-visited-files</a> <a href="http://rubikitch.com/tag/package:desktop/">package:desktop</a> <a href="http://rubikitch.com/tag/package:windows/">package:windows</a> <a href="http://rubikitch.com/tag/package:psession/">package:psession</a> <a href="http://rubikitch.com/tag/package:recentf/">package:recentf</a> <a href="http://rubikitch.com/tag/package:helm/">package:helm</a> <a href="http://rubikitch.com/tag/package:anything/">package:anything</a> <a href="http://rubikitch.com/tag/package:persp-mode/">package:persp-mode</a></td></tr>
 </table>
 <br />
