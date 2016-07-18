@@ -1,0 +1,181 @@
+#+BLOG: rubikitch
+#+POSTID: 2487
+#+DATE: [2016-07-18 Mon 17:23]
+#+PERMALINK: dumb-jump
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs
+#+EL_PKG_NAME: dumb-jump
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, relate:ag, relate:etags, relate:gtags, relate:robe, relate:elpy, 関数定義へジャンプ, 変数定義へジャンプ, ソースコード検索, exuberant-ctags, GNU Global, ctags, etags, タグファイル, TAGS, ソースコードgrep検索, ag, the_silver_searcher, relate:popup
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: すぐ使える多言語対応関数・変数定義ジャンパー
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージdumb-jumpの紹介
+#+MYTAGS: package:dumb-jump, emacs 使い方, emacs コマンド, emacs, dumb-jump, dumb-jump.el, emacs lisp dumb-jump, elisp dumb-jump, emacs melpa dumb-jump, emacs dumb-jump 使い方, emacs dumb-jump 設定, emacs パッケージ dumb-jump, emacs dumb-jump スクリーンショット, relate:ag, relate:etags, relate:gtags, relate:robe, relate:elpy, 関数定義へジャンプ, 変数定義へジャンプ, ソースコード検索, exuberant-ctags, GNU Global, ctags, etags, タグファイル, TAGS, ソースコードgrep検索, ag, the_silver_searcher, relate:popup
+#+TAGS: package:dumb-jump, emacs 使い方, emacs コマンド, emacs, dumb-jump, dumb-jump.el, emacs lisp dumb-jump, elisp dumb-jump, emacs melpa dumb-jump, emacs dumb-jump 使い方, emacs dumb-jump 設定, emacs パッケージ dumb-jump, emacs dumb-jump スクリーンショット, relate:ag, relate:etags, relate:gtags, relate:robe, relate:elpy, 関数定義へジャンプ, 変数定義へジャンプ, ソースコード検索, exuberant-ctags, GNU Global, ctags, etags, タグファイル, TAGS, ソースコードgrep検索, ag, the_silver_searcher, relate:popup, Emacs, find-function, find-function, dumb-jump-go, dumb-jump-back, dumb-jump-quick-look
+#+TITLE: emacs dumb-jump.el : すぐ使える多言語対応関数・変数定義ジャンパー | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>dumb-jump</td></tr>
+<tr><td>概要(原文)</td><td>jump to definition for multiple languages without configuration.</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/jacktasia/dumb-jump">https://github.com/jacktasia/dumb-jump</a></td></tr>
+<tr><td>バージョン</td><td>20160715.1740</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:dumb-jump/">package:dumb-jump</a> <a href="http://rubikitch.com/tag/package:ag/">package:ag</a> <a href="http://rubikitch.com/tag/package:etags/">package:etags</a> <a href="http://rubikitch.com/tag/package:gtags/">package:gtags</a> <a href="http://rubikitch.com/tag/package:robe/">package:robe</a> <a href="http://rubikitch.com/tag/package:elpy/">package:elpy</a> <a href="http://rubikitch.com/tag/package:popup/">package:popup</a></td></tr>
+</table>
+<br />
+#+END_HTML
+dumb-jump.elは複数のプログラミング言語に対応した
+関数・変数定義にジャンプするパッケージです。
+タグファイルなどは使わずag(the_silver_searcher)を使うのが特徴です。
+
+タグファイルがあると確かに高速にジャンプできますが、
+メンテナンスの手間がかかります。
+
+最近のコンピュータは高性能なので小中規模のコードは
+agによって腕づくで検索してしまった方が手軽です。
+
+もっとも、大規模な開発においてはタグファイルがあれば高速です。
+
+agがインストールされていない場合はgrepを使いますが、
+速度面などの観点から是非ともagをインストールしておいた方がいいです。
+
+このパッケージの特徴は、TAGSファイルなどを使わずに
+カレントバッファのメジャーモードや拡張子に応じて
+ag(grep)に渡す正規表現を決定し、定義と思われる場所にジャンプします。
+
+もし、一箇所に決定できない場合はポップアップメニューで選択肢が出てきます。
+
+動的言語によるDSLまでは対応していませんが、
+普通の関数定義・変数定義にはジャンプできる程度の精度はあります。
+たとえばelispでいえばdefine-minor-modeなどで定義された関数にはジャンプできません。
+elispでは素直にファイルをロードして *find-function* などでジャンプする方が確実です。
+** dumb-jump インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install dumb-jump
+
+
+#+end:
+** 概要                                                             :noexport:
+dumb-jump.elは複数のプログラミング言語に対応した
+関数・変数定義にジャンプするパッケージです。
+タグファイルなどは使わずag(the_silver_searcher)を使うのが特徴です。
+
+タグファイルがあると確かに高速にジャンプできますが、
+メンテナンスの手間がかかります。
+
+最近のコンピュータは高性能なので小中規模のコードは
+agによって腕づくで検索してしまった方が手軽です。
+
+もっとも、大規模な開発においてはタグファイルがあれば高速です。
+
+agがインストールされていない場合はgrepを使いますが、
+速度面などの観点から是非ともagをインストールしておいた方がいいです。
+
+このパッケージの特徴は、TAGSファイルなどを使わずに
+カレントバッファのメジャーモードや拡張子に応じて
+ag(grep)に渡す正規表現を決定し、定義と思われる場所にジャンプします。
+
+もし、一箇所に決定できない場合はポップアップメニューで選択肢が出てきます。
+
+動的言語によるDSLまでは対応していませんが、
+普通の関数定義・変数定義にはジャンプできる程度の精度はあります。
+たとえばelispでいえばdefine-minor-modeなどで定義された関数にはジャンプできません。
+elispでは素直にファイルをロードして *find-function* などでジャンプする方が確実です。
+** 対応言語
+- JavaScript
+- Emacs Lisp
+- Python
+- Go
+- PHP
+- Ruby
+- Scala
+- Clojure
+- Faust
+- R
+- Lua
+- Rust
+- CoffeeScript
+** 使えるコマンド
+マイナーモード *M-x dumb-jump-mode* を有効にしたら、()内のキーバインドが使えます。
+
+- *dumb-jump-go* (C-M-g) :: 定義にジャンプする
+- *dumb-jump-back* (C-M-p) :: ジャンプ前の場所に戻る
+- *dumb-jump-quick-look* (C-M-q) :: 定義位置をエコーエリアに表示する
+
+** Rubyでの使用例
+以下のRubyスクリプトを例にします。
+
+#+BEGIN_SRC ruby :results xmp silent
+class A
+  def sub1                      # (1)
+    1
+  end
+
+  def sub2                      # (2.2)
+    2
+  end
+end
+
+class B < A
+  def sub2                      # (2.1)
+    22
+  end
+
+  def main
+    sub1                        # *1
+    sub2                        # *2
+  end
+
+end
+#+END_SRC
+
+「*1」のsub1でC-M-gを押したら(1)の行にジャンプします。
+「*2」のsub2でC-M-gを押したら(2.1)の行にジャンプし、再度実行したら(2.2)の行にジャンプします。
+** elispでの例
+dumb-jump.elと同じディレクトリにelファイルを作成します。
+
+#+BEGIN_SRC emacs-lisp :results silent
+(defun a ()
+  (interactive)
+  (dumb-jump-mode)
+  (dumb-jump-go))
+#+END_SRC
+
+dumb-jump-modeはdefine-minor-modeによる定義なのでジャンプできませんが、
+dumb-jump-goはpopup.elによる選択肢が現れます。
+C-p/C-nで選択してRETで決定します。
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160718173803.png]]
+Fig1: 複数の候補が出てきたらpopupされる
+
+** .dumbjumpで検索先を増やす
+プロジェクトルートディレクトリに .dumbjump ファイルを置いておくと、
+定義の検索先を増やしたり減らしたりできます。
+
+たとえば「+」に絶対パス(~は未対応)を指定すれば、使用ライブラリも定義検索の対象になります。
+対して「-」を指定すれば検索対象外にできます。
+
+.dumbjumpファイルなしでは「-filter」などの定義はジャンプできないですが、
+作成することでジャンプできるようになります。
+
+たとえば[[http://rubikitch.com/2014/09/01/quelpa/][quelpa]] を使っていてf/s/dash/popupのライブラリが以下のディレクトリにある場合は.dumbjumpの内容を以下のようにします。
+
+#+BEGIN_EXAMPLE
++/home/rubikitch/.emacs.d/quelpa/build/f/
++/home/rubikitch/.emacs.d/quelpa/build/s/
++/home/rubikitch/.emacs.d/quelpa/build/dash/
++/home/rubikitch/.emacs.d/quelpa/build/popup/
+#+END_EXAMPLE
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+
+# /r/sync/screenshots/20160718173803.png http://rubikitch.com/wp-content/uploads/2016/07/20160718173803.png
