@@ -16,7 +16,7 @@
 #+begin: org2blog
 #+DESCRIPTION: MELPAのEmacs Lispパッケージdumb-jumpの紹介
 #+MYTAGS: package:dumb-jump, emacs 使い方, emacs コマンド, emacs, dumb-jump, dumb-jump.el, emacs lisp dumb-jump, elisp dumb-jump, emacs melpa dumb-jump, emacs dumb-jump 使い方, emacs dumb-jump 設定, emacs パッケージ dumb-jump, emacs dumb-jump スクリーンショット, relate:ag, relate:etags, relate:gtags, relate:robe, relate:elpy, 関数定義へジャンプ, 変数定義へジャンプ, ソースコード検索, exuberant-ctags, GNU Global, ctags, etags, タグファイル, TAGS, ソースコードgrep検索, ag, the_silver_searcher, relate:popup
-#+TAGS: package:dumb-jump, emacs 使い方, emacs コマンド, emacs, dumb-jump, dumb-jump.el, emacs lisp dumb-jump, elisp dumb-jump, emacs melpa dumb-jump, emacs dumb-jump 使い方, emacs dumb-jump 設定, emacs パッケージ dumb-jump, emacs dumb-jump スクリーンショット, relate:ag, relate:etags, relate:gtags, relate:robe, relate:elpy, 関数定義へジャンプ, 変数定義へジャンプ, ソースコード検索, exuberant-ctags, GNU Global, ctags, etags, タグファイル, TAGS, ソースコードgrep検索, ag, the_silver_searcher, relate:popup, Emacs, find-function, find-function, dumb-jump-go, dumb-jump-back, dumb-jump-quick-look
+#+TAGS: package:dumb-jump, emacs 使い方, emacs コマンド, emacs, dumb-jump, dumb-jump.el, emacs lisp dumb-jump, elisp dumb-jump, emacs melpa dumb-jump, emacs dumb-jump 使い方, emacs dumb-jump 設定, emacs パッケージ dumb-jump, emacs dumb-jump スクリーンショット, relate:ag, relate:etags, relate:gtags, relate:robe, relate:elpy, 関数定義へジャンプ, 変数定義へジャンプ, ソースコード検索, exuberant-ctags, GNU Global, ctags, etags, タグファイル, TAGS, ソースコードgrep検索, ag, the_silver_searcher, relate:popup, Emacs, find-function, find-function, dumb-jump-go, dumb-jump-back, dumb-jump-quick-look, dumb-jump-language-file-exts, dumb-jump-language-contexts
 #+TITLE: emacs dumb-jump.el : すぐ使える多言語対応関数・変数定義ジャンパー | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
 #+BEGIN_HTML
 <table>
@@ -174,6 +174,17 @@ Fig1: 複数の候補が出てきたらpopupされる
 +/home/rubikitch/.emacs.d/quelpa/build/dash/
 +/home/rubikitch/.emacs.d/quelpa/build/popup/
 #+END_EXAMPLE
+** 対応言語を増やすには
+各プログラミング言語ごとの正規表現設定は *dumb-jump-find-rules* 変数に、
+拡張子と言語名とagのファイルタイプは *dumb-jump-language-file-exts* に、
+コンテキスト情報は *dumb-jump-language-contexts* に定義されています。
+
+とくに dumb-jump-find-rules は複雑ですが、
+なんとか読み解けば対応言語を増やせるでしょう。
+なお、:regex内のJJJは現在のシンボル、「\\j」は単語の境界を表しています。
+
+
+増やしたらpull-requestを送ってあげてください。
 
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
