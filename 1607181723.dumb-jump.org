@@ -31,7 +31,7 @@
 #+END_HTML
 dumb-jump.elは複数のプログラミング言語に対応した
 関数・変数定義にジャンプするパッケージです。
-タグファイルなどは使わずag(the_silver_searcher)を使うのが特徴です。
+タグファイルなどは使わず[[https://github.com/ggreer/the_silver_searcher][ag(the_silver_searcher)]]を使うのが特徴です。
 
 タグファイルがあると確かに高速にジャンプできますが、
 メンテナンスの手間がかかります。
@@ -65,7 +65,7 @@ M-x package-install dumb-jump
 ** 概要                                                             :noexport:
 dumb-jump.elは複数のプログラミング言語に対応した
 関数・変数定義にジャンプするパッケージです。
-タグファイルなどは使わずag(the_silver_searcher)を使うのが特徴です。
+タグファイルなどは使わず[[https://github.com/ggreer/the_silver_searcher][ag(the_silver_searcher)]]を使うのが特徴です。
 
 タグファイルがあると確かに高速にジャンプできますが、
 メンテナンスの手間がかかります。
