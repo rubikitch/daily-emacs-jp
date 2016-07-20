@@ -1,0 +1,42 @@
+#+BLOG: rubikitch
+#+POSTID: 2495
+#+DATE: [2016-07-20 Wed 09:37]
+#+PERMALINK: eww-width
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, eww, Emacs 24.5, Emacs 24.4, 
+#+DESCRIPTION: 
+#+MYTAGS: eww 横幅, eww fill-width, sir-width, shr, relate:shr, advice-add, relate:nadvice, shr-insert-document, eww-display-html
+#+TITLE: Emacs組み込みWebブラウザEWWでテキストの横幅を指定する方法
+#+begin: org2blog-tags
+#+TAGS: eww 横幅, eww fill-width, sir-width, shr, relate:shr, advice-add, relate:nadvice, shr-insert-document, eww-display-html, Emacs, eww, Emacs 24.5, Emacs 24.4, , 
+#+end:
+
+Emacs 24.4、Emacs 24.5のEWWは(Emacs25は未確認)、
+ウィンドウの幅に応じてテキストの幅を自動調節しています。
+
+それはウィンドウの横幅が長いと
+テキストの横幅も長くなってしまい、
+読みづらくなってしまうことを意味します。
+
+そこで、テキストの幅を70桁に固定してみました。
+
+カスタマイズ変数がないので
+[[http://rubikitch.com/2014/10/30/nadvice/][nadvice.elによるアドバイス]] を使いました。
+
+#+BEGIN_SRC emacs-lisp :results silent
+(defun shr-insert-document--for-eww (&rest them)
+  (let ((shr-width 70)) (apply them)))
+(defun eww-display-html--fill-column (&rest them)
+  (advice-add 'shr-insert-document :around 'shr-insert-document--for-eww)
+  (unwind-protect
+      (apply them)
+    (advice-remove 'shr-insert-document 'shr-insert-document--for-eww)))
+(advice-add 'eww-display-html :around 'eww-display-html--fill-column)
+#+END_SRC
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
