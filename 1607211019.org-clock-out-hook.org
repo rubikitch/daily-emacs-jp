@@ -1,0 +1,76 @@
+#+BLOG: rubikitch
+#+POSTID: 2497
+#+DATE: [2016-07-21 Thu 10:19]
+#+PERMALINK: org-clock-out-hook
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, org-mode, Emacs 24.4, Emacs 24.5, 
+#+DESCRIPTION: 
+#+MYTAGS: package:org, org-clock-in-hook, org-clock-out-hook, org-clock-in, org-agenda-clock-in, org-clock-out, org-agenda-clock-out, 音楽の一時停止, bgm一時停止, スケジューリング, スケジュール管理, 時間管理, 仕事術, org-clock-marker, org-get-tags-at, advice-add, relate:nadvice, フック, アドバイス
+#+TITLE: Emacs org-mode: org-clock-out-hookの罠！
+#+begin: org2blog-tags
+#+TAGS: package:org, org-clock-in-hook, org-clock-out-hook, org-clock-in, org-agenda-clock-in, org-clock-out, org-agenda-clock-out, 音楽の一時停止, bgm一時停止, スケジューリング, スケジュール管理, 時間管理, 仕事術, org-clock-marker, org-get-tags-at, advice-add, relate:nadvice, フック, アドバイス, Emacs, org-mode, Emacs 24.4, Emacs 24.5, , 
+#+end:
+僕は普段の作業をorg-modeのclock機能を使って管理しています。
+
+[[http://www.mag2.com/m/0001373131.html][メルマガ登録者]] 限定特典で僕の秘技「org習慣仕事術」もclock機能をシンプルかつ効果的に使う方法です。
+この方法は絶大ですので、ぜひとも登録していただけると嬉しいです。
+
+僕はいつも音楽をかけながら作業をしていますが、タスクによっては音楽を一時停止したいこともあります。
+そこで、タスクの見出しのタグに「pause」が含まれている場合は、そのタスクを開始したら音楽を一時停止し、終了したら再生するような設定にしています。
+多くのメディアプレイヤーではシェルから再生中の音楽・動画の一時停止機能があります。
+
+そこで以下のようなコードを書きました。
+
+#+BEGIN_SRC emacs-lisp :results silent
+(defun org-clock-get-tags ()
+  "Get the list of tags specified in the current clocking task."
+  (save-excursion
+    (set-buffer (marker-buffer org-clock-marker))
+    (goto-char org-clock-marker)
+    (org-get-tags-at)))
+(defun pause-music ()
+  (interactive)
+  (shell-command-to-string "音楽を停止するコマンド(各自で)"))
+(defun org-clock-in/out-hook--pause-music (&rest ignore)
+  (when (member "pause" (org-clock-get-tags))
+    (pause-music)))
+#+END_SRC
+
+ここまでは問題ありません。
+
+最初は以下のように設定しましたが、ここからが問題です。
+
+#+BEGIN_SRC emacs-lisp :results silent
+(add-hook 'org-clock-in-hook 'org-clock-in/out-hook--pause-music)
+(add-hook 'org-clock-out-hook 'org-clock-in/out-hook--pause-music)
+#+END_SRC
+
+確かにclock-inしたときには音楽は止まるのですが、
+clock-outしてたときにエラーになります。
+その原因は
+/org-clock-out-hookが実行されるのはclock-out後である/
+からです。
+そのため (org-clock-get-tags) でclock-inされてないとエラーになります。
+
+#+BEGIN_EXAMPLE
+member: Wrong type argument: stringp, nil
+org-agenda-clock-out: No running clock
+#+END_EXAMPLE
+
+かといって、clock-outする直前に実行するフックは存在しません。
+そういう場合は[[http://rubikitch.com/2014/10/30/nadvice/][adviceを使う]] ことになります。
+
+#+BEGIN_SRC emacs-lisp :results silent
+(add-hook 'org-clock-in-hook 'org-clock-in/out-hook--pause-music)
+;; org-clock-out-hookではすでにclock out後なのでclock out前に実行する必要あり
+(advice-add 'org-clock-out :before 'org-clock-in/out-hook--pause-music)
+#+END_SRC
+
+非対称になってしまいますが、とりあえずこれで動作します。
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
