@@ -7,7 +7,7 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs
+#+CATEGORY: Emacs, ソース解読推奨
 #+EL_PKG_NAME: helm-package
 #+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, relate:helm, emacs package.el, relate:package, emacs パッケージ インストール, emacs melpa インストール, emacs パッケージ 絞り込み検索, emacs helm package, emacs helm,
 #+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
@@ -15,6 +15,7 @@
 #+begin: org2blog
 #+DESCRIPTION: MELPAのEmacs Lispパッケージhelm-packageの紹介
 #+MYTAGS: package:helm-package, emacs 使い方, emacs コマンド, emacs, emacs lisp helm-package, elisp helm-package, emacs melpa helm-package, emacs helm-package 使い方, emacs helm-package 設定, emacs パッケージ helm-package, emacs helm-package スクリーンショット, relate:helm, emacs package.el, relate:package, emacs パッケージ インストール, emacs melpa インストール, emacs パッケージ 絞り込み検索, emacs helm package, emacs helm,
+#+TAGS: package:helm-package, emacs 使い方, emacs コマンド, emacs, emacs lisp helm-package, elisp helm-package, emacs melpa helm-package, emacs helm-package 使い方, emacs helm-package 設定, emacs パッケージ helm-package, emacs helm-package スクリーンショット, relate:helm, emacs package.el, relate:package, emacs パッケージ インストール, emacs melpa インストール, emacs パッケージ 絞り込み検索, emacs helm package, emacs helm,, Emacs, ソース解読推奨, M-x list-packages, helm, M-x helm-package, M-x list-packages, helm, M-x helm-package
 #+TITLE: emacs helm-package.el : パッケージをhelmインターフェースで即座に見付けてインストール | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
 #+BEGIN_HTML
 <table>
@@ -22,7 +23,7 @@
 <tr><td>概要(原文)</td><td>Listing ELPA packages with helm interface</td></tr>
 <tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
 <tr><td>取得先</td><td><a href="https://github.com/syohex/emacs-helm-package">https://github.com/syohex/emacs-helm-package</a></td></tr>
-<tr><td>バージョン</td><td>20140108.2223</td></tr>
+<tr><td>バージョン</td><td>20151210.48</td></tr>
 <tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:helm-package/">package:helm-package</a> <a href="http://rubikitch.com/tag/package:helm/">package:helm</a> <a href="http://rubikitch.com/tag/package:package/">package:package</a></td></tr>
 </table>
 <br />
