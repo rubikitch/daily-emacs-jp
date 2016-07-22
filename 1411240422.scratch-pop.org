@@ -7,7 +7,7 @@
 #+DESCRIPTION: scratch-pop.el + popwin.el + auto-save-buffers-enhanced.el による快適メモ取り環境の構築方法！
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs
+#+CATEGORY: Emacs, ソース解読推奨
 #+EL_PKG_NAME: scratch-pop
 #+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, relate:popwin, relate:org, define-minor-mode, scratchバッファ メモ, emacs scratch, package:auto-save-buffers-enhanced, relate:open-junk-file, scratch, relate:omni-scratch
 #+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
@@ -15,15 +15,15 @@
 #+begin: org2blog
 #+DESCRIPTION: MELPAのEmacs Lispパッケージscratch-popの紹介
 #+MYTAGS: package:scratch-pop, emacs 使い方, emacs コマンド, emacs, emacs lisp scratch-pop, elisp scratch-pop, emacs melpa scratch-pop, emacs scratch-pop 使い方, emacs scratch-pop 設定, emacs パッケージ scratch-pop, emacs scratch-pop スクリーンショット, relate:popwin, relate:org, define-minor-mode, scratchバッファ メモ, emacs scratch, package:auto-save-buffers-enhanced, relate:open-junk-file, scratch, relate:omni-scratch
-#+TAGS: package:scratch-pop, emacs 使い方, emacs コマンド, emacs, emacs lisp scratch-pop, elisp scratch-pop, emacs melpa scratch-pop, emacs scratch-pop 使い方, emacs scratch-pop 設定, emacs パッケージ scratch-pop, emacs scratch-pop スクリーンショット, relate:popwin, relate:org, define-minor-mode, scratchバッファ メモ, emacs scratch, package:auto-save-buffers-enhanced, relate:open-junk-file, scratch, relate:omni-scratch, Emacs, scratch-pop.el, popwin.el, popwin.el, open-junk-file.el, M-x org-capture, org-mode, scratch*バッファ専用の *マイナーモード, scratch
+#+TAGS: package:scratch-pop, emacs 使い方, emacs コマンド, emacs, emacs lisp scratch-pop, elisp scratch-pop, emacs melpa scratch-pop, emacs scratch-pop 使い方, emacs scratch-pop 設定, emacs パッケージ scratch-pop, emacs scratch-pop スクリーンショット, relate:popwin, relate:org, define-minor-mode, scratchバッファ メモ, emacs scratch, package:auto-save-buffers-enhanced, relate:open-junk-file, scratch, relate:omni-scratch, Emacs, ソース解読推奨, scratch-pop.el, popwin.el, popwin.el, open-junk-file.el, M-x org-capture, org-mode, scratch*バッファ専用の *マイナーモード, scratch
 #+TITLE: emacs scratch-pop.el : 【おまけ付き】自動保存*scratch*バッファをpopwinでサッと開いてメモを取る | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
 #+BEGIN_HTML
 <table>
 <tr><td>パッケージ名</td><td>scratch-pop</td></tr>
-<tr><td>概要(原文)</td><td>Popup scratch buffers.</td></tr>
+<tr><td>概要(原文)</td><td>Generate, popup (& optionally backup) scratch buffer(s).</td></tr>
 <tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
 <tr><td>取得先</td><td><a href="https://github.com/zk-phi/scratch-pop">https://github.com/zk-phi/scratch-pop</a></td></tr>
-<tr><td>バージョン</td><td>20150428.157</td></tr>
+<tr><td>バージョン</td><td>20150820.139</td></tr>
 <tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:scratch-pop/">package:scratch-pop</a> <a href="http://rubikitch.com/tag/package:popwin/">package:popwin</a> <a href="http://rubikitch.com/tag/package:org/">package:org</a> <a href="http://rubikitch.com/tag/package:open-junk-file/">package:open-junk-file</a> <a href="http://rubikitch.com/tag/package:omni-scratch/">package:omni-scratch</a></td></tr>
 </table>
 <br />
