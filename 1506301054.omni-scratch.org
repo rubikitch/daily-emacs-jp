@@ -7,7 +7,7 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs
+#+CATEGORY: Emacs, ソース解読推奨
 #+EL_PKG_NAME: omni-scratch
 #+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, relate:scratch-pop, relate:scratch-palette, scratch
 #+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
@@ -16,7 +16,7 @@
 #+begin: org2blog
 #+DESCRIPTION: MELPAのEmacs Lispパッケージomni-scratchの紹介
 #+MYTAGS: package:omni-scratch, emacs 使い方, emacs コマンド, emacs, omni-scratch, omni-scratch.el, emacs lisp omni-scratch, elisp omni-scratch, emacs melpa omni-scratch, emacs omni-scratch 使い方, emacs omni-scratch 設定, emacs パッケージ omni-scratch, emacs omni-scratch スクリーンショット, relate:scratch-pop, relate:scratch-palette, scratch
-#+TAGS: package:omni-scratch, emacs 使い方, emacs コマンド, emacs, omni-scratch, omni-scratch.el, emacs lisp omni-scratch, elisp omni-scratch, emacs melpa omni-scratch, emacs omni-scratch 使い方, emacs omni-scratch 設定, emacs パッケージ omni-scratch, emacs omni-scratch スクリーンショット, relate:scratch-pop, relate:scratch-palette, scratch, Emacs, omni-scratch.el, M-x omni-scratch-new-scratch-major-buffer, M-x omni-scratch-new-scratch-buffer, scratch:draft, M-x omni-scratch-new-scratch-major-buffer, M-x omni-scratch-new-scratch-buffer, scratch:draft
+#+TAGS: package:omni-scratch, emacs 使い方, emacs コマンド, emacs, omni-scratch, omni-scratch.el, emacs lisp omni-scratch, elisp omni-scratch, emacs melpa omni-scratch, emacs omni-scratch 使い方, emacs omni-scratch 設定, emacs パッケージ omni-scratch, emacs omni-scratch スクリーンショット, relate:scratch-pop, relate:scratch-palette, scratch, Emacs, ソース解読推奨, omni-scratch.el, M-x omni-scratch-new-scratch-major-buffer, M-x omni-scratch-new-scratch-buffer, scratch:draft, M-x omni-scratch-new-scratch-major-buffer, M-x omni-scratch-new-scratch-buffer, scratch:draft
 #+TITLE: emacs omni-scratch.el : メジャーモードごとのscratchバッファをサッとポップアップする | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
 #+BEGIN_HTML
 <table>
@@ -24,7 +24,7 @@
 <tr><td>概要(原文)</td><td>Easy and mode-specific draft buffers</td></tr>
 <tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
 <tr><td>取得先</td><td><a href="https://github.com/AdrieanKhisbe/omni-scratch.el">https://github.com/AdrieanKhisbe/omni-scratch.el</a></td></tr>
-<tr><td>バージョン</td><td>20150623.938</td></tr>
+<tr><td>バージョン</td><td>20151211.859</td></tr>
 <tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:omni-scratch/">package:omni-scratch</a> <a href="http://rubikitch.com/tag/package:scratch-pop/">package:scratch-pop</a> <a href="http://rubikitch.com/tag/package:scratch-palette/">package:scratch-palette</a></td></tr>
 </table>
 <br />
