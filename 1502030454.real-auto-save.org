@@ -7,7 +7,7 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs
+#+CATEGORY: Emacs, ソース解読推奨
 #+EL_PKG_NAME: real-auto-save
 #+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, relate:auto-save-buffers-enhanced, emacs 自動保存, relate:backup-each-save, emacs 自動 セーブ, emacs データ消えた, emacs 事故対策, emacs 保険,
 #+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 
@@ -16,7 +16,7 @@
 #+begin: org2blog
 #+DESCRIPTION: MELPAのEmacs Lispパッケージreal-auto-saveの紹介
 #+MYTAGS: package:real-auto-save, emacs 使い方, emacs コマンド, emacs, real-auto-save, real-auto-save.el, emacs lisp real-auto-save, elisp real-auto-save, emacs melpa real-auto-save, emacs real-auto-save 使い方, emacs real-auto-save 設定, emacs パッケージ real-auto-save, relate:auto-save-buffers-enhanced, emacs 自動保存, relate:backup-each-save, emacs 自動 セーブ, emacs データ消えた, emacs 事故対策, emacs 保険,
-#+TAGS: package:real-auto-save, emacs 使い方, emacs コマンド, emacs, real-auto-save, real-auto-save.el, emacs lisp real-auto-save, elisp real-auto-save, emacs melpa real-auto-save, emacs real-auto-save 使い方, emacs real-auto-save 設定, emacs パッケージ real-auto-save, relate:auto-save-buffers-enhanced, emacs 自動保存, relate:backup-each-save, emacs 自動 セーブ, emacs データ消えた, emacs 事故対策, emacs 保険,, Emacs, 保存, real-auto-save.el, タイマー, マイナーモード, find-file-hook, real-auto-save-mode, prog-mode-hook, real-auto-save.el, タイマー, マイナーモード, find-file-hook, real-auto-save-mode, prog-mode-hook
+#+TAGS: package:real-auto-save, emacs 使い方, emacs コマンド, emacs, real-auto-save, real-auto-save.el, emacs lisp real-auto-save, elisp real-auto-save, emacs melpa real-auto-save, emacs real-auto-save 使い方, emacs real-auto-save 設定, emacs パッケージ real-auto-save, relate:auto-save-buffers-enhanced, emacs 自動保存, relate:backup-each-save, emacs 自動 セーブ, emacs データ消えた, emacs 事故対策, emacs 保険,, Emacs, ソース解読推奨, 保存, real-auto-save.el, タイマー, マイナーモード, find-file-hook, real-auto-save-mode, prog-mode-hook, real-auto-save.el, タイマー, マイナーモード, find-file-hook, real-auto-save-mode, prog-mode-hook
 #+TITLE: emacs real-auto-save.el : バッファを自動保存させる超シンプルなマイナーモード | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 
 #+BEGIN_HTML
 <table>
@@ -24,7 +24,7 @@
 <tr><td>概要(原文)</td><td>Automatically save your all your buffers/files at regular intervals.</td></tr>
 <tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
 <tr><td>取得先</td><td><a href="https://github.com/chillaranand/real-auto-save">https://github.com/chillaranand/real-auto-save</a></td></tr>
-<tr><td>バージョン</td><td>20150202.317</td></tr>
+<tr><td>バージョン</td><td>20150701.815</td></tr>
 <tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:real-auto-save/">package:real-auto-save</a> <a href="http://rubikitch.com/tag/package:auto-save-buffers-enhanced/">package:auto-save-buffers-enhanced</a> <a href="http://rubikitch.com/tag/package:backup-each-save/">package:backup-each-save</a></td></tr>
 </table>
 <br />
