@@ -7,7 +7,7 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, Emacs Lisp, 
+#+CATEGORY: Emacs, Emacs Lisp, , ソース解読推奨
 #+EL_PKG_NAME: easy-repeat
 #+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, relate:smartrep, relate:hydra, emacs repeat, emacs smartrep, emacs 繰り返しコマンド, emacs プレフィクスキー 省略, プレフィクスキー, relate:switch-window, emacs ウィンドウ 切り替え, emacs C-x o 改善, ウィンドウ切り替え, relate:ace-window, relate:win-switch, relate:window-numbering
 #+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 
@@ -16,7 +16,7 @@
 #+begin: org2blog
 #+DESCRIPTION: MELPAのEmacs Lispパッケージeasy-repeatの紹介
 #+MYTAGS: package:easy-repeat, emacs 使い方, emacs コマンド, emacs, easy-repeat, easy-repeat.el, emacs lisp easy-repeat, elisp easy-repeat, emacs melpa easy-repeat, emacs easy-repeat 使い方, emacs easy-repeat 設定, emacs パッケージ easy-repeat, relate:smartrep, relate:hydra, emacs repeat, emacs smartrep, emacs 繰り返しコマンド, emacs プレフィクスキー 省略, プレフィクスキー, relate:switch-window, emacs ウィンドウ 切り替え, emacs C-x o 改善, ウィンドウ切り替え, relate:ace-window, relate:win-switch, relate:window-numbering
-#+TAGS: package:easy-repeat, emacs 使い方, emacs コマンド, emacs, easy-repeat, easy-repeat.el, emacs lisp easy-repeat, elisp easy-repeat, emacs melpa easy-repeat, emacs easy-repeat 使い方, emacs easy-repeat 設定, emacs パッケージ easy-repeat, relate:smartrep, relate:hydra, emacs repeat, emacs smartrep, emacs 繰り返しコマンド, emacs プレフィクスキー 省略, プレフィクスキー, relate:switch-window, emacs ウィンドウ 切り替え, emacs C-x o 改善, ウィンドウ切り替え, relate:ace-window, relate:win-switch, relate:window-numbering, Emacs, Emacs Lisp, , easy-repeat.el, other-window, easy-repeat.el, other-window, easy-repeat-command-list, set-transient-map, repeat, set-temporary-overlay-map, C-x C-i(indent-rigidly), C-x e(kmacro-end-or-call-macro), C-x C--(text-scale-adjust)
+#+TAGS: package:easy-repeat, emacs 使い方, emacs コマンド, emacs, easy-repeat, easy-repeat.el, emacs lisp easy-repeat, elisp easy-repeat, emacs melpa easy-repeat, emacs easy-repeat 使い方, emacs easy-repeat 設定, emacs パッケージ easy-repeat, relate:smartrep, relate:hydra, emacs repeat, emacs smartrep, emacs 繰り返しコマンド, emacs プレフィクスキー 省略, プレフィクスキー, relate:switch-window, emacs ウィンドウ 切り替え, emacs C-x o 改善, ウィンドウ切り替え, relate:ace-window, relate:win-switch, relate:window-numbering, Emacs, Emacs Lisp, , ソース解読推奨, easy-repeat.el, other-window, easy-repeat.el, other-window, easy-repeat-command-list, set-transient-map, repeat, set-temporary-overlay-map, C-x C-i(indent-rigidly), C-x e(kmacro-end-or-call-macro), C-x C--(text-scale-adjust)
 #+TITLE: emacs easy-repeat.el : 【簡易smartrep/hydra】最後のキーで直前のコマンドを繰り返し実行させる | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 
 #+BEGIN_HTML
 <table>
@@ -24,7 +24,7 @@
 <tr><td>概要(原文)</td><td>Repeat easily</td></tr>
 <tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
 <tr><td>取得先</td><td><a href="https://github.com/xuchunyang/easy-repeat.el">https://github.com/xuchunyang/easy-repeat.el</a></td></tr>
-<tr><td>バージョン</td><td>20150502.617</td></tr>
+<tr><td>バージョン</td><td>20150516.148</td></tr>
 <tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:easy-repeat/">package:easy-repeat</a> <a href="http://rubikitch.com/tag/package:smartrep/">package:smartrep</a> <a href="http://rubikitch.com/tag/package:hydra/">package:hydra</a> <a href="http://rubikitch.com/tag/package:switch-window/">package:switch-window</a> <a href="http://rubikitch.com/tag/package:ace-window/">package:ace-window</a> <a href="http://rubikitch.com/tag/package:win-switch/">package:win-switch</a> <a href="http://rubikitch.com/tag/package:window-numbering/">package:window-numbering</a></td></tr>
 </table>
 <br />
