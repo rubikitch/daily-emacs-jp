@@ -7,7 +7,7 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs
+#+CATEGORY: Emacs, ソース解読推奨
 #+EL_PKG_NAME: avy-zap
 #+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, relate:ace-jump-zap, relate:zop-to-char, relate:zzz-to-char
 #+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
@@ -16,7 +16,7 @@
 #+begin: org2blog
 #+DESCRIPTION: MELPAのEmacs Lispパッケージavy-zapの紹介
 #+MYTAGS: package:avy-zap, emacs 使い方, emacs コマンド, emacs, avy-zap, avy-zap.el, emacs lisp avy-zap, elisp avy-zap, emacs melpa avy-zap, emacs avy-zap 使い方, emacs avy-zap 設定, emacs パッケージ avy-zap, emacs avy-zap スクリーンショット, relate:ace-jump-zap, relate:zop-to-char, relate:zzz-to-char
-#+TAGS: package:avy-zap, emacs 使い方, emacs コマンド, emacs, avy-zap, avy-zap.el, emacs lisp avy-zap, elisp avy-zap, emacs melpa avy-zap, emacs avy-zap 使い方, emacs avy-zap 設定, emacs パッケージ avy-zap, emacs avy-zap スクリーンショット, relate:ace-jump-zap, relate:zop-to-char, relate:zzz-to-char, Emacs, avy-zap.el, M-x zap-to-char (M-z), M-x zap-to-char (M-z)
+#+TAGS: package:avy-zap, emacs 使い方, emacs コマンド, emacs, avy-zap, avy-zap.el, emacs lisp avy-zap, elisp avy-zap, emacs melpa avy-zap, emacs avy-zap 使い方, emacs avy-zap 設定, emacs パッケージ avy-zap, emacs avy-zap スクリーンショット, relate:ace-jump-zap, relate:zop-to-char, relate:zzz-to-char, Emacs, ソース解読推奨, avy-zap.el, M-x zap-to-char (M-z), M-x zap-to-char (M-z)
 #+TITLE: emacs avy-zap.el : zap-to-char(M-z)をavy化して自然に拡張する | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
 #+BEGIN_HTML
 <table>
@@ -24,7 +24,7 @@
 <tr><td>概要(原文)</td><td>Zap to char using `avy'</td></tr>
 <tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
 <tr><td>取得先</td><td><a href="https://github.com/cute-jumper/avy-zap">https://github.com/cute-jumper/avy-zap</a></td></tr>
-<tr><td>バージョン</td><td>20150603.2053</td></tr>
+<tr><td>バージョン</td><td>20160330.1130</td></tr>
 <tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:avy-zap/">package:avy-zap</a> <a href="http://rubikitch.com/tag/package:ace-jump-zap/">package:ace-jump-zap</a> <a href="http://rubikitch.com/tag/package:zop-to-char/">package:zop-to-char</a> <a href="http://rubikitch.com/tag/package:zzz-to-char/">package:zzz-to-char</a></td></tr>
 </table>
 <br />
