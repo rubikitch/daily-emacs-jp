@@ -7,7 +7,7 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, Emacs Lisp, 
+#+CATEGORY: Emacs, Emacs Lisp, ソース解読推奨
 #+EL_PKG_NAME: date-at-point
 #+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p ライブラリ, emacs パッケージ %p, relate:thingatpt, elisp 日付文字列, relate:ietf-docs
 #+EL_TITLE: Emacs Lisp Elisp パッケージ インストール ライブラリ 使い方 
@@ -16,7 +16,7 @@
 #+begin: org2blog
 #+DESCRIPTION: MELPAのEmacs Lispパッケージdate-at-pointの紹介
 #+MYTAGS: package:date-at-point, emacs 使い方, emacs コマンド, emacs, date-at-point, date-at-point.el, emacs lisp date-at-point, elisp date-at-point, emacs melpa date-at-point, emacs date-at-point 使い方, emacs date-at-point ライブラリ, emacs パッケージ date-at-point, relate:thingatpt, elisp 日付文字列, relate:ietf-docs
-#+TAGS: package:date-at-point, emacs 使い方, emacs コマンド, emacs, date-at-point, date-at-point.el, emacs lisp date-at-point, elisp date-at-point, emacs melpa date-at-point, emacs date-at-point 使い方, emacs date-at-point ライブラリ, emacs パッケージ date-at-point, relate:thingatpt, elisp 日付文字列, relate:ietf-docs, Emacs, Emacs Lisp, , date-at-point.el, thing-at-point, thing-at-point
+#+TAGS: package:date-at-point, emacs 使い方, emacs コマンド, emacs, date-at-point, date-at-point.el, emacs lisp date-at-point, elisp date-at-point, emacs melpa date-at-point, emacs date-at-point 使い方, emacs date-at-point ライブラリ, emacs パッケージ date-at-point, relate:thingatpt, elisp 日付文字列, relate:ietf-docs, Emacs, Emacs Lisp, ソース解読推奨, date-at-point.el, thing-at-point, thing-at-point
 #+TITLE: emacs date-at-point.el : thing-at-pointで日付文字列(date)も扱えるようにする | MELPA Emacs Lisp Elisp パッケージ インストール ライブラリ 使い方 
 #+BEGIN_HTML
 <table>
