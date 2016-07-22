@@ -7,7 +7,7 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs
+#+CATEGORY: Emacs, ソース解読推奨
 #+EL_PKG_NAME: prompt-text
 #+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット
 #+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
@@ -16,7 +16,7 @@
 #+begin: org2blog
 #+DESCRIPTION: MELPAのEmacs Lispパッケージprompt-textの紹介
 #+MYTAGS: package:prompt-text, emacs 使い方, emacs コマンド, emacs, prompt-text, prompt-text.el, emacs lisp prompt-text, elisp prompt-text, emacs melpa prompt-text, emacs prompt-text 使い方, emacs prompt-text 設定, emacs パッケージ prompt-text, emacs prompt-text スクリーンショット
-#+TAGS: package:prompt-text, emacs 使い方, emacs コマンド, emacs, prompt-text, prompt-text.el, emacs lisp prompt-text, elisp prompt-text, emacs melpa prompt-text, emacs prompt-text 使い方, emacs prompt-text 設定, emacs パッケージ prompt-text, emacs prompt-text スクリーンショット, Emacs, prompt-text.el
+#+TAGS: package:prompt-text, emacs 使い方, emacs コマンド, emacs, prompt-text, prompt-text.el, emacs lisp prompt-text, elisp prompt-text, emacs melpa prompt-text, emacs prompt-text 使い方, emacs prompt-text 設定, emacs パッケージ prompt-text, emacs prompt-text スクリーンショット, Emacs, ソース解読推奨, prompt-text.el
 #+TITLE: emacs prompt-text.el : ミニバッファ入力時にカレントディレクトリなどを表示する | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
 #+BEGIN_HTML
 <table>
