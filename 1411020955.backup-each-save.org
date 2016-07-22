@@ -7,7 +7,7 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs
+#+CATEGORY: Emacs, ソース解読推奨
 #+EL_PKG_NAME: backup-each-save
 #+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs バックアップ, emacs データ消えた, emacs 事故対策, emacs 保険, relate:auto-save-buffers-enhanced, relate:real-auto-save
 #+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方
@@ -15,7 +15,7 @@
 #+begin: org2blog
 #+DESCRIPTION: MELPAのEmacs Lispパッケージbackup-each-saveの紹介
 #+MYTAGS: package:backup-each-save, emacs 使い方, emacs コマンド, emacs, emacs lisp backup-each-save, elisp backup-each-save, emacs melpa backup-each-save, emacs backup-each-save 使い方, emacs backup-each-save 設定, emacs パッケージ backup-each-save, emacs バックアップ, emacs データ消えた, emacs 事故対策, emacs 保険, relate:auto-save-buffers-enhanced, relate:real-auto-save
-#+TAGS: package:backup-each-save, emacs 使い方, emacs コマンド, emacs, emacs lisp backup-each-save, elisp backup-each-save, emacs melpa backup-each-save, emacs backup-each-save 使い方, emacs backup-each-save 設定, emacs パッケージ backup-each-save, emacs バックアップ, emacs データ消えた, emacs 事故対策, emacs 保険, relate:auto-save-buffers-enhanced, relate:real-auto-save, Emacs, バックアップ, 上書き保存, バックアップ, 上書き保存
+#+TAGS: package:backup-each-save, emacs 使い方, emacs コマンド, emacs, emacs lisp backup-each-save, elisp backup-each-save, emacs melpa backup-each-save, emacs backup-each-save 使い方, emacs backup-each-save 設定, emacs パッケージ backup-each-save, emacs バックアップ, emacs データ消えた, emacs 事故対策, emacs 保険, relate:auto-save-buffers-enhanced, relate:real-auto-save, Emacs, ソース解読推奨, バックアップ, 上書き保存, バックアップ, 上書き保存
 #+TITLE: emacs backup-each-save.el : Emacs式大富豪的バックアップ！保存する度に日時付きファイルでバックアップ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方
 #+BEGIN_HTML
 <table>
@@ -23,7 +23,7 @@
 <tr><td>概要(原文)</td><td>backup each savepoint of a file</td></tr>
 <tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
 <tr><td>取得先</td><td><a href="http://www.emacswiki.org/backup-each-save.el">http://www.emacswiki.org/backup-each-save.el</a></td></tr>
-<tr><td>バージョン</td><td>20130704.1432</td></tr>
+<tr><td>バージョン</td><td>20130704.732</td></tr>
 <tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:backup-each-save/">package:backup-each-save</a> <a href="http://rubikitch.com/tag/package:auto-save-buffers-enhanced/">package:auto-save-buffers-enhanced</a> <a href="http://rubikitch.com/tag/package:real-auto-save/">package:real-auto-save</a></td></tr>
 </table>
 <br />
