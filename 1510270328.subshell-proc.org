@@ -7,7 +7,7 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs
+#+CATEGORY: Emacs, ソース解読推奨
 #+EL_PKG_NAME: subshell-proc
 #+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, シェルコマンド, call-process, call-process-shell-command, start-process, start-process-shell-command, comint-run, make-comint, M-x shell, comint, async-shell-command, 外部プログラム, 外部コマンド, comint-mode, relate:bpr
 #+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
@@ -16,7 +16,7 @@
 #+begin: org2blog
 #+DESCRIPTION: MELPAのEmacs Lispパッケージsubshell-procの紹介
 #+MYTAGS: package:subshell-proc, emacs 使い方, emacs コマンド, emacs, subshell-proc, subshell-proc.el, emacs lisp subshell-proc, elisp subshell-proc, emacs melpa subshell-proc, emacs subshell-proc 使い方, emacs subshell-proc 設定, emacs パッケージ subshell-proc, emacs subshell-proc スクリーンショット, シェルコマンド, call-process, call-process-shell-command, start-process, start-process-shell-command, comint-run, make-comint, M-x shell, comint, async-shell-command, 外部プログラム, 外部コマンド, comint-mode, relate:bpr
-#+TAGS: package:subshell-proc, emacs 使い方, emacs コマンド, emacs, subshell-proc, subshell-proc.el, emacs lisp subshell-proc, elisp subshell-proc, emacs melpa subshell-proc, emacs subshell-proc 使い方, emacs subshell-proc 設定, emacs パッケージ subshell-proc, emacs subshell-proc スクリーンショット, シェルコマンド, call-process, call-process-shell-command, start-process, start-process-shell-command, comint-run, make-comint, M-x shell, comint, async-shell-command, 外部プログラム, 外部コマンド, comint-mode, relate:bpr, Emacs, アプリケーションランチャー, subshell-proc.el, defproc, subshell-proc.el, defproc
+#+TAGS: package:subshell-proc, emacs 使い方, emacs コマンド, emacs, subshell-proc, subshell-proc.el, emacs lisp subshell-proc, elisp subshell-proc, emacs melpa subshell-proc, emacs subshell-proc 使い方, emacs subshell-proc 設定, emacs パッケージ subshell-proc, emacs subshell-proc スクリーンショット, シェルコマンド, call-process, call-process-shell-command, start-process, start-process-shell-command, comint-run, make-comint, M-x shell, comint, async-shell-command, 外部プログラム, 外部コマンド, comint-mode, relate:bpr, Emacs, ソース解読推奨, アプリケーションランチャー, subshell-proc.el, defproc, subshell-proc.el, defproc
 #+TITLE: emacs subshell-proc.el : 【Emacsランチャー】シェルコマンドを実行するEmacsコマンドを一発登録する！ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
 #+BEGIN_HTML
 <table>
