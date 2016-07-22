@@ -9,14 +9,14 @@
 #+BLOG: rubikitch
 #+CATEGORY: Emacs, ソース解読推奨, 
 #+EL_PKG_NAME: sudo-edit
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, relate:tramp, relate:sudo-ext, relate:crux
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, relate:tramp, relate:sudo-ext, relate:crux, sudoedit emacs, sudo emacs, ファイルをrootで開く, システムファイルを編集する, root権限でファイルを編集する, root, sudo
 #+EL_TITLE: Emacs Lisp Elisp パッケージ インストール  使い方 
 #+EL_TITLE0: ★MELPA最短行数★rootでファイルを開く・カレントバッファを開き直す
 #+EL_URL: 
 #+begin: org2blog
 #+DESCRIPTION: MELPAのEmacs Lispパッケージsudo-editの紹介
-#+MYTAGS: package:sudo-edit, emacs 使い方, emacs コマンド, emacs, sudo-edit, sudo-edit.el, emacs lisp sudo-edit, elisp sudo-edit, emacs melpa sudo-edit, emacs sudo-edit 使い方, emacs sudo-edit 設定, emacs パッケージ sudo-edit, relate:tramp, relate:sudo-ext, relate:crux
-#+TAGS: package:sudo-edit, emacs 使い方, emacs コマンド, emacs, sudo-edit, sudo-edit.el, emacs lisp sudo-edit, elisp sudo-edit, emacs melpa sudo-edit, emacs sudo-edit 使い方, emacs sudo-edit 設定, emacs パッケージ sudo-edit, relate:tramp, relate:sudo-ext, relate:crux, Emacs, ソース解読推奨, , M-x sudo-edit, M-x sudo-edit-current-file, M-x sudo-edit, M-x sudo-edit-current-file
+#+MYTAGS: package:sudo-edit, emacs 使い方, emacs コマンド, emacs, sudo-edit, sudo-edit.el, emacs lisp sudo-edit, elisp sudo-edit, emacs melpa sudo-edit, emacs sudo-edit 使い方, emacs sudo-edit 設定, emacs パッケージ sudo-edit, relate:tramp, relate:sudo-ext, relate:crux, sudoedit emacs, sudo emacs, ファイルをrootで開く, システムファイルを編集する, root権限でファイルを編集する, root, sudo
+#+TAGS: package:sudo-edit, emacs 使い方, emacs コマンド, emacs, sudo-edit, sudo-edit.el, emacs lisp sudo-edit, elisp sudo-edit, emacs melpa sudo-edit, emacs sudo-edit 使い方, emacs sudo-edit 設定, emacs パッケージ sudo-edit, relate:tramp, relate:sudo-ext, relate:crux, sudoedit emacs, sudo emacs, ファイルをrootで開く, システムファイルを編集する, root権限でファイルを編集する, root, sudo, Emacs, ソース解読推奨, , M-x sudo-edit, M-x sudo-edit-current-file, M-x sudo-edit, M-x sudo-edit-current-file
 #+TITLE: emacs sudo-edit.el : ★MELPA最短行数★rootでファイルを開く・カレントバッファを開き直す | MELPA Emacs Lisp Elisp パッケージ インストール  使い方 
 #+BEGIN_HTML
 <table>
