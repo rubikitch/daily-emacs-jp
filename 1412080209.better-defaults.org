@@ -7,7 +7,7 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs
+#+CATEGORY: Emacs, ソース解読推奨
 #+EL_PKG_NAME: better-defaults
 #+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs 初期設定, emacs デフォルトの設定, package:ido, emacs ido flex match, ido 曖昧, emacs メニューバー, emacs スクロールバー, emacs ツールバー, emacs M-z, package:uniquify, package:saveplace, package:misc, zap-to-char, package:hippie-exp, hippie-expand, package:ibuffer, emacs 括弧 表示, emacs タブ インデント, emacs インデント, emacs クリップボード, pacakge:apropos, emacs マウス ペースト, package:ediff, ediff フレーム 使わない, emacs バックアップファイル ディレクトリ, package:migemo
 #+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
@@ -15,6 +15,7 @@
 #+begin: org2blog
 #+DESCRIPTION: MELPAのEmacs Lispパッケージbetter-defaultsの紹介
 #+MYTAGS: package:better-defaults, emacs 使い方, emacs コマンド, emacs, emacs lisp better-defaults, elisp better-defaults, emacs melpa better-defaults, emacs better-defaults 使い方, emacs better-defaults 設定, emacs パッケージ better-defaults, emacs 初期設定, emacs デフォルトの設定, package:ido, emacs ido flex match, ido 曖昧, emacs メニューバー, emacs スクロールバー, emacs ツールバー, emacs M-z, package:uniquify, package:saveplace, package:misc, zap-to-char, package:hippie-exp, hippie-expand, package:ibuffer, emacs 括弧 表示, emacs タブ インデント, emacs インデント, emacs クリップボード, pacakge:apropos, emacs マウス ペースト, package:ediff, ediff フレーム 使わない, emacs バックアップファイル ディレクトリ, package:migemo
+#+TAGS: package:better-defaults, emacs 使い方, emacs コマンド, emacs, emacs lisp better-defaults, elisp better-defaults, emacs melpa better-defaults, emacs better-defaults 使い方, emacs better-defaults 設定, emacs パッケージ better-defaults, emacs 初期設定, emacs デフォルトの設定, package:ido, emacs ido flex match, ido 曖昧, emacs メニューバー, emacs スクロールバー, emacs ツールバー, emacs M-z, package:uniquify, package:saveplace, package:misc, zap-to-char, package:hippie-exp, hippie-expand, package:ibuffer, emacs 括弧 表示, emacs タブ インデント, emacs インデント, emacs クリップボード, pacakge:apropos, emacs マウス ペースト, package:ediff, ediff フレーム 使わない, emacs バックアップファイル ディレクトリ, package:migemo, Emacs, ソース解読推奨, better-defaults.el, ido-mode, メニューバー, ツールバー, スクロールバー, M-x hippie-expand, M-x ibuffer, M-x zap-up-to-char, isearch, apropos.el, ediff, バックアップファイル, Migemo, better-defaults.el, ido-mode, メニューバー, ツールバー, スクロールバー, M-x hippie-expand, M-x ibuffer, M-x zap-up-to-char, isearch, apropos.el, ediff, バックアップファイル, text-mode, org-mode
 #+TITLE: emacs better-defaults.el : 【初心者歓迎】Emacsのよりよい初期設定を日本語で全部解説！ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
 #+BEGIN_HTML
 <table>
@@ -22,7 +23,7 @@
 <tr><td>概要(原文)</td><td>Fixing weird quirks and poor defaults</td></tr>
 <tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
 <tr><td>取得先</td><td><a href="https://github.com/technomancy/better-defaults">https://github.com/technomancy/better-defaults</a></td></tr>
-<tr><td>バージョン</td><td>20140818.937</td></tr>
+<tr><td>バージョン</td><td>20160619.2308</td></tr>
 <tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:better-defaults/">package:better-defaults</a> </td></tr>
 </table>
 <br />
