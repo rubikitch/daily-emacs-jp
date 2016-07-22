@@ -7,7 +7,7 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, ido
+#+CATEGORY: Emacs, ido, ソース解読推奨
 #+EL_PKG_NAME: idomenu
 #+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, package:imenu, package:ido, relate:ido, relate:imenu, relate:imenu-anywhere, package:ido-vertical-mode, emacs ido imenu, emacs iswitchb imenu, emacs helm imenu, emacs imenu カイゼン, relate:ido-vertical-mode, relate:imenu-list, package:ido-vertical-mode, relate:ido-vertical-mode, emacs iswitchb imenu, emacs imenu ido, emacs imenu helm, 同一メジャーモードのバッファの関数一覧を表示, emacs imenu カイゼン, emacs imenu 強化, anything-imenu, helm-imenu, ファイル内の関数一覧を表示, バッファ内の関数一覧を表示, 特定の関数を抽出, 関数定義へジャンプ, バッファ内の特定箇所に直接移動, relate:imenus
 #+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
@@ -16,7 +16,7 @@
 #+begin: org2blog
 #+DESCRIPTION: MELPAのEmacs Lispパッケージidomenuの紹介
 #+MYTAGS: package:idomenu, emacs 使い方, emacs コマンド, emacs, idomenu, idomenu.el, emacs lisp idomenu, elisp idomenu, emacs melpa idomenu, emacs idomenu 使い方, emacs idomenu 設定, emacs パッケージ idomenu, emacs idomenu スクリーンショット, package:imenu, package:ido, relate:ido, relate:imenu, relate:imenu-anywhere, package:ido-vertical-mode, emacs ido imenu, emacs iswitchb imenu, emacs helm imenu, emacs imenu カイゼン, relate:ido-vertical-mode, relate:imenu-list, package:ido-vertical-mode, relate:ido-vertical-mode, emacs iswitchb imenu, emacs imenu ido, emacs imenu helm, 同一メジャーモードのバッファの関数一覧を表示, emacs imenu カイゼン, emacs imenu 強化, anything-imenu, helm-imenu, ファイル内の関数一覧を表示, バッファ内の関数一覧を表示, 特定の関数を抽出, 関数定義へジャンプ, バッファ内の特定箇所に直接移動, relate:imenus
-#+TAGS: package:idomenu, emacs 使い方, emacs コマンド, emacs, idomenu, idomenu.el, emacs lisp idomenu, elisp idomenu, emacs melpa idomenu, emacs idomenu 使い方, emacs idomenu 設定, emacs パッケージ idomenu, emacs idomenu スクリーンショット, package:imenu, package:ido, relate:ido, relate:imenu, relate:imenu-anywhere, package:ido-vertical-mode, emacs ido imenu, emacs iswitchb imenu, emacs helm imenu, emacs imenu カイゼン, relate:ido-vertical-mode, relate:imenu-list, package:ido-vertical-mode, relate:ido-vertical-mode, emacs iswitchb imenu, emacs imenu ido, emacs imenu helm, 同一メジャーモードのバッファの関数一覧を表示, emacs imenu カイゼン, emacs imenu 強化, anything-imenu, helm-imenu, ファイル内の関数一覧を表示, バッファ内の関数一覧を表示, 特定の関数を抽出, 関数定義へジャンプ, バッファ内の特定箇所に直接移動, relate:imenus, Emacs, ido, idomenu.el, M-x imenu, ido, idomenu.el, M-x imenu, ido
+#+TAGS: package:idomenu, emacs 使い方, emacs コマンド, emacs, idomenu, idomenu.el, emacs lisp idomenu, elisp idomenu, emacs melpa idomenu, emacs idomenu 使い方, emacs idomenu 設定, emacs パッケージ idomenu, emacs idomenu スクリーンショット, package:imenu, package:ido, relate:ido, relate:imenu, relate:imenu-anywhere, package:ido-vertical-mode, emacs ido imenu, emacs iswitchb imenu, emacs helm imenu, emacs imenu カイゼン, relate:ido-vertical-mode, relate:imenu-list, package:ido-vertical-mode, relate:ido-vertical-mode, emacs iswitchb imenu, emacs imenu ido, emacs imenu helm, 同一メジャーモードのバッファの関数一覧を表示, emacs imenu カイゼン, emacs imenu 強化, anything-imenu, helm-imenu, ファイル内の関数一覧を表示, バッファ内の関数一覧を表示, 特定の関数を抽出, 関数定義へジャンプ, バッファ内の特定箇所に直接移動, relate:imenus, Emacs, ido, ソース解読推奨, idomenu.el, M-x imenu, ido, idomenu.el, M-x imenu, ido
 #+TITLE: emacs idomenu.el : 【helmアンチ歓迎】imenuをidoインターフェースで操作する | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
 #+BEGIN_HTML
 <table>
