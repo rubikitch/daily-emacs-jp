@@ -7,7 +7,7 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs
+#+CATEGORY: Emacs, ソース解読推奨
 #+EL_PKG_NAME: ibuffer-tramp
 #+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, , relate:ibuffer-vc, package:ibuffer, relate:ibuffer, Emacs バッファリスト tramp, バッファリスト, ibuffer, ibuffer tramp
 #+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
@@ -16,7 +16,7 @@
 #+begin: org2blog
 #+DESCRIPTION: MELPAのEmacs Lispパッケージibuffer-trampの紹介
 #+MYTAGS: package:ibuffer-tramp, emacs 使い方, emacs コマンド, emacs, ibuffer-tramp, ibuffer-tramp.el, emacs lisp ibuffer-tramp, elisp ibuffer-tramp, emacs melpa ibuffer-tramp, emacs ibuffer-tramp 使い方, emacs ibuffer-tramp 設定, emacs パッケージ ibuffer-tramp, emacs ibuffer-tramp スクリーンショット, , relate:ibuffer-vc, package:ibuffer, relate:ibuffer, Emacs バッファリスト tramp, バッファリスト, ibuffer, ibuffer tramp
-#+TAGS: package:ibuffer-tramp, emacs 使い方, emacs コマンド, emacs, ibuffer-tramp, ibuffer-tramp.el, emacs lisp ibuffer-tramp, elisp ibuffer-tramp, emacs melpa ibuffer-tramp, emacs ibuffer-tramp 使い方, emacs ibuffer-tramp 設定, emacs パッケージ ibuffer-tramp, emacs ibuffer-tramp スクリーンショット, , relate:ibuffer-vc, package:ibuffer, relate:ibuffer, Emacs バッファリスト tramp, バッファリスト, ibuffer, ibuffer tramp, Emacs, ibuffer-tramp.el, M-x ibuffer, M-x ibuffer
+#+TAGS: package:ibuffer-tramp, emacs 使い方, emacs コマンド, emacs, ibuffer-tramp, ibuffer-tramp.el, emacs lisp ibuffer-tramp, elisp ibuffer-tramp, emacs melpa ibuffer-tramp, emacs ibuffer-tramp 使い方, emacs ibuffer-tramp 設定, emacs パッケージ ibuffer-tramp, emacs ibuffer-tramp スクリーンショット, , relate:ibuffer-vc, package:ibuffer, relate:ibuffer, Emacs バッファリスト tramp, バッファリスト, ibuffer, ibuffer tramp, Emacs, ソース解読推奨, ibuffer-tramp.el, M-x ibuffer, M-x ibuffer
 #+TITLE: emacs ibuffer-tramp.el : ibufferにtrampのグループを作る | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
 #+BEGIN_HTML
 <table>
