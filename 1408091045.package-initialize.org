@@ -35,7 +35,7 @@ M-x list-packages
 から選択するか、
 M-x package-refresh-contents
 の後に
-M-x package-initialize パッケージ名
+M-x package-install パッケージ名
 を実行すればよいです。
 
 package-refresh-contentsは、パッケージの情報を
