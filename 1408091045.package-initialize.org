@@ -20,13 +20,11 @@ Emacs Lispプログラムのインストールが一気に楽になりました�
 たとえば、helm-agパッケージをインストールするとき、
 依存パッケージのhelmもインストールします。
 
-
 ただし、以下の設定を加える必要があります。
 
 #+BEGIN: include :file "/r/sync/book/sd-emacs-rensai/init-package.el"
 #+BEGIN_SRC fundamental
 (package-initialize)
-(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
 #+END_SRC
 
