@@ -1,5 +1,5 @@
 #+BLOG: rubikitch
-#+POSTID: 2546
+#+POSTID: 2548
 #+DATE: [2016-07-25 Mon 14:24]
 #+PERMALINK: crux
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -11,13 +11,13 @@
 #+EL_PKG_NAME: crux
 #+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, relate:smart-newline, , relate:sudo-edit, relate:recentf, relate:ido, relate:ispell, relate:advice, relate:dired-open, relate:openwith
 #+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 使い方 
-#+EL_TITLE0: elisp学習支援★短くて便利なコマンド集
+#+EL_TITLE0: elisp学習支援★短くて便利なコマンド集(概要)
 #+EL_URL: 
 #+begin: org2blog
 #+DESCRIPTION: MELPAのEmacs Lispパッケージcruxの紹介
 #+MYTAGS: package:crux, emacs 使い方, emacs コマンド, emacs, crux, crux.el, emacs lisp crux, elisp crux, emacs melpa crux, emacs crux 使い方, emacs crux 設定, emacs パッケージ crux, relate:smart-newline, , relate:sudo-edit, relate:recentf, relate:ido, relate:ispell, relate:advice, relate:dired-open, relate:openwith
 #+TAGS: package:crux, emacs 使い方, emacs コマンド, emacs, crux, crux.el, emacs lisp crux, elisp crux, emacs melpa crux, emacs crux 使い方, emacs crux 設定, emacs パッケージ crux, relate:smart-newline, , relate:sudo-edit, relate:recentf, relate:ido, relate:ispell, relate:advice, relate:dired-open, relate:openwith, Emacs, Emacs Lisp, ido, dired, ソース解読推奨, , 
-#+TITLE: emacs crux.el : elisp学習支援★短くて便利なコマンド集 | MELPA Emacs Lisp Elisp パッケージ インストール 使い方 
+#+TITLE: emacs crux.el : elisp学習支援★短くて便利なコマンド集(概要) | MELPA Emacs Lisp Elisp パッケージ インストール 使い方 
 #+BEGIN_HTML
 <table>
 <tr><td>パッケージ名</td><td>crux</td></tr>
