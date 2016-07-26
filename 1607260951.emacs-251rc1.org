@@ -1,0 +1,37 @@
+#+BLOG: rubikitch
+#+POSTID: 2554
+#+DATE: [2016-07-26 Tue 09:51]
+#+PERMALINK: emacs-251rc1
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, Emacs 25.1, 記事紹介, 
+#+DESCRIPTION: 
+#+MYTAGS: 
+#+TITLE: 【Emacs新時代到来】Emacs 25.1 RC1がリリースされました
+#+begin: org2blog-tags
+#+TAGS: , Emacs, Emacs 25.1, 記事紹介, , 
+#+end:
+http://lists.gnu.org/archive/html/emacs-devel/2016-07/msg01070.html
+
+大変長らくお待たせしました。
+6月にリリースされる予定だったEmacs 25.1でしたが、
+なかなか解決されないバグのせいで遅れてしまいました。
+
+ついに先日Emacs 25.1のrelease candidateがリリースされました。
+
+ftp://alpha.gnu.org/gnu/emacs/pretest/emacs-25.1-rc1.tar.xz
+
+新しい物好きはぜひとも新しくなったEmacsをお楽しみください。
+
+もちろんパッケージの対応問題があるので、
+腕に覚えのある方以外の早い乗り変えはおすすめできません。
+
+Ubunt 14.04/15、openSUSE 13.2、Fedora 24で
+無事にコンパイル成功しているようです。
+
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
