@@ -14,6 +14,9 @@
 #+begin: org2blog-tags
 #+TAGS: , Emacs, Emacs 25.1, 記事紹介, , 
 #+end:
+今日はcruxの詳細を書くつもりでしたが、
+急遽ビッグニュースが入ってきました！！！
+
 http://lists.gnu.org/archive/html/emacs-devel/2016-07/msg01070.html
 
 大変長らくお待たせしました。
