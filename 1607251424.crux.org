@@ -24,7 +24,7 @@
 <tr><td>概要(原文)</td><td>A Collection of Ridiculously Useful eXtensions</td></tr>
 <tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
 <tr><td>取得先</td><td><a href="https://github.com/bbatsov/crux">https://github.com/bbatsov/crux</a></td></tr>
-<tr><td>バージョン</td><td>20160710.2237</td></tr>
+<tr><td>バージョン</td><td>20160725.59</td></tr>
 <tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:crux/">package:crux</a> <a href="http://rubikitch.com/tag/package:smart-newline/">package:smart-newline</a> <a href="http://rubikitch.com/tag/package:sudo-edit/">package:sudo-edit</a> <a href="http://rubikitch.com/tag/package:recentf/">package:recentf</a> <a href="http://rubikitch.com/tag/package:ido/">package:ido</a> <a href="http://rubikitch.com/tag/package:ispell/">package:ispell</a> <a href="http://rubikitch.com/tag/package:advice/">package:advice</a> <a href="http://rubikitch.com/tag/package:dired-open/">package:dired-open</a> <a href="http://rubikitch.com/tag/package:openwith/">package:openwith</a></td></tr>
 </table>
 <br />
