@@ -9,14 +9,14 @@
 #+BLOG: rubikitch
 #+CATEGORY: Emacs, dired
 #+EL_PKG_NAME: openwith
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, relate:dired-open, relate:runner, nohup, open, org-file-apps, relate:unify-opening, dired コマンド, dired コマンド登録, dired シェルコマンド, dired ファイル 関連付け, dired アプリケーション 関連付け, dired open, dired 拡張子 アプリケーション 関連付け, dired 拡張子 コマンド, dired 拡張子, relate:runner, emacs pdf 外部プログラム, メディアファイル 外部プログラム, メディアファイル, PDFファイル
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, relate:dired-open, relate:runner, nohup, open, org-file-apps, relate:unify-opening, dired コマンド, dired コマンド登録, dired シェルコマンド, dired ファイル 関連付け, dired アプリケーション 関連付け, dired open, dired 拡張子 アプリケーション 関連付け, dired 拡張子 コマンド, dired 拡張子, relate:runner, emacs pdf 外部プログラム, メディアファイル 外部プログラム, メディアファイル, PDFファイル, relate:crux
 #+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 
 #+EL_TITLE0: C-x C-fやdiredで外部プログラムを使ってファイルを開く
 #+EL_URL: 
 #+begin: org2blog
 #+DESCRIPTION: MELPAのEmacs Lispパッケージopenwithの紹介
-#+MYTAGS: package:openwith, emacs 使い方, emacs コマンド, emacs, openwith, openwith.el, emacs lisp openwith, elisp openwith, emacs melpa openwith, emacs openwith 使い方, emacs openwith 設定, emacs パッケージ openwith, relate:dired-open, relate:runner, nohup, open, org-file-apps, relate:unify-opening, dired コマンド, dired コマンド登録, dired シェルコマンド, dired ファイル 関連付け, dired アプリケーション 関連付け, dired open, dired 拡張子 アプリケーション 関連付け, dired 拡張子 コマンド, dired 拡張子, relate:runner, emacs pdf 外部プログラム, メディアファイル 外部プログラム, メディアファイル, PDFファイル
-#+TAGS: package:openwith, emacs 使い方, emacs コマンド, emacs, openwith, openwith.el, emacs lisp openwith, elisp openwith, emacs melpa openwith, emacs openwith 使い方, emacs openwith 設定, emacs パッケージ openwith, relate:dired-open, relate:runner, nohup, open, org-file-apps, relate:unify-opening, dired コマンド, dired コマンド登録, dired シェルコマンド, dired ファイル 関連付け, dired アプリケーション 関連付け, dired open, dired 拡張子 アプリケーション 関連付け, dired 拡張子 コマンド, dired 拡張子, relate:runner, emacs pdf 外部プログラム, メディアファイル 外部プログラム, メディアファイル, PDFファイル, Emacs, dired, M-x openwith-mode, M-x openwith-mode
+#+MYTAGS: package:openwith, emacs 使い方, emacs コマンド, emacs, openwith, openwith.el, emacs lisp openwith, elisp openwith, emacs melpa openwith, emacs openwith 使い方, emacs openwith 設定, emacs パッケージ openwith, relate:dired-open, relate:runner, nohup, open, org-file-apps, relate:unify-opening, dired コマンド, dired コマンド登録, dired シェルコマンド, dired ファイル 関連付け, dired アプリケーション 関連付け, dired open, dired 拡張子 アプリケーション 関連付け, dired 拡張子 コマンド, dired 拡張子, relate:runner, emacs pdf 外部プログラム, メディアファイル 外部プログラム, メディアファイル, PDFファイル, relate:crux
+#+TAGS: package:openwith, emacs 使い方, emacs コマンド, emacs, openwith, openwith.el, emacs lisp openwith, elisp openwith, emacs melpa openwith, emacs openwith 使い方, emacs openwith 設定, emacs パッケージ openwith, relate:dired-open, relate:runner, nohup, open, org-file-apps, relate:unify-opening, dired コマンド, dired コマンド登録, dired シェルコマンド, dired ファイル 関連付け, dired アプリケーション 関連付け, dired open, dired 拡張子 アプリケーション 関連付け, dired 拡張子 コマンド, dired 拡張子, relate:runner, emacs pdf 外部プログラム, メディアファイル 外部プログラム, メディアファイル, PDFファイル, relate:crux, Emacs, dired, M-x openwith-mode, M-x openwith-mode
 #+TITLE: emacs openwith.el : C-x C-fやdiredで外部プログラムを使ってファイルを開く | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 
 #+BEGIN_HTML
 <table>
@@ -25,7 +25,7 @@
 <tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
 <tr><td>取得先</td><td><a href=""></a></td></tr>
 <tr><td>バージョン</td><td>20120531.1436</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:openwith/">package:openwith</a> <a href="http://rubikitch.com/tag/package:dired-open/">package:dired-open</a> <a href="http://rubikitch.com/tag/package:runner/">package:runner</a> <a href="http://rubikitch.com/tag/package:unify-opening/">package:unify-opening</a> <a href="http://rubikitch.com/tag/package:runner/">package:runner</a></td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:openwith/">package:openwith</a> <a href="http://rubikitch.com/tag/package:dired-open/">package:dired-open</a> <a href="http://rubikitch.com/tag/package:runner/">package:runner</a> <a href="http://rubikitch.com/tag/package:unify-opening/">package:unify-opening</a> <a href="http://rubikitch.com/tag/package:runner/">package:runner</a> <a href="http://rubikitch.com/tag/package:crux/">package:crux</a></td></tr>
 </table>
 <br />
 #+END_HTML
