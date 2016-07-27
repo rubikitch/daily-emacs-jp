@@ -68,3 +68,16 @@ xdg-openコマンドがインストールされているならばこれで十分
 それで不満であれば[[http://rubikitch.com/2016/07/24/openwith/][openwith.el]] や[[http://rubikitch.com/2015/08/23/dired-open/][dired-open.el]] を使うとよいでしょう。
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+** 設定 [[http://rubikitch.com/f/160728075521.crux.el][160728075521.crux.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/160728/160728075521.crux.el"
+#+BEGIN_SRC fundamental
+(require 'crux)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/160728075521.crux.el
+$ emacs -Q -f package-initialize -l 160728075521.crux.el
+#+END_EXAMPLE
