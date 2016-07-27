@@ -9,14 +9,14 @@
 #+BLOG: rubikitch
 #+CATEGORY: Emacs, dired, 
 #+EL_PKG_NAME: dired-open
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, relate:runner, relate:openwith, renate:unify-opening, dired コマンド, dired コマンド登録, dired シェルコマンド, dired ファイル 関連付け, dired アプリケーション 関連付け, dired open, dired 拡張子 アプリケーション 関連付け, dired 拡張子 コマンド, dired 拡張子, relate:runner
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, relate:runner, relate:openwith, renate:unify-opening, dired コマンド, dired コマンド登録, dired シェルコマンド, dired ファイル 関連付け, dired アプリケーション 関連付け, dired open, dired 拡張子 アプリケーション 関連付け, dired 拡張子 コマンド, dired 拡張子, relate:runner, relate:crux
 #+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 
 #+EL_TITLE0: diredから画像・メディアファイルやPDFなどを開く
 #+EL_URL: 
 #+begin: org2blog
 #+DESCRIPTION: MELPAのEmacs Lispパッケージdired-openの紹介
-#+MYTAGS: package:dired-open, emacs 使い方, emacs コマンド, emacs, dired-open, dired-open.el, emacs lisp dired-open, elisp dired-open, emacs melpa dired-open, emacs dired-open 使い方, emacs dired-open 設定, emacs パッケージ dired-open, relate:runner, relate:openwith, renate:unify-opening, dired コマンド, dired コマンド登録, dired シェルコマンド, dired ファイル 関連付け, dired アプリケーション 関連付け, dired open, dired 拡張子 アプリケーション 関連付け, dired 拡張子 コマンド, dired 拡張子, relate:runner
-#+TAGS: package:dired-open, emacs 使い方, emacs コマンド, emacs, dired-open, dired-open.el, emacs lisp dired-open, elisp dired-open, emacs melpa dired-open, emacs dired-open 使い方, emacs dired-open 設定, emacs パッケージ dired-open, relate:runner, relate:openwith, renate:unify-opening, dired コマンド, dired コマンド登録, dired シェルコマンド, dired ファイル 関連付け, dired アプリケーション 関連付け, dired open, dired 拡張子 アプリケーション 関連付け, dired 拡張子 コマンド, dired 拡張子, relate:runner, Emacs, dired, , dired-open.el, dired-open.el
+#+MYTAGS: package:dired-open, emacs 使い方, emacs コマンド, emacs, dired-open, dired-open.el, emacs lisp dired-open, elisp dired-open, emacs melpa dired-open, emacs dired-open 使い方, emacs dired-open 設定, emacs パッケージ dired-open, relate:runner, relate:openwith, renate:unify-opening, dired コマンド, dired コマンド登録, dired シェルコマンド, dired ファイル 関連付け, dired アプリケーション 関連付け, dired open, dired 拡張子 アプリケーション 関連付け, dired 拡張子 コマンド, dired 拡張子, relate:runner, relate:crux
+#+TAGS: package:dired-open, emacs 使い方, emacs コマンド, emacs, dired-open, dired-open.el, emacs lisp dired-open, elisp dired-open, emacs melpa dired-open, emacs dired-open 使い方, emacs dired-open 設定, emacs パッケージ dired-open, relate:runner, relate:openwith, renate:unify-opening, dired コマンド, dired コマンド登録, dired シェルコマンド, dired ファイル 関連付け, dired アプリケーション 関連付け, dired open, dired 拡張子 アプリケーション 関連付け, dired 拡張子 コマンド, dired 拡張子, relate:runner, relate:crux, Emacs, dired, , dired-open.el, dired-open.el
 #+TITLE: emacs dired-open.el : diredから画像・メディアファイルやPDFなどを開く | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 
 #+BEGIN_HTML
 <table>
@@ -25,7 +25,7 @@
 <tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
 <tr><td>取得先</td><td><a href="https://github.com/Fuco1/dired-hacks">https://github.com/Fuco1/dired-hacks</a></td></tr>
 <tr><td>バージョン</td><td>20160205.1213</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:dired-open/">package:dired-open</a> <a href="http://rubikitch.com/tag/package:runner/">package:runner</a> <a href="http://rubikitch.com/tag/package:openwith/">package:openwith</a> <a href="http://rubikitch.com/tag/package:runner/">package:runner</a></td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:dired-open/">package:dired-open</a> <a href="http://rubikitch.com/tag/package:runner/">package:runner</a> <a href="http://rubikitch.com/tag/package:openwith/">package:openwith</a> <a href="http://rubikitch.com/tag/package:runner/">package:runner</a> <a href="http://rubikitch.com/tag/package:crux/">package:crux</a></td></tr>
 </table>
 <br />
 #+END_HTML
