@@ -49,8 +49,9 @@ Emacs Lispの懐の深さゆえに今尚おもしろいパッケージが
 - [[http://savannah.gnu.org/projects/screen][GNU Screen]] ←Emacsとほぼ同時に使い始めた
 - [[http://www.nongnu.org/ratpoison/][ratpoison]] ←タイル型Xウィンドウマネージャー
 - [[http://software.schmorp.de/pkg/rxvt-unicode.html][rxvt-unicode(urxvt)]] ←超高速端末エミュレータ
-- [[http://www.mplayer2.org/][MPlayer2]] ←メディアプレイヤー
+- +[[http://www.mplayer2.org/][MPlayer2]]+ → [[https://mpv.io/][mpv]] ←メディアプレイヤー
 - [[http://www.debian.org/][Debian GNU/Linux]] ←bo時代からOSはDebian一筋
+- [[http://qjoypad.sourceforge.net/][QJoyPad]] ←ゲームパッドにキーを割り当て、『有線リモコン』として使う
 *** ソフトウェア
 - Emacs Lisp
   - [[http://www.emacswiki.org/emacs/rubikitch][たくさんありすぎるのでEmacsWiki見てください]]
