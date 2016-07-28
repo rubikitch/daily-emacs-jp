@@ -42,7 +42,7 @@ Emacs Lispの懐の深さゆえに今尚おもしろいパッケージが
 - [[http://www.rubyist.net/~rubikitch/][旧サイト]]
 - [[http://d.hatena.ne.jp/rubikitch/][旧ブログ(はてなダイアリー)]]
 *** 好きなソフトウェア
-- [[http://www.gnu.org/software/emacs/][Emacs]] ←俺の嫁
+- [[http://www.gnu.org/software/emacs/][Emacs]] ←俺の娘
 - [[http://www.ruby-lang.org/ja/][Ruby]] ←1999年から愛用してる国産オブジェクト指向スクリプト言語
 - [[http://w3m.sourceforge.net/][テキストブラウザw3m]] ←いまだにメインブラウザ
 - [[https://www.mozilla.org/ja/firefox/new/][Firefox]] ←サブブラウザ
