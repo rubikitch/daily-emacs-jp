@@ -1,0 +1,35 @@
+#+BLOG: rubikitch
+#+POSTID: 2573
+#+DATE: [2016-07-29 Fri 14:10]
+#+PERMALINK: melmag
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: メルマガ,
+#+DESCRIPTION: るびきち塾メルマガ『Emacsの鬼るびきちのココだけの話#244』の予告
+#+TITLE: 【メルマガ#244】NEW大人の勉強法(前編)
+#+MYTAGS: 
+今週と来週の2回に分けて「大人の勉強法」をお伝えします。
+
+平成の世の中は加速度的に変化していきます。
+我々は日々勉強していかないと、
+あっというまに時代に取り残されてしまいます。
+
+幸い日本人は真面目で勉強好きな人種で、多くの人は勉強しています。
+しかし、勉強しているにもかかわらず
+結果が出せている人はとても少ないです。
+
+多くの人がしている勘違いを指摘し、
+現代の大人はどのように勉強すべきかを伝えます。
+
+ぜひ、オープンマインドで読んでくださいね。
+
+今回からメルマガのフォーマットを変更し、
+『入塾特典』をすべて掲載するようにしました。
+
+どれも超ド級の特典なので、
+まだの人は受け取ってください。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
