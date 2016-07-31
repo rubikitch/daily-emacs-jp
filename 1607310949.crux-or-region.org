@@ -7,17 +7,17 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs
+#+CATEGORY: Emacs, ソース解読推奨, 
 #+EL_PKG_NAME: crux
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, relate:whitespace, ホワイトスペース, 
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, relate:whitespace, ホワイトスペース, advice, defadvice defmacro
 #+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 
-#+EL_TITLE0: crux-with-region-or-*: regionの有無で場合分けするアドバイスとコマンド
+#+EL_TITLE0: crux-with-region-or-*: regionの有無で場合分けするコマンド3つ・アドバイス3つ
 #+EL_URL: 
 #+begin: org2blog
 #+DESCRIPTION: MELPAのEmacs Lispパッケージcruxの紹介
-#+MYTAGS: package:crux, emacs 使い方, emacs コマンド, emacs, crux, crux.el, emacs lisp crux, elisp crux, emacs melpa crux, emacs crux 使い方, emacs crux 設定, emacs パッケージ crux, relate:whitespace, ホワイトスペース, 
-#+TAGS: package:crux, emacs 使い方, emacs コマンド, emacs, crux, crux.el, emacs lisp crux, elisp crux, emacs melpa crux, emacs crux 使い方, emacs crux 設定, emacs パッケージ crux, relate:whitespace, ホワイトスペース, , Emacs, M-x untabify, M-x indent-region, M-x whitespace-cleanup, whitespace-style, crux-with-region-or-buffer, crux-with-region-or-line, crux-with-region-or-point-to-eol
-#+TITLE: emacs crux.el : crux-with-region-or-*: regionの有無で場合分けするアドバイスとコマンド | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 
+#+MYTAGS: package:crux, emacs 使い方, emacs コマンド, emacs, crux, crux.el, emacs lisp crux, elisp crux, emacs melpa crux, emacs crux 使い方, emacs crux 設定, emacs パッケージ crux, relate:whitespace, ホワイトスペース, advice, defadvice defmacro
+#+TAGS: package:crux, emacs 使い方, emacs コマンド, emacs, crux, crux.el, emacs lisp crux, elisp crux, emacs melpa crux, emacs crux 使い方, emacs crux 設定, emacs パッケージ crux, relate:whitespace, ホワイトスペース, advice, defadvice defmacro, Emacs, ソース解読推奨, , M-x untabify, M-x indent-region, M-x whitespace-cleanup, whitespace-style, crux-with-region-or-buffer, crux-with-region-or-line, crux-with-region-or-point-to-eol
+#+TITLE: emacs crux.el : crux-with-region-or-*: regionの有無で場合分けするコマンド3つ・アドバイス3つ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 
 #+BEGIN_HTML
 <table>
 <tr><td>パッケージ名</td><td>crux</td></tr>
