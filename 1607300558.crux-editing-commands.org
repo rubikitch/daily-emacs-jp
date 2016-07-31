@@ -11,13 +11,13 @@
 #+EL_PKG_NAME: crux
 #+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, helm-show-kill-ring, anything-show-kill-ring, markdown, github, open-line, relate:smart-newline, open-line, delete-indentation, kill-whole-line, move-beginning-of-line, indent-defun, aspell, スペルチェック 略語展開, 現在時刻を入力
 #+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 
-#+EL_TITLE0: 標準コマンドをちょっと便利にするいろいろな編集コマンド
+#+EL_TITLE0: 【10選】標準コマンドをちょっと便利にするいろいろな編集コマンド
 #+EL_URL: 
 #+begin: org2blog
 #+DESCRIPTION: MELPAのEmacs Lispパッケージcruxの紹介
 #+MYTAGS: package:crux, emacs 使い方, emacs コマンド, emacs, crux, crux.el, emacs lisp crux, elisp crux, emacs melpa crux, emacs crux 使い方, emacs crux 設定, emacs パッケージ crux, helm-show-kill-ring, anything-show-kill-ring, markdown, github, open-line, relate:smart-newline, open-line, delete-indentation, kill-whole-line, move-beginning-of-line, indent-defun, aspell, スペルチェック 略語展開, 現在時刻を入力
 #+TAGS: package:crux, emacs 使い方, emacs コマンド, emacs, crux, crux.el, emacs lisp crux, elisp crux, emacs melpa crux, emacs crux 使い方, emacs crux 設定, emacs パッケージ crux, helm-show-kill-ring, anything-show-kill-ring, markdown, github, open-line, relate:smart-newline, open-line, delete-indentation, kill-whole-line, move-beginning-of-line, indent-defun, aspell, スペルチェック 略語展開, 現在時刻を入力, Emacs, M-x crux-smart-open-line-above, M-x kill-whole-line, M-x beginning-of-line, M-x back-to-indentation, M-x move-beginning-of-line, M-x ispell-word, define-abbrev
-#+TITLE: emacs crux.el : 標準コマンドをちょっと便利にするいろいろな編集コマンド | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 
+#+TITLE: emacs crux.el : 【10選】標準コマンドをちょっと便利にするいろいろな編集コマンド | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 
 #+BEGIN_HTML
 <table>
 <tr><td>パッケージ名</td><td>crux</td></tr>
