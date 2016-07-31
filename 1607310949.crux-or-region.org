@@ -1,0 +1,213 @@
+#+BLOG: rubikitch
+#+POSTID: 2581
+#+DATE: [2016-07-31 Sun 09:49]
+#+PERMALINK: crux-or-region
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs
+#+EL_PKG_NAME: crux
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, relate:whitespace, ホワイトスペース, 
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 
+#+EL_TITLE0: crux-with-region-or-*: regionの有無で場合分けするアドバイスとコマンド
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージcruxの紹介
+#+MYTAGS: package:crux, emacs 使い方, emacs コマンド, emacs, crux, crux.el, emacs lisp crux, elisp crux, emacs melpa crux, emacs crux 使い方, emacs crux 設定, emacs パッケージ crux, relate:whitespace, ホワイトスペース, 
+#+TAGS: package:crux, emacs 使い方, emacs コマンド, emacs, crux, crux.el, emacs lisp crux, elisp crux, emacs melpa crux, emacs crux 使い方, emacs crux 設定, emacs パッケージ crux, relate:whitespace, ホワイトスペース, , Emacs, M-x untabify, M-x indent-region, M-x whitespace-cleanup, whitespace-style, crux-with-region-or-buffer, crux-with-region-or-line, crux-with-region-or-point-to-eol
+#+TITLE: emacs crux.el : crux-with-region-or-*: regionの有無で場合分けするアドバイスとコマンド | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>crux</td></tr>
+<tr><td>概要(原文)</td><td>A Collection of Ridiculously Useful eXtensions</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/bbatsov/crux">https://github.com/bbatsov/crux</a></td></tr>
+<tr><td>バージョン</td><td>20160725.59</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:crux/">package:crux</a> <a href="http://rubikitch.com/tag/package:whitespace/">package:whitespace</a></td></tr>
+</table>
+<br />
+#+END_HTML
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+#+INCLUDE: "include.crux.org"  
+
+Emacsはregionに作用するコマンドと
+バッファ全体や現在行に作用するコマンドが別個に分かれていたりします。
+それらが別なキーに割り当てられていると、つい統合したくなりますよね。
+
+regionがある場合はregionを、
+そうでない場合はバッファ全体や現在行に作用させれば、
+うまく空気を読んでくれるコマンドに大変身します。
+
+キーバインドの資源も節約できますしね。
+
+以下で紹介するコマンドはregionの有無によって挙動を変更します。
+** crux インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install crux
+
+
+#+end:
+** 概要                                                             :noexport:
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+#+INCLUDE: "include.crux.org"  
+
+Emacsはregionに作用するコマンドと
+バッファ全体や現在行に作用するコマンドが別個に分かれていたりします。
+それらが別なキーに割り当てられていると、つい統合したくなりますよね。
+
+regionがある場合はregionを、
+そうでない場合はバッファ全体や現在行に作用させれば、
+うまく空気を読んでくれるコマンドに大変身します。
+
+キーバインドの資源も節約できますしね。
+
+以下で紹介するコマンドはregionの有無によって挙動を変更します。
+
+** M-x crux-duplicate-current-line-or-region
+*M-x crux-duplicate-current-line-or-region* は、
+regionがない場合は現在行をコピーし、
+regionがある場合はregionで指定された行をコピーします。
+数引数で指定された分だけ繰り返します。
+
+regionがない場合
+
+#+BEGIN_EXAMPLE
+foo
+★bar
+baz
+#+END_EXAMPLE
+
+↓
+
+#+BEGIN_EXAMPLE
+foo
+bar
+★bar
+baz
+#+END_EXAMPLE
+
+region(［］で囲まれた部分)がある場合
+
+#+BEGIN_EXAMPLE
+[foo
+]★bar
+baz
+#+END_EXAMPLE
+
+↓
+
+#+BEGIN_EXAMPLE
+foo
+bar
+foo
+★bar
+baz
+#+END_EXAMPLE
+
+
+
+** M-x crux-duplicate-and-comment-current-line-or-region
+*M-x crux-duplicate-and-comment-current-line-or-region* は、
+M-x crux-duplicate-current-line-or-regionと似ていますが
+その後にコメントアウトします。
+
+regionがない場合
+
+#+BEGIN_EXAMPLE
+foo
+★bar
+baz
+#+END_EXAMPLE
+
+↓
+
+#+BEGIN_EXAMPLE
+foo
+# bar
+★bar
+baz
+#+END_EXAMPLE
+
+region(［］で囲まれた部分)がある場合
+
+#+BEGIN_EXAMPLE
+[foo
+]★bar
+baz
+#+END_EXAMPLE
+
+↓
+
+#+BEGIN_EXAMPLE
+# foo
+# bar
+★foo
+bar
+baz
+#+END_EXAMPLE
+
+** M-x crux-cleanup-buffer-or-region
+*M-x crux-cleanup-buffer-or-region* は、以下の順でregionまたはバッファ全体をきれいにします。
+1. *M-x untabify* でタブ→スペースに変換する
+2. 自動インデント無効モードにおいては *M-x indent-region* でインデントする
+3. *M-x whitespace-cleanup* でホワイトスペースに関する問題を解決します。
+
+M-x whitespace-cleanupについては *whitespace-style* 変数に依存しています。
+バッファの先頭や末尾の空行をなくしたり、タブ→スペース変換、スペース→タブ変換などを行います。
+** regionを受け取るコマンドを拡張するアドバイスマクロ
+Emacsにはregion指定が必須なコマンドがあります。
+それらをregionなしでも動作するように拡張するアドバイスを定義するマクロがcruxで定義されています。
+
+- *crux-with-region-or-buffer* :: regionなしの場合はバッファ全体
+- *crux-with-region-or-line* :: regionなしの場合は現在行
+- *crux-with-region-or-point-to-eol* :: regionなしの場合は現在位置から行末
+
+どうなっているかは、コードを見た方がはやいです。
+
+#+BEGIN_SRC emacs-lisp :results silent
+(defmacro crux-with-region-or-buffer (func)
+  "When called with no active region, call FUNC on current buffer.
+
+Use to make commands like `indent-region' work on both the region
+and the entire buffer (in the absense of a region)."
+  `(defadvice ,func (before with-region-or-buffer activate compile)
+     (interactive
+      (if mark-active
+          (list (region-beginning) (region-end))
+        (list (point-min) (point-max))))))
+
+(defmacro crux-with-region-or-line (func)
+  "When called with no active region, call FUNC on current line."
+  `(defadvice ,func (before with-region-or-line activate compile)
+     (interactive
+      (if mark-active
+          (list (region-beginning) (region-end))
+        (list (line-beginning-position) (line-beginning-position 2))))))
+
+(defmacro crux-with-region-or-point-to-eol (func)
+  "When called with no active region, call FUNC from the point to the end of line."
+  `(defadvice ,func (before with-region-or-point-to-eol activate compile)
+     (interactive
+      (if mark-active
+          (list (region-beginning) (region-end))
+        (list (point) (line-end-position))))))
+#+END_SRC
+
+たとえばM-x indent-regionをバッファ全体に作用させたいならば
+
+#+BEGIN_SRC emacs-lisp :results silent
+(crux-with-region-or-buffer indent-region)
+#+END_SRC
+
+とします。
+
+regionを指定しない場合はバッファ全体をインデントし、
+regionを指定した場合にregionをインデントするように挙動が変わります。
+設定ファイルに入れておくと便利になります。
+
