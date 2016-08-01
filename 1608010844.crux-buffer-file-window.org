@@ -1,0 +1,107 @@
+#+BLOG: rubikitch
+#+POSTID: 2589
+#+DATE: [2016-08-01 Mon 08:44]
+#+PERMALINK: crux-buffer-file-window
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs
+#+EL_PKG_NAME: crux
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, relate:buffer-extension, relate:recentf, relate:immortal-scratch, relate:persistent-scratch, relate:unkillable-scratch, relate:vc, バージョン管理システム, relate:open-junk-file
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 
+#+EL_TITLE0: バッファ・ファイル操作を超便利にするコマンド10選！
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージcruxの紹介
+#+MYTAGS: package:crux, emacs 使い方, emacs コマンド, emacs, crux, crux.el, emacs lisp crux, elisp crux, emacs melpa crux, emacs crux 使い方, emacs crux 設定, emacs パッケージ crux, relate:buffer-extension, relate:recentf, relate:immortal-scratch, relate:persistent-scratch, relate:unkillable-scratch, relate:vc, バージョン管理システム, relate:open-junk-file
+#+TAGS: package:crux, emacs 使い方, emacs コマンド, emacs, crux, crux.el, emacs lisp crux, elisp crux, emacs melpa crux, emacs crux 使い方, emacs crux 設定, emacs パッケージ crux, relate:buffer-extension, relate:recentf, relate:immortal-scratch, relate:persistent-scratch, relate:unkillable-scratch, relate:vc, バージョン管理システム, relate:open-junk-file, Emacs, M-x crux-rename-buffer-and-file, M-x crux-delete-buffer-and-file, M-x crux-swap-windows
+#+TITLE: emacs crux.el : バッファ・ファイル操作を超便利にするコマンド10選！ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>crux</td></tr>
+<tr><td>概要(原文)</td><td>A Collection of Ridiculously Useful eXtensions</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/bbatsov/crux">https://github.com/bbatsov/crux</a></td></tr>
+<tr><td>バージョン</td><td>20160725.59</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:crux/">package:crux</a> <a href="http://rubikitch.com/tag/package:buffer-extension/">package:buffer-extension</a> <a href="http://rubikitch.com/tag/package:recentf/">package:recentf</a> <a href="http://rubikitch.com/tag/package:immortal-scratch/">package:immortal-scratch</a> <a href="http://rubikitch.com/tag/package:persistent-scratch/">package:persistent-scratch</a> <a href="http://rubikitch.com/tag/package:unkillable-scratch/">package:unkillable-scratch</a> <a href="http://rubikitch.com/tag/package:vc/">package:vc</a> <a href="http://rubikitch.com/tag/package:open-junk-file/">package:open-junk-file</a></td></tr>
+</table>
+<br />
+#+END_HTML
+#+INCLUDE: "include.crux.org" 
+
+cruxには標準にありそうで実はない便利なコマンドがたくさん用意されています。
+ここではバッファ・ファイル操作に関する10個のコマンドたちです。
+ちょうど、かゆいところに手が届くコマンドたちです。
+
+** crux インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install crux
+
+
+#+end:
+** 概要                                                             :noexport:
+#+INCLUDE: "include.crux.org" 
+
+cruxには標準にありそうで実はない便利なコマンドがたくさん用意されています。
+ここではバッファ・ファイル操作に関する10個のコマンドたちです。
+ちょうど、かゆいところに手が届くコマンドたちです。
+
+
+** M-x crux-rename-file-and-buffer
+このコマンドはバッファ名とそれに関連づけられているファイル名を同時にリネームします。
+VCにも対応しているのでバージョン管理システムでもリネームします。
+自分でも定義していますが、このコマンドは非常に便利です。
+
+標準でもdiredからならばファイル名とバッファ名の同時リネームが可能なのですがね…
+
+*M-x crux-rename-buffer-and-file* というエイリアスも定義されています。
+
+** M-x crux-delete-file-and-buffer
+このコマンドはバッファを削除するのと同時に関連づけられているファイルも削除します。
+VCにも対応しているのでバージョン管理システムからも削除します。
+
+標準でもdiredからならば同時削除が可能です。
+
+*M-x crux-delete-buffer-and-file* というエイリアスも定義されています。
+
+** M-x crux-recentf-find-file
+このコマンドは最近使ったファイルからファイルを選択して開けます。
+helm-modeを有効にすればhelmからでも開けますが、M-x helm-recentfがありますからねぇ…
+
+** M-x crux-switch-to-previous-buffer
+このコマンドは直前に切替えたバッファに切替えます。
+続けて実行すれば、元のバッファに戻ります。
+
+** M-x crux-kill-other-buffers
+このコマンドはカレントバッファ以外のファイルバッファを削除します。
+ん〜、これを使うくらいなら普通に再起動しますね、僕なら。
+
+** M-x crux-create-scratch-buffer
+このコマンドは新しく*scratch*バッファを作成します。
+他にも*scratch*バッファを永続するパッケージをちらほら見かけますが、
+保存ができないという最大の欠点をはらんでいます。
+
+僕ならば試行錯誤用の新規ファイルを開く拙作open-junk-fileパッケージを何年も使い続けています。
+
+** M-x crux-view-url
+このコマンドはURL(カーソル位置ならばそれを使う)のソースを表示します。
+しかし、日本語が表示できないのでは正直使いものにならないです。
+
+** M-x crux-transpose-windows
+このコマンドは2つのウィンドウのバッファを入れ替えます。
+*M-x crux-swap-windows* というエイリアスが定義されています。
+
+** M-x crux-find-user-init-file
+このコマンドはinit.elを別ウィンドウで開きます。
+init.elをしょっちゅういじる人にはキーに割り当てておくと便利でしょう。
+
+** M-x crux-find-shell-init-file
+このコマンドは使っているシェルの初期化ファイルを別ウィンドウで開きます。
+複数ある場合(~/.zshrc ~/.zshenvなど)は候補選択します。
+このコマンドもシェルをよくいじる人にはキー割り当て推奨です。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
