@@ -1,0 +1,79 @@
+#+BLOG: rubikitch
+#+POSTID: 2596
+#+DATE: [2016-08-02 Tue 07:53]
+#+PERMALINK: crux-sudo-edit
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, ソース解読推奨, 
+#+EL_PKG_NAME: crux
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, relate:sudo-ext, relate:sudo-edit, relate:dired-toggle-sudo, find file as root, emacs root権限でファイルを開く, , sudoedit emacs, sudo emacs, ファイルをrootで開く, システムファイルを編集する, root権限でファイルを編集する, root, sudo, crux-sudo-edit, crux-reopen-as-root-mode
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 
+#+EL_TITLE0: crux-sudo-edit: 【お前もか】root権限でファイルを開き直す
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージcruxの紹介
+#+MYTAGS: package:crux, emacs 使い方, emacs コマンド, emacs, crux, crux.el, emacs lisp crux, elisp crux, emacs melpa crux, emacs crux 使い方, emacs crux 設定, emacs パッケージ crux, relate:sudo-ext, relate:sudo-edit, relate:dired-toggle-sudo, find file as root, emacs root権限でファイルを開く, , sudoedit emacs, sudo emacs, ファイルをrootで開く, システムファイルを編集する, root権限でファイルを編集する, root, sudo, crux-sudo-edit, crux-reopen-as-root-mode
+#+TAGS: package:crux, emacs 使い方, emacs コマンド, emacs, crux, crux.el, emacs lisp crux, elisp crux, emacs melpa crux, emacs crux 使い方, emacs crux 設定, emacs パッケージ crux, relate:sudo-ext, relate:sudo-edit, relate:dired-toggle-sudo, find file as root, emacs root権限でファイルを開く, , sudoedit emacs, sudo emacs, ファイルをrootで開く, システムファイルを編集する, root権限でファイルを編集する, root, sudo, crux-sudo-edit, crux-reopen-as-root-mode, Emacs, ソース解読推奨, , M-x sudo-edit-current-file
+#+TITLE: emacs crux.el : crux-sudo-edit: 【お前もか】root権限でファイルを開き直す | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>crux</td></tr>
+<tr><td>概要(原文)</td><td>A Collection of Ridiculously Useful eXtensions</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/bbatsov/crux">https://github.com/bbatsov/crux</a></td></tr>
+<tr><td>バージョン</td><td>20160725.59</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:crux/">package:crux</a> <a href="http://rubikitch.com/tag/package:sudo-ext/">package:sudo-ext</a> <a href="http://rubikitch.com/tag/package:sudo-edit/">package:sudo-edit</a> <a href="http://rubikitch.com/tag/package:dired-toggle-sudo/">package:dired-toggle-sudo</a></td></tr>
+</table>
+<br />
+#+END_HTML
+#+INCLUDE: "include.crux.org"
+「またcruxかよー！」
+そんな声が聞こえてきそうですが、あと2つです。
+
+たった1つの記事で全部紹介するとタイトルに困りますし、
+一日ですべて紹介できるだけの時間もエネルギーも割けません。
+
+というわけで
+もう少しお付き合いいただけると嬉しいです(笑)
+
+今回はcruxの機能のうち、rootでファイルを開き直すものです。
+** crux インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install crux
+
+
+#+end:
+** 概要                                                             :noexport:
+#+INCLUDE: "include.crux.org"
+「またcruxかよー！」
+そんな声が聞こえてきそうですが、あと2つです。
+
+たった1つの記事で全部紹介するとタイトルに困りますし、
+一日ですべて紹介できるだけの時間もエネルギーも割けません。
+
+というわけで
+もう少しお付き合いいただけると嬉しいです(笑)
+
+今回はcruxの機能のうち、rootでファイルを開き直すものです。
+** M-x crux-sudo-edit
+このコマンドは、カレントバッファのファイルをrootで開き直します。
+たとえばシステム設定ファイルなどを編集したいときがありますが、
+その場合わざわざrootで他のエディタを使うのも面倒ですよね。
+そこで内部でtramp/sudoを使ったこのコマンドが役立ちます。
+
+C-uをつけると任意のファイルをrootで開けます。
+
+[[http://rubikitch.com/2016/07/23/sudo-edit/][sudo-edit.el(レビュー)]] にも *M-x sudo-edit-current-file* という同じ機能のコマンドがあります。
+** M-x crux-reopen-as-root-mode
+これはファイルが書き込み不可な場合に自動でrootで開き直すグローバルマイナーモードです。
+確かに便利そうですが、僕はおすすめしませんね。
+うっかり編集してしまってシステムを動作不能にさせてしまいませんからねぇ…
+
+所詮、利便性には代償が伴うものです。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
