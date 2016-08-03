@@ -1,0 +1,93 @@
+#+BLOG: rubikitch
+#+POSTID: 2603
+#+DATE: [2016-08-03 Wed 10:39]
+#+PERMALINK: crux-emacs-lisp
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, ソース解読推奨, Emacs Lisp, 
+#+EL_PKG_NAME: crux
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, byte-recompile-directory, byte-recompile-file, byte-compile, バイトコンパイル, 設定ファイルをバイトコンパイル, 一括バイトコンパイル, preceding-sexp, backward-kill-sexp, crux-eval-and-replace, crux-recompile-init, init.el バイトコンパイル, relate:bytecomp, カーソル位置のS式を評価, emacsで簡単な計算をする
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 
+#+EL_TITLE0: 一瞬で計算結果を入力する方法＋α
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージcruxの紹介
+#+MYTAGS: package:crux, emacs 使い方, emacs コマンド, emacs, crux, crux.el, emacs lisp crux, elisp crux, emacs melpa crux, emacs crux 使い方, emacs crux 設定, emacs パッケージ crux, byte-recompile-directory, byte-recompile-file, byte-compile, バイトコンパイル, 設定ファイルをバイトコンパイル, 一括バイトコンパイル, preceding-sexp, backward-kill-sexp, crux-eval-and-replace, crux-recompile-init, init.el バイトコンパイル, relate:bytecomp, カーソル位置のS式を評価, emacsで簡単な計算をする
+#+TAGS: package:crux, emacs 使い方, emacs コマンド, emacs, crux, crux.el, emacs lisp crux, elisp crux, emacs melpa crux, emacs crux 使い方, emacs crux 設定, emacs パッケージ crux, byte-recompile-directory, byte-recompile-file, byte-compile, バイトコンパイル, 設定ファイルをバイトコンパイル, 一括バイトコンパイル, preceding-sexp, backward-kill-sexp, crux-eval-and-replace, crux-recompile-init, init.el バイトコンパイル, relate:bytecomp, カーソル位置のS式を評価, emacsで簡単な計算をする, Emacs, ソース解読推奨, Emacs Lisp, , eval-last-sexp
+#+TITLE: emacs crux.el : 一瞬で計算結果を入力する方法＋α | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>crux</td></tr>
+<tr><td>概要(原文)</td><td>A Collection of Ridiculously Useful eXtensions</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/bbatsov/crux">https://github.com/bbatsov/crux</a></td></tr>
+<tr><td>バージョン</td><td>20160725.59</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:crux/">package:crux</a> <a href="http://rubikitch.com/tag/package:bytecomp/">package:bytecomp</a></td></tr>
+</table>
+<br />
+#+END_HTML
+#+INCLUDE: "include.crux.org"
+
+長々続いたcruxシリーズも今日が最後です。
+最後はEmacs Lisp関係のコマンド2つを紹介しますね。
+** crux インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install crux
+
+
+#+end:
+** 概要                                                             :noexport:
+#+INCLUDE: "include.crux.org"
+
+長々続いたcruxシリーズも今日が最後です。
+最後はEmacs Lisp関係のコマンド2つを紹介しますね。
+
+** crux-eval-and-replace
+このコマンドはカーソル位置直前のS式を評価結果に置き換えます。
+
+標準コマンドのC-x C-e (*eval-last-sexp*)もC-uをつければ評価結果を挿入しますが、
+このコマンドはS式を消す(厳密にはキルリングに入れる)点が異なります。
+
+これはS式をそのまま結果に置き換えるため、
+ちょっとした計算結果を入力するときには
+その場でサッとS式を書いてこのコマンドを実行すればいいことになります。
+
+★をカーソル位置とします。
+
+#+BEGIN_EXAMPLE
+(+ 3 7)★
+#+END_EXAMPLE
+
+↓M-x crux-eval-and-replace
+
+#+BEGIN_EXAMPLE
+10
+#+END_EXAMPLE
+
+#+BEGIN_EXAMPLE
+(+ 3 7)★
+#+END_EXAMPLE
+
+↓C-u C-x C-e
+
+#+BEGIN_EXAMPLE
+(+ 3 7)10
+#+END_EXAMPLE
+
+M-x crux-eval-and-replaceの定義はとても簡単で実質3行です。
+
+** crux-recompile-init
+このコマンドは ~/.emacs.d/ 以下の*.elファイルをバイトコンパイルします。
+*.elcが存在しない場合でもバイトコンパイルします。
+
+ちなみに僕は設定ファイルをバイトコンパイルしない人なので使いません。
+設定ファイルまでバイトコンパイルするのは、
+速度向上にほどんと貢献しないばかりか
+管理の手間がかかるからです。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
