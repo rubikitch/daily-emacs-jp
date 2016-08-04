@@ -12,7 +12,8 @@
 #+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, ミニバッファの履歴を保存する, ログ, キャッシュ, ミニバッファ履歴を次回Emacs起動時にも保存する, ミニバッファ, 履歴, history, 保存, キルリング履歴を保存する, 永続化, 変数の値を次回のEmacs起動時に復元させる, relate:pcache, relate:stash, relate:psession, relate:desktop, relate:windows
 #+EL_TITLE: Emacs Lisp Elisp 標準ライブラリ 設定 使い方 
 #+EL_TITLE0: こんなの常識だよ？ミニバッファ履歴を保存する
-#+EL_URL: 
+#+EL_DOC: Save minibuffer history
+#+EL_URL: 標準ライブラリ
 #+begin: org2blog
 #+DESCRIPTION: Emacs Lispパッケージsavehistの紹介
 #+MYTAGS: package:savehist, emacs 使い方, emacs コマンド, emacs, savehist, savehist.el, emacs lisp savehist, elisp savehist, emacs  savehist, emacs savehist 使い方, emacs savehist 設定, emacs パッケージ savehist, ミニバッファの履歴を保存する, ログ, キャッシュ, ミニバッファ履歴を次回Emacs起動時にも保存する, ミニバッファ, 履歴, history, 保存, キルリング履歴を保存する, 永続化, 変数の値を次回のEmacs起動時に復元させる, relate:pcache, relate:stash, relate:psession, relate:desktop, relate:windows
@@ -21,8 +22,9 @@
 #+BEGIN_HTML
 <table>
 <tr><td>パッケージ名</td><td>savehist</td></tr>
-<tr><td>概要(原文)</td><td>EL_DOCに説明文を入れてください</td></tr>
+<tr><td>概要(原文)</td><td>Save minibuffer history</td></tr>
 <tr><td>リポジトリ</td><td>まだパッケージに登録されていない</td></tr>
+<tr><td>サイト</td><td><a href="標準ライブラリ">標準ライブラリ</td></tr>
 <tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:savehist/">package:savehist</a> <a href="http://rubikitch.com/tag/package:pcache/">package:pcache</a> <a href="http://rubikitch.com/tag/package:stash/">package:stash</a> <a href="http://rubikitch.com/tag/package:psession/">package:psession</a> <a href="http://rubikitch.com/tag/package:desktop/">package:desktop</a> <a href="http://rubikitch.com/tag/package:windows/">package:windows</a></td></tr>
 </table>
 <br />
