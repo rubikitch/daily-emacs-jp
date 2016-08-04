@@ -33,7 +33,6 @@ minibuf-historyと名乗っていないだけあって、
 ** 設定 [[http://rubikitch.com/f/160804100929.savehist.el][160804100929.savehist.el(以下のコードと同一)]]
 #+BEGIN: include :file "/r/sync/junk/160804/160804100929.savehist.el"
 #+BEGIN_SRC fundamental
-;; (save-window-excursion (shell-command (format "emacs-test -l test-minimum -l %s %s &" buffer-file-name buffer-file-name)))
 (savehist-mode 1)
 ;;; 永続化する変数を新たに追加する
 (push 'compile-command savehist-additional-variables)
@@ -48,6 +47,3 @@ minibuf-historyと名乗っていないだけあって、
 $ wget http://rubikitch.com/f/160804100929.savehist.el
 $ emacs -Q -f package-initialize -l 160804100929.savehist.el
 #+END_EXAMPLE
-
-
-# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
