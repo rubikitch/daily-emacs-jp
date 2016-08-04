@@ -1,0 +1,91 @@
+#+BLOG: rubikitch
+#+POSTID: 2610
+#+DATE: [2016-08-04 Thu 10:00]
+#+PERMALINK: savehist
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs
+#+EL_PKG_NAME: savehist
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, ミニバッファの履歴を保存する, ログ, キャッシュ, ミニバッファ履歴を次回Emacs起動時にも保存する, ミニバッファ, 履歴, history, 保存, キルリング履歴を保存する, 永続化, 変数の値を次回のEmacs起動時に復元させる, relate:pcache, relate:stash, relate:psession, relate:desktop, relate:windows
+#+EL_TITLE: Emacs Lisp Elisp 標準ライブラリ 設定 使い方 
+#+EL_TITLE0: こんなの常識だよ？ミニバッファ履歴を保存する
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: Emacs Lispパッケージsavehistの紹介
+#+MYTAGS: package:savehist, emacs 使い方, emacs コマンド, emacs, savehist, savehist.el, emacs lisp savehist, elisp savehist, emacs  savehist, emacs savehist 使い方, emacs savehist 設定, emacs パッケージ savehist, ミニバッファの履歴を保存する, ログ, キャッシュ, ミニバッファ履歴を次回Emacs起動時にも保存する, ミニバッファ, 履歴, history, 保存, キルリング履歴を保存する, 永続化, 変数の値を次回のEmacs起動時に復元させる, relate:pcache, relate:stash, relate:psession, relate:desktop, relate:windows
+#+TAGS: package:savehist, emacs 使い方, emacs コマンド, emacs, savehist, savehist.el, emacs lisp savehist, elisp savehist, emacs  savehist, emacs savehist 使い方, emacs savehist 設定, emacs パッケージ savehist, ミニバッファの履歴を保存する, ログ, キャッシュ, ミニバッファ履歴を次回Emacs起動時にも保存する, ミニバッファ, 履歴, history, 保存, キルリング履歴を保存する, 永続化, 変数の値を次回のEmacs起動時に復元させる, relate:pcache, relate:stash, relate:psession, relate:desktop, relate:windows, Emacs, savehist-mode, compile-command, kill-ring, savehist-additional-variables, savehist-ignored-variables, savehist-mode, compile-command, kill-ring, savehist-additional-variables, savehist-ignored-variables
+#+TITLE: emacs savehist.el : こんなの常識だよ？ミニバッファ履歴を保存する |  Emacs Lisp Elisp 標準ライブラリ 設定 使い方 
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>savehist</td></tr>
+<tr><td>概要(原文)</td><td>EL_DOCに説明文を入れてください</td></tr>
+<tr><td>リポジトリ</td><td>まだパッケージに登録されていない</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:savehist/">package:savehist</a> <a href="http://rubikitch.com/tag/package:pcache/">package:pcache</a> <a href="http://rubikitch.com/tag/package:stash/">package:stash</a> <a href="http://rubikitch.com/tag/package:psession/">package:psession</a> <a href="http://rubikitch.com/tag/package:desktop/">package:desktop</a> <a href="http://rubikitch.com/tag/package:windows/">package:windows</a></td></tr>
+</table>
+<br />
+#+END_HTML
+
+久々に標準ライブラリの紹介です。
+*savehist-mode* というマイナーモードを有効にすることで、
+ミニバッファの履歴を自動的に保存するようになり、
+次回Emacsを起動したときに復元されるようになります。
+
+minibuf-historyと名乗っていないだけあって、
+この機能は *compile-command* や *kill-ring* など
+ミニバッファ以外の履歴を保存するのにも使えます。
+
+そのときは *savehist-additional-variables* に変数名を加えてください。
+
+一方で、 *savehist-ignored-variables* を設定することで、
+保存しないミニバッファ履歴の変数を指定できます。
+
+履歴が保存されるファイルは昔は ~/.emacs-history でしたが、今は ~/.emacs.d/history 推奨です。
+古いファイル名を使っているならば、そのままリネームすればディレクトリが綺麗になります。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+** savehist インストール
+これはまだパッケージ化されていないので、[[http://rubikitch.com/package-initialize/#sec-2][手動でインストール]] する必要があります。
+
+
+#+end:
+** 概要                                                             :noexport:
+
+久々に標準ライブラリの紹介です。
+*savehist-mode* というマイナーモードを有効にすることで、
+ミニバッファの履歴を自動的に保存するようになり、
+次回Emacsを起動したときに復元されるようになります。
+
+minibuf-historyと名乗っていないだけあって、
+この機能は *compile-command* や *kill-ring* など
+ミニバッファ以外の履歴を保存するのにも使えます。
+
+そのときは *savehist-additional-variables* に変数名を加えてください。
+
+一方で、 *savehist-ignored-variables* を設定することで、
+保存しないミニバッファ履歴の変数を指定できます。
+
+履歴が保存されるファイルは昔は ~/.emacs-history でしたが、今は ~/.emacs.d/history 推奨です。
+古いファイル名を使っているならば、そのままリネームすればディレクトリが綺麗になります。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+** 設定 [[http://rubikitch.com/f/160804100929.savehist.el][160804100929.savehist.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/160804/160804100929.savehist.el"
+#+BEGIN_SRC fundamental
+;; (save-window-excursion (shell-command (format "emacs-test -l test-minimum -l %s %s &" buffer-file-name buffer-file-name)))
+(savehist-mode 1)
+;;; 永続化する変数を新たに追加する
+(push 'compile-command savehist-additional-variables)
+;;; 永続化しないミニバッファ履歴の変数を追加する
+(push 'command-history savehist-ignored-variables)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/160804100929.savehist.el
+$ emacs -Q -f package-initialize -l 160804100929.savehist.el
+#+END_EXAMPLE
