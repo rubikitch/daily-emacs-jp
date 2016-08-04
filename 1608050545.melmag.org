@@ -1,0 +1,27 @@
+#+BLOG: rubikitch
+#+POSTID: 2617
+#+DATE: [2016-08-05 Fri 05:45]
+#+PERMALINK: melmag
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: メルマガ,
+#+DESCRIPTION: るびきち塾メルマガ『Emacsの鬼るびきちのココだけの話#245』の予告
+#+TITLE: 【るびきち塾メルマガ#245】NEW大人の勉強法(後編)
+#+MYTAGS: 
+#+begin: org2blog-tags
+#+TAGS: , メルマガ,, 
+#+end:
+先週から引き続き大人の勉強法です。
+検索重視にメモを蓄積していくことが要点でしたね。
+
+今回のメルマガであなたが得られる結果は以下のものです。
+- 強力な絞り込み検索ツールの紹介
+- 具体的にEmacsでメモを絞り込み検索する方法
+- 失敗を失敗でなくす方法
+- 行動力を上げる方法
+- 僕が辿り着いた正解
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
