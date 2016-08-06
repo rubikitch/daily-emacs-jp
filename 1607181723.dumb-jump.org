@@ -1,4 +1,4 @@
-^#+BLOG: rubikitch
+#+BLOG: rubikitch
 #+POSTID: 2487
 #+DATE: [2016-07-18 Mon 17:23]
 #+PERMALINK: dumb-jump
