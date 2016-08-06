@@ -9,10 +9,10 @@
 #+BLOG: rubikitch
 #+CATEGORY: Emacs, Emacs Lisp, 
 #+DESCRIPTION: 
-#+MYTAGS: emacs syntax table, emacs シンタックスハイライト 設定, emacs 構文チェック, syntax highlighting, invalid read syntax, 
+#+MYTAGS: , emacs シンタックスハイライト 設定, emacs 構文チェック, , invalid read syntax, 
 #+TITLE: Emacs Lisp: サルでも分かるシンタックステーブル入門！対応する括弧もコメントアウトも思いのまま
 #+begin: org2blog-tags
-#+TAGS: emacs syntax table, emacs シンタックスハイライト 設定, emacs 構文チェック, syntax highlighting, invalid read syntax, , Emacs, Emacs Lisp, , シンタックステーブル, syntax-table, 構文テーブル, 対応する括弧, コメントアウト, キャラクタコード, char-syntax, 構文クラス, 白文字, 単語構成文字, シンボル構成文字, 句読点文字, 開き括弧文字, 閉じ括弧文字, 文字列クォート, エスケープ, コメント開始, コメント終了, skip-syntax-forward, M-x eval-region, char-syntax, font-lock-mode, font-lock-fontify-buffer, font-lock-add-keywords, font-lock-comment-face, コメントスタイル, comment-dwim, comment-start, newcomment.el
+#+TAGS: , emacs シンタックスハイライト 設定, emacs 構文チェック, , invalid read syntax, , Emacs, Emacs Lisp, , シンタックステーブル, syntax-table, 構文テーブル, 対応する括弧, コメントアウト, キャラクタコード, char-syntax, 構文クラス, 白文字, 単語構成文字, シンボル構成文字, 句読点文字, 開き括弧文字, 閉じ括弧文字, 文字列クォート, エスケープ, コメント開始, コメント終了, skip-syntax-forward, M-x eval-region, char-syntax, font-lock-mode, font-lock-fontify-buffer, font-lock-add-keywords, font-lock-comment-face, コメントスタイル, comment-dwim, comment-start, newcomment.el
 #+end:
 今日はなんと、僕そして
 /Emacs界に大きなプレゼントがあります！/
