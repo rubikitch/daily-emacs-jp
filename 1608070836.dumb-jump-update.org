@@ -1,0 +1,35 @@
+#+BLOG: rubikitch
+#+POSTID: 2627
+#+DATE: [2016-08-07 Sun 08:36]
+#+PERMALINK: dumb-jump-update
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, 記事更新情報, 
+#+DESCRIPTION: 
+#+MYTAGS: 
+#+TITLE: 【速報】定義ジャンプのdumb-jumpが大進化しました！
+#+begin: org2blog-tags
+#+TAGS: , Emacs, 記事更新情報, , 
+#+end:
+http://rubikitch.com/2016/07/18/dumb-jump/
+
+Emacsを使うプログラマの皆さん！
+/嬉しいお知らせです！！/
+
+お手軽関数・変数定義ジャンプツールdumb-jumpが
+十分実用的なレベルに到達しました！！！
+
+以前のバージョンだとごく一般的な定義にはジャンプできていましたが、
+DSLやマクロなどで定義されたシンボルには対応できず、
+「見付かりません」と表示されるだけでした。
+
+しかし、<2016-08-07 Sun>のバージョンからは
+シンボル検索にfallbackするため、
+特殊な定義であってもジャンプできるようになりました。
+
+便利なのでぜひともあなたの武器として活用してみてください。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
