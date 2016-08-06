@@ -1,4 +1,4 @@
-#+BLOG: rubikitch
+^#+BLOG: rubikitch
 #+POSTID: 2487
 #+DATE: [2016-07-18 Mon 17:23]
 #+PERMALINK: dumb-jump
@@ -11,24 +11,30 @@
 #+EL_PKG_NAME: dumb-jump
 #+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, relate:ag, relate:etags, relate:gtags, relate:robe, relate:elpy, 関数定義へジャンプ, 変数定義へジャンプ, ソースコード検索, exuberant-ctags, GNU Global, ctags, etags, タグファイル, TAGS, ソースコードgrep検索, ag, the_silver_searcher, relate:popup
 #+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+EL_TITLE0: すぐ使える多言語対応関数・変数定義ジャンパー
+#+EL_TITLE0: <2016-08-07 Sun>更新！すぐ使える多言語対応関数・変数定義ジャンパー
 #+EL_URL: 
 #+begin: org2blog
 #+DESCRIPTION: MELPAのEmacs Lispパッケージdumb-jumpの紹介
 #+MYTAGS: package:dumb-jump, emacs 使い方, emacs コマンド, emacs, dumb-jump, dumb-jump.el, emacs lisp dumb-jump, elisp dumb-jump, emacs melpa dumb-jump, emacs dumb-jump 使い方, emacs dumb-jump 設定, emacs パッケージ dumb-jump, emacs dumb-jump スクリーンショット, relate:ag, relate:etags, relate:gtags, relate:robe, relate:elpy, 関数定義へジャンプ, 変数定義へジャンプ, ソースコード検索, exuberant-ctags, GNU Global, ctags, etags, タグファイル, TAGS, ソースコードgrep検索, ag, the_silver_searcher, relate:popup
 #+TAGS: package:dumb-jump, emacs 使い方, emacs コマンド, emacs, dumb-jump, dumb-jump.el, emacs lisp dumb-jump, elisp dumb-jump, emacs melpa dumb-jump, emacs dumb-jump 使い方, emacs dumb-jump 設定, emacs パッケージ dumb-jump, emacs dumb-jump スクリーンショット, relate:ag, relate:etags, relate:gtags, relate:robe, relate:elpy, 関数定義へジャンプ, 変数定義へジャンプ, ソースコード検索, exuberant-ctags, GNU Global, ctags, etags, タグファイル, TAGS, ソースコードgrep検索, ag, the_silver_searcher, relate:popup, Emacs, find-function, find-function, dumb-jump-go, dumb-jump-back, dumb-jump-quick-look, dumb-jump-language-file-exts, dumb-jump-language-contexts
-#+TITLE: emacs dumb-jump.el : すぐ使える多言語対応関数・変数定義ジャンパー | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TITLE: emacs dumb-jump.el : <2016-08-07 Sun>更新！すぐ使える多言語対応関数・変数定義ジャンパー | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
 #+BEGIN_HTML
 <table>
 <tr><td>パッケージ名</td><td>dumb-jump</td></tr>
 <tr><td>概要(原文)</td><td>jump to definition for multiple languages without configuration.</td></tr>
 <tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
 <tr><td>取得先</td><td><a href="https://github.com/jacktasia/dumb-jump">https://github.com/jacktasia/dumb-jump</a></td></tr>
-<tr><td>バージョン</td><td>20160715.1740</td></tr>
+<tr><td>バージョン</td><td>20160805.2149</td></tr>
 <tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:dumb-jump/">package:dumb-jump</a> <a href="http://rubikitch.com/tag/package:ag/">package:ag</a> <a href="http://rubikitch.com/tag/package:etags/">package:etags</a> <a href="http://rubikitch.com/tag/package:gtags/">package:gtags</a> <a href="http://rubikitch.com/tag/package:robe/">package:robe</a> <a href="http://rubikitch.com/tag/package:elpy/">package:elpy</a> <a href="http://rubikitch.com/tag/package:popup/">package:popup</a></td></tr>
 </table>
 <br />
 #+END_HTML
+<2016-08-07 Sun>更新
+以前のバージョンでは動的言語によるDSLで
+定義された関数・変数定義にジャンプできませんでしたが、
+現在のバージョンからはジャンプできるようになりました！！
+これで安心してお手軽タグジャンプツールとして使えるようになりました。
+
 dumb-jump.elは複数のプログラミング言語に対応した
 関数・変数定義にジャンプするパッケージです。
 タグファイルなどは使わず[[https://github.com/ggreer/the_silver_searcher][ag(the_silver_searcher)]]を使うのが特徴です。
@@ -45,15 +51,21 @@ agがインストールされていない場合はgrepを使いますが、
 速度面などの観点から是非ともagをインストールしておいた方がいいです。
 
 このパッケージの特徴は、TAGSファイルなどを使わずに
-カレントバッファのメジャーモードや拡張子に応じて
+カレントバッファのメジャーモードや拡張子に応じてプログラミング言語を判別し、
 ag(grep)に渡す正規表現を決定し、定義と思われる場所にジャンプします。
+
+一般的にプログラミング言語では関数・変数定義の構文が決まっているので、
+それに基づいてカーソル位置のシンボルの定義の正規表現を決定します。
+<2016-08-07 Sun>からはそれで見付からない場合はカーソル位置のシンボルを検索します(fallback)。
 
 もし、一箇所に決定できない場合はポップアップメニューで選択肢が出てきます。
 
-動的言語によるDSLまでは対応していませんが、
-普通の関数定義・変数定義にはジャンプできる程度の精度はあります。
-たとえばelispでいえばdefine-minor-modeなどで定義された関数にはジャンプできません。
-elispでは素直にファイルをロードして *find-function* などでジャンプする方が確実です。
++動的言語によるDSLまでは対応していませんが、+
++普通の関数定義・変数定義にはジャンプできる程度の精度はあります。+
++たとえばelispでいえばdefine-minor-modeなどで定義された関数にはジャンプできません。+
+<2016-08-07 Sun>からDSLによる定義でもジャンプ可能になりました。
+
+elispでは素直にファイルをロードして *find-function* などでジャンプする方が確実です。 
 ** dumb-jump インストール
 このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
 
@@ -63,6 +75,12 @@ M-x package-install dumb-jump
 
 #+end:
 ** 概要                                                             :noexport:
+<2016-08-07 Sun>更新
+以前のバージョンでは動的言語によるDSLで
+定義された関数・変数定義にジャンプできませんでしたが、
+現在のバージョンからはジャンプできるようになりました！！
+これで安心してお手軽タグジャンプツールとして使えるようになりました。
+
 dumb-jump.elは複数のプログラミング言語に対応した
 関数・変数定義にジャンプするパッケージです。
 タグファイルなどは使わず[[https://github.com/ggreer/the_silver_searcher][ag(the_silver_searcher)]]を使うのが特徴です。
@@ -79,15 +97,21 @@ agがインストールされていない場合はgrepを使いますが、
 速度面などの観点から是非ともagをインストールしておいた方がいいです。
 
 このパッケージの特徴は、TAGSファイルなどを使わずに
-カレントバッファのメジャーモードや拡張子に応じて
+カレントバッファのメジャーモードや拡張子に応じてプログラミング言語を判別し、
 ag(grep)に渡す正規表現を決定し、定義と思われる場所にジャンプします。
+
+一般的にプログラミング言語では関数・変数定義の構文が決まっているので、
+それに基づいてカーソル位置のシンボルの定義の正規表現を決定します。
+<2016-08-07 Sun>からはそれで見付からない場合はカーソル位置のシンボルを検索します(fallback)。
 
 もし、一箇所に決定できない場合はポップアップメニューで選択肢が出てきます。
 
-動的言語によるDSLまでは対応していませんが、
-普通の関数定義・変数定義にはジャンプできる程度の精度はあります。
-たとえばelispでいえばdefine-minor-modeなどで定義された関数にはジャンプできません。
-elispでは素直にファイルをロードして *find-function* などでジャンプする方が確実です。
++動的言語によるDSLまでは対応していませんが、+
++普通の関数定義・変数定義にはジャンプできる程度の精度はあります。+
++たとえばelispでいえばdefine-minor-modeなどで定義された関数にはジャンプできません。+
+<2016-08-07 Sun>からDSLによる定義でもジャンプ可能になりました。
+
+elispでは素直にファイルをロードして *find-function* などでジャンプする方が確実です。 
 ** 対応言語
 - JavaScript
 - Emacs Lisp
@@ -148,7 +172,9 @@ dumb-jump.elと同じディレクトリにelファイルを作成します。
   (dumb-jump-go))
 #+END_SRC
 
-dumb-jump-modeはdefine-minor-modeによる定義なのでジャンプできませんが、
++dumb-jump-modeはdefine-minor-modeによる定義なのでジャンプできませんが、+
+<2016-08-07 Sun>からはdumb-jump-modeの定義にもジャンプできます。
+
 dumb-jump-goはpopup.elによる選択肢が現れます。
 C-p/C-nで選択してRETで決定します。
 
