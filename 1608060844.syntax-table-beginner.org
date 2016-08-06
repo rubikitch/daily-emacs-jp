@@ -12,7 +12,7 @@
 #+MYTAGS: , emacs シンタックスハイライト 設定, emacs 構文チェック, , invalid read syntax, 
 #+TITLE: Emacs Lisp: サルでも分かるシンタックステーブル入門！対応する括弧もコメントアウトも思いのまま
 #+begin: org2blog-tags
-#+TAGS: , emacs シンタックスハイライト 設定, emacs 構文チェック, , invalid read syntax, , Emacs, Emacs Lisp, , シンタックステーブル, syntax-table, 構文テーブル, 対応する括弧, コメントアウト, キャラクタコード, char-syntax, 構文クラス, 白文字, 単語構成文字, シンボル構成文字, 句読点文字, 開き括弧文字, 閉じ括弧文字, 文字列クォート, エスケープ, コメント開始, コメント終了, skip-syntax-forward, M-x eval-region, char-syntax, font-lock-mode, font-lock-fontify-buffer, font-lock-add-keywords, font-lock-comment-face, コメントスタイル, comment-dwim, comment-start, newcomment.el
+#+TAGS: , emacs シンタックスハイライト 設定, emacs 構文チェック, , invalid read syntax, , Emacs, Emacs Lisp, , シンタックステーブル, syntax-table, 構文テーブル, 対応する括弧, コメントアウト, キャラクタコード, char-syntax, 構文クラス, 白文字, 単語構成文字, シンボル構成文字, 句読点文字, 開き括弧文字, 閉じ括弧文字, 文字列クォート, エスケープ, コメント開始, コメント終了, skip-syntax-forward, modify-syntax-entry, M-x eval-region, char-syntax, font-lock-mode, font-lock-fontify-buffer, font-lock-add-keywords, font-lock-comment-face, コメントスタイル, comment-dwim, comment-start, newcomment.el
 #+end:
 今日はなんと、僕そして
 /Emacs界に大きなプレゼントがあります！/
@@ -187,7 +187,7 @@ M-: (skip-syntax-forward "w")
 
 ** syntax-entryの保存
 
-これから使うmodify-syntax-entryという関数は、既存のシンタックステーブルを破壊的に変更する関数です。
+これから使う *modify-syntax-entry* という関数は、既存のシンタックステーブルを破壊的に変更する関数です。
 ちくちくと戻すこともできますが、もとの状態を一気に復元できるようにしておきましょう。以下の関数は、るびきちさんがシンタックステーブル勉強用に用意してくださった関数です。三つのS式があるので、それぞれの式の末尾でC-x C-eするか、コード全体をリージョンにして *M-x eval-region* を実行してください。
 
 #+BEGIN_SRC emacs-lisp :results silent
