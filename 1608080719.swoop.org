@@ -1,0 +1,157 @@
+#+BLOG: rubikitch
+#+POSTID: 2639
+#+DATE: [2016-08-08 Mon 07:19]
+#+PERMALINK: swoop
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs
+#+EL_PKG_NAME: swoop
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, relate:helm-swoop, relate:swiper, relate:ido-occur, relate:loccur, relate:ht, relate:async, relate:pcre2el, swoop-migemo, swoop-from-isearch, relate:all, relate:all-ext, isearch occur, incremental occur isearch
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: 【helmなしでこの実力】バッファ全体をMigemo絞り込みインクリメンタル検索！独自機能有
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージswoopの紹介
+#+MYTAGS: package:swoop, emacs 使い方, emacs コマンド, emacs, swoop, swoop.el, emacs lisp swoop, elisp swoop, emacs melpa swoop, emacs swoop 使い方, emacs swoop 設定, emacs パッケージ swoop, emacs swoop スクリーンショット, relate:helm-swoop, relate:swiper, relate:ido-occur, relate:loccur, relate:ht, relate:async, relate:pcre2el, swoop-migemo, swoop-from-isearch, relate:all, relate:all-ext, isearch occur, incremental occur isearch
+#+TAGS: package:swoop, emacs 使い方, emacs コマンド, emacs, swoop, swoop.el, emacs lisp swoop, elisp swoop, emacs melpa swoop, emacs swoop 使い方, emacs swoop 設定, emacs パッケージ swoop, emacs swoop スクリーンショット, relate:helm-swoop, relate:swiper, relate:ido-occur, relate:loccur, relate:ht, relate:async, relate:pcre2el, swoop-migemo, swoop-from-isearch, relate:all, relate:all-ext, isearch occur, incremental occur isearch, Emacs, swoop.el, M-x swoop-migemo, swoop.el, M-x swoop-migemo
+#+TITLE: emacs swoop.el : 【helmなしでこの実力】バッファ全体をMigemo絞り込みインクリメンタル検索！独自機能有 | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>swoop</td></tr>
+<tr><td>概要(原文)</td><td>Peculiar buffer navigation for Emacs</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/ShingoFukuyama/emacs-swoop">https://github.com/ShingoFukuyama/emacs-swoop</a></td></tr>
+<tr><td>バージョン</td><td>20160120.915</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:swoop/">package:swoop</a> <a href="http://rubikitch.com/tag/package:helm-swoop/">package:helm-swoop</a> <a href="http://rubikitch.com/tag/package:swiper/">package:swiper</a> <a href="http://rubikitch.com/tag/package:ido-occur/">package:ido-occur</a> <a href="http://rubikitch.com/tag/package:loccur/">package:loccur</a> <a href="http://rubikitch.com/tag/package:ht/">package:ht</a> <a href="http://rubikitch.com/tag/package:async/">package:async</a> <a href="http://rubikitch.com/tag/package:pcre2el/">package:pcre2el</a> <a href="http://rubikitch.com/tag/package:all/">package:all</a> <a href="http://rubikitch.com/tag/package:all-ext/">package:all-ext</a></td></tr>
+</table>
+<br />
+#+END_HTML
+まだレビューしていない興味深いパッケージがありました！
+
+*swoop.el* は [[http://rubikitch.com/2014/12/25/helm-swoop/][helm-swoop(大々的レビュー)]] と同じ作者による同種のパッケージです。
+一言で言えばisearchとoccurのいいとこどりで、
+文字入力するたびに検索結果表示が変わります。
+最近は活発には更新されていませんが、
+helmに依存していない分トラブルに強いと思います。
+
+使い方もhelm-swoopとほぼ同じです。
+isearchからswoopに移行できるし、
+migemoにも対応しているし、
+絞り込み検索もできます。
+
+最近helm-swoopの挙動が不安定になってきたので、
+前作のswoopに興味が出てきました。
+
+swoopは内部でasyncライブラリが使われており、
+新規Emacsプロセスを立ち上げて検索をしています。
+疑似マルチスレッドですね。
+
+そしてhelm-swoopにない面白い機能が存在します。
+それは、swoop中にswoop対象となるバッファの
+フォントサイズを変更できる点にあります。
+swoop対象バッファのフォントを小さくすることで、
+表示行数を稼ぐことが可能になります。
+
+helm非依存の類似パッケージに[[http://rubikitch.com/2015/03/18/swiper/][swiper(レビュー)]] がありますが、
+あっちは絞り込み検索やmigemoに対応していません。
+一見対応しているように思えますが、
+実はクエリ中のスペースを「.*」でつなげた
+正規表現を作成しているだけなので、
+厳密な絞り込み検索ではありません。
+migemo非対応は非日本人が開発者なので致し方ありませんが…
+
+僕はhelm-swoopからswoopに乗り換えてみようと思います。
+
+C-u C-sで *M-x swoop-migemo* が立ち上がるように設定しました。
+また、isearchからC-oでもswoopに移行できます。
+
+まだまだ機能は豊富なので、分かり次第レビューします。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160808074357.png]]
+Fig1: C-u C-s。helm-swoopと同様だが、フォントサイズが小さくなっている点に注目
+** swoop インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install swoop
+
+
+#+end:
+** 概要                                                             :noexport:
+まだレビューしていない興味深いパッケージがありました！
+
+*swoop.el* は [[http://rubikitch.com/2014/12/25/helm-swoop/][helm-swoop(大々的レビュー)]] と同じ作者による同種のパッケージです。
+一言で言えばisearchとoccurのいいとこどりで、
+文字入力するたびに検索結果表示が変わります。
+最近は活発には更新されていませんが、
+helmに依存していない分トラブルに強いと思います。
+
+使い方もhelm-swoopとほぼ同じです。
+isearchからswoopに移行できるし、
+migemoにも対応しているし、
+絞り込み検索もできます。
+
+最近helm-swoopの挙動が不安定になってきたので、
+前作のswoopに興味が出てきました。
+
+swoopは内部でasyncライブラリが使われており、
+新規Emacsプロセスを立ち上げて検索をしています。
+疑似マルチスレッドですね。
+
+そしてhelm-swoopにない面白い機能が存在します。
+それは、swoop中にswoop対象となるバッファの
+フォントサイズを変更できる点にあります。
+swoop対象バッファのフォントを小さくすることで、
+表示行数を稼ぐことが可能になります。
+
+helm非依存の類似パッケージに[[http://rubikitch.com/2015/03/18/swiper/][swiper(レビュー)]] がありますが、
+あっちは絞り込み検索やmigemoに対応していません。
+一見対応しているように思えますが、
+実はクエリ中のスペースを「.*」でつなげた
+正規表現を作成しているだけなので、
+厳密な絞り込み検索ではありません。
+migemo非対応は非日本人が開発者なので致し方ありませんが…
+
+僕はhelm-swoopからswoopに乗り換えてみようと思います。
+
+C-u C-sで *M-x swoop-migemo* が立ち上がるように設定しました。
+また、isearchからC-oでもswoopに移行できます。
+
+まだまだ機能は豊富なので、分かり次第レビューします。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160808074357.png]]
+Fig2: C-u C-s。helm-swoopと同様だが、フォントサイズが小さくなっている点に注目
+
+** 設定 [[http://rubikitch.com/f/160808074006.swoop.el][160808074006.swoop.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/160808/160808074006.swoop.el"
+#+BEGIN_SRC fundamental
+;;; C-u C-sでswoop-migemo
+(defun isearch-forward-or-swoop-migemo (use-swoop)
+  (interactive "P")
+  (let (current-prefix-arg)
+    (call-interactively (if use-swoop 'swoop-migemo 'isearch-forward))))
+(global-set-key (kbd "C-s") 'isearch-forward-or-swoop-migemo)
+;;; isearchからC-oでswoopへ移行
+(define-key isearch-mode-map (kbd "C-o") 'swoop-from-isearch)
+;;; 0.4秒ごとに更新すると重くならない
+(setq swoop-minibuffer-input-dilay 0.4)
+;;; swoop対象バッファのフォントを小さくする
+(setq swoop-font-size: 0.5)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/160808074006.swoop.el
+$ emacs -Q -f package-initialize -l 160808074006.swoop.el
+#+END_EXAMPLE
+
+# /r/sync/screenshots/20160808074357.png http://rubikitch.com/wp-content/uploads/2016/08/20160808074357.png
