@@ -2,7 +2,7 @@
 #+POSTID: 2620
 #+DATE: [2016-08-06 Sat 08:44]
 #+PERMALINK: syntax-table-beginner
-#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':
 #+ISPAGE: nil
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
