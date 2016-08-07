@@ -246,7 +246,8 @@ M-: (skip-syntax-forward "w")
 #+BEGIN_EXAMPLE
 `The quick brown fox jumps over the lazy dog'
 #+END_EXAMPLE
-構文クラスを確認すると、"`"に"\("、"'"に"\)"があたっています。それぞれ「開き括弧文字」と、「閉じ括弧文字」です。
+構文クラスを確認すると、"`"に"\("、
+"'"に"\)"があたっています。それぞれ「開き括弧文字」と、「閉じ括弧文字」です。
 
 #+BEGIN_EXAMPLE
 (char-syntax ?`) => 40 (#o50, #x28, ?\()
