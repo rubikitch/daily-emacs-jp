@@ -402,7 +402,7 @@ C-c C-vで、カーソル位置がコメントアウトならt、そうなけれ
 #+BEGIN_EXAMPLE
 (font-lock-add-keywords nil '(("^# .+" . font-lock-comment-face)))
 #+END_EXAMPLE
-
+　
 #+BEGIN_EXAMPLE
 # comment like face
 #+END_EXAMPLE
