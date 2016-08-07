@@ -373,7 +373,7 @@ NEWENTRYは、次のような読み解きになります。
 (modify-syntax-entry ?\r ">")
 (modify-syntax-entry ?\n ">")
 #+END_EXAMPLE
-
+　
 #+BEGIN_EXAMPLE
 // comment
 # comment
