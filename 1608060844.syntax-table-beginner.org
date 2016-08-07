@@ -12,7 +12,7 @@
 #+MYTAGS: , emacs シンタックスハイライト 設定, emacs 構文チェック, , invalid read syntax, 
 #+TITLE: Emacs Lisp: サルでも分かるシンタックステーブル入門！対応する括弧もコメントアウトも思いのまま(寄稿)
 #+begin: org2blog-tags
-#+TAGS: , emacs シンタックスハイライト 設定, emacs 構文チェック, , invalid read syntax, , Emacs, Emacs Lisp, , シンタックステーブル, syntax-table, 構文テーブル, 対応する括弧, コメントアウト, キャラクタコード, char-syntax, 構文クラス, 白文字, 単語構成文字, シンボル構成文字, 句読点文字, 開き括弧文字, 閉じ括弧文字, 文字列クォート, エスケープ, コメント開始, コメント終了, skip-syntax-forward, modify-syntax-entry, M-x eval-region, font-lock-mode, font-lock-fontify-buffer, コメントスタイル, comment-dwim, comment-start, newcomment.el
+#+TAGS: , emacs シンタックスハイライト 設定, emacs 構文チェック, , invalid read syntax, , Emacs, Emacs Lisp, , シンタックステーブル, syntax-table, 構文テーブル, 対応する括弧, コメントアウト, キャラクタコード, char-syntax, 構文クラス, 白文字, 単語構成文字, シンボル構成文字, 句読点文字, 開き括弧文字, 閉じ括弧文字, 文字列クォート, エスケープ, コメント開始, コメント終了, skip-syntax-forward, modify-syntax-entry, M-x eval-region, font-lock-mode, font-lock-fontify-buffer, コメントスタイル, ／"）の1文字目──つまり今回の例だと", comment-dwim, comment-start, newcomment.el
 #+end:
 今日はなんと、僕そして
 /Emacs界に大きなプレゼントがあります！/
@@ -463,7 +463,7 @@ multiline comment out sample
 
 今回NEWENRTYに顔を出したのは、"b"です。この"b"は便宜的に「 *コメントスタイル* 」と呼びます。じつは無指定の状態だとコメントスタイル"a"が割り振られることになっています。"*"にあてられた「コメント終了」の役割は"a"のスタイルに対しては行わない、"b"のスタイルで使いますよ、という設定が"b"なのです。
 
-コメントスタイル"a"や、コメントスタイル"b"、あとで"c"も出てきますが、これらはいったいなんでしょうか？ modify-syntax-entryのヘルプによれば、コメントスタイル"a"についてはとくに説明がありませんが、"b"は、コメント開始句（"/*"）の2文字目とコメント終了句（"*/"）の1文字目──つまり今回の例だと"*"の位置が、コメントであるかどうかを決定する、と書いてあります。
+コメントスタイル"a"や、コメントスタイル"b"、あとで"c"も出てきますが、これらはいったいなんでしょうか？ modify-syntax-entryのヘルプによれば、コメントスタイル"a"についてはとくに説明がありませんが、"b"は、コメント開始句（"／*"）の2文字目とコメント終了句（"*／"）の1文字目──つまり今回の例だと"*"の位置が、コメントであるかどうかを決定する、と書いてあります。
 
 すこし先取りして書きますが、コメントスタイル"c"は、コメント句（"/*"や"*/"や"//"など、コメント領域を特定するまとまり）のそれぞれの文字がコメントかどうかを決定するそうです。
 
