@@ -12,7 +12,7 @@
 #+MYTAGS: , emacs シンタックスハイライト 設定, emacs 構文チェック, , invalid read syntax, 
 #+TITLE: Emacs Lisp: サルでも分かるシンタックステーブル入門！対応する括弧もコメントアウトも思いのまま(寄稿)
 #+begin: org2blog-tags
-#+TAGS: , emacs シンタックスハイライト 設定, emacs 構文チェック, , invalid read syntax, , Emacs, Emacs Lisp, , シンタックステーブル, syntax-table, 構文テーブル, 対応する括弧, コメントアウト, キャラクタコード, char-syntax, 構文クラス, 白文字, 単語構成文字, シンボル構成文字, 句読点文字, 開き括弧文字, 閉じ括弧文字, 文字列クォート, エスケープ, コメント開始, コメント終了, skip-syntax-forward, modify-syntax-entry, M-x eval-region, char-syntax, font-lock-mode, font-lock-fontify-buffer, font-lock-add-keywords, font-lock-comment-face, コメントスタイル, comment-dwim, comment-start, newcomment.el
+#+TAGS: , emacs シンタックスハイライト 設定, emacs 構文チェック, , invalid read syntax, , Emacs, Emacs Lisp, , シンタックステーブル, syntax-table, 構文テーブル, 対応する括弧, コメントアウト, キャラクタコード, char-syntax, 構文クラス, 白文字, 単語構成文字, シンボル構成文字, 句読点文字, 開き括弧文字, 閉じ括弧文字, 文字列クォート, エスケープ, コメント開始, コメント終了, skip-syntax-forward, modify-syntax-entry, M-x eval-region, font-lock-mode, font-lock-fontify-buffer, コメントスタイル, comment-dwim, comment-start, newcomment.el
 #+end:
 今日はなんと、僕そして
 /Emacs界に大きなプレゼントがあります！/
@@ -86,25 +86,30 @@ Emacsは文字一つひとつに *シンタックステーブル* （ *syntax-ta
 シンタックステーブル理解のために、?を伴った記法を確認します。
 Emacsでは、文字の前に?を置いて評価すると、文字の *キャラクタコード* 等を返してくれます。
 
+#+BEGIN_EXAMPLE
 ?a
-
+#+END_EXAMPLE
 "?a"のすぐあとにかーソルを移動し、評価（C-x C-e）してください。
 
+#+BEGIN_EXAMPLE
 97 (#o141, #x61, ?a)
-
+#+END_EXAMPLE
 が返ってきます。答え合わせをすると、
 
+#+BEGIN_EXAMPLE
 (insert (char-to-string 97))
-
+#+END_EXAMPLE
 を評価したら、期待通り"a"が入力されます。エスケープ付きの文字だと、こんな感じ（バックスペースの例）。
 
+#+BEGIN_EXAMPLE
 ?\b => 8 (#o10, #x8, ?\C-h)
-
+#+END_EXAMPLE
 パーレンなどは、Elispの一部として評価されないように、エスケープする必要があります。バックスラッシュそのものも同様です。
 
+#+BEGIN_EXAMPLE
 ?\( => 40 (#o50, #x28, ?\()
 ?\\ => 92 (#o134, #x5c, ?\\)
-
+#+END_EXAMPLE
 このクエスチョンマークのおかげで、手軽に「任意の文字が、どのシンタックステーブルに属しているか」を調べることができます。
 
 ** シンタックステーブルの取得
@@ -113,26 +118,33 @@ Emacsでは、文字の前に?を置いて評価すると、文字の *キャラ
 
 text-mode（M-x text-mode RET）で
 
-(*char-syntax* ?a)
+# *char-syntax*
 
+#+BEGIN_EXAMPLE
+(char-syntax ?a)
+#+END_EXAMPLE
 と書いてC-x C-eで評価すると、
 
+#+BEGIN_EXAMPLE
 119 (#o167, #x77, ?w)
-
+#+END_EXAMPLE
 が返ってきます。文字コード119。つまりtext-modeにおいて、"a"は"w"だ、といっているわけです。
 
+#+BEGIN_EXAMPLE
 (char-syntax 97)
-
+#+END_EXAMPLE
 でも同様です。マルチバイト文字も送ることができます。以下例でも"w"だと返ってきます。
 
+#+BEGIN_EXAMPLE
 (char-syntax ?あ) => 119 (#o167, #x77, ?w)
-
+#+END_EXAMPLE
 ** "w"って？
 
 "a"は"w"だ、と言われると意味不明な感じですが、これがシンタックステーブルの「 *構文クラス* 」です。以下、構文クラスの一覧です。
 
+#+BEGIN_EXAMPLE
 M-: (info "(elisp) Syntax Class Table")
-
+#+END_EXAMPLE
 elisp.infoがインストールされていないとエラーになるのでその場合はWebから見てください。
 
 日本語(古い)
@@ -161,28 +173,34 @@ Emacsのバージョンが上がるごとに構文クラスも増えているの
 
 たとえば、以下のような文字列があります。
 
+#+BEGIN_EXAMPLE
 The quick brown fox jumps over the lazy dog.
-
+#+END_EXAMPLE
 "The"の先頭にカーソルを移動し、
 
+#+BEGIN_EXAMPLE
 M-: (skip-syntax-forward "w")
-
+#+END_EXAMPLE
 を実行します。カーソルは"the"の"e"のあとに移動します。 *skip-syntax-forward* は、指定したシンタックステーブルをスキップする関数なので、「単語構成文字」をスキップしたわけです。が、そのままのカーソルの位置（"e"の後ろ）で、もう一回同じ式を評価しても、カーソルは移動しません。次が「白文字」だからです。そのままの位置で白文字をスキップする式は次のような式です。
 
+#+BEGIN_EXAMPLE
 M-: (skip-syntax-forward " ")
-
+#+END_EXAMPLE
 白文字と単語構成文字をスキップするには、以下の式です。
 
+#+BEGIN_EXAMPLE
 M-: (skip-syntax-forward " w")
-
+#+END_EXAMPLE
 ドットの手前まで一気に移動します。ドットは単語構成文字でも白文字でもなく「句読点文字」だからです。ちょっと面白いのが以下の評価。
 
+#+BEGIN_EXAMPLE
 (char-syntax ?。) => 95 (#o137, #x5f, ?_)
-
+#+END_EXAMPLE
 "。"は日本語の意味的には句点ですが、Emacsの扱いは"_"（シンボル構成文字）なんですね。いずれにせよ、日本語の文章の冒頭で、
 
+#+BEGIN_EXAMPLE
 M-: (skip-syntax-forward "w")
-
+#+END_EXAMPLE
 を評価すると、"。"が、単語構成文字でないために、そこでスキップが止まります。
 
 ** syntax-entryの保存
@@ -208,74 +226,89 @@ M-: (skip-syntax-forward "w")
 
 シンタックステーブルを改造してみましょう。実験のため、まず以下文字列をtext-modeに入力し、文字列の"`"の手前にカーソルを移動し、C-M-n（forward-list 対応する次の括弧へ移動）してみてください。カーソルは期待通りには動かないはずです。
 
+#+BEGIN_EXAMPLE
 `The quick brown fox jumps over the lazy dog'
-
+#+END_EXAMPLE
 それぞれの構文クラスを確認してみます。
 
-(*char-syntax* ?`) => 46 (#o56, #x2e, ?.)
+#+BEGIN_EXAMPLE
+(char-syntax ?`) => 46 (#o56, #x2e, ?.)
 (char-syntax ?') => 119 (#o167, #x77, ?w)
-
+#+END_EXAMPLE
 次に以下式を評価してください。
 
+#+BEGIN_EXAMPLE
 (modify-syntax-entry ?` "\(")
 (modify-syntax-entry ?' "\)")
-
+#+END_EXAMPLE
 同じくC-M-nすると、今度は"'"に向かって移動してくれます。つまり「括弧」として認識されたわけです。
 
+#+BEGIN_EXAMPLE
 `The quick brown fox jumps over the lazy dog'
-
+#+END_EXAMPLE
 構文クラスを確認すると、"`"に"\("、"'"に"\)"があたっています。それぞれ「開き括弧文字」と、「閉じ括弧文字」です。
 
+#+BEGIN_EXAMPLE
 (char-syntax ?`) => 40 (#o50, #x28, ?\()
 (char-syntax ?') => 41 (#o51, #x29, ?\))
-
+#+END_EXAMPLE
 ** エスケープ文字
 
 さて次の文字列はどうでしょう。
 
+#+BEGIN_EXAMPLE
 `The quick brown fox jumps over the lazy dog\'s head'
-
+#+END_EXAMPLE
 "'"が文章中にあるために、括弧の対応がおかしくなっています。プログラムをすこしかじったことがある人ならわかりますよね。エスケープが働いていないのです。さっそくやってみましょう。
 
 さて、バックスラッシュはtext-modeにおいて以下の通り、"."（区切り文字）にあたっています。
 
+#+BEGIN_EXAMPLE
 (char-syntax ?\\) => 46 (#o56, #x2e, ?.)
-
+#+END_EXAMPLE
 変更してみましょう。
 
+#+BEGIN_EXAMPLE
 (modify-syntax-entry ?\\ "\\")
-
+#+END_EXAMPLE
 ふたたびC-M-nを試してみてください。text-modeでもエスケープが機能するようになりました。
 
+#+BEGIN_EXAMPLE
 `The quick brown fox jumps over the lazy dog\'s head'
-
+#+END_EXAMPLE
 ** *対応する*括弧
 
 modify-syntax-entryの引数はこんな感じです。
 
+#+BEGIN_EXAMPLE
 <f1> f modify-syntax-entry
 (modify-syntax-entry CHAR NEWENTRY &optional SYNTAX-TABLE)
-
+#+END_EXAMPLE
 CHARは、今回の「括弧」の場合、"?`"や"?'"です。2つめの引数はNEWENTRYといって、いわば「あたらしい設定」です。NEWENTRYの1文字目は構文クラスです（この場合は、"\("というようにエスケープされているので2文字分）。2文字目は、「対応する括弧（matching parenthesis）」です。さっそく設定してみましょう。
 
+#+BEGIN_EXAMPLE
 (modify-syntax-entry ?` "\('")
 (modify-syntax-entry ?' "\)`")
+#+END_EXAMPLE
 
+#+BEGIN_EXAMPLE
 `The `quick' brown fox jumps over the lazy dog\'s head'
-
+#+END_EXAMPLE
 これで"`'"のペアが明示されました。quickの前の`でC-M-nとC-M-pを押すと確認できます。
 
 ただ、試したらわかるのですが、きちんとネストしていない（入れ子になっていない）括弧関係を書いてしまうと、対応を明示していても、挙動はおかしくなりますのでご注意ください。
 
+#+BEGIN_EXAMPLE
 `The `quick brown fox jumps over the lazy dog\'s head'
-
+#+END_EXAMPLE
 
 ** "#"をコメントアウトに
 
 手始めにtext-modeで"#"をコメントアウトにしてみましょう。
 
+#+BEGIN_EXAMPLE
 (modify-syntax-entry ?# "<")
-
+#+END_EXAMPLE
 "#"以降がコメントになったかどうかを確認するにはいくつか方法がありますが、ひとつ目はカラーリングでいきます。以下の三つのS式を評価してください。
 
 #+BEGIN_SRC emacs-lisp :results silent
@@ -286,14 +319,17 @@ CHARは、今回の「括弧」の場合、"?`"や"?'"です。2つめの引数�
 
 場合によると、画面が真っ青になりませんでしか？ 真っ青の場合、気が散るようなら、C-c C-zして(*font-lock-fontify-buffer*)です。カラーリングで確認する際、(font-lock-fontify-buffer)は、頻用することになるので、キーバインドをあててしまいましょう。
 
+#+BEGIN_EXAMPLE
 (define-key text-mode-map (kbd "C-c C-f") 'font-lock-fontify-buffer)
+#+END_EXAMPLE
 
 # コメント行
 
 もちろん、
 
+#+BEGIN_EXAMPLE
 (char-syntax ?#)
-
+#+END_EXAMPLE
 で、"<"が返ってくる、というのも確認の一つではあります。
 
 今回の場合、NEWENRTYの1文字目（構文クラス）は"<"で、「コメント開始」です。
@@ -304,7 +340,9 @@ CHARは、今回の「括弧」の場合、"?`"や"?'"です。2つめの引数�
 
 つづけてtext-modeで"//"をコメントアウトにしてみましょう。NEWENTRYにあたらしい記法がありますが、とりあえず以下を実行してみてください。
 
+#+BEGIN_EXAMPLE
 (modify-syntax-entry ?/ ". 12")
+#+END_EXAMPLE
 
 NEWENRTYの1文字目（構文クラス）は"."で、「区切り文字」です。2文字目（対応する括弧）は" "なので、ナシ。そのあとに数字が続きます。結論的に書くと、3文字目以降はコメントの設定なのです。この部分はmodify-syntax-entryのヘルプでは「フラグ」と呼ばれているので、以降、フラグと呼びます。フラグの設定は以下のようになっています。
 
@@ -325,17 +363,21 @@ NEWENTRYは、次のような読み解きになります。
 
 ここまで見てきたとおり、
 
+#+BEGIN_EXAMPLE
 (modify-syntax-entry ?# "<")
 (modify-syntax-entry ?/ ". 12")
-
+#+END_EXAMPLE
 を評価すると、"#"や"//"以降、すべての文字がコメントアウトだと判定されます。「行末までがコメントアウト」であるようにしましょう。以下の式を評価してからC-c C-fしてください。
 
+#+BEGIN_EXAMPLE
 (modify-syntax-entry ?\r ">")
 (modify-syntax-entry ?\n ">")
+#+END_EXAMPLE
 
+#+BEGIN_EXAMPLE
 // comment
 # comment
-
+#+END_EXAMPLE
 構文クラスによれば">"は「コメント終了」です。改行文字に対して「コメント終了」をあてることで、「"#"、"//"から行末まで」がコメントアウトになりました。
 
 ** 本質的なコメントアウト
@@ -351,31 +393,37 @@ NEWENTRYは、次のような読み解きになります。
 
 C-c C-vで、カーソル位置がコメントアウトならt、そうなければnilが返ってきます。以下の2行についてC-c C-vを試してください。コメント文字そのものはコメントアウトではありませんが、それ以降はコメントアウトになっていることが確認できます。
 
+#+BEGIN_EXAMPLE
 // comment
 # comment
-
+#+END_EXAMPLE
 面白いのは、たとえばfont-lockの指定でなんからの文字列をfont-lock-comment-faceにあてていても、それは見栄えだけコメントアウトふうになっただけで、本質的にはコメントアウトでない、ということです。C-x C-zでシンタックステーブルを戻した後、以下の式を評価してC-c C-fを押してみてください。
 
-(*font-lock-add-keywords* nil '(("^# .+" . *font-lock-comment-face*)))
+#+BEGIN_EXAMPLE
+(font-lock-add-keywords nil '(("^# .+" . font-lock-comment-face)))
+#+END_EXAMPLE
 
+#+BEGIN_EXAMPLE
 # comment like face
-
+#+END_EXAMPLE
 行頭にある"#"以降が、コメントアウトと同じ見栄えになったと思います。しかし、C-c C-vは、nilを返すはずです。
 
 この確認が終わったら、以降のために再度以下式を評価して、"#"と"//"をコメントアウトに戻してください。
 
+#+BEGIN_EXAMPLE
 (modify-syntax-entry ?# "<")
 (modify-syntax-entry ?/ ". 12")
 (modify-syntax-entry ?\r ">")
 (modify-syntax-entry ?\n ">")
-
+#+END_EXAMPLE
 ** 挟むコメントアウト
 
 今度は、"/* */"をコメントアウトにしてみましょう。
 
+#+BEGIN_EXAMPLE
 (modify-syntax-entry ?/ ". 14")
 (modify-syntax-entry ?* ". 23")
-
+#+END_EXAMPLE
 適当に"/* */"で、コメントアウトを書いて、C-c C-fしてみてください。"/* */"の間がコメントアウトになると思います。
 
 NEWENTRYは、"/"がコメント開始のまとまりの1文字目かつコメント終了のまとまりの2文字目であること。"*"がコメント開始のまとまりの2文字目かつコメント終了のまとまりの1文字目であることを設定しています。
@@ -384,22 +432,26 @@ NEWENTRYは、"/"がコメント開始のまとまりの1文字目かつコメ�
 
 挟むコメントアウトを作ったら、"//"のコメントアウトが無効になりましたよね。
 
+#+BEGIN_EXAMPLE
 // コメントアウトが有効でない状態
-
+#+END_EXAMPLE
 しかも、行末でのコメント終了が効いているため、"/* */"で、本来有効であるはずの「複数行にわたるコメントアウト」が効きません。
 
+#+BEGIN_EXAMPLE
 /*
 ここは複数行のコメントアウトです。
 multiline comment out sample
 */
-
+#+END_EXAMPLE
 つまりコメントアウトを混在させる工夫が必要だということです。先に解から示すので評価してください。
 
+#+BEGIN_EXAMPLE
 (modify-syntax-entry ?/ ". 124")
 (modify-syntax-entry ?# "<")
 (modify-syntax-entry ?\r ">")
 (modify-syntax-entry ?\n ">")
 (modify-syntax-entry ?* ". 23b")
+#+END_EXAMPLE
 
 "/"は、挟まないコメントアウトでも、挟むコメントアウトでも用いますので、すべての役割である"124"をあてます。
 
@@ -421,51 +473,61 @@ multiline comment out sample
 
 "/= =/"も、単純には以下のようになるはずです。
 
+#+BEGIN_EXAMPLE
 (modify-syntax-entry ?/ ". 124")
 (modify-syntax-entry ?# "<")
 (modify-syntax-entry ?\r ">")
 (modify-syntax-entry ?\n ">")
 (modify-syntax-entry ?* ". 23b")
 (modify-syntax-entry ?= ". 23b") ; added
-
+#+END_EXAMPLE
 C-c C-fで確認してみると、以下のコメントアウトはおそらく機能しているでしょう。
 
+#+BEGIN_EXAMPLE
 /=
 comment out
 =/
-
+#+END_EXAMPLE
 しかし、ここでおかしいことが起こります。
 
+#+BEGIN_EXAMPLE
 /*
 comment out?
 =/
-
+#+END_EXAMPLE
 ペアでなくても、コメントアウトが成立してしまいます。これは、newline（"\n"、"\r"）が、"//"も"#"も終わらせるのと同じ理屈です。では、コメントスタイル"b"は混在できないのでしょうか？ じつはこういったコメントアウトを混在させるために、"n"というフラグがあります。"n"は"nestable"の"n"で、入れ子になるようなコメントを許す、ということのようです。
 
+#+BEGIN_EXAMPLE
 (modify-syntax-entry ?/ ". 124")
 (modify-syntax-entry ?# "<")
 (modify-syntax-entry ?\r ">")
 (modify-syntax-entry ?\n ">")
 (modify-syntax-entry ?* ". 23b")
 (modify-syntax-entry ?= ". 23bn") ; fixed
-
+#+END_EXAMPLE
 この設定で、"/* */"と"/= =/"が混在でき、ただしいペアを認識できるようになります。
 
 簡単におさらいしておくと、フラグには"1〜4"の数字と"b"、"c"、"n"を組み合わせた文字列を指定できる、ということです（じつはあと、"p"というフラグがありますが、ここではおいておきます）。
 
 "/= =/"は、あまり実用的なコメントアウトではないので、C-c C-zで消してしまいましょう。勉強を進めるため、C-c C-zのあと、以下式を評価しておいてください。
 
+#+BEGIN_EXAMPLE
 (modify-syntax-entry ?/ ". 124")
 (modify-syntax-entry ?# "<")
 (modify-syntax-entry ?\r ">")
 (modify-syntax-entry ?\n ">")
 (modify-syntax-entry ?* ". 23b")
+#+END_EXAMPLE
 
 ** comment-dwim
 
 これでいくつかの文字が、シンタックステーブルとしてはコメントと定義されたのですが、すこしだけシンタックステーブルから外れて、コメントアウト設定について加筆してみます。Emacsには *comment-dwim* があるので、この設定をします。
 
-(setq-local *comment-start* "//")
+#+BEGIN_EXAMPLE
+(setq-local comment-start "//")
+#+END_EXAMPLE
+
+# *comment-start*
 
 M-;で"//"がコメントアウトとして扱われます。これで、いろんな意味でコメントアウトらしくなりますね。
 複数行のコメントアウトをどう扱うか、など、 *newcomment.el* を見ると参考になると思います。
@@ -474,9 +536,10 @@ M-;で"//"がコメントアウトとして扱われます。これで、いろ�
 
 HTMLでもphpでも、JavaScriptでも原則、引用符（""や''）に囲まれている箇所は文字列です。これらはせっかくなので、文字列として認識してもらいましょう。コメントアウトに比べるとこちらは随分とシンプルです。
 
+#+BEGIN_EXAMPLE
 (modify-syntax-entry ?\" "\"")
 (modify-syntax-entry ?\' "\"")
-
+#+END_EXAMPLE
 文字列指定をすると"//"のようにコメントアウトを"で囲むことで、「コメントアウトでなく、文字列」というように設定できます。
 
 ** ここまでのまとめ
