@@ -1,0 +1,105 @@
+#+BLOG: rubikitch
+#+POSTID: 2643
+#+DATE: [2016-08-09 Tue 10:44]
+#+PERMALINK: helm-swoop-helm-occur
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, Emacs Lisp, helm, 
+#+DESCRIPTION: 
+#+MYTAGS: isearch, インクリメンタルサーチ, relate:loccur, relate:replace, occur, relate:isearch, relate:ido-occur, relate:helm-swoop, package:helm-swoop, relate:swoop, package:swoop, relate:swiper, helm-swiper, helm-occur, バッファ内検索, grep, 絞り込み検索, relate:migemo, migemo検索
+#+TITLE: Emacs: バッファ内検索を【無敵】にする黄金ルール
+#+begin: org2blog-tags
+#+TAGS: isearch, インクリメンタルサーチ, relate:loccur, relate:replace, occur, relate:isearch, relate:ido-occur, relate:helm-swoop, package:helm-swoop, relate:swoop, package:swoop, relate:swiper, helm-swiper, helm-occur, バッファ内検索, grep, 絞り込み検索, relate:migemo, migemo検索, Emacs, Emacs Lisp, helm, , 
+#+End:
+あなたはEmacsでのバッファ内検索ツールとして何を使っていますか？
+
+isearch
+occur
+[[http://rubikitch.com/2015/06/13/loccur/][loccur]]
+[[http://rubikitch.com/2016/01/10/ido-occur/][ido-occur]]
+[[http://rubikitch.com/2014/12/25/helm-swoop/][helm-swoop]]
+[[http://rubikitch.com/2016/08/08/swoop/][swoop]]
+[[http://rubikitch.com/2015/03/18/swiper/][swiper (helm-swiper)]]
+[[http://rubikitch.com/category/helm/][helm-occur]]
+…
+
+僕はいろいろと使い分けています。
+
+近距離ならばisearchを使います。
+ただgrep的に列挙するだけならばoccurです。
+バッファ内grepで最速なのは、ダントツで標準のoccurです。
+
+
+けれども実用的にはisearchとoccurを融合させる方がいいですよね。
+しかも絞り込めるやつが…
+それも日本人的にはmigemoに対応していると嬉しいですね。
+
+となると、選択肢は限られてきます。
+
+結論を言うと、helm-occurとhelm-swoop(or swoop)です。
+
+前者と後者は速度と親切性でトレードオフです。
+
+helm-occurは高速です。
+大きい(MB単位)のバッファでもそこそこの速度で列挙してくれます。
+
+対してhelm-swoop(swoop)は行やクエリのハイライトをしてくれる上、
+helm(swoop)内の行とともに対象バッファの行も
+一緒に移動してくれる親切仕様です。
+そのかわり大きなバッファになると
+途端に何秒も待たされるほど遅くなります。
+
+では、どうすればいいのか!？
+
+僕はバッファのサイズに合わせて
+自動で使い分けることにしました。
+
+「これ遅くて使えない」
+なんて言う前にサイズによって臨機応変に
+使い分けることが重要ではないでしょうか。
+Emacsで扱うテキストでMBを超えることは少ないので、
+たいていの場合は親切なツールの恩恵を受けられます。
+
+また、helm-occurとhelm-swoopはisearchの延長だと考えています。
+そこで、C-u C-sで起動できるようにしています。
+
+で、結論は
+
+/C-sにisearchとhelm-swoopとhelm-occurを統合する/
+です！
+
+helm-swoopではなくてswoopが好きならば
+以下のコードでhelm-swoopをswoopに置き換えてください。
+
+#+BEGIN_SRC emacs-lisp :results silent
+;;; migemoなしでhelm-swoop
+(cl-defun helm-swoop-nomigemo (&key $query ($multiline current-prefix-arg))
+  (interactive)
+  (let (helm-migemo-mode)
+    (helm-swoop :$query $query :$multiline $multiline)))
+
+(defun isearch-forward-or-helm-swoop-or-helm-occur (use-helm-swoop)
+  (interactive "p")
+  (let (current-prefix-arg
+        (helm-swoop-pre-input-function 'ignore))
+    (call-interactively
+     (case use-helm-swoop
+       (1 'isearch-forward)
+       ;; C-u C-sを押した場合
+       ;; 1000000以上のバッファサイズならばhelm-occur、
+       ;; それ以下ならばhelm-swoop
+       (4 (if (< 1000000 (buffer-size)) 'helm-occur 'helm-swoop))
+       ;; C-u C-u C-sでmigemoなしのhelm-swoop
+       (16 'helm-swoop-nomigemo)))))
+(global-set-key (kbd "C-s") 'isearch-forward-or-helm-swoop-or-helm-occur)
+#+END_SRC
+
+
+ちなみにhelm-occurよりも高速なのは[[http://rubikitch.com/2015/10/26/pgrepper/][pgrepper]] をhelm化したものです。
+検索にgrepなどの外部ツールを使っているのですから当然ですね。
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
