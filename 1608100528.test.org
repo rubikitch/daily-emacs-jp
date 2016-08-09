@@ -15,5 +15,5 @@
 #+TAGS: , Emacs, , 
 #+end:
 /* */
-
+"ax"
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
