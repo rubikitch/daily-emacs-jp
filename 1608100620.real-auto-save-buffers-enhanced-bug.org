@@ -1,0 +1,65 @@
+#+BLOG: rubikitch
+#+POSTID: 2654
+#+DATE: [2016-08-10 Wed 06:20]
+#+PERMALINK: real-auto-save-buffers-enhanced-bug
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, 
+#+DESCRIPTION: 
+#+MYTAGS: package:real-auto-save, relate:auto-save-buffers-enhanced, emacs バッファファイル自動保存, Emacsでファイルを自動保存する, 更新するたびにバッファを自動で上書き保存, タイマー関数, run-with-timer, save-buffer, emacs 自動 セーブ, emacs データ消えた, emacs 事故対策, emacs 保険,
+#+TITLE: Emacsファイル自動保存にまつわる怪現象!？ real-auto-save auto-save-buffers-enhanced
+#+begin: org2blog-tags
+#+TAGS: package:real-auto-save, relate:auto-save-buffers-enhanced, emacs バッファファイル自動保存, Emacsでファイルを自動保存する, 更新するたびにバッファを自動で上書き保存, タイマー関数, run-with-timer, save-buffer, emacs 自動 セーブ, emacs データ消えた, emacs 事故対策, emacs 保険,, Emacs, , basic-save-buffer, run-at-time, run-with-idle-timer
+#+end:
+あなたは自動保存系のelispを使っていますか？
+[[http://rubikitch.com/2015/02/03/real-auto-save/][real-auto-save]] と[[http://rubikitch.com/2014/11/23/auto-save-buffers-enhanced/][auto-save-buffers-enhanced]] を本サイトでは紹介しました。
+
+どちらも一定時間ごとにバッファをファイルに保存してくれます。
+おかげさまでC-x C-sを押す手間を省いてくれます。
+僕はとても便利だと感じています。
+
+ところで、これらのパッケージを使っていると、
+たまにおかしい現象に出喰わしませんか？
+こちらでは
+「File to save in:」
+というプロンプトがいきなり出てくることがあります。
+
+このプロンプトは *basic-save-buffer* 関数経由です。
+
+僕は今はreal-auto-saveを使っています。
+僕が思うに、保存されるタイミングが悪くてEmacs的に
+/「ちょっとタンマ、今ダメ！」/
+みたいなことだと思います。
+
+とりあえず *run-at-time* から *run-with-idle-timer* に
+書き換えることでその現象は出なくなりました。
+どちらもユーザがEmacsを操作しなくても関数を実行するタイマー機能です。
+
+run-at-timeは指定された時間になったらたとえ作業中だろうと
+問答無用でタイマー関数が実行されます。
+
+対してrun-with-idle-timerは一定時間Emacsを触っていないときに
+タイマー関数が実行されます。
+
+後者の方が「ちょっとタンマ」になりにくいので、
+上の怪現象が起きないのだと思います。
+
+real-auto-saveでは以下のアドバイスを設定しています。
+
+#+BEGIN_SRC emacs-lisp :results silent
+(defun real-auto-save-start-timer--idle-timer ()
+  "Start real-auto-save-timer."
+  (setq real-auto-save-timer
+        (run-with-idle-timer real-auto-save-interval
+          real-auto-save-interval 'real-auto-save-buffers)))
+(advice-add 'real-auto-save-start-timer :override
+            'real-auto-save-start-timer--idle-timer)
+#+END_SRC
+
+まだ仮説段階なのでissueは出していません。
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
