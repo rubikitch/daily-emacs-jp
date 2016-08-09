@@ -14,6 +14,6 @@
 #+begin: org2blog-tags
 #+TAGS: , Emacs, , 
 #+end:
-/* */
+お/* */あ
 "ax"
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
