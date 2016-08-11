@@ -1,0 +1,146 @@
+#+BLOG: rubikitch
+#+POSTID: 2656
+#+DATE: [2016-08-11 木 10:34]
+#+PERMALINK: tco
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs Lisp, Emacs, 
+#+EL_PKG_NAME: tco
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, 末尾再帰, 末尾再帰の最適化, ループ化, emacs lisp 再帰 スタックオーバーフロー, 再帰, scheme, 関数型言語, stack overflow
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 
+#+EL_TITLE0: えっ、Emacs Lispで末尾再帰の最適化ができる…だと!？
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージtcoの紹介
+#+MYTAGS: package:tco, emacs 使い方, emacs コマンド, emacs, tco, tco.el, emacs lisp tco, elisp tco, emacs melpa tco, emacs tco 使い方, emacs tco 設定, emacs パッケージ tco, 末尾再帰, 末尾再帰の最適化, ループ化, emacs lisp 再帰 スタックオーバーフロー, 再帰, scheme, 関数型言語, stack overflow
+#+TAGS: package:tco, emacs 使い方, emacs コマンド, emacs, tco, tco.el, emacs lisp tco, elisp tco, emacs melpa tco, emacs tco 使い方, emacs tco 設定, emacs パッケージ tco, 末尾再帰, 末尾再帰の最適化, ループ化, emacs lisp 再帰 スタックオーバーフロー, 再帰, scheme, 関数型言語, stack overflow, Emacs Lisp, Emacs, , tco.el, defun-tco, defun-tco
+#+TITLE: emacs tco.el : えっ、Emacs Lispで末尾再帰の最適化ができる…だと!？ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>tco</td></tr>
+<tr><td>概要(原文)</td><td>tail-call optimisation for Emacs lisp</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/Wilfred/tco.el">https://github.com/Wilfred/tco.el</a></td></tr>
+<tr><td>バージョン</td><td>20160727.1931</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:tco/">package:tco</a> </td></tr>
+</table>
+<br />
+#+END_HTML
+*tco.el* は、関数の末尾再帰を行うパッケージです。
+末尾再帰というのは、関数呼び出しの自分自身を最後に再帰呼び出しする再帰パターンです。
+関数型言語では定番の手法で、Schemeでは実装仕様で末尾再帰を要求してくる言語です。
+
+それをループに置き換えることで末尾再帰の最適化が行えます。
+最適化を行えばstack overflowを防げます。
+defunの末尾再帰バージョンともいえる *defun-tco* マクロを使います。
+
+#+BEGIN_SRC emacs-lisp :results silent
+;; -*- lexical-binding: t -*-
+(require 'tco)
+(setq lexical-binding t)
+
+;;; 1〜nの総和 (Σ(k=1..n) k)
+(defun-tco sum (n &optional accum)
+  "末尾再帰バージョン"
+  (setq accum (or accum 0))
+  (if (zerop n)
+      accum
+    (sum (1- n) (+ accum n))))
+(defun sum0 (m &optional accum)
+  "末尾再帰しないバージョン"
+  (setq accum (or accum 0))
+  (if (zerop m)
+      accum
+    (sum (1- m) (+ accum m))))
+
+#+END_SRC
+
+これをバイトコンパイルして計測したところ…
+
+#+BEGIN_SRC emacs-lisp :results silent
+(sum 10)                                ; => 55
+(sum0 10)                               ; => 55
+
+(benchmark-run 1000 (sum 500))          ; => (1.208836634 7 0.7694204509994051)
+(benchmark-run 1000 (sum0 500))         ; => (1.2184165589999998 7 0.7778593409998393)
+#+END_SRC
+
+速度は変わっていません。
+
+大きな数を指定してもstack overflowにはなりませんね…
+
+#+BEGIN_SRC emacs-lisp :results silent
+(setq max-lisp-eval-depth 600)
+(sum 100000)                            ; => 5000050000
+(sum0 100000)                            ; => 5000050000
+#+END_SRC
+
+もしかして最近のEmacsでは末尾再帰を考慮するようになっているとか？
+なんか導入するメリットがないという結果に終わってしまいました。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+** tco インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install tco
+
+
+#+end:
+** 概要                                                             :noexport:
+*tco.el* は、関数の末尾再帰を行うパッケージです。
+末尾再帰というのは、関数呼び出しの自分自身を最後に再帰呼び出しする再帰パターンです。
+関数型言語では定番の手法で、Schemeでは実装仕様で末尾再帰を要求してくる言語です。
+
+それをループに置き換えることで末尾再帰の最適化が行えます。
+最適化を行えばstack overflowを防げます。
+defunの末尾再帰バージョンともいえる *defun-tco* マクロを使います。
+
+#+BEGIN_SRC emacs-lisp :results silent
+;; -*- lexical-binding: t -*-
+(require 'tco)
+(setq lexical-binding t)
+
+;;; 1〜nの総和 (Σ(k=1..n) k)
+(defun-tco sum (n &optional accum)
+  "末尾再帰バージョン"
+  (setq accum (or accum 0))
+  (if (zerop n)
+      accum
+    (sum (1- n) (+ accum n))))
+(defun sum0 (m &optional accum)
+  "末尾再帰しないバージョン"
+  (setq accum (or accum 0))
+  (if (zerop m)
+      accum
+    (sum (1- m) (+ accum m))))
+
+#+END_SRC
+
+これをバイトコンパイルして計測したところ…
+
+#+BEGIN_SRC emacs-lisp :results silent
+(sum 10)                                ; => 55
+(sum0 10)                               ; => 55
+
+(benchmark-run 1000 (sum 500))          ; => (1.208836634 7 0.7694204509994051)
+(benchmark-run 1000 (sum0 500))         ; => (1.2184165589999998 7 0.7778593409998393)
+#+END_SRC
+
+速度は変わっていません。
+
+大きな数を指定してもstack overflowにはなりませんね…
+
+#+BEGIN_SRC emacs-lisp :results silent
+(setq max-lisp-eval-depth 600)
+(sum 100000)                            ; => 5000050000
+(sum0 100000)                            ; => 5000050000
+#+END_SRC
+
+もしかして最近のEmacsでは末尾再帰を考慮するようになっているとか？
+なんか導入するメリットがないという結果に終わってしまいました。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
