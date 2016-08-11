@@ -18,7 +18,9 @@
 #+MYTAGS: package:dumb-jump, emacs 使い方, emacs コマンド, emacs, dumb-jump, dumb-jump.el, emacs lisp dumb-jump, elisp dumb-jump, emacs nil dumb-jump, emacs dumb-jump 使い方, emacs dumb-jump 設定, emacs パッケージ dumb-jump, emacs dumb-jump スクリーンショット, relate:ag, relate:etags, relate:gtags, relate:robe, relate:elpy, 関数定義へジャンプ, 変数定義へジャンプ, ソースコード検索, exuberant-ctags, GNU Global, ctags, etags, タグファイル, TAGS, ソースコードgrep検索, ag, the_silver_searcher, relate:popup
 #+TITLE: emacs dumb-jump.el : <2016-08-12 Fri>Ｃ言語、Ｃ＋＋対応！すぐ使える多言語対応関数・変数定義ジャンパー | 
 #+end:
+
 ** 概要                                                             :noexport:
+
 <2016-08-12 Fri>Ｃ言語、Ｃ＋＋に対応しました
 
 <2016-08-07 Sun>更新
