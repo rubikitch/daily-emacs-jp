@@ -11,13 +11,13 @@
 #+EL_PKG_NAME: tco
 #+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, 末尾再帰, 末尾再帰の最適化, ループ化, emacs lisp 再帰 スタックオーバーフロー, 再帰, scheme, 関数型言語, stack overflow
 #+EL_TITLE: Elisp パッケージ インストール 設定 使い方 関数型言語
-#+EL_TITLE0: えっ、Emacs Lispで末尾再帰の最適化ができる…だと!？
+#+EL_TITLE0: 【関数型歓喜】えっ、Emacs Lispで末尾再帰の最適化ができる…だと!？
 #+EL_URL: 
 #+begin: org2blog
 #+DESCRIPTION: MELPAのEmacs Lispパッケージtcoの紹介
 #+MYTAGS: package:tco, emacs 使い方, emacs コマンド, emacs, tco, tco.el, emacs lisp tco, elisp tco, emacs melpa tco, emacs tco 使い方, emacs tco 設定, emacs パッケージ tco, 末尾再帰, 末尾再帰の最適化, ループ化, emacs lisp 再帰 スタックオーバーフロー, 再帰, scheme, 関数型言語, stack overflow
 #+TAGS: package:tco, emacs 使い方, emacs コマンド, emacs, tco, tco.el, emacs lisp tco, elisp tco, emacs melpa tco, emacs tco 使い方, emacs tco 設定, emacs パッケージ tco, 末尾再帰, 末尾再帰の最適化, ループ化, emacs lisp 再帰 スタックオーバーフロー, 再帰, scheme, 関数型言語, stack overflow, Emacs Lisp, Emacs, , tco.el, defun-tco, defun-tco
-#+TITLE: emacs tco.el : えっ、Emacs Lispで末尾再帰の最適化ができる…だと!？ | MELPA Elisp パッケージ インストール 設定 使い方 関数型言語
+#+TITLE: emacs tco.el : 【関数型歓喜】えっ、Emacs Lispで末尾再帰の最適化ができる…だと!？ | MELPA Elisp パッケージ インストール 設定 使い方 関数型言語
 #+BEGIN_HTML
 <table>
 <tr><td>パッケージ名</td><td>tco</td></tr>
