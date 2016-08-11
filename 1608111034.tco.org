@@ -36,6 +36,7 @@
 それをループに置き換えることで末尾再帰の最適化が行えます。
 最適化を行えばstack overflowを防げます。
 defunの末尾再帰バージョンともいえる *defun-tco* マクロを使います。
+これがあればSchemerら関数型言語ガチ勢もEmacs Lispを楽しめますね！！！
 
 #+BEGIN_SRC emacs-lisp :results silent
 ;; -*- lexical-binding: t -*-
@@ -54,7 +55,7 @@ defunの末尾再帰バージョンともいえる *defun-tco* マクロを使�
   (setq accum (or accum 0))
   (if (zerop m)
       accum
-    (sum (1- m) (+ accum m))))
+    (sum0 (1- m) (+ accum m))))
 
 #+END_SRC
 
@@ -70,16 +71,19 @@ defunの末尾再帰バージョンともいえる *defun-tco* マクロを使�
 
 速度は変わっていません。
 
-大きな数を指定してもstack overflowにはなりませんね…
+大きな数を指定するとstack overflowになってしまいます。
 
 #+BEGIN_SRC emacs-lisp :results silent
 (setq max-lisp-eval-depth 600)
-(sum 100000)                            ; => 5000050000
-(sum0 100000)                            ; => 5000050000
+(sum 300)                               ; => 45150
+(sum0 300)                              ; => error
+;; (error "Lisp nesting exceeds `max-lisp-eval-depth'")
 #+END_SRC
 
-もしかして最近のEmacsでは末尾再帰を考慮するようになっているとか？
-なんか導入するメリットがないという結果に終わってしまいました。
+追記:sum0がsumを呼ぶというドジを踏んでしまい変なことを書いてしまいました。
+申し訳ありませんでした。
+
+
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
 ** tco インストール
@@ -98,6 +102,7 @@ M-x package-install tco
 それをループに置き換えることで末尾再帰の最適化が行えます。
 最適化を行えばstack overflowを防げます。
 defunの末尾再帰バージョンともいえる *defun-tco* マクロを使います。
+これがあればSchemerら関数型言語ガチ勢もEmacs Lispを楽しめますね！！！
 
 #+BEGIN_SRC emacs-lisp :results silent
 ;; -*- lexical-binding: t -*-
@@ -116,7 +121,7 @@ defunの末尾再帰バージョンともいえる *defun-tco* マクロを使�
   (setq accum (or accum 0))
   (if (zerop m)
       accum
-    (sum (1- m) (+ accum m))))
+    (sum0 (1- m) (+ accum m))))
 
 #+END_SRC
 
@@ -132,15 +137,18 @@ defunの末尾再帰バージョンともいえる *defun-tco* マクロを使�
 
 速度は変わっていません。
 
-大きな数を指定してもstack overflowにはなりませんね…
+大きな数を指定するとstack overflowになってしまいます。
 
 #+BEGIN_SRC emacs-lisp :results silent
 (setq max-lisp-eval-depth 600)
-(sum 100000)                            ; => 5000050000
-(sum0 100000)                            ; => 5000050000
+(sum 300)                               ; => 45150
+(sum0 300)                              ; => error
+;; (error "Lisp nesting exceeds `max-lisp-eval-depth'")
 #+END_SRC
 
-もしかして最近のEmacsでは末尾再帰を考慮するようになっているとか？
-なんか導入するメリットがないという結果に終わってしまいました。
+追記:sum0がsumを呼ぶというドジを踏んでしまい変なことを書いてしまいました。
+申し訳ありませんでした。
+
+
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
