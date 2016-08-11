@@ -1,0 +1,42 @@
+#+BLOG: rubikitch
+#+POSTID: 2662
+#+DATE: [2016-08-12 Fri 05:51]
+#+PERMALINK: melmag
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: メルマガ,
+#+DESCRIPTION: るびきち塾メルマガ『Emacsの鬼るびきちのココだけの話#246』の予告
+#+TITLE: 【るびきち塾メルマガ#246】難解機能の牙城を切り崩せ！
+#+MYTAGS: 
+#+begin: org2blog-tags
+#+TAGS: , メルマガ,, 
+#+end:
+
+あなたはEmacsを使っていて
+設定が難しくてどうしても使いこなせない機能がありますか？
+説明読んでも具体例がないために挙動が理解できずに困っていませんか？
+
+そんなあなたにこそ明日のメルマガは必読です。
+
+明日のメルマガは、難しい機能を理解するための
+具体的な方法をお話します。
+
+明日のメルマガであなたが得られる結果は、
+- いかに難解な機能でも確実に理解できる方法
+- 難解な問題でも挫折しないマインド
+- Emacsの機能の試行錯誤を支援するツールの使い方
+です。
+
+
+# footer
+豪華な入塾特典付きで、初月無料月々527円のるびきち塾。
+Emacsについて、人生の質を上げる方法について
+メルマガでも個別メールでも懇切丁寧に指導します。
+絶対に損はさせませんので、ぜひとも登録してください。
+http://www.mag2.com/m/0001373131.html
+1週間あたり缶ジュース1本分の投資で、僕があなたのメンターになります。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
