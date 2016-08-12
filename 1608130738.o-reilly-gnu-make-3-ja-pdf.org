@@ -1,0 +1,37 @@
+#+BLOG: rubikitch
+#+POSTID: 2668
+#+DATE: [2016-08-13 Sat 07:38]
+#+PERMALINK: o-reilly-gnu-make-3-ja-pdf
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: 記事紹介, 
+#+DESCRIPTION: 
+#+MYTAGS: gnu make, makefile, makefileの書き方, makefile, makefile マクロ,  実行, include, 意味, c言語 , gcc, linux makefile 作り方, 書き方, makefileとは, makefile 書籍, オライリー, O’Reilly, GNU Free Document License, GFDL, GPL
+#+TITLE: 【プレゼント】GNU makeの日本語書籍304ページ全文無料公開
+#+begin: org2blog-tags
+#+TAGS: gnu make, makefile, makefileの書き方, makefile, makefile マクロ,  実行, include, 意味, c言語 , gcc, linux makefile 作り方, 書き方, makefileとは, makefile 書籍, オライリー, O’Reilly, GNU Free Document License, GFDL, GPL, 記事紹介, , 
+#+end:
+今日はEmacsから外れた話題になりますが、有益だと思ったのでシェアします。
+あなたは最近Makefileを書いていますか？
+Makefileはかなり奥が深く、複雑だったりします。
+とくにGNU makeは独自拡張もあって、
+なかなかおもしろい存在です。
+
+ひとつの開発ツールに特化した本といえばO’Reillyが有名ですね。
+実はGNU makeの本が全文日本語PDFで無料で見られるようにしてあります！
+[[https://ja.wikipedia.org/wiki/GNU_Free_Documentation_License][GNU Free Document License]] になっているからです。
+オライリーさん、太っ腹ですよね！
+
+http://www.oreilly.co.jp/library/4873112699/
+
+他にも[[http://www.oreilly.co.jp/library/][オープンソースについての本2冊が無料で読める]] ようになっています。
+
+この情報は[[http://www.mag2.com/m/0001373131.html][るびきち塾]]の の塾生である[[http://nagayah.seesaa.net/article/440683224.html][永安さんのブログ記事]] から知りました。
+
+これを気にGNU makeの勉強をしてみてはいかがでしょうか？
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
