@@ -9,10 +9,10 @@
 #+BLOG: rubikitch
 #+CATEGORY: 記事紹介, 
 #+DESCRIPTION: 
-#+MYTAGS: gnu make, makefile, makefileの書き方, makefile, makefile マクロ,  実行, include, 意味, c言語 , gcc, linux makefile 作り方, 書き方, makefileとは, makefile 書籍, オライリー, O’Reilly, GNU Free Document License, GFDL, GPL
-#+TITLE: 【プレゼント】GNU makeの日本語書籍304ページ全文無料公開
+#+MYTAGS: gnu make, makefile, makefileの書き方, makefile, makefile マクロ,  実行, include, 意味, c言語 , gcc, linux makefile 作り方, 書き方, makefileとは, makefile 書籍, オライリー, O’Reilly, GNU Free Document License, GFDL, GPL, 電子書籍
+#+TITLE: 【電子書籍プレゼント】GNU makeの日本語書籍304ページ全文無料公開
 #+begin: org2blog-tags
-#+TAGS: gnu make, makefile, makefileの書き方, makefile, makefile マクロ,  実行, include, 意味, c言語 , gcc, linux makefile 作り方, 書き方, makefileとは, makefile 書籍, オライリー, O’Reilly, GNU Free Document License, GFDL, GPL, 記事紹介, , 
+#+TAGS: gnu make, makefile, makefileの書き方, makefile, makefile マクロ,  実行, include, 意味, c言語 , gcc, linux makefile 作り方, 書き方, makefileとは, makefile 書籍, オライリー, O’Reilly, GNU Free Document License, GFDL, GPL, 電子書籍, 記事紹介, , 
 #+end:
 今日はEmacsから外れた話題になりますが、有益だと思ったのでシェアします。
 あなたは最近Makefileを書いていますか？
