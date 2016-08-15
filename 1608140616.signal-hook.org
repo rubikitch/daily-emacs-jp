@@ -9,14 +9,14 @@
 #+BLOG: rubikitch
 #+CATEGORY: Emacs, Emacs Lisp, 
 #+EL_PKG_NAME: signal
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs フック 使い方 調べる, add-hook, remove-hook, run-hooks, defvar, defcustom, defsignal, signal-emitb, signal-connect, signal-disconnect, signal, hook, フック, advice, アドバイス
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs フック 使い方 調べる, add-hook, remove-hook, run-hooks, defvar, defcustom, defsignal, signal-emitb, signal-connect, signal-disconnect, signal, hook, フック, advice, アドバイス, run-hook-with-args-until-success, run-hook-with-args-until-failure, run-hook-with-args
 #+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 使い方 
 #+EL_TITLE0: フックの進化形が登場！その中身とは？
 #+EL_URL: 
 #+begin: org2blog
 #+DESCRIPTION: MELPAのEmacs Lispパッケージsignalの紹介
-#+MYTAGS: package:signal, emacs 使い方, emacs コマンド, emacs, signal, signal.el, emacs lisp signal, elisp signal, emacs melpa signal, emacs signal 使い方, emacs signal 設定, emacs パッケージ signal, emacs フック 使い方 調べる, add-hook, remove-hook, run-hooks, defvar, defcustom, defsignal, signal-emitb, signal-connect, signal-disconnect, signal, hook, フック, advice, アドバイス
-#+TAGS: package:signal, emacs 使い方, emacs コマンド, emacs, signal, signal.el, emacs lisp signal, elisp signal, emacs melpa signal, emacs signal 使い方, emacs signal 設定, emacs パッケージ signal, emacs フック 使い方 調べる, add-hook, remove-hook, run-hooks, defvar, defcustom, defsignal, signal-emitb, signal-connect, signal-disconnect, signal, hook, フック, advice, アドバイス, Emacs, Emacs Lisp, , signal, signal
+#+MYTAGS: package:signal, emacs 使い方, emacs コマンド, emacs, signal, signal.el, emacs lisp signal, elisp signal, emacs melpa signal, emacs signal 使い方, emacs signal 設定, emacs パッケージ signal, emacs フック 使い方 調べる, add-hook, remove-hook, run-hooks, defvar, defcustom, defsignal, signal-emitb, signal-connect, signal-disconnect, signal, hook, フック, advice, アドバイス, run-hook-with-args-until-success, run-hook-with-args-until-failure, run-hook-with-args
+#+TAGS: package:signal, emacs 使い方, emacs コマンド, emacs, signal, signal.el, emacs lisp signal, elisp signal, emacs melpa signal, emacs signal 使い方, emacs signal 設定, emacs パッケージ signal, emacs フック 使い方 調べる, add-hook, remove-hook, run-hooks, defvar, defcustom, defsignal, signal-emitb, signal-connect, signal-disconnect, signal, hook, フック, advice, アドバイス, run-hook-with-args-until-success, run-hook-with-args-until-failure, run-hook-with-args, Emacs, Emacs Lisp, , signal, signal
 #+TITLE: emacs signal.el : フックの進化形が登場！その中身とは？ | MELPA Emacs Lisp Elisp パッケージ インストール 使い方 
 #+BEGIN_HTML
 <table>
