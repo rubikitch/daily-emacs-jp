@@ -53,7 +53,7 @@ hookとsignalの対応関係は以下のようになっています
 | 追加     | add-hook          | signal-connect    |
 | 削除     | remove-hook       | signal-disconnect |
 
-明日はsignalがhookとは違うことを示します！
+[[http://rubikitch.com/2016/08/15/signal-emit/][明日はsignalがhookとは違うことを示します！]]
 ** signal インストール
 このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
 
@@ -87,7 +87,7 @@ hookとsignalの対応関係は以下のようになっています
 | 追加     | add-hook          | signal-connect    |
 | 削除     | remove-hook       | signal-disconnect |
 
-明日はsignalがhookとは違うことを示します！
+[[http://rubikitch.com/2016/08/15/signal-emit/][明日はsignalがhookとは違うことを示します！]]
 ** 使用例
 
 
