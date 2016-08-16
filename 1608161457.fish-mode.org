@@ -45,7 +45,7 @@
 「シェルスクリプトも苦手でさあ」
 『fishは独自のシェルスクリプトだよ。すごいクリーンだ』
 「どんな？」
-『LuaやRubyっぽい。黒魔術なしですぐに覚えらるれるよ』
+『LuaやRubyっぽい。黒魔術なしですぐに覚えられるよ』
 「じゃあ俺も使ってみるぜ。サンキュ」
 
 *fish-mode.el* は *fish* シェルスクリプトのメジャーモードです。
@@ -84,6 +84,9 @@ zsh？知らんな(笑)
 #+ATTR_HTML: :width 480
 [[file:/r/sync/screenshots/20160816152314.png]]
 Fig1: こんな感じ
+
+
+# /r/sync/screenshots/20160816152314.png http://rubikitch.com/wp-content/uploads/2016/08/20160816152314.png
 ** fish-mode インストール
 このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
 
@@ -109,7 +112,7 @@ M-x package-install fish-mode
 「シェルスクリプトも苦手でさあ」
 『fishは独自のシェルスクリプトだよ。すごいクリーンだ』
 「どんな？」
-『LuaやRubyっぽい。黒魔術なしですぐに覚えらるれるよ』
+『LuaやRubyっぽい。黒魔術なしですぐに覚えられるよ』
 「じゃあ俺も使ってみるぜ。サンキュ」
 
 *fish-mode.el* は *fish* シェルスクリプトのメジャーモードです。
