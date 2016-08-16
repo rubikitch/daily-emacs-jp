@@ -24,7 +24,7 @@
 <tr><td>概要(原文)</td><td>jump to definition for multiple languages without configuration.</td></tr>
 <tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
 <tr><td>取得先</td><td><a href="https://github.com/jacktasia/dumb-jump">https://github.com/jacktasia/dumb-jump</a></td></tr>
-<tr><td>バージョン</td><td>20160811.1216</td></tr>
+<tr><td>バージョン</td><td>20160813.1237</td></tr>
 <tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:dumb-jump/">package:dumb-jump</a> <a href="http://rubikitch.com/tag/package:ag/">package:ag</a> <a href="http://rubikitch.com/tag/package:etags/">package:etags</a> <a href="http://rubikitch.com/tag/package:gtags/">package:gtags</a> <a href="http://rubikitch.com/tag/package:robe/">package:robe</a> <a href="http://rubikitch.com/tag/package:elpy/">package:elpy</a> <a href="http://rubikitch.com/tag/package:popup/">package:popup</a></td></tr>
 </table>
 <br />
@@ -137,6 +137,7 @@ elispでは素直にファイルをロードして *find-function* などでジ�
 - Lua
 - Rust
 - CoffeeScript
+- Perl <2016-08-11 Fri>追加
 - Ｃ言語 <2016-08-12 Fri>追加
 - Ｃ＋＋ <2016-08-12 Fri>追加
 ** 使えるコマンド
