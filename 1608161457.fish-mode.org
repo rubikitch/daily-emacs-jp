@@ -1,0 +1,153 @@
+#+BLOG: rubikitch
+#+POSTID: 2679
+#+DATE: [2016-08-16 Tue 14:57]
+#+PERMALINK: fish-mode
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, fish
+#+EL_PKG_NAME: fish-mode
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, fish, shell, zsh, bash, 使いづらい, 最強のシェル, 使いやすいシェル, シェルスクリプト, sh-mode, shell-script, fish emacs, 理想のシェルスクリプト, 
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: 【Unixシェル】若者よ、騙されたと思ってfish使ってみろ！bashやzshなんか捨ててしまえ
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージfish-modeの紹介
+#+MYTAGS: package:fish-mode, emacs 使い方, emacs コマンド, emacs, fish-mode, fish-mode.el, emacs lisp fish-mode, elisp fish-mode, emacs melpa fish-mode, emacs fish-mode 使い方, emacs fish-mode 設定, emacs パッケージ fish-mode, emacs fish-mode スクリーンショット, fish, shell, zsh, bash, 使いづらい, 最強のシェル, 使いやすいシェル, シェルスクリプト, sh-mode, shell-script, fish emacs, 理想のシェルスクリプト, 
+#+TAGS: package:fish-mode, emacs 使い方, emacs コマンド, emacs, fish-mode, fish-mode.el, emacs lisp fish-mode, elisp fish-mode, emacs melpa fish-mode, emacs fish-mode 使い方, emacs fish-mode 設定, emacs パッケージ fish-mode, emacs fish-mode スクリーンショット, fish, shell, zsh, bash, 使いづらい, 最強のシェル, 使いやすいシェル, シェルスクリプト, sh-mode, shell-script, fish emacs, 理想のシェルスクリプト, , Emacs, fish, fish-mode.el, fish, fish-mode.el, fish
+#+TITLE: emacs fish-mode.el : 【Unixシェル】若者よ、騙されたと思ってfish使ってみろ！bashやzshなんか捨ててしまえ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>fish-mode</td></tr>
+<tr><td>概要(原文)</td><td>Major mode for fish shell scripts</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/wwwjfy/emacs-fish">https://github.com/wwwjfy/emacs-fish</a></td></tr>
+<tr><td>バージョン</td><td>20160429.2057</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:fish-mode/">package:fish-mode</a> </td></tr>
+</table>
+<br />
+#+END_HTML
+『なぁ、fishって知ってる？』
+「なんだよ、魚かよ」
+『ちがうよ、シェルだよシェル！』
+「えっ」
+『君、シェルなに使ってる？』
+「bashだけど」
+『俺もzshずっと使ってきたけど使いきれなくてさ』
+「そこでfishか」
+『ああ、fishすごいぜ！設定しなくてもいきなり便利でさ』
+「なんだって？俺、bashの使い方や便利な設定探すのにどれだけかかったか」
+『俺もだ。めったに使わない機能とか覚えられなくてさ、とにかくfishすごいぜ』
+「そんなにすごいのか」
+『ああ、惚れ込んだぜ！もうzshもいらない子だ』
+「シェルスクリプトも苦手でさあ」
+『fishは独自のシェルスクリプトだよ。すごいクリーンだ』
+「どんな？」
+『LuaやRubyっぽい。黒魔術なしですぐに覚えらるれるよ』
+「じゃあ俺も使ってみるぜ。サンキュ」
+
+*fish-mode.el* は *fish* シェルスクリプトのメジャーモードです。
+パッケージからインストールするだけで
+ .fishファイルがで自動的に有効になります。
+まだキーワードハイライトやインデントなどの基本的な機能しかありません。
+
+実装の方はsh-mode(shell-script-mode)のderived-modeではなくて
+独立したメジャーモードとなっています。
+シェルスクリプトでありながらもシェルスクリプトではないです。
+if/else/for/switch/while/not/function/return/endなどが予約語の
+Luaっぽい構文の別言語だからです。
+
+補完やsuggestionが超強力で、シェルスクリプトがクリーンなので
+僕はメインのシェルをeshellから乗り換えました。
+Emacsの範囲内ではとうていfishのユーザーインターフェースに追い付けないからです。
+Emacsの情報をfishからアクセスできるようにしたことと、
+fishでの出力ログをEmacsで参照できるようにした以上、
+eshellにこだわる必要がなくなったからです。
+zsh？知らんな(笑)
+
+タイトルでは煽りましたが、それくらいfishは一度試す価値はあります。
+一度使ってみてそれでもbashやzshがいいのならば
+あなたは相当な熟練者です。
+
+シェル初中級者ならばfishを気に入るのは間違いありません。
+
+あなたもfishを使ってみませんか？
+
+- http://fishshell.com/
+- http://qiita.com/mtwtk_man/items/dde92d0a6024bc61fa58
+- http://yoshiori.github.io/blog/2015/11/03/from-zsh-to-fish/
+- http://kip-s.hateblo.jp/entry/2016/01/06/204119
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160816152314.png]]
+Fig1: こんな感じ
+** fish-mode インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install fish-mode
+
+
+#+end:
+** 概要                                                             :noexport:
+『なぁ、fishって知ってる？』
+「なんだよ、魚かよ」
+『ちがうよ、シェルだよシェル！』
+「えっ」
+『君、シェルなに使ってる？』
+「bashだけど」
+『俺もzshずっと使ってきたけど使いきれなくてさ』
+「そこでfishか」
+『ああ、fishすごいぜ！設定しなくてもいきなり便利でさ』
+「なんだって？俺、bashの使い方や便利な設定探すのにどれだけかかったか」
+『俺もだ。めったに使わない機能とか覚えられなくてさ、とにかくfishすごいぜ』
+「そんなにすごいのか」
+『ああ、惚れ込んだぜ！もうzshもいらない子だ』
+「シェルスクリプトも苦手でさあ」
+『fishは独自のシェルスクリプトだよ。すごいクリーンだ』
+「どんな？」
+『LuaやRubyっぽい。黒魔術なしですぐに覚えらるれるよ』
+「じゃあ俺も使ってみるぜ。サンキュ」
+
+*fish-mode.el* は *fish* シェルスクリプトのメジャーモードです。
+パッケージからインストールするだけで
+ .fishファイルがで自動的に有効になります。
+まだキーワードハイライトやインデントなどの基本的な機能しかありません。
+
+実装の方はsh-mode(shell-script-mode)のderived-modeではなくて
+独立したメジャーモードとなっています。
+シェルスクリプトでありながらもシェルスクリプトではないです。
+if/else/for/switch/while/not/function/return/endなどが予約語の
+Luaっぽい構文の別言語だからです。
+
+補完やsuggestionが超強力で、シェルスクリプトがクリーンなので
+僕はメインのシェルをeshellから乗り換えました。
+Emacsの範囲内ではとうていfishのユーザーインターフェースに追い付けないからです。
+Emacsの情報をfishからアクセスできるようにしたことと、
+fishでの出力ログをEmacsで参照できるようにした以上、
+eshellにこだわる必要がなくなったからです。
+zsh？知らんな(笑)
+
+タイトルでは煽りましたが、それくらいfishは一度試す価値はあります。
+一度使ってみてそれでもbashやzshがいいのならば
+あなたは相当な熟練者です。
+
+シェル初中級者ならばfishを気に入るのは間違いありません。
+
+あなたもfishを使ってみませんか？
+
+- http://fishshell.com/
+- http://qiita.com/mtwtk_man/items/dde92d0a6024bc61fa58
+- http://yoshiori.github.io/blog/2015/11/03/from-zsh-to-fish/
+- http://kip-s.hateblo.jp/entry/2016/01/06/204119
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160816152314.png]]
+Fig2: こんな感じ
+
+
+# /r/sync/screenshots/20160816152314.png http://rubikitch.com/wp-content/uploads/2016/08/20160816152314.png
