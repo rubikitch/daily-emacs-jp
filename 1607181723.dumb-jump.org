@@ -137,7 +137,7 @@ elispでは素直にファイルをロードして *find-function* などでジ�
 - Lua
 - Rust
 - CoffeeScript
-- Perl <2016-08-11 Fri>追加
+- Perl <2016-08-11 Thu>追加
 - Ｃ言語 <2016-08-12 Fri>追加
 - Ｃ＋＋ <2016-08-12 Fri>追加
 ** 使えるコマンド
