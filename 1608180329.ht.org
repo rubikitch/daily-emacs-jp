@@ -1,0 +1,225 @@
+#+BLOG: rubikitch
+#+POSTID: 2684
+#+DATE: [2016-08-18 Thu 03:29]
+#+PERMALINK: ht
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, Emacs Lisp, ソース解読推奨, 
+#+EL_PKG_NAME: ht
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, Emacs Lisp ハッシュテーブル, alist, plist, 
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 
+#+EL_TITLE0: 【Rubyist歓喜】ハッシュテーブルを超絶使いやすくするライブラリ
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージhtの紹介
+#+MYTAGS: package:ht, emacs 使い方, emacs コマンド, emacs, ht, ht.el, emacs lisp ht, elisp ht, emacs melpa ht, emacs ht 使い方, emacs ht 設定, emacs パッケージ ht, Emacs Lisp ハッシュテーブル, alist, plist, 
+#+TAGS: package:ht, emacs 使い方, emacs コマンド, emacs, ht, ht.el, emacs lisp ht, elisp ht, emacs melpa ht, emacs ht 使い方, emacs ht 設定, emacs パッケージ ht, Emacs Lisp ハッシュテーブル, alist, plist, , Emacs, Emacs Lisp, ソース解読推奨, , make-hash-table, puthash, gethash, maphash, ht.el, make-hash-table, puthash, gethash, maphash, ht.el, ht, ht-get, ht-set, ht-p, ht-equal-p, ht-keys, ht-values, ht-contains-p, ht-get, ht-size, ht->alist, ht->plist, ht->alist, ht-clear, ht-map, ht-aeach, ht-amap, ht-reject, ht-delete-if, ht-reject, ht-find
+#+TITLE: emacs ht.el : 【Rubyist歓喜】ハッシュテーブルを超絶使いやすくするライブラリ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>ht</td></tr>
+<tr><td>概要(原文)</td><td>The missing hash table library for Emacs</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/Wilfred/ht.el">https://github.com/Wilfred/ht.el</a></td></tr>
+<tr><td>バージョン</td><td>20160806.1753</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:ht/">package:ht</a> </td></tr>
+</table>
+<br />
+#+END_HTML
+あなたはEmacs Lispでハッシュテーブルを使っていますか？
+Emacs LispはLispだけに、どうしてもリストに目がいってしまうでしょう。
+実際にリストを扱う関数は豊富です。
+
+key/valueペアを扱うにはalistやplistを使うのが普通でしょう。
+ハッシュテーブルにはそれらにない特性があります。
+ハッシュテーブルの持ち味はなんといっても
+/高速性/
+です。
+
+リストは頭から順に探索しますが、
+ハッシュテーブルはたとえ巨大なデータであっても一瞬でアクセスできます。
+
+ところが、
+
+Emacs Lispのハッシュテーブルは扱いにくいのが正直なところですよね。
+*make-hash-table* で作成して、
+ *puthash* でkey/valueペアを設定して、
+*gethash* でkeyに対応するvalueを得ます。
+
+各ペアに対してループする *maphash* はmapと名乗ってるくせに
+nilを返すという奇妙な仕様…。
+これではどうしてもリストに流れてしまうのは仕方ないですね。
+
+*ht.el* はこの状況をなんとかすべく、使いやすい関数群を用意します。
+Rubyプログラマにはおなじみの関数名になっています。
+** ht インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install ht
+
+
+#+end:
+** 概要                                                             :noexport:
+あなたはEmacs Lispでハッシュテーブルを使っていますか？
+Emacs LispはLispだけに、どうしてもリストに目がいってしまうでしょう。
+実際にリストを扱う関数は豊富です。
+
+key/valueペアを扱うにはalistやplistを使うのが普通でしょう。
+ハッシュテーブルにはそれらにない特性があります。
+ハッシュテーブルの持ち味はなんといっても
+/高速性/
+です。
+
+リストは頭から順に探索しますが、
+ハッシュテーブルはたとえ巨大なデータであっても一瞬でアクセスできます。
+
+ところが、
+
+Emacs Lispのハッシュテーブルは扱いにくいのが正直なところですよね。
+*make-hash-table* で作成して、
+ *puthash* でkey/valueペアを設定して、
+*gethash* でkeyに対応するvalueを得ます。
+
+各ペアに対してループする *maphash* はmapと名乗ってるくせに
+nilを返すという奇妙な仕様…。
+これではどうしてもリストに流れてしまうのは仕方ないですね。
+
+*ht.el* はこの状況をなんとかすべく、使いやすい関数群を用意します。
+Rubyプログラマにはおなじみの関数名になっています。
+
+** 基本
+使い方は簡単です。
+*ht* マクロでハッシュテーブルを作成し、
+*ht-get* と *ht-set* でアクセスします。
+
+#+BEGIN_SRC emacs-lisp :results silent
+(setq test-table (ht ("fuga" "hoge")
+                     ("test" "table")))
+;; => #s(hash-table size 65 test equal rehash-size 1.5 rehash-threshold 0.8 data
+;;                  ("fuga" "hoge" "test" "table"))
+(ht-get test-table "fuga")               ; => "hoge"
+(ht-set test-table "foo" "bar")
+(ht-get test-table "foo")               ; => "bar"
+#+END_SRC
+
+*ht-p* はハッシュテーブルであるかどうかを検査し、
+*ht-equal-p* は同値性を検査します。
+
+*ht-keys* と *ht-values* はそれぞれkeyのリスト、valueのリストを返します。
+
+*ht-contains-p* はkeyがハッシュテーブルに含まれているかを検査します。
+*ht-get* との違いはvalueがnilかどうかを区別することです。
+
+*ht-size* はハッシュテーブルのサイズを返します。
+
+*ht->alist* と *ht->plist* はそれぞれalist/plistへ変換します。
+以後のサンプルではスペース省略のため *ht->alist* を使うことにします。
+
+*ht-clear* はハッシュテーブルをクリアします。
+
+#+BEGIN_SRC emacs-lisp :results silent
+(require 'ht)
+(setq test-table (ht ("foo" 1)))
+(ht-p test-table)                       ; => t
+(ht-equal-p test-table (ht ("foo" 1)))  ; => t
+(ht-update test-table (ht ("bar" 2)))
+(ht-keys test-table)                    ; => ("bar" "foo")
+(ht-values test-table)                  ; => (2 1)
+(ht-contains-p test-table "foo")        ; => t
+(ht-contains-p test-table "not-exist")  ; => nil
+(ht-size test-table)                    ; => 2
+(ht->alist test-table)                  ; => (("bar" . 2) ("foo" . 1))
+(ht-items test-table)                   ; => (("bar" 2) ("foo" 1))
+(ht->plist test-table)                  ; => ("bar" 2 "foo" 1)
+
+(ht-clear test-table)
+(ht->alist test-table)                  ; => nil
+#+END_SRC
+** ハッシュテーブルをマージする
+*ht-merge* は2つのハッシュテーブルをマージしたハッシュテーブルを返します。
+
+#+BEGIN_SRC emacs-lisp :results silent
+(setq table1 (ht ("foo" 1)))
+(setq table2 (ht ("bar" 2)))
+(ht->alist (ht-merge table1 table2))    ; => (("bar" . 2) ("foo" . 1))
+#+END_SRC
+** ハッシュテーブルから値を削除する
+*ht-remove* はハッシュテーブルから値を削除します。
+
+#+BEGIN_SRC emacs-lisp :results silent
+(setq test-table (ht ("foo" "bar")))
+(ht-remove test-table "foo")
+(ht->alist test-table)                  ; => nil
+#+END_SRC
+** ハッシュテーブルでループする
+*ht-each* と *ht-map* は各要素でループします。
+両者の違いは、ラムダ式のリストを返すかどうかです。
+mapcとmapcarの違いと同じです。
+
+また、アナフォリック版の *ht-aeach* と *ht-amap* があります。
+それらはkeyとvalueというローカル変数が使えるお手軽マクロです。
+
+#+BEGIN_SRC emacs-lisp :results silent
+;;; ht-each / ht-aeach
+(let ((total 0))
+    (ht-each
+     (lambda (key value) (setq total (+ total value)))
+     (ht ("foo" 1) ("bar" 2)))
+    total)         ; => 3
+(let ((total 0))
+    (ht-aeach
+     (setq total (+ total value))
+     (ht ("foo" 1) ("bar" 2)))
+    total)                              ; => 3
+
+;;; ht-map / ht-amap
+(ht-map (lambda (key value) (cons key (* value 2)))
+        (ht ("foo" 2) ("bar" 10)))      ; => (("bar" . 20) ("foo" . 4))
+(ht-amap (cons key (* value 2))
+        (ht ("foo" 2) ("bar" 10)))      ; => (("bar" . 20) ("foo" . 4))
+
+#+END_SRC
+** 条件を満たす要素のみのハッシュテーブルを返す
+*ht-select* は条件を満たす要素のみで構成された新しいハッシュテーブルを返します。
+*ht-reject* はその逆で、条件を満たさないものです。
+
+*ht-delete-if* は *ht-reject* の破壊的バージョンです。
+
+#+BEGIN_SRC emacs-lisp :results silent
+;;; ht-select / ht-reject
+(ht->alist
+ (ht-select
+  (lambda (key value) (= (% value 2) 0))
+  (ht ("foo" 1) ("bar" 2) ("baz" 3) ("qux" 4))))
+;; => (("qux" . 4)
+;;     ("bar" . 2))
+(ht->alist
+ (ht-reject
+  (lambda (key value) (= (% value 2) 0))
+  (ht ("foo" 1) ("bar" 2) ("baz" 3) ("qux" 4))))
+;;; => (("baz" . 3)
+;;;     ("foo" . 1))
+
+;;; ht-delete-if
+(let ((table (ht ("foo" 1) ("bar" 2) ("baz" 3) ("qux" 4))))
+  (ht-delete-if (lambda (key value) (= (% value 2) 0)) table) ; => nil
+  (ht->alist table))                    ; => (("baz" . 3) ("foo" . 1))
+
+#+END_SRC
+
+*ht-find* は条件を満たす最初の要素をリストで返します。
+
+#+BEGIN_SRC emacs-lisp :results silent
+(ht-find (lambda (key value) (= (% value 2) 0))
+         (ht ("baz" 3) ("qux" 4)))      ; => ("qux" 4)
+#+END_SRC
+** 結論
+このようにht.elはとても便利です。
+あなたもht.elでハッシュテーブルを使いこなしてみませんか？
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
