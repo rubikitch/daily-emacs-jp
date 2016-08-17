@@ -1,0 +1,156 @@
+#+BLOG: rubikitch
+#+POSTID: 2682
+#+DATE: [2016-08-17 Wed 11:20]
+#+PERMALINK: sound-wav
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs
+#+EL_PKG_NAME: sound-wav
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, 効果音, サウンド, wav, mp3, タイプライター, SE, play-sound
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 
+#+EL_TITLE0: Emacsに効果音(SE)を付けて作業効率を3倍にする方法
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージsound-wavの紹介
+#+MYTAGS: package:sound-wav, emacs 使い方, emacs コマンド, emacs, sound-wav, sound-wav.el, emacs lisp sound-wav, elisp sound-wav, emacs melpa sound-wav, emacs sound-wav 使い方, emacs sound-wav 設定, emacs パッケージ sound-wav, 効果音, サウンド, wav, mp3, タイプライター, SE, play-sound
+#+TAGS: package:sound-wav, emacs 使い方, emacs コマンド, emacs, sound-wav, sound-wav.el, emacs lisp sound-wav, elisp sound-wav, emacs melpa sound-wav, emacs sound-wav 使い方, emacs sound-wav 設定, emacs パッケージ sound-wav, 効果音, サウンド, wav, mp3, タイプライター, SE, play-sound, Emacs, sound-wav-play, expand-file-name, sound-wav-play, expand-file-name
+#+TITLE: emacs sound-wav.el : Emacsに効果音(SE)を付けて作業効率を3倍にする方法 | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>sound-wav</td></tr>
+<tr><td>概要(原文)</td><td>Play wav file</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/syohex/emacs-sound-wav">https://github.com/syohex/emacs-sound-wav</a></td></tr>
+<tr><td>バージョン</td><td>20160725.724</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:sound-wav/">package:sound-wav</a> </td></tr>
+</table>
+<br />
+#+END_HTML
+プログラミング中に効果音があってもいいのではないでしょうか？
+キーを叩くと同時にタイプライターの音が鳴るというのも、
+なかなかオツなものではないでしょうか？
+
+このsound-wavパッケージはvimのvim-soundプラグインの移植版です。
+
+これを使えばEmacsを使っていても音を鳴らせます。
+
+作者は主に[[http://rubikitch.com/2014/11/06/quickrun/][quickrun(レビュー)]]などのvimプラグインを
+多数移植されているsyohexさんです。
+
+エントリポイントは *sound-wav-play* のみです。
+この関数にwavファイルのフルパスを渡します。
+現時点では「~」を指定できないため *expand-file-name* を
+使う必要があります。
+
+Unix系OSならばafplayまたはaplayを使ってwavファイルを再生します。
+Windowsを使っているならばPowerShellをインストールすれば軽快になります。
+
+Vimでの先人たち。
+- [[http://tekkoc.tumblr.com/post/63418217996/%E4%BD%95%E6%95%85%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0%E3%81%AB%E5%8A%B9%E6%9E%9C%E9%9F%B3%E3%81%AF%E5%BF%85%E8%A6%81%E3%81%AA%E3%81%AE%E3%81%8B%E3%81%82%E3%82%8B%E3%81%84%E3%81%AFvim%E3%81%A7%E7%88%86%E7%99%BA%E3%81%99%E3%82%8B%E6%96%B9%E6%B3%95][何故プログラミングに効果音は必要なのか、あるいはVimで爆発する方法]]
+- [[http://bigchu.com/vim-sound-typewiter.html][Vim に効果音をつけてタイプライター風にする]]
+- [[http://bigchu.com/vim-support-youjyo-voice.html][Vim の操作を幼女に音声支援させる方法]]
+
+
+[[http://rubikitch.com/2015/03/01/play-sound/][そういえば僕も同じようなことをやっていました。]]
+** sound-wav インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install sound-wav
+
+
+#+end:
+** 概要                                                             :noexport:
+プログラミング中に効果音があってもいいのではないでしょうか？
+キーを叩くと同時にタイプライターの音が鳴るというのも、
+なかなかオツなものではないでしょうか？
+
+このsound-wavパッケージはvimのvim-soundプラグインの移植版です。
+
+これを使えばEmacsを使っていても音を鳴らせます。
+
+作者は主に[[http://rubikitch.com/2014/11/06/quickrun/][quickrun(レビュー)]]などのvimプラグインを
+多数移植されているsyohexさんです。
+
+エントリポイントは *sound-wav-play* のみです。
+この関数にwavファイルのフルパスを渡します。
+現時点では「~」を指定できないため *expand-file-name* を
+使う必要があります。
+
+Unix系OSならばafplayまたはaplayを使ってwavファイルを再生します。
+Windowsを使っているならばPowerShellをインストールすれば軽快になります。
+
+Vimでの先人たち。
+- [[http://tekkoc.tumblr.com/post/63418217996/%E4%BD%95%E6%95%85%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0%E3%81%AB%E5%8A%B9%E6%9E%9C%E9%9F%B3%E3%81%AF%E5%BF%85%E8%A6%81%E3%81%AA%E3%81%AE%E3%81%8B%E3%81%82%E3%82%8B%E3%81%84%E3%81%AFvim%E3%81%A7%E7%88%86%E7%99%BA%E3%81%99%E3%82%8B%E6%96%B9%E6%B3%95][何故プログラミングに効果音は必要なのか、あるいはVimで爆発する方法]]
+- [[http://bigchu.com/vim-sound-typewiter.html][Vim に効果音をつけてタイプライター風にする]]
+- [[http://bigchu.com/vim-support-youjyo-voice.html][Vim の操作を幼女に音声支援させる方法]]
+
+
+[[http://rubikitch.com/2015/03/01/play-sound/][そういえば僕も同じようなことをやっていました。]]
+
+** タイプライターの音源を手に入れる
+http://www.videocopilot.net/blog/2013/08/free-typewriter-model-sound-fx/
+からDownload Typewriter Sound FXをダウンロードすればいろいろなSEが手に入ります。
+
+#+BEGIN_EXAMPLE
+$ cd ~
+$ mkdir -p sound; cd sound
+$ wget http://www.videocopilot.net/assets/public/misc/Typewriter_Sound_FXs.zip
+$ unzip Typewriter_Sound_FXs.zip
+#+END_EXAMPLE
+
+これで ~/sound/Typewriter_Sound_FXs/ 以下に音源が展開されます。
+
+サブディレクトリに Typewriter_Sound_FXs/ と
+Antique_Typewriter_Sound_FXs/ がありますので
+好きなSEを選んでください。
+** mp3他ならばmplayerで再生させてみよう
+もし[[http://www.mplayerhq.hu/][MPlayer]] を持っているならばアドバイスをかけることで
+wav以外のファイルも再生できます。
+
+#+BEGIN_SRC emacs-lisp :results silent
+(defun sound-wav--do-play-by-mplayer (files)
+  (deferred:$
+    (apply 'deferred:process "mplayer" files)))
+(advice-add 'sound-wav--do-play :override 'sound-wav--do-play-by-mplayer)
+#+END_SRC
+
+** 設定 [[http://rubikitch.com/f/160817113854.sound-wav.el][160817113854.sound-wav.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/160817/160817113854.sound-wav.el"
+#+BEGIN_SRC fundamental
+;;; ファイルを開くときの効果音
+(defun find-file-hook--sound ()
+  (sound-wav-play
+   (expand-file-name
+    "~/sound/Typewriter_Sound_FXs/Antique_Typewriter_Sound_FXs/Paper_load.wav")))
+(add-hook 'find-file-hook 'find-file-hook--sound)
+
+;;; キーを叩くたびに音を出す(うるさいので注意(笑))
+(defun post-command-hook--sound ()
+  (ignore-errors
+    (sound-wav-play
+     (expand-file-name
+      (cl-case last-command-event
+        (?\s "~/sound/Typewriter_Sound_FXs/Typewriter_Sound_FXs/Spacebar.wav")
+        ('backspace "~/sound/Typewriter_Sound_FXs/Typewriter_Sound_FXs/Backspace.wav")
+        ((?\C-m 'return) "~/sound/Typewriter_Sound_FXs/Typewriter_Sound_FXs/Return.wav")
+        ;; やかましいので2回に1回のペースで鳴らすか
+        (t (when (zerop (random 2))
+             "~/sound/Typewriter_Sound_FXs/Typewriter_Sound_FXs/1_click.wav")))))))
+(add-hook 'post-command-hook 'post-command-hook--sound)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/160817113854.sound-wav.el
+$ emacs -Q -f package-initialize -l 160817113854.sound-wav.el
+#+END_EXAMPLE
+
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
