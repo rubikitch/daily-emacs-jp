@@ -1,0 +1,187 @@
+#+BLOG: rubikitch
+#+POSTID: 2687
+#+DATE: [2016-08-19 Fri 10:11]
+#+PERMALINK: digit-groups
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs
+#+EL_PKG_NAME: digit-groups大きい数字を読むコツ
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, 大きい数字を読むコツ, 数字の単位, 命数法, 数字の表記, 桁の大きな数字の読み方, 数字の読み方
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: 【無量大数以上？】大きい数字を区切って読みやすくする
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: Emacs Lispパッケージdigit-groups大きい数字を読むコツの紹介
+#+MYTAGS: package:digit-groups大きい数字を読むコツ, emacs 使い方, emacs コマンド, emacs, digit-groups大きい数字を読むコツ, digit-groups大きい数字を読むコツ.el, emacs lisp digit-groups大きい数字を読むコツ, elisp digit-groups大きい数字を読むコツ, emacs  digit-groups大きい数字を読むコツ, emacs digit-groups大きい数字を読むコツ 使い方, emacs digit-groups大きい数字を読むコツ 設定, emacs パッケージ digit-groups大きい数字を読むコツ, emacs digit-groups大きい数字を読むコツ スクリーンショット, 大きい数字を読むコツ, 数字の単位, 命数法, 数字の表記, 桁の大きな数字の読み方, 数字の読み方
+#+TAGS: package:digit-groups大きい数字を読むコツ, emacs 使い方, emacs コマンド, emacs, digit-groups大きい数字を読むコツ, digit-groups大きい数字を読むコツ.el, emacs lisp digit-groups大きい数字を読むコツ, elisp digit-groups大きい数字を読むコツ, emacs  digit-groups大きい数字を読むコツ, emacs digit-groups大きい数字を読むコツ 使い方, emacs digit-groups大きい数字を読むコツ 設定, emacs パッケージ digit-groups大きい数字を読むコツ, emacs digit-groups大きい数字を読むコツ スクリーンショット, 大きい数字を読むコツ, 数字の単位, 命数法, 数字の表記, 桁の大きな数字の読み方, 数字の読み方, Emacs, digit-groups.el, digit-groups-mode, font-lock-mode, prog-mode, text-mode, org-mode, digit-groups.el, digit-groups-mode, font-lock-mode, prog-mode, text-mode, org-mode, digit-groups-test
+#+TITLE: emacs digit-groups大きい数字を読むコツ.el : 【無量大数以上？】大きい数字を区切って読みやすくする |  Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>digit-groups大きい数字を読むコツ</td></tr>
+<tr><td>概要(原文)</td><td>EL_DOCに説明文を入れてください</td></tr>
+<tr><td>リポジトリ</td><td>まだパッケージに登録されていない</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:digit-groups大きい数字を読むコツ/">package:digit-groups大きい数字を読むコツ</a> </td></tr>
+</table>
+<br />
+#+END_HTML
+大きい数字を読み上げるのは大変ですよね。
+あなたは「1234567890123」をすぐに読み上げられますか？
+でも、数字にマーカーがしてあれば簡単に読み上げられるはずです。
+
+#+BEGIN_EXAMPLE
+1234567890123
+^    ^^^^
+#+END_EXAMPLE
+
+先程の数字は「1兆2345億6789万123」です。
+
+*digit-groups.el* がこのように別フェイスで数字の区切りを示してくれます。
+
+ただ作者は英語圏の人なので、3桁区切りになってしまいます。
+本設定では日本人向けに設定を変えておきます。
+
+なお、マイナーモード *digit-groups-mode* を有効にするための条件として
+*font-lock-mode* が有効になっている必要があります。
+プログラミングのモード(*prog-mode* 系列)なら有効ですが、
+*text-mode* ではあえてfont-lock-modeを有効にする必要があります。
+*org-mode* ではそのままで有効になります。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160819101814.png]]
+Fig1: これで大きい数字も楽に読めるね
+** digit-groups大きい数字を読むコツ インストール
+これはまだパッケージ化されていないので、[[http://rubikitch.com/package-initialize/#sec-2][手動でインストール]] する必要があります。
+
+
+#+end:
+** 概要                                                             :noexport:
+大きい数字を読み上げるのは大変ですよね。
+あなたは「1234567890123」をすぐに読み上げられますか？
+でも、数字にマーカーがしてあれば簡単に読み上げられるはずです。
+
+#+BEGIN_EXAMPLE
+1234567890123
+^    ^^^^
+#+END_EXAMPLE
+
+先程の数字は「1兆2345億6789万123」です。
+
+*digit-groups.el* がこのように別フェイスで数字の区切りを示してくれます。
+
+ただ作者は英語圏の人なので、3桁区切りになってしまいます。
+本設定では日本人向けに設定を変えておきます。
+
+なお、マイナーモード *digit-groups-mode* を有効にするための条件として
+*font-lock-mode* が有効になっている必要があります。
+プログラミングのモード(*prog-mode* 系列)なら有効ですが、
+*text-mode* ではあえてfont-lock-modeを有効にする必要があります。
+*org-mode* ではそのままで有効になります。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160819101814.png]]
+Fig2: これで大きい数字も楽に読めるね
+** なぜ数字を区切ると読みやすくなるのか
+http://ipfbiz.com/archives/numeral.html より
+
+#+BEGIN_QUOTE
+桁の大きな数字を記載する時には、3桁ごとにカンマで区切るのがマナーとなっています。
+この3桁区切りは、元々欧米の言語文化から来ています。
+
+つまり、英語では、
+１（one）、10（ten）、100（handred）、1000（thousand）の後は、1000ごと、つまり3桁ごとに単位が用
+意されています。
+
+1,000＝thousand
+1,000,000＝million
+1,000,000,000＝billion
+1,000,000,000,000＝trillion
+
+したがって、3桁ごとに数字が区切られていると、大きい数字を読み上げるのが非常に楽になります。
+
+
+3,000は、3と1,000（thousand）だから「three thousand」
+30,000,000は、30と1,000,000（million）だから、「thirty million」
+300,000,000,000は、300と1,000,000,000（billion）だから、「three handred billion」
+
+数えやすいでしょ？
+
+
+掛け算でも、
+1,000（thousand）×1,000（thousand）＝1,000,000（million）
+1,000（thousand）×1,000,000（million）＝1,000,000,000（billion）
+と分かりすい。
+
+このように3桁ごとの区切りで読み上げるのは、10進法の中でもさらに1,000進法（千進法）となります。
+欧米の数字言語に合わせて、読みやすいように3桁ごとにカンマを振るんですね。
+#+END_QUOTE
+
+同じ理由により、日本語では4桁区切りにすれば読みやすくなるわけです。
+** 無量大数よりもでかい単位があるんですねぇ
+http://note.chiebukuro.yahoo.co.jp/detail/n48931 より
+
+#+BEGIN_QUOTE
+一　　　　　　　　　　　　　　いち
+十　　　　　10の１乗　　　　じゅう
+百　　　　　10の2乗　　　　ひゃく
+千　　　　　10の3乗　　　　せん
+万　　　　　10の4乗　　　　まん
+億　　　　　10の8乗　　　　おく
+兆　　　　　10の12乗　　　ちょう
+京　　　　　10の16乗　　　けい
+垓　　　　　10の20乗　　　がい
+・　　　　　 10の24乗　　　じょ
+穣　　　　　10の28乗　　　じょう
+溝　　　　　10の32乗　　　こう
+澗　　　　　10の36乗　　　かん
+正　　　　　10の40乗　　　せい
+載　　　　　10の44乗　　　さい
+極　　　　　10の48乗　　　ごく
+恒河沙　　10の52乗　　　ごうがしゃ
+阿僧祇　　10の56乗　　　あそうぎ
+那由他　　10の60乗　　　なゆた
+不可思議 10の64乗　　　ふかしぎ
+無量大数 10の68乗　　　むりょうたいすう
+矜羯羅    10の112乗　　びんばら
+阿伽羅    10の224乗　　こんがら
+#+END_QUOTE
+
+** 設定 [[http://rubikitch.com/f/160819100529.digit-groups.el][160819100529.digit-groups.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/160819/160819100529.digit-groups.el"
+#+BEGIN_SRC fundamental
+;; (save-window-excursion (shell-command (format "emacs-test -l test-minimum -l %s %s &" buffer-file-name buffer-file-name)))
+(require 'digit-groups)
+
+;;; わかりやすくするためにアンダーライン表記
+;;; デフォルトはボールド体になるだけ
+(custom-set-faces '(digit-groups-default-face ((t (:underline t)))))
+;;; 日本人向けに4桁区切り
+(setq digit-groups-groups
+  (--map (cons it 'digit-groups-default-face)
+         (apply 'append
+                (append
+                 (--map (list (+ 7 (* 8 it))(+ 6 (* 8 it)) (+ 5 (* 8 it)) (+ 4 (* 8 it)))
+                        '(9 8 7 6 5 4 3 2 1 0))))))
+;;; テスト
+(switch-to-buffer "*digit-groups-test*")
+(insert "
+ 1234567890123
+兆  億  万
+")
+(font-lock-mode 1)
+(digit-groups-mode 1)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/160819100529.digit-groups.el
+$ emacs -Q -f package-initialize -l 160819100529.digit-groups.el
+#+END_EXAMPLE
+
+# /r/sync/screenshots/20160819101814.png http://rubikitch.com/wp-content/uploads/2016/08/20160819101814.png
