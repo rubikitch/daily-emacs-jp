@@ -12,7 +12,7 @@
 #+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, 大きい数字を読むコツ, 数字の単位, 命数法, 数字の表記, 桁の大きな数字の読み方, 数字の読み方
 #+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
 #+EL_TITLE0: 【無量大数以上？】大きい数字を区切って読みやすくする
-#+EL_URL: 
+#+EL_URL: https://bitbucket.com/adamsmd/digit-groups
 #+begin: org2blog
 #+DESCRIPTION: MELPAのEmacs Lispパッケージdigit-groupsの紹介
 #+MYTAGS: package:digit-groups, emacs 使い方, emacs コマンド, emacs, digit-groups, digit-groups.el, emacs lisp digit-groups, elisp digit-groups, emacs melpa digit-groups, emacs digit-groups 使い方, emacs digit-groups 設定, emacs パッケージ digit-groups, emacs digit-groups スクリーンショット, 大きい数字を読むコツ, 数字の単位, 命数法, 数字の表記, 桁の大きな数字の読み方, 数字の読み方
@@ -23,6 +23,7 @@
 <tr><td>パッケージ名</td><td>digit-groups</td></tr>
 <tr><td>概要(原文)</td><td>Highlight place-value positions in numbers</td></tr>
 <tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>サイト</td><td><a href="https://bitbucket.com/adamsmd/digit-groups">https://bitbucket.com/adamsmd/digit-groups</td></tr>
 <tr><td>取得先</td><td><a href=""></a></td></tr>
 <tr><td>バージョン</td><td>20160816.1926</td></tr>
 <tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:digit-groups/">package:digit-groups</a> </td></tr>
@@ -34,8 +35,8 @@
 でも、数字にマーカーがしてあれば簡単に読み上げられるはずです。
 
 #+BEGIN_EXAMPLE
-1234567890123
-^    ^^^^
+１２３４５６７８９０１２３
+＾　　　　＾＾＾＾
 #+END_EXAMPLE
 
 先程の数字は「1兆2345億6789万123」です。
@@ -69,8 +70,8 @@ M-x package-install digit-groups
 でも、数字にマーカーがしてあれば簡単に読み上げられるはずです。
 
 #+BEGIN_EXAMPLE
-1234567890123
-^    ^^^^
+１２３４５６７８９０１２３
+＾　　　　＾＾＾＾
 #+END_EXAMPLE
 
 先程の数字は「1兆2345億6789万123」です。
