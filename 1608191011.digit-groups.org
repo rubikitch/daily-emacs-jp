@@ -8,22 +8,24 @@
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
 #+CATEGORY: Emacs
-#+EL_PKG_NAME: digit-groups大きい数字を読むコツ
+#+EL_PKG_NAME: digit-groups
 #+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, 大きい数字を読むコツ, 数字の単位, 命数法, 数字の表記, 桁の大きな数字の読み方, 数字の読み方
 #+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
 #+EL_TITLE0: 【無量大数以上？】大きい数字を区切って読みやすくする
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: Emacs Lispパッケージdigit-groups大きい数字を読むコツの紹介
-#+MYTAGS: package:digit-groups大きい数字を読むコツ, emacs 使い方, emacs コマンド, emacs, digit-groups大きい数字を読むコツ, digit-groups大きい数字を読むコツ.el, emacs lisp digit-groups大きい数字を読むコツ, elisp digit-groups大きい数字を読むコツ, emacs  digit-groups大きい数字を読むコツ, emacs digit-groups大きい数字を読むコツ 使い方, emacs digit-groups大きい数字を読むコツ 設定, emacs パッケージ digit-groups大きい数字を読むコツ, emacs digit-groups大きい数字を読むコツ スクリーンショット, 大きい数字を読むコツ, 数字の単位, 命数法, 数字の表記, 桁の大きな数字の読み方, 数字の読み方
-#+TAGS: package:digit-groups大きい数字を読むコツ, emacs 使い方, emacs コマンド, emacs, digit-groups大きい数字を読むコツ, digit-groups大きい数字を読むコツ.el, emacs lisp digit-groups大きい数字を読むコツ, elisp digit-groups大きい数字を読むコツ, emacs  digit-groups大きい数字を読むコツ, emacs digit-groups大きい数字を読むコツ 使い方, emacs digit-groups大きい数字を読むコツ 設定, emacs パッケージ digit-groups大きい数字を読むコツ, emacs digit-groups大きい数字を読むコツ スクリーンショット, 大きい数字を読むコツ, 数字の単位, 命数法, 数字の表記, 桁の大きな数字の読み方, 数字の読み方, Emacs, digit-groups.el, digit-groups-mode, font-lock-mode, prog-mode, text-mode, org-mode, digit-groups.el, digit-groups-mode, font-lock-mode, prog-mode, text-mode, org-mode, digit-groups-test
-#+TITLE: emacs digit-groups大きい数字を読むコツ.el : 【無量大数以上？】大きい数字を区切って読みやすくする |  Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+DESCRIPTION: MELPAのEmacs Lispパッケージdigit-groupsの紹介
+#+MYTAGS: package:digit-groups, emacs 使い方, emacs コマンド, emacs, digit-groups, digit-groups.el, emacs lisp digit-groups, elisp digit-groups, emacs melpa digit-groups, emacs digit-groups 使い方, emacs digit-groups 設定, emacs パッケージ digit-groups, emacs digit-groups スクリーンショット, 大きい数字を読むコツ, 数字の単位, 命数法, 数字の表記, 桁の大きな数字の読み方, 数字の読み方
+#+TAGS: package:digit-groups, emacs 使い方, emacs コマンド, emacs, digit-groups, digit-groups.el, emacs lisp digit-groups, elisp digit-groups, emacs melpa digit-groups, emacs digit-groups 使い方, emacs digit-groups 設定, emacs パッケージ digit-groups, emacs digit-groups スクリーンショット, 大きい数字を読むコツ, 数字の単位, 命数法, 数字の表記, 桁の大きな数字の読み方, 数字の読み方, Emacs, digit-groups.el, digit-groups-mode, font-lock-mode, prog-mode, text-mode, org-mode, digit-groups.el, digit-groups-mode, font-lock-mode, prog-mode, text-mode, org-mode, digit-groups-test
+#+TITLE: emacs digit-groups.el : 【無量大数以上？】大きい数字を区切って読みやすくする | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
 #+BEGIN_HTML
 <table>
-<tr><td>パッケージ名</td><td>digit-groups大きい数字を読むコツ</td></tr>
-<tr><td>概要(原文)</td><td>EL_DOCに説明文を入れてください</td></tr>
-<tr><td>リポジトリ</td><td>まだパッケージに登録されていない</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:digit-groups大きい数字を読むコツ/">package:digit-groups大きい数字を読むコツ</a> </td></tr>
+<tr><td>パッケージ名</td><td>digit-groups</td></tr>
+<tr><td>概要(原文)</td><td>Highlight place-value positions in numbers</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href=""></a></td></tr>
+<tr><td>バージョン</td><td>20160816.1926</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:digit-groups/">package:digit-groups</a> </td></tr>
 </table>
 <br />
 #+END_HTML
@@ -53,8 +55,11 @@
 #+ATTR_HTML: :width 480
 [[file:/r/sync/screenshots/20160819101814.png]]
 Fig1: これで大きい数字も楽に読めるね
-** digit-groups大きい数字を読むコツ インストール
-これはまだパッケージ化されていないので、[[http://rubikitch.com/package-initialize/#sec-2][手動でインストール]] する必要があります。
+** digit-groups インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install digit-groups
 
 
 #+end:
