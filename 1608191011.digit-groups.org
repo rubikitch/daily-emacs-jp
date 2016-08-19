@@ -24,7 +24,7 @@
 <tr><td>概要(原文)</td><td>Highlight place-value positions in numbers</td></tr>
 <tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
 <tr><td>サイト</td><td><a href="https://bitbucket.com/adamsmd/digit-groups">https://bitbucket.com/adamsmd/digit-groups</td></tr>
-<tr><td>取得先</td><td><a href=""></a></td></tr>
+<tr><td>取得先</td><td><a href="https://bitbucket.com/adamsmd/digit-groups">https://bitbucket.com/adamsmd/digit-groups</a></td></tr>
 <tr><td>バージョン</td><td>20160816.1926</td></tr>
 <tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:digit-groups/">package:digit-groups</a> </td></tr>
 </table>
