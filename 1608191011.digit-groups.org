@@ -159,7 +159,6 @@ http://note.chiebukuro.yahoo.co.jp/detail/n48931 より
 ** 設定 [[http://rubikitch.com/f/160819100529.digit-groups.el][160819100529.digit-groups.el(以下のコードと同一)]]
 #+BEGIN: include :file "/r/sync/junk/160819/160819100529.digit-groups.el"
 #+BEGIN_SRC fundamental
-;; (save-window-excursion (shell-command (format "emacs-test -l test-minimum -l %s %s &" buffer-file-name buffer-file-name)))
 (require 'digit-groups)
 
 ;;; わかりやすくするためにアンダーライン表記
