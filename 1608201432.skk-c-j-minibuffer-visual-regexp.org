@@ -1,0 +1,86 @@
+#+BLOG: rubikitch
+#+POSTID: 2693
+#+DATE: [2016-08-20 土 14:32]
+#+PERMALINK: skk-c-j-minibuffer-visual-regexp
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, SKK, 
+#+DESCRIPTION: 
+#+MYTAGS: skk, package:skk, ミニバッファでskkが使えない, relate:visual-regexp, 
+#+TITLE: ミニバッファでSKKが使えなくなったらこれをやれ！
+#+begin: org2blog-tags
+#+TAGS: skk, package:skk, ミニバッファでskkが使えない, relate:visual-regexp, , Emacs, SKK, , 
+#+end:
+SKKを使っている人へ。
+
+あなたはミニバッファでSKKを使おうとC-jを押したのに
+なぜかミニバッファを終了してしまって困ったことはありませんか？
+
+僕はいくつかのパッケージで経験がありますが、
+最近覚えているものといえば[[http://rubikitch.com/2014/08/26/visual-regexp/][visual-regexp(レビュー)]] を使おうとしたときです。
+
+日本語を置換しようとC-jでSKKで日本語を入力しようとしたら、
+置換先を聞かれてしまい、困ってしまいました。
+
+原因はvisual-regexp等は
+#+BEGIN_SRC emacs-lisp :results silent
+(copy-keymap minibuffer-local-map)
+#+END_SRC
+によって古いミニバッファのキーマップをコピーするからです。
+
+解決策は以下のコードで真っ先にminibuffer-local-mapにskk-kakuteiを割り当てることです。
+
+#+BEGIN_SRC emacs-lisp :results silent
+(define-key minibuffer-local-map (kbd "C-j") 'skk-kakutei)
+#+END_SRC
+
+
+ただし、後から割り当てても遅いので再起動してください。
+
+新たにminibuffer-local-mapにキーを割り当てても
+コピーされたキーマップには反映されないからです。
+
+
+先程手元で「copy-keymap minibuffer-local-map」を検索してみたところ、
+以下のパッケージが該当しました。
+
+- anything-config.el
+- anything.el
+- bookmark.el
+- bpath.el
+- contentswitch.el
+- elscreen-gf.el
+- elscreen.el
+- ert.el
+- ertn.el
+- exec-abbrev-cmd.el
+- globalff.el
+- gnus-spotlight.el
+- helm-bookmark.el
+- irbsh.el
+- isearch-x.el
+- iswitchb.el
+- mew-key.el
+- mhc-minibuf.el
+- org-occur-goto.el
+- org-search-goto-ml.el
+- org-search-goto.el
+- supercite.el
+- tagger.el
+- view-kill.el
+- vip.el
+- viper-cmd.el
+- viper-ex.el
+- visual-regexp.el
+- wuxch-buffer.el
+- xscheme.el
+
+それでは落とし穴紹介でした。
+
+SKKで手書きのような入力を楽しんでください。
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
