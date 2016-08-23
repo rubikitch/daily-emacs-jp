@@ -61,8 +61,8 @@ Fig1: M-x edit-list auto-mode-alist
 
 
 このedit-list.elはとてもシンプルなEmacs Lispですが、
-いろいろな操作ができるようになった強力版refine.elが存在します。
-そのうち紹介します。
+いろいろな操作ができるようになった強力版[[http://rubikitch.com/2016/08/24/refine/][refine.el(レビュー)]] が存在します。
++そのうち紹介します。<2016-08-24 Wed>紹介しました。
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
 ** edit-list インストール
@@ -106,8 +106,8 @@ Fig2: M-x edit-list auto-mode-alist
 
 
 このedit-list.elはとてもシンプルなEmacs Lispですが、
-いろいろな操作ができるようになった強力版refine.elが存在します。
-そのうち紹介します。
+いろいろな操作ができるようになった強力版[[http://rubikitch.com/2016/08/24/refine/][refine.el(レビュー)]] が存在します。
++そのうち紹介します。<2016-08-24 Wed>紹介しました。
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
 ** 設定 [[http://rubikitch.com/f/160823140041.edit-list.el][160823140041.edit-list.el(以下のコードと同一)]]
