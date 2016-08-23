@@ -1,0 +1,127 @@
+#+BLOG: rubikitch
+#+POSTID: 2702
+#+DATE: [2016-08-23 Tue 13:48]
+#+PERMALINK: edit-list
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, Emacs Lisp, ソース解読推奨, 
+#+EL_PKG_NAME: edit-list
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, relate:refine, リストの値を編集する, リスト変数を対話的に変更する, 
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: 【初級者向け】リストの値を自由に編集して反映させる
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージedit-listの紹介
+#+MYTAGS: package:edit-list, emacs 使い方, emacs コマンド, emacs, edit-list, edit-list.el, emacs lisp edit-list, elisp edit-list, emacs melpa edit-list, emacs edit-list 使い方, emacs edit-list 設定, emacs パッケージ edit-list, emacs edit-list スクリーンショット, relate:refine, リストの値を編集する, リスト変数を対話的に変更する, 
+#+TAGS: package:edit-list, emacs 使い方, emacs コマンド, emacs, edit-list, edit-list.el, emacs lisp edit-list, elisp edit-list, emacs melpa edit-list, emacs edit-list 使い方, emacs edit-list 設定, emacs パッケージ edit-list, emacs edit-list スクリーンショット, relate:refine, リストの値を編集する, リスト変数を対話的に変更する, , Emacs, Emacs Lisp, ソース解読推奨, , 
+#+TITLE: emacs edit-list.el : 【初級者向け】リストの値を自由に編集して反映させる | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>edit-list</td></tr>
+<tr><td>概要(原文)</td><td>edit a single list</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/emacsmirror/edit-list">https://github.com/emacsmirror/edit-list</a></td></tr>
+<tr><td>バージョン</td><td>20100930.743</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:edit-list/">package:edit-list</a> <a href="http://rubikitch.com/tag/package:refine/">package:refine</a></td></tr>
+</table>
+<br />
+#+END_HTML
+あなたは、リスト変数に意図しない値を設定して困ったことはありませんか？
+僕はあります。
+
+たとえばファイル名の正規表現とメジャーモードを関連付けるauto-mode-alistという変数があります。
+この正規表現をいい加減に書いてしまったら
+意図しないファイルとメジャーモードが関連付けられてしまいます。
+
+間違った直前ならば
+#+BEGIN_SRC emacs-lisp :results silent
+(setq auto-mode-alist (cdr auto-mode-alist))
+#+END_SRC
+で取り消せます。
+
+しかし次々とadd-to-listやpushで設定を加えていくと間違ったリスト要素がどんどん奥に入り込んでしまいます。
+これを修正するのはやっかいです。
+
+こんなときに便利なのがedit-list.elです。
+
+使い方はたった5ステップと簡単です。
+1. M-x edit-listを実行する
+2. 変数名を聞いてくるのでauto-mode-alistと入力する
+3. auto-mode-alistの値が書かれたバッファがポップアップする
+4. 自由に編集する
+5. C-c C-cあるいはC-x C-sで保存する！
+これで編集結果がauto-mode-alistに反映されます。
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160823140018.png]]
+Fig1: M-x edit-list auto-mode-alist
+
+
+このedit-list.elはとてもシンプルなEmacs Lispですが、
+いろいろな操作ができるようになった強力版refine.elが存在します。
+そのうち紹介します。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+** edit-list インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install edit-list
+
+
+#+end:
+** 概要                                                             :noexport:
+あなたは、リスト変数に意図しない値を設定して困ったことはありませんか？
+僕はあります。
+
+たとえばファイル名の正規表現とメジャーモードを関連付けるauto-mode-alistという変数があります。
+この正規表現をいい加減に書いてしまったら
+意図しないファイルとメジャーモードが関連付けられてしまいます。
+
+間違った直前ならば
+#+BEGIN_SRC emacs-lisp :results silent
+(setq auto-mode-alist (cdr auto-mode-alist))
+#+END_SRC
+で取り消せます。
+
+しかし次々とadd-to-listやpushで設定を加えていくと間違ったリスト要素がどんどん奥に入り込んでしまいます。
+これを修正するのはやっかいです。
+
+こんなときに便利なのがedit-list.elです。
+
+使い方はたった5ステップと簡単です。
+1. M-x edit-listを実行する
+2. 変数名を聞いてくるのでauto-mode-alistと入力する
+3. auto-mode-alistの値が書かれたバッファがポップアップする
+4. 自由に編集する
+5. C-c C-cあるいはC-x C-sで保存する！
+これで編集結果がauto-mode-alistに反映されます。
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160823140018.png]]
+Fig2: M-x edit-list auto-mode-alist
+
+
+このedit-list.elはとてもシンプルなEmacs Lispですが、
+いろいろな操作ができるようになった強力版refine.elが存在します。
+そのうち紹介します。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+** 設定 [[http://rubikitch.com/f/160823140041.edit-list.el][160823140041.edit-list.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/160823/160823140041.edit-list.el"
+#+BEGIN_SRC fundamental
+(autoload 'edit-list "edit-list" nil t)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/160823140041.edit-list.el
+$ emacs -Q -f package-initialize -l 160823140041.edit-list.el
+#+END_EXAMPLE
+
+# /r/sync/screenshots/20160823140018.png http://rubikitch.com/wp-content/uploads/2016/08/20160823140018.png
