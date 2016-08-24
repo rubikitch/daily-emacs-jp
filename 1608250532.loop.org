@@ -1,0 +1,210 @@
+#+BLOG: rubikitch
+#+POSTID: 2709
+#+DATE: [2016-08-25 Thu 05:32]
+#+PERMALINK: loop
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, Emacs Lisp, ソース解読推奨, 
+#+EL_PKG_NAME: loop
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, loop-while, loop-do-while, loop-until, loop-for-each, loop-for-each-line, loop-break, loop-continue, loop-return, relate:cl, relate:dash, catch, throw
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 使い方 
+#+EL_TITLE0: ループでbreak/continue/returnを使えるようにする
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージloopの紹介
+#+MYTAGS: package:loop, emacs 使い方, emacs コマンド, emacs, loop, loop.el, emacs lisp loop, elisp loop, emacs melpa loop, emacs loop 使い方, emacs loop 設定, emacs パッケージ loop, loop-while, loop-do-while, loop-until, loop-for-each, loop-for-each-line, loop-break, loop-continue, loop-return, relate:cl, relate:dash, catch, throw
+#+TAGS: package:loop, emacs 使い方, emacs コマンド, emacs, loop, loop.el, emacs lisp loop, elisp loop, emacs melpa loop, emacs loop 使い方, emacs loop 設定, emacs パッケージ loop, loop-while, loop-do-while, loop-until, loop-for-each, loop-for-each-line, loop-break, loop-continue, loop-return, relate:cl, relate:dash, catch, throw, Emacs, Emacs Lisp, ソース解読推奨, , loop.el, cl-loop, loop.el, cl-loop
+#+TITLE: emacs loop.el : ループでbreak/continue/returnを使えるようにする | MELPA Emacs Lisp Elisp パッケージ インストール 使い方 
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>loop</td></tr>
+<tr><td>概要(原文)</td><td>friendly imperative loop structures</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/Wilfred/loop.el">https://github.com/Wilfred/loop.el</a></td></tr>
+<tr><td>バージョン</td><td>20160813.707</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:loop/">package:loop</a> <a href="http://rubikitch.com/tag/package:cl/">package:cl</a> <a href="http://rubikitch.com/tag/package:dash/">package:dash</a></td></tr>
+</table>
+<br />
+#+END_HTML
+Emacsの素のループ制御構造は単体ではループを中断する機能が用意されていません。
+たいていの言語には組み込みで用意されていますが、
+Emacs Lispで実現するためにはcatchで囲む必要があって面倒です。
+そこで *loop.el* はbreak/continue/returnが使えるループ制御構造を用意します。
+
+標準で用意されているCommon Lispのloopマクロ *cl-loop* を使えば書けるものですが、
+loopマクロに苦手意識を持つならば使ってみてはいかがでしょうか。
+慣れ親しんだ感覚でループが記述できるのは安心感があります。
+
+各定義は簡単なマクロになっているので、ソースコードを読んでみると勉強になります。
+** loop インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install loop
+
+
+#+end:
+** 概要                                                             :noexport:
+Emacsの素のループ制御構造は単体ではループを中断する機能が用意されていません。
+たいていの言語には組み込みで用意されていますが、
+Emacs Lispで実現するためにはcatchで囲む必要があって面倒です。
+そこで *loop.el* はbreak/continue/returnが使えるループ制御構造を用意します。
+
+標準で用意されているCommon Lispのloopマクロ *cl-loop* を使えば書けるものですが、
+loopマクロに苦手意識を持つならば使ってみてはいかがでしょうか。
+慣れ親しんだ感覚でループが記述できるのは安心感があります。
+
+各定義は簡単なマクロになっているので、ソースコードを読んでみると勉強になります。
+
+** 使用例 [[http://rubikitch.com/f/160825054100.loop.el][160825054100.loop.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/160825/160825054100.loop.el"
+#+BEGIN_SRC fundamental
+;;; 0〜9の総和
+(let ((x 0)
+      (sum 0))
+  (loop-while (< x 10)
+    (setq sum (+ sum x))
+    (setq x (1+ x)))
+  sum)                                ; => 45
+(cl-loop with x = 0
+         with sum = 0
+         while (< x 10)
+         do
+         (setq sum (+ sum x))
+         (setq x (1+ x))
+         finally return sum)          ; => 45
+(cl-loop for x from 0 below 10 sum x) ; => 45
+
+;;; 0〜5の総和
+(let ((x 0)
+        (sum 0))
+    (loop-while (< x 10)
+      (setq sum (+ sum x))
+      (setq x (1+ x))
+      (when (= x 6)
+        (loop-break)))
+    sum)                                ; => 15
+(cl-loop with x = 0
+         with sum = 0
+         while (< x 10)
+         do
+         (setq sum (+ sum x))
+         (setq x (1+ x))
+         when (= x 6)
+         return sum)                    ; => 15
+(cl-loop with sum = 0
+         for x from 0 below 10
+         when (= x 6) return sum
+         do (setq sum (+ sum x)))       ; => 15
+;;; 1+3+4+5
+(let ((x 0)
+      (sum 0))
+  (loop-while (< x 5)
+    (setq x (1+ x))
+    (when (= x 2)
+      (loop-continue))
+    (setq sum (+ sum x)))
+  sum)                                  ; => 13
+(cl-loop with x = 0
+         with sum = 0
+         while (< x 5)
+         do
+         (setq x (1+ x))
+         if (= x 2)
+           do (ignore)
+         else
+           do (setq sum (+ sum x))
+         finally return sum)                    ; => 13
+;;; do-while
+(let ((x 0)
+      (sum 0))
+    ;; our condition is false on the first iteration
+    (loop-do-while (and (> x 0) (< x 10))
+      (setq sum (+ sum x))
+      (setq x (1+ x)))
+    sum)                                ; => 45
+(cl-loop with x = 0
+         with sum = 0
+         do
+         (setq sum (+ sum x))
+         (setq x (1+ x))
+         while (and (> x 0) (< x 10))
+         finally return sum)            ; => 45
+;;; until
+(let ((x 0)
+        (sum 0))
+    ;; sum the numbers 0 to 9
+    (loop-until (= x 10)
+      (setq sum (+ sum x))
+      (setq x (1+ x)))
+    sum)                                ; => 45
+(cl-loop with x = 0
+         with sum = 0
+         until (= x 10)
+         do
+         (setq sum (+ sum x))
+         (setq x (1+ x))
+         finally return sum)            ; => 45
+;;; foreach
+(let ((sum 0))
+    ;; sum the numbers 1 to 5
+    (loop-for-each x (list 1 2 3 4 5 6 7 8 9)
+      (setq sum (+ sum x))
+      (when (= x 5)
+        (loop-break)))
+    sum)                                ; => 15
+(cl-loop with sum = 0
+         for x in (list 1 2 3 4 5 6 7 8 9)
+         do
+         (setq sum (+ sum x))
+         when (= x 5) return sum)       ; => 15
+;;; for-each-line (バッファ各行についてループする)
+(with-temp-buffer
+  (insert "foo\nbar\nbaz")
+  (let ((lines nil))
+    (loop-for-each-line
+      (let ((line-start (progn (beginning-of-line) (point)))
+            (line-end (progn (end-of-line) (point))))
+        (push (buffer-substring line-start line-end) lines)
+        ;; This line should have no effect.
+        (forward-line 1)))
+    (nreverse lines)))                ; => ("foo" "bar" "baz")
+
+(with-temp-buffer
+  (cl-loop with lines
+           with line-start
+           with line-end
+           initially
+           (insert "foo\nbar\nbaz")
+           (goto-char (point-min))
+           do
+           (save-excursion
+             (setq line-start (progn (beginning-of-line) (point)))
+             (setq line-end (progn (end-of-line) (point)))
+             (push (buffer-substring line-start line-end) lines)
+             (forward-line 1))
+           (forward-line 1)
+           until (eobp)
+           finally return (nreverse lines)))     ; => ("foo" "bar" "baz")
+;;; for-each-line は it で各行の内容を参照できる
+(with-temp-buffer
+  (insert "foo\nbar\nbaz")
+  (let ((lines nil))
+    (loop-for-each-line
+      (push it lines))
+    (nreverse lines)))                  ; => ("foo" "bar" "baz")
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/160825054100.loop.el
+$ emacs -Q -f package-initialize -l 160825054100.loop.el
+#+END_EXAMPLE
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
