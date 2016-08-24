@@ -7,16 +7,16 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, Emacs Lisp, リストの値を編集する, リスト変数を対話的に変更する, 
+#+CATEGORY: Emacs, Emacs Lisp
 #+EL_PKG_NAME: refine
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, relate:edit-list
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, relate:edit-list, , リストの値を編集する, リスト変数を対話的に変更する, 
 #+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
 #+EL_TITLE0: リストの値をvi風コマンドで編集する
 #+EL_URL: 
 #+begin: org2blog
 #+DESCRIPTION: MELPAのEmacs Lispパッケージrefineの紹介
-#+MYTAGS: package:refine, emacs 使い方, emacs コマンド, emacs, refine, refine.el, emacs lisp refine, elisp refine, emacs melpa refine, emacs refine 使い方, emacs refine 設定, emacs パッケージ refine, emacs refine スクリーンショット, relate:edit-list
-#+TAGS: package:refine, emacs 使い方, emacs コマンド, emacs, refine, refine.el, emacs lisp refine, elisp refine, emacs melpa refine, emacs refine 使い方, emacs refine 設定, emacs パッケージ refine, emacs refine スクリーンショット, relate:edit-list, Emacs, Emacs Lisp, リストの値を編集する, リスト変数を対話的に変更する, , refine.el, M-x refine, refine-previous, refine-next, refine-edit, refine-delete, refine-insert, refine-insert-after, refine-move-forward, refine-move-backward, kill-this-buffer, M-x refine, refine-previous, refine-next, refine-edit, refine-delete, refine-insert, refine-insert-after, refine-move-forward, refine-move-backward, kill-this-buffer
+#+MYTAGS: package:refine, emacs 使い方, emacs コマンド, emacs, refine, refine.el, emacs lisp refine, elisp refine, emacs melpa refine, emacs refine 使い方, emacs refine 設定, emacs パッケージ refine, emacs refine スクリーンショット, relate:edit-list, , リストの値を編集する, リスト変数を対話的に変更する, 
+#+TAGS: package:refine, emacs 使い方, emacs コマンド, emacs, refine, refine.el, emacs lisp refine, elisp refine, emacs melpa refine, emacs refine 使い方, emacs refine 設定, emacs パッケージ refine, emacs refine スクリーンショット, relate:edit-list, , リストの値を編集する, リスト変数を対話的に変更する, , Emacs, Emacs Lisp, refine.el, M-x refine, refine-previous, refine-next, refine-edit, refine-delete, refine-insert, refine-insert-after, refine-move-forward, refine-move-backward, kill-this-buffer, M-x refine, refine-previous, refine-next, refine-edit, refine-delete, refine-insert, refine-insert-after, refine-move-forward, refine-move-backward, kill-this-buffer
 #+TITLE: emacs refine.el : リストの値をvi風コマンドで編集する | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
 #+BEGIN_HTML
 <table>
