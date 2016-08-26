@@ -1,0 +1,56 @@
+#+BLOG: rubikitch
+#+POSTID: 2711
+#+DATE: [2016-08-26 Fri 15:43]
+#+PERMALINK: melmag
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: メルマガ,
+#+DESCRIPTION: るびきち塾メルマガ『Emacsの鬼るびきちのココだけの話#248』の予告
+#+TITLE: 【るびきち塾メルマガ#248】世界一易しいEmacsメモ講座(2)
+#+MYTAGS: 
+#+begin: org2blog-tags
+#+TAGS: , メルマガ,, 
+#+end:
+「るびきちさーん、ここどうすればいいの？」
+『ああ、これはEmacsではなくて別なツールだな』
+「あっ、こんな方法あるのですね！
+　なんでもEmacsで解決しないように注意します」
+『わはは(笑) Emacsはなんでもこなしてしまうからねぇ』
+「本当にね、そう思わせるほど…」
+『Emacsは多機能なんだよ』
+
+今回のメルマガは前回に引き続きorg-captureについてです。
+前回はただ大見出しで追記するだけでしたね。
+
+今回のメルマガであなたが得られる結果は、
+- 様々なメモの追記の方法
+- 簡単に日記・週記をつけられる方法
+- 買い物リストなどの日々のリストを記録する方法
+です。
+
+org-captureは設定こそ難しいけれど、
+使いこなせれば超絶強力なツールとなります。
+
+今回のメルマガではorg-captureの難しいところを
+手を動かすことで具体的な形に落とし込む内容なので
+一度挫折してしまったとしても再挑戦してみてください。
+
+人生においてメモを取るというのは重要な習慣でありスキルです。
+
+過去のメモを読み返すことで類似の問題に難なく対処できたり、
+新たな教訓を学ぶことができるからです。
+
+あなたもorg-captureで効率的なメモを取ってみませんか？
+
+# footer
+豪華な入塾特典付きで、初月無料月々527円のるびきち塾。
+Emacsについて、人生の質を上げる方法について
+メルマガでも個別メールでも懇切丁寧に指導します。
+絶対に損はさせませんので、ぜひとも登録してください。
+http://www.mag2.com/m/0001373131.html
+1週間あたり缶ジュース1本分の投資で、僕があなたのメンターになります。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
