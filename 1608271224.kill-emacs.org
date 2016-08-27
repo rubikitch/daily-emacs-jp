@@ -7,12 +7,12 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, 
+#+CATEGORY: Emacs, 記事紹介, 
 #+DESCRIPTION: 
 #+MYTAGS: save-buffers-kill-emacs, Emacsを終了する, confirm-kill-emacs, 容易にEmacsを終了させない, emacs 終了方法, global-unset-key, global-set-key, define-key, defalias
 #+TITLE: うっかりEmacsを終了することを二度となくす超簡単な方法
 #+begin: org2blog-tags
-#+TAGS: save-buffers-kill-emacs, Emacsを終了する, confirm-kill-emacs, 容易にEmacsを終了させない, emacs 終了方法, global-unset-key, global-set-key, define-key, defalias, Emacs, , save-buffers-kill-emacs
+#+TAGS: save-buffers-kill-emacs, Emacsを終了する, confirm-kill-emacs, 容易にEmacsを終了させない, emacs 終了方法, global-unset-key, global-set-key, define-key, defalias, Emacs, 記事紹介, , save-buffers-kill-emacs
 #+end:
 http://nagayasu-shinya.seesaa.net/article/emacs-confirm-kill-emacs.html
 
