@@ -45,7 +45,7 @@ C-x C-cには別なコマンドを割り当てれば幸せになれます。
 (global-unset-key (kbd "C-x C-c"))
 (defalias 'exit 'save-buffers-kill-emacs)
 ;;; なんでもいいよ
-;; (global-set-key (kbd "C-x C-x") 'some-command)
+;; (global-set-key (kbd "C-x C-c") 'some-command)
 #+END_SRC
 
 
