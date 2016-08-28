@@ -1,0 +1,63 @@
+#+BLOG: rubikitch
+#+POSTID: 2716
+#+DATE: [2016-08-28 Sun 11:16]
+#+PERMALINK: yes-or-no-p
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, 
+#+DESCRIPTION: 
+#+MYTAGS: yes-or-no-p, y-or-n-p, 尋ねる, yes or noを1文字で, modified kill anyway, Modified buffers exist, exit anyway, Active processes exist, kill them and exit anyway
+#+TITLE: Emacs: ミニバッファでyesとかnoとか入力するのが面倒な方はこの一撃！
+#+begin: org2blog-tags
+#+TAGS: yes-or-no-p, y-or-n-p, 尋ねる, yes or noを1文字で, modified kill anyway, Modified buffers exist, exit anyway, Active processes exist, kill them and exit anyway, Emacs, , 
+#+end:
+Emacsがあなたにyesかnoを尋ねるとき、
+この2種類あることに気付いていますか？
+- yかn
+- yesかno
+
+前者はあまり重要ではない選択、
+後者は重要な選択です。
+
+重要な選択のうち代表的なものは
+ファイルを保存する前に削除するような場合です。
+
+/tmp/hoge.txtとかを開き、
+適当に文字を入力し、
+C-x k RETと押してください。
+
+すると、
+#+BEGIN_EXAMPLE
+Buffer hoge.txt is modified; kill anyway? (yes or no)
+#+END_EXAMPLE
+と聞いてきます。
+
+保存していないバッファがあるときや
+シェルなどのプロセスが残っているときにも
+
+#+BEGIN_EXAMPLE
+Modified buffers exist; exit anyway? (yes or no)
+#+END_EXAMPLE
+とか
+#+BEGIN_EXAMPLE
+Active processes exist; kill them and exit anyway? (yes or no)
+#+END_EXAMPLE
+と聞いてきます。
+
+ここでyes RETの4文字打つのはかったるいですよね。
+できることならばyかnで済ませたいと思いませんか？
+
+それならばこの一撃で！
+
+#+BEGIN_SRC emacs-lisp :results silent
+(defalias 'yes-or-no-p 'y-or-n-p)
+#+END_SRC
+
+僕は10年以上前からこの設定を入れています。
+
+あなたもよかったらどうぞ。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
