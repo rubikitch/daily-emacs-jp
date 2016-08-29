@@ -1,0 +1,55 @@
+#+BLOG: rubikitch
+#+POSTID: 2722
+#+DATE: [2016-08-29 月 11:01]
+#+PERMALINK: menu-bar-mode-tool-bar-mode
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, 
+#+DESCRIPTION: 
+#+MYTAGS: 
+#+TITLE: 【Emacs初級者から中級者への階段】テキスト表示スペースを広くする3つの方法
+#+begin: org2blog-tags
+#+TAGS: , Emacs, , 
+#+end:
+Emacs初級者と中級者の境目って何だと思いますか？
+僕はそのひとつとしてツールバー・メニューバーなしでもEmacsを使えるかどうかだと考えています。
+それらはスペースを占有するため、なくしてしまえば表示行数が増えます。
+このわずかな差が心理的に大きな影響を及ぼします。
+
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160829110654.png]]
+Fig1: ツールバー・メニューバー・スクロールバー有
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160829110706.png]]
+Fig2: ツールバーをなくす
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160829110714.png]]
+Fig3: メニューバーをなくす
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160829110729.png]]
+Fig4: スクロールバーをなくす
+
+以下の設定を加えてください。
+
+#+BEGIN_SRC emacs-lisp :results silent
+(tool-bar-mode -1)     ;ツールバーをなくす
+(menu-bar-mode -1)     ;メニューバーをなくす
+;;; これはお好みで
+(scroll-bar-mode -1)   ;スクロールバーをなくす
+#+END_SRC
+
+徐々にテキストの表示スペースが広くなってくるのがわかるでしょう。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+
+# /r/sync/screenshots/20160829110654.png http://rubikitch.com/wp-content/uploads/2016/08/20160829110654.png
+# /r/sync/screenshots/20160829110706.png http://rubikitch.com/wp-content/uploads/2016/08/20160829110706.png
+# /r/sync/screenshots/20160829110714.png http://rubikitch.com/wp-content/uploads/2016/08/20160829110714.png
+# /r/sync/screenshots/20160829110729.png http://rubikitch.com/wp-content/uploads/2016/08/20160829110729.png
