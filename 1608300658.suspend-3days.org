@@ -1,0 +1,20 @@
+#+BLOG: rubikitch
+#+POSTID: 2724
+#+DATE: [2016-08-30 Tue 06:58]
+#+PERMALINK: suspend-3days
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: 未分類, 
+#+DESCRIPTION: 
+#+MYTAGS: 
+#+TITLE: M-x suspend-daily-emacs 3d
+#+begin: org2blog-tags
+#+TAGS: , 未分類, , 
+#+end:
+諸事情により3日間、サイト更新をお休みします。
+9/2に復活します。
+楽しみにしている方、申し訳ありませんでした。
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
