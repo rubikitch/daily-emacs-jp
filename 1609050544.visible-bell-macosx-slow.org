@@ -1,0 +1,36 @@
+#+BLOG: rubikitch
+#+POSTID: 2743
+#+DATE: [2016-09-05 Mon 05:44]
+#+PERMALINK: visible-bell-macosx-slow
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, Emacs for Mac OS X カーソル移動 重い 原因, もっさり, カクカク, visible-bell, ring-bell-function
+#+DESCRIPTION: 
+#+MYTAGS: 
+#+TITLE: Mac OS XのEmacsのカーソル移動が重くなるならコレ試してみて！
+#+begin: org2blog-tags
+#+TAGS: , Emacs, Emacs for Mac OS X カーソル移動 重い 原因, もっさり, カクカク, visible-bell, ring-bell-function, visible-bell
+#+end:
+これは[[http://www.mag2.com/m/0001373131.html][るびきち塾]] 塾生からの情報なのですが、
+Emacs for Mac OS X 24.5-1 において動作がもっさりすることがあるらしいです。
+
+具体的にはC-pで上の行に移動するだけでカクカクもっさりしているという症状です。
+
+Debian、Ubuntu、Windows7では確認できなかったので、
+Mac OS X側の問題であると思われます。
+
+その原因は *visible-bell* によるものです。
+
+もしMac OS XのEmacsで重いと感じるのであれば、以下の設定を加えてみてください。
+
+#+BEGIN_SRC emacs-lisp :results silent
+;;; これはコメントアウトor取り除く
+;; (setq visible-bell t)
+(setq ring-bell-function 'ignore)
+#+END_SRC
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
