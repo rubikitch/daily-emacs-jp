@@ -99,7 +99,7 @@ C-c tに割り当てた *M-x google-translate-enja-or-jaen* は、
 #+BEGIN_SRC fundamental
 (require 'google-translate)
 
-(defvar google-translate-english-chars "[:ascii:]"
+(defvar google-translate-english-chars "[:ascii:]’“”–"
   "これらの文字が含まれているときは英語とみなす")
 (defun google-translate-enja-or-jaen (&optional string)
   "regionか、現在のセンテンスを言語自動判別でGoogle翻訳する。"
