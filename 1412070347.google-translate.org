@@ -23,7 +23,7 @@
 <tr><td>概要(原文)</td><td>Emacs interface to Google Translate.</td></tr>
 <tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
 <tr><td>取得先</td><td><a href="https://github.com/atykhonov/google-translate">https://github.com/atykhonov/google-translate</a></td></tr>
-<tr><td>バージョン</td><td>20150108.1012</td></tr>
+<tr><td>バージョン</td><td>20160824.1707</td></tr>
 <tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:google-translate/">package:google-translate</a> </td></tr>
 </table>
 <br />
