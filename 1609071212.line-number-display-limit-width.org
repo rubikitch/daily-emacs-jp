@@ -1,0 +1,44 @@
+#+BLOG: rubikitch
+#+POSTID: 2750
+#+DATE: [2016-09-07 Wed 12:12]
+#+PERMALINK: line-number-display-limit-width
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, 
+#+DESCRIPTION: 
+#+MYTAGS: emacs 行番号が表示されない, 行番号, 現在行がわからない, line-number-mode 
+#+TITLE: Emacs: 行番号を『常に』表示する | line-number-mode line-number-display-limit-width
+#+begin: org2blog-tags
+#+TAGS: emacs 行番号が表示されない, 行番号, 現在行がわからない, line-number-mode , Emacs, , line-number-display-limit-width
+#+end:
+あなたは、現在の行番号を知りたいと思うのにもかかわらず、
+「L??」と表示されてて困ったことはありますか？
+
+これは、特別に長い行がある場合に起こる現象です。
+Emacsは長い行があると処理が遅くなってしまう弱点があるから対症療法としてそうなっているようです。
+
+原因は *line-number-display-limit-width* 変数の値が200と小さいことです。
+つまり、200桁以上の行があった場合は「L??」と表示されてしまうのですね。
+
+常に行番号を表示させるようにする方法は簡単！
+この変数の値をでかくすることです。
+
+#+BEGIN_SRC emacs-lisp :results silent
+(setq line-number-display-limit-width 10000)
+#+END_SRC
+
+さすがに10000桁の行はそうそう現れないので事実上常に行番号が表示されることになります。
+
+行番号を表示させる設定にした以上は、常に表示されるのが当たり前です。
+正直、ユーザにそういうこと気にさせるのは筋違いな気がします。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160907121446.png]]
+Fig1: 行番号が「L??」と表示される現象
+
+
+# /r/sync/screenshots/20160907121446.png http://rubikitch.com/wp-content/uploads/2016/09/20160907121446.png
