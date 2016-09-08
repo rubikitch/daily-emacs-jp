@@ -1,0 +1,54 @@
+#+BLOG: rubikitch
+#+POSTID: 2756
+#+DATE: [2016-09-09 Fri 06:49]
+#+PERMALINK: melmag
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: メルマガ,
+#+DESCRIPTION: るびきち塾メルマガ『Emacsの鬼るびきちのココだけの話#250』の予告
+#+TITLE: 【るびきち塾メルマガ#250】大きな出会い＋Emacsコーチ実践編
+#+MYTAGS: 
+#+begin: org2blog-tags
+#+TAGS: , メルマガ,, 
+#+end:
+「るびきちさんが活動を一時停止したって？」
+『ああ、すまなかった。ただいまー』
+「いったい何があったんだ？」
+『人生を変えるほどの大きな出来事があったのだ』
+「それは？」
+『続きは本文で！』
+
+今回のメルマガであなたが得られる結果は、
+- 仕事をまるでゲームであるかのように楽しく疲れずに行う方法
+- 毎日大きな学びと元気とエネルギーを得られるすごいサイト
+- 毎朝元気に一日を始める儀式
+- Emacsを使って悩みを消すための仕組み
+- リストに式を埋め込む簡単な方法
+- リストを加工する効果的な方法
+です。
+
+今回も魂をこめて盛沢山の内容を詰め込みましたので、
+じっくりと読んでいただきたく思います。
+
+ちなみに http://fish.rubikitch.com/ を作ったのは、
+出会った人からの教えの実践です。
+
+聞いてみればな〜んだと思うかもしれませんが、
+「やりたいと思ったらすぐやれ」
+「やるべきことはすべてやれ」
+「鉄は熱いうちに打て」
+です。
+知ってても多くの人は実践できてないことです。
+
+# footer
+豪華な入塾特典付きで、初月無料月々527円のるびきち塾。
+Emacsについて、人生の質を上げる方法について
+メルマガでも個別メールでも懇切丁寧に指導します。
+絶対に損はさせませんので、ぜひとも登録してください。
+http://www.mag2.com/m/0001373131.html
+1週間あたり缶ジュース1本分の投資で、僕があなたのメンターになります。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
