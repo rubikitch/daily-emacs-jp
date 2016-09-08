@@ -1,0 +1,59 @@
+#+BLOG: rubikitch
+#+POSTID: 2753
+#+DATE: [2016-09-08 Thu 10:23]
+#+PERMALINK: fish
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: fish, 
+#+DESCRIPTION: 
+#+MYTAGS: 
+#+TITLE: fishシェル専門サイトfish.rubikitch.com設立！
+#+begin: org2blog-tags
+#+TAGS: , fish, , 
+#+end:
+少し前から[[http://fishshell.com/][fish]] というシェルを使っています。
+
+ブラウザでは当たり前のAuto Suggestion機能がとても便利で、一気に魅了されました。
+補完機能もとても強力です。
+そしてなにより無設定でもすんなり便利機能にアクセスできる使い易さが決定的です。
+
+Emacsで動くeshellは魅力的ですが、どうしてもEmacs自体の制約を受けてしまいます。
+たまに重くなってしまいますし…
+
+そういうわけでfishにぞっこんです(笑)
+
+以前も2つfish関係の記事を書きました。
+
+- [[http://rubikitch.com/2016/08/16/fish-mode/][emacs fish-mode.el : 【Unixシェル】若者よ、騙されたと思ってfish使ってみろ！bashやzshなんか捨ててしまえ]]
+- [[http://rubikitch.com/2016/08/21/zsh-fish-emacs-eshell/][あなたがzsh/bash/eshellからfishに乗り換えるべき17の理由]]
+
+最近
+/「やりたいと思ったことはすぐにやれ」/
+という教えを受け、それに感銘を受けました。
+ならばfishの専門サイトを作ってしまえということで、作っちゃいました。
+
+僕の契約しているxserverはサブドメインをいくらでも持てますし、
+サブドメインの方がSEO上有利らしいので、fish.rubikitch.comです。
+
+トップページを見ていただければ、fishの魅力は伝わると思います。
+そのつもりで書きました。
+「通販番組」っぽいと言われて爆笑しました(笑)
+通販番組を狙っているつもりは毛頭ありませんが、
+魅力をしっかり相手に伝えるという点では共通していますよね。
+
+Tips集はブログ形式の記事、
+翻訳文書やチュートリアル系は固定ページ
+という形で運用していきます。
+
+それでは、よろしくお願いします。
+
+#+HTML: <div align="center" style="font-size: xx-large; font-weight: bolder;">
+→ http://fish.rubikitch.com/ ←
+#+HTML: </div>
+
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
