@@ -188,3 +188,13 @@ Fig18: helm
 $ wget http://rubikitch.com/f/150627105916.basic-theme.el
 $ emacs -Q -f package-initialize -l 150627105916.basic-theme.el
 #+END_EXAMPLE
+
+# /r/sync/screenshots/20150627110045.png http://rubikitch.com/wp-content/uploads/2016/09/20150627110045.png
+# /r/sync/screenshots/20150627110051.png http://rubikitch.com/wp-content/uploads/2016/09/20150627110051.png
+# /r/sync/screenshots/20150627110057.png http://rubikitch.com/wp-content/uploads/2016/09/20150627110057.png
+# /r/sync/screenshots/20150627110102.png http://rubikitch.com/wp-content/uploads/2016/09/20150627110102.png
+# /r/sync/screenshots/20150627110107.png http://rubikitch.com/wp-content/uploads/2016/09/20150627110107.png
+# /r/sync/screenshots/20150627110113.png http://rubikitch.com/wp-content/uploads/2016/09/20150627110113.png
+# /r/sync/screenshots/20150627110117.png http://rubikitch.com/wp-content/uploads/2016/09/20150627110117.png
+# /r/sync/screenshots/20150627110121.png http://rubikitch.com/wp-content/uploads/2016/09/20150627110121.png
+# /r/sync/screenshots/20150627110126.png http://rubikitch.com/wp-content/uploads/2016/09/20150627110126.png
