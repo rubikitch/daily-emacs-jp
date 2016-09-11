@@ -1,0 +1,173 @@
+#+BLOG: rubikitch
+#+POSTID: 2781
+#+DATE: [2016-09-11 Sun 15:10]
+#+PERMALINK: white-theme
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, theme
+#+EL_PKG_NAME: white-theme
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, color-theme, カラーテーマ, relate:basic-theme
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: 最小主義でライトなカラーテーマ
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージwhite-themeの紹介
+#+MYTAGS: package:white-theme, emacs 使い方, emacs コマンド, emacs, white-theme, white-theme.el, emacs lisp white-theme, elisp white-theme, emacs melpa white-theme, emacs white-theme 使い方, emacs white-theme 設定, emacs パッケージ white-theme, emacs white-theme スクリーンショット, color-theme, カラーテーマ, relate:basic-theme
+#+TAGS: package:white-theme, emacs 使い方, emacs コマンド, emacs, white-theme, white-theme.el, emacs lisp white-theme, elisp white-theme, emacs melpa white-theme, emacs white-theme 使い方, emacs white-theme 設定, emacs パッケージ white-theme, emacs white-theme スクリーンショット, color-theme, カラーテーマ, relate:basic-theme, Emacs, theme, white-theme.el
+#+TITLE: emacs white-theme.el : 最小主義でライトなカラーテーマ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>white-theme</td></tr>
+<tr><td>概要(原文)</td><td>Minimalistic light color theme inspired by basic-theme</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/anler/white-theme.el">https://github.com/anler/white-theme.el</a></td></tr>
+<tr><td>バージョン</td><td>20160909.1400</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:white-theme/">package:white-theme</a> <a href="http://rubikitch.com/tag/package:basic-theme/">package:basic-theme</a></td></tr>
+</table>
+<br />
+#+END_HTML
+*white-theme.el* は、以下のパッケージに対応したカラーテーマです。
+- comint
+- compilation
+- isearch
+- link
+- linum
+- mode-line
+- ace-jump-mode
+- anzu
+- avy
+- custom
+- diff
+- eldoc
+- erc
+- eshell
+- font-lock
+- helm
+- js2-mode
+- magit
+- message
+- notmuch
+- org
+- show-paren
+- shr(eww)
+- wgrep
+- racket
+- vc
+** white-theme インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install white-theme
+
+
+#+end:
+** 概要                                                             :noexport:
+*white-theme.el* は、以下のパッケージに対応したカラーテーマです。
+- comint
+- compilation
+- isearch
+- link
+- linum
+- mode-line
+- ace-jump-mode
+- anzu
+- avy
+- custom
+- diff
+- eldoc
+- erc
+- eshell
+- font-lock
+- helm
+- js2-mode
+- magit
+- message
+- notmuch
+- org
+- show-paren
+- shr(eww)
+- wgrep
+- racket
+- vc
+** スクリーンショット
+# (save-window-excursion (async-shell-command "emacs-test -eval '(load-theme (quote white) t)'"))
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_theme_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160911151359.png]]
+Fig1: emacs-lisp-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160911151406.png]]
+Fig2: magit
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160911151409.png]]
+Fig3: grep
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160911151413.png]]
+Fig4: outline-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160911151416.png]]
+Fig5: org-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160911151419.png]]
+Fig6: dired
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160911151423.png]]
+Fig7: web-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160911151425.png]]
+Fig8: markdown-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160911151430.png]]
+Fig9: helm
+
+
+#+ATTR_HTML: :width 480
+[[https://github.com/anler/white-theme.el/raw/master/screenshots/emacs-lisp.jpg]]
+Fig10: 本家スクリーンショット
+
+#+ATTR_HTML: :width 480
+[[https://github.com/anler/white-theme.el/raw/master/screenshots/haskell.jpg]]
+Fig11: 本家スクリーンショット
+
+#+ATTR_HTML: :width 480
+[[https://github.com/anler/white-theme.el/raw/master/screenshots/magit.jpg]]
+Fig12: 本家スクリーンショット
+
+#+ATTR_HTML: :width 480
+[[https://github.com/anler/white-theme.el/raw/master/screenshots/scratch.jpg]]
+Fig13: 本家スクリーンショット
+
+
+
+** 設定
+#+BEGIN_SRC fundamental
+(load-theme 'white t)
+#+END_SRC
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ emacs -Q -f package-initialize -eval '(load-theme (quote white) t)'
+#+END_EXAMPLE
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+
+# /r/sync/screenshots/20160911151359.png http://rubikitch.com/wp-content/uploads/2016/09/20160911151359.png
+# /r/sync/screenshots/20160911151406.png http://rubikitch.com/wp-content/uploads/2016/09/20160911151406.png
+# /r/sync/screenshots/20160911151409.png http://rubikitch.com/wp-content/uploads/2016/09/20160911151409.png
+# /r/sync/screenshots/20160911151413.png http://rubikitch.com/wp-content/uploads/2016/09/20160911151413.png
+# /r/sync/screenshots/20160911151416.png http://rubikitch.com/wp-content/uploads/2016/09/20160911151416.png
+# /r/sync/screenshots/20160911151419.png http://rubikitch.com/wp-content/uploads/2016/09/20160911151419.png
+# /r/sync/screenshots/20160911151423.png http://rubikitch.com/wp-content/uploads/2016/09/20160911151423.png
+# /r/sync/screenshots/20160911151425.png http://rubikitch.com/wp-content/uploads/2016/09/20160911151425.png
+# /r/sync/screenshots/20160911151430.png http://rubikitch.com/wp-content/uploads/2016/09/20160911151430.png
