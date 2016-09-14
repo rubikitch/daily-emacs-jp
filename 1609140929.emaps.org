@@ -11,13 +11,13 @@
 #+EL_PKG_NAME: emaps
 #+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, relate:helm-descbinds, relate:nadvice, アドバイス, キーマップ, keymap, relate:bind-key
 #+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+EL_TITLE0: <f1> kでキーマップをわかりやすく表示するアドバイス(おまけ付き)
+#+EL_TITLE0: ＜f1＞ kでキーマップをわかりやすく表示するアドバイス(おまけ付き)
 #+EL_URL: 
 #+begin: org2blog
 #+DESCRIPTION: MELPAのEmacs Lispパッケージemapsの紹介
 #+MYTAGS: package:emaps, emacs 使い方, emacs コマンド, emacs, emaps, emaps.el, emacs lisp emaps, elisp emaps, emacs melpa emaps, emacs emaps 使い方, emacs emaps 設定, emacs パッケージ emaps, emacs emaps スクリーンショット, relate:helm-descbinds, relate:nadvice, アドバイス, キーマップ, keymap, relate:bind-key
 #+TAGS: package:emaps, emacs 使い方, emacs コマンド, emacs, emaps, emaps.el, emacs lisp emaps, elisp emaps, emacs melpa emaps, emacs emaps 使い方, emacs emaps 設定, emacs パッケージ emaps, emacs emaps スクリーンショット, relate:helm-descbinds, relate:nadvice, アドバイス, キーマップ, keymap, relate:bind-key, Emacs, Emacs 24.4, , emap.el, M-x emaps-describe-keymap-bindings, describe-bindings, M-x emaps-describe-keymap, M-x describe-variable, M-x emaps-describe-keymap-bindings, describe-bindings, M-x emaps-describe-keymap, M-x describe-variable, define-key, bind-keys
-#+TITLE: emacs emaps.el : <f1> kでキーマップをわかりやすく表示するアドバイス(おまけ付き) | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TITLE: emacs emaps.el : ＜f1＞ kでキーマップをわかりやすく表示するアドバイス(おまけ付き) | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
 #+BEGIN_HTML
 <table>
 <tr><td>パッケージ名</td><td>emaps</td></tr>
