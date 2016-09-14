@@ -1,0 +1,131 @@
+#+BLOG: rubikitch
+#+POSTID: 2799
+#+DATE: [2016-09-14 Wed 09:29]
+#+PERMALINK: emaps
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: Emacs, Emacs 24.4, 
+#+EL_PKG_NAME: emaps
+#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, relate:helm-descbinds, relate:nadvice, アドバイス, キーマップ, keymap, relate:bind-key
+#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+EL_TITLE0: <f1> kでキーマップをわかりやすく表示するアドバイス(おまけ付き)
+#+EL_URL: 
+#+begin: org2blog
+#+DESCRIPTION: MELPAのEmacs Lispパッケージemapsの紹介
+#+MYTAGS: package:emaps, emacs 使い方, emacs コマンド, emacs, emaps, emaps.el, emacs lisp emaps, elisp emaps, emacs melpa emaps, emacs emaps 使い方, emacs emaps 設定, emacs パッケージ emaps, emacs emaps スクリーンショット, relate:helm-descbinds, relate:nadvice, アドバイス, キーマップ, keymap, relate:bind-key
+#+TAGS: package:emaps, emacs 使い方, emacs コマンド, emacs, emaps, emaps.el, emacs lisp emaps, elisp emaps, emacs melpa emaps, emacs emaps 使い方, emacs emaps 設定, emacs パッケージ emaps, emacs emaps スクリーンショット, relate:helm-descbinds, relate:nadvice, アドバイス, キーマップ, keymap, relate:bind-key, Emacs, Emacs 24.4, , emap.el, M-x emaps-describe-keymap-bindings, describe-bindings, M-x emaps-describe-keymap, M-x describe-variable, M-x emaps-describe-keymap-bindings, describe-bindings, M-x emaps-describe-keymap, M-x describe-variable, define-key, bind-keys
+#+TITLE: emacs emaps.el : <f1> kでキーマップをわかりやすく表示するアドバイス(おまけ付き) | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+BEGIN_HTML
+<table>
+<tr><td>パッケージ名</td><td>emaps</td></tr>
+<tr><td>概要(原文)</td><td>utilities for working with keymaps.</td></tr>
+<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
+<tr><td>取得先</td><td><a href="https://github.com/GuiltyDolphin/emaps">https://github.com/GuiltyDolphin/emaps</a></td></tr>
+<tr><td>バージョン</td><td>20160910.521</td></tr>
+<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:emaps/">package:emaps</a> <a href="http://rubikitch.com/tag/package:helm-descbinds/">package:helm-descbinds</a> <a href="http://rubikitch.com/tag/package:nadvice/">package:nadvice</a> <a href="http://rubikitch.com/tag/package:bind-key/">package:bind-key</a></td></tr>
+</table>
+<br />
+#+END_HTML
+*emap.el* は、キーマップを便利に扱うライブラリです。
+
+キーマップの扱いについては、すでに枯れた分野ですが、これを使うことで、ちょうどかゆいところに手が届く感じです。
+
+*M-x emaps-describe-keymap-bindings* は、指定されたキーマップを *describe-bindings* 形式で表示します。
+describe-bindingsといえば[[http://rubikitch.com/2014/08/30/helm-descbinds/][helm-descbinds(レビュー)]]を使っている人もいると思いますが、構造上連携はできません。
+
+*M-x emaps-describe-keymap* は、 *M-x describe-variable* とほぼ同じですが、キーマップにおける文字コードを数字ではなくて文字として表示するようにします。
+たとえば、「3→^C」という風にです。
+これは本設定ではdescribe-variableのアドバイスにしてありますので、このコマンドを覚えなくても使えます。
+そのまま<f1> kで使ってください。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160914094354.png]]
+Fig1: M-x emaps-describe-keymap emacs-lisp-mode-map
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160914095016.png]]
+Fig2: M-x describe-variables lisp-mode-shared-map (before)
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160914094954.png]]
+Fig3: M-x describe-variables lisp-mode-shared-map (after)
+** emaps インストール
+このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+
+M-x package-refresh-contents
+M-x package-install emaps
+
+
+#+end:
+** 概要                                                             :noexport:
+*emap.el* は、キーマップを便利に扱うライブラリです。
+
+キーマップの扱いについては、すでに枯れた分野ですが、これを使うことで、ちょうどかゆいところに手が届く感じです。
+
+*M-x emaps-describe-keymap-bindings* は、指定されたキーマップを *describe-bindings* 形式で表示します。
+describe-bindingsといえば[[http://rubikitch.com/2014/08/30/helm-descbinds/][helm-descbinds(レビュー)]]を使っている人もいると思いますが、構造上連携はできません。
+
+*M-x emaps-describe-keymap* は、 *M-x describe-variable* とほぼ同じですが、キーマップにおける文字コードを数字ではなくて文字として表示するようにします。
+たとえば、「3→^C」という風にです。
+これは本設定ではdescribe-variableのアドバイスにしてありますので、このコマンドを覚えなくても使えます。
+そのまま<f1> kで使ってください。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160914094354.png]]
+Fig4: M-x emaps-describe-keymap emacs-lisp-mode-map
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160914095016.png]]
+Fig5: M-x describe-variables lisp-mode-shared-map (before)
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20160914094954.png]]
+Fig6: M-x describe-variables lisp-mode-shared-map (after)
+** おまけ
+*emaps-define-key* を使えば、複数の *define-key* をひとまとめに書けます。
+[[http://rubikitch.com/2014/09/10/bind-key/][bind-key.el(レビュー)]] の *bind-keys* と似たような感じですが、kbd記法ではない分劣ります。
+
+#+BEGIN_SRC emacs-lisp
+(define-key keymap "a" 'fun-a)
+(define-key keymap "b" 'fun-b)
+(define-key keymap "c" 'fun-c)
+; etc.
+#+END_SRC
+
+↓
+
+#+BEGIN_SRC emacs-lisp
+(emaps-define-key keymap
+  "a" 'fun-a
+  "b" 'fun-b
+  "c" 'fun-c) ; etc.
+#+END_SRC
+
+** 設定 [[http://rubikitch.com/f/160914093321.emaps.el][160914093321.emaps.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/160914/160914093321.emaps.el"
+#+BEGIN_SRC fundamental
+(defvar emaps-disable-describe-variables nil)
+(defun describe-variable--emaps (orig-fn variable &rest them)
+  "キーマップを表示するときは数字→文字として表示させる"
+  (unless emaps-disable-describe-variables
+    (apply orig-fn variable them)
+    (when (keymapp (symbol-value variable))
+    (let ((emaps-disable-describe-variables t))
+      (emaps-describe-keymap variable)))))
+(advice-add 'describe-variable :around 'describe-variable--emaps)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/160914093321.emaps.el
+$ emacs -Q -f package-initialize -l 160914093321.emaps.el
+#+END_EXAMPLE
+
+# /r/sync/screenshots/20160914094354.png http://rubikitch.com/wp-content/uploads/2016/09/20160914094354.png
+# /r/sync/screenshots/20160914095016.png http://rubikitch.com/wp-content/uploads/2016/09/20160914095016.png
+# /r/sync/screenshots/20160914094954.png http://rubikitch.com/wp-content/uploads/2016/09/20160914094954.png
