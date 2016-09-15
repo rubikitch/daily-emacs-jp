@@ -1,0 +1,41 @@
+#+BLOG: rubikitch
+#+POSTID: 2802
+#+DATE: [2016-09-15 Thu 17:14]
+#+PERMALINK: renewal-daily-emacs
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: 未分類, 
+#+DESCRIPTION: 
+#+MYTAGS: お知らせ
+#+TITLE: M-x renewal-daily-emacs
+#+begin: org2blog-tags
+#+TAGS: お知らせ, 未分類, , 
+#+end:
+この度、「日刊Emacs」を改築することにしました。
+2014年8月から運営を開始して以来、病休を除けば毎日記事を書き続けました。
+ところが、WordPressやSEOについての間違った知識で運営していたため、Googleに表示されにくい結果になりました。
+運営前にWordPressについて学んでいて、タグとタイトルにキーワードを入れるSEOを教えられました。
+確かに当初はこの方法で即座にGoogleで表示されていました。
+けれども今ではアルゴリズムの変更により過剰SEOとしてノイズサイトと見倣されてしまっているようです(涙)
+このままでは記事を書き続けても検索されないので意味がありません。
+僕の知識は古くなって使いものにならなくなってしまったのです。
+
+ここで
+今一度WordPressとSEOについて学び直し、サイトを改築することに決めました。
+
+これまで書いた記事数は750もあり、自動生成の部分のありますので、サイトの構造・ページ生成プログラムを抜本から見直してコツコツと再構築する必要があります。
+復帰にはしばらく時間がかかると思いますが、いましばらくお待ちください。
+
+本サイトのWordPressテーマは[[http://www.seo-keni.jp/][賢威]] というSEOに強い有料テンプレートを使っています。
+いかにも強そうでカッコイイ名前ですよね。
+今使っているのは賢威5ですが、古くなって配布終了となっています。
+復帰の際には最新版の賢威7にアップグレードをするつもりです。
+[[http://fish.rubikitch.com/][fish普及計画]] では賢威7を使っています。
+
+指摘してくださった[[http://twitter.com/tadsan][@tadsan]] には心から感謝いたします。
+
+新しくなった「日刊Emacs」を楽しみにしててください。
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
