@@ -1,0 +1,49 @@
+#+BLOG: rubikitch
+#+POSTID: 2805
+#+DATE: [2016-09-16 Fri 07:00]
+#+PERMALINK: melmag
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: メルマガ,
+#+DESCRIPTION: るびきち塾メルマガ『Emacsの鬼るびきちのココだけの話#251』の予告
+#+TITLE: 【るびきち塾メルマガ#251】ひとりTwitter
+#+MYTAGS: 
+#+begin: org2blog-tags
+#+TAGS: , メルマガ,, 
+#+end:
+アンケートというのはいいものです。
+お客さんが直接求めているものを聞けますから。
+もし、あなたも商売をしているのでしたら、
+アンケート調査をしてみてください。
+
+正直にアンケートに答えてくれた
+あなたに心から感謝いたします。
+
+特に遠慮なく手厳しい意見をくださった方々には、
+より一層感謝しています。
+それこそが自分が成長しなければいけない点ですから。
+
+
+今回のメルマガであなたが得られる結果は、
+- 他の読者が求めている事柄
+- 僕のこれからの決意
+- 「豊か」になるための思考法
+- 僕の将来の夢
+- 意外なリクエスト
+- あなたも知らない人間最大の欠点
+- org-captureの決定的な欠陥
+- 4年前から存在するorg-captureの影のコマンド
+です。
+
+# footer
+豪華な入塾特典付きで、初月無料月々527円のるびきち塾。
+Emacsについて、人生の質を上げる方法について
+メルマガでも個別メールでも懇切丁寧に指導します。
+絶対に損はさせませんので、ぜひとも登録してください。
+http://www.mag2.com/m/0001373131.html
+1週間あたり缶ジュース1本分の投資で、僕があなたのメンターになります。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
