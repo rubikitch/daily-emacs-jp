@@ -10,25 +10,15 @@
 #+CATEGORY: Emacs, Emacs 24.4, 
 #+EL_PKG_NAME: emaps
 #+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, relate:helm-descbinds, relate:nadvice, アドバイス, キーマップ, keymap, relate:bind-key
+#+MYTAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, relate:helm-descbinds, relate:nadvice, アドバイス, キーマップ, keymap, relate:bind-key
+#+TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, relate:helm-descbinds, relate:nadvice, アドバイス, キーマップ, keymap, relate:bind-key, Emacs, Emacs 24.4, , 
 #+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
 #+EL_TITLE0: ＜f1＞ kでキーマップをわかりやすく表示するアドバイス(おまけ付き)
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージemapsの紹介
-#+MYTAGS: package:emaps, emacs 使い方, emacs コマンド, emacs, emaps, emaps.el, emacs lisp emaps, elisp emaps, emacs melpa emaps, emacs emaps 使い方, emacs emaps 設定, emacs パッケージ emaps, emacs emaps スクリーンショット, relate:helm-descbinds, relate:nadvice, アドバイス, キーマップ, keymap, relate:bind-key
-#+TAGS: package:emaps, emacs 使い方, emacs コマンド, emacs, emaps, emaps.el, emacs lisp emaps, elisp emaps, emacs melpa emaps, emacs emaps 使い方, emacs emaps 設定, emacs パッケージ emaps, emacs emaps スクリーンショット, relate:helm-descbinds, relate:nadvice, アドバイス, キーマップ, keymap, relate:bind-key, Emacs, Emacs 24.4, , emap.el, M-x emaps-describe-keymap-bindings, describe-bindings, M-x emaps-describe-keymap, M-x describe-variable, M-x emaps-describe-keymap-bindings, describe-bindings, M-x emaps-describe-keymap, M-x describe-variable, define-key, bind-keys
-#+TITLE: emacs emaps.el : ＜f1＞ kでキーマップをわかりやすく表示するアドバイス(おまけ付き) | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>emaps</td></tr>
-<tr><td>概要(原文)</td><td>utilities for working with keymaps.</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/GuiltyDolphin/emaps">https://github.com/GuiltyDolphin/emaps</a></td></tr>
-<tr><td>バージョン</td><td>20160910.521</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:emaps/">package:emaps</a> <a href="http://rubikitch.com/tag/package:helm-descbinds/">package:helm-descbinds</a> <a href="http://rubikitch.com/tag/package:nadvice/">package:nadvice</a> <a href="http://rubikitch.com/tag/package:bind-key/">package:bind-key</a></td></tr>
-</table>
-<br />
-#+END_HTML
+#+TITLE: emaps.el : ＜f1＞ kでキーマップをわかりやすく表示するアドバイス(おまけ付き)
+[includeme file="inc-package-table.php" name="emaps" where="melpa"]
+** 概要
 *emap.el* は、キーマップを便利に扱うライブラリです。
 
 キーマップの扱いについては、すでに枯れた分野ですが、これを使うことで、ちょうどかゆいところに手が届く感じです。
@@ -52,12 +42,7 @@ Fig2: M-x describe-variables lisp-mode-shared-map (before)
 #+ATTR_HTML: :width 480
 [[file:/r/sync/screenshots/20160914094954.png]]
 Fig3: M-x describe-variables lisp-mode-shared-map (after)
-** emaps インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install emaps
-
+[includeme file="inc-package-install.php" name="emaps" where="melpa"]
 
 #+end:
 ** 概要                                                             :noexport:
