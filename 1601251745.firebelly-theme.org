@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 2359
+#+POSTID: 1381
+#+BLOG: rubikitch
 #+DATE: [2016-01-25 Mon 17:45]
 #+PERMALINK: firebelly-theme
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,46 +8,17 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, theme
+#+CATEGORY: ダーク
 #+EL_PKG_NAME: firebelly-theme
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, color-theme, カラーテーマ
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: 
 #+EL_TITLE0: ダークなカラーテーマ
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージfirebelly-themeの紹介
-#+MYTAGS: package:firebelly-theme, emacs 使い方, emacs コマンド, emacs, firebelly-theme, firebelly-theme.el, emacs lisp firebelly-theme, elisp firebelly-theme, emacs melpa firebelly-theme, emacs firebelly-theme 使い方, emacs firebelly-theme 設定, emacs パッケージ firebelly-theme, emacs firebelly-theme スクリーンショット, color-theme, カラーテーマ
-#+TAGS: package:firebelly-theme, emacs 使い方, emacs コマンド, emacs, firebelly-theme, firebelly-theme.el, emacs lisp firebelly-theme, elisp firebelly-theme, emacs melpa firebelly-theme, emacs firebelly-theme 使い方, emacs firebelly-theme 設定, emacs パッケージ firebelly-theme, emacs firebelly-theme スクリーンショット, color-theme, カラーテーマ, Emacs, theme, firebelly-theme.el
-#+TITLE: emacs firebelly-theme.el : ダークなカラーテーマ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>firebelly-theme</td></tr>
-<tr><td>概要(原文)</td><td>a subdued, dark theme with pastelish colors.</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/startling/firebelly">https://github.com/startling/firebelly</a></td></tr>
-<tr><td>バージョン</td><td>20140410.155</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:firebelly-theme/">package:firebelly-theme</a> </td></tr>
-</table>
-<br />
-#+END_HTML
-*firebelly-theme.el* は、以下のパッケージに対応したカラーテーマです。
-- isearch
-- mode-line
-- header-line
-- font-lock
-- erc
-- rainbow-delimiters
-- shm
-- linum
-** firebelly-theme インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install firebelly-theme
-
+#+TITLE: firebelly-theme.el : ダークなカラーテーマ
+[includeme file="inc-package-table.php" name="firebelly-theme" where="melpa"]
 
 #+end:
-** 概要                                                             :noexport:
+** 概要
 *firebelly-theme.el* は、以下のパッケージに対応したカラーテーマです。
 - isearch
 - mode-line
@@ -56,6 +28,7 @@ M-x package-install firebelly-theme
 - rainbow-delimiters
 - shm
 - linum
+[includeme file="inc-package-install.php" name="firebelly-theme" where="melpa"]
 ** スクリーンショット
 # (save-window-excursion (async-shell-command "emacs-test -eval '(load-theme (quote firebelly) t)'"))
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_theme_template" t))
@@ -113,3 +86,4 @@ $ emacs -Q -f package-initialize -eval '(load-theme (quote firebelly) t)'
 #+END_EXAMPLE
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+[includeme file="inc-package-relate.php" name="firebelly-theme"]

@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 2328
+#+POSTID: 1355
+#+BLOG: rubikitch
 #+DATE: [2016-01-12 Tue 09:35]
 #+PERMALINK: shell-switcher
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,28 +8,17 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs
+#+CATEGORY: シェル・端末
 #+EL_PKG_NAME: shell-switcher
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, relate:eshell, relate:shell-pop, relate:state, relate:shell, relate:ansi-term
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: eshell, term, shell
 #+EL_TITLE0: eshell/shell/ansi-termを複数立ち上げ、切替える
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージshell-switcherの紹介
-#+MYTAGS: package:shell-switcher, emacs 使い方, emacs コマンド, emacs, shell-switcher, shell-switcher.el, emacs lisp shell-switcher, elisp shell-switcher, emacs melpa shell-switcher, emacs shell-switcher 使い方, emacs shell-switcher 設定, emacs パッケージ shell-switcher, emacs shell-switcher スクリーンショット, relate:eshell, relate:shell-pop, relate:state, relate:shell, relate:ansi-term
-#+TAGS: package:shell-switcher, emacs 使い方, emacs コマンド, emacs, shell-switcher, shell-switcher.el, emacs lisp shell-switcher, elisp shell-switcher, emacs melpa shell-switcher, emacs shell-switcher 使い方, emacs shell-switcher 設定, emacs パッケージ shell-switcher, emacs shell-switcher スクリーンショット, relate:eshell, relate:shell-pop, relate:state, relate:shell, relate:ansi-term, Emacs, shell-switcher.el, M-x shell-switcher-mode, M-x shell-switcher-mode
-#+TITLE: emacs shell-switcher.el : eshell/shell/ansi-termを複数立ち上げ、切替える | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>shell-switcher</td></tr>
-<tr><td>概要(原文)</td><td>Provide fast switching between shell buffers.</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/DamienCassou/shell-switcher">https://github.com/DamienCassou/shell-switcher</a></td></tr>
-<tr><td>バージョン</td><td>20151011.615</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:shell-switcher/">package:shell-switcher</a> <a href="http://rubikitch.com/tag/package:eshell/">package:eshell</a> <a href="http://rubikitch.com/tag/package:shell-pop/">package:shell-pop</a> <a href="http://rubikitch.com/tag/package:state/">package:state</a> <a href="http://rubikitch.com/tag/package:shell/">package:shell</a> <a href="http://rubikitch.com/tag/package:ansi-term/">package:ansi-term</a></td></tr>
-</table>
-<br />
-#+END_HTML
+#+TITLE: shell-switcher.el : eshell/shell/ansi-termを複数立ち上げ、切替える
+[includeme file="inc-package-table.php" name="shell-switcher" where="melpa"]
+
+#+end:
+** 概要
 *shell-switcher.el* は、複数のシェルバッファを立ち上げ、切替えられるようにします。
 eshell/shell/ansi-termに対応しています。
 
@@ -50,37 +40,8 @@ Fig1: C-'
 [[file:/r/sync/screenshots/20160112094421.png]]
 Fig2: もう一度C-'。
 
-** shell-switcher インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
 
-M-x package-refresh-contents
-M-x package-install shell-switcher
-
-
-#+end:
-** 概要                                                             :noexport:
-*shell-switcher.el* は、複数のシェルバッファを立ち上げ、切替えられるようにします。
-eshell/shell/ansi-termに対応しています。
-
-マイナーモード *M-x shell-switcher-mode* で以下のコマンドが使えるようになります。
-- C-' :: 最初の2つのシェルバッファを立ち上げる
-- C-'の後の' :: シェルバッファを切替える
-- C-M-' :: 強制的に新しいシェルバッファを立ち上げる
-- C-x 4 ' :: C-'に似ているが、別ウィンドウで表示する
-
-C-M-'で複数のシェルを立ち上げ、C-'で直前のシェルバッファに切替え、以後'を押すことで順次複数のシェルに切替えられるということです。
-複数のシェルバッファを使いたいのならば便利でしょう。
-
-# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20160112094417.png]]
-Fig3: C-'
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20160112094421.png]]
-Fig4: もう一度C-'。
-
-
+[includeme file="inc-package-install.php" name="shell-switcher" where="melpa"]
 ** 設定 [[http://rubikitch.com/f/160112094250.shell-switcher.el][160112094250.shell-switcher.el(以下のコードと同一)]]
 #+BEGIN: include :file "/r/sync/junk/160112/160112094250.shell-switcher.el"
 #+BEGIN_SRC fundamental
@@ -103,3 +64,4 @@ $ emacs -Q -f package-initialize -l 160112094250.shell-switcher.el
 
 
 
+[includeme file="inc-package-relate.php" name="shell-switcher"]

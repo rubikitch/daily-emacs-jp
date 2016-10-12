@@ -1,18 +1,19 @@
 #+BLOG: rubikitch
-#+POSTID: 2201
+#+POSTID: 147
+#+BLOG: rubikitch
 #+DATE: [2015-11-20 Fri 10:29]
-#+PERMALINK: melmag
+#+PERMALINK: melmag208
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
 #+ISPAGE: nil
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: メルマガ,
+#+CATEGORY: るびきち塾メルマガ
 #+DESCRIPTION: るびきち塾メルマガ『Emacsの鬼るびきちのココだけの話#208』の予告
 #+TITLE: 【メルマガ#208】Emacs的メディアプレイヤーで音楽を楽しもう！
 #+MYTAGS: 
 #+begin: org2blog-tags
-#+TAGS: , メルマガ,, 
+
 #+end:
 今回は再び「Emacs的ソフトウェア」の話に戻ります。
 

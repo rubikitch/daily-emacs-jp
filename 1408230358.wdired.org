@@ -1,16 +1,16 @@
 #+BLOG: rubikitch
-#+POSTID: 195
+#+POSTID: 21
+#+BLOG: rubikitch
 #+DATE: [2014-08-23 Sat 03:58]
-#+PERMALINK: wdired
+#+PERMALINK: melmag143
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t
 #+ISPAGE: nil
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: メルマガ,
+#+CATEGORY: るびきち塾メルマガ
 #+DESCRIPTION: 『Emacsの鬼るびきちのココだけの話#143』
-#+MYTAGS: Emacs, emacs dired wdired, package:dired
-#+TAGS: Emacs, emacs dired wdired, package:dired, メルマガ,,
+#+TAGS: 
 #+TITLE: 今週のメルマガはdiredで自由自在にファイル名を編集するwdiredについて
 あなたはファイル名の変更はどうやっていますか？
 

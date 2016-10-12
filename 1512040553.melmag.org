@@ -1,18 +1,19 @@
 #+BLOG: rubikitch
-#+POSTID: 2241
+#+POSTID: 151
+#+BLOG: rubikitch
 #+DATE: [2015-12-04 Fri 05:53]
-#+PERMALINK: melmag
+#+PERMALINK: melmag210
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
 #+ISPAGE: nil
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: メルマガ,
+#+CATEGORY: るびきち塾メルマガ
 #+DESCRIPTION: るびきち塾メルマガ『Emacsの鬼るびきちのココだけの話#210』の予告
 #+TITLE: 【メルマガ#210】作業記録を絶対安心にバックアップする方法
 #+MYTAGS: 
 #+begin: org2blog-tags
-#+TAGS: , メルマガ,, 
+
 #+end:
 はやいもので2015年も師走を迎えてしまいました。
 

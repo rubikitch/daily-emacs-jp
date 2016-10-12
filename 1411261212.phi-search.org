@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 629
+#+POSTID: 437
+#+BLOG: rubikitch
 #+DATE: [2014-11-26 Wed 12:12]
 #+PERMALINK: phi-search
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -9,10 +10,9 @@
 #+BLOG: rubikitch
 #+CATEGORY: 記事更新情報
 #+DESCRIPTION:
-#+MYTAGS: phi-search.el
-#+TAGS: phi-search.el, 記事更新情報,
+#+TAGS: 
 #+TITLE: phi-search.elのバグ修正により無設定で使えるようになりました
-[[http://rubikitch.com/2014/11/11/phi-search/][emacs phi-search.el : multiple-cursorsでisearchできるよ！]]
+[[http://emacs.rubikitch.com/phi-search/][emacs phi-search.el : multiple-cursorsでisearchできるよ！]]
 
 レビュー当時はキーマップにバグがあり、
 with-eval-after-loadを使った設定で修正していましたが、

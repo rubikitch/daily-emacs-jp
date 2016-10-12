@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 2071
+#+POSTID: 1188
+#+BLOG: rubikitch
 #+DATE: [2015-10-11 Sun 05:09]
 #+PERMALINK: helm-chrome
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,28 +8,17 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, helm
+#+CATEGORY: Web
 #+EL_PKG_NAME: helm-chrome
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, relate:helm, helmインターフェース, ブックマーク, Webブラウザ, google-chrome, Google Chrome, お気に入り, Google Chrome ブックマーク, relate:helm-w3m, relate:helm-firefox, relate:helm-hatena-bookmark, ブックマーク 絞り込み検索
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: helm, google-chrome
 #+EL_TITLE0: google-chromeのブックマークをhelm検索する
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージhelm-chromeの紹介
-#+MYTAGS: package:helm-chrome, emacs 使い方, emacs コマンド, emacs, helm-chrome, helm-chrome.el, emacs lisp helm-chrome, elisp helm-chrome, emacs melpa helm-chrome, emacs helm-chrome 使い方, emacs helm-chrome 設定, emacs パッケージ helm-chrome, emacs helm-chrome スクリーンショット, relate:helm, helmインターフェース, ブックマーク, Webブラウザ, google-chrome, Google Chrome, お気に入り, Google Chrome ブックマーク, relate:helm-w3m, relate:helm-firefox, relate:helm-hatena-bookmark, ブックマーク 絞り込み検索
-#+TAGS: package:helm-chrome, emacs 使い方, emacs コマンド, emacs, helm-chrome, helm-chrome.el, emacs lisp helm-chrome, elisp helm-chrome, emacs melpa helm-chrome, emacs helm-chrome 使い方, emacs helm-chrome 設定, emacs パッケージ helm-chrome, emacs helm-chrome スクリーンショット, relate:helm, helmインターフェース, ブックマーク, Webブラウザ, google-chrome, Google Chrome, お気に入り, Google Chrome ブックマーク, relate:helm-w3m, relate:helm-firefox, relate:helm-hatena-bookmark, ブックマーク 絞り込み検索, Emacs, helm, helm-chrome.el, M-x helm-chrome-bookmarks, M-x helm-chrome-reload-bookmarks, helm-chrome-file, M-x helm-chrome-bookmarks, M-x helm-chrome-reload-bookmarks, helm-chrome-file
-#+TITLE: emacs helm-chrome.el : google-chromeのブックマークをhelm検索する | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>helm-chrome</td></tr>
-<tr><td>概要(原文)</td><td>Helm interface for Chrome bookmarks</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/kawabata/helm-chrome">https://github.com/kawabata/helm-chrome</a></td></tr>
-<tr><td>バージョン</td><td>20140116.252</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:helm-chrome/">package:helm-chrome</a> <a href="http://rubikitch.com/tag/package:helm/">package:helm</a> <a href="http://rubikitch.com/tag/package:helm-w3m/">package:helm-w3m</a> <a href="http://rubikitch.com/tag/package:helm-firefox/">package:helm-firefox</a> <a href="http://rubikitch.com/tag/package:helm-hatena-bookmark/">package:helm-hatena-bookmark</a></td></tr>
-</table>
-<br />
-#+END_HTML
+#+TITLE: helm-chrome.el : google-chromeのブックマークをhelm検索する
+[includeme file="inc-package-table.php" name="helm-chrome" where="melpa"]
+
+#+end:
+** 概要
 *helm-chrome.el* はgoogle-chromeのブックマークをhelm検索します。
 *M-x helm-chrome-bookmarks* でブックマークをhelmで開きます。
 *M-x helm-chrome-reload-bookmarks* でhelm内のブックマークデータを更新します。
@@ -44,28 +34,6 @@
 #+ATTR_HTML: :width 480
 [[file:/r/sync/screenshots/20151011051551.png]]
 Fig1: helmのブックマーク検索
-** helm-chrome インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
 
-M-x package-refresh-contents
-M-x package-install helm-chrome
-
-
-#+end:
-** 概要                                                             :noexport:
-*helm-chrome.el* はgoogle-chromeのブックマークをhelm検索します。
-*M-x helm-chrome-bookmarks* でブックマークをhelmで開きます。
-*M-x helm-chrome-reload-bookmarks* でhelm内のブックマークデータを更新します。
-
-もしうまく動かない場合は *helm-chrome-file* を設定してください。
-デフォルトでは以下のファイルから順次検索します。
-- ~/Library/Application Support/Google/Chrome/Default/Bookmarks
-- ~/AppData/Local/Google/Chrome/User Data/Default/Bookmarks
-- ~/.config/chromium/Default/Bookmarks
-- ~/.config/google-chrome/Default/Bookmarks
-
-# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20151011051551.png]]
-Fig2: helmのブックマーク検索
-
+[includeme file="inc-package-install.php" name="helm-chrome" where="melpa"]
+[includeme file="inc-package-relate.php" name="helm-chrome"]

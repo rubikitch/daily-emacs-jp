@@ -1,32 +1,21 @@
 #+BLOG: rubikitch
-#+POSTID: 463
+#+POSTID: 349
+#+BLOG: rubikitch
 #+DATE: [2014-10-14 Tue 12:14]
 #+PERMALINK: company
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t
 #+ISPAGE: nil
-#+DESCRIPTION:
+#+DESCRIPTION:auto-complete以前からあった自動補完パッケージ
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs
+#+CATEGORY: 自動補完
 #+EL_PKG_NAME: company
-#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, relate:yasnippet, relate:auto-complete
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: 補完
 #+EL_TITLE0: Emacs版IntelliSenseの先駆者が息を吹き返している件！Simple is best！
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージcompanyの紹介
-#+MYTAGS: package:company, emacs 使い方, emacs コマンド, emacs, emacs lisp company, elisp company, emacs melpa company, emacs company 使い方, emacs company 設定, emacs パッケージ company, emacs company スクリーンショット, relate:yasnippet, relate:auto-complete
-#+TITLE: emacs company.el : Emacs版IntelliSenseの先駆者が息を吹き返している件！Simple is best！ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>company</td></tr>
-<tr><td>概要(原文)</td><td>Modular text completion framework</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/company-mode/company-mode">https://github.com/company-mode/company-mode</a></td></tr>
-<tr><td>バージョン</td><td>20141216.409</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:company/">package:company</a> <a href="http://rubikitch.com/tag/package:yasnippet/">package:yasnippet</a> <a href="http://rubikitch.com/tag/package:auto-complete/">package:auto-complete</a></td></tr>
-</table>
-<br />
-#+END_HTML
+#+TITLE: company.el : Emacs版IntelliSenseの先駆者が息を吹き返している件！Simple is best！
+[includeme file="inc-package-table.php" name="company" where="melpa"]
+** 概要
 *company.el* は一言で言うとEmacs版 *IntelliSense* (*インテリセンス*) です。
 
 キーをタイプした時点で自動的に補完候補が出てきて、
@@ -66,12 +55,7 @@ company.elの魅力です。
 
 どうあれ、奥が深いパッケージなので
 時間かけて落とし所を見つけていきたいです。
-** company インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install company
-
+[includeme file="inc-package-install.php" name="company" where="melpa"]
 
 #+end:
 ** 概要                                                             :noexport:
@@ -169,3 +153,4 @@ metaは、それぞれの候補の説明をエコーエリアに表示します�
 手軽に独自のバックエンドを作れます。
 
 たった1つの関数で閉じている設計が素敵ですね！
+[includeme file="inc-package-relate.php" name="company"]

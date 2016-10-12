@@ -1,18 +1,19 @@
 #+BLOG: rubikitch
-#+POSTID: 1348
+#+POSTID: 79
+#+BLOG: rubikitch
 #+DATE: [2015-03-20 Fri 08:42]
-#+PERMALINK: melmag
+#+PERMALINK: melmag173
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
 #+ISPAGE: nil
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: メルマガ,
+#+CATEGORY: るびきち塾メルマガ
 #+DESCRIPTION: るびきち塾メルマガ『Emacsの鬼るびきちのココだけの話#173』の予告
 #+TITLE: 【メルマガ#173】集中力を保ちつつ健康にEmacsを使おう
 #+MYTAGS: 
 #+begin: org2blog-tags
-#+TAGS: , メルマガ,, 
+
 #+end:
 今回のメルマガは、集中力を保ちつつ、
 手や指に負担をかけないでEmacsを使う方法をお話します。

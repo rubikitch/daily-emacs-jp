@@ -1,14 +1,15 @@
 #+BLOG: rubikitch
-#+POSTID: 33
+#+POSTID: 177
+#+BLOG: rubikitch
 #+DATE: [2014-07-29 Tue 20:53]
 #+PERMALINK: 0
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t
 #+ISPAGE: nil
 #+DESCRIPTION:
 #+BLOG: rubikitch
-#+CATEGORY: Emacs
+#+CATEGORY: 記事更新情報, ★helm, ★ido, ★オススメパッケージ, ★初心者安心パッケージ, ★初心者はココから, ★dired
 #+DESCRIPTION:
-#+TAGS: Emacs,WordPress,org2blog,melpa,package-install
+#+TAGS: 
 #+TITLE: るびきちは生まれ変わります
 ども、るびきちです。
 

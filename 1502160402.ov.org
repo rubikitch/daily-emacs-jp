@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 1157
+#+POSTID: 708
+#+BLOG: rubikitch
 #+DATE: [2015-02-16 Mon 04:02]
 #+PERMALINK: ov
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,76 +8,19 @@
 #+DESCRIPTION:改行が入っていないテキストに表示上改行を入れるようにする
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, Emacs Lisp, 
+#+CATEGORY: Lispオブジェクト
 #+EL_PKG_NAME: ov
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, emacs オーバーレイ, emacs overlay, overlay, オーバーレイ, emacs text-property, emacs テキストプロパティ, emacs 表示を変える, emacs テキスト 改行 整形, テキストに改行を入れる, mapc, delete-overlay, make-overlay, defvar-local, define-minor-mode, defvar, make-variable-buffer-local, マイナーモード定義, emacs 句点 改行
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: 
 #+EL_TITLE0: 【高機能オーバーレイライブラリ】読みづらいテキストに改行を入れる
 #+EL_URL: http://fukuyama.co/ov-el
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージovの紹介
-#+MYTAGS: package:ov, emacs 使い方, emacs コマンド, emacs, ov, ov.el, emacs lisp ov, elisp ov, emacs melpa ov, emacs ov 使い方, emacs ov 設定, emacs パッケージ ov, emacs ov スクリーンショット, emacs オーバーレイ, emacs overlay, overlay, オーバーレイ, emacs text-property, emacs テキストプロパティ, emacs 表示を変える, emacs テキスト 改行 整形, テキストに改行を入れる, mapc, delete-overlay, make-overlay, defvar-local, define-minor-mode, defvar, make-variable-buffer-local, マイナーモード定義, emacs 句点 改行
-#+TAGS: package:ov, emacs 使い方, emacs コマンド, emacs, ov, ov.el, emacs lisp ov, elisp ov, emacs melpa ov, emacs ov 使い方, emacs ov 設定, emacs パッケージ ov, emacs ov スクリーンショット, emacs オーバーレイ, emacs overlay, overlay, オーバーレイ, emacs text-property, emacs テキストプロパティ, emacs 表示を変える, emacs テキスト 改行 整形, テキストに改行を入れる, mapc, delete-overlay, make-overlay, defvar-local, define-minor-mode, defvar, make-variable-buffer-local, マイナーモード定義, emacs 句点 改行, Emacs, Emacs Lisp, , ov.el, ja-period-newline-mode, pandoc, grep, ov.el, ja-period-newline-mode, pandoc, grep
-#+TITLE: emacs ov.el : 【高機能オーバーレイライブラリ】読みづらいテキストに改行を入れる | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>ov</td></tr>
-<tr><td>概要(原文)</td><td>Overlay library for Emacs Lisp</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>サイト</td><td><a href="http://fukuyama.co/ov-el">http://fukuyama.co/ov-el</td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/ShingoFukuyama/ov.el">https://github.com/ShingoFukuyama/ov.el</a></td></tr>
-<tr><td>バージョン</td><td>20140817.552</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:ov/">package:ov</a> </td></tr>
-</table>
-<br />
-#+END_HTML
-
-*ov.el* は[[http://rubikitch.com/2014/12/25/helm-swoop/][helm-swoop.el(レビュー)]] の作者による
-オーバーレイを扱うライブラリです。
-
-といっても、これだけではよくわかりませんね。
-
-というわけで、ここではひとつの実例を示しましょう。
-
-改行が入っていない長い行のテキストは、どうしても見辛いですよね！
-
-Emacsにはオーバーレイという機能を使って、
-実際のテキストの内容を変更することなしに、
-表示の変更のみを行えるようになっています。
-
-この *ja-period-newline-mode* というマイナーモードは、
-「。」(句点)の後に改行を入れて読みやすくします。
-
-# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
-[[file:/r/sync/screenshots/20150216042400.png]]
-Fig1: 長い行…
-
-[[file:/r/sync/screenshots/20150216042407.png]]
-Fig2: 句点の後に改行が入るよ！
-
-
-僕は何度も読むべきテキストは[[http://rubikitch.com/2014/10/07/pandoc-2/][pandoc(レビュー)]] によって
-orgフォーマットに変更しています。
-
-*pandoc* の変換結果はこのように長い行がたくさん出てきて、
-そのまま読むのは苦痛です。
-
-でも、長い行にもひとつだけメリットがあり、
-*grep* で検索したときに前後の文も表示してくれるので、
-文脈がわかります。
-
-そこでオーバーレイの出番です！
-** ov インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install ov
-
+#+TITLE: ov.el : 【高機能オーバーレイライブラリ】読みづらいテキストに改行を入れる
+[includeme file="inc-package-table.php" name="ov" where="melpa"]
 
 #+end:
-** 概要                                                             :noexport:
+** 概要
 
-*ov.el* は[[http://rubikitch.com/2014/12/25/helm-swoop/][helm-swoop.el(レビュー)]] の作者による
+*ov.el* は[[http://emacs.rubikitch.com/helm-swoop/][helm-swoop.el(レビュー)]] の作者による
 オーバーレイを扱うライブラリです。
 
 といっても、これだけではよくわかりませんね。
@@ -100,7 +44,7 @@ Fig1: 長い行…
 Fig2: 句点の後に改行が入るよ！
 
 
-僕は何度も読むべきテキストは[[http://rubikitch.com/2014/10/07/pandoc-2/][pandoc(レビュー)]] によって
+僕は何度も読むべきテキストは[[http://emacs.rubikitch.com/pandoc-2/][pandoc(レビュー)]] によって
 orgフォーマットに変更しています。
 
 *pandoc* の変換結果はこのように長い行がたくさん出てきて、
@@ -111,6 +55,7 @@ orgフォーマットに変更しています。
 文脈がわかります。
 
 そこでオーバーレイの出番です！
+[includeme file="inc-package-install.php" name="ov" where="melpa"]
 ** コード [[http://rubikitch.com/f/mylisp-ja-period-newline.el][mylisp-ja-period-newline.el(以下のコードと同一)]]
 #+BEGIN: include :file "/r/sync/emacs/init.d/mylisp-ja-period-newline.el"
 #+BEGIN_SRC fundamental
@@ -125,7 +70,9 @@ orgフォーマットに変更しています。
       ;; 有効にしたときは
       (setq ja-period-newline-overlays
             ;; [。]をすべて検索し、改行を付加するオーバーレイを作成する
-            (ov-set "。" 'after-string "\n"))
+            (append (ov-set "[。、]\\|[.-]\\{3,\\}" 'after-string "\n")
+                    ;; (ov-set "[-。、\n].\\{16,\\}?、" 'after-string "\n")
+                    ))
     ;; 無効にしたときは全オーバーレイを削除する
     (mapc 'delete-overlay ja-period-newline-overlays)))
 
@@ -143,3 +90,4 @@ $ emacs -Q -f package-initialize -l mylisp-ja-period-newline.el
 
 # /r/sync/screenshots/20150216042400.png http://rubikitch.com/wp-content/uploads/2015/02/wpid-201502160424004.png
 # /r/sync/screenshots/20150216042407.png http://rubikitch.com/wp-content/uploads/2015/02/wpid-201502160424074.png
+[includeme file="inc-package-relate.php" name="ov"]

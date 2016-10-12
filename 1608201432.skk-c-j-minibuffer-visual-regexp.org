@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 2693
+#+POSTID: 1538
+#+BLOG: rubikitch
 #+DATE: [2016-08-20 土 14:32]
 #+PERMALINK: skk-c-j-minibuffer-visual-regexp
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
@@ -7,12 +8,13 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, SKK, 
+#+CATEGORY: 日本語入力
+#+TAGS: ddskk
 #+DESCRIPTION: 
-#+MYTAGS: skk, package:skk, ミニバッファでskkが使えない, relate:visual-regexp, 
 #+TITLE: ミニバッファでSKKが使えなくなったらこれをやれ！
 #+begin: org2blog-tags
-#+TAGS: skk, package:skk, ミニバッファでskkが使えない, relate:visual-regexp, , Emacs, SKK, , 
+# content-length: 1303
+
 #+end:
 SKKを使っている人へ。
 
@@ -20,7 +22,7 @@ SKKを使っている人へ。
 なぜかミニバッファを終了してしまって困ったことはありませんか？
 
 僕はいくつかのパッケージで経験がありますが、
-最近覚えているものといえば[[http://rubikitch.com/2014/08/26/visual-regexp/][visual-regexp(レビュー)]] を使おうとしたときです。
+最近覚えているものといえば[[http://emacs.rubikitch.com/visual-regexp/][visual-regexp(レビュー)]] を使おうとしたときです。
 
 日本語を置換しようとC-jでSKKで日本語を入力しようとしたら、
 置換先を聞かれてしまい、困ってしまいました。

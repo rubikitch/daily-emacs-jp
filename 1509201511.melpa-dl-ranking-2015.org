@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 2007
+#+POSTID: 1147
+#+BLOG: rubikitch
 #+DATE: [2015-09-20 Sun 15:11]
 #+PERMALINK: melpa-dl-ranking-2015
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,14 +8,15 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, Ruby
+#+CATEGORY: パッケージ管理
 #+DESCRIPTION: 
-#+MYTAGS: emacs, emacs melpa, emacs パッケージ, emacs 人気 パッケージ, emacs 定番 パッケージ, emacs 人気 elisp, emacs 定番 elisp, emacs おすすめ パッケージ, emacs おすすめ elisp, ruby json open-uri, emacs describe-package,
 #+TITLE: 1年たったので再びEmacs MELPA ダウンロードランキングを見てみる
+#+TAGS: るびきちオススメ
 #+begin: org2blog-tags
-#+TAGS: emacs, emacs melpa, emacs パッケージ, emacs 人気 パッケージ, emacs 定番 パッケージ, emacs 人気 elisp, emacs 定番 elisp, emacs おすすめ パッケージ, emacs おすすめ elisp, ruby json open-uri, emacs describe-package,, Emacs, Ruby, 
+# content-length: 5241
+
 #+end:
-[[http://rubikitch.com/2014/09/02/melpa-dl-ranking/][去年、MELPAのダウンロードランキングを見てみました]] が、
+[[http://emacs.rubikitch.com/melpa-dl-ranking/][去年、MELPAのダウンロードランキングを見てみました]] が、
 あれから1年たったので再び見てみることにしました。
 
 ** ダウンロードランキング2015
@@ -97,11 +99,11 @@ magitにより自動インストールされるからです。
 去年10位でしたが、大きく順位を上げました。
 非互換な変更をしばしば行うという問題はありますが、
 更新速度が早いので人気が出ています。
-7/11に[[http://rubikitch.com/2015/07/12/helm-core/][helm-core]]パッケージ が出たばかりですが、
+7/11に[[http://emacs.rubikitch.com/helm-core/][helm-core]]パッケージ が出たばかりですが、
 わずか2ヶ月で3万を超えるダウンロードを記録しているので伸びが凄まじいです。
 magitやdashをも追い抜いてしまうかもしれません!？
 
-4位のpopupは5位の[[http://rubikitch.com/2014/11/05/auto-complete/][auto-complete]] のライブラリです。
+4位のpopupは5位の[[http://emacs.rubikitch.com/auto-complete/][auto-complete]] のライブラリです。
 auto-completeは自動補完を行います。
 
 6位のflycheckはリアルタイム文法チェッカーです。

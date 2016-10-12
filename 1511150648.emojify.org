@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 2188
+#+POSTID: 1249
+#+BLOG: rubikitch
 #+DATE: [2015-11-15 Sun 06:48]
 #+PERMALINK: emojify
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,28 +8,17 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs
+#+CATEGORY: 絵文字
 #+EL_PKG_NAME: emojify
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, emoji, 絵文字, 絵文字 表示, relate:emoji-cheat-sheet-plus
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: 
 #+EL_TITLE0: Emacsのバッファに絵文字を表示させる
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージemojifyの紹介
-#+MYTAGS: package:emojify, emacs 使い方, emacs コマンド, emacs, emojify, emojify.el, emacs lisp emojify, elisp emojify, emacs melpa emojify, emacs emojify 使い方, emacs emojify 設定, emacs パッケージ emojify, emacs emojify スクリーンショット, emoji, 絵文字, 絵文字 表示, relate:emoji-cheat-sheet-plus
-#+TAGS: package:emojify, emacs 使い方, emacs コマンド, emacs, emojify, emojify.el, emacs lisp emojify, elisp emojify, emacs melpa emojify, emacs emojify 使い方, emacs emojify 設定, emacs パッケージ emojify, emacs emojify スクリーンショット, emoji, 絵文字, 絵文字 表示, relate:emoji-cheat-sheet-plus, Emacs, emojify.el, M-x emojify-mode, M-x global-emojify-mode, emojify-inhibit-major-modes, emojify-inhibit-in-buffer-functions, M-x emojify-mode, M-x global-emojify-mode, emojify-inhibit-major-modes, emojify-inhibit-in-buffer-functions
-#+TITLE: emacs emojify.el : Emacsのバッファに絵文字を表示させる | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>emojify</td></tr>
-<tr><td>概要(原文)</td><td>Display emojis in Emacs</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/iqbalansari/emacs-emojify">https://github.com/iqbalansari/emacs-emojify</a></td></tr>
-<tr><td>バージョン</td><td>20151115.1942</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:emojify/">package:emojify</a> <a href="http://rubikitch.com/tag/package:emoji-cheat-sheet-plus/">package:emoji-cheat-sheet-plus</a></td></tr>
-</table>
-<br />
-#+END_HTML
+#+TITLE: emojify.el : Emacsのバッファに絵文字を表示させる
+[includeme file="inc-package-table.php" name="emojify" where="melpa"]
+
+#+end:
+** 概要
 *emojify.el* はEmacsで絵文字を表示させます。
 「:smile:」のようなgithubスタイルのものや「:)」のようなASCII文字のものを表示します。
 
@@ -45,7 +35,7 @@
 *emojify-inhibit-major-modes* と *emojify-inhibit-in-buffer-functions* によって絵文字表示を無効にできます。
 デフォルトではhelm関連のバッファ、ミニバッファ、dired等です。
 
-絵文字を選択入力したければ[[http://rubikitch.com/2015/11/17/emoji-cheat-sheet-plus/][emoji-cheat-sheet-plus.el(レビュー)]]を！
+絵文字を選択入力したければ[[http://emacs.rubikitch.com/emoji-cheat-sheet-plus/][emoji-cheat-sheet-plus.el(レビュー)]]を！
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
 #+ATTR_HTML: :width 480
@@ -61,45 +51,6 @@ Fig2: M-x emojify-mode
 [[file:/r/sync/screenshots/20151115073356.png]]
 Fig3: コード上(emacs-lisp-mode)では文字列リテラルで有効になる
 
-** emojify インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
 
-M-x package-refresh-contents
-M-x package-install emojify
-
-
-#+end:
-** 概要                                                             :noexport:
-*emojify.el* はEmacsで絵文字を表示させます。
-「:smile:」のようなgithubスタイルのものや「:)」のようなASCII文字のものを表示します。
-
-動作条件として、PNG画像をサポートした状態でEmacsをコンパイルする必要があることです。
-さらに、ImageMagick込みでコンパイルされれば絵文字画像の拡大縮小も行えます。
-とはいえバイナリパッケージになっているEmacsは双方ともサポートされていると思います。
-少なくともDebian GNU/Linuxのパッケージでは双方ともサポートされています。
-
-*M-x emojify-mode* でそのバッファ中の絵文字を表示します。
-プログラミング言語のモードにおいては文字列リテラル内の絵文字のみを絵文字として表示します。
-バッファの変更に追随するので、絵文字の入力が完了した時点で絵文字を表示します。
-
-すべてのバッファにおいて有効にしたければ *M-x global-emojify-mode* です。
-*emojify-inhibit-major-modes* と *emojify-inhibit-in-buffer-functions* によって絵文字表示を無効にできます。
-デフォルトではhelm関連のバッファ、ミニバッファ、dired等です。
-
-絵文字を選択入力したければ[[http://rubikitch.com/2015/11/17/emoji-cheat-sheet-plus/][emoji-cheat-sheet-plus.el(レビュー)]]を！
-
-# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
-#+ATTR_HTML: :width 480
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20151115073342.png]]
-Fig4: 元の状態(fundamental-mode)
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20151115073347.png]]
-Fig5: M-x emojify-mode
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20151115073356.png]]
-Fig6: コード上(emacs-lisp-mode)では文字列リテラルで有効になる
-
-
+[includeme file="inc-package-install.php" name="emojify" where="melpa"]
+[includeme file="inc-package-relate.php" name="emojify"]

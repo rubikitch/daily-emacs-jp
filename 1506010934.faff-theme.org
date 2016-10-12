@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 1710
+#+POSTID: 949
+#+BLOG: rubikitch
 #+DATE: [2015-06-01 Mon 09:34]
 #+PERMALINK: faff-theme
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,28 +8,17 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, theme, 
+#+CATEGORY: ライト
 #+EL_PKG_NAME: faff-theme
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, color-theme, カラーテーマ
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
 #+EL_TITLE0: ivory3をバックグラウンドとしたカラーテーマ
+#+TAGS:
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージfaff-themeの紹介
-#+MYTAGS: package:faff-theme, emacs 使い方, emacs コマンド, emacs, faff-theme, faff-theme.el, emacs lisp faff-theme, elisp faff-theme, emacs melpa faff-theme, emacs faff-theme 使い方, emacs faff-theme 設定, emacs パッケージ faff-theme, emacs faff-theme スクリーンショット, color-theme, カラーテーマ
-#+TAGS: package:faff-theme, emacs 使い方, emacs コマンド, emacs, faff-theme, faff-theme.el, emacs lisp faff-theme, elisp faff-theme, emacs melpa faff-theme, emacs faff-theme 使い方, emacs faff-theme 設定, emacs パッケージ faff-theme, emacs faff-theme スクリーンショット, color-theme, カラーテーマ, Emacs, theme, , faff-theme.el
-#+TITLE: emacs faff-theme.el : ivory3をバックグラウンドとしたカラーテーマ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>faff-theme</td></tr>
-<tr><td>概要(原文)</td><td>Light Emacs color theme on ivory3 background</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/WJCFerguson/emacs-faff-theme">https://github.com/WJCFerguson/emacs-faff-theme</a></td></tr>
-<tr><td>バージョン</td><td>20150527.703</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:faff-theme/">package:faff-theme</a> </td></tr>
-</table>
-<br />
-#+END_HTML
+#+TITLE: faff-theme.el : ivory3をバックグラウンドとしたカラーテーマ
+[includeme file="inc-package-table.php" name="faff-theme" where="melpa"]
+
+#+end:
+** 概要
 *faff-theme.el* は、ivory3をバックグラウンドとした軽量カラーテーマです。
 
 主に以下のパッケージの設定をしています。
@@ -63,50 +53,8 @@ Fig3: magit-commit / diff
 #+ATTR_HTML: :width 480
 [[file:/r/sync/screenshots/20150601094458.png]]
 Fig4: helm
-** faff-theme インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
 
-M-x package-refresh-contents
-M-x package-install faff-theme
-
-
-#+end:
-** 概要                                                             :noexport:
-*faff-theme.el* は、ivory3をバックグラウンドとした軽量カラーテーマです。
-
-主に以下のパッケージの設定をしています。
-
-- font-lock
-- magit
-- helm
-- diff
-- dired
-- mode-line
-- powerline
-- hl-line
-- org
-- outline
-- erc
-- jabber
-
-
-# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150601094406.png]]
-Fig5: org-mode / magit-status
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150601094427.png]]
-Fig6: magit-log / magit-commit
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150601094436.png]]
-Fig7: magit-commit / diff
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150601094458.png]]
-Fig8: helm
-
+[includeme file="inc-package-install.php" name="faff-theme" where="melpa"]
 ** 設定 [[http://rubikitch.com/f/150601094218.faff-theme.1.el][150601094218.faff-theme.1.el(以下のコードと同一)]]
 #+BEGIN: include :file "/r/sync/junk/150601/150601094218.faff-theme.1.el"
 #+BEGIN_SRC fundamental
@@ -120,3 +68,4 @@ Fig8: helm
 $ wget http://rubikitch.com/f/150601094218.faff-theme.1.el
 $ emacs -Q -f package-initialize -l 150601094218.faff-theme.1.el
 #+END_EXAMPLE
+[includeme file="inc-package-relate.php" name="faff-theme"]

@@ -1,34 +1,22 @@
 #+BLOG: rubikitch
-#+POSTID: 732
+#+POSTID: 493
+#+BLOG: rubikitch
 #+DATE: [2014-12-17 Wed 07:35]
 #+PERMALINK: imenu-anywhere
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
 #+ISPAGE: nil
-#+DESCRIPTION:
+#+DESCRIPTION:imenuをido/helmインターフェースにして、同一メジャーモードの他のファイルにまで探索範囲を広げる。imenusの方がおすすめ。
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, helm, ido
+#+CATEGORY: タグジャンプ
 #+EL_PKG_NAME: imenu-anywhere
-#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, emacs imenu, relate:helm, package:ido, imenu ido, relate:idomenu, relate:ido-vertical-mode, relate:imenu-list, relate:imenus, package:ido-vertical-mode, relate:ido-vertical-mode, emacs iswitchb imenu, emacs imenu ido, emacs imenu helm, 同一メジャーモードのバッファの関数一覧を表示, emacs imenu カイゼン, emacs imenu 強化, anything-imenu, helm-imenu, ファイル内の関数一覧を表示, バッファ内の関数一覧を表示, 特定の関数を抽出, 関数定義へジャンプ, バッファ内の特定箇所に直接移動
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: imenu, helm, ido
 #+EL_TITLE0: 【Windows安心】簡易関数定義ジャンプimenuをido/helm化した上で他のファイルまで拡張する！
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージimenu-anywhereの紹介
-#+MYTAGS: package:imenu-anywhere, emacs 使い方, emacs コマンド, emacs, emacs lisp imenu-anywhere, elisp imenu-anywhere, emacs melpa imenu-anywhere, emacs imenu-anywhere 使い方, emacs imenu-anywhere 設定, emacs パッケージ imenu-anywhere, emacs imenu-anywhere スクリーンショット, emacs imenu, relate:helm, package:ido, imenu ido, relate:idomenu, relate:ido-vertical-mode, relate:imenu-list, relate:imenus, package:ido-vertical-mode, relate:ido-vertical-mode, emacs iswitchb imenu, emacs imenu ido, emacs imenu helm, 同一メジャーモードのバッファの関数一覧を表示, emacs imenu カイゼン, emacs imenu 強化, anything-imenu, helm-imenu, ファイル内の関数一覧を表示, バッファ内の関数一覧を表示, 特定の関数を抽出, 関数定義へジャンプ, バッファ内の特定箇所に直接移動
-#+TAGS: package:imenu-anywhere, emacs 使い方, emacs コマンド, emacs, emacs lisp imenu-anywhere, elisp imenu-anywhere, emacs melpa imenu-anywhere, emacs imenu-anywhere 使い方, emacs imenu-anywhere 設定, emacs パッケージ imenu-anywhere, emacs imenu-anywhere スクリーンショット, emacs imenu, relate:helm, package:ido, imenu ido, relate:idomenu, relate:ido-vertical-mode, relate:imenu-list, relate:imenus, package:ido-vertical-mode, relate:ido-vertical-mode, emacs iswitchb imenu, emacs imenu ido, emacs imenu helm, 同一メジャーモードのバッファの関数一覧を表示, emacs imenu カイゼン, emacs imenu 強化, anything-imenu, helm-imenu, ファイル内の関数一覧を表示, バッファ内の関数一覧を表示, 特定の関数を抽出, 関数定義へジャンプ, バッファ内の特定箇所に直接移動, Emacs, helm, ido, imenu-anywhere.el, M-x imenu, imenu, TAGS, タグファイル, Windows, ido, helm, imenu-anywhere.el, M-x imenu, imenu, TAGS, タグファイル, Windows, ido, helm, M-x helm-imenu-anywhere, with-helm-current-buffer, M-x ido-imenu-anywhere
-#+TITLE: emacs imenu-anywhere.el : 【Windows安心】簡易関数定義ジャンプimenuをido/helm化した上で他のファイルまで拡張する！ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>imenu-anywhere</td></tr>
-<tr><td>概要(原文)</td><td>ido/helm imenu tag selection across all buffers with the same mode</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/vitoshka/imenu-anywhere">https://github.com/vitoshka/imenu-anywhere</a></td></tr>
-<tr><td>バージョン</td><td>20150204.50</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:imenu-anywhere/">package:imenu-anywhere</a> <a href="http://rubikitch.com/tag/package:helm/">package:helm</a> <a href="http://rubikitch.com/tag/package:idomenu/">package:idomenu</a> <a href="http://rubikitch.com/tag/package:ido-vertical-mode/">package:ido-vertical-mode</a> <a href="http://rubikitch.com/tag/package:imenu-list/">package:imenu-list</a> <a href="http://rubikitch.com/tag/package:imenus/">package:imenus</a> <a href="http://rubikitch.com/tag/package:ido-vertical-mode/">package:ido-vertical-mode</a></td></tr>
-</table>
-<br />
-#+END_HTML
-<2015-04-09 Thu> [[http://rubikitch.com/2015/04/09/imenus/][imenus.el]] の方がoccur/helm-swoopもできたりとより便利です。
+#+TITLE: imenu-anywhere.el : 【Windows安心】簡易関数定義ジャンプimenuをido/helm化した上で他のファイルまで拡張する！
+[includeme file="inc-package-table.php" name="imenu-anywhere" where="melpa"]
+** 概要
+<2015-04-09 Thu> [[http://emacs.rubikitch.com/imenus/][imenus.el]] の方がoccur/helm-swoopもできたりとより便利です。
 
 <2014-12-22 Mon>バグ修正！
 
@@ -61,7 +49,7 @@ Windowsじゃなくてもわざわざ手動で
 第二に、imenuを *ido* / *helm* インターフェースにして
 候補選択しやすくします。
 
-特に[[http://rubikitch.com/2014/12/16/smex/][idoのあいまいマッチは強力]] で
+特に[[http://emacs.rubikitch.com/smex/][idoのあいまいマッチは強力]] で
 各文字間のに任意の文字が入ることを許されています。
 
 しかもウィンドウ構成を変更しないので
@@ -70,20 +58,15 @@ Windowsじゃなくてもわざわざ手動で
 候補が比較的少数で、
 単一の情報源で、
 ひとつのアクションで、
-[[http://rubikitch.com/2014/08/20/migemo/][Migemo]] らないならば、
+[[http://emacs.rubikitch.com/migemo/][Migemo]] らないならば、
 helmよりもidoの方が優れていると僕は考えています。
 
 helmはあくまで複数の情報源を同時に扱えることが魅力なんですから。
-** imenu-anywhere インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install imenu-anywhere
-
+[includeme file="inc-package-install.php" name="imenu-anywhere" where="melpa"]
 
 #+end:
 ** 概要                                                             :noexport:
-<2015-04-09 Thu> [[http://rubikitch.com/2015/04/09/imenus/][imenus.el]] の方がoccur/helm-swoopもできたりとより便利です。
+<2015-04-09 Thu> [[http://emacs.rubikitch.com/imenus/][imenus.el]] の方がoccur/helm-swoopもできたりとより便利です。
 
 <2014-12-22 Mon>バグ修正！
 
@@ -116,7 +99,7 @@ Windowsじゃなくてもわざわざ手動で
 第二に、imenuを *ido* / *helm* インターフェースにして
 候補選択しやすくします。
 
-特に[[http://rubikitch.com/2014/12/16/smex/][idoのあいまいマッチは強力]] で
+特に[[http://emacs.rubikitch.com/smex/][idoのあいまいマッチは強力]] で
 各文字間のに任意の文字が入ることを許されています。
 
 しかもウィンドウ構成を変更しないので
@@ -125,7 +108,7 @@ Windowsじゃなくてもわざわざ手動で
 候補が比較的少数で、
 単一の情報源で、
 ひとつのアクションで、
-[[http://rubikitch.com/2014/08/20/migemo/][Migemo]] らないならば、
+[[http://emacs.rubikitch.com/migemo/][Migemo]] らないならば、
 helmよりもidoの方が優れていると僕は考えています。
 
 helmはあくまで複数の情報源を同時に扱えることが魅力なんですから。
@@ -174,3 +157,4 @@ Fig2: 他バッファの関数を選択！
 http://rubikitch.com/f/20141217121147.png
 Fig3: M-x helm-imenu-anywhere
 
+[includeme file="inc-package-relate.php" name="imenu-anywhere"]

@@ -1,16 +1,16 @@
 #+BLOG: rubikitch
-#+POSTID: 149
+#+POSTID: 23
+#+BLOG: rubikitch
 #+DATE: [2014-08-13 Wed 23:22]
-#+PERMALINK: melmag151
+#+PERMALINK: 151
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t
 #+ISPAGE: nil
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: メルマガ,
+#+CATEGORY: るびきち塾メルマガ
 #+DESCRIPTION: メルマガ『Emacsの鬼るびきちのココだけの話』の読者数が150人を超え、読者さんからありがたいメールを頂きました。
-#+MYTAGS: org-mode, org習慣仕事術, Emacs, Emacsの鬼るびきちのココだけの話 メルマガ, るびきち メルマガ 評判, るびきち Emacs, プログラミング言語を覚える方法, 習慣化, 継続する技術, 続ける方法
-#+TAGS: org-mode, org習慣仕事術, Emacs, Emacsの鬼るびきちのココだけの話 メルマガ, るびきち メルマガ 評判, るびきち Emacs, プログラミング言語を覚える方法, 習慣化, 継続する技術, 続ける方法, メルマガ,, 習慣, 脳科学に基いた手法, ダイエット, 筋トレ, プログラミング言語
+#+TAGS: 
 #+TITLE: メルマガ読者数が150人を超えました！嬉しいメールも　『Emacsの鬼るびきちのココだけの話』
 ども、るびきちです。
 

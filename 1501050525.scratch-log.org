@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 865
+#+POSTID: 596
+#+BLOG: rubikitch
 #+DATE: [2015-01-05 Mon 05:25]
 #+PERMALINK: scratch-log
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,61 +8,17 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, org-mode, 
+#+CATEGORY: scratchバッファ
 #+EL_PKG_NAME: scratch-log
-#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, relate:auto-save-buffers-enhanced, relate:open-junk-file, emacs scratch 削除, emacs scratch メモ, emacs メモ, emacs 試行錯誤 ,emacs org-capture, relate:org, relate:scratch-pop, relate:unkillable-scratch, scratch, relate:omni-scratch
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 
+#+TAGS: 
 #+EL_TITLE0: *scratch*バッファのログを取り、削除不能にし、再起動時に復元する
 #+EL_URL: http://d.hatena.ne.jp/kitokitoki/20100612/p1
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージscratch-logの紹介
-#+MYTAGS: package:scratch-log, emacs 使い方, emacs コマンド, emacs, emacs lisp scratch-log, elisp scratch-log, emacs melpa scratch-log, emacs scratch-log 使い方, emacs scratch-log 設定, emacs パッケージ scratch-log, relate:auto-save-buffers-enhanced, relate:open-junk-file, emacs scratch 削除, emacs scratch メモ, emacs メモ, emacs 試行錯誤 ,emacs org-capture, relate:org, relate:scratch-pop, relate:unkillable-scratch, scratch, relate:omni-scratch
-#+TAGS: package:scratch-log, emacs 使い方, emacs コマンド, emacs, emacs lisp scratch-log, elisp scratch-log, emacs melpa scratch-log, emacs scratch-log 使い方, emacs scratch-log 設定, emacs パッケージ scratch-log, relate:auto-save-buffers-enhanced, relate:open-junk-file, emacs scratch 削除, emacs scratch メモ, emacs メモ, emacs 試行錯誤 ,emacs org-capture, relate:org, relate:scratch-pop, relate:unkillable-scratch, scratch, relate:omni-scratch, Emacs, org-mode, , scratch, scratch-log.el, scratch-log.el, open-junk-file.el, M-x org-capture
-#+TITLE: emacs scratch-log.el : *scratch*バッファのログを取り、削除不能にし、再起動時に復元する | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>scratch-log</td></tr>
-<tr><td>概要(原文)</td><td>Utility for *scratch* buffer.</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>サイト</td><td><a href="http://d.hatena.ne.jp/kitokitoki/20100612/p1">http://d.hatena.ne.jp/kitokitoki/20100612/p1</td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/mori-dev/scratch-log">https://github.com/mori-dev/scratch-log</a></td></tr>
-<tr><td>バージョン</td><td>20141114.2343</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:scratch-log/">package:scratch-log</a> <a href="http://rubikitch.com/tag/package:auto-save-buffers-enhanced/">package:auto-save-buffers-enhanced</a> <a href="http://rubikitch.com/tag/package:open-junk-file/">package:open-junk-file</a> <a href="http://rubikitch.com/tag/package:org/">package:org</a> <a href="http://rubikitch.com/tag/package:scratch-pop/">package:scratch-pop</a> <a href="http://rubikitch.com/tag/package:unkillable-scratch/">package:unkillable-scratch</a> <a href="http://rubikitch.com/tag/package:omni-scratch/">package:omni-scratch</a></td></tr>
-</table>
-<br />
-#+END_HTML
-
-これは4年半前に作られたものですが、
-久々に更新されたので紹介しておきます。
-
-*scratch-log.el* は*scratch*バッファの
-使い勝手を向上するものです。
-
-- *scratch*の内容のログを取る
-- 30秒ごとに自動でログを取る
-- *scratch*を削除できないようにする (オプション)
-- Emacs起動時に最後に終了した時点の*scratch*を復元(オプション)
-
-*scratch*はEmacs起動時に作られるバッファで
-一時的なメモやEmacs Lispの実験をするのに使われます。
-
-しかし、なんらかの拍子で削除してしまうと、
-ファイルに保存されていないために内容が失われてしまいます。
-
-scratchのログは行頭に「*」がついているので、
-org-modeにするとよいです。
-
-作者のサイトで詳しく解説されています。
-[[http://d.hatena.ne.jp/kitokitoki/20100612/p1]]
-** scratch-log インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install scratch-log
-
+#+TITLE: scratch-log.el : *scratch*バッファのログを取り、削除不能にし、再起動時に復元する
+[includeme file="inc-package-table.php" name="scratch-log" where="melpa"]
 
 #+end:
-** 概要                                                             :noexport:
+** 概要
 
 これは4年半前に作られたものですが、
 久々に更新されたので紹介しておきます。
@@ -85,6 +42,7 @@ org-modeにするとよいです。
 
 作者のサイトで詳しく解説されています。
 [[http://d.hatena.ne.jp/kitokitoki/20100612/p1]]
+[includeme file="inc-package-install.php" name="scratch-log" where="melpa"]
 ** ログの実例
 *** .scratch-log
 #+BEGIN_EXAMPLE
@@ -104,10 +62,10 @@ tesu
 #+END_EXAMPLE
 
 ** その他の方法・応用
-[[http://rubikitch.com/2014/11/23/auto-save-buffers-enhanced/][auto-save-buffers-enhanced.el(レビュー)]]  
+[[http://emacs.rubikitch.com/auto-save-buffers-enhanced/][auto-save-buffers-enhanced.el(レビュー)]]  
 にも*scratch*を保存する機能があります。
 
-[[http://rubikitch.com/2014/11/24/scratch-pop/][scratch-pop.el(レビュー)]]  を使えば、
+[[http://emacs.rubikitch.com/scratch-pop/][scratch-pop.el(レビュー)]]  を使えば、
 簡単に*scratch*に切り替えられるので
 併用するとよいでしょう。
 
@@ -141,3 +99,4 @@ tesu
 $ wget http://rubikitch.com/f/150105055830.scratch-log.el
 $ emacs -Q -f package-initialize -l 150105055830.scratch-log.el
 #+END_EXAMPLE
+[includeme file="inc-package-relate.php" name="scratch-log"]

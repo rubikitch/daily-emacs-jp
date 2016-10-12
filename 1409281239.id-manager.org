@@ -1,37 +1,23 @@
 #+BLOG: rubikitch
-#+POSTID: 398
+#+POSTID: 318
+#+BLOG: rubikitch
 #+DATE: [2014-09-28 Sun 12:39]
 #+PERMALINK: id-manager
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t
 #+ISPAGE: nil
-#+DESCRIPTION:
+#+DESCRIPTION:ローカルに暗号化ファイルにパスワードをまとめて保存することでパスワードを管理。helmインターフェース付き。
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs Lisp,  Emacs, helm
+#+CATEGORY: パスワード管理
 #+EL_PKG_NAME: id-manager
-#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, relate:helm, , パスワード管理, GNOME Keyring, Password Manager, Form Filler, Password Management, ロボフォーム, KeePass, Roboform, SplashID, 1Password, パスワード管理ソフト ID Manager, relate:passthword, relate:auth-source
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方
+#+TAGS: helm, るびきちオススメ
 #+EL_TITLE0: Emacs/helmでパスワード一元管理！Emacs Lispからパスワードにアクセスする方法
 #+EL_DOC: id-password management
 #+EL_URL: https://github.com/kiwanami/emacs-id-manager/
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージid-managerの紹介
-#+MYTAGS: package:id-manager, emacs 使い方, emacs コマンド, emacs, emacs lisp id-manager, elisp id-manager, emacs melpa id-manager, emacs id-manager 使い方, emacs id-manager 設定, emacs パッケージ id-manager, relate:helm, , パスワード管理, GNOME Keyring, Password Manager, Form Filler, Password Management, ロボフォーム, KeePass, Roboform, SplashID, 1Password, パスワード管理ソフト ID Manager, relate:passthword, relate:auth-source
-#+TAGS: package:id-manager, emacs 使い方, emacs コマンド, emacs, emacs lisp id-manager, elisp id-manager, emacs melpa id-manager, emacs id-manager 使い方, emacs id-manager 設定, emacs パッケージ id-manager, relate:helm, , パスワード管理, GNOME Keyring, Password Manager, Form Filler, Password Management, ロボフォーム, KeePass, Roboform, SplashID, 1Password, パスワード管理ソフト ID Manager, relate:passthword, relate:auth-source, Emacs Lisp,  Emacs, helm, id-manager.el, LastPass, セキュリティ, anything.el, helm.el, LastPass, セキュリティ, anything.el, helm.el, Ruby クローラー
-#+TITLE: emacs id-manager.el : Emacs/helmでパスワード一元管理！Emacs Lispからパスワードにアクセスする方法 | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>id-manager</td></tr>
-<tr><td>概要(原文)</td><td>id-password management</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>サイト</td><td><a href="https://github.com/kiwanami/emacs-id-manager/">https://github.com/kiwanami/emacs-id-manager/</td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/kiwanami/emacs-id-manager">https://github.com/kiwanami/emacs-id-manager</a></td></tr>
-<tr><td>Quelpa設定</td><td><code>(quelpa '(id-manager :repo "kiwanami/emacs-id-manager" :fetcher github))</code></td></tr>
-<tr><td>バージョン</td><td>20150115.1619</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:id-manager/">package:id-manager</a> <a href="http://rubikitch.com/tag/package:helm/">package:helm</a> <a href="http://rubikitch.com/tag/package:passthword/">package:passthword</a> <a href="http://rubikitch.com/tag/package:auth-source/">package:auth-source</a></td></tr>
-</table>
-<br />
-#+END_HTML
+#+TITLE: id-manager.el : Emacs/helmでパスワード一元管理！Emacs Lispからパスワードにアクセスする方法
+[includeme file="inc-package-table.php" name="id-manager" where="melpa"]
+** 概要
 *id-manager.el* は、Emacsで各サービスのパスワードを管理するものです。
 
 同じ目的のツールとしてブラウザの拡張に *LastPass* などがありますが、
@@ -53,15 +39,10 @@ http://d.hatena.ne.jp/kiwanami/20110221/1298293727
 なお、最新版では *anything.el* ではなくて *helm.el* との連携になっています。
 
 helmとともに楽々パスワード管理を楽しんでください。
-** id-manager インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install id-manager
-
+[includeme file="inc-package-install.php" name="id-manager" where="melpa"]
 
 #+end:
-[[http://rubikitch.com/2014/09/01/quelpa/][quelpa]] は一度入れておくと楽チンです。
+[[http://emacs.rubikitch.com/quelpa/][quelpa]] は一度入れておくと楽チンです。
 ** 概要                                                             :noexport:
 *id-manager.el* は、Emacsで各サービスのパスワードを管理するものです。
 
@@ -150,3 +131,4 @@ test1	testuser	testpass	2012/11/27	test1
 クローラーにIDとパスワードをEmacsから渡すための学びです。
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+[includeme file="inc-package-relate.php" name="id-manager"]

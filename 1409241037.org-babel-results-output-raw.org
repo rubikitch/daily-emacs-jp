@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 381
+#+POSTID: 312
+#+BLOG: rubikitch
 #+DATE: [2014-09-24 Wed 10:37]
 #+PERMALINK: org-babel-results-output-raw
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t
@@ -7,10 +8,9 @@
 #+DESCRIPTION: org-babelでorg文書を出力させるにはbegin_src行に「:results output raw」と書く
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, Ruby,
+#+CATEGORY: 文書作成
 #+DESCRIPTION:
-#+MYTAGS: org-babel, emacs org-mode ob babel, emacs ruby クローラー nokogiri xpath, package:org,
-#+TAGS: org-babel, emacs org-mode ob babel, emacs ruby クローラー nokogiri xpath, package:org,, Emacs, Ruby,, org-mode, Emacs, w3m
+#+TAGS: org
 #+TITLE: Emacs×Ruby: org-babelでorg文書を出力させる方法。Rubyクローラーの例あり。
 [[http://bit.ly/crawler_book][『Rubyによるクローラー開発技法』]] 、相変わらずamazonの在庫が戻らないです(泣)
 

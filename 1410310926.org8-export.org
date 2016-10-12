@@ -1,18 +1,18 @@
 #+BLOG: rubikitch
-#+POSTID: 539
+#+POSTID: 25
+#+BLOG: rubikitch
 #+DATE: [2014-10-31 Fri 09:26]
-#+PERMALINK: org8-export
+#+PERMALINK: melmag153
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
 #+ISPAGE: nil
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: メルマガ,
+#+CATEGORY: るびきち塾メルマガ
 #+DESCRIPTION:
-#+MYTAGS:
-#+TAGS: , メルマガ,, Emacs 24.4
+#+TAGS: 
 #+TITLE: org-modeを使ってコードやグラフが含まれるHTMLを作ろう！
-*Emacs 24.4* がリリースされ、org-modeもorg7から[[http://rubikitch.com/2014/10/21/emacs244-2/][ org8に変わりました]]。
+*Emacs 24.4* がリリースされ、org-modeもorg7から[[http://emacs.rubikitch.com/emacs244-2/][ org8に変わりました]]。
 
 その際、いろいろなところが大きく変更されたのですが、
 他フォーマットへの変換も操作性がガラッと変わってしまいました。

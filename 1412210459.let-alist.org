@@ -1,48 +1,23 @@
 #+BLOG: rubikitch
-#+POSTID: 761
+#+POSTID: 516
+#+BLOG: rubikitch
 #+DATE: [2014-12-21 Sun 04:59]
 #+PERMALINK: let-alist
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
 #+ISPAGE: nil
-#+DESCRIPTION:
+#+DESCRIPTION:alistの要素にドットつきシンボルでアクセスできるようにする
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, Emacs Lisp, Emacs 25.0, 
+#+CATEGORY: リスト操作
 #+EL_PKG_NAME: let-alist
-#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs alist, emacs 連想リスト, 
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 
+#+TAGS: マクロ, ソース解読推奨
 #+EL_TITLE0: 【Emacs 25から標準】alistの要素にシンボルでアクセスするマクロ！
 #+begin: org2blog
-#+DESCRIPTION: ELPAのEmacs Lispパッケージlet-alistの紹介
-#+MYTAGS: package:let-alist, emacs 使い方, emacs コマンド, emacs, emacs lisp let-alist, elisp let-alist, emacs gnu let-alist, emacs let-alist 使い方, emacs let-alist 設定, emacs パッケージ let-alist, emacs alist, emacs 連想リスト, 
-#+TITLE: emacs let-alist.el : 【Emacs 25から標準】alistの要素にシンボルでアクセスするマクロ！ | ELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>let-alist</td></tr>
-<tr><td>概要(原文)</td><td>Easily let-bind values of an assoc-list by their names</td></tr>
-<tr><td>リポジトリ</td><td><a href="https://elpa.gnu.org/">ELPA(公式リポジトリ)</a></td></tr>
-<tr><td>バージョン</td><td>1.0.3</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:let-alist/">package:let-alist</a> </td></tr>
-</table>
-<br />
-#+END_HTML
-初めて本家ELPAにあるパッケージを紹介します。
-
-*let-alist* マクロは、 *連想リスト* (*alist*) の
-アクセスを劇的に簡単にします。
-
-読み取りのみで、文字列には対応していません。
-
-こういうマクロがあると本当に助かりますね。
-** let-alist インストール
-このパッケージはELPAにあるので、パッケージの初期設定は不要です。
-
-%sM-x package-refresh-contents
-M-x package-install let-alist
-
+#+TITLE: let-alist.el : 【Emacs 25から標準】alistの要素にシンボルでアクセスするマクロ！
+[includeme file="inc-package-table.php" name="let-alist" where="gnu"]
 
 #+end:
-** 概要                                                             :noexport:
+** 概要
 初めて本家ELPAにあるパッケージを紹介します。
 
 *let-alist* マクロは、 *連想リスト* (*alist*) の
@@ -52,6 +27,7 @@ M-x package-install let-alist
 
 こういうマクロがあると本当に助かりますね。
 
+[includeme file="inc-package-install.php" name="let-alist" where="gnu"]
 ** 使用例 [[http://rubikitch.com/f/141221045657.let-alist.el][141221045657.let-alist.el(以下のコードと同一)]]
 #+BEGIN: include :file "/r/sync/junk/141221/141221045657.let-alist.el"
 #+BEGIN_SRC fundamental
@@ -78,3 +54,4 @@ M-x package-install let-alist
 #+END:
 
 
+[includeme file="inc-package-relate.php" name="let-alist"]

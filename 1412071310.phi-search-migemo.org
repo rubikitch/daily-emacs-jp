@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 677
+#+POSTID: 463
+#+BLOG: rubikitch
 #+DATE: [2014-12-07 Sun 13:10]
 #+PERMALINK: phi-search-migemo
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -9,9 +10,8 @@
 #+BLOG: rubikitch
 #+CATEGORY: 記事更新情報,
 #+DESCRIPTION:
-#+MYTAGS:
 #+TITLE: phi-search-migemoのバグが修正されました！安心してmultiple-cursorsと併用してください
-[[http://rubikitch.com/2014/12/06/phi-search-migemo/][phi-searchがMigemo化された]] わけですが、
+[[http://emacs.rubikitch.com/phi-search-migemo/][phi-searchがMigemo化された]] わけですが、
 レビュー記事を書いた日はバグがあったため
 multiple-cursors.elとうまく併用できませんでした。
 

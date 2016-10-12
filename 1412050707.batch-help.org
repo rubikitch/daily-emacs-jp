@@ -1,16 +1,16 @@
 #+BLOG: rubikitch
-#+POSTID: 666
+#+POSTID: 457
+#+BLOG: rubikitch
 #+DATE: [2014-12-05 Fri 07:07]
 #+PERMALINK: batch-help
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
 #+ISPAGE: nil
-#+DESCRIPTION:
+#+DESCRIPTION:emacs -Q -batch -f describe-bindings -eval '(with-current-buffer "*Help*" (princ (buffer-string)))'
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, org-mode,
+#+CATEGORY: キーバインド
 #+DESCRIPTION:
-#+MYTAGS: emacs ヘルプ, emacs help batch, help, package:help, relate:org, emacs キーバインド, M-x describe-mode
-#+TAGS: emacs ヘルプ, emacs help batch, help, package:help, relate:org, emacs キーバインド, M-x describe-mode, Emacs, org-mode, , バッチモード, M-x describe-bindings, princ, Help, Help, Help, Help
+#+TAGS:  ヘルプ
 #+TITLE: Emacsのデフォルトのキーバインドを1秒で知る方法！org-modeでの例あり
 Emacsはカスタマイズ性があまりにも高すぎるので、
 カスタム化されていたのを長年使っていると

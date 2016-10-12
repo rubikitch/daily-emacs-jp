@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 411
+#+POSTID: 320
+#+BLOG: rubikitch
 #+DATE: [2014-09-29 Mon 17:17]
 #+PERMALINK: stdin
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t
@@ -7,10 +8,9 @@
 #+DESCRIPTION: emacs -Q -batch -eval '(print (eval (read standard-input)))' で標準入力からS式を読めるお話。
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, Emacs Lisp,
+#+CATEGORY: ネタ
 #+DESCRIPTION:
-#+MYTAGS: Emacs Lisp, emacs eval read, standard-input, emacs 標準入力 S式,
-#+TAGS: Emacs Lisp, emacs eval read, standard-input, emacs 標準入力 S式,, Emacs, Emacs Lisp,,
+#+TAGS: 
 #+TITLE: 【小ネタ】実はEmacsは標準入力を読むことができる
 Emacsって標準入力を読めるのかなと
 ふと知的好奇心が湧いたので

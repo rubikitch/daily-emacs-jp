@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 2338
+#+POSTID: 1365
+#+BLOG: rubikitch
 #+DATE: [2016-01-17 Sun 22:13]
 #+PERMALINK: cherry-blossom-theme
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,47 +8,17 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, theme
+#+CATEGORY: ダーク
 #+EL_PKG_NAME: cherry-blossom-theme
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, color-theme, カラーテーマ
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: 
 #+EL_TITLE0: 真っ黒背景なカラーテーマ
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージcherry-blossom-themeの紹介
-#+MYTAGS: package:cherry-blossom-theme, emacs 使い方, emacs コマンド, emacs, cherry-blossom-theme, cherry-blossom-theme.el, emacs lisp cherry-blossom-theme, elisp cherry-blossom-theme, emacs melpa cherry-blossom-theme, emacs cherry-blossom-theme 使い方, emacs cherry-blossom-theme 設定, emacs パッケージ cherry-blossom-theme, emacs cherry-blossom-theme スクリーンショット, color-theme, カラーテーマ
-#+TAGS: package:cherry-blossom-theme, emacs 使い方, emacs コマンド, emacs, cherry-blossom-theme, cherry-blossom-theme.el, emacs lisp cherry-blossom-theme, elisp cherry-blossom-theme, emacs melpa cherry-blossom-theme, emacs cherry-blossom-theme 使い方, emacs cherry-blossom-theme 設定, emacs パッケージ cherry-blossom-theme, emacs cherry-blossom-theme スクリーンショット, color-theme, カラーテーマ, Emacs, theme, cherry-blossom-theme.el
-#+TITLE: emacs cherry-blossom-theme.el : 真っ黒背景なカラーテーマ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>cherry-blossom-theme</td></tr>
-<tr><td>概要(原文)</td><td>a soothing color theme for Emacs24.</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/inlinestyle/emacs-cherry-blossom-theme">https://github.com/inlinestyle/emacs-cherry-blossom-theme</a></td></tr>
-<tr><td>バージョン</td><td>20150621.2042</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:cherry-blossom-theme/">package:cherry-blossom-theme</a> </td></tr>
-</table>
-<br />
-#+END_HTML
-*cherry-blossom-theme.el* は、以下のパッケージに対応したカラーテーマです。
-- linum
-- mode-line
-- diff
-- magit
-- font-lock
-- link
-- tooltip
-- isearch
-- rainbow-delimiters
-** cherry-blossom-theme インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install cherry-blossom-theme
-
+#+TITLE: cherry-blossom-theme.el : 真っ黒背景なカラーテーマ
+[includeme file="inc-package-table.php" name="cherry-blossom-theme" where="melpa"]
 
 #+end:
-** 概要                                                             :noexport:
+** 概要
 *cherry-blossom-theme.el* は、以下のパッケージに対応したカラーテーマです。
 - linum
 - mode-line
@@ -59,6 +30,7 @@ M-x package-install cherry-blossom-theme
 - isearch
 - rainbow-delimiters
 
+[includeme file="inc-package-install.php" name="cherry-blossom-theme" where="melpa"]
 ** スクリーンショット
 # (save-window-excursion (async-shell-command "emacs-test -eval '(load-theme (quote cherry-blossom) t)'"))
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_theme_template" t))
@@ -116,3 +88,4 @@ $ emacs -Q -f package-initialize -eval '(load-theme (quote cherry-blossom) t)'
 #+END_EXAMPLE
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+[includeme file="inc-package-relate.php" name="cherry-blossom-theme"]

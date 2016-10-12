@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 155
+#+POSTID: 212
+#+BLOG: rubikitch
 #+DATE: [2014-08-14 Thu 11:11]
 #+PERMALINK: browse-kill-ring
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t
@@ -7,26 +8,14 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs
+#+CATEGORY: コピー・貼り付け
 #+EL_PKG_NAME: browse-kill-ring
-#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, emacs kill-ring, emacs キルリング 一覧, emacs キルリング 過去, emacs kill-ring 一覧, emacs kill-ring 過去, emacs helm kill-ring, emacs anything kill-ring, emacs コピペ, emacs コピー ペースト, relate:helm
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: 
 #+EL_TITLE0: キルリングを一覧するbrowse-kill-ring.elが更新されました
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージbrowse-kill-ringの紹介
-#+MYTAGS: package:browse-kill-ring, emacs 使い方, emacs コマンド, emacs, emacs lisp browse-kill-ring, elisp browse-kill-ring, emacs melpa browse-kill-ring, emacs browse-kill-ring 使い方, emacs browse-kill-ring 設定, emacs パッケージ browse-kill-ring, emacs browse-kill-ring スクリーンショット, emacs kill-ring, emacs キルリング 一覧, emacs キルリング 過去, emacs kill-ring 一覧, emacs kill-ring 過去, emacs helm kill-ring, emacs anything kill-ring, emacs コピペ, emacs コピー ペースト, relate:helm
-#+TITLE: emacs browse-kill-ring.el : キルリングを一覧するbrowse-kill-ring.elが更新されました | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>browse-kill-ring</td></tr>
-<tr><td>概要(原文)</td><td>interactively insert items from kill-ring</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/browse-kill-ring/browse-kill-ring">https://github.com/browse-kill-ring/browse-kill-ring</a></td></tr>
-<tr><td>バージョン</td><td>20141104.1240</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:browse-kill-ring/">package:browse-kill-ring</a> <a href="http://rubikitch.com/tag/package:helm/">package:helm</a></td></tr>
-</table>
-<br />
-#+END_HTML
+#+TITLE: browse-kill-ring.el : キルリングを一覧するbrowse-kill-ring.elが更新されました
+[includeme file="inc-package-table.php" name="browse-kill-ring" where="melpa"]
+** 概要
 Emacsの *kill-ring* (=キルリング=)は複数のテキストを記憶できる、
 いわばスーパークリップボードです。
 
@@ -45,12 +34,7 @@ M-x *helm-show-kill-ring*
 M-x *anything-show-kill-ring*
 
 ここの設定ではM-yをbrowse-kill-ringに置き換えています。
-** browse-kill-ring インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install browse-kill-ring
-
+[includeme file="inc-package-install.php" name="browse-kill-ring" where="melpa"]
 
 #+end:
 ** 概要                                                             :noexport:
@@ -98,3 +82,4 @@ browse-kill-ringを起動したら、pとnで前後の内容を選択し、RET�
 isearchして選択したい内容に素早く到達できます。
 
 また、lで絞り込み検索したり、eで内容を変更したりもできます。
+[includeme file="inc-package-relate.php" name="browse-kill-ring"]

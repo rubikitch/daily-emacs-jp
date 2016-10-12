@@ -1,18 +1,19 @@
 #+BLOG: rubikitch
-#+POSTID: 1179
+#+POSTID: 71
+#+BLOG: rubikitch
 #+DATE: [2015-02-20 Fri 06:24]
-#+PERMALINK: melmag
+#+PERMALINK: melmag169
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
 #+ISPAGE: nil
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: メルマガ,
+#+CATEGORY: るびきち塾メルマガ
 #+DESCRIPTION: るびきち塾メルマガ『Emacsの鬼るびきちのココだけの話#169』の予告
 #+TITLE: この世を『天国』として生きる方法
 #+MYTAGS: 
 #+begin: org2blog-tags
-#+TAGS: , メルマガ,, 
+
 #+end:
 
 入塾者特典のorg習慣仕事術と先週お話したorg自動日記、続けていますか？

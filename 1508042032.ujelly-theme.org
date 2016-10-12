@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 1876
+#+POSTID: 1064
+#+BLOG: rubikitch
 #+DATE: [2015-08-04 Tue 20:32]
 #+PERMALINK: ujelly-theme
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,28 +8,17 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, theme
+#+CATEGORY: ダーク
 #+EL_PKG_NAME: ujelly-theme
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, color-theme, カラーテーマ
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: 
 #+EL_TITLE0: 真っ黒背景のカラーテーマ
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージujelly-themeの紹介
-#+MYTAGS: package:ujelly-theme, emacs 使い方, emacs コマンド, emacs, ujelly-theme, ujelly-theme.el, emacs lisp ujelly-theme, elisp ujelly-theme, emacs melpa ujelly-theme, emacs ujelly-theme 使い方, emacs ujelly-theme 設定, emacs パッケージ ujelly-theme, emacs ujelly-theme スクリーンショット, color-theme, カラーテーマ
-#+TAGS: package:ujelly-theme, emacs 使い方, emacs コマンド, emacs, ujelly-theme, ujelly-theme.el, emacs lisp ujelly-theme, elisp ujelly-theme, emacs melpa ujelly-theme, emacs ujelly-theme 使い方, emacs ujelly-theme 設定, emacs パッケージ ujelly-theme, emacs ujelly-theme スクリーンショット, color-theme, カラーテーマ, Emacs, theme, ujelly-theme.el
-#+TITLE: emacs ujelly-theme.el : 真っ黒背景のカラーテーマ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>ujelly-theme</td></tr>
-<tr><td>概要(原文)</td><td>Ujelly theme for GNU Emacs 24 (deftheme)</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/marktran/color-theme-ujelly">https://github.com/marktran/color-theme-ujelly</a></td></tr>
-<tr><td>バージョン</td><td>20150705.303</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:ujelly-theme/">package:ujelly-theme</a> </td></tr>
-</table>
-<br />
-#+END_HTML
+#+TITLE: ujelly-theme.el : 真っ黒背景のカラーテーマ
+[includeme file="inc-package-table.php" name="ujelly-theme" where="melpa"]
+
+#+end:
+** 概要
 *ujelly-theme.el* は、真っ黒なカラーテーマです。
 
 # (save-window-excursion (async-shell-command "emacs-test -eval '(load-theme (quote ujelly) t)'"))
@@ -91,78 +81,8 @@ Fig8: markdown-mode
 Fig9: helm
 
 [[https://dl.dropbox.com/u/476562/screenshots/emacs.png][本家スクリーンショット]]
-** ujelly-theme インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
 
-M-x package-refresh-contents
-M-x package-install ujelly-theme
-
-
-#+end:
-** 概要                                                             :noexport:
-*ujelly-theme.el* は、真っ黒なカラーテーマです。
-
-# (save-window-excursion (async-shell-command "emacs-test -eval '(load-theme (quote ujelly) t)'"))
-以下のパッケージに対応しています。
-- company
-- compilation
-- dired+
-- emmet
-- erc
-- eshell
-- font-lock
-- git-commit-mode
-- helm
-- helm-swoop
-- hl-line
-- isearch
-- ido
-- linum
-- magit
-- org
-- shm
-- smerge
-- web-mode
-- whitespace
-# (progn (forward-line 1)(shell-command "screenshot-time.rb org_theme_template" t))
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150804203244.png]]
-Fig10: emacs-lisp-mode
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150804203249.png]]
-Fig11: magit
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150804203253.png]]
-Fig12: grep
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150804203256.png]]
-Fig13: outline-mode
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150804203300.png]]
-Fig14: org-mode
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150804203303.png]]
-Fig15: dired
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150804203309.png]]
-Fig16: web-mode
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150804203312.png]]
-Fig17: markdown-mode
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150804203316.png]]
-Fig18: helm
-
-[[https://dl.dropbox.com/u/476562/screenshots/emacs.png][本家スクリーンショット]]
-
+[includeme file="inc-package-install.php" name="ujelly-theme" where="melpa"]
 ** 設定
 #+BEGIN_SRC fundamental
 (load-theme 'ujelly t)
@@ -174,3 +94,4 @@ $ emacs -Q -f package-initialize -eval '(load-theme (quote ujelly) t)'
 #+END_EXAMPLE
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+[includeme file="inc-package-relate.php" name="ujelly-theme"]

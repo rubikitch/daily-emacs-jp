@@ -1,36 +1,25 @@
 #+BLOG: rubikitch
-#+POSTID: 669
+#+POSTID: 459
+#+BLOG: rubikitch
 #+DATE: [2014-12-06 Sat 03:40]
 #+PERMALINK: phi-search-migemo
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
 #+ISPAGE: nil
-#+DESCRIPTION:
+#+DESCRIPTION:multiple-cursors用isearchでMigemoが使えるようになる。
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs
+#+CATEGORY: 複数のカーソル
 #+EL_PKG_NAME: phi-search-migemo
-#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, package:migemo, package:multiple-cursors, relate:isearch, multiple-cursors isearch migemo, phi-search migemo, multiple-cursors migemo, package:phi-search, multiple-cursors インクリメンタルサーチ migemo, package:phi-search, relate:phi-search
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: Migemo対応
 #+EL_TITLE0: multiple-cursors.el専属isearchがMigemo化！バグ修正されたよ！！
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージphi-search-migemoの紹介
-#+MYTAGS: package:phi-search-migemo, emacs 使い方, emacs コマンド, emacs, emacs lisp phi-search-migemo, elisp phi-search-migemo, emacs melpa phi-search-migemo, emacs phi-search-migemo 使い方, emacs phi-search-migemo 設定, emacs パッケージ phi-search-migemo, emacs phi-search-migemo スクリーンショット, package:migemo, package:multiple-cursors, relate:isearch, multiple-cursors isearch migemo, phi-search migemo, multiple-cursors migemo, package:phi-search, multiple-cursors インクリメンタルサーチ migemo, package:phi-search, relate:phi-search
-#+TITLE: emacs phi-search-migemo.el : multiple-cursors.el専属isearchがMigemo化！バグ修正されたよ！！ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>phi-search-migemo</td></tr>
-<tr><td>概要(原文)</td><td>migemo extension for phi-search</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/zk-phi/phi-search-migemo">https://github.com/zk-phi/phi-search-migemo</a></td></tr>
-<tr><td>バージョン</td><td>20141206.547</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:phi-search-migemo/">package:phi-search-migemo</a> <a href="http://rubikitch.com/tag/package:isearch/">package:isearch</a> <a href="http://rubikitch.com/tag/package:phi-search/">package:phi-search</a></td></tr>
-</table>
-<br />
-#+END_HTML
+#+TITLE: phi-search-migemo.el : multiple-cursors.el専属isearchがMigemo化！バグ修正されたよ！！
+[includeme file="inc-package-table.php" name="phi-search-migemo" where="melpa"]
+** 概要
 *isearch* の別実装である *phi-search.el* ですが、
 ついに *Migemo化* されました(^ ^)//゛゛゛パチパチ
 
-[[http://rubikitch.com/2014/11/11/phi-search/][phi-search.elのレビュー]] では
+[[http://emacs.rubikitch.com/phi-search/][phi-search.elのレビュー]] では
 日本人にとってMigemo化されていない検索は使えない
 と書きましたが、さっそくやってくれました！
 
@@ -39,7 +28,7 @@
 *Migemo* とはローマ字で日本語文字列を検索する
 /日本人必携のツールです！/
 
-[[http://rubikitch.com/2014/08/20/migemo/][Migemoのレビュー記事を参考に]] 、
+[[http://emacs.rubikitch.com/migemo/][Migemoのレビュー記事を参考に]] 、
 日本人Emacserは全員インストールしましょう。
 
 life-changingな変化を保証します。
@@ -54,19 +43,14 @@ Migemo化されたphi-searchを使うには
 本設定では *M-x migemo-isearch-toggle-migemo* に合わせて
 M-mに割り当てています。
 
-** phi-search-migemo インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install phi-search-migemo
-
+[includeme file="inc-package-install.php" name="phi-search-migemo" where="melpa"]
 
 #+end:
 ** 概要                                                             :noexport:
 *isearch* の別実装である *phi-search.el* ですが、
 ついに *Migemo化* されました(^ ^)//゛゛゛パチパチ
 
-[[http://rubikitch.com/2014/11/11/phi-search/][phi-search.elのレビュー]] では
+[[http://emacs.rubikitch.com/phi-search/][phi-search.elのレビュー]] では
 日本人にとってMigemo化されていない検索は使えない
 と書きましたが、さっそくやってくれました！
 
@@ -75,7 +59,7 @@ M-x package-install phi-search-migemo
 *Migemo* とはローマ字で日本語文字列を検索する
 /日本人必携のツールです！/
 
-[[http://rubikitch.com/2014/08/20/migemo/][Migemoのレビュー記事を参考に]] 、
+[[http://emacs.rubikitch.com/migemo/][Migemoのレビュー記事を参考に]] 、
 日本人Emacserは全員インストールしましょう。
 
 life-changingな変化を保証します。
@@ -117,3 +101,4 @@ $ emacs -Q -f package-initialize -l your-migemo-settings.el -l 141206033659.phi-
 #+END_EXAMPLE
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+[includeme file="inc-package-relate.php" name="phi-search-migemo"]

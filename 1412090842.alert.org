@@ -1,32 +1,21 @@
 #+BLOG: rubikitch
-#+POSTID: 696
+#+POSTID: 473
+#+BLOG: rubikitch
 #+DATE: [2014-12-09 Tue 08:42]
 #+PERMALINK: alert
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
 #+ISPAGE: nil
-#+DESCRIPTION:
+#+DESCRIPTION:alert関数はmessage関数の代わりにgrowl, terminal-notifier, libnotify, toasterなどの通知ツールでメッセージを通知させる
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs
+#+CATEGORY: プログラム実行
 #+EL_PKG_NAME: alert
-#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, emacs growl
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方
+#+TAGS: 外部プログラム使用
 #+EL_TITLE0: Growlなどの通知ツールでメッセージを通知させる関数！
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージalertの紹介
-#+MYTAGS: package:alert, emacs 使い方, emacs コマンド, emacs, emacs lisp alert, elisp alert, emacs melpa alert, emacs alert 使い方, emacs alert 設定, emacs パッケージ alert, emacs alert スクリーンショット, emacs growl
-#+TITLE: emacs alert.el : Growlなどの通知ツールでメッセージを通知させる関数！ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>alert</td></tr>
-<tr><td>概要(原文)</td><td>Growl-style notification system for Emacs</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/jwiegley/alert">https://github.com/jwiegley/alert</a></td></tr>
-<tr><td>バージョン</td><td>20141222.1703</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:alert/">package:alert</a> </td></tr>
-</table>
-<br />
-#+END_HTML
+#+TITLE: alert.el : Growlなどの通知ツールでメッセージを通知させる関数！
+[includeme file="inc-package-table.php" name="alert" where="melpa"]
+** 概要
 *alert.el* は、メッセージを通知する
  *alert* という関数を定義しているライブラリです。
 
@@ -39,12 +28,7 @@
 
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
-** alert インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install alert
-
+[includeme file="inc-package-install.php" name="alert" where="melpa"]
 
 #+end:
 ** 概要                                                             :noexport:
@@ -124,3 +108,4 @@ READMEより使い方を引用します。
 でGrowlによる通知ができると思います。
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+[includeme file="inc-package-relate.php" name="alert"]

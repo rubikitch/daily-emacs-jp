@@ -1,53 +1,23 @@
 #+BLOG: rubikitch
-#+POSTID: 602
+#+POSTID: 423
+#+BLOG: rubikitch
 #+DATE: [2014-11-21 Fri 03:47]
 #+PERMALINK: bm
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
 #+ISPAGE: nil
-#+DESCRIPTION:
+#+DESCRIPTION:カーソル位置を目に見えるように記憶して行き来する。永続化可能。
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs
+#+CATEGORY: マーク
 #+EL_PKG_NAME: bm
-#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, emacs マーク, emacs ブックマーク,
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: るびきちオススメ, 初心者安心, 永続化, マーク
 #+EL_TITLE0: 【遠距離移動のお供】目に見えるマーク・ブックマークを実現！
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージbmの紹介
-#+MYTAGS: package:bm, emacs 使い方, emacs コマンド, emacs, emacs lisp bm, elisp bm, emacs melpa bm, emacs bm 使い方, emacs bm 設定, emacs パッケージ bm, emacs bm スクリーンショット, emacs マーク, emacs ブックマーク,
-#+TITLE: emacs bm.el : 【遠距離移動のお供】目に見えるマーク・ブックマークを実現！ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>bm</td></tr>
-<tr><td>概要(原文)</td><td>Visible bookmarks in buffer.</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/joodland/bm">https://github.com/joodland/bm</a></td></tr>
-<tr><td>バージョン</td><td>20141212.1535</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:bm/">package:bm</a> </td></tr>
-</table>
-<br />
-#+END_HTML
-Emacsでカーソル位置を記憶する手段は主にマークとレジスタです。
-
-しかし、それらの手段では記憶した場所がわかりづらい欠点があります。
-
-*bm.el* は記憶した行をハイライトするのでわかりやすくなります。
-
-しかも永続化できるのでEmacsを再起動しても復元します！
-
-古くからあるパッケージなので日本語の情報も出揃っています。
-
-- http://yasuwagon.blogspot.jp/2011/05/bmel.html 導入記
-- http://yasuwagon.blogspot.jp/2011/09/bmel.html 色変更
-** bm インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install bm
-
+#+TITLE: bm.el : 【遠距離移動のお供】目に見えるマーク・ブックマークを実現！
+[includeme file="inc-package-table.php" name="bm" where="melpa"]
 
 #+end:
-** 概要                                                             :noexport:
+** 概要
 Emacsでカーソル位置を記憶する手段は主にマークとレジスタです。
 
 しかし、それらの手段では記憶した場所がわかりづらい欠点があります。
@@ -61,6 +31,7 @@ Emacsでカーソル位置を記憶する手段は主にマークとレジスタ
 - http://yasuwagon.blogspot.jp/2011/05/bmel.html 導入記
 - http://yasuwagon.blogspot.jp/2011/09/bmel.html 色変更
 
+[includeme file="inc-package-install.php" name="bm" where="melpa"]
 ** 設定 [[http://rubikitch.com/f/141121040103.bm.el][141121040103.bm.el(以下のコードと同一)]]
 #+BEGIN: include :file "/r/sync/junk/141121/141121040103.bm.el"
 #+BEGIN_SRC fundamental
@@ -95,3 +66,4 @@ $ emacs -Q -f package-initialize -l 141121040103.bm.el
 http://rubikitch.com/f/20141119044921.png
 Fig1: 現在位置をbmする！
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+[includeme file="inc-package-relate.php" name="bm"]

@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 2411
+#+POSTID: 1431
+#+BLOG: rubikitch
 #+DATE: [2016-02-18 Thu 14:00]
 #+PERMALINK: sd1510-mykie-bind-key
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,9 +8,9 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, 連載『るびきち流Emacs超入門』
+#+CATEGORY: るびきち流Emacs超入門
 #+DESCRIPTION:
-#+TAGS:package:bind-key, package:mykie, global-set-key, define-key, kbd, global-map, smex, package:smex, キーバインド, キー操作
+
 #+TITLE: #18 操作性アップ！　スマートなキーバインド設定 (Software Design 2015年10月号掲載記事) Emacs mykie bind-key smex インストール 設定 使い方
 Software Design連載記事を掲載します。
 

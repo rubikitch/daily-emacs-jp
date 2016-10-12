@@ -1,5 +1,6 @@
+#+BLOG: rubikitch
+#+POSTID: 1447
 #+DATE: [2016-07-03 Sun 06:36]
-#+POSTID: 2433
 #+PERMALINK: restart-daily-emacs
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
 #+ISPAGE: nil
@@ -11,7 +12,9 @@
 #+MYTAGS: 
 #+TITLE: M-x restart-daily-emacs | 「日刊Emacs」復活！
 #+begin: org2blog-tags
-#+TAGS: , 記事更新情報, , 
+# content-length: 314
+#+HTML: <!-- noindex -->
+
 #+end:
 お待たせしました！
 今日から「日刊Emacs」を復活させることにしました。

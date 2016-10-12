@@ -1,34 +1,25 @@
 #+BLOG: rubikitch
-#+POSTID: 1468
+#+POSTID: 495
+#+BLOG: rubikitch
 #+DATE: [2015-04-09 Thu 05:01]
 #+PERMALINK: imenus
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
 #+ISPAGE: nil
-#+DESCRIPTION:
+#+DESCRIPTION:imenuをido/helmインターフェースにして、同一メジャーモードの他のファイルにまで探索範囲を広げる。ido-vertical-modeで縦表示。さらにhelm-multi-swoopで一括検索。
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, ido, helm
+#+CATEGORY: タグジャンプ
 #+EL_PKG_NAME: imenus
-#+EL_TAGS: relate:helm-swoop, package:helm-swoop, emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, package:ido-occasional, relate:ido-occasional, relate:idomenu, relate:imenu-list, relate:imenu-anywhere, package:imenu, relate:imenu, package:ido-vertical-mode, relate:ido-vertical-mode, emacs iswitchb imenu, emacs imenu ido, emacs imenu helm, 同一メジャーモードのバッファの関数一覧を表示, emacs imenu カイゼン, emacs imenu 強化, anything-imenu, helm-imenu, ファイル内の関数一覧を表示, バッファ内の関数一覧を表示, 特定の関数を抽出, 関数定義へジャンプ, バッファ内の特定箇所に直接移動
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: imenu, helm, ido, るびきちオススメ
 #+EL_TITLE0: 【imenu超強化】関数定義も関数呼び出しもhelm-swoopで一括検索！同モード複数バッファ対応・ido化
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージimenusの紹介
-#+MYTAGS: package:imenus, emacs 使い方, emacs コマンド, relate:helm-swoop, package:helm-swoop, emacs, imenus, imenus.el, emacs lisp imenus, elisp imenus, emacs melpa imenus, emacs imenus 使い方, emacs imenus 設定, emacs パッケージ imenus, emacs imenus スクリーンショット, package:ido-occasional, relate:ido-occasional, relate:idomenu, relate:imenu-list, relate:imenu-anywhere, package:imenu, relate:imenu, package:ido-vertical-mode, relate:ido-vertical-mode, emacs iswitchb imenu, emacs imenu ido, emacs imenu helm, 同一メジャーモードのバッファの関数一覧を表示, emacs imenu カイゼン, emacs imenu 強化, anything-imenu, helm-imenu, ファイル内の関数一覧を表示, バッファ内の関数一覧を表示, 特定の関数を抽出, 関数定義へジャンプ, バッファ内の特定箇所に直接移動
-#+TAGS: package:imenus, emacs 使い方, emacs コマンド, relate:helm-swoop, package:helm-swoop, emacs, imenus, imenus.el, emacs lisp imenus, elisp imenus, emacs melpa imenus, emacs imenus 使い方, emacs imenus 設定, emacs パッケージ imenus, emacs imenus スクリーンショット, package:ido-occasional, relate:ido-occasional, relate:idomenu, relate:imenu-list, relate:imenu-anywhere, package:imenu, relate:imenu, package:ido-vertical-mode, relate:ido-vertical-mode, emacs iswitchb imenu, emacs imenu ido, emacs imenu helm, 同一メジャーモードのバッファの関数一覧を表示, emacs imenu カイゼン, emacs imenu 強化, anything-imenu, helm-imenu, ファイル内の関数一覧を表示, バッファ内の関数一覧を表示, 特定の関数を抽出, 関数定義へジャンプ, バッファ内の特定箇所に直接移動, Emacs, ido, helm, imenus.el, M-x imenu, M-x imenus, M-x multi-occur, isearch, M-x imenus-mode-buffers, M-x helm-multi-swoop, imenus.el, M-x imenu, M-x imenus, M-x multi-occur, isearch, M-x imenus-mode-buffers, M-x helm-multi-swoop
-#+TITLE: emacs imenus.el : 【imenu超強化】関数定義も関数呼び出しもhelm-swoopで一括検索！同モード複数バッファ対応・ido化 | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>imenus</td></tr>
-<tr><td>概要(原文)</td><td>Imenu for multiple buffers</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/alezost/imenus.el">https://github.com/alezost/imenus.el</a></td></tr>
-<tr><td>バージョン</td><td>20150107.939</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:imenus/">package:imenus</a> <a href="http://rubikitch.com/tag/package:helm-swoop/">package:helm-swoop</a> <a href="http://rubikitch.com/tag/package:ido-occasional/">package:ido-occasional</a> <a href="http://rubikitch.com/tag/package:idomenu/">package:idomenu</a> <a href="http://rubikitch.com/tag/package:imenu-list/">package:imenu-list</a> <a href="http://rubikitch.com/tag/package:imenu-anywhere/">package:imenu-anywhere</a> <a href="http://rubikitch.com/tag/package:imenu/">package:imenu</a> <a href="http://rubikitch.com/tag/package:ido-vertical-mode/">package:ido-vertical-mode</a></td></tr>
-</table>
-<br />
-#+END_HTML
+#+TITLE: imenus.el : 【imenu超強化】関数定義も関数呼び出しもhelm-swoopで一括検索！同モード複数バッファ対応・ido化
+[includeme file="inc-package-table.php" name="imenus" where="melpa"]
+
+#+end:
+
+** 概要
 これはすごいものを見つけました。
 
 *imenus.el* は2つのコマンドにより
@@ -40,7 +31,7 @@
 - M-oで *M-x multi-occur* へ移行
 - M-sで *isearch* へ移行
 
-*M-x imenus-mode-buffers* は [[http://rubikitch.com/2014/12/17/imenu-anywhere/][imenu-anywhere.el(レビュー)]] 同様
+*M-x imenus-mode-buffers* は [[http://emacs.rubikitch.com/imenu-anywhere/][imenu-anywhere.el(レビュー)]] 同様
 同一メジャーモードのすべてのバッファまでimenuの範囲を広げます。
 
 つまり、開いている同じプログラミング言語のバッファの
@@ -49,10 +40,10 @@
 multi-occurへ移行できることから、
 関数呼び出しへもすぐにジャンプできます。
 
-本設定では[[http://rubikitch.com/2015/02/23/ido-occasional/][ido-occasional.el(レビュー)]] と
-[[http://rubikitch.com/2015/01/06/ido-vertical-mode/][ido-vertical-mode.el(レビュー)]] でimenuを縦ido化しています。
+本設定では[[http://emacs.rubikitch.com/ido-occasional/][ido-occasional.el(レビュー)]] と
+[[http://emacs.rubikitch.com/ido-vertical-mode/][ido-vertical-mode.el(レビュー)]] でimenuを縦ido化しています。
 
-multi-occurといったら[[http://rubikitch.com/2014/12/25/helm-swoop/][helm-swoop(レビュー)]] ってことで、
+multi-occurといったら[[http://emacs.rubikitch.com/helm-swoop/][helm-swoop(レビュー)]] ってことで、
 helm-swoop.elとも連携させました。
 
 imenus-mode-buffersをC-M-sに割り当てていて、
@@ -66,7 +57,7 @@ imenusと併用することで評価は180度変わってしまいました。
 
 ぜひともインストールしましょう。
 
-imenu-anywhere.elや[[http://rubikitch.com/2015/01/21/idomenu/][idomenu.el(レビュー)]] と機能は同じですが、
+imenu-anywhere.elや[[http://emacs.rubikitch.com/idomenu/][idomenu.el(レビュー)]] と機能は同じですが、
 occurやhelm-swoopへ移行できるのでこちらの圧勝です！！
 
 
@@ -91,84 +82,13 @@ Fig3: C-M-sでのimenuのスコープは同一メジャーモード全バッフ�
 Fig4: もう一度C-M-sでhelm-multi-swoop発動！！
 
 
-** imenus インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
 
-M-x package-refresh-contents
-M-x package-install imenus
-
-
-#+end:
-
+[includeme file="inc-package-install.php" name="imenus" where="melpa"]
 さらに
 M-x package-install ido-occasional
 M-x package-install ido-vertical-mode
 M-x package-install helm-swoop
-も入れてido/helm-swoop化してしまえば超絶快適です。
-** 概要                                                             :noexport:
-これはすごいものを見つけました。
-
-*imenus.el* は2つのコマンドにより
-*M-x imenu* を超強化するパッケージです。
-
-*M-x imenus* は通常のimenuと機能的にはほぼ同じですが、
-以下の点が強化されています。
-- M-rでimenuの情報を再取得(Rescan)
-- M-oで *M-x multi-occur* へ移行
-- M-sで *isearch* へ移行
-
-*M-x imenus-mode-buffers* は [[http://rubikitch.com/2014/12/17/imenu-anywhere/][imenu-anywhere.el(レビュー)]] 同様
-同一メジャーモードのすべてのバッファまでimenuの範囲を広げます。
-
-つまり、開いている同じプログラミング言語のバッファの
-関数定義へ手軽にジャンプできるということです。
-
-multi-occurへ移行できることから、
-関数呼び出しへもすぐにジャンプできます。
-
-本設定では[[http://rubikitch.com/2015/02/23/ido-occasional/][ido-occasional.el(レビュー)]] と
-[[http://rubikitch.com/2015/01/06/ido-vertical-mode/][ido-vertical-mode.el(レビュー)]] でimenuを縦ido化しています。
-
-multi-occurといったら[[http://rubikitch.com/2014/12/25/helm-swoop/][helm-swoop(レビュー)]] ってことで、
-helm-swoop.elとも連携させました。
-
-imenus-mode-buffersをC-M-sに割り当てていて、
-なおかつC-M-sで *M-x helm-multi-swoop* を呼び出すようにしているので、
-/C-M-s C-M-sで関数呼び出しをhelm-swoopできちゃいます！/
-
-正直、今までhelm-multi-swoopは遅すぎて使えないと思っていたのですが
-imenusと併用することで評価は180度変わってしまいました。
-
-この快適さは使ってみなければわかりません。
-
-ぜひともインストールしましょう。
-
-imenu-anywhere.elや[[http://rubikitch.com/2015/01/21/idomenu/][idomenu.el(レビュー)]] と機能は同じですが、
-occurやhelm-swoopへ移行できるのでこちらの圧勝です！！
-
-
-
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150409061018.png]]
-Fig5: C-M-sを押し、現在のシンボルがデフォルトで選択される
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150409061027.png]]
-Fig6: M-oで関数定義・呼び出しをシンボルoccur
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150409061048.png]]
-Fig7: C-M-sでのimenuのスコープは同一メジャーモード全バッファ
-
-# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150409070320.png]]
-Fig8: もう一度C-M-sでhelm-multi-swoop発動！！
-
-
-
+も実行してido/helm-swoop化してしまえば超絶快適です。
 ** 設定 [[http://rubikitch.com/f/150409051422.imenus.1.el][150409051422.imenus.1.el(以下のコードと同一)]]
 #+BEGIN: include :file "/r/sync/junk/150409/150409051422.imenus.1.el"
 #+BEGIN_SRC fundamental
@@ -230,3 +150,4 @@ $ emacs -Q -f package-initialize -l 150409051422.imenus.1.el
 # /r/sync/screenshots/20150409061027.png http://rubikitch.com/wp-content/uploads/2015/04/wpid-201504090610271.png
 # /r/sync/screenshots/20150409061048.png http://rubikitch.com/wp-content/uploads/2015/04/wpid-201504090610481.png
 # /r/sync/screenshots/20150409070320.png http://rubikitch.com/wp-content/uploads/2015/04/wpid-201504090703201.png
+[includeme file="inc-package-relate.php" name="imenus"]

@@ -1,16 +1,16 @@
 #+BLOG: rubikitch
-#+POSTID: 622
+#+POSTID: 433
+#+BLOG: rubikitch
 #+DATE: [2014-11-25 Tue 10:43]
 #+PERMALINK: eww-image
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
 #+ISPAGE: nil
-#+DESCRIPTION:
+#+DESCRIPTION:M-x eww-disable-imagesとM-x eww-enable-imagesでEWW内の画像表示をトグルする
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, Emacs 24.4, Emacs 25.0, eww
+#+CATEGORY: 画像表示
 #+DESCRIPTION:
-#+MYTAGS: テキストブラウザ
-#+TAGS: テキストブラウザ, Emacs, Emacs 24.4, Emacs 25.0, eww, shr-put-image-function, shr-put-image-alt, M-x eww-disable-images, M-x eww-enable-images
+#+TAGS: eww
 #+TITLE: Emacs24.4/Emacs25のewwで画像を非表示にする方法！よりテキストブラウザらしく
 Emacs組み込みWebブラウザewwは、デフォルトで画像も表示します。
 

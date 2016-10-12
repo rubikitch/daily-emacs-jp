@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 964
+#+POSTID: 628
+#+BLOG: rubikitch
 #+DATE: [2015-01-18 Sun 06:43]
 #+PERMALINK: chinese-word-at-point
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,59 +8,17 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, Emacs Lisp, 
+#+CATEGORY: バッファ関連
 #+EL_PKG_NAME: chinese-word-at-point
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p, word-at-point, thing-at-point, relate:thingatpt
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 
+#+TAGS: thing-at-point, 日本語
 #+EL_TITLE0: 【日本語対応】茶筌と併用して日本語の単語を認識させるライブラリ
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージchinese-word-at-pointの紹介
-#+MYTAGS: package:chinese-word-at-point, emacs 使い方, emacs コマンド, emacs, chinese-word-at-point, chinese-word-at-point.el, emacs lisp chinese-word-at-point, elisp chinese-word-at-point, emacs melpa chinese-word-at-point, emacs chinese-word-at-point 使い方, emacs chinese-word-at-point 設定, emacs パッケージ chinese-word-at-point, emacs chinese-word-at-point, word-at-point, thing-at-point, relate:thingatpt
-#+TAGS: package:chinese-word-at-point, emacs 使い方, emacs コマンド, emacs, chinese-word-at-point, chinese-word-at-point.el, emacs lisp chinese-word-at-point, elisp chinese-word-at-point, emacs melpa chinese-word-at-point, emacs chinese-word-at-point 使い方, emacs chinese-word-at-point 設定, emacs パッケージ chinese-word-at-point, emacs chinese-word-at-point, word-at-point, thing-at-point, relate:thingatpt, Emacs, Emacs Lisp, , chinese-word-at-point.el, word-at-point, word-at-point
-#+TITLE: emacs chinese-word-at-point.el : 【日本語対応】茶筌と併用して日本語の単語を認識させるライブラリ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>chinese-word-at-point</td></tr>
-<tr><td>概要(原文)</td><td>Add `chinese-word' thing to `thing-at-point'</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/xuchunyang/chinese-word-at-point.el">https://github.com/xuchunyang/chinese-word-at-point.el</a></td></tr>
-<tr><td>バージョン</td><td>20150111.2303</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:chinese-word-at-point/">package:chinese-word-at-point</a> <a href="http://rubikitch.com/tag/package:thingatpt/">package:thingatpt</a></td></tr>
-</table>
-<br />
-#+END_HTML
-*chinese-word-at-point.el* は、元々中国語に対応した
-*word-at-point* を提供するものですが、
-分かち書きをするコマンドを日本語のものに差し替えることで
-日本語でもそれなりに(←そこ重要)使えます。
-
-本設定では日本語形態素解析ツールの [[http://sourceforge.jp/projects/chasen-legacy/][茶筌]] を使っています。
-
-ただ、(word-at-point)の範囲でしか探索しないので、
-漢字とかなが交じった単語の対応が弱いです。
-
-中国語の場合はすべて漢字なのでそれで十分ですが、
-日本語は漢字かな混じり文なのでsentenceから探索しないと
-正確には動作しません。
-
-word→sentenceに書き換え、
-かつ「日本語文字列」の判定を厳密にすれば
-完全に日本語に対応できるでしょうけど
-ぼぼ全面的な再定義になってしまいます。
-
-とりあえずproof-of-concept的な意味で記事にしておきます。
-
-# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
-** chinese-word-at-point インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install chinese-word-at-point
-
+#+TITLE: chinese-word-at-point.el : 【日本語対応】茶筌と併用して日本語の単語を認識させるライブラリ
+[includeme file="inc-package-table.php" name="chinese-word-at-point" where="melpa"]
 
 #+end:
-** 概要                                                             :noexport:
+** 概要
 *chinese-word-at-point.el* は、元々中国語に対応した
 *word-at-point* を提供するものですが、
 分かち書きをするコマンドを日本語のものに差し替えることで
@@ -82,6 +41,7 @@ word→sentenceに書き換え、
 とりあえずproof-of-concept的な意味で記事にしておきます。
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+[includeme file="inc-package-install.php" name="chinese-word-at-point" where="melpa"]
 ** 設定 [[http://rubikitch.com/f/150118063159.chinese-word.el][150118063159.chinese-word.el(以下のコードと同一)]]
 #+BEGIN: include :file "/r/sync/junk/150118/150118063159.chinese-word.el"
 #+BEGIN_SRC fundamental
@@ -126,3 +86,4 @@ see URL `http://stackoverflow.com/questions/1366068/whats-the-complete-range-for
 $ wget http://rubikitch.com/f/150118063159.chinese-word.el
 $ emacs -Q -f package-initialize -l 150118063159.chinese-word.el
 #+END_EXAMPLE
+[includeme file="inc-package-relate.php" name="chinese-word-at-point"]

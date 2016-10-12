@@ -1,33 +1,21 @@
 #+BLOG: rubikitch
-#+POSTID: 568
+#+POSTID: 399
+#+BLOG: rubikitch
 #+DATE: [2014-11-10 Mon 07:31]
 #+PERMALINK: multiple-cursors
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
 #+ISPAGE: nil
-#+DESCRIPTION:
+#+DESCRIPTION:複数行にカーソルを表示させ、同時編集を行う。置換・矩形編集の上位版とでも言える便利パッケージ。
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs
+#+CATEGORY: 複数のカーソル
 #+EL_PKG_NAME: multiple-cursors
-#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, emacs 複数行 カーソル, emacs 置換, emacs 正規表現置換, emacs 矩形編集, relate:phi-search, relate:visual-regexp-steroids
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: るびきちオススメ
 #+EL_TITLE0: Emacsは忍者だった！置換とか矩形編集とか使ってんじゃねぇぇぇぇ！！最強設定を紹介
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージmultiple-cursorsの紹介
-#+MYTAGS: package:multiple-cursors, emacs 使い方, emacs コマンド, emacs, emacs lisp multiple-cursors, elisp multiple-cursors, emacs melpa multiple-cursors, emacs multiple-cursors 使い方, emacs multiple-cursors 設定, emacs パッケージ multiple-cursors, emacs multiple-cursors スクリーンショット, emacs 複数行 カーソル, emacs 置換, emacs 正規表現置換, emacs 矩形編集, relate:phi-search, relate:visual-regexp-steroids
-#+TAGS: package:multiple-cursors, emacs 使い方, emacs コマンド, emacs, emacs lisp multiple-cursors, elisp multiple-cursors, emacs melpa multiple-cursors, emacs multiple-cursors 使い方, emacs multiple-cursors 設定, emacs パッケージ multiple-cursors, emacs multiple-cursors スクリーンショット, emacs 複数行 カーソル, emacs 置換, emacs 正規表現置換, emacs 矩形編集, relate:phi-search, relate:visual-regexp-steroids, Emacs, Emacsは分身の術が使える忍者だった！, multiple-cursors.el, 正規表現置換, M-x mc/mark-all-dwim, multiple-cursors.el, 正規表現置換, M-x mc/mark-all-dwim, M-x string-rectangle, M-x mark-sexp
-#+TITLE: emacs multiple-cursors.el : Emacsは忍者だった！置換とか矩形編集とか使ってんじゃねぇぇぇぇ！！最強設定を紹介 | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>multiple-cursors</td></tr>
-<tr><td>概要(原文)</td><td>Multiple cursors for Emacs.</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/magnars/multiple-cursors.el">https://github.com/magnars/multiple-cursors.el</a></td></tr>
-<tr><td>バージョン</td><td>20150307.2322</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:multiple-cursors/">package:multiple-cursors</a> <a href="http://rubikitch.com/tag/package:phi-search/">package:phi-search</a> <a href="http://rubikitch.com/tag/package:visual-regexp-steroids/">package:visual-regexp-steroids</a></td></tr>
-</table>
-<br />
-#+END_HTML
+#+TITLE: multiple-cursors.el : Emacsは忍者だった！置換とか矩形編集とか使ってんじゃねぇぇぇぇ！！最強設定を紹介
+[includeme file="inc-package-table.php" name="multiple-cursors" where="melpa"]
+** 概要
 *Emacsは分身の術が使える忍者だった！*
 ということで、 *multiple-cursors.el* は
 カーソルを分身させるという恐しい拡張です。
@@ -47,7 +35,7 @@ multiple-cursors.elは、カーソルを複数同時に
 従来の方法ですと、 *正規表現置換* などの難解な方法を使わざるを得ませんでした。
 
 正規表現置換は高度な処理なので、
-[[http://rubikitch.com/2014/08/26/visual-regexp/][visual-regexp.el]] でかなり軽減できるものの、
+[[http://emacs.rubikitch.com/visual-regexp/][visual-regexp.el]] でかなり軽減できるものの、
 なかなか初級者には手が出ません。
 
 しかし、このmultiple-cursors.elを使えば、
@@ -60,12 +48,7 @@ multiple-cursors状態でC-SPCやC-yやC-wなどのコピペもできるので�
 このパッケージにはたくさんのコマンドが定義されていますが、
 今は *M-x mc/mark-all-dwim* だけ使っていれば、
 ほぼすべてのケースをまかなうことができるようになります。
-** multiple-cursors インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install multiple-cursors
-
+[includeme file="inc-package-install.php" name="multiple-cursors" where="melpa"]
 
 #+end:
 ** 概要                                                             :noexport:
@@ -88,7 +71,7 @@ multiple-cursors.elは、カーソルを複数同時に
 従来の方法ですと、 *正規表現置換* などの難解な方法を使わざるを得ませんでした。
 
 正規表現置換は高度な処理なので、
-[[http://rubikitch.com/2014/08/26/visual-regexp/][visual-regexp.el]] でかなり軽減できるものの、
+[[http://emacs.rubikitch.com/visual-regexp/][visual-regexp.el]] でかなり軽減できるものの、
 なかなか初級者には手が出ません。
 
 しかし、このmultiple-cursors.elを使えば、
@@ -171,3 +154,4 @@ Fig1: C-u C-M-SPCで分身！
 
 http://rubikitch.com/f/20141110075302.png
 Fig2: 分身して書き換え！！
+[includeme file="inc-package-relate.php" name="multiple-cursors"]

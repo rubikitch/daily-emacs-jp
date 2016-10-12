@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 1579
+#+POSTID: 871
+#+BLOG: rubikitch
 #+DATE: [2015-04-27 Mon 04:33]
 #+PERMALINK: per-buffer-theme
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,55 +8,17 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, theme, 
+#+CATEGORY: テーマ設定
 #+EL_PKG_NAME: per-buffer-theme
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, emacs カラーテーマ, emacs テーマ 変更, emacs カラーテーマ 設定, emacs 見た目の変更, emacs 好みの色設定, emacs 背景色, relate:color-theme, emacs color-theme.el, emacs 色設定, emacs theme, emacs color theme, emacs color-theme.el, emacs スキン, emacs テーマ, emacs skin, emacs color setting, emacs カラーテーマ, 
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: 
 #+EL_TITLE0: バッファ名やメジャーモードに応じてカラーテーマ(color-theme)を変更する
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージper-buffer-themeの紹介
-#+MYTAGS: package:per-buffer-theme, emacs 使い方, emacs コマンド, emacs, per-buffer-theme, per-buffer-theme.el, emacs lisp per-buffer-theme, elisp per-buffer-theme, emacs melpa per-buffer-theme, emacs per-buffer-theme 使い方, emacs per-buffer-theme 設定, emacs パッケージ per-buffer-theme, emacs per-buffer-theme スクリーンショット, emacs カラーテーマ, emacs テーマ 変更, emacs カラーテーマ 設定, emacs 見た目の変更, emacs 好みの色設定, emacs 背景色, relate:color-theme, emacs color-theme.el, emacs 色設定, emacs theme, emacs color theme, emacs color-theme.el, emacs スキン, emacs テーマ, emacs skin, emacs color setting, emacs カラーテーマ, 
-#+TAGS: package:per-buffer-theme, emacs 使い方, emacs コマンド, emacs, per-buffer-theme, per-buffer-theme.el, emacs lisp per-buffer-theme, elisp per-buffer-theme, emacs melpa per-buffer-theme, emacs per-buffer-theme 使い方, emacs per-buffer-theme 設定, emacs パッケージ per-buffer-theme, emacs per-buffer-theme スクリーンショット, emacs カラーテーマ, emacs テーマ 変更, emacs カラーテーマ 設定, emacs 見た目の変更, emacs 好みの色設定, emacs 背景色, relate:color-theme, emacs color-theme.el, emacs 色設定, emacs theme, emacs color theme, emacs color-theme.el, emacs スキン, emacs テーマ, emacs skin, emacs color setting, emacs カラーテーマ, , Emacs, theme, , per-buffer-theme.el, per-buffer-theme.el, Help
-#+TITLE: emacs per-buffer-theme.el : バッファ名やメジャーモードに応じてカラーテーマ(color-theme)を変更する | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>per-buffer-theme</td></tr>
-<tr><td>概要(原文)</td><td>Change theme according to buffer name or major mode.</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://bitbucket.org/inigoserna/per-buffer-theme.el">https://bitbucket.org/inigoserna/per-buffer-theme.el</a></td></tr>
-<tr><td>バージョン</td><td>20150419.1316</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:per-buffer-theme/">package:per-buffer-theme</a> <a href="http://rubikitch.com/tag/package:color-theme/">package:color-theme</a></td></tr>
-</table>
-<br />
-#+END_HTML
-編集するファイルによってテーマを切り替えるというのは、
-気分転換になっていいかもしれません。
-
-あるいはいつも使っているテーマでも
-特定のモードでの設定が気に入らないこともあります。
-
-そんなときには *per-buffer-theme.el* をおすすめします。
-
-カラーテーマの切り替え方法は[[http://rubikitch.com/2015/04/26/color-theme][昨日の記事]] を参考にしてください。
-
-# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150427044650.png]]
-Fig1: 普段はデフォルトのテーマ
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150427044655.png]]
-Fig2: 条件を満たすバッファに変更・切り替えたらテーマを切り替える
-** per-buffer-theme インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install per-buffer-theme
-
+#+TITLE: per-buffer-theme.el : バッファ名やメジャーモードに応じてカラーテーマ(color-theme)を変更する
+[includeme file="inc-package-table.php" name="per-buffer-theme" where="melpa"]
 
 #+end:
-** 概要                                                             :noexport:
+** 概要
 編集するファイルによってテーマを切り替えるというのは、
 気分転換になっていいかもしれません。
 
@@ -64,7 +27,7 @@ M-x package-install per-buffer-theme
 
 そんなときには *per-buffer-theme.el* をおすすめします。
 
-カラーテーマの切り替え方法は[[http://rubikitch.com/2015/04/26/color-theme][昨日の記事]] を参考にしてください。
+カラーテーマの切り替え方法は[[http://emacs.rubikitch.com/color-theme][昨日の記事]] を参考にしてください。
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
 #+ATTR_HTML: :width 480
@@ -75,6 +38,7 @@ Fig1: 普段はデフォルトのテーマ
 [[file:/r/sync/screenshots/20150427044655.png]]
 Fig2: 条件を満たすバッファに変更・切り替えたらテーマを切り替える
 
+[includeme file="inc-package-install.php" name="per-buffer-theme" where="melpa"]
 ** 設定 [[http://rubikitch.com/f/150427041330.per-buffer-theme.el][150427041330.per-buffer-theme.el(以下のコードと同一)]]
 #+BEGIN: include :file "/r/sync/junk/150427/150427041330.per-buffer-theme.el"
 #+BEGIN_SRC fundamental
@@ -115,3 +79,4 @@ $ emacs -Q -f package-initialize -l 150427041330.per-buffer-theme.el
 
 # /r/sync/screenshots/20150427044650.png http://rubikitch.com/wp-content/uploads/2015/04/wpid-20150427044650.png
 # /r/sync/screenshots/20150427044655.png http://rubikitch.com/wp-content/uploads/2015/04/wpid-20150427044655.png
+[includeme file="inc-package-relate.php" name="per-buffer-theme"]

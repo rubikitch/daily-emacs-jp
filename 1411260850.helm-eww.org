@@ -1,16 +1,16 @@
 #+BLOG: rubikitch
-#+POSTID: 624
+#+POSTID: 435
+#+BLOG: rubikitch
 #+DATE: [2014-11-26 Wed 08:50]
 #+PERMALINK: helm-eww
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
 #+ISPAGE: nil
-#+DESCRIPTION:
+#+DESCRIPTION:M-x helm-eww-historyでEWWの履歴を遡る
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, Emacs 24.4, Emacs 25.0, eww, helm, Emacs Lisp
+#+CATEGORY: Web
 #+DESCRIPTION: helm-eww.el (仮)はewwでのURL履歴をhelmインターフェースで検索します。
-#+MYTAGS: anything.el eww, helm eww, package:anything, pacakge:helm, package:eww, relate:helm, relate:anything
-#+TAGS: anything.el eww, helm eww, package:anything, pacakge:helm, package:eww, relate:helm, relate:anything, Emacs, Emacs 24.4, Emacs 25.0, eww, helm, Emacs Lisp, emacs-w3m, helm-eww.el, M-x rename-buffer, ブラウザ履歴, helmインターフェース, M-x helm-eww-history, helm-source-eww-history, helm-for-files-preferred-list, M-x helm-for-files, anything-c-source-eww-history, anything.el, helm eww
+#+TAGS: helm, anything, eww
 #+TITLE: helm-eww.el - Emacs組み込みWebブラウザewwでURLの履歴をhelm/anythingする
 eww使っていますかー!？
 

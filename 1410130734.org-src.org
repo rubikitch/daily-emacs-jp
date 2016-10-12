@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 459
+#+POSTID: 347
+#+BLOG: rubikitch
 #+DATE: [2014-10-13 Mon 07:34]
 #+PERMALINK: org-src
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t
@@ -7,10 +8,9 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, org-mode
+#+CATEGORY: 文書作成
 #+DESCRIPTION:
-#+MYTAGS: package:org, emacs org-mode begin_src begin_example
-#+TAGS: package:org, emacs org-mode begin_src begin_example, Emacs, org-mode, org-mode, orgフォーマット, 軽量マークアップ言語, org-escape-code-in-region, org-escape-code-in-string
+#+TAGS: org
 #+TITLE: org-mode、お前の実力はそんなもんか!？
 僕はいつも通り最新 *org-mode* で文章を書いていたのだが、
 衝撃的な事実がわかったのでブログすることにします。

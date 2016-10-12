@@ -1,69 +1,27 @@
 #+BLOG: rubikitch
-#+POSTID: 1033
+#+POSTID: 652
+#+BLOG: rubikitch
 #+DATE: [2015-01-30 Fri 06:43]
 #+PERMALINK: flx-isearch
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
 #+ISPAGE: nil
-#+DESCRIPTION:
+#+DESCRIPTION:isearchであいまい検索を行う。flex-isearchの方が安定していておすすめ。
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs
+#+CATEGORY: 検索
 #+EL_PKG_NAME: flx-isearch
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, relate:flx-ido, あいまいマッチ, emacs あいまい検索, isearch あいまい, isearch, relate:isearch-dabbrev, emacs シンボル検索, relate:ace-jump-mode, relate:flex-isearch
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: 標準コマンド強化, 
 #+EL_TITLE0: ido的あいまいインクリメンタルサーチ
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージflx-isearchの紹介
-#+MYTAGS: package:flx-isearch, emacs 使い方, emacs コマンド, emacs, flx-isearch, flx-isearch.el, emacs lisp flx-isearch, elisp flx-isearch, emacs melpa flx-isearch, emacs flx-isearch 使い方, emacs flx-isearch 設定, emacs パッケージ flx-isearch, emacs flx-isearch スクリーンショット, relate:flx-ido, あいまいマッチ, emacs あいまい検索, isearch あいまい, isearch, relate:isearch-dabbrev, emacs シンボル検索, relate:ace-jump-mode, relate:flex-isearch
-#+TAGS: package:flx-isearch, emacs 使い方, emacs コマンド, emacs, flx-isearch, flx-isearch.el, emacs lisp flx-isearch, elisp flx-isearch, emacs melpa flx-isearch, emacs flx-isearch 使い方, emacs flx-isearch 設定, emacs パッケージ flx-isearch, emacs flx-isearch スクリーンショット, relate:flx-ido, あいまいマッチ, emacs あいまい検索, isearch あいまい, isearch, relate:isearch-dabbrev, emacs シンボル検索, relate:ace-jump-mode, relate:flex-isearch, Emacs, flx-isearch.el
-#+TITLE: emacs flx-isearch.el : ido的あいまいインクリメンタルサーチ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>flx-isearch</td></tr>
-<tr><td>概要(原文)</td><td>Fuzzy incremental searching for emacs</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/PythonNut/flx-isearch">https://github.com/PythonNut/flx-isearch</a></td></tr>
-<tr><td>バージョン</td><td>20141227.1839</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:flx-isearch/">package:flx-isearch</a> <a href="http://rubikitch.com/tag/package:flx-ido/">package:flx-ido</a> <a href="http://rubikitch.com/tag/package:isearch-dabbrev/">package:isearch-dabbrev</a> <a href="http://rubikitch.com/tag/package:ace-jump-mode/">package:ace-jump-mode</a> <a href="http://rubikitch.com/tag/package:flex-isearch/">package:flex-isearch</a></td></tr>
-</table>
-<br />
-#+END_HTML
-*flx-isearch.el* は、あいまい検索を行うisearchです。
-
-<2015-01-31 Sat> [[http://rubikitch.com/2015/01/31/flex-isearch/][現時点ではflex-isearch.elの方が安定しています。]] 
-
-あいまいisearchとは、文字と文字の間に任意の文字が入ることを許可し、
-isearchの打鍵数を減らすことができます。
-
-idoのflex matchと似たようなものです。
-
-たとえば「fisrh」でflx-isearchにマッチします。
-
-しかも、シンボルのみにマッチするようになっているので、
-コーディング時の検索にもってこいです。
-
-本設定ではC-M-s/C-M-rに割り当てています。
-
-正規表現isearchはC-u C-s/C-u C-rを使ってください。
-
-
-とはいえ、かなりクセがあるので、慣れるまでは難しいかもしれません。
-
-画面内での移動ならば[[http://rubikitch.com/2014/10/09/ace-jump-mode/][ace-jump-mode.el(レビュー)]] が便利ですし、
-isearchの検索文字列をdabbrevする[[http://rubikitch.com/2014/12/23/isearch-dabbrev/][isearch-dabbrev.el(レビュー)]] もあります。
-** flx-isearch インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install flx-isearch
-
+#+TITLE: flx-isearch.el : ido的あいまいインクリメンタルサーチ
+[includeme file="inc-package-table.php" name="flx-isearch" where="melpa"]
 
 #+end:
-** 概要                                                             :noexport:
+** 概要
 *flx-isearch.el* は、あいまい検索を行うisearchです。
 
-<2015-01-31 Sat> [[http://rubikitch.com/2015/01/31/flex-isearch/][現時点ではflex-isearch.elの方が安定しています。]] 
+<2015-01-31 Sat> [[http://emacs.rubikitch.com/flex-isearch/][現時点ではflex-isearch.elの方が安定しています。]] 
 
 あいまいisearchとは、文字と文字の間に任意の文字が入ることを許可し、
 isearchの打鍵数を減らすことができます。
@@ -82,8 +40,9 @@ idoのflex matchと似たようなものです。
 
 とはいえ、かなりクセがあるので、慣れるまでは難しいかもしれません。
 
-画面内での移動ならば[[http://rubikitch.com/2014/10/09/ace-jump-mode/][ace-jump-mode.el(レビュー)]] が便利ですし、
-isearchの検索文字列をdabbrevする[[http://rubikitch.com/2014/12/23/isearch-dabbrev/][isearch-dabbrev.el(レビュー)]] もあります。
+画面内での移動ならば[[http://emacs.rubikitch.com/ace-jump-mode/][ace-jump-mode.el(レビュー)]] が便利ですし、
+isearchの検索文字列をdabbrevする[[http://emacs.rubikitch.com/isearch-dabbrev/][isearch-dabbrev.el(レビュー)]] もあります。
+[includeme file="inc-package-install.php" name="flx-isearch" where="melpa"]
 ** 設定 [[http://rubikitch.com/f/150130070159.flx-isearch.1.el][150130070159.flx-isearch.1.el(以下のコードと同一)]]
 #+BEGIN: include :file "/r/sync/junk/150130/150130070159.flx-isearch.1.el"
 #+BEGIN_SRC fundamental
@@ -105,3 +64,4 @@ Fig1: cinbでcandidates-in-bufferにマッチ！
 
 
 # /r/sync/screenshots/20150130070322.png http://rubikitch.com/wp-content/uploads/2015/01/wpid-20150130070322.png
+[includeme file="inc-package-relate.php" name="flx-isearch"]

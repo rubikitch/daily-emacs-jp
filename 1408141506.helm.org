@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 158
+#+POSTID: 214
+#+BLOG: rubikitch
 #+DATE: [2014-08-14 Thu 15:06]
 #+PERMALINK: helm
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t
@@ -7,43 +8,16 @@
 #+DESCRIPTION: 最新版helmでC-eとC-jを使えるようにする設定と雑感。
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs
+#+CATEGORY: キーバインド
 #+EL_PKG_NAME: helm
-#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, helm C-e, helm C-j
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方
+#+TAGS: helm
 #+EL_TITLE0: helmでC-eとC-jが使えなくなったので取り戻した
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージhelmの紹介
-#+MYTAGS: package:helm, emacs 使い方, emacs コマンド, emacs, emacs lisp helm, elisp helm, emacs melpa helm, emacs helm 使い方, emacs helm 設定, emacs パッケージ helm, helm C-e, helm C-j
-#+TITLE: emacs helm.el : helmでC-eとC-jが使えなくなったので取り戻した | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>helm</td></tr>
-<tr><td>概要(原文)</td><td>Helm is an Emacs incremental and narrowing framework</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/emacs-helm/helm">https://github.com/emacs-helm/helm</a></td></tr>
-<tr><td>バージョン</td><td>20141227.639</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:helm/">package:helm</a> </td></tr>
-</table>
-<br />
-#+END_HTML
-久々にhelmを更新してみたら…
-
-anything時代から使っている
-2番目のアクションを選択するC-eと
-3番目のアクションを選択するC-jが
-/使えなくなってるじゃありませんか！！/
-
-この設定を加えれば以前と同じようにC-eとC-jが使えるようになります。
-** helm インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install helm
-
+#+TITLE: helm.el : helmでC-eとC-jが使えなくなったので取り戻した
+[includeme file="inc-package-table.php" name="helm" where="melpa"]
 
 #+end:
-** 概要                                                             :noexport:
+** 概要
 久々にhelmを更新してみたら…
 
 anything時代から使っている
@@ -52,37 +26,10 @@ anything時代から使っている
 /使えなくなってるじゃありませんか！！/
 
 この設定を加えれば以前と同じようにC-eとC-jが使えるようになります。
+[includeme file="inc-package-install.php" name="helm" where="melpa"]
 ** 設定 [[http://rubikitch.com/f/90helm-nth-revive.el][90helm-nth-revive.el(以下のコードと同一)]]
 #+BEGIN: include :file "/r/sync/emacs/init.d/90helm-nth-revive.el"
 #+BEGIN_SRC fundamental
-(require 'helm)
-(defun helm-select-2nd-action ()
-  "Select the 2nd action for the currently selected candidate."
-  (interactive)
-  (helm-select-nth-action 1))
-
-(defun helm-select-3rd-action ()
-  "Select the 3rd action for the currently selected candidate."
-  (interactive)
-  (helm-select-nth-action 2))
-
-(defun helm-select-4th-action ()
-  "Select the 4th action for the currently selected candidate."
-  (interactive)
-  (helm-select-nth-action 3))
-
-(defun helm-select-2nd-action-or-end-of-line ()
-  "Select the 2nd action for the currently selected candidate.
-This happen when point is at the end of minibuffer.
-Otherwise goto the end of minibuffer."
-  (interactive)
-  (if (eolp)
-      (helm-select-nth-action 1)
-    (end-of-line)))
-
-(define-key helm-map (kbd "C-e")        'helm-select-2nd-action-or-end-of-line)
-(define-key helm-map (kbd "C-j")        'helm-select-3rd-action)
-#+END_SRC
 
 #+END:
 
@@ -137,3 +84,4 @@ $ emacs -Q -f package-initialize -l 90helm-nth-revive.el
 /自分がやられて嫌なことはしない/
 
 開発に限らず、人生において重要なことですよね。
+[includeme file="inc-package-relate.php" name="helm"]

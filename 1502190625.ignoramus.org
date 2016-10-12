@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 1176
+#+POSTID: 714
+#+BLOG: rubikitch
 #+DATE: [2015-02-19 Thu 06:25]
 #+PERMALINK: ignoramus
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,54 +8,17 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs
+#+CATEGORY: ファイルを開く
 #+EL_PKG_NAME: ignoramus
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs 無視するファイル, emacs 非表示にするファイル, emacs 設定集, relate:vc, relate:grep, relate:shell, relate:comint, relate:nav, relate:ido, relate:eshell, relate:dired, relate:projectile, relate:speedbar, relate:pcomplete
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 
+#+TAGS: 
 #+EL_TITLE0: 【設定集】多くのパッケージで「無視(非表示に)するファイル」の設定を統一化する！
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージignoramusの紹介
-#+MYTAGS: package:ignoramus, emacs 使い方, emacs コマンド, emacs, ignoramus, ignoramus.el, emacs lisp ignoramus, elisp ignoramus, emacs melpa ignoramus, emacs ignoramus 使い方, emacs ignoramus 設定, emacs パッケージ ignoramus, emacs 無視するファイル, emacs 非表示にするファイル, emacs 設定集, relate:vc, relate:grep, relate:shell, relate:comint, relate:nav, relate:ido, relate:eshell, relate:dired, relate:projectile, relate:speedbar, relate:pcomplete
-#+TAGS: package:ignoramus, emacs 使い方, emacs コマンド, emacs, ignoramus, ignoramus.el, emacs lisp ignoramus, elisp ignoramus, emacs melpa ignoramus, emacs ignoramus 使い方, emacs ignoramus 設定, emacs パッケージ ignoramus, emacs 無視するファイル, emacs 非表示にするファイル, emacs 設定集, relate:vc, relate:grep, relate:shell, relate:comint, relate:nav, relate:ido, relate:eshell, relate:dired, relate:projectile, relate:speedbar, relate:pcomplete, Emacs, ignoramus.el, ignoramus.el, ファイル名補完, completion-ignored-extensions, vc, vc-directory-exclusion-list, grep, grep-find-ignored-files, grep-find-ignored-directories, shell, shell-completion-fignore, comint, comint-completion-fignore, nav, nav-boring-file-regexps, ido, ido-ignore-directories, ido-ignore-files, eshell, eshell-cmpl-file-ignore, eshell-cmpl-dir-ignore, dired, dired-garbage-files-regexp, dired-omit-extensions, dired-omit-files, projectile, projectile-ignored-extension-p, speedbar, speedbar-directory-unshown-regexp, speedbar-file-unshown-regexp, pcomplete, pcomplete-dir-ignore, pcomplete-file-ignore, ignoramus-known-actions, M-x find-function
-#+TITLE: emacs ignoramus.el : 【設定集】多くのパッケージで「無視(非表示に)するファイル」の設定を統一化する！ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>ignoramus</td></tr>
-<tr><td>概要(原文)</td><td>Ignore backups, build files, et al.</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/rolandwalker/ignoramus">https://github.com/rolandwalker/ignoramus</a></td></tr>
-<tr><td>バージョン</td><td>20150216.1342</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:ignoramus/">package:ignoramus</a> <a href="http://rubikitch.com/tag/package:vc/">package:vc</a> <a href="http://rubikitch.com/tag/package:grep/">package:grep</a> <a href="http://rubikitch.com/tag/package:shell/">package:shell</a> <a href="http://rubikitch.com/tag/package:comint/">package:comint</a> <a href="http://rubikitch.com/tag/package:nav/">package:nav</a> <a href="http://rubikitch.com/tag/package:ido/">package:ido</a> <a href="http://rubikitch.com/tag/package:eshell/">package:eshell</a> <a href="http://rubikitch.com/tag/package:dired/">package:dired</a> <a href="http://rubikitch.com/tag/package:projectile/">package:projectile</a> <a href="http://rubikitch.com/tag/package:speedbar/">package:speedbar</a> <a href="http://rubikitch.com/tag/package:pcomplete/">package:pcomplete</a></td></tr>
-</table>
-<br />
-#+END_HTML
-今回紹介するelispは地味だけど「縁の下の力持ち」というのに相応しいです。
-
-Emacsにおいて「無視すべきファイル・ディレクトリ」というのがありますよね。
-
-たとえば、ファイルを開く場合にバックアップファイルや
-コンパイルされたバイナリなどを開きたいとは思いません。
-
-Emacsには数々のパッケージがありますが、
-各パッケージごとに「無視すべき対象」を個別に設定する必要があり、
-とても面倒です。
-
-そこで *ignoramus.el* を使って、それらを統一してしまいましょう。
-
-ignoramus.elの特徴は、以下の3つです。
-- 無視すべき対象の設定がものすごく多い
-- 多くのパッケージに対応している
-- 新しいパッケージに簡単に対応させられる
-** ignoramus インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install ignoramus
-
+#+TITLE: ignoramus.el : 【設定集】多くのパッケージで「無視(非表示に)するファイル」の設定を統一化する！
+[includeme file="inc-package-table.php" name="ignoramus" where="melpa"]
 
 #+end:
-** 概要                                                             :noexport:
+** 概要
 今回紹介するelispは地味だけど「縁の下の力持ち」というのに相応しいです。
 
 Emacsにおいて「無視すべきファイル・ディレクトリ」というのがありますよね。
@@ -73,6 +37,7 @@ ignoramus.elの特徴は、以下の3つです。
 - 多くのパッケージに対応している
 - 新しいパッケージに簡単に対応させられる
 
+[includeme file="inc-package-install.php" name="ignoramus" where="melpa"]
 ** 対応パッケージと設定される変数
 (ignoramus-setup) を実行すると、以下の変数が設定されます。
 
@@ -534,3 +499,4 @@ fully-qualified pathname."
 $ wget http://rubikitch.com/f/150219065230.ignoramus.el
 $ emacs -Q -f package-initialize -l 150219065230.ignoramus.el
 #+END_EXAMPLE
+[includeme file="inc-package-relate.php" name="ignoramus"]

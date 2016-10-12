@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 2743
+#+POSTID: 1564
+#+BLOG: rubikitch
 #+DATE: [2016-09-05 Mon 05:44]
 #+PERMALINK: visible-bell-macosx-slow
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
@@ -7,12 +8,14 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, bug, 
+#+CATEGORY: 高速化
 #+DESCRIPTION: 
-#+MYTAGS: Emacs for Mac OS X カーソル移動 重い 原因, もっさり, カクカク, visible-bell, ring-bell-function
 #+TITLE: Mac OS XのEmacsのカーソル移動が重くなるならコレ試してみて！
+#+TAGS: バグ修正
 #+begin: org2blog-tags
-#+TAGS: Emacs for Mac OS X カーソル移動 重い 原因, もっさり, カクカク, visible-bell, ring-bell-function, Emacs, bug, , visible-bell
+# content-length: 508
+#+HTML: <!-- noindex -->
+
 #+end:
 これは[[http://www.mag2.com/m/0001373131.html][るびきち塾]] 塾生からの情報なのですが、
 Emacs for Mac OS X 24.5-1 において動作がもっさりすることがあるらしいです。

@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 1540
+#+POSTID: 857
+#+BLOG: rubikitch
 #+DATE: [2015-04-21 Tue 04:18]
 #+PERMALINK: minesweeper
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,64 +8,14 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs
+#+CATEGORY: ゲーム
 #+EL_PKG_NAME: minesweeper
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, emacs mine.el, emacs マインスイーパー, emacs minesweeper, minesweeper
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: 
 #+EL_TITLE0: Emacsでマインスイーパーしようぜ！
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージminesweeperの紹介
-#+MYTAGS: package:minesweeper, emacs 使い方, emacs コマンド, emacs, minesweeper, minesweeper.el, emacs lisp minesweeper, elisp minesweeper, emacs melpa minesweeper, emacs minesweeper 使い方, emacs minesweeper 設定, emacs パッケージ minesweeper, emacs minesweeper スクリーンショット, emacs mine.el, emacs マインスイーパー, emacs minesweeper, minesweeper
-#+TAGS: package:minesweeper, emacs 使い方, emacs コマンド, emacs, minesweeper, minesweeper.el, emacs lisp minesweeper, elisp minesweeper, emacs melpa minesweeper, emacs minesweeper 使い方, emacs minesweeper 設定, emacs パッケージ minesweeper, emacs minesweeper スクリーンショット, emacs mine.el, emacs マインスイーパー, emacs minesweeper, minesweeper, Emacs, マインスイーパー, M-x minesweeper, mine.el, C-x C--, C-x C-+, C-x C-=, text-scale-adjust, マインスイーパー, M-x minesweeper, mine.el, C-x C--, C-x C-+, C-x C-=, text-scale-adjust
-#+TITLE: emacs minesweeper.el : Emacsでマインスイーパーしようぜ！ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>minesweeper</td></tr>
-<tr><td>概要(原文)</td><td>play minesweeper in Emacs</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://bitbucket.org/zck/minesweeper.el">https://bitbucket.org/zck/minesweeper.el</a></td></tr>
-<tr><td>バージョン</td><td>20150413.2222</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:minesweeper/">package:minesweeper</a> </td></tr>
-</table>
-<br />
-#+END_HTML
-毎度おなじみのゲーム、 *マインスイーパー* ですが
-*M-x minesweeper* でEmacsでもプレイできます。
-
-デフォルトは10x10で地雷数は10です。
-
-pnfbで移動、mでマーク、SPCで開きます。
-
-マウス操作もでき、右クリックでマーク、左クリックで開きます。
-
-
-大昔 *mine.el* という実装もありましたが、
-こっちの方が新しいです。
-
-ただ、プレイするときは通常使っているフォントだと小さすぎることもあるので、
-適宜 *C-x C--* 、 *C-x C-+* 、 *C-x C-=* (どれも *text-scale-adjust*) で
-フォントを調節してください。
-
-このコマンドはbuffer-localなのでマインスイーパーのみ影響します。
-
-
-設定ではhjklも使えるようにしておきました。
-
-# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150421041718.png]]
-Fig1: 初期画面
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150421041804.png]]
-Fig2: クリア！礼儀正しいから断わってもChicken!とは言われないヨ
-** minesweeper インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install minesweeper
-
+#+TITLE: minesweeper.el : Emacsでマインスイーパーしようぜ！
+[includeme file="inc-package-table.php" name="minesweeper" where="melpa"]
 
 #+end:
 *** 概要                                                           :noexport:
@@ -119,3 +70,4 @@ $ emacs -Q -f package-initialize -l 150421041219.minesweeper.el
 
 # /r/sync/screenshots/20150421041718.png http://rubikitch.com/wp-content/uploads/2015/04/wpid-20150421041718.png
 # /r/sync/screenshots/20150421041804.png http://rubikitch.com/wp-content/uploads/2015/04/wpid-20150421041804.png
+[includeme file="inc-package-relate.php" name="minesweeper"]

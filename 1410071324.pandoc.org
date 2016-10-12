@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 435
+#+POSTID: 337
+#+BLOG: rubikitch
 #+DATE: [2014-10-07 Tue 13:24]
 #+PERMALINK: pandoc
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t
@@ -7,12 +8,11 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, Ruby
+#+CATEGORY: 文書作成
 #+DESCRIPTION: 最新版Pandocとラッパースクリプトでhtmlをorgに一括変換しよう！grepも自由自在
-#+MYTAGS: package:org
-#+TAGS: package:org, Emacs, Ruby, wget, org-mode, org文書, grep検索, Pandoc, GHC, cabal
+#+TAGS: 外部プログラム使用, use:ruby, org
 #+TITLE: EmacsユーザならばWebページをPandocでorg-modeに変換して読もうじゃないか！検索性と可読性を確保しつつ画像も見られるよ。
-[[http://rubikitch.com/2014/09/22/pandoc/][この前万能ドキュメント変換器Pandocを紹介した]] ばかりですが、
+[[http://emacs.rubikitch.com/pandoc/][この前万能ドキュメント変換器Pandocを紹介した]] ばかりですが、
 もう少し触ってみました。
 
 [[http://rubikitch.com/tag/pandoc/][→Pandoc関連記事]]
@@ -127,6 +127,9 @@ def process_org(s)
   s.gsub!(/#\+BEGIN_HTML.+?#\+END_HTML\n\n/m, '') # うざいのでカット
   s.gsub!(/[\\][\\]$/, '')                        # 行末の\\
   s.gsub!(/\\_/, '_')                             # \_
+  s.gsub!(/\[\[.+?\]\[\]\]\n?/, '') # [[URL][]]
+  s.gsub!(/<<>>\n?/, '')            # <<>>
+
   # file:リンクへ正しく変換されないのはバグよね
   s.gsub!(/\[\[javascript:[^\[]+\]\[.+?\]+/, '') # javascript link
   s.gsub!(/\[\[([^\[]+?)\]/) do

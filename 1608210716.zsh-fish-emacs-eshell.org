@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 2695
+#+POSTID: 1540
+#+BLOG: rubikitch
 #+DATE: [2016-08-21 Sun 07:16]
 #+PERMALINK: zsh-fish-emacs-eshell
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
@@ -7,12 +8,13 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, fish, 
+#+CATEGORY: その他
 #+DESCRIPTION: 
-#+MYTAGS: fish, zsh, eshell, シェル, shell, emacsでfishを使う, fishの便利な機能, fishをEmacsと連携させる, eshell 機能, zshからfishに乗り換える, 
 #+TITLE: あなたがzsh/bash/eshellからfishに乗り換えるべき17の理由
+#+TAGS: fish
 #+begin: org2blog-tags
-#+TAGS: fish, zsh, eshell, シェル, shell, emacsでfishを使う, fishの便利な機能, fishをEmacsと連携させる, eshell 機能, zshからfishに乗り換える, , Emacs, fish, , 
+# content-length: 4068
+
 #+end:
 これからfishというシェルについてお話します。
 
@@ -31,7 +33,7 @@
 12. カラフル
 13. Webインターフェースで設定できる…なんという大胆さ
 14. 新しいシェルだが10年の歴史があり実績もある
-15. [[http://rubikitch.com/2016/08/16/fish-mode/][fish-mode(レビュー)]] でEmacsでも快適にfishスクリプトが書ける
+15. [[http://emacs.rubikitch.com/fish-mode/][fish-mode(レビュー)]] でEmacsでも快適にfishスクリプトが書ける
 16. 補完時に説明が出てくる
 17. fish自体でPCRE含む強力な文字列操作ができる
 
@@ -40,7 +42,7 @@
 ** 21世紀のシェル
 
 あなたは、シェルといったら何を思い浮かべますか？
-bash? sh? csh? tcsh? zsh? eshell? pry? irbsh?(笑)
+^bash? sh? csh? tcsh? zsh? eshell? pry? irbsh?(笑)
 いろいろありますね。
 僕はひょうんなことから1週間前にfishというシェルに出会いました。
 User-Friendly Interactive Shellの略で、使い易さを全面に押し出している最後発シェルです。

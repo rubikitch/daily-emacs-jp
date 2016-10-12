@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 2018
+#+POSTID: 1155
+#+BLOG: rubikitch
 #+DATE: [2015-09-24 Thu 03:45]
 #+PERMALINK: link-hint
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,29 +8,18 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs
+#+CATEGORY: ハイパーリンク
 #+EL_PKG_NAME: link-hint
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, relate:ace-link, relate:ace-jump-mode, relate:avy, Hit-a-Hint, , relate:ace-jump-buffer, relate:ace-jump-zap, relate:ace-isearch,  emacs カーソル移動, ace-jump-mode, eww ace-jump, relate:eww-lnum, org-mode ace-jump, info ace-jump, help ace-jump, eww Hit-a-Hint, emacs eww conkeror, conkeror, emacs eww Hit-a-Hint, emacs ブラウザ Hit-a-Hint, emacs eww キーボード操作, emacs eww conkeror, relate:avy, relate:package, relate:mu4e
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: ace-jump, org, info, help
 #+EL_TITLE0: helpやorgのリンクをace-jump(hit-a-hint)的に開く
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージlink-hintの紹介
-#+MYTAGS: package:link-hint, emacs 使い方, emacs コマンド, emacs, link-hint, link-hint.el, emacs lisp link-hint, elisp link-hint, emacs melpa link-hint, emacs link-hint 使い方, emacs link-hint 設定, emacs パッケージ link-hint, emacs link-hint スクリーンショット, relate:ace-link, relate:ace-jump-mode, relate:avy, Hit-a-Hint, , relate:ace-jump-buffer, relate:ace-jump-zap, relate:ace-isearch,  emacs カーソル移動, ace-jump-mode, eww ace-jump, relate:eww-lnum, org-mode ace-jump, info ace-jump, help ace-jump, eww Hit-a-Hint, emacs eww conkeror, conkeror, emacs eww Hit-a-Hint, emacs ブラウザ Hit-a-Hint, emacs eww キーボード操作, emacs eww conkeror, relate:avy, relate:package, relate:mu4e
-#+TAGS: package:link-hint, emacs 使い方, emacs コマンド, emacs, link-hint, link-hint.el, emacs lisp link-hint, elisp link-hint, emacs melpa link-hint, emacs link-hint 使い方, emacs link-hint 設定, emacs パッケージ link-hint, emacs link-hint スクリーンショット, relate:ace-link, relate:ace-jump-mode, relate:avy, Hit-a-Hint, , relate:ace-jump-buffer, relate:ace-jump-zap, relate:ace-isearch,  emacs カーソル移動, ace-jump-mode, eww ace-jump, relate:eww-lnum, org-mode ace-jump, info ace-jump, help ace-jump, eww Hit-a-Hint, emacs eww conkeror, conkeror, emacs eww Hit-a-Hint, emacs ブラウザ Hit-a-Hint, emacs eww キーボード操作, emacs eww conkeror, relate:avy, relate:package, relate:mu4e, Emacs, link-hint.el, EWW, org-mode, info, help, EWW, org-mode, info, help
-#+TITLE: emacs link-hint.el : helpやorgのリンクをace-jump(hit-a-hint)的に開く | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>link-hint</td></tr>
-<tr><td>概要(原文)</td><td>Use avy to open or copy visible urls.</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/noctuid/link-hint.el">https://github.com/noctuid/link-hint.el</a></td></tr>
-<tr><td>バージョン</td><td>20150922.1937</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:link-hint/">package:link-hint</a> <a href="http://rubikitch.com/tag/package:ace-link/">package:ace-link</a> <a href="http://rubikitch.com/tag/package:ace-jump-mode/">package:ace-jump-mode</a> <a href="http://rubikitch.com/tag/package:avy/">package:avy</a> <a href="http://rubikitch.com/tag/package:ace-jump-buffer/">package:ace-jump-buffer</a> <a href="http://rubikitch.com/tag/package:ace-jump-zap/">package:ace-jump-zap</a> <a href="http://rubikitch.com/tag/package:ace-isearch/">package:ace-isearch</a> <a href="http://rubikitch.com/tag/package:eww-lnum/">package:eww-lnum</a> <a href="http://rubikitch.com/tag/package:avy/">package:avy</a> <a href="http://rubikitch.com/tag/package:package/">package:package</a> <a href="http://rubikitch.com/tag/package:mu4e/">package:mu4e</a></td></tr>
-</table>
-<br />
-#+END_HTML
-*link-hint.el* は、[[http://rubikitch.com/2014/12/30/ace-link/][ace-link.el(レビュー)]] の類似品で、
+#+TITLE: link-hint.el : helpやorgのリンクをace-jump(hit-a-hint)的に開く
+[includeme file="inc-package-table.php" name="link-hint" where="melpa"]
+
+#+end:
+** 概要
+*link-hint.el* は、[[http://emacs.rubikitch.com/ace-link/][ace-link.el(レビュー)]] の類似品で、
 Emacs上のリンクをHit-a-Hint的に開くものです。
 
 ace-linkの
@@ -49,36 +39,8 @@ Fig1: helpでoを押すと…
 #+ATTR_HTML: :width 480
 [[file:/r/sync/screenshots/20150924035310.png]]
 Fig2: hintがつくのでキーを押せばリンクを辿れる
-** link-hint インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
 
-M-x package-refresh-contents
-M-x package-install link-hint
-
-
-#+end:
-** 概要                                                             :noexport:
-*link-hint.el* は、[[http://rubikitch.com/2014/12/30/ace-link/][ace-link.el(レビュー)]] の類似品で、
-Emacs上のリンクをHit-a-Hint的に開くものです。
-
-ace-linkの
-- *EWW*
-- *org-mode*
-- *info*
-- *help*
-に加えて、mu4eとpackage menuにも対応しています。
-
-本設定ではace-link同様info/help/ewwにおいてoでリンクを開くようにしています。
-
-# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150924035307.png]]
-Fig3: helpでoを押すと…
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150924035310.png]]
-Fig4: hintがつくのでキーを押せばリンクを辿れる
-
+[includeme file="inc-package-install.php" name="link-hint" where="melpa"]
 ** 設定 [[http://rubikitch.com/f/150924033826.link-hint.el][150924033826.link-hint.el(以下のコードと同一)]]
 #+BEGIN: include :file "/r/sync/junk/150924/150924033826.link-hint.el"
 #+BEGIN_SRC fundamental
@@ -99,3 +61,4 @@ Fig4: hintがつくのでキーを押せばリンクを辿れる
 $ wget http://rubikitch.com/f/150924033826.link-hint.el
 $ emacs -Q -f package-initialize -l 150924033826.link-hint.el
 #+END_EXAMPLE
+[includeme file="inc-package-relate.php" name="link-hint"]

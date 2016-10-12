@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 660
+#+POSTID: 455
+#+BLOG: rubikitch
 #+DATE: [2014-12-04 Thu 07:12]
 #+PERMALINK: eww-lnum-bugfix
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -9,10 +10,9 @@
 #+BLOG: rubikitch
 #+CATEGORY: 記事更新情報,
 #+DESCRIPTION:
-#+MYTAGS: package:eww-lnum
-#+TAGS: package:eww-lnum, 記事更新情報, , truncate-lines
+#+TAGS: 
 #+TITLE: eww-lnumでヒントが表示されないバグを修正
-[[http://rubikitch.com/2014/11/12/eww-lnum/][eww-lnum.el]] で、表示されないヒントがあるバグがあります。
+[[http://emacs.rubikitch.com/eww-lnum/][eww-lnum.el]] で、表示されないヒントがあるバグがあります。
 
 原因はewwでは *truncate-lines* が t になっていて
 長い行は折り返されないからです。

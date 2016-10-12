@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 2394
+#+POSTID: 1415
+#+BLOG: rubikitch
 #+DATE: [2016-02-10 Wed 19:59]
 #+PERMALINK: sd1502-org-mode
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,9 +8,9 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, 連載『るびきち流Emacs超入門』, org-mode, 
+#+CATEGORY: るびきち流Emacs超入門
 #+DESCRIPTION:
-#+TAGS:package:org
+#+TAGS:org
 #+TITLE: #10 巨大なオーガナイズシステム「org-mode」の世界 (Software Design 2015年2月号掲載記事) Emacs org-mode インストール 設定 使い方
 Software Design連載記事を掲載します。
 

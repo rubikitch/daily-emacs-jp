@@ -1,18 +1,19 @@
 #+BLOG: rubikitch
-#+POSTID: 1555
+#+POSTID: 89
+#+BLOG: rubikitch
 #+DATE: [2015-04-24 Fri 02:59]
-#+PERMALINK: melmag
+#+PERMALINK: melmag178
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
 #+ISPAGE: nil
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: メルマガ,
+#+CATEGORY: るびきち塾メルマガ
 #+DESCRIPTION: るびきち塾メルマガ『Emacsの鬼るびきちのココだけの話#178』の予告
 #+TITLE: 【メルマガ#178】ちょっと一休み
 #+MYTAGS: 
 #+begin: org2blog-tags
-#+TAGS: , メルマガ,, 
+
 #+end:
 今回から数回ちょっとEmacsから離れ
 読み物的な感じの内容になってきます。

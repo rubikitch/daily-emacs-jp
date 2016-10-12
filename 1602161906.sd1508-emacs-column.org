@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 2407
+#+POSTID: 1427
+#+BLOG: rubikitch
 #+DATE: [2016-02-16 Tue 19:06]
 #+PERMALINK: sd1508-emacs-column
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,7 +8,7 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, 連載『るびきち流Emacs超入門』
+#+CATEGORY:るびきち流Emacs超入門
 #+DESCRIPTION:
 #+TAGS:
 #+TITLE: #16 Emacsと長く付き合っていくために (Software Design 2015年8月号掲載記事) 

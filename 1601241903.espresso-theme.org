@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 2357
+#+POSTID: 1379
+#+BLOG: rubikitch
 #+DATE: [2016-01-24 Sun 19:03]
 #+PERMALINK: espresso-theme
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,47 +8,17 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, theme
+#+CATEGORY: ライト
 #+EL_PKG_NAME: espresso-theme
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, color-theme, カラーテーマ
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: 
 #+EL_TITLE0: 白背景のカラーテーマ
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージespresso-themeの紹介
-#+MYTAGS: package:espresso-theme, emacs 使い方, emacs コマンド, emacs, espresso-theme, espresso-theme.el, emacs lisp espresso-theme, elisp espresso-theme, emacs melpa espresso-theme, emacs espresso-theme 使い方, emacs espresso-theme 設定, emacs パッケージ espresso-theme, emacs espresso-theme スクリーンショット, color-theme, カラーテーマ
-#+TAGS: package:espresso-theme, emacs 使い方, emacs コマンド, emacs, espresso-theme, espresso-theme.el, emacs lisp espresso-theme, elisp espresso-theme, emacs melpa espresso-theme, emacs espresso-theme 使い方, emacs espresso-theme 設定, emacs パッケージ espresso-theme, emacs espresso-theme スクリーンショット, color-theme, カラーテーマ, Emacs, theme, espresso-theme.el
-#+TITLE: emacs espresso-theme.el : 白背景のカラーテーマ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>espresso-theme</td></tr>
-<tr><td>概要(原文)</td><td>Espresso Tutti Colori port for Emacs</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/dgutov/espresso-theme">https://github.com/dgutov/espresso-theme</a></td></tr>
-<tr><td>バージョン</td><td>20130228.2348</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:espresso-theme/">package:espresso-theme</a> </td></tr>
-</table>
-<br />
-#+END_HTML
-*espresso-theme.el* は、以下のパッケージに対応したカラーテーマです。
-- info
-- mode-line
-- show-paren
-- hl-line
-- isearch
-- mumamo
-- font-lock
-- diff
-- magit
-** espresso-theme インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install espresso-theme
-
+#+TITLE: espresso-theme.el : 白背景のカラーテーマ
+[includeme file="inc-package-table.php" name="espresso-theme" where="melpa"]
 
 #+end:
-** 概要                                                             :noexport:
+** 概要
 *espresso-theme.el* は、以下のパッケージに対応したカラーテーマです。
 - info
 - mode-line
@@ -58,6 +29,7 @@ M-x package-install espresso-theme
 - font-lock
 - diff
 - magit
+[includeme file="inc-package-install.php" name="espresso-theme" where="melpa"]
 ** スクリーンショット
 # (save-window-excursion (async-shell-command "emacs-test -eval '(load-theme (quote espresso) t)'"))
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_theme_template" t))
@@ -113,3 +85,4 @@ $ emacs -Q -f package-initialize -eval '(load-theme (quote espresso) t)'
 #+END_EXAMPLE
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+[includeme file="inc-package-relate.php" name="espresso-theme"]

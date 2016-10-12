@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 1378
+#+POSTID: 786
+#+BLOG: rubikitch
 #+DATE: [2015-03-28 Sat 07:59]
 #+PERMALINK: git-link
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,67 +8,17 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs
+#+CATEGORY: git
 #+EL_PKG_NAME: git-link
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, github url, githubでコードを読む, ブラウザでコードを読む, emacsからGitHubを開く, git, relate:magit, relate:vc, relate:orgit, relate:github-browse-file
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 
+#+TAGS: GitHub
 #+EL_TITLE0: カレントバッファのGithub/Bitbucket/Gitoriousへのリンクを取得する
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージgit-linkの紹介
-#+MYTAGS: package:git-link, emacs 使い方, emacs コマンド, emacs, git-link, git-link.el, emacs lisp git-link, elisp git-link, emacs melpa git-link, emacs git-link 使い方, emacs git-link 設定, emacs パッケージ git-link, github url, githubでコードを読む, ブラウザでコードを読む, emacsからGitHubを開く, git, relate:magit, relate:vc, relate:orgit, relate:github-browse-file
-#+TAGS: package:git-link, emacs 使い方, emacs コマンド, emacs, git-link, git-link.el, emacs lisp git-link, elisp git-link, emacs melpa git-link, emacs git-link 使い方, emacs git-link 設定, emacs パッケージ git-link, github url, githubでコードを読む, ブラウザでコードを読む, emacsからGitHubを開く, git, relate:magit, relate:vc, relate:orgit, relate:github-browse-file, Emacs, GitHub, git-link.el, M-x git-link, kill-ring, M-x git-link-commit, magit, vc, Bitbucket, Gitorious, GitHub, git-link.el, M-x git-link, kill-ring, M-x git-link-commit, magit, vc, Bitbucket, Gitorious
-#+TITLE: emacs git-link.el : カレントバッファのGithub/Bitbucket/Gitoriousへのリンクを取得する | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>git-link</td></tr>
-<tr><td>概要(原文)</td><td>Get the GitHub/Bitbucket/Gitorious URL for a buffer location</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/sshaw/git-link">https://github.com/sshaw/git-link</a></td></tr>
-<tr><td>バージョン</td><td>20150426.829</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:git-link/">package:git-link</a> <a href="http://rubikitch.com/tag/package:magit/">package:magit</a> <a href="http://rubikitch.com/tag/package:vc/">package:vc</a> <a href="http://rubikitch.com/tag/package:orgit/">package:orgit</a> <a href="http://rubikitch.com/tag/package:github-browse-file/">package:github-browse-file</a></td></tr>
-</table>
-<br />
-#+END_HTML
-GitHubではコードをブラウザできれいに表示してくれます。
-
-場合によってはEmacsよりも *GitHub* で表示させたいこともあるでしょう。
-
-そんなときには *git-link.el* が提供する
-*M-x git-link* を使ってみましょう。
-
-カレントバッファがGitHubリポジトリからcloneしたのであれば、
-そのファイルの現在行へのGitHub URLを *kill-ring* にコピーしてくれます。
-
-あとはC-yで貼り付ければいいです。
-
-たとえばgit-link.elの49行目で実行すれば
-https://github.com/sshaw/git-link/tree/master/git-link.el#L49
-になります。
-
-もうひとつのコマンド *M-x git-link-commit* は、
-カーソル位置のコミットのハッシュから
-そのコミットのURLを取得します。
-
-*magit* や *vc* (C-x v lでログ) で使えばいいです。
-
-たとえばコミット「9d3a38a」ならば
-https://github.com/sshaw/git-link/commit/9d3a38a
-となります。
-
-GitHub以外にも *Bitbucket* や *Gitorious* にも対応しています。
-
-
-# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
-** git-link インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install git-link
-
+#+TITLE: git-link.el : カレントバッファのGithub/Bitbucket/Gitoriousへのリンクを取得する
+[includeme file="inc-package-table.php" name="git-link" where="melpa"]
 
 #+end:
-** 概要                                                             :noexport:
+** 概要
 GitHubではコードをブラウザできれいに表示してくれます。
 
 場合によってはEmacsよりも *GitHub* で表示させたいこともあるでしょう。
@@ -98,3 +49,5 @@ GitHub以外にも *Bitbucket* や *Gitorious* にも対応しています。
 
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+[includeme file="inc-package-install.php" name="git-link" where="melpa"]
+[includeme file="inc-package-relate.php" name="git-link"]

@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 1026
+#+POSTID: 650
+#+BLOG: rubikitch
 #+DATE: [2015-01-29 Thu 06:38]
 #+PERMALINK: flx-ido
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,28 +8,17 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs
+#+CATEGORY: 候補選択
 #+EL_PKG_NAME: flx-ido
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, package:ido, package:ido-vertical-mode, ido あいまいマッチ, ido fuzzy search, relate:smex, relate:ido-ubiquitous
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: ido, 標準コマンド強化
 #+EL_TITLE0: idoのあいまいマッチを改善する
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージflx-idoの紹介
-#+MYTAGS: package:flx-ido, emacs 使い方, emacs コマンド, emacs, flx-ido, flx-ido.el, emacs lisp flx-ido, elisp flx-ido, emacs melpa flx-ido, emacs flx-ido 使い方, emacs flx-ido 設定, emacs パッケージ flx-ido, emacs flx-ido スクリーンショット, package:ido, package:ido-vertical-mode, ido あいまいマッチ, ido fuzzy search, relate:smex, relate:ido-ubiquitous
-#+TAGS: package:flx-ido, emacs 使い方, emacs コマンド, emacs, flx-ido, flx-ido.el, emacs lisp flx-ido, elisp flx-ido, emacs melpa flx-ido, emacs flx-ido 使い方, emacs flx-ido 設定, emacs パッケージ flx-ido, emacs flx-ido スクリーンショット, package:ido, package:ido-vertical-mode, ido あいまいマッチ, ido fuzzy search, relate:smex, relate:ido-ubiquitous, Emacs, flx-ido.el, flx.el, ido-enable-flex-matching, flx.el, ido-enable-flex-matching
-#+TITLE: emacs flx-ido.el : idoのあいまいマッチを改善する | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>flx-ido</td></tr>
-<tr><td>概要(原文)</td><td>flx integration for ido</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/lewang/flx">https://github.com/lewang/flx</a></td></tr>
-<tr><td>バージョン</td><td>20140821.2033</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:flx-ido/">package:flx-ido</a> <a href="http://rubikitch.com/tag/package:smex/">package:smex</a> <a href="http://rubikitch.com/tag/package:ido-ubiquitous/">package:ido-ubiquitous</a></td></tr>
-</table>
-<br />
-#+END_HTML
+#+TITLE: flx-ido.el : idoのあいまいマッチを改善する
+[includeme file="inc-package-table.php" name="flx-ido" where="melpa"]
+
+#+end:
+** 概要
 *flx-ido.el* は、 *flx.el* というあいまいマッチライブラリを使って、
 idoのあいまいマッチを改善します。
 
@@ -63,54 +53,10 @@ Fig2: ここで初めてあいまいマッチが有効になる
 [[file:/r/sync/screenshots/20150129065321.png]]
 Fig3: flx-ido-modeなら常にあいまいマッチが使える
 
-ただし、M-xをido化させる [[http://rubikitch.com/2014/12/16/smex/][smex.el(レビュー)]] に対しては、
-やや動作が重くなります。
-** flx-ido インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install flx-ido
-
-
-#+end:
-** 概要                                                             :noexport:
-*flx-ido.el* は、 *flx.el* というあいまいマッチライブラリを使って、
-idoのあいまいマッチを改善します。
-
-1. あいまいマッチが必ず実行される
-2. マッチした部分に色がつく
-
-たとえば、
-#+BEGIN_EXAMPLE
-("chops" "scone" "close" "confide")
-#+END_EXAMPLE
-の4要素のリストをidoでマッチさせる例を考えましょう。
-
-標準のあいまいマッチを有効化(*ido-enable-flex-matching* = t)した状態で
-「co」と入力すると、"scone"と"confide"しかマッチしません。
-
-なぜなら、両者はcoを含むのであいまいマッチは無効になります。
-
-# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
-[[file:/r/sync/screenshots/20150129065125.png]]
-Fig4: 標準では部分文字列マッチが優先される
-
-部分文字列マッチがあいまいマッチよりも優先されたからです。
-
-一方で「coe」と入力すると、あいまいマッチが有効になり
-"scone"、"confide"、"close"にマッチします。
-
-[[file:/r/sync/screenshots/20150129065130.png]]
-Fig5: ここで初めてあいまいマッチが有効になる
-
-そこで、flx-ido.elでは常にあいまいマッチが行われるようにさせます。
-
-[[file:/r/sync/screenshots/20150129065321.png]]
-Fig6: flx-ido-modeなら常にあいまいマッチが使える
-
-ただし、M-xをido化させる [[http://rubikitch.com/2014/12/16/smex/][smex.el(レビュー)]] に対しては、
+ただし、M-xをido化させる [[http://emacs.rubikitch.com/smex/][smex.el(レビュー)]] に対しては、
 やや動作が重くなります。
 
+[includeme file="inc-package-install.php" name="flx-ido" where="melpa"]
 ** 設定 [[http://rubikitch.com/f/150129065419.flx-ido.el][150129065419.flx-ido.el(以下のコードと同一)]]
 #+BEGIN: include :file "/r/sync/junk/150129/150129065419.flx-ido.el"
 #+BEGIN_SRC fundamental
@@ -137,3 +83,4 @@ $ emacs -Q -f package-initialize -l 150129065419.flx-ido.el
 # /r/sync/screenshots/20150129065125.png http://rubikitch.com/wp-content/uploads/2015/01/wpid-20150129065125.png
 # /r/sync/screenshots/20150129065130.png http://rubikitch.com/wp-content/uploads/2015/01/wpid-20150129065130.png
 # /r/sync/screenshots/20150129065321.png http://rubikitch.com/wp-content/uploads/2015/01/wpid-20150129065321.png
+[includeme file="inc-package-relate.php" name="flx-ido"]

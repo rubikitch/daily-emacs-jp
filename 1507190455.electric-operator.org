@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 1840
+#+POSTID: 1034
+#+BLOG: rubikitch
 #+DATE: [2015-07-19 Sun 04:55]
 #+PERMALINK: electric-operator
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,29 +8,18 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs
+#+CATEGORY: 入力支援
 #+EL_PKG_NAME: electric-operator
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, relate:smartchr, relate:key-combo, emacs 自動スペース, emacs 読みやすいコードを書く, emacs 前後にスペースを自動で挿入, emacs 両端にスペース, emacs smartchr, emacs key-combo, emacs キーを押す回数で挿入文字が変わる, 見栄えを良くする, スペースを入力する手間を省く, 手っ取り早く入力する, 同じキーを連続して入力したときの動作を変更, relate:electric-spacing
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: 
 #+EL_TITLE0: 【改良版】演算子(=や+=)の前後に自動でスペースを入れる
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージelectric-operatorの紹介
-#+MYTAGS: package:electric-operator, emacs 使い方, emacs コマンド, emacs, electric-operator, electric-operator.el, emacs lisp electric-operator, elisp electric-operator, emacs melpa electric-operator, emacs electric-operator 使い方, emacs electric-operator 設定, emacs パッケージ electric-operator, emacs electric-operator スクリーンショット, relate:smartchr, relate:key-combo, emacs 自動スペース, emacs 読みやすいコードを書く, emacs 前後にスペースを自動で挿入, emacs 両端にスペース, emacs smartchr, emacs key-combo, emacs キーを押す回数で挿入文字が変わる, 見栄えを良くする, スペースを入力する手間を省く, 手っ取り早く入力する, 同じキーを連続して入力したときの動作を変更, relate:electric-spacing
-#+TAGS: package:electric-operator, emacs 使い方, emacs コマンド, emacs, electric-operator, electric-operator.el, emacs lisp electric-operator, elisp electric-operator, emacs melpa electric-operator, emacs electric-operator 使い方, emacs electric-operator 設定, emacs パッケージ electric-operator, emacs electric-operator スクリーンショット, relate:smartchr, relate:key-combo, emacs 自動スペース, emacs 読みやすいコードを書く, emacs 前後にスペースを自動で挿入, emacs 両端にスペース, emacs smartchr, emacs key-combo, emacs キーを押す回数で挿入文字が変わる, 見栄えを良くする, スペースを入力する手間を省く, 手っ取り早く入力する, 同じキーを連続して入力したときの動作を変更, relate:electric-spacing, Emacs, や+, や+, electric-operator.el
-#+TITLE: emacs electric-operator.el : 【改良版】演算子(=や+=)の前後に自動でスペースを入れる | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>electric-operator</td></tr>
-<tr><td>概要(原文)</td><td>Automatically add spaces around operators</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/davidshepherd7/electric-operator">https://github.com/davidshepherd7/electric-operator</a></td></tr>
-<tr><td>バージョン</td><td>20150714.311</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:electric-operator/">package:electric-operator</a> <a href="http://rubikitch.com/tag/package:smartchr/">package:smartchr</a> <a href="http://rubikitch.com/tag/package:key-combo/">package:key-combo</a> <a href="http://rubikitch.com/tag/package:electric-spacing/">package:electric-spacing</a></td></tr>
-</table>
-<br />
-#+END_HTML
-*electric-operator.el* は、 [[http://rubikitch.com/2015/03/24/electric-spacing/][electric-spacing.el(レビュー)]] の改良版です。
+#+TITLE: electric-operator.el : 【改良版】演算子(=や+=)の前後に自動でスペースを入れる
+[includeme file="inc-package-table.php" name="electric-operator" where="melpa"]
+
+#+end:
+** 概要
+*electric-operator.el* は、 [[http://emacs.rubikitch.com/electric-spacing/][electric-spacing.el(レビュー)]] の改良版です。
 
 コーディング中に演算子の間に自動でスペースを入れてくれます。
 
@@ -49,36 +39,8 @@
 #+ATTR_HTML: :width 480
 [[file:/r/sync/screenshots/20150324042754.png]]
 Fig1: スペースを入力しないでも自動で入れてくれる！
-** electric-operator インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
 
-M-x package-refresh-contents
-M-x package-install electric-operator
-
-
-#+end:
-** 概要                                                             :noexport:
-*electric-operator.el* は、 [[http://rubikitch.com/2015/03/24/electric-spacing/][electric-spacing.el(レビュー)]] の改良版です。
-
-コーディング中に演算子の間に自動でスペースを入れてくれます。
-
-多くのメジャーモードに対応していて、テストもきちんとしています。
-
-- c-mode
-- c++-mode
-- python-mode
-- ruby-mode
-- perl-mode
-- cperl-mode
-- java-mode
-- haskell-mode
-- ess-mode
-
-# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150324042754.png]]
-Fig2: スペースを入力しないでも自動で入れてくれる！
-
+[includeme file="inc-package-install.php" name="electric-operator" where="melpa"]
 ** 設定 [[http://rubikitch.com/f/150719045919.electric-operator.1.el][150719045919.electric-operator.1.el(以下のコードと同一)]]
 #+BEGIN: include :file "/r/sync/junk/150719/150719045919.electric-operator.1.el"
 #+BEGIN_SRC fundamental
@@ -98,3 +60,4 @@ Fig2: スペースを入力しないでも自動で入れてくれる！
 $ wget http://rubikitch.com/f/150719045919.electric-operator.1.el
 $ emacs -Q -f package-initialize -l 150719045919.electric-operator.1.el
 #+END_EXAMPLE
+[includeme file="inc-package-relate.php" name="electric-operator"]

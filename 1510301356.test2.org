@@ -1,5 +1,4 @@
 #+BLOG: rubikitch
-#+POSTID: 2135
 #+DATE: [2015-10-30 Fri 13:56]
 #+PERMALINK: test2
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil

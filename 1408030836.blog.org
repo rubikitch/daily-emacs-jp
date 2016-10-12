@@ -1,15 +1,15 @@
 #+BLOG: rubikitch
-#+POSTID: 59
+#+POSTID: 183
+#+BLOG: rubikitch
 #+DATE: [2014-08-03 Sun 08:36]
 #+PERMALINK: blog
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t
 #+ISPAGE: nil
 #+DESCRIPTION:
 #+BLOG: rubikitch
-#+CATEGORY: Emacs,Emacs Lisp
+#+CATEGORY: Emacs Lispテクニックバイブル
 #+DESCRIPTION:
-#+MYTAGS: Emacs,Emacs Lisp
-#+TAGS: Emacs,Emacs Lisp, Emacs,Emacs Lisp, Emacs Lispテクニックバイブル, generic-x, (require 'cl)問題, cl.el, cl-lib.el
+#+TAGS: 
 #+TITLE: Re: "Emacs Lisp テクニックバイブル" るびきち著
 http://drunkard-diogenes.blogspot.jp/2014/07/emacs-lisp.html
 

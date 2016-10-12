@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 673
+#+POSTID: 461
+#+BLOG: rubikitch
 #+DATE: [2014-12-07 Sun 03:47]
 #+PERMALINK: google-translate
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,27 +8,14 @@
 #+DESCRIPTION: M-x google-translate-enja-or-jaenは現在のセンテンス、region、入力文字列、引数を言語自動判別で英訳・和訳します。
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs
+#+CATEGORY: 辞書・翻訳
 #+EL_PKG_NAME: google-translate
-#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, emacs Google翻訳, emacs 英訳, emacs 和訳, emacs 英語 翻訳, emacs 翻訳 自動判別, 
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: google, るびきちオススメ, 初心者安心
 #+EL_TITLE0: 【設定パワーアップ】Google翻訳で言語自動判別しつつ英訳・和訳する！
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージgoogle-translateの紹介
-#+MYTAGS: package:google-translate, emacs 使い方, emacs コマンド, emacs, emacs lisp google-translate, elisp google-translate, emacs melpa google-translate, emacs google-translate 使い方, emacs google-translate 設定, emacs パッケージ google-translate, emacs google-translate スクリーンショット, emacs Google翻訳, emacs 英訳, emacs 和訳, emacs 英語 翻訳, emacs 翻訳 自動判別, 
-#+TAGS: package:google-translate, emacs 使い方, emacs コマンド, emacs, emacs lisp google-translate, elisp google-translate, emacs melpa google-translate, emacs google-translate 使い方, emacs google-translate 設定, emacs パッケージ google-translate, emacs google-translate スクリーンショット, emacs Google翻訳, emacs 英訳, emacs 和訳, emacs 英語 翻訳, emacs 翻訳 自動判別, , Emacs, google-translate.el, M-x google-translate-enja-or-jaen, google-translate-translation-directions-alist, M-x google-translate-smooth-translate, google-translate.el, M-x google-translate-enja-or-jaen, google-translate-translation-directions-alist, M-x google-translate-smooth-translate
-#+TITLE: emacs google-translate.el : 【設定パワーアップ】Google翻訳で言語自動判別しつつ英訳・和訳する！ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>google-translate</td></tr>
-<tr><td>概要(原文)</td><td>Emacs interface to Google Translate.</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/atykhonov/google-translate">https://github.com/atykhonov/google-translate</a></td></tr>
-<tr><td>バージョン</td><td>20160824.1707</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:google-translate/">package:google-translate</a> </td></tr>
-</table>
-<br />
-#+END_HTML
+#+TITLE: google-translate.el : 【設定パワーアップ】Google翻訳で言語自動判別しつつ英訳・和訳する！
+[includeme file="inc-package-table.php" name="google-translate" where="melpa"]
+** 概要
 <2014-12-30 Tue>設定を大幅パワーアップ！！！！
 
 *google-translate.el* は、Google翻訳APIを使って
@@ -56,12 +44,7 @@ C-c tに割り当てた *M-x google-translate-enja-or-jaen* は、
 様々な言語を設定し、 *M-x google-translate-smooth-translate* を
 直接使いましょう。
 
-** google-translate インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install google-translate
-
+[includeme file="inc-package-install.php" name="google-translate" where="melpa"]
 
 #+end:
 ** 概要                                                             :noexport:
@@ -141,3 +124,4 @@ $ emacs -Q -f package-initialize -l 141230072954.google-translate-2.el
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
 http://rubikitch.com/f/20141207040527.png
 Fig1: 翻訳！
+[includeme file="inc-package-relate.php" name="google-translate"]

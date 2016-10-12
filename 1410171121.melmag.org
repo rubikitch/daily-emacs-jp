@@ -1,13 +1,14 @@
 #+BLOG: rubikitch
-#+POSTID: 482
+#+POSTID: 41
+#+BLOG: rubikitch
 #+DATE: [2014-10-17 Fri 11:21]
-#+PERMALINK: melmag
+#+PERMALINK: melmag151
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t
 #+ISPAGE: nil
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: メルマガ,
+#+CATEGORY: るびきち塾メルマガ
 #+DESCRIPTION:
 #+MYTAGS:
 #+TAGS: , メルマガ,, org-mode, org2blog

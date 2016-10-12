@@ -1,91 +1,31 @@
 #+BLOG: rubikitch
-#+POSTID: 1183
+#+POSTID: 497
+#+BLOG: rubikitch
 #+DATE: [2015-02-21 Sat 07:56]
 #+PERMALINK: win-switch
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
 #+ISPAGE: nil
-#+DESCRIPTION:
+#+DESCRIPTION:C-x o o o ...で次々とウィンドウを切替えられる。また、リサイズや分割もこなしてくれる
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs
+#+CATEGORY: ウィンドウ切り替え
 #+EL_PKG_NAME: win-switch
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, relate:switch-window, relate:ace-window, relate:owdriver, emacs ウィンドウ 切り替え, emacs C-x o 改善, ウィンドウ切り替え, emacs C-x o 改善, ウィンドウ切り替え, , relate:window-numbering
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: るびきちオススメ, 
 #+EL_TITLE0: 【3分割以上している人必見】ウィンドウを瞬時に切替・分割・リサイズ！
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージwin-switchの紹介
-#+MYTAGS: package:win-switch, emacs 使い方, emacs コマンド, emacs, win-switch, win-switch.el, emacs lisp win-switch, elisp win-switch, emacs melpa win-switch, emacs win-switch 使い方, emacs win-switch 設定, emacs パッケージ win-switch, emacs win-switch スクリーンショット, relate:switch-window, relate:ace-window, relate:owdriver, emacs ウィンドウ 切り替え, emacs C-x o 改善, ウィンドウ切り替え, emacs C-x o 改善, ウィンドウ切り替え, , relate:window-numbering
-#+TAGS: package:win-switch, emacs 使い方, emacs コマンド, emacs, win-switch, win-switch.el, emacs lisp win-switch, elisp win-switch, emacs melpa win-switch, emacs win-switch 使い方, emacs win-switch 設定, emacs パッケージ win-switch, emacs win-switch スクリーンショット, relate:switch-window, relate:ace-window, relate:owdriver, emacs ウィンドウ 切り替え, emacs C-x o 改善, ウィンドウ切り替え, emacs C-x o 改善, ウィンドウ切り替え, , relate:window-numbering, Emacs, C-x o, other-window, win-switch.el, タイマー, C-x o, other-window, win-switch.el, タイマー
-#+TITLE: emacs win-switch.el : 【3分割以上している人必見】ウィンドウを瞬時に切替・分割・リサイズ！ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>win-switch</td></tr>
-<tr><td>概要(原文)</td><td>fast, dynamic bindings for window-switching/resizing</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/genovese/win-switch">https://github.com/genovese/win-switch</a></td></tr>
-<tr><td>バージョン</td><td>20150208.1911</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:win-switch/">package:win-switch</a> <a href="http://rubikitch.com/tag/package:switch-window/">package:switch-window</a> <a href="http://rubikitch.com/tag/package:ace-window/">package:ace-window</a> <a href="http://rubikitch.com/tag/package:owdriver/">package:owdriver</a> <a href="http://rubikitch.com/tag/package:window-numbering/">package:window-numbering</a></td></tr>
-</table>
-<br />
-#+END_HTML
-たくさんウィンドウを分割する人にとって、
-次のウィンドウに切り替える *C-x o* は
-とてつもなく使いづらいです。
-
-それを解決するためには、これまで2つの方法がありました。
-- C-tなどの1ストロークのキーに *other-window* を割り当てる
-- [[http://rubikitch.com/2015/01/25/hydra/][smartrep.elやhydra.el(比較レビュー)など]] で連続実行させる
-
-3番目の方法として、この *win-switch.el* も加えてください。
-
-これは名前とうらはらにウィンドウを切り替えるだけでなく、
-分割とリサイズまでやってしまいます。
-
-もちろん、smartrepやhydraでもたくさんのキーを
-連続実行可能キーに登録してしまえば可能ですが、
-win-switch.elでは *タイマー* が設定してある点が優れています。
-
-デフォルトではC-x oとそれに伴うキーを操作してから0.75秒秒経過すると
-win-switch用の操作が無効になります。
-
-smartrepやhydraでは時間経過しても連続実行キーを受け付けるので
-ウィンドウ操作後にキーそのものの文字を入力しようとしても
-連続実行のコマンドが実行されてしまいます。
-
-これはストレス以外の何物でもありません。
-
-このパッケージは説明文がめちゃくちゃ長いですが、
-一番簡単な使い方はC-x o o ...とoを連続的に
-押すだけで次々とウィンドウを切り替えてくれます。
-
-そしてウィンドウを切り替えた後すぐに他の操作に移れます。
-
-これだけでもかなり便利ですが、
-本設定ではvi風のhjklで左右上下のウィンドウに切り替えたり、
-HJKLでウィンドウのリサイズを行えるようにしています。
-
-ウィンドウ多分割派には[[http://rubikitch.com/2014/09/11/owdriver/][owdriver.el(レビュー)]] もおすすめです。
-
-# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
-[[file:/r/sync/screenshots/20150221083126.png]]
-Fig1: こんなに分割してても安心！
-** win-switch インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install win-switch
-
+#+TITLE: win-switch.el : 【3分割以上している人必見】ウィンドウを瞬時に切替・分割・リサイズ！
+[includeme file="inc-package-table.php" name="win-switch" where="melpa"]
 
 #+end:
-** 概要                                                             :noexport:
+** 概要
 たくさんウィンドウを分割する人にとって、
 次のウィンドウに切り替える *C-x o* は
 とてつもなく使いづらいです。
 
 それを解決するためには、これまで2つの方法がありました。
 - C-tなどの1ストロークのキーに *other-window* を割り当てる
-- [[http://rubikitch.com/2015/01/25/hydra/][smartrep.elやhydra.el(比較レビュー)など]] で連続実行させる
+- [[http://emacs.rubikitch.com/hydra/][smartrep.elやhydra.el(比較レビュー)など]] で連続実行させる
 
 3番目の方法として、この *win-switch.el* も加えてください。
 
@@ -115,12 +55,13 @@ smartrepやhydraでは時間経過しても連続実行キーを受け付ける�
 本設定ではvi風のhjklで左右上下のウィンドウに切り替えたり、
 HJKLでウィンドウのリサイズを行えるようにしています。
 
-ウィンドウ多分割派には[[http://rubikitch.com/2014/09/11/owdriver/][owdriver.el(レビュー)]] もおすすめです。
+ウィンドウ多分割派には[[http://emacs.rubikitch.com/owdriver/][owdriver.el(レビュー)]] もおすすめです。
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
 [[file:/r/sync/screenshots/20150221083126.png]]
 Fig1: こんなに分割してても安心！
 
+[includeme file="inc-package-install.php" name="win-switch" where="melpa"]
 ** 設定 [[http://rubikitch.com/f/150221075044.win-switch.el][150221075044.win-switch.el(以下のコードと同一)]]
 #+BEGIN: include :file "/r/sync/junk/150221/150221075044.win-switch.el"
 #+BEGIN_SRC fundamental
@@ -161,3 +102,4 @@ $ emacs -Q -f package-initialize -l 150221075044.win-switch.el
 #+END_EXAMPLE
 
 # /r/sync/screenshots/20150221083126.png http://rubikitch.com/wp-content/uploads/2015/02/wpid-20150221083126.png
+[includeme file="inc-package-relate.php" name="win-switch"]

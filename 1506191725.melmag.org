@@ -1,18 +1,19 @@
 #+BLOG: rubikitch
-#+POSTID: 1760
+#+POSTID: 105
+#+BLOG: rubikitch
 #+DATE: [2015-06-19 Fri 17:25]
-#+PERMALINK: melmag
+#+PERMALINK: melmag186
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
 #+ISPAGE: nil
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: メルマガ,
+#+CATEGORY: るびきち塾メルマガ
 #+DESCRIPTION: るびきち塾メルマガ『Emacsの鬼るびきちのココだけの話#186』の予告
 #+TITLE: 【メルマガ#186】diffとpatchと
 #+MYTAGS: 
 #+begin: org2blog-tags
-#+TAGS: , メルマガ,, 
+
 #+end:
 今回はdiffとpatchのお話です。
 

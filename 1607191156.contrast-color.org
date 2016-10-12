@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 2493
+#+POSTID: 1477
+#+BLOG: rubikitch
 #+DATE: [2016-07-19 Tue 11:56]
 #+PERMALINK: contrast-color
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,28 +8,17 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs
+#+CATEGORY: 解析ツール
 #+EL_PKG_NAME: contrast-color
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, google material design, 色, color, コントラストカラー, relate:rainbow-mode, web design, デザイン, 色選択, 見やすい色, マテリアルデザイン, 
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: 
 #+EL_TITLE0: Google Material Designでのコントラストカラーを得る関数
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージcontrast-colorの紹介
-#+MYTAGS: package:contrast-color, emacs 使い方, emacs コマンド, emacs, contrast-color, contrast-color.el, emacs lisp contrast-color, elisp contrast-color, emacs melpa contrast-color, emacs contrast-color 使い方, emacs contrast-color 設定, emacs パッケージ contrast-color, emacs contrast-color スクリーンショット, google material design, 色, color, コントラストカラー, relate:rainbow-mode, web design, デザイン, 色選択, 見やすい色, マテリアルデザイン, 
-#+TAGS: package:contrast-color, emacs 使い方, emacs コマンド, emacs, contrast-color, contrast-color.el, emacs lisp contrast-color, elisp contrast-color, emacs melpa contrast-color, emacs contrast-color 使い方, emacs contrast-color 設定, emacs パッケージ contrast-color, emacs contrast-color スクリーンショット, google material design, 色, color, コントラストカラー, relate:rainbow-mode, web design, デザイン, 色選択, 見やすい色, マテリアルデザイン, , Emacs, contrast-color, CIEDE2000, CIEDE2000
-#+TITLE: emacs contrast-color.el : Google Material Designでのコントラストカラーを得る関数 | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>contrast-color</td></tr>
-<tr><td>概要(原文)</td><td>Pick best contrast color for you</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/yuutayamada/contrast-color-el">https://github.com/yuutayamada/contrast-color-el</a></td></tr>
-<tr><td>バージョン</td><td>20160713.1211</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:contrast-color/">package:contrast-color</a> <a href="http://rubikitch.com/tag/package:rainbow-mode/">package:rainbow-mode</a></td></tr>
-</table>
-<br />
-#+END_HTML
+#+TITLE: contrast-color.el : Google Material Designでのコントラストカラーを得る関数
+[includeme file="inc-package-table.php" name="contrast-color" where="melpa"]
+
+#+end:
+** 概要
 contrast-color.elはたったひとつの関数 *contrast-color* を提供します。
 *CIEDE2000* アルゴリズムにおけるコントラストカラーを返す関数です。
 それは[[https://material.google.com/style/color.html][Google's material design's colors]] に基いています。
@@ -36,22 +26,8 @@ contrast-color.elはたったひとつの関数 *contrast-color* を提供しま
 #+ATTR_HTML: :width 480
 [[file:/r/sync/screenshots/20160719115618.png]]
 Fig1: 実行例(M-x lispxmp→M-x fundamental-mode→M-x rainbow-mode)
-** contrast-color インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install contrast-color
-
-
-#+end:
-** 概要                                                             :noexport:
-contrast-color.elはたったひとつの関数 *contrast-color* を提供します。
-*CIEDE2000* アルゴリズムにおけるコントラストカラーを返す関数です。
-それは[[https://material.google.com/style/color.html][Google's material design's colors]] に基いています。
-# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20160719115618.png]]
-Fig2: 実行例(M-x lispxmp→M-x fundamental-mode→M-x rainbow-mode)
 
 
 # /r/sync/screenshots/20160719115618.png http://rubikitch.com/wp-content/uploads/2016/07/20160719115618.png
+[includeme file="inc-package-install.php" name="contrast-color" where="melpa"]
+[includeme file="inc-package-relate.php" name="contrast-color"]

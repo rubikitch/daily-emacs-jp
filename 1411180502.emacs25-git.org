@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 590
+#+POSTID: 416
+#+BLOG: rubikitch
 #+DATE: [2014-11-18 Tue 05:02]
 #+PERMALINK: emacs25-git
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,10 +8,9 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, Emacs 25.0
+#+CATEGORY: 新機能紹介
 #+DESCRIPTION: 開発版Emacs(Emacs 25)のインストール手順とGitリポジトリ情報。
-#+MYTAGS: Emacs25 インストール, Emacs25 コンパイル, emacs git コンパイル, emacs git インストール, emacs 開発版 インストール, emacs 開発版 コンパイル, package:eww
-#+TAGS: Emacs25 インストール, Emacs25 コンパイル, emacs git コンパイル, emacs git インストール, emacs 開発版 インストール, emacs 開発版 コンパイル, package:eww, Emacs, Emacs 25.0, eww, M-x rename-buffer, M-x rename-uniquely, eww-after-render-hook, autoconf, automake, configure
+#+TAGS: Emacs 25.0以降, ビルド・インストール
 #+TITLE: 開発版Emacs25がGit化されたのでコンパイルしてみた！インストール手順とリポジトリ情報
 ついにEmacsがGitで管理されるようになりました！
 

@@ -1,13 +1,14 @@
 #+BLOG: rubikitch
-#+POSTID: 885
+#+POSTID: 59
+#+BLOG: rubikitch
 #+DATE: [2015-01-09 Fri 04:55]
-#+PERMALINK: melmag
+#+PERMALINK: melmag163
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
 #+ISPAGE: nil
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: メルマガ, 
+#+CATEGORY: るびきち塾メルマガ 
 #+DESCRIPTION: Emacsの鬼るびきちのココだけの話#163の予告。
 #+MYTAGS: 
 #+TITLE: Emacsを使って心の状態を整える方法　その2

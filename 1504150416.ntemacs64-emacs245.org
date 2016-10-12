@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 1511
+#+POSTID: 847
+#+BLOG: rubikitch
 #+DATE: [2015-04-15 Wed 04:16]
 #+PERMALINK: ntemacs64-emacs245
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,16 +8,17 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, Emacs 24.5, NTEmacs64, 
+#+CATEGORY: リリース情報
 #+DESCRIPTION: 
-#+MYTAGS: Emacs, NTEmacs64, NTEmacs, emacs windows, emacs 24.5 windows, emacs24.5 windows, emacs eww windows, emacs libxml2 windows, package:eww, eww, emacs windows インストール, emacs windows 設定
 #+TITLE: 【NTEmacs64バージョンアップ】Windows用Emacs 24.5バイナリ登場！！
+#+TAGS: Emacs 24.5以降
 #+begin: org2blog-tags
-#+TAGS: Emacs, NTEmacs64, NTEmacs, emacs windows, emacs 24.5 windows, emacs24.5 windows, emacs eww windows, emacs libxml2 windows, package:eww, eww, emacs windows インストール, emacs windows 設定, Emacs, Emacs 24.5, NTEmacs64, , Windows版Emacs, NTEmacs, 64bit版
+# content-length: 1802
+
 #+end:
 https://github.com/chuntaro/NTEmacs64
 
-[[http://rubikitch.com/2015/03/30/emacs245-news/][4/11にEmacs24.5がリリースされました]] が、
+[[http://emacs.rubikitch.com/emacs245-news/][4/11にEmacs24.5がリリースされました]] が、
 NTEmacs64(*Windows版Emacs* (通称 *NTEmacs*) の *64bit版*)
 の方もそれに対応されました。
 
@@ -30,14 +32,14 @@ https://github.com/chuntaro/NTEmacs64/blob/master/README.md
 gnupack(32bit Cygwin Emacs)の方もそのうち更新されるでしょう。
 
 以後、本サイトでの設定はEmacs24.4で導入された
-[[http://rubikitch.com/2014/10/30/nadvice/][nadvice.el]] などを積極的に使っていくことにします。
+[[http://emacs.rubikitch.com/nadvice/][nadvice.el]] などを積極的に使っていくことにします。
 
 
 かねがね主張しているように、WindowsでEmacsをまともに動かすのは茨の道です。
 
 GNU/Linuxと比べてたくさん苦労することは覚悟しておいてください。
 
-[[http://rubikitch.com/2014/11/11/ntemacs64/]]  より引用。
+[[http://emacs.rubikitch.com/ntemacs64/]]  より引用。
 
 #+BEGIN_QUOTE
 Emacsはスクリプト言語のように拡張ライブラリでガンガン拡張できるわけではなく、
@@ -86,7 +88,7 @@ eww-browse-url関数を使えば任意にURLを開いてくれます。
 
 これを使えばプログラミング言語のオンラインマニュアルも楽勝で参照できます。
 
-http://rubikitch.com/2014/11/08/help-me-rubikitch-san 参照
+http://emacs.rubikitch.com/help-me-rubikitch-san 参照
 
 これってすごいことだと思いませんか？
 

@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 1617
+#+POSTID: 893
+#+BLOG: rubikitch
 #+DATE: [2015-05-06 Wed 04:23]
 #+PERMALINK: ample-regexps
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,155 +8,17 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, Emacs Lisp, 
+#+CATEGORY: 文字列操作
 #+EL_PKG_NAME: ample-regexps
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p,  正規表現, emacs 正規表現 バックスラッシュ, relate:rx, package:rx, Emacs S式 正規表現, emacs S式から正規表現を作成, emacs 正規表現 ミニ言語, elispの正規表現, elisp rxを拡張する
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 
+#+TAGS: 正規表現
 #+EL_TITLE0: 【さらばバックスラッシュ】rxに語彙を追加しより理解可能な正規表現を定義する
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージample-regexpsの紹介
-#+MYTAGS: package:ample-regexps, emacs 使い方, emacs コマンド, emacs, ample-regexps, ample-regexps.el, emacs lisp ample-regexps, elisp ample-regexps, emacs melpa ample-regexps, emacs ample-regexps 使い方, emacs ample-regexps 設定, emacs パッケージ ample-regexps,  正規表現, emacs 正規表現 バックスラッシュ, relate:rx, package:rx, Emacs S式 正規表現, emacs S式から正規表現を作成, emacs 正規表現 ミニ言語, elispの正規表現, elisp rxを拡張する
-#+TAGS: package:ample-regexps, emacs 使い方, emacs コマンド, emacs, ample-regexps, ample-regexps.el, emacs lisp ample-regexps, elisp ample-regexps, emacs melpa ample-regexps, emacs ample-regexps 使い方, emacs ample-regexps 設定, emacs パッケージ ample-regexps,  正規表現, emacs 正規表現 バックスラッシュ, relate:rx, package:rx, Emacs S式 正規表現, emacs S式から正規表現を作成, emacs 正規表現 ミニ言語, elispの正規表現, elisp rxを拡張する, Emacs, Emacs Lisp, , rx, ample-regexps.el, > "[[:alnum:]_]+, > "[[:alnum:]_]+, > "[[:alnum:]_]+, > "[[:alnum:]_]+, > "\\_<\\(?:[[:alpha:]_]+\\|[[:alnum:]_]*\\)\\_>[[:blank:]]*, > "\\_<\\(?:elif\\|if\\|while\\)\\_>[[:blank:]]*\\_<\\(?:[[:alpha:]_]+\\|[[:alnum:]_]*\\)\\_>[[:blank:]]*=, rx, ample-regexps.el, > "[[:alnum:]_]+, > "[[:alnum:]_]+, > "[[:alnum:]_]+, > "[[:alnum:]_]+, > "\\_<\\(?:[[:alpha:]_]+\\|[[:alnum:]_]*\\)\\_>[[:blank:]]*, > "\\_<\\(?:elif\\|if\\|while\\)\\_>[[:blank:]]*\\_<\\(?:[[:alpha:]_]+\\|[[:alnum:]_]*\\)\\_>[[:blank:]]*=
-#+TITLE: emacs ample-regexps.el : 【さらばバックスラッシュ】rxに語彙を追加しより理解可能な正規表現を定義する | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>ample-regexps</td></tr>
-<tr><td>概要(原文)</td><td>ample regular expressions for Emacs</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/immerrr/ample-regexps.el">https://github.com/immerrr/ample-regexps.el</a></td></tr>
-<tr><td>バージョン</td><td>20150503.1323</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:ample-regexps/">package:ample-regexps</a> <a href="http://rubikitch.com/tag/package:rx/">package:rx</a></td></tr>
-</table>
-<br />
-#+END_HTML
-Emacsの正規表現は古い方言のため、PCREなどの現代的な正規表現よりも
-バックスラッシュが多くなります。
-
-しかもelispには正規表現リテラルがないため、
-文字列で表現するとバックスラッシュてんこもりになってしまいます。
-
-まさに「読めるかバカヤロー！」状態ですが、
-これを解決する方法がS式で正規表現を記述する *rx* です。
-
-rxマクロは正規表現を表すためのミニ言語であり、
-大量のバックスラッシュよりもいくぶん理解しやすくなります。
-
-rxがわからないならば<f1> f rxでdocstringを読みましょう。
-
-ものすごい長いですがカンで読めるはずです(笑)
-
-で、実際のelispプログラミングでたくさんの正規表現を定義するとき、
-部分的な正規表現はぜひとも再利用したいわけです。
-
-しかし、rxのミニ言語自体は語彙を追加できません。
-
-*ample-regexps.el* は、語彙を追加したrxを提供します。
-
-#+BEGIN_SRC emacs-lisp :results silent
-;;; a=10のようにふつうの言語の変数設定の正規表現
-(let ((assign (rx (and (regexp "[[:alnum:]_]+")
-                       "="
-                       (regexp "[[:alnum:]_]+")))))
-  assign                            ; => "[[:alnum:]_]+=[[:alnum:]_]+"
-  (string-match assign "a=10")          ; => 0
-  )
-;;; alnumの部分がかぶってるので変数にしてしまいましょうか。
-(let* ((name '(regexp "[[:alnum:]_]+"))
-       (assign (eval `(rx (and ,name "=" ,name)))))
-  assign                            ; => "[[:alnum:]_]+=[[:alnum:]_]+"
-  (string-match assign "a=10")          ; => 0
-  )
-;;; やっぱりevalまで持ち出すのは嫌だな…ample-regexpsを使おう
-(require 'ample-regexps)
-(define-arx arx-assign-regexp
-  '((name (regexp "[[:alnum:]_]+"))))
-;; arx-assign-regexpはnameという語彙が追加されたrxとして使える！
-(let ((assign (arx-assign-regexp (and name "=" name))))
-  assign                            ; => "[[:alnum:]_]+=[[:alnum:]_]+"
-  (string-match assign "a=10")      ; => 0
-  )
-;; しかも (and 〜) は省略できる
-(let ((assign (arx-assign-regexp name "=" name)))
-  assign                            ; => "[[:alnum:]_]+=[[:alnum:]_]+"
-  (string-match assign "a=10")      ; => 0
-  )
-#+END_SRC
-
-nameという語彙が追加され、再利用できることがわかりました。
-
-rxを無理に使わなくても手軽に語彙を追加できます。
-
-#+BEGIN_SRC emacs-lisp :results silent
-(define-arx sample-rx
-  '((notnewline (regexp "."))
-    (chars (regexp ".+"))))
-(sample-rx notnewline)                  ; => "."
-(sample-rx chars)                       ; => ".+"
-(sample-rx notnewline chars)            ; => "..+"
-#+END_SRC
-
-
-これだけだとあまり威力を感じないかもしれないので、
-もっと複雑な例を示しましょう。
-
-語彙に関数を追加することもできてしまいます。
-
-#+BEGIN_SRC emacs-lisp :results silent
-;;; たくさん語彙を定義した例。
-(define-arx cond-assignment-rx
-  '((alpha_ (regexp "[[:alpha:]_]"))         ;アルファベットと_
-    (alnum_ (regexp "[[:alnum:]_]"))         ;アルファベットと数字と_
-    (ws (* blank))                           ;whitespace
-    (sym (:func (lambda (_form &rest args) ; foo -> \_<foo\_> の変換関数
-                  `(and symbol-start (or ,@args) symbol-end))))
-    ;; (and symbol-start (or "if" "elif" "while") symbol-end) になる
-    (cond-keyword (sym "if" "elif" "while"))
-    (id (sym (+ alpha_) (* alnum_)))))
-(cond-assignment-rx ws)  ; => "[[:blank:]]*"
-(cond-assignment-rx (sym "foo"))  ; => "\\_<\\(?:foo\\)\\_>"
-(cond-assignment-rx (sym "foo" "bar"))  ; => "\\_<\\(?:bar\\|foo\\)\\_>"
-(let ((id (cond-assignment-rx id)))
-  id              ; => "\\_<\\(?:[[:alpha:]_]+\\|[[:alnum:]_]*\\)\\_>"
-  (string-match id "1")                 ; => 0
-  (string-match id "a")                 ; => 0
-  (string-match id "p111")              ; => 0
-  )
-(let ((assign (cond-assignment-rx id ws "=" ws id)))
-  assign ; => "\\_<\\(?:[[:alpha:]_]+\\|[[:alnum:]_]*\\)\\_>[[:blank:]]*=[[:blank:]]*\\_<\\(?:[[:alpha:]_]+\\|[[:alnum:]_]*\\)\\_>"
-  (string-match assign "p111 = a")      ; => 0
-  (string-match assign "p111 = 1")         ; => 0
-  ;; 【注意】メジャーモード依存！
-  ;; emacs-lisp-modeでは p111=1 自体がシンボルになるのでマッチしない
-  (string-match assign "p111=1")         ; => nil
-  ;; c-modeならばp111と1がシンボルになるのでマッチする
-  (with-temp-buffer
-    (c-mode)
-    (string-match assign "p111=1"))     ; => 0
-  )
-;;; 条件文にマッチさせる
-(let ((cond-assign (cond-assignment-rx cond-keyword ws id ws "==" ws id)))
-  cond-assign
-  ;; => "\\_<\\(?:elif\\|if\\|while\\)\\_>[[:blank:]]*\\_<\\(?:[[:alpha:]_]+\\|[[:alnum:]_]*\\)\\_>[[:blank:]]*==[[:blank:]]*\\_<\\(?:[[:alpha:]_]+\\|[[:alnum:]_]*\\)\\_>"
-  (string-match cond-assign "if p111 == 10") ; => 0
-  )
-#+END_SRC
-
-このように、elispでパーサを書いたり、font-lockを定義したり、
-それなりの規模のテキストを処理するときに役立ちます。
-
-
-
-# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
-** ample-regexps インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install ample-regexps
-
+#+TITLE: ample-regexps.el : 【さらばバックスラッシュ】rxに語彙を追加しより理解可能な正規表現を定義する
+[includeme file="inc-package-table.php" name="ample-regexps" where="melpa"]
 
 #+end:
-** 概要                                                             :noexport:
+** 概要
 Emacsの正規表現は古い方言のため、PCREなどの現代的な正規表現よりも
 バックスラッシュが多くなります。
 
@@ -274,3 +137,5 @@ rxを無理に使わなくても手軽に語彙を追加できます。
 
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+[includeme file="inc-package-install.php" name="ample-regexps" where="melpa"]
+[includeme file="inc-package-relate.php" name="ample-regexps"]

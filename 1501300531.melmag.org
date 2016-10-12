@@ -1,18 +1,19 @@
 #+BLOG: rubikitch
-#+POSTID: 1030
+#+POSTID: 65
+#+BLOG: rubikitch
 #+DATE: [2015-01-30 Fri 05:31]
-#+PERMALINK: melmag
+#+PERMALINK: melmag166
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
 #+ISPAGE: nil
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: メルマガ, 
+#+CATEGORY: るびきち塾メルマガ 
 #+DESCRIPTION: 
 #+MYTAGS: 
 #+TITLE: helmの原点へ立ち帰ろう
 #+begin: org2blog-tags
-#+TAGS: , メルマガ, , 
+
 #+end:
 今回のメルマガはhelmのおさらいと
 あまり知られていないであろう機能をお話します。

@@ -1,36 +1,23 @@
 #+BLOG: rubikitch
-#+POSTID: 336
+#+POSTID: 288
+#+BLOG: rubikitch
 #+DATE: [2014-09-11 Thu 11:08]
 #+PERMALINK: owdriver
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t
 #+ISPAGE: nil
-#+DESCRIPTION:
+#+DESCRIPTION:別ウィンドウを遠隔操作する
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs
+#+CATEGORY: ウィンドウ操作
 #+EL_PKG_NAME: owdriver
-#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, package:smartrep, emacs other-window, emacs 3分割, emacs ウィンドウ管理, emacs ウィンドウ構成, emacs smartrep.el e2wm.el, emacs 隣のウィンドウ 操作, emacs 他のウィンドウ 操作, relate:switch-window, relate:win-switch
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方
+#+TAGS: るびきちオススメ
 #+EL_TITLE0: 3分割以上でも大丈夫！other-window系のコマンドを蹴っ飛ばせ！ウィンドウを切り替えなしに操作するッ！！
 #+EL_URL: http://tinyurl.com/mlg9qxc
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージowdriverの紹介
-#+MYTAGS: package:owdriver, emacs 使い方, emacs コマンド, emacs, emacs lisp owdriver, elisp owdriver, emacs melpa owdriver, emacs owdriver 使い方, emacs owdriver 設定, emacs パッケージ owdriver, package:smartrep, emacs other-window, emacs 3分割, emacs ウィンドウ管理, emacs ウィンドウ構成, emacs smartrep.el e2wm.el, emacs 隣のウィンドウ 操作, emacs 他のウィンドウ 操作, relate:switch-window, relate:win-switch
-#+TAGS: package:owdriver, emacs 使い方, emacs コマンド, emacs, emacs lisp owdriver, elisp owdriver, emacs melpa owdriver, emacs owdriver 使い方, emacs owdriver 設定, emacs パッケージ owdriver, package:smartrep, emacs other-window, emacs 3分割, emacs ウィンドウ管理, emacs ウィンドウ構成, emacs smartrep.el e2wm.el, emacs 隣のウィンドウ 操作, emacs 他のウィンドウ 操作, relate:switch-window, relate:win-switch, Emacs, scroll-other-window, owdriver.el, smartrep.el, C-x o (other-window), owdriver-prefix-key, scroll-other-window, owdriver.el, smartrep.el, C-x o (other-window), owdriver-prefix-key, owdriver-add-keymap, owdriver-define-command, owdriver-define-command
-#+TITLE: emacs owdriver.el : 3分割以上でも大丈夫！other-window系のコマンドを蹴っ飛ばせ！ウィンドウを切り替えなしに操作するッ！！ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>owdriver</td></tr>
-<tr><td>概要(原文)</td><td>Quickly perform various actions on other windows</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>サイト</td><td><a href="http://tinyurl.com/mlg9qxc">http://tinyurl.com/mlg9qxc</td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/aki2o/owdriver">https://github.com/aki2o/owdriver</a></td></tr>
-<tr><td>バージョン</td><td>20141011.738</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:owdriver/">package:owdriver</a> <a href="http://rubikitch.com/tag/package:switch-window/">package:switch-window</a> <a href="http://rubikitch.com/tag/package:win-switch/">package:win-switch</a></td></tr>
-</table>
-<br />
-#+END_HTML
-<2015-02-21 Sat> [[http://rubikitch.com/2015/02/21/win-switch/][win-switch.elも仲間に入れてください。]] 
+#+TITLE: owdriver.el : 3分割以上でも大丈夫！other-window系のコマンドを蹴っ飛ばせ！ウィンドウを切り替えなしに操作するッ！！
+[includeme file="inc-package-table.php" name="owdriver" where="melpa"]
+** 概要
+<2015-02-21 Sat> [[http://emacs.rubikitch.com/win-switch/][win-switch.elも仲間に入れてください。]] 
 
 
 これは便利！
@@ -56,18 +43,13 @@
 
 /それくらいやばい破壊力を持っています！！/
 
-[[http://rubikitch.com/2014/12/15/switch-window][switch-windowも併用するとなおよし]] 。
+[[http://emacs.rubikitch.com/switch-window][switch-windowも併用するとなおよし]] 。
 
-** owdriver インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install owdriver
-
+[includeme file="inc-package-install.php" name="owdriver" where="melpa"]
 
 #+end:
 ** 概要                                                             :noexport:
-<2015-02-21 Sat> [[http://rubikitch.com/2015/02/21/win-switch/][win-switch.elも仲間に入れてください。]] 
+<2015-02-21 Sat> [[http://emacs.rubikitch.com/win-switch/][win-switch.elも仲間に入れてください。]] 
 
 
 これは便利！
@@ -93,7 +75,7 @@ M-x package-install owdriver
 
 /それくらいやばい破壊力を持っています！！/
 
-[[http://rubikitch.com/2014/12/15/switch-window][switch-windowも併用するとなおよし]] 。
+[[http://emacs.rubikitch.com/switch-window][switch-windowも併用するとなおよし]] 。
 
 
 ** 設定 [[http://rubikitch.com/f/140911110001.owdriver.el][140911110001.owdriver.el(以下のコードと同一)]]
@@ -204,3 +186,4 @@ M-o C-vと操作できるようになります。
 #+END_EXAMPLE
 
 を実行するように定義されます。
+[includeme file="inc-package-relate.php" name="owdriver"]

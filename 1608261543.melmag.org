@@ -1,18 +1,19 @@
 #+BLOG: rubikitch
-#+POSTID: 2711
+#+POSTID: 165
+#+BLOG: rubikitch
 #+DATE: [2016-08-26 Fri 15:43]
-#+PERMALINK: melmag
+#+PERMALINK: melmag248
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
 #+ISPAGE: nil
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: メルマガ,
+#+CATEGORY: るびきち塾メルマガ
 #+DESCRIPTION: るびきち塾メルマガ『Emacsの鬼るびきちのココだけの話#248』の予告
 #+TITLE: 【るびきち塾メルマガ#248】世界一易しいEmacsメモ講座(2)
 #+MYTAGS: 
 #+begin: org2blog-tags
-#+TAGS: , メルマガ,, 
+
 #+end:
 「るびきちさーん、ここどうすればいいの？」
 『ああ、これはEmacsではなくて別なツールだな』

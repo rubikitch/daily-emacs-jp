@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 1690
+#+POSTID: 936
+#+BLOG: rubikitch
 #+DATE: [2015-05-28 Thu 09:20]
 #+PERMALINK: focus
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,28 +8,17 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs
+#+CATEGORY: テキスト色付け
 #+EL_PKG_NAME: focus
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, relate:fancy-narrow, emacs 集中, 集中力 フォーカス
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: 
 #+EL_TITLE0: 【集中力増強】現在の文・関数を目立つように中央に表示させる
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージfocusの紹介
-#+MYTAGS: package:focus, emacs 使い方, emacs コマンド, emacs, focus, focus.el, emacs lisp focus, elisp focus, emacs melpa focus, emacs focus 使い方, emacs focus 設定, emacs パッケージ focus, emacs focus スクリーンショット, relate:fancy-narrow, emacs 集中, 集中力 フォーカス
-#+TAGS: package:focus, emacs 使い方, emacs コマンド, emacs, focus, focus.el, emacs lisp focus, elisp focus, emacs melpa focus, emacs focus 使い方, emacs focus 設定, emacs パッケージ focus, emacs focus スクリーンショット, relate:fancy-narrow, emacs 集中, 集中力 フォーカス, Emacs, focus.el, thing-at-point, prog-mode, text-mode, M-x focus-mode, focus-read-only-mode, focus.el, thing-at-point, prog-mode, text-mode, M-x focus-mode, focus-read-only-mode
-#+TITLE: emacs focus.el : 【集中力増強】現在の文・関数を目立つように中央に表示させる | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>focus</td></tr>
-<tr><td>概要(原文)</td><td>Dim the font color of text in surrounding sections</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/larstvei/Focus">https://github.com/larstvei/Focus</a></td></tr>
-<tr><td>バージョン</td><td>20150524.848</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:focus/">package:focus</a> <a href="http://rubikitch.com/tag/package:fancy-narrow/">package:fancy-narrow</a></td></tr>
-</table>
-<br />
-#+END_HTML
+#+TITLE: focus.el : 【集中力増強】現在の文・関数を目立つように中央に表示させる
+[includeme file="inc-package-table.php" name="focus" where="melpa"]
+
+#+end:
+** 概要
 コードや文章を読んでいるとき、
 現在の関数や文・パラグラフに集中したいことがあります。
 
@@ -45,7 +35,7 @@ SPC、S-SPCで前後のTHINGに移動し、中央に表示します。
 
 SPCを押すことで関数・センテンス単位で読み進められます。
 
-[[http://rubikitch.com/2015/02/24/fancy-narrow/][fancy-narrow.el(レビュー)]] では特定の範囲を目立つようにしますが、
+[[http://emacs.rubikitch.com/fancy-narrow/][fancy-narrow.el(レビュー)]] では特定の範囲を目立つようにしますが、
 focus-read-only-modeは、それを自動的に行っていると思ってください。
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
@@ -56,40 +46,6 @@ Fig1: 元々の表示
 #+ATTR_HTML: :width 480
 [[file:/r/sync/screenshots/20150528091527.png]]
 Fig2: M-x focus-modeで現在の文を目立つように表示
-** focus インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
 
-M-x package-refresh-contents
-M-x package-install focus
-
-
-#+end:
-** 概要                                                             :noexport:
-コードや文章を読んでいるとき、
-現在の関数や文・パラグラフに集中したいことがあります。
-
-*focus.el* は、現在のTHING(*thing-at-point* 的な意味で)以外の部分を
-暗い文字で表示することにより現在のTHINGを目立たせます。
-
-ソースコード(*prog-mode*)においては関数(defun)を、
-テキスト(*text-mode*)においてはセンテンスを目立たせます。
-
-*M-x focus-mode* でマイナーモードを有効にしてこの表示方法にします。
-
-さらにC-c C-q(*focus-read-only-mode*)で閲覧用モードとなり、
-SPC、S-SPCで前後のTHINGに移動し、中央に表示します。
-
-SPCを押すことで関数・センテンス単位で読み進められます。
-
-[[http://rubikitch.com/2015/02/24/fancy-narrow/][fancy-narrow.el(レビュー)]] では特定の範囲を目立つようにしますが、
-focus-read-only-modeは、それを自動的に行っていると思ってください。
-
-# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150528091518.png]]
-Fig3: 元々の表示
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150528091527.png]]
-Fig4: M-x focus-modeで現在の文を目立つように表示
-
+[includeme file="inc-package-install.php" name="focus" where="melpa"]
+[includeme file="inc-package-relate.php" name="focus"]

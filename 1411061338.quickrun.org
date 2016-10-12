@@ -1,32 +1,21 @@
 #+BLOG: rubikitch
-#+POSTID: 553
+#+POSTID: 392
+#+BLOG: rubikitch
 #+DATE: [2014-11-06 Thu 13:38]
 #+PERMALINK: quickrun
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
 #+ISPAGE: nil
-#+DESCRIPTION:
+#+DESCRIPTION:M-x quickrunはカレントバッファを実行する。40種類の言語に対応。
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs
+#+CATEGORY: プログラム実行
 #+EL_PKG_NAME: quickrun
-#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, c-mode, c++-mode, objc-mode, csharp-mode, perl-mode, cperl-mode, ruby-mode, python-mode, php-mode, emacs-lisp-mode, lisp-mode, scheme-mode, javascript-mode, js-mode, js2-mode, clojure-mode, erlang-mode, ocaml-mode, tuareg-mode, fsharp-mode, go-mode, io-mode, lua-mode, haskell-mode, java-mode, d-mode, fortran-mode, markdown-mode, coffee-mode, jsx-mode, typescript-mode, scala-mode, groove-mode, haml-mode, sass-mode, less-mode, less-css-mode, sh-mode, awk-mode, rust-mode, dart-mode, elixir-mode, tcl-mode, swift-mode, ats-mode, ess-mode, relate:helm, relate:anything, relate:compile, relate:executable
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: るびきちオススメ, quickrun, from:vim
 #+EL_TITLE0: 【これはすごい】Emacsで開発中のプログラムの実行をチョー簡単にするquickrunがメチャガチャパワーアップしてた件！
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージquickrunの紹介
-#+MYTAGS: package:quickrun, emacs 使い方, emacs コマンド, emacs, emacs lisp quickrun, elisp quickrun, emacs melpa quickrun, emacs quickrun 使い方, emacs quickrun 設定, emacs パッケージ quickrun, emacs quickrun スクリーンショット, c-mode, c++-mode, objc-mode, csharp-mode, perl-mode, cperl-mode, ruby-mode, python-mode, php-mode, emacs-lisp-mode, lisp-mode, scheme-mode, javascript-mode, js-mode, js2-mode, clojure-mode, erlang-mode, ocaml-mode, tuareg-mode, fsharp-mode, go-mode, io-mode, lua-mode, haskell-mode, java-mode, d-mode, fortran-mode, markdown-mode, coffee-mode, jsx-mode, typescript-mode, scala-mode, groove-mode, haml-mode, sass-mode, less-mode, less-css-mode, sh-mode, awk-mode, rust-mode, dart-mode, elixir-mode, tcl-mode, swift-mode, ats-mode, ess-mode, relate:helm, relate:anything, relate:compile, relate:executable
-#+TITLE: emacs quickrun.el : 【これはすごい】Emacsで開発中のプログラムの実行をチョー簡単にするquickrunがメチャガチャパワーアップしてた件！ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>quickrun</td></tr>
-<tr><td>概要(原文)</td><td>Run commands quickly</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/syohex/emacs-quickrun">https://github.com/syohex/emacs-quickrun</a></td></tr>
-<tr><td>バージョン</td><td>20141103.630</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:quickrun/">package:quickrun</a> <a href="http://rubikitch.com/tag/package:helm/">package:helm</a> <a href="http://rubikitch.com/tag/package:anything/">package:anything</a> <a href="http://rubikitch.com/tag/package:compile/">package:compile</a> <a href="http://rubikitch.com/tag/package:executable/">package:executable</a></td></tr>
-</table>
-<br />
-#+END_HTML
+#+TITLE: quickrun.el : 【これはすごい】Emacsで開発中のプログラムの実行をチョー簡単にするquickrunがメチャガチャパワーアップしてた件！
+[includeme file="inc-package-table.php" name="quickrun" where="melpa"]
+** 概要
 
 Emacs内で開発中のプログラム実行をカンタンにする *quickrun.el* ですが、
 いつのまにかめっちゃパワーアップしてました。
@@ -43,12 +32,7 @@ MELPAで更新されていたのを機に再び使ってみたら、
 今や、いろいろな形での実行がサポートされており、
 *helm* や *anything* インターフェースまで
 出来ているではありませんかっ！！
-** quickrun インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install quickrun
-
+[includeme file="inc-package-install.php" name="quickrun" where="melpa"]
 
 #+end:
 ** 概要                                                             :noexport:
@@ -229,3 +213,4 @@ Fig3: M-x quickrun-shell
 *M-x helm-quickrun* を実行してください。
 
 *anything* ならば *M-x anything-quickrun* です。
+[includeme file="inc-package-relate.php" name="quickrun"]

@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 969
+#+POSTID: 632
+#+BLOG: rubikitch
 #+DATE: [2015-01-19 Mon 10:45]
 #+PERMALINK: url-user-agent
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,12 +8,13 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, eww, Emacs Lisp, 
+#+CATEGORY: Web
+#+TAGS: eww
 #+DESCRIPTION: 
-#+MYTAGS: eww user-agent 偽装, eww user-agent 変更, emacs user-agent 偽装, emacs user-agent 変更
 #+TITLE: EWWなどのEmacsにおけるHTTPアクセスのUser-Agentを変更する方法
 #+begin: org2blog-tags
-#+TAGS: eww user-agent 偽装, eww user-agent 変更, emacs user-agent 偽装, emacs user-agent 変更, Emacs, eww, Emacs Lisp, , url-retrieve, url-retrieve-synchronously
+# content-length: 766
+
 #+end:
 Webサイトにアクセスするとき、
 ブラウザ情報としてUser-Agentヘッダを送信しますよね。

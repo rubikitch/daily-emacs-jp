@@ -39,7 +39,7 @@ Emacsの初期設定ファイル *init.el* (*.emacs*) は
 
 そこで設定を管理するパッケージが現れました。
 
-1. [[http://rubikitch.com/2014/09/09/use-package/][use-package(レビュー)]] のようにパッケージの設定を1つのS式にするもの
+1. [[http://emacs.rubikitch.com/use-package/][use-package(レビュー)]] のようにパッケージの設定を1つのS式にするもの
 2. *init-loader* のように分割されたファイルを一度に読み込むもの
 
 前者のように整理して書けば可読性が上がり、
@@ -73,7 +73,7 @@ Emacsの初期設定ファイル *init.el* (*.emacs*) は
 
 そこで設定を管理するパッケージが現れました。
 
-1. [[http://rubikitch.com/2014/09/09/use-package/][use-package(レビュー)]] のようにパッケージの設定を1つのS式にするもの
+1. [[http://emacs.rubikitch.com/use-package/][use-package(レビュー)]] のようにパッケージの設定を1つのS式にするもの
 2. *init-loader* のように分割されたファイルを一度に読み込むもの
 
 前者のように整理して書けば可読性が上がり、

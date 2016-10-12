@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 2121
+#+POSTID: 1211
+#+BLOG: rubikitch
 #+DATE: [2015-10-24 Sat 03:30]
 #+PERMALINK: all-pages-in-github
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,12 +8,14 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: 未分類, 
+#+CATEGORY: お知らせ
 #+DESCRIPTION: 
 #+MYTAGS: 
 #+TITLE: 本サイトの全記事をGitHubに置きました！
 #+begin: org2blog-tags
-#+TAGS: , 未分類, , 
+# content-length: 573
+#+HTML: <!-- noindex -->
+
 #+end:
 <2015-10-26 Mon>[[http://www.softantenna.com/wp/software/daily-emacs-jp-on-github/][ソフトアンテナさんから紹介されました！！多謝]]
 

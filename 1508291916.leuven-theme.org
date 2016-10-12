@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 1934
+#+POSTID: 1106
+#+BLOG: rubikitch
 #+DATE: [2015-08-29 Sat 19:16]
 #+PERMALINK: leuven-theme
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,28 +8,17 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, theme
+#+CATEGORY: ライト
 #+EL_PKG_NAME: leuven-theme
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, color-theme, カラーテーマ
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: 
 #+EL_TITLE0: 白背景のカラーテーマ
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージleuven-themeの紹介
-#+MYTAGS: package:leuven-theme, emacs 使い方, emacs コマンド, emacs, leuven-theme, leuven-theme.el, emacs lisp leuven-theme, elisp leuven-theme, emacs melpa leuven-theme, emacs leuven-theme 使い方, emacs leuven-theme 設定, emacs パッケージ leuven-theme, emacs leuven-theme スクリーンショット, color-theme, カラーテーマ
-#+TAGS: package:leuven-theme, emacs 使い方, emacs コマンド, emacs, leuven-theme, leuven-theme.el, emacs lisp leuven-theme, elisp leuven-theme, emacs melpa leuven-theme, emacs leuven-theme 使い方, emacs leuven-theme 設定, emacs パッケージ leuven-theme, emacs leuven-theme スクリーンショット, color-theme, カラーテーマ, Emacs, theme, leuven-theme.el, leuven-theme.el
-#+TITLE: emacs leuven-theme.el : 白背景のカラーテーマ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>leuven-theme</td></tr>
-<tr><td>概要(原文)</td><td>Awesome Emacs color theme on white background</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/fniessen/emacs-leuven-theme">https://github.com/fniessen/emacs-leuven-theme</a></td></tr>
-<tr><td>バージョン</td><td>20150818.556</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:leuven-theme/">package:leuven-theme</a> </td></tr>
-</table>
-<br />
-#+END_HTML
+#+TITLE: leuven-theme.el : 白背景のカラーテーマ
+[includeme file="inc-package-table.php" name="leuven-theme" where="melpa"]
+
+#+end:
+** 概要
 # (save-window-excursion (async-shell-command "emacs-test -eval '(load-theme (quote leuven) t)'"))
 *leuven-theme.el* はとても多くのパッケージに対応しています。
 - isearch
@@ -140,127 +130,8 @@ Fig8: markdown-mode
 #+ATTR_HTML: :width 480
 [[file:/r/sync/screenshots/20150829192434.png]]
 Fig9: helm
-** leuven-theme インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
 
-M-x package-refresh-contents
-M-x package-install leuven-theme
-
-
-#+end:
-** 概要                                                             :noexport:
-# (save-window-excursion (async-shell-command "emacs-test -eval '(load-theme (quote leuven) t)'"))
-*leuven-theme.el* はとても多くのパッケージに対応しています。
-- isearch
-- whitespacemode-line
-- minibuffer
-- font-lock
-- link
-- gnus
-- message
-- diff
-- smerge
-- ediff
-- flyspell
-- semantic
-- info
-- auto-highlight-symbol
-- anzu
-- auto-dim-other-buffers
-- avy
-- bbdb
-- bookmark+
-- browse-kill-ring
-- calendar
-- calfw
-- change-log
-- circe
-- comint
-- auto-complete
-- company
-- compilation
-- css
-- custom
-- diff-hl
-- dircolors
-- dired
-- dired+
-- eww
-- latex
-- font-latex
-- git-commit
-- google-translate
-- helm
-- hl-line
-- highlight-symbol
-- eww
-- holiday
-- html-helper
-- ilog
-- info
-- linum
-- log-view
-- lui
-- magit
-- markdown
-- moccur
-- nxml
-- org
-- outline
-- pabbrev
-- paren-face
-- powerline
-- rainbow-delimiters
-- sh
-- shell
-- show-paren
-- sml-modeline
-- speedbar
-- svn
-- tex
-- vc
-- w3m
-- which-func
-- widget
-- woman
-- yasnippet
-# (progn (forward-line 1)(shell-command "screenshot-time.rb org_theme_template" t))
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150829192357.png]]
-Fig10: emacs-lisp-mode
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150829192409.png]]
-Fig11: magit
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150829192412.png]]
-Fig12: grep
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150829192416.png]]
-Fig13: outline-mode
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150829192419.png]]
-Fig14: org-mode
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150829192423.png]]
-Fig15: dired
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150829192426.png]]
-Fig16: web-mode
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150829192430.png]]
-Fig17: markdown-mode
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150829192434.png]]
-Fig18: helm
-
+[includeme file="inc-package-install.php" name="leuven-theme" where="melpa"]
 ** 設定
 #+BEGIN_SRC fundamental
 (load-theme 'leuven t)
@@ -272,3 +143,4 @@ $ emacs -Q -f package-initialize -eval '(load-theme (quote leuven) t)'
 #+END_EXAMPLE
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+[includeme file="inc-package-relate.php" name="leuven-theme"]

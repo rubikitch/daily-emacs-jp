@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 1764
+#+POSTID: 984
+#+BLOG: rubikitch
 #+DATE: [2015-06-21 Sun 23:39]
 #+PERMALINK: number
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,28 +8,17 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs
+#+CATEGORY: 置換
 #+EL_PKG_NAME: number
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: number
 #+EL_TITLE0: カーソル位置の数字に対して簡単な計算をしたり形式を整えたり
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージnumberの紹介
-#+MYTAGS: package:number, emacs 使い方, emacs コマンド, emacs, number, number.el, emacs lisp number, elisp number, emacs melpa number, emacs number 使い方, emacs number 設定, emacs パッケージ number, emacs number スクリーンショット
-#+TAGS: package:number, emacs 使い方, emacs コマンド, emacs, number, number.el, emacs lisp number, elisp number, emacs melpa number, emacs number 使い方, emacs number 設定, emacs パッケージ number, emacs number スクリーンショット, Emacs, number.el
-#+TITLE: emacs number.el : カーソル位置の数字に対して簡単な計算をしたり形式を整えたり | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>number</td></tr>
-<tr><td>概要(原文)</td><td>Working with numbers at point.</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/chrisdone/number">https://github.com/chrisdone/number</a></td></tr>
-<tr><td>バージョン</td><td>20141127.1004</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:number/">package:number</a> </td></tr>
-</table>
-<br />
-#+END_HTML
+#+TITLE: number.el : カーソル位置の数字に対して簡単な計算をしたり形式を整えたり
+[includeme file="inc-package-table.php" name="number" where="melpa"]
+
+#+end:
+** 概要
 *number.el* は、カーソル位置の数値を認識し、
 四則演算や任意のS式で計算し、その結果に置き換える小さなパッケージです。
 
@@ -65,52 +55,8 @@ Fig1: そこでC-c C-+を押して1を指定すると…
 #+ATTR_HTML: :width 480
 [[file:/r/sync/screenshots/20150621235254.png]]
 Fig2: 置き換わる！
-** number インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
 
-M-x package-refresh-contents
-M-x package-install number
-
-
-#+end:
-** 概要                                                             :noexport:
-*number.el* は、カーソル位置の数値を認識し、
-四則演算や任意のS式で計算し、その結果に置き換える小さなパッケージです。
-
-#+BEGIN_EXAMPLE
-# 1足す
-M-x number/add 1 RET
-
-    1 -> 2
-    05 -> 06
-    6.30 -> 7.30
-    07.30 -> 08.30
-    -08.30 -> -07.30
-
-# 整数部を2桁にする
-M-x number/pad 2 RET
-
-    5 -> 05
-# 整数部を2桁、小数部を6桁にする
-M-x number/pad 2 RET 6 RET
-
-    3.141 -> 03.141000
-
-# 任意の式を与えて計算する
-M-x number/eval (+ 3 (* n 4)) RET
-
-    10 -> 43
-#+END_EXAMPLE
-
-# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150621235237.png]]
-Fig3: そこでC-c C-+を押して1を指定すると…
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150621235254.png]]
-Fig4: 置き換わる！
-
+[includeme file="inc-package-install.php" name="number" where="melpa"]
 ** 設定 [[http://rubikitch.com/f/150621235215.number.el][150621235215.number.el(以下のコードと同一)]]
 #+BEGIN: include :file "/r/sync/junk/150621/150621235215.number.el"
 #+BEGIN_SRC fundamental
@@ -130,3 +76,4 @@ Fig4: 置き換わる！
 $ wget http://rubikitch.com/f/150621235215.number.el
 $ emacs -Q -f package-initialize -l 150621235215.number.el
 #+END_EXAMPLE
+[includeme file="inc-package-relate.php" name="number"]

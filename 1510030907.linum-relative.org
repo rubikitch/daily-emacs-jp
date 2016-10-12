@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 2048
+#+POSTID: 1173
+#+BLOG: rubikitch
 #+DATE: [2015-10-03 Sat 09:07]
 #+PERMALINK: linum-relative
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,33 +8,22 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs
+#+CATEGORY: 行番号
 #+EL_PKG_NAME: linum-relative
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, relate:linum, relate:relative-line-numbers, 相対行番号
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: 
 #+EL_TITLE0: 画面左に相対行番号をつけよう！その2
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージlinum-relativeの紹介
-#+MYTAGS: package:linum-relative, emacs 使い方, emacs コマンド, emacs, linum-relative, linum-relative.el, emacs lisp linum-relative, elisp linum-relative, emacs melpa linum-relative, emacs linum-relative 使い方, emacs linum-relative 設定, emacs パッケージ linum-relative, emacs linum-relative スクリーンショット, relate:linum, relate:relative-line-numbers, 相対行番号
-#+TAGS: package:linum-relative, emacs 使い方, emacs コマンド, emacs, linum-relative, linum-relative.el, emacs lisp linum-relative, elisp linum-relative, emacs melpa linum-relative, emacs linum-relative 使い方, emacs linum-relative 設定, emacs パッケージ linum-relative, emacs linum-relative スクリーンショット, relate:linum, relate:relative-line-numbers, 相対行番号, Emacs, linum-relative.el, M-x linum-relative-off, M-x linum-relative-on, M-x linum-relative-toggle, M-x linum-relative-off, M-x linum-relative-on, M-x linum-relative-toggle
-#+TITLE: emacs linum-relative.el : 画面左に相対行番号をつけよう！その2 | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>linum-relative</td></tr>
-<tr><td>概要(原文)</td><td>display relative line number in emacs.</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/coldnew/linum-relative">https://github.com/coldnew/linum-relative</a></td></tr>
-<tr><td>バージョン</td><td>20150927.24</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:linum-relative/">package:linum-relative</a> <a href="http://rubikitch.com/tag/package:linum/">package:linum</a> <a href="http://rubikitch.com/tag/package:relative-line-numbers/">package:relative-line-numbers</a></td></tr>
-</table>
-<br />
-#+END_HTML
-*linum-relative.el* は、[[http://rubikitch.com/2014/10/20/relative-line-numbers/][relative-line-numbers.el(レビュー)]] 同様
+#+TITLE: linum-relative.el : 画面左に相対行番号をつけよう！その2
+[includeme file="inc-package-table.php" name="linum-relative" where="melpa"]
+
+#+end:
+** 概要
+*linum-relative.el* は、[[http://emacs.rubikitch.com/relative-line-numbers/][relative-line-numbers.el(レビュー)]] 同様
 画面左に相対行番号をつけるパッケージです。
 
 数引数つきのC-p やC-nなどにより
-[[http://rubikitch.com/2014/10/26/relative-line-numbers-2/][カーソル前後の行を一瞬で処理できる]] メリットがあります。
+[[http://emacs.rubikitch.com/relative-line-numbers-2/][カーソル前後の行を一瞬で処理できる]] メリットがあります。
 
 設定で示しているように、このパッケージをrequireするだけで
 相対行番号になるので注意してください。
@@ -47,34 +37,8 @@
 #+ATTR_HTML: :width 480
 [[file:/r/sync/screenshots/20151003091248.png]]
 Fig1: 相対行番号！
-** linum-relative インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
 
-M-x package-refresh-contents
-M-x package-install linum-relative
-
-
-#+end:
-** 概要                                                             :noexport:
-*linum-relative.el* は、[[http://rubikitch.com/2014/10/20/relative-line-numbers/][relative-line-numbers.el(レビュー)]] 同様
-画面左に相対行番号をつけるパッケージです。
-
-数引数つきのC-p やC-nなどにより
-[[http://rubikitch.com/2014/10/26/relative-line-numbers-2/][カーソル前後の行を一瞬で処理できる]] メリットがあります。
-
-設定で示しているように、このパッケージをrequireするだけで
-相対行番号になるので注意してください。
-
-相対行番号を解除するには、 *M-x linum-relative-off* を
-再度有効にするには *M-x linum-relative-on* を
-トグルするには *M-x linum-relative-toggle* を使います。
-
-
-# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20151003091248.png]]
-Fig2: 相対行番号！
-
+[includeme file="inc-package-install.php" name="linum-relative" where="melpa"]
 ** 設定 [[http://rubikitch.com/f/151003090533.linum-relative.el][151003090533.linum-relative.el(以下のコードと同一)]]
 #+BEGIN: include :file "/r/sync/junk/151003/151003090533.linum-relative.el"
 #+BEGIN_SRC fundamental
@@ -89,3 +53,4 @@ Fig2: 相対行番号！
 $ wget http://rubikitch.com/f/151003090533.linum-relative.el
 $ emacs -Q -f package-initialize -l 151003090533.linum-relative.el
 #+END_EXAMPLE
+[includeme file="inc-package-relate.php" name="linum-relative"]

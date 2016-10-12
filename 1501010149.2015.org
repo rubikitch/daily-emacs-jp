@@ -1,5 +1,4 @@
 #+BLOG: rubikitch
-#+POSTID: 849
 #+DATE: [2015-01-01 Thu 01:49]
 #+PERMALINK: 2015
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -15,7 +14,7 @@
 
 去年はEmacs 24.4がリリースされましたね。
 
-Emacs 24.4は[[http://rubikitch.com/2014/10/21/emacs244-2/][実質25.1にしてもいいくらいの大幅な改良]] がなされました。
+Emacs 24.4は[[http://emacs.rubikitch.com/emacs244-2/][実質25.1にしてもいいくらいの大幅な改良]] がなされました。
 
 僕も念願の独自ドメインrubikitch.comを取得し、
 日々Emacs界の動向を見守っています。

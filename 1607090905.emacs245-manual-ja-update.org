@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 2457
+#+POSTID: 1457
+#+BLOG: rubikitch
 #+DATE: [2016-07-09 Sat 09:05]
 #+PERMALINK: emacs245-manual-ja-update
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,14 +8,15 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, 記事更新情報, 
+#+CATEGORY:  記事更新情報, 
 #+DESCRIPTION: 
-#+MYTAGS: 
 #+TITLE: Emacs 24.5日本語infoを自動的に参照する設定を追加
 #+begin: org2blog-tags
-#+TAGS: , Emacs, 記事更新情報, , 
+# content-length: 251
+#+HTML: <!-- noindex -->
+
 #+end:
-http://rubikitch.com/2016/07/06/emacs245-manual-ja/
+http://emacs.rubikitch.com/emacs245-manual-ja/
 
 先日公開したEmacs 24.5日本語infoマニュアル作成方法のページですが、
 自動的に日本語版を参照するような設定を加えました。

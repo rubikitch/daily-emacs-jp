@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 2419
+#+POSTID: 1441
+#+BLOG: rubikitch
 #+DATE: [2016-02-22 Mon 10:06]
 #+PERMALINK: sd1602-autoinsert-yatemplate-yasnippet
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,9 +8,9 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, 連載『るびきち流Emacs超入門』
+#+CATEGORY: るびきち流Emacs超入門
 #+DESCRIPTION:
-#+TAGS:テンプレート, スニペット, スケルトン, package:yasnippet, package:autoinsert, auto-insert-mode, package:yatemplate, auto-insert-alist, Emacs Lisp Header, yatemplate-fill-alist, ファイル新規作成
+
 #+TITLE: #22 auto-insert-mode でファイル新規作成を迅速に (Software Design 2016年2月号掲載記事) Emacs yatemplate yasnippet インストール 設定 使い方
 Software Design連載記事を掲載します。
 

@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 2265
+#+POSTID: 1303
+#+BLOG: rubikitch
 #+DATE: [2015-12-15 Tue 17:45]
 #+PERMALINK: color-theme-sanityinc-solarized
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,93 +8,17 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, theme
+#+CATEGORY: 明暗対応
 #+EL_PKG_NAME: color-theme-sanityinc-solarized
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, color-theme, カラーテーマ
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: 
 #+EL_TITLE0: もうひとつのsolarizedカラーテーマ
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージcolor-theme-sanityinc-solarizedの紹介
-#+MYTAGS: package:color-theme-sanityinc-solarized, emacs 使い方, emacs コマンド, emacs, color-theme-sanityinc-solarized, color-theme-sanityinc-solarized.el, emacs lisp color-theme-sanityinc-solarized, elisp color-theme-sanityinc-solarized, emacs melpa color-theme-sanityinc-solarized, emacs color-theme-sanityinc-solarized 使い方, emacs color-theme-sanityinc-solarized 設定, emacs パッケージ color-theme-sanityinc-solarized, emacs color-theme-sanityinc-solarized スクリーンショット, color-theme, カラーテーマ
-#+TAGS: package:color-theme-sanityinc-solarized, emacs 使い方, emacs コマンド, emacs, color-theme-sanityinc-solarized, color-theme-sanityinc-solarized.el, emacs lisp color-theme-sanityinc-solarized, elisp color-theme-sanityinc-solarized, emacs melpa color-theme-sanityinc-solarized, emacs color-theme-sanityinc-solarized 使い方, emacs color-theme-sanityinc-solarized 設定, emacs パッケージ color-theme-sanityinc-solarized, emacs color-theme-sanityinc-solarized スクリーンショット, color-theme, カラーテーマ, Emacs, theme, color-theme-sanityinc-solarized.el
-#+TITLE: emacs color-theme-sanityinc-solarized.el : もうひとつのsolarizedカラーテーマ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>color-theme-sanityinc-solarized</td></tr>
-<tr><td>概要(原文)</td><td>A version of Ethan Schoonover's Solarized themes</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/purcell/color-theme-sanityinc-solarized">https://github.com/purcell/color-theme-sanityinc-solarized</a></td></tr>
-<tr><td>バージョン</td><td>20150803.1420</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:color-theme-sanityinc-solarized/">package:color-theme-sanityinc-solarized</a> </td></tr>
-</table>
-<br />
-#+END_HTML
-*color-theme-sanityinc-solarized.el* は、以下のパッケージに対応したカラーテーマ群です。
-- font-lock
-- Flycheck
-- Flymake
-- Clojure errors
-- For Brian Carper's extended clojure syntax table
-- Rainbow-delimiters
-- EDTS errors
-- MMM-mode
-- Search
-- Anzu
-- IDO
-- which-function
-- Emacs interface
-- Parenthesis matching (built-in)
-- Smartparens paren matching
-- Parenthesis matching (mic-paren)
-- Parenthesis dimming (parenface)
-- macrostep
-- undo-tree
-- dired+
-- Magit
-- git-gutter
-- git-gutter-fringe
-- guide-key
-- Compilation
-- Grep
-- mark-multiple
-- helm
-- company
-- Term
-- Eshell
-- Python-specific overrides
-- js2-mode
-- js3-mode
-- coffee-mode
-- nxml
-- RHTML
-- Message-mode
-- Jabber
-- Powerline
-- Outline
-- Ledger-mode
-- EMMS
-- mu4e
-- Gnus
-- twittering-mode
-- ansi-term
-
-
-以下のカラーテーマが定義されています。
-
-- sanityinc-solarized-dark
-- sanityinc-solarized-light
-
-
-** color-theme-sanityinc-solarized インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install color-theme-sanityinc-solarized
-
+#+TITLE: color-theme-sanityinc-solarized.el : もうひとつのsolarizedカラーテーマ
+[includeme file="inc-package-table.php" name="color-theme-sanityinc-solarized" where="melpa"]
 
 #+end:
-** 概要                                                             :noexport:
+** 概要
 *color-theme-sanityinc-solarized.el* は、以下のパッケージに対応したカラーテーマ群です。
 - font-lock
 - Flycheck
@@ -151,6 +76,7 @@ M-x package-install color-theme-sanityinc-solarized
 
 #+end:
 
+[includeme file="inc-package-install.php" name="color-theme-sanityinc-solarized" where="melpa"]
 ** theme: sanityinc-solarized-dark
 # *sanityinc-solarized-dark-theme.el*
 *** スクリーンショット
@@ -258,3 +184,4 @@ $ emacs -Q -f package-initialize -eval '(load-theme (quote sanityinc-solarized-l
 
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+[includeme file="inc-package-relate.php" name="color-theme-sanityinc-solarized"]

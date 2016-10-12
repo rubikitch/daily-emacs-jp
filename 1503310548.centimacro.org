@@ -1,105 +1,24 @@
 #+BLOG: rubikitch
-#+POSTID: 1397
+#+POSTID: 812
+#+BLOG: rubikitch
 #+DATE: [2015-03-31 Tue 05:48]
 #+PERMALINK: centimacro
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
 #+ISPAGE: nil
-#+DESCRIPTION:
+#+DESCRIPTION:キーボードマクロを一時的にキーに割り当てることで同時に複数のキーボードマクロを使い回せる
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs
+#+CATEGORY: キーボードマクロ
 #+EL_PKG_NAME: centimacro
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs キーボードマクロ カイゼン, emacs レジスタ キーボードマクロ, relate:register, relate:yasnippet, relate:auto-yasnippet, relate:kmacro
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 
+#+TAGS: 
 #+EL_TITLE0: 【キーボードマクロのレジスタ】マクロを任意のキーに割り当て使い回す
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージcentimacroの紹介
-#+MYTAGS: package:centimacro, emacs 使い方, emacs コマンド, emacs, centimacro, centimacro.el, emacs lisp centimacro, elisp centimacro, emacs melpa centimacro, emacs centimacro 使い方, emacs centimacro 設定, emacs パッケージ centimacro, emacs キーボードマクロ カイゼン, emacs レジスタ キーボードマクロ, relate:register, relate:yasnippet, relate:auto-yasnippet, relate:kmacro
-#+TAGS: package:centimacro, emacs 使い方, emacs コマンド, emacs, centimacro, centimacro.el, emacs lisp centimacro, elisp centimacro, emacs melpa centimacro, emacs centimacro 使い方, emacs centimacro 設定, emacs パッケージ centimacro, emacs キーボードマクロ カイゼン, emacs レジスタ キーボードマクロ, relate:register, relate:yasnippet, relate:auto-yasnippet, relate:kmacro, Emacs, キーボードマクロ, キーボードマクロリング, C-x C-k, centimacro.el, M-f3, テンプレート, レジスタ, キーボードマクロ, キーボードマクロリング, C-x C-k, centimacro.el, M-f3, テンプレート, レジスタ
-#+TITLE: emacs centimacro.el : 【キーボードマクロのレジスタ】マクロを任意のキーに割り当て使い回す | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>centimacro</td></tr>
-<tr><td>概要(原文)</td><td>Assign multiple macros as global key bindings</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/abo-abo/centimacro">https://github.com/abo-abo/centimacro</a></td></tr>
-<tr><td>バージョン</td><td>20140306.627</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:centimacro/">package:centimacro</a> <a href="http://rubikitch.com/tag/package:register/">package:register</a> <a href="http://rubikitch.com/tag/package:yasnippet/">package:yasnippet</a> <a href="http://rubikitch.com/tag/package:auto-yasnippet/">package:auto-yasnippet</a> <a href="http://rubikitch.com/tag/package:kmacro/">package:kmacro</a></td></tr>
-</table>
-<br />
-#+END_HTML
-
-*キーボードマクロ* 使っていますか？
-
-同じ操作を繰り返すときには絶大な威力を発揮するので、
-一日に何十回も使っている人もいるほどです。
-
-キーボードマクロは1つしか定義できないと誤解されがちですが、
-実は複数個登録できますし、コマンド化だってできます。
-
-実際は複数個のキーボードマクロを回す
-「 *キーボードマクロリング* 」が
-キルリングのように用意されています。
-
-しかし *C-x C-k* プレフィクスキーで回す必要があり面倒です。
-
-正直、僕には使いこなせません。
-
-そこで *centimacro.el* は、任意のキーボードマクロを
-一時的にキーに割り当てるというアプローチを採用しました。
-
-/一言で言えばキーボードマクロのレジスタです。/
-
-*M-f3* を押すとマクロを割り当てるキーを訊いてくるので、
-空いている適当なキーを指定し、
-その後は普通にキーボードマクロを定義してください。
-
-キーボードマクロ終了は割り当てたキーかf4です。
-
-centimacroのすごいところは、centimacro呼び出し中に
-別のcentimacroを呼び出せるところです。
-
-ちょっとした *テンプレート* のような
-*レジスタ* のような使い方があります。
-
-1. <M-f3><f6>foo<f6> → <f6> で "foo" が挿入される
-2. <M-f3><f7><f6>bar<f7> → <f7> で "foobar" が挿入される
-3. <M-f3><f8><f6>-<f7>-<f6><f8> → <f8> で "foo-foobar-foo" が挿入される
-4. <M-f3><f6>omg<f6> → <f6> で "omg" が挿入される
-5. <f7> で "omgbar" が挿入される
-6. <f8> で "omgbar-omg-omg" が挿入される
-
-1と2でそれぞれf6とf7にcentimacroを定義します。
-
-3は先程定義したばかりのcentimacroを呼び出すcentimacroです。
-
-4でcentimacroを別な文字列挿入に再定義し、
-5と6で再定義されたcentimacroを反映します。
-
-このように、進化したレジスタとして一時的に
-入力する文字列を記憶できますし、
-それだけではなく任意の操作を必要なときに繰り返せます。
-
-キーボードマクロ自体超強力な機能ですし、
-自然な形で複数個のキーボードマクロが使えるというのは、
-とんでもなく大きな可能性を秘めているでしょう。
-
-あえてf5〜f8に何もコマンドを割り当てないで空けておいてもいいし、
-M-数字も絶好のcentimacroポジションです。
-
-キーボードマクロ愛用者は自然な形でなじめるはずです。
-
-# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
-** centimacro インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install centimacro
-
+#+TITLE: centimacro.el : 【キーボードマクロのレジスタ】マクロを任意のキーに割り当て使い回す
+[includeme file="inc-package-table.php" name="centimacro" where="melpa"]
 
 #+end:
-** 概要                                                             :noexport:
+** 概要
 
 *キーボードマクロ* 使っていますか？
 
@@ -162,6 +81,7 @@ M-数字も絶好のcentimacroポジションです。
 キーボードマクロ愛用者は自然な形でなじめるはずです。
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+[includeme file="inc-package-install.php" name="centimacro" where="melpa"]
 ** 設定 [[http://rubikitch.com/f/150331055143.centimacro.el][150331055143.centimacro.el(以下のコードと同一)]]
 #+BEGIN: include :file "/r/sync/junk/150331/150331055143.centimacro.el"
 #+BEGIN_SRC fundamental
@@ -180,3 +100,4 @@ M-数字も絶好のcentimacroポジションです。
 $ wget http://rubikitch.com/f/150331055143.centimacro.el
 $ emacs -Q -f package-initialize -l 150331055143.centimacro.el
 #+END_EXAMPLE
+[includeme file="inc-package-relate.php" name="centimacro"]

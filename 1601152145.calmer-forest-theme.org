@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 2334
+#+POSTID: 1361
+#+BLOG: rubikitch
 #+DATE: [2016-01-15 Fri 21:45]
 #+PERMALINK: calmer-forest-theme
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,56 +8,17 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, theme
+#+CATEGORY: ダーク
 #+EL_PKG_NAME: calmer-forest-theme
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, color-theme, カラーテーマ
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: 
 #+EL_TITLE0: 緑文字が特徴的なダークなカラーテーマ
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージcalmer-forest-themeの紹介
-#+MYTAGS: package:calmer-forest-theme, emacs 使い方, emacs コマンド, emacs, calmer-forest-theme, calmer-forest-theme.el, emacs lisp calmer-forest-theme, elisp calmer-forest-theme, emacs melpa calmer-forest-theme, emacs calmer-forest-theme 使い方, emacs calmer-forest-theme 設定, emacs パッケージ calmer-forest-theme, emacs calmer-forest-theme スクリーンショット, color-theme, カラーテーマ
-#+TAGS: package:calmer-forest-theme, emacs 使い方, emacs コマンド, emacs, calmer-forest-theme, calmer-forest-theme.el, emacs lisp calmer-forest-theme, elisp calmer-forest-theme, emacs melpa calmer-forest-theme, emacs calmer-forest-theme 使い方, emacs calmer-forest-theme 設定, emacs パッケージ calmer-forest-theme, emacs calmer-forest-theme スクリーンショット, color-theme, カラーテーマ, Emacs, theme, calmer-forest-theme.el
-#+TITLE: emacs calmer-forest-theme.el : 緑文字が特徴的なダークなカラーテーマ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>calmer-forest-theme</td></tr>
-<tr><td>概要(原文)</td><td>Darkish theme with green/orange tint</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/caldwell/calmer-forest-theme">https://github.com/caldwell/calmer-forest-theme</a></td></tr>
-<tr><td>バージョン</td><td>20130925.2210</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:calmer-forest-theme/">package:calmer-forest-theme</a> </td></tr>
-</table>
-<br />
-#+END_HTML
-*calmer-forest-theme.el* は、以下のパッケージに対応したカラーテーマです。
-- info
-- comint
-- cparen
-- cperl
-- custom
-- diff
-- eieio
-- font-latex
-- font-lock
-- header-line
-- isearch
-- jde
-- mode-line
-- semantic
-- senator
-- show-paren
-- speedbar
-- widget
-** calmer-forest-theme インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install calmer-forest-theme
-
+#+TITLE: calmer-forest-theme.el : 緑文字が特徴的なダークなカラーテーマ
+[includeme file="inc-package-table.php" name="calmer-forest-theme" where="melpa"]
 
 #+end:
-** 概要                                                             :noexport:
+** 概要
 *calmer-forest-theme.el* は、以下のパッケージに対応したカラーテーマです。
 - info
 - comint
@@ -76,6 +38,7 @@ M-x package-install calmer-forest-theme
 - show-paren
 - speedbar
 - widget
+[includeme file="inc-package-install.php" name="calmer-forest-theme" where="melpa"]
 ** スクリーンショット
 # (save-window-excursion (async-shell-command "emacs-test -eval '(load-theme (quote calmer-forest) t)'"))
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_theme_template" t))
@@ -133,3 +96,4 @@ $ emacs -Q -f package-initialize -eval '(load-theme (quote calmer-forest) t)'
 #+END_EXAMPLE
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+[includeme file="inc-package-relate.php" name="calmer-forest-theme"]

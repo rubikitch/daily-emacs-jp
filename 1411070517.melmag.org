@@ -1,13 +1,14 @@
 #+BLOG: rubikitch
-#+POSTID: 555
+#+POSTID: 45
+#+BLOG: rubikitch
 #+DATE: [2014-11-07 Fri 05:17]
-#+PERMALINK: melmag
+#+PERMALINK: melmag154
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
 #+ISPAGE: nil
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: メルマガ,
+#+CATEGORY: るびきち塾メルマガ
 #+DESCRIPTION:
 #+MYTAGS:
 #+TAGS: , メルマガ,, ソースコード検索エンジン, M-x grep, milkode, インデックス付きgrep

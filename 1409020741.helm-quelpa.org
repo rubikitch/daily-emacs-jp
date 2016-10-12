@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 272
+#+POSTID: 263
+#+BLOG: rubikitch
 #+DATE: [2014-09-02 Tue 07:41]
 #+PERMALINK: helm-quelpa
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t
@@ -7,12 +8,11 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, Emacs Lisp,
+#+CATEGORY: パッケージ管理
 #+DESCRIPTION:
-#+MYTAGS: package:quelpa, package:helm, relate:helm, emacs quelpa helm, emacs helm quelpa, emacs パッケージ helmインターフェース, emacs パッケージ README, emacs パッケージ 履歴, emacs パッケージ git log, emacs melpa README.md, emacs melpa README参照, emacs melpa 履歴, emacs melpa git log, emacs quelpa magit
-#+TAGS: package:quelpa, package:helm, relate:helm, emacs quelpa helm, emacs helm quelpa, emacs パッケージ helmインターフェース, emacs パッケージ README, emacs パッケージ 履歴, emacs パッケージ git log, emacs melpa README.md, emacs melpa README参照, emacs melpa 履歴, emacs melpa git log, emacs quelpa magit, Emacs, Emacs Lisp,, helmインターフェース, quelpa, magit, git log, dired, MELPA, helm quelpa
+#+TAGS: helm
 #+TITLE: EmacsのMELPAパッケージのREADME.mdとgit logが見られる！新しいパッケージシステムquelpaのhelmインターフェースを試作してみた
-[[http://rubikitch.com/2014/09/01/quelpa/][昨日紹介した新しいパッケージシステムquelpa]] の *helmインターフェース* を書いてみました。
+[[http://emacs.rubikitch.com/quelpa/][昨日紹介した新しいパッケージシステムquelpa]] の *helmインターフェース* を書いてみました。
 
 *quelpa* でインストールしたパッケージにおいて以下のことができます。
 - README.md (README.org) を開く
@@ -93,6 +93,7 @@ github と *MELPA* に上げときますね。
 (defun qlpa (package)
   (interactive (list (quelpa-interactive-candidate)))
   (quelpa package :upgrade t)
+  (byte-recompile-directory "~/emacs/bootstrap/" nil t)
   (helm-quelpa-view-readme-or-src package))
 #+END_SRC
 

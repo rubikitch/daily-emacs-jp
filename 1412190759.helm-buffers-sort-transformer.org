@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 745
+#+POSTID: 505
+#+BLOG: rubikitch
 #+DATE: [2014-12-19 Fri 07:59]
 #+PERMALINK: helm-buffers-sort-transformer
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,10 +8,9 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, helm, 
+#+CATEGORY: バッファ切り替え
 #+DESCRIPTION: helmでバッファ順を正しくするには helm-buffers-sort-transformer を無効にする
-#+MYTAGS: package:helm, relate:helm-projectile, relate:anything, helm バッファ選択 並び順
-#+TAGS: package:helm, relate:helm-projectile, relate:anything, helm バッファ選択 並び順, Emacs, helm, , anything.el, helm.el, M-x helm-mini, filtered-candidate-transformer, helm-buffers-sort-transformer, M-x helm-projectile, ibuffer
+#+TAGS: helm
 #+TITLE: helmでバッファ名が奇妙な並び順になるのを修正
 みなさん、helm使ってますかー？
 
@@ -54,7 +54,7 @@ type:bufferにて定義されているので、M-x helm-mini以外にも
 
 ** 検証方法
 M-x anything-miniとM-x helm-miniの挙動の違いを確かめるために、
-[[http://rubikitch.com/2014/11/09/mykie/][コマンドマルチプレクサmykie.el]] でC-x C-zに割り当てましょう。
+[[http://emacs.rubikitch.com/mykie/][コマンドマルチプレクサmykie.el]] でC-x C-zに割り当てましょう。
 
 #+BEGIN_SRC emacs-lisp :results silent
 (mykie:global-set-key "C-x C-z"

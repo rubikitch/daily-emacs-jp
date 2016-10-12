@@ -1,16 +1,16 @@
 #+BLOG: rubikitch
-#+POSTID: 415
+#+POSTID: 324
+#+BLOG: rubikitch
 #+DATE: [2014-10-01 Wed 10:53]
 #+PERMALINK: eval-defun-or-trace-function
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t
 #+ISPAGE: nil
-#+DESCRIPTION:
+#+DESCRIPTION:C-M-xにトレーサ機能を塔載する
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs Lisp, Emacs,
+#+CATEGORY: デバッグ
 #+DESCRIPTION: C-u C-u C-M-xで現在の関数をtrace-function。C-u C-u C-u C-M-xでuntrace-all
-#+MYTAGS: emacs eval-defun C-M-x, emacs trace-function edebug, emacs untrace-all, emacs トレース, emacs トレーサ, emacs trace.el, emacs lisp 関数 トレース, emacs, package:trace, package:edebug, emacs lisp, emacs lisp 関数 返り値 引数, eamcs lisp デバッグ
-#+TAGS: emacs eval-defun C-M-x, emacs trace-function edebug, emacs untrace-all, emacs トレース, emacs トレーサ, emacs trace.el, emacs lisp 関数 トレース, emacs, package:trace, package:edebug, emacs lisp, emacs lisp 関数 返り値 引数, eamcs lisp デバッグ, Emacs Lisp, Emacs,, trace.el, M-x trace-function, M-x untrace-function, M-x untrace-all, C-u C-M-x, edebug
+#+TAGS: 標準コマンド強化
 #+TITLE: 【デバッグの友】現在位置のEmacs Lisp関数をトレースする超簡単な方法！
 Emacs Lispをデバッグしていて、特定の関数の引数と返り値を
 トレースしたくなることはよくあります。

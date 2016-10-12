@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 821
+#+POSTID: 582
+#+BLOG: rubikitch
 #+DATE: [2014-12-30 Tue 07:05]
 #+PERMALINK: google-translate-sentence
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -9,11 +10,11 @@
 #+BLOG: rubikitch
 #+CATEGORY: 記事更新情報, 
 #+DESCRIPTION: 
-#+TAGS: google-translate,  
+#+TAGS: 
 #+TITLE: google-translateで現在文を即座に和訳英訳するように設定を強化しました
 <2014-12-31 Wed> requireが抜けていたので入れました。
 
-[[http://rubikitch.com/2014/12/07/google-translate/][google-translate.el(レビュー)]] は、
+[[http://emacs.rubikitch.com/google-translate/][google-translate.el(レビュー)]] は、
 英語・日本語を自動判別してGoogle翻訳を行う設定を示しました。
 
 しかし、regionを指定しない場合は翻訳文を入力する必要があるのが、
@@ -25,14 +26,14 @@
 - C-u C-c tで入力文字列を翻訳文に
 - 関数の引数に翻訳文を指定できるようにした
 
-[[http://rubikitch.com/2014/12/07/google-translate/]]
+[[http://emacs.rubikitch.com/google-translate/]]
 
 ** 設定 [[http://rubikitch.com/f/141230072954.google-translate-2.el][141230072954.google-translate-2.el(以下のコードと同一)]]
 #+BEGIN: include :file "/r/sync/junk/141230/141230072954.google-translate-2.el"
 #+BEGIN_SRC fundamental
 (require 'google-translate)
 
-(defvar google-translate-english-chars "[:ascii:]"
+(defvar google-translate-english-chars "[:ascii:]’“”–"
   "これらの文字が含まれているときは英語とみなす")
 (defun google-translate-enja-or-jaen (&optional string)
   "regionか、現在のセンテンスを言語自動判別でGoogle翻訳する。"

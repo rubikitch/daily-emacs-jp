@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 1244
+#+POSTID: 737
+#+BLOG: rubikitch
 #+DATE: [2015-03-04 Wed 06:20]
 #+PERMALINK: itail
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,64 +8,17 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs
+#+CATEGORY: 解析ツール
 #+EL_PKG_NAME: itail
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: 
 #+EL_TITLE0: 【ログ解析】tail -fしてgrepで絞り込んだりハイライトしたり…
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージitailの紹介
-#+MYTAGS: package:itail, emacs 使い方, emacs コマンド, emacs, itail, itail.el, emacs lisp itail, elisp itail, emacs melpa itail, emacs itail 使い方, emacs itail 設定, emacs パッケージ itail, emacs itail スクリーンショット
-#+TAGS: package:itail, emacs 使い方, emacs コマンド, emacs, itail, itail.el, emacs lisp itail, elisp itail, emacs melpa itail, emacs itail 使い方, emacs itail 設定, emacs パッケージ itail, emacs itail スクリーンショット, Emacs, tail -f, itail.el, tail -f, itail.el
-#+TITLE: emacs itail.el : 【ログ解析】tail -fしてgrepで絞り込んだりハイライトしたり… | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>itail</td></tr>
-<tr><td>概要(原文)</td><td>An interactive tail mode</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/re5et/itail">https://github.com/re5et/itail</a></td></tr>
-<tr><td>バージョン</td><td>20150301.2247</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:itail/">package:itail</a> </td></tr>
-</table>
-<br />
-#+END_HTML
-Webサーバなどのログを解析するのは
-*tail -f* シェルコマンドを使うのが定番ですね。
-
-tail -fとはファイルを開きっぱなしにして、
-追記されたのと同時に追記分を出力するコマンドです。
-
-*itail.el* は、Emacs内でtail -fを実行します。
-
-それだけではなく、grepで絞り込んだり、
-特定の文字列をハイライトする機能があります。
-
-まさにログ解析に便利なツールです。
-
-itail.elを実行するにはtailとgrepシェルコマンドが必要で、
-/bin/shを使っているのでWindowsではCygwinが必要です。
-
-まず、M-x itailでtail -fを実行させます。
-
-そして、C-c gでgrepする正規表現(フィルタ)を指定します。
-
-C-c hでハイライトを有効にします。
-
-フィルタを全部解除し、tailを再起動するにはC-c C-kです。
-
-# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
-[[file:/r/sync/screenshots/20150304063832.png]]
-Fig1: C-c g eeでeeが含まれるログだけに絞り込み
-** itail インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install itail
-
+#+TITLE: itail.el : 【ログ解析】tail -fしてgrepで絞り込んだりハイライトしたり…
+[includeme file="inc-package-table.php" name="itail" where="melpa"]
 
 #+end:
-** 概要                                                             :noexport:
+** 概要
 Webサーバなどのログを解析するのは
 *tail -f* シェルコマンドを使うのが定番ですね。
 
@@ -93,6 +47,7 @@ C-c hでハイライトを有効にします。
 [[file:/r/sync/screenshots/20150304063832.png]]
 Fig1: C-c g eeでeeが含まれるログだけに絞り込み
 
+[includeme file="inc-package-install.php" name="itail" where="melpa"]
 ** 設定 [[http://rubikitch.com/f/150304063020.itail.el][150304063020.itail.el(以下のコードと同一)]]
 #+BEGIN: include :file "/r/sync/junk/150304/150304063020.itail.el"
 #+BEGIN_SRC fundamental
@@ -119,3 +74,4 @@ $ emacs -Q -f package-initialize -l 150304063020.itail.el
 #+END_EXAMPLE
 
 # /r/sync/screenshots/20150304063832.png http://rubikitch.com/wp-content/uploads/2015/03/wpid-20150304063832.png
+[includeme file="inc-package-relate.php" name="itail"]

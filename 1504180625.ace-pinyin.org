@@ -1,3 +1,5 @@
+#+BLOG: rubikitch
+#+POSTID: 851
 #+DATE: [2015-04-18 Sat 06:25]
 #+PERMALINK: ace-pinyin
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -5,65 +7,18 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, Ruby, 
+#+CATEGORY: カーソル移動
 #+EL_PKG_NAME: ace-pinyin
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, package:ace-jump-mode, relate:ace-jump-mode, relate:migemo, ace-jump-modeで日本語, ace-jump-mode migemo化, ace-jump-char-mode 中国語, ace-jump-modeを日本語で使う, ace-jump 日本語対応
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: ace-jump, Migemo対応
 #+EL_TITLE0: 【念願のMigemo化】ace-jump-char-modeが日本語文字に対応！(元中国語)
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージace-pinyinの紹介
-#+MYTAGS: package:ace-pinyin, emacs 使い方, emacs コマンド, emacs, ace-pinyin, ace-pinyin.el, emacs lisp ace-pinyin, elisp ace-pinyin, emacs melpa ace-pinyin, emacs ace-pinyin 使い方, emacs ace-pinyin 設定, emacs パッケージ ace-pinyin, emacs ace-pinyin スクリーンショット, package:ace-jump-mode, relate:ace-jump-mode, relate:migemo, ace-jump-modeで日本語, ace-jump-mode migemo化, ace-jump-char-mode 中国語, ace-jump-modeを日本語で使う, ace-jump 日本語対応
-#+TAGS: package:ace-pinyin, emacs 使い方, emacs コマンド, emacs, ace-pinyin, ace-pinyin.el, emacs lisp ace-pinyin, elisp ace-pinyin, emacs melpa ace-pinyin, emacs ace-pinyin 使い方, emacs ace-pinyin 設定, emacs パッケージ ace-pinyin, emacs ace-pinyin スクリーンショット, package:ace-jump-mode, relate:ace-jump-mode, relate:migemo, ace-jump-modeで日本語, ace-jump-mode migemo化, ace-jump-char-mode 中国語, ace-jump-modeを日本語で使う, ace-jump 日本語対応, Emacs, Ruby, , 高速カーソル移動, M-x ace-jump-char-mode, ace-pinyin.el, ace-jump-char-modeを中国語文字に対応, pinyin, 高速カーソル移動, M-x ace-jump-char-mode, ace-pinyin.el, ace-jump-char-modeを中国語文字に対応, pinyin, ace-pinyin-jump-char, ace-pinyin--jump-impl, ace-pinyin--char-table, cmigemo
-#+TITLE: emacs ace-pinyin.el : 【念願のMigemo化】ace-jump-char-modeが日本語文字に対応！(元中国語) | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>ace-pinyin</td></tr>
-<tr><td>概要(原文)</td><td>Make `ace-jump-char-mode' capable of jumping to Chinese characters</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/cute-jumper/ace-pinyin">https://github.com/cute-jumper/ace-pinyin</a></td></tr>
-<tr><td>バージョン</td><td>20150413.905</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:ace-pinyin/">package:ace-pinyin</a> <a href="http://rubikitch.com/tag/package:ace-jump-mode/">package:ace-jump-mode</a> <a href="http://rubikitch.com/tag/package:migemo/">package:migemo</a></td></tr>
-</table>
-<br />
-#+END_HTML
-[[http://rubikitch.com/2014/10/09/ace-jump-mode/][ace-jump-mode.el(レビュー)]] は、画面内の任意の位置に
-少なくとも3ストロークで到達できるようにする
-画面内に特化した *高速カーソル移動* パッケージです。
-
-*M-x ace-jump-char-mode* は入力された文字をすべて
-ハイライトし、その場所に即移動できるようにします。
-
-しかし、日本人としては日本語に対応してほしいものです。
-
-そこで *ace-pinyin.el* の出番です。
-
-これは元々 *ace-jump-char-modeを中国語文字に対応* させるものですが、
-僕の目測通り、ひとつの変数を変更するだけでそのまま日本語文字に
-対応できることがわかりました。
-
-*pinyin* (ピンイン)とは、中国語のローマ字と思ってください。
-
-設定はa〜zに対応する多くの日本語文字の正規表現を定義しているため、
-とてつもなく長くなっています。
-# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150418063553.png]]
-Fig1: この状態でM-x ace-jump-char-modeの後にkを押すと…
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150418063601.png]]
-Fig2: か行に対応する日本語文字が移動対象になる
-** ace-pinyin インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install ace-pinyin
-
+#+TITLE: ace-pinyin.el : 【念願のMigemo化】ace-jump-char-modeが日本語文字に対応！(元中国語)
+[includeme file="inc-package-table.php" name="ace-pinyin" where="melpa"]
 
 #+end:
-** 概要                                                             :noexport:
-[[http://rubikitch.com/2014/10/09/ace-jump-mode/][ace-jump-mode.el(レビュー)]] は、画面内の任意の位置に
+** 概要
+[[http://emacs.rubikitch.com/ace-jump-mode/][ace-jump-mode.el(レビュー)]] は、画面内の任意の位置に
 少なくとも3ストロークで到達できるようにする
 画面内に特化した *高速カーソル移動* パッケージです。
 
@@ -91,6 +46,7 @@ Fig1: この状態でM-x ace-jump-char-modeの後にkを押すと…
 [[file:/r/sync/screenshots/20150418063601.png]]
 Fig2: か行に対応する日本語文字が移動対象になる
 
+[includeme file="inc-package-install.php" name="ace-pinyin" where="melpa"]
 ** 設定 [[http://rubikitch.com/f/150418062221.ace-pinyin.el][150418062221.ace-pinyin.el(ダウンロードしてください)]]
 あまりに長いのでダウンロードしてください。
 
@@ -202,3 +158,4 @@ puts output
 #+END_SRC
 
 やはり僕の読みは正しかった…
+[includeme file="inc-package-relate.php" name="ace-pinyin"]

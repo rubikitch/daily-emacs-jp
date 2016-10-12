@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 2472
+#+POSTID: 1467
+#+BLOG: rubikitch
 #+DATE: [2016-07-14 Thu 06:49]
 #+PERMALINK: disable-mouse
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,28 +8,17 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs
+#+CATEGORY: キーバインド
 #+EL_PKG_NAME: disable-mouse
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, ratpoison, マウスを無効にする, マウスいらず, トラックボール無効, トラックパッド無効, フルキーボード操作, マウスイベント, マウスイベントを無視する, unclutter, マウスカーソルを消滅させる
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: マイナーモード
 #+EL_TITLE0: マウスなどいらん！マウスイベントを強制的に無効化
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージdisable-mouseの紹介
-#+MYTAGS: package:disable-mouse, emacs 使い方, emacs コマンド, emacs, disable-mouse, disable-mouse.el, emacs lisp disable-mouse, elisp disable-mouse, emacs melpa disable-mouse, emacs disable-mouse 使い方, emacs disable-mouse 設定, emacs パッケージ disable-mouse, ratpoison, マウスを無効にする, マウスいらず, トラックボール無効, トラックパッド無効, フルキーボード操作, マウスイベント, マウスイベントを無視する, unclutter, マウスカーソルを消滅させる
-#+TAGS: package:disable-mouse, emacs 使い方, emacs コマンド, emacs, disable-mouse, disable-mouse.el, emacs lisp disable-mouse, elisp disable-mouse, emacs melpa disable-mouse, emacs disable-mouse 使い方, emacs disable-mouse 設定, emacs パッケージ disable-mouse, ratpoison, マウスを無効にする, マウスいらず, トラックボール無効, トラックパッド無効, フルキーボード操作, マウスイベント, マウスイベントを無視する, unclutter, マウスカーソルを消滅させる, Emacs, 
-#+TITLE: emacs disable-mouse.el : マウスなどいらん！マウスイベントを強制的に無効化 | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>disable-mouse</td></tr>
-<tr><td>概要(原文)</td><td>Disable mouse commands globally</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/purcell/disable-mouse">https://github.com/purcell/disable-mouse</a></td></tr>
-<tr><td>バージョン</td><td>20160630.1903</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:disable-mouse/">package:disable-mouse</a> </td></tr>
-</table>
-<br />
-#+END_HTML
+#+TITLE: disable-mouse.el : マウスなどいらん！マウスイベントを強制的に無効化
+[includeme file="inc-package-table.php" name="disable-mouse" where="melpa"]
+
+#+end:
+** 概要
 ノートパソコンのトラックパッドやトラックボールはとても使いづらいものがありますね。
 そんなのに惑わされるくらいならば、マウスイベントをすべて無視させてしまうとよいでしょう。
 そんなときにはdisable-mouse.elの出番です。
@@ -42,28 +32,7 @@
 Fig1: ぬこ様！(作者の飼い猫)
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
-** disable-mouse インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install disable-mouse
-
-
-#+end:
-** 概要                                                             :noexport:
-ノートパソコンのトラックパッドやトラックボールはとても使いづらいものがありますね。
-そんなのに惑わされるくらいならば、マウスイベントをすべて無視させてしまうとよいでしょう。
-そんなときにはdisable-mouse.elの出番です。
-
-さらに徹底させるには[[https://web.archive.org/web/20151129214845/http://ftp.x.org/contrib/utilities/][unclutterプログラム]] で移動しないマウスカーソルを消滅させ、ウィンドウマネージャーを[[http://ratpoison.nongnu.org/][Ratpoison(僕愛用)]] にしてしまえばいいです。
-
-それではフルキーボード操作の世界を楽しみましょう。
-
-#+ATTR_HTML: :width 480
-[[https://github.com/purcell/disable-mouse/raw/master/disable-mouse-cat.jpg]]
-Fig2: ぬこ様！(作者の飼い猫)
-
-# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+[includeme file="inc-package-install.php" name="disable-mouse" where="melpa"]
 ** 設定 [[http://rubikitch.com/f/160714065314.disable-mouse.el][160714065314.disable-mouse.el(以下のコードと同一)]]
 #+BEGIN: include :file "/r/sync/junk/160714/160714065314.disable-mouse.el"
 #+BEGIN_SRC fundamental
@@ -78,3 +47,4 @@ Fig2: ぬこ様！(作者の飼い猫)
 $ wget http://rubikitch.com/f/160714065314.disable-mouse.el
 $ emacs -Q -f package-initialize -l 160714065314.disable-mouse.el
 #+END_EXAMPLE
+[includeme file="inc-package-relate.php" name="disable-mouse"]

@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 2722
+#+POSTID: 1554
+#+BLOG: rubikitch
 #+DATE: [2016-08-29 月 11:01]
 #+PERMALINK: menu-bar-mode-tool-bar-mode
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
@@ -7,12 +8,13 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, 
+#+CATEGORY: カスタマイズ,
+#+TAGS: 初心者安心, るびきちオススメ
 #+DESCRIPTION: 
-#+MYTAGS: 
 #+TITLE: 【Emacs初級者から中級者への階段】テキスト表示スペースを広くする3つの方法
 #+begin: org2blog-tags
-#+TAGS: , Emacs, , 
+# content-length: 1238
+
 #+end:
 Emacs初級者と中級者の境目って何だと思いますか？
 僕はそのひとつとしてツールバー・メニューバーなしでもEmacsを使えるかどうかだと考えています。

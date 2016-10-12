@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 2303
+#+POSTID: 1333
+#+BLOG: rubikitch
 #+DATE: [2016-01-01 金 08:30]
 #+PERMALINK: new-year-2016
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -12,7 +13,9 @@
 #+MYTAGS: 
 #+TITLE: 明けまして、おめでとうございます
 #+begin: org2blog-tags
-#+TAGS: , nil, 
+# content-length: 252
+#+HTML: <!-- noindex -->
+
 #+end:
 
 

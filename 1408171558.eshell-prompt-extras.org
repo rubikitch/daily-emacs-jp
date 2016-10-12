@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 178
+#+POSTID: 222
+#+BLOG: rubikitch
 #+DATE: [2014-08-17 Sun 15:58]
 #+PERMALINK: eshell-prompt-extras
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t
@@ -7,55 +8,16 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs
+#+CATEGORY: シェル・端末
 #+EL_PKG_NAME: eshell-prompt-extras
-#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, eshell prompt customize, eshell git, eshell python virtual environment プロンプト, emacs eshell prompt カスタマイズ, emacs eshell プロンプト, eshell git プロンプト
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: git
 #+EL_TITLE0: eshellのプロンプトでgitの状態を表示しよう
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージeshell-prompt-extrasの紹介
-#+MYTAGS: package:eshell-prompt-extras, emacs 使い方, emacs コマンド, emacs, emacs lisp eshell-prompt-extras, elisp eshell-prompt-extras, emacs melpa eshell-prompt-extras, emacs eshell-prompt-extras 使い方, emacs eshell-prompt-extras 設定, emacs パッケージ eshell-prompt-extras, emacs eshell-prompt-extras スクリーンショット, eshell prompt customize, eshell git, eshell python virtual environment プロンプト, emacs eshell prompt カスタマイズ, emacs eshell プロンプト, eshell git プロンプト
-#+TITLE: emacs eshell-prompt-extras.el : eshellのプロンプトでgitの状態を表示しよう | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>eshell-prompt-extras</td></tr>
-<tr><td>概要(原文)</td><td>Display extra information for your eshell prompt.</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/kaihaosw/eshell-prompt-extras">https://github.com/kaihaosw/eshell-prompt-extras</a></td></tr>
-<tr><td>バージョン</td><td>20141214.723</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:eshell-prompt-extras/">package:eshell-prompt-extras</a> </td></tr>
-</table>
-<br />
-#+END_HTML
-eshell-prompt-extras.elは *eshell* のプロンプトに
-*git* の状態を表示するEmacs Lispです。
-
-*Python virtual environment* にも対応しています。
-
-おまけ機能として好きな文字列を常に加えることもできます。
-
-ソースコードを読むとわかるように、このEmacs Lispの実体は
-- *eshell-prompt-regexp*
-- *eshell-highlight-prompt*
-- *eshell-prompt-function*
-をカスタマイズしているものです。
-
-なので、このEmacs Lispを参考にこれらの変数を変更すれば
-あなた好みの ehsell prompt ができるようになります。
-
-
-# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
-http://rubikitch.com/f/20140817155750.png
-Fig1: gitの状態を表示！
-** eshell-prompt-extras インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install eshell-prompt-extras
-
+#+TITLE: eshell-prompt-extras.el : eshellのプロンプトでgitの状態を表示しよう
+[includeme file="inc-package-table.php" name="eshell-prompt-extras" where="melpa"]
 
 #+end:
-** 概要                                                             :noexport:
+** 概要
 eshell-prompt-extras.elは *eshell* のプロンプトに
 *git* の状態を表示するEmacs Lispです。
 
@@ -76,3 +38,5 @@ eshell-prompt-extras.elは *eshell* のプロンプトに
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
 http://rubikitch.com/f/20140817155750.png
 Fig1: gitの状態を表示！
+[includeme file="inc-package-install.php" name="eshell-prompt-extras" where="melpa"]
+[includeme file="inc-package-relate.php" name="eshell-prompt-extras"]

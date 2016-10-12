@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 1940
+#+POSTID: 1112
+#+BLOG: rubikitch
 #+DATE: [2015-09-01 Tue 14:08]
 #+PERMALINK: sublime-themes
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,58 +8,18 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, theme
+#+CATEGORY: 明暗対応
 #+EL_PKG_NAME: sublime-themes
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, color-theme, カラーテーマ
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: from:sublime-text
 #+EL_TITLE0: Sublime Textから移植されたカラーテーマ集
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージsublime-themesの紹介
-#+MYTAGS: package:sublime-themes, emacs 使い方, emacs コマンド, emacs, sublime-themes, sublime-themes.el, emacs lisp sublime-themes, elisp sublime-themes, emacs melpa sublime-themes, emacs sublime-themes 使い方, emacs sublime-themes 設定, emacs パッケージ sublime-themes, emacs sublime-themes スクリーンショット, color-theme, カラーテーマ
-#+TAGS: package:sublime-themes, emacs 使い方, emacs コマンド, emacs, sublime-themes, sublime-themes.el, emacs lisp sublime-themes, elisp sublime-themes, emacs melpa sublime-themes, emacs sublime-themes 使い方, emacs sublime-themes 設定, emacs パッケージ sublime-themes, emacs sublime-themes スクリーンショット, color-theme, カラーテーマ, Emacs, theme, sublime-theme.el
-#+TITLE: emacs sublime-themes.el : Sublime Textから移植されたカラーテーマ集 | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>sublime-themes</td></tr>
-<tr><td>概要(原文)</td><td>A collection of themes based on Sublime Text</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/owainlewis/emacs-color-themes">https://github.com/owainlewis/emacs-color-themes</a></td></tr>
-<tr><td>バージョン</td><td>20150328.131</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:sublime-themes/">package:sublime-themes</a> </td></tr>
-</table>
-<br />
-#+END_HTML
-*sublime-theme.el* は、以下のパッケージに対応したカラーテーマ群です。
-- linum
-- mode-line
-- font-lock
-
-以下のカラーテーマが定義されています。
-#+begin: org2blog-sub-color-themes
-- brin
-- dorsey
-- fogus
-- graham
-- granger
-- hickey
-- junio
-- mccarthy
-- odersky
-- ritchie
-- spolsky
-- wilson
+#+TITLE: sublime-themes.el : Sublime Textから移植されたカラーテーマ集
+[includeme file="inc-package-table.php" name="sublime-themes" where="melpa"]
 
 #+end:
-** sublime-themes インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
 
-M-x package-refresh-contents
-M-x package-install sublime-themes
-
-
-#+end:
-** 概要                                                             :noexport:
+** 概要
 *sublime-theme.el* は、以下のパッケージに対応したカラーテーマ群です。
 - linum
 - mode-line
@@ -81,6 +42,7 @@ M-x package-install sublime-themes
 
 #+end:
 
+[includeme file="inc-package-install.php" name="sublime-themes" where="melpa"]
 ** theme: brin
 *** スクリーンショット
 # (save-window-excursion (async-shell-command "emacs-test -eval '(load-theme (quote brin) t)'"))
@@ -695,3 +657,4 @@ $ emacs -Q -f package-initialize -eval '(load-theme (quote wilson) t)'
 
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+[includeme file="inc-package-relate.php" name="sublime-themes"]

@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 2567
+#+POSTID: 1498
+#+BLOG: rubikitch
 #+DATE: [2016-07-28 Thu 07:27]
 #+PERMALINK: crux-visit-term-buffer
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,57 +8,17 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, ソース解読推奨, 
+#+CATEGORY: シェル・端末
 #+EL_PKG_NAME: crux
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, , relate:sane-term, relate:multi-term, relate:term, ansi-term, terminal-emulator, emacs ターミナルエミュレータ, emacs 端末エミュレータ, .dir-locals, ディレクトリローカル変数, emacs 複数の端末
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 
+#+TAGS: ソース解読推奨, crux
 #+EL_TITLE0: crux-visit-term-buffer: Emacs内ターミナルエミュレータを再利用しつつ立ち上げる
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージcruxの紹介
-#+MYTAGS: package:crux, emacs 使い方, emacs コマンド, emacs, crux, crux.el, emacs lisp crux, elisp crux, emacs melpa crux, emacs crux 使い方, emacs crux 設定, emacs パッケージ crux, , relate:sane-term, relate:multi-term, relate:term, ansi-term, terminal-emulator, emacs ターミナルエミュレータ, emacs 端末エミュレータ, .dir-locals, ディレクトリローカル変数, emacs 複数の端末
-#+TAGS: package:crux, emacs 使い方, emacs コマンド, emacs, crux, crux.el, emacs lisp crux, elisp crux, emacs melpa crux, emacs crux 使い方, emacs crux 設定, emacs パッケージ crux, , relate:sane-term, relate:multi-term, relate:term, ansi-term, terminal-emulator, emacs ターミナルエミュレータ, emacs 端末エミュレータ, .dir-locals, ディレクトリローカル変数, emacs 複数の端末, Emacs, ソース解読推奨, , M-x crux-visit-term-buffer, M-x ansi-term, crux-term-buffer-name, crux-start-or-switch-to, M-x crux-visit-term-buffer, M-x ansi-term, crux-term-buffer-name, crux-start-or-switch-to
-#+TITLE: emacs crux.el : crux-visit-term-buffer: Emacs内ターミナルエミュレータを再利用しつつ立ち上げる | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>crux</td></tr>
-<tr><td>概要(原文)</td><td>A Collection of Ridiculously Useful eXtensions</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/bbatsov/crux">https://github.com/bbatsov/crux</a></td></tr>
-<tr><td>バージョン</td><td>20160725.59</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:crux/">package:crux</a> <a href="http://rubikitch.com/tag/package:sane-term/">package:sane-term</a> <a href="http://rubikitch.com/tag/package:multi-term/">package:multi-term</a> <a href="http://rubikitch.com/tag/package:term/">package:term</a></td></tr>
-</table>
-<br />
-#+END_HTML
-#+INCLUDE: "include.crux.org" 
-
-*M-x crux-visit-term-buffer* は、 *M-x ansi-term* による
-Emacs Lispで書かれた端末エミュレータを立ち上げます。
-すでに立ち上がっている場合は再利用します。
-
-multi-term.elとは異なり、
-ひとつの *ansi-term*バッファを使い回すのが特徴です。
-
-ただし、ディレクトリローカル変数で
-*crux-term-buffer-name* (デフォルト値:"ansi")を変更することによって、
-そのディレクトリ固有の端末バッファ(複数の端末バッファ)を作成することはできます。
-
-内部で使われている *crux-start-or-switch-to* は、
-バッファが存在しない場合は関数によって新規作成し、
-存在するときは再利用するという6行の小さな関数です。
-
-elispを学んでいるならば読んでおいて損はありません。
-
-# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
-** crux インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install crux
-
+#+TITLE: crux.el : crux-visit-term-buffer: Emacs内ターミナルエミュレータを再利用しつつ立ち上げる
+[includeme file="inc-package-table.php" name="crux" where="melpa"]
 
 #+end:
-** 概要                                                             :noexport:
+** 概要
 #+INCLUDE: "include.crux.org" 
 
 *M-x crux-visit-term-buffer* は、 *M-x ansi-term* による
@@ -78,6 +39,7 @@ multi-term.elとは異なり、
 elispを学んでいるならば読んでおいて損はありません。
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+[includeme file="inc-package-install.php" name="crux" where="melpa"]
 ** 設定 [[http://rubikitch.com/f/160728075521.crux.el][160728075521.crux.el(以下のコードと同一)]]
 #+BEGIN: include :file "/r/sync/junk/160728/160728075521.crux.el"
 #+BEGIN_SRC fundamental
@@ -91,3 +53,4 @@ elispを学んでいるならば読んでおいて損はありません。
 $ wget http://rubikitch.com/f/160728075521.crux.el
 $ emacs -Q -f package-initialize -l 160728075521.crux.el
 #+END_EXAMPLE
+[includeme file="inc-package-relate.php" name="crux"]

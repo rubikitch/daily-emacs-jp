@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 1553
+#+POSTID: 863
+#+BLOG: rubikitch
 #+DATE: [2015-04-23 Thu 04:32]
 #+PERMALINK: centered-cursor-mode
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,71 +8,17 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs
+#+CATEGORY: カーソル移動
 #+EL_PKG_NAME: centered-cursor-mode
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, scroll-lock-mode, scroll-preserve-screen-position, scroll-conservatively, recenter, emacs 検索 カーソル位置見失う, relate:hl-line, relate:scroll-lock
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: 
 #+EL_TITLE0: カーソル移動・スクロール時に常に画面中央行(任意可)をキープして表示させる
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージcentered-cursor-modeの紹介
-#+MYTAGS: package:centered-cursor-mode, emacs 使い方, emacs コマンド, emacs, centered-cursor-mode, centered-cursor-mode.el, emacs lisp centered-cursor-mode, elisp centered-cursor-mode, emacs melpa centered-cursor-mode, emacs centered-cursor-mode 使い方, emacs centered-cursor-mode 設定, emacs パッケージ centered-cursor-mode, emacs centered-cursor-mode スクリーンショット, scroll-lock-mode, scroll-preserve-screen-position, scroll-conservatively, recenter, emacs 検索 カーソル位置見失う, relate:hl-line, relate:scroll-lock
-#+TAGS: package:centered-cursor-mode, emacs 使い方, emacs コマンド, emacs, centered-cursor-mode, centered-cursor-mode.el, emacs lisp centered-cursor-mode, elisp centered-cursor-mode, emacs melpa centered-cursor-mode, emacs centered-cursor-mode 使い方, emacs centered-cursor-mode 設定, emacs パッケージ centered-cursor-mode, emacs centered-cursor-mode スクリーンショット, scroll-lock-mode, scroll-preserve-screen-position, scroll-conservatively, recenter, emacs 検索 カーソル位置見失う, relate:hl-line, relate:scroll-lock, Emacs, M-x global-hl-line-mode, M-x scroll-lock-mode, centered-cursor-mode.el, scroll-lock.el, M-x centered-cursor-mode, M-x global-centered-cursor-mode, ccm-vpos-init, M-x global-hl-line-mode, M-x scroll-lock-mode, centered-cursor-mode.el, scroll-lock.el, M-x centered-cursor-mode, M-x global-centered-cursor-mode, ccm-vpos-init
-#+TITLE: emacs centered-cursor-mode.el : カーソル移動・スクロール時に常に画面中央行(任意可)をキープして表示させる | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>centered-cursor-mode</td></tr>
-<tr><td>概要(原文)</td><td>cursor stays vertically centered</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="http://www.emacswiki.org/centered-cursor-mode.el">http://www.emacswiki.org/centered-cursor-mode.el</a></td></tr>
-<tr><td>バージョン</td><td>20150420.1942</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:centered-cursor-mode/">package:centered-cursor-mode</a> <a href="http://rubikitch.com/tag/package:hl-line/">package:hl-line</a> <a href="http://rubikitch.com/tag/package:scroll-lock/">package:scroll-lock</a></td></tr>
-</table>
-<br />
-#+END_HTML
-Emacsを使っていて、カーソル位置を見失うことがよくありますね。
-
-その解決策として、現在行をハイライトさせる *M-x global-hl-line-mode* や
-*M-x scroll-lock-mode* でカーソル移動の際に現在行の画面内での位置を
-固定するやり方があります。
-
-この *centered-cursor-mode.el* は、 *scroll-lock.el* を強化させます。
-
-scroll-lock-modeは有効にした時点の画面内の現在行の位置をキープするのですが、
-isearchで位置がずれてしまう欠点があります。
-
-*M-x centered-cursor-mode* は
-- カーソル上下移動
-- マウスホイールでのスクロール
-- 通常のスクロール
-- isearch
-などあらゆる場面で現在行を画面中央に表示するようにする
-ローカルマイナーモードです。
-
-グローバル版 *M-x global-centered-cursor-mode* もあります。
-
-変数 *ccm-vpos-init* で固定する行を画面上部からの行数で指定できます。
-
-もしかしたら、目線を上下に動かさずに文章が読めるので
-速読に役立つかもしれません？
-
-# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150423044804.png]]
-Fig1: この位置でC-nで下の行に移動しても
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150423044746.png]]
-Fig2: 画面内のカーソル位置は保たれる
-** centered-cursor-mode インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install centered-cursor-mode
-
+#+TITLE: centered-cursor-mode.el : カーソル移動・スクロール時に常に画面中央行(任意可)をキープして表示させる
+[includeme file="inc-package-table.php" name="centered-cursor-mode" where="melpa"]
 
 #+end:
-** 概要                                                             :noexport:
+** 概要
 Emacsを使っていて、カーソル位置を見失うことがよくありますね。
 
 その解決策として、現在行をハイライトさせる *M-x global-hl-line-mode* や
@@ -110,3 +57,5 @@ Fig2: 画面内のカーソル位置は保たれる
 
 # /r/sync/screenshots/20150423044804.png http://rubikitch.com/wp-content/uploads/2015/04/wpid-20150423044804.png
 # /r/sync/screenshots/20150423044746.png http://rubikitch.com/wp-content/uploads/2015/04/wpid-20150423044746.png
+[includeme file="inc-package-install.php" name="centered-cursor-mode" where="melpa"]
+[includeme file="inc-package-relate.php" name="centered-cursor-mode"]

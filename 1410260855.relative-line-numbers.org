@@ -1,33 +1,22 @@
 #+BLOG: rubikitch
-#+POSTID: 518
+#+POSTID: 369
+#+BLOG: rubikitch
 #+DATE: [2014-10-26 Sun 08:55]
 #+PERMALINK: relative-line-numbers
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
 #+ISPAGE: nil
-#+DESCRIPTION:
+#+DESCRIPTION:数引数つきのC-p/C-n/C-kとrelative-line-numbersは相性が良い
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs
+#+CATEGORY: 行番号
 #+EL_PKG_NAME: relative-line-numbers
-#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, relate:ace-jump-mode, emacs スクリーンショット %p, emacs 相対行番号, emacs 前後の行, emacs 数引数 使い方
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: 
 #+EL_TITLE0: カーソル前後の行を一瞬で処理する3つの方法！
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージrelative-line-numbersの紹介
-#+MYTAGS: package:relative-line-numbers, emacs 使い方, emacs コマンド, emacs, emacs lisp relative-line-numbers, elisp relative-line-numbers, emacs melpa relative-line-numbers, emacs relative-line-numbers 使い方, emacs relative-line-numbers 設定, emacs パッケージ relative-line-numbers, relate:ace-jump-mode, emacs スクリーンショット relative-line-numbers, emacs 相対行番号, emacs 前後の行, emacs 数引数 使い方
-#+TITLE: emacs relative-line-numbers.el : カーソル前後の行を一瞬で処理する3つの方法！ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>relative-line-numbers</td></tr>
-<tr><td>概要(原文)</td><td>Display relative line numbers on the margin</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/Fanael/relative-line-numbers">https://github.com/Fanael/relative-line-numbers</a></td></tr>
-<tr><td>バージョン</td><td>20141018.1252</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:relative-line-numbers/">package:relative-line-numbers</a> <a href="http://rubikitch.com/tag/package:ace-jump-mode/">package:ace-jump-mode</a></td></tr>
-</table>
-<br />
-#+END_HTML
-[[http://rubikitch.com/2014/10/20/relative-line-numbers/][先日紹介]] した *relative-line-numbers.el* ですが、
+#+TITLE: relative-line-numbers.el : カーソル前後の行を一瞬で処理する3つの方法！
+[includeme file="inc-package-table.php" name="relative-line-numbers" where="melpa"]
+** 概要
+[[http://emacs.rubikitch.com/relative-line-numbers/][先日紹介]] した *relative-line-numbers.el* ですが、
 便利な使い方を教えていただいたので記事にします。
 
 これは相対行番号、つまり現在行からの距離を
@@ -58,23 +47,18 @@ C-N C-kは現在行からN行kill(*kill-ring* に入れる)します。
 
 こういう操作を行うのにrelative-line-numbers.elは役に立ちます。
 
-個人的には [[http://rubikitch.com/2014/10/09/ace-jump-mode/][M-x ace-jump-line-mode]] や *isearch* を使うことが多いので、
+個人的には [[http://emacs.rubikitch.com/ace-jump-mode/][M-x ace-jump-line-mode]] や *isearch* を使うことが多いので、
 あまり使っていない使い方でした。
 
 標準状態のEmacsだと使えなさそうなコマンドも、
 パッケージ追加により生き返るのはおもしろいですね！
 
 @junkwさん、@imunolionさん、ありがとうございます。
-** relative-line-numbers インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install relative-line-numbers
-
+[includeme file="inc-package-install.php" name="relative-line-numbers" where="melpa"]
 
 #+end:
 ** 概要                                                             :noexport:
-[[http://rubikitch.com/2014/10/20/relative-line-numbers/][先日紹介]] した *relative-line-numbers.el* ですが、
+[[http://emacs.rubikitch.com/relative-line-numbers/][先日紹介]] した *relative-line-numbers.el* ですが、
 便利な使い方を教えていただいたので記事にします。
 
 これは相対行番号、つまり現在行からの距離を
@@ -105,7 +89,7 @@ C-N C-kは現在行からN行kill(*kill-ring* に入れる)します。
 
 こういう操作を行うのにrelative-line-numbers.elは役に立ちます。
 
-個人的には [[http://rubikitch.com/2014/10/09/ace-jump-mode/][M-x ace-jump-line-mode]] や *isearch* を使うことが多いので、
+個人的には [[http://emacs.rubikitch.com/ace-jump-mode/][M-x ace-jump-line-mode]] や *isearch* を使うことが多いので、
 あまり使っていない使い方でした。
 
 標準状態のEmacsだと使えなさそうなコマンドも、
@@ -130,3 +114,4 @@ $ emacs -Q -f package-initialize -l 141020140339.relative-line-numbers.el
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
 http://rubikitch.com/f/20141020140507.png
 Fig1: 相対行番号！
+[includeme file="inc-package-relate.php" name="relative-line-numbers"]

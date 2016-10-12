@@ -1,57 +1,23 @@
 #+BLOG: rubikitch
-#+POSTID: 295
+#+POSTID: 273
+#+BLOG: rubikitch
 #+DATE: [2014-09-06 Sat 04:46]
 #+PERMALINK: linked-buffer
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t
 #+ISPAGE: nil
-#+DESCRIPTION:
+#+DESCRIPTION:同じ内容をキープし続ける2つのバッファを使って1つのバッファで複数のメジャーモードを実現させる
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs
+#+CATEGORY: 複数のメジャーモード
 #+EL_PKG_NAME: lentic
-#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, emacs indirect-buffer, emacs org-mode babel, emacs org-babel, emacs 文芸的プログラミング, emacs 複数のメジャーモード, emacs mmm-mode, relate:org, relate:multifiles, linked-buffer.el
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: org
 #+EL_TITLE0: 【linked-bufferから改名】1つのファイルで複数のメジャーモードを使う直観的な方法！org-babelが便利に
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージlenticの紹介
-#+MYTAGS: package:lentic, emacs 使い方, emacs コマンド, emacs, emacs lisp lentic, elisp lentic, emacs melpa lentic, emacs lentic 使い方, emacs lentic 設定, emacs パッケージ lentic, emacs lentic スクリーンショット, emacs indirect-buffer, emacs org-mode babel, emacs org-babel, emacs 文芸的プログラミング, emacs 複数のメジャーモード, emacs mmm-mode, relate:org, relate:multifiles, linked-buffer.el
-#+TITLE: emacs lentic.el : 【linked-bufferから改名】1つのファイルで複数のメジャーモードを使う直観的な方法！org-babelが便利に | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>lentic</td></tr>
-<tr><td>概要(原文)</td><td>One buffer as a view of another</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/phillord/lentic">https://github.com/phillord/lentic</a></td></tr>
-<tr><td>バージョン</td><td>20141227.546</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:lentic/">package:lentic</a> <a href="http://rubikitch.com/tag/package:org/">package:org</a> <a href="http://rubikitch.com/tag/package:multifiles/">package:multifiles</a></td></tr>
-</table>
-<br />
-#+END_HTML
-<2014-12-16 Tue>linked-bufferからlenticに改名されました。
-
-今回はすごいマイナーなパッケージを紹介します。
-
-というか知られてなさすぎて日本語のブログでは取り上げられてないです。
-
-lentic.elは *indirect-buffer* のように
-同じ内容をキープし続ける2つのバッファを使って
-1つのバッファで複数のメジャーモードを実現させます。
-
-2つのバッファを同時に表示して、カーソル位置も連動してくれるので、
-単にウィンドウを切り替えるだけでメジャーモードを使い分けられます。
-
-*org-mode* で文書中にソースコードを書くときに使うと便利です。
-
-逆に、複数のファイルを1つのバッファに統合するには [[http://rubikitch.com/2014/09/06/multifiles/][multifiles.el]] を使います。
-** lentic インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install lentic
-
+#+TITLE: lentic.el : 【linked-bufferから改名】1つのファイルで複数のメジャーモードを使う直観的な方法！org-babelが便利に
+[includeme file="inc-package-table.php" name="lentic" where="melpa"]
 
 #+end:
-** 概要                                                             :noexport:
+** 概要
 <2014-12-16 Tue>linked-bufferからlenticに改名されました。
 
 今回はすごいマイナーなパッケージを紹介します。
@@ -67,7 +33,8 @@ lentic.elは *indirect-buffer* のように
 
 *org-mode* で文書中にソースコードを書くときに使うと便利です。
 
-逆に、複数のファイルを1つのバッファに統合するには [[http://rubikitch.com/2014/09/06/multifiles/][multifiles.el]] を使います。
+逆に、複数のファイルを1つのバッファに統合するには [[http://emacs.rubikitch.com/multifiles/][multifiles.el]] を使います。
+[includeme file="inc-package-install.php" name="lentic" where="melpa"]
 ** 設定 [[http://rubikitch.com/f/140906050929.linked-buffer.1.el][140906050929.linked-buffer.1.el(以下のコードと同一)]]
 autoloadの設定がされていないので、requireの必要があります。
 
@@ -124,3 +91,4 @@ org-babelでorg文書にソースコード書けるよねー。
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
 http://rubikitch.com/f/20140906051044.png
 Fig1: 左右のバッファを連動させて編集！！
+[includeme file="inc-package-relate.php" name="lentic"]

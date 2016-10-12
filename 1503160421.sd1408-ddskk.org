@@ -1,27 +1,34 @@
 #+BLOG: rubikitch
-#+POSTID: 1311
+#+POSTID: 763
+#+BLOG: rubikitch
 #+DATE: [2015-03-16 Mon 04:21]
 #+PERMALINK: sd1408-ddskk
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
 #+ISPAGE: nil
-#+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, SKK, 連載『るびきち流Emacs超入門』
+#+CATEGORY: るびきち流Emacs超入門
+#+EL_PKG_NAME: ddskk
 #+DESCRIPTION: Emacsによる文字入力一元化を実現するために、スムーズな日本語入力は必要不可欠なものです。本稿では、それを手助けするシンプルな日本語入力システム「SKK」、習得が簡単な拡張ローマ字入力システム「AZIK」を紹介しています。実際にインストール＆入力してみて、その便利さ、普段の日本語入力との違いを実感してください。
-#+MYTAGS: Emacs 日本語入力, ＜f1＞ c, package:ddskk
 #+TITLE: #4 SKK＋AZIKで快適・効率的な日本語入力を！ (Software Design 2014年8月号掲載記事) Emacs DDSKK インストール 設定 使い方
+#+begin: org2blog
+#+TITLE: ddskk.el : No Title
+[includeme file="inc-package-table.php" name="ddskk" where="melpa"]
+
+#+end:
+
 #+begin: org2blog-tags
-#+TAGS: Emacs 日本語入力, ＜f1＞ c, package:ddskk, Emacs, SKK, 連載『るびきち流Emacs超入門』, ddskk, 文字入力の一元化, SKK, Simple Kana to Kanji conversion program, 文節の区切り, 単語変換＋文節マニュアル指定, 特殊変換, 固有名詞, 新語, 再帰的単語登録, 簡単なデータベース, Google日本語入力, ddskk, Daredevil SKK, チュートリアル, M-x skk-tutorial, ローマ字入力, T-Code, AZIK, M-x skk-restart, skk-sticky-key, Shiftを使わずに, <f1> c
+# content-length: 9851
+
 #+end:
 Software Design連載記事を掲載します。
 
 株式会社技術評論社の許可を得て掲載しています。
 草稿なので細かい部分は実際の記事とは異なることがあります。
 
-1. 2014/05 [[http://rubikitch.com/2014/08/28/sd1405/][なぜEmacsをお勧めするのか？]]
-2. 2014/06 [[http://rubikitch.com/2014/09/04/sd1406/][スマートにEmacsを始めるための小さいけど重要なコツ]]
-3. 2014/07 [[http://rubikitch.com/2014/10/05/sd1407/][反復練習に勝るものなし -- 打鍵すべし！設定書くべし！]]
+1. 2014/05 [[http://emacs.rubikitch.com/sd1405/][なぜEmacsをお勧めするのか？]]
+2. 2014/06 [[http://emacs.rubikitch.com/sd1406/][スマートにEmacsを始めるための小さいけど重要なコツ]]
+3. 2014/07 [[http://emacs.rubikitch.com/sd1407/][反復練習に勝るものなし -- 打鍵すべし！設定書くべし！]]
 
 今回は *ddskk* についてです。
 現在はMELPA入りしているので、M-x package-install ddskkでインストールできます。
@@ -191,3 +198,4 @@ $ make install
 
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+[includeme file="inc-package-relate.php" name="ddskk"]

@@ -1,20 +1,21 @@
 #+BLOG: rubikitch
-#+POSTID: 457
+#+POSTID: 39
+#+BLOG: rubikitch
 #+DATE: [2014-10-12 Sun 13:12]
-#+PERMALINK: melmag
+#+PERMALINK: melmag150
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t
 #+ISPAGE: nil
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: メルマガ,
+#+CATEGORY: るびきち塾メルマガ
 #+DESCRIPTION:
 #+MYTAGS:
 #+TAGS: , メルマガ,, グラフ, gnuplot, org-mode, 画像付き文書, インライン画像, ハイパーリンク, 可読性, 編集可能
 #+TITLE: Emacsでグラフを表示させよう！
 今週のメルマガは、Emacsで *グラフ* を表示させる方法です。
 
-グラフは [[http://rubikitch.com/2014/10/03/melmag-5/][先週同様gnuplotを使う]] のですが、
+グラフは [[http://emacs.rubikitch.com/melmag-5/][先週同様gnuplotを使う]] のですが、
 今回は発展させて *gnuplot* のソースコードを直接書き込みます。
 
 Emacsはもともと画像を表示させる機能があり、
@@ -33,7 +34,7 @@ org-modeではそれに *可読性* と *編集可能* な点が加わります�
 /grepでそのまま検索できる/
 大きなメリットがあります。
 
-[[http://rubikitch.com/2014/10/07/pandoc-2/][実際、PandocというツールでHTML(Webページ)をorgに変換しています。]]
+[[http://emacs.rubikitch.com/pandoc-2/][実際、PandocというツールでHTML(Webページ)をorgに変換しています。]]
 
 今週のメルマガを読めば、
 Emacsだけで画像付き文書を簡単に作成できるだけでなく、

@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 356
+#+POSTID: 300
+#+BLOG: rubikitch
 #+DATE: [2014-09-17 Wed 11:01]
 #+PERMALINK: rainbow-identifiers
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t
@@ -7,34 +8,23 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs
+#+CATEGORY: テキスト色付け
 #+EL_PKG_NAME: rainbow-identifiers
-#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, relate:highlight-defined, emacs フェイス シンボル 色付け, relate:highlight-symbol
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: マイナーモード
 #+EL_TITLE0: 【お遊び】シンボルにランダムな色をつけるヨ
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージrainbow-identifiersの紹介
-#+MYTAGS: package:rainbow-identifiers, emacs 使い方, emacs コマンド, emacs, emacs lisp rainbow-identifiers, elisp rainbow-identifiers, emacs melpa rainbow-identifiers, emacs rainbow-identifiers 使い方, emacs rainbow-identifiers 設定, emacs パッケージ rainbow-identifiers, emacs rainbow-identifiers スクリーンショット, relate:highlight-defined, emacs フェイス シンボル 色付け, relate:highlight-symbol
-#+TAGS: package:rainbow-identifiers, emacs 使い方, emacs コマンド, emacs, emacs lisp rainbow-identifiers, elisp rainbow-identifiers, emacs melpa rainbow-identifiers, emacs rainbow-identifiers 使い方, emacs rainbow-identifiers 設定, emacs パッケージ rainbow-identifiers, emacs rainbow-identifiers スクリーンショット, relate:highlight-defined, emacs フェイス シンボル 色付け, relate:highlight-symbol, Emacs, M-x rainbow-identifiers-mode, M-x rainbow-identifiers-mode
-#+TITLE: emacs rainbow-identifiers.el : 【お遊び】シンボルにランダムな色をつけるヨ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>rainbow-identifiers</td></tr>
-<tr><td>概要(原文)</td><td>Highlight identifiers according to their names</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/Fanael/rainbow-identifiers">https://github.com/Fanael/rainbow-identifiers</a></td></tr>
-<tr><td>バージョン</td><td>20141102.726</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:rainbow-identifiers/">package:rainbow-identifiers</a> <a href="http://rubikitch.com/tag/package:highlight-defined/">package:highlight-defined</a> <a href="http://rubikitch.com/tag/package:highlight-symbol/">package:highlight-symbol</a></td></tr>
-</table>
-<br />
-#+END_HTML
+#+TITLE: rainbow-identifiers.el : 【お遊び】シンボルにランダムな色をつけるヨ
+[includeme file="inc-package-table.php" name="rainbow-identifiers" where="melpa"]
+
+#+end:
+** 概要
 
 *M-x rainbow-identifiers-mode* は、カレントバッファの
 シンボルにランダムな色をつけるマイナーモードです。
 
 メリットといえば、少しばかり画面が派え派手になることでしょうか。
 
-当然、[[http://rubikitch.com/2014/09/15/highlight-defined/][定義済シンボルに色をつけるhighlight-defined.el]] との併用はできません。
+当然、[[http://emacs.rubikitch.com/highlight-defined/][定義済シンボルに色をつけるhighlight-defined.el]] との併用はできません。
 
 どの色をつけるかは、シンボル名をsha1と長さに
 基くハッシュ関数を計算することで決定しています。
@@ -49,33 +39,5 @@ Fig1: ビフォー
 
 http://rubikitch.com/f/20140917110422.png
 Fig2: アフター
-** rainbow-identifiers インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install rainbow-identifiers
-
-
-#+end:
-** 概要                                                             :noexport:
-
-*M-x rainbow-identifiers-mode* は、カレントバッファの
-シンボルにランダムな色をつけるマイナーモードです。
-
-メリットといえば、少しばかり画面が派え派手になることでしょうか。
-
-当然、[[http://rubikitch.com/2014/09/15/highlight-defined/][定義済シンボルに色をつけるhighlight-defined.el]] との併用はできません。
-
-どの色をつけるかは、シンボル名をsha1と長さに
-基くハッシュ関数を計算することで決定しています。
-
-なのでどの色がつくかは予想できません(笑)
-
-こんなEmacs Lispもあるということで。
-
-# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
-http://rubikitch.com/f/20140917110415.png
-Fig3: ビフォー
-
-http://rubikitch.com/f/20140917110422.png
-Fig4: アフター
+[includeme file="inc-package-install.php" name="rainbow-identifiers" where="melpa"]
+[includeme file="inc-package-relate.php" name="rainbow-identifiers"]

@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 2417
+#+POSTID: 1439
+#+BLOG: rubikitch
 #+DATE: [2016-02-21 Sun 13:06]
 #+PERMALINK: sd1601-auto-yasnippet
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,9 +8,9 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, 連載『るびきち流Emacs超入門』
+#+CATEGORY: るびきち流Emacs超入門
 #+DESCRIPTION:
-#+TAGS:package:yasnippet, package:auto-yasnippet, yas-global-mode, yas-prompt-functions, yas-ido-prompt, advice-add, yas-insert-snippet, yas-new-snippet, yas-tryout-snippet, placeholder, set-goal-column, aya-create-with-newline, aya-expand, aya-create, emacs テンプレート展開, emacs スニペット, emacs スケルトン 使いづらい, スケルトン
+#+TAGS: yasnippet
 #+TITLE: #21 定型文を瞬時に入力　yasnippet の実力 (Software Design 2016年1月号掲載記事) Emacs auto-yasnippet インストール 設定 使い方
 Software Design連載記事を掲載します。
 

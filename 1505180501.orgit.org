@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 1661
+#+POSTID: 918
+#+BLOG: rubikitch
 #+DATE: [2015-05-18 Mon 05:01]
 #+PERMALINK: orgit
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,28 +8,17 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, org-mode, 
+#+CATEGORY: ハイパーリンク
 #+EL_PKG_NAME: orgit
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, relate:org, package:org, relate:magit, org-mode github link, relate:github-browse-file, relate:git-link, org-mode magitへのリンク, org-modeでプロジェクト管理, 
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: magit, git, org
 #+EL_TITLE0: org-modeでmagitへのリンクを作成する！export時URL変換対応
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージorgitの紹介
-#+MYTAGS: package:orgit, emacs 使い方, emacs コマンド, emacs, orgit, orgit.el, emacs lisp orgit, elisp orgit, emacs melpa orgit, emacs orgit 使い方, emacs orgit 設定, emacs パッケージ orgit, emacs orgit スクリーンショット, relate:org, package:org, relate:magit, org-mode github link, relate:github-browse-file, relate:git-link, org-mode magitへのリンク, org-modeでプロジェクト管理, 
-#+TAGS: package:orgit, emacs 使い方, emacs コマンド, emacs, orgit, orgit.el, emacs lisp orgit, elisp orgit, emacs melpa orgit, emacs orgit 使い方, emacs orgit 設定, emacs パッケージ orgit, emacs orgit スクリーンショット, relate:org, package:org, relate:magit, org-mode github link, relate:github-browse-file, relate:git-link, org-mode magitへのリンク, org-modeでプロジェクト管理, , Emacs, org-mode, , org-mode, orgit.el, magit, github, gitorious, bitbucket, orgmode.org, kernel.org, orgit.el, magit, github, gitorious, bitbucket, orgmode.org, kernel.org
-#+TITLE: emacs orgit.el : org-modeでmagitへのリンクを作成する！export時URL変換対応 | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>orgit</td></tr>
-<tr><td>概要(原文)</td><td>support for Org links to Magit buffers</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/magit/orgit">https://github.com/magit/orgit</a></td></tr>
-<tr><td>バージョン</td><td>20150406.540</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:orgit/">package:orgit</a> <a href="http://rubikitch.com/tag/package:org/">package:org</a> <a href="http://rubikitch.com/tag/package:magit/">package:magit</a> <a href="http://rubikitch.com/tag/package:github-browse-file/">package:github-browse-file</a> <a href="http://rubikitch.com/tag/package:git-link/">package:git-link</a></td></tr>
-</table>
-<br />
-#+END_HTML
+#+TITLE: orgit.el : org-modeでmagitへのリンクを作成する！export時URL変換対応
+[includeme file="inc-package-table.php" name="orgit" where="melpa"]
+
+#+end:
+** 概要
 *org-mode* のリンクはいろいろ拡張できます。
 
 *orgit.el* は *magit* へのリンクを作成します。
@@ -70,57 +60,8 @@ Fig4: その後orgバッファにてC-c C-lで集めたリンクを貼り付け�
 Fig5: C-c C-e h HでHTML変換すると、githubへのリンクになっている！
 
 
-** orgit インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
 
-M-x package-refresh-contents
-M-x package-install orgit
-
-
-#+end:
-** 概要                                                             :noexport:
-*org-mode* のリンクはいろいろ拡張できます。
-
-*orgit.el* は *magit* へのリンクを作成します。
-
-- status
-- log
-- commit
-
-リポジトリや特定のコミットへのリンクを作成することで
-org文書にてプロジェクト管理ができるようになります。
-
-また、export時にはリモートリポジトリへのリンクに変換してくれます。
-
-たとえば、リモートが
-*github* / *gitorious* / *bitbucket* / *orgmode.org* / *kernel.org*
-であるとき、当該ホスティングサービスのstatus/log/commitへのリンクになります。
-
-
-
-# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150518051457.png]]
-Fig6: M-x magit-status後にC-c l
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150518051504.png]]
-Fig7: *magit-log*にてC-c l
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150518051515.png]]
-Fig8: *magit-commit*にてC-c l
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150518051712.png]]
-Fig9: その後orgバッファにてC-c C-lで集めたリンクを貼り付ける
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150518051741.png]]
-Fig10: C-c C-e h HでHTML変換すると、githubへのリンクになっている！
-
-
-
+[includeme file="inc-package-install.php" name="orgit" where="melpa"]
 ** 設定 [[http://rubikitch.com/f/150518051325.orgit.1.el][150518051325.orgit.1.el(以下のコードと同一)]]
 #+BEGIN: include :file "/r/sync/junk/150518/150518051325.orgit.1.el"
 #+BEGIN_SRC fundamental
@@ -135,3 +76,4 @@ Fig10: C-c C-e h HでHTML変換すると、githubへのリンクになってい�
 $ wget http://rubikitch.com/f/150518051325.orgit.1.el
 $ emacs -Q -f package-initialize -l 150518051325.orgit.1.el
 #+END_EXAMPLE
+[includeme file="inc-package-relate.php" name="orgit"]

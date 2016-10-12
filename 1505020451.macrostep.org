@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 1606
+#+POSTID: 883
+#+BLOG: rubikitch
 #+DATE: [2015-05-02 Sat 04:51]
 #+PERMALINK: macrostep
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,58 +8,17 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, Emacs Lisp, 
+#+CATEGORY: デバッグ
 #+EL_PKG_NAME: macrostep
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, elisp マクロ展開, macroexpand, elisp デバッグ, edebug, relate:lisp, emacs-lisp-mode, elisp マクロをデバッグする, マクロ展開の様子を見る, elisp macrolet デバッグ
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: マクロ
 #+EL_TITLE0: 【コードリーディング支援】elispのマクロ展開をその場で順番に眺める
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージmacrostepの紹介
-#+MYTAGS: package:macrostep, emacs 使い方, emacs コマンド, emacs, macrostep, macrostep.el, emacs lisp macrostep, elisp macrostep, emacs melpa macrostep, emacs macrostep 使い方, emacs macrostep 設定, emacs パッケージ macrostep, emacs macrostep スクリーンショット, elisp マクロ展開, macroexpand, elisp デバッグ, edebug, relate:lisp, emacs-lisp-mode, elisp マクロをデバッグする, マクロ展開の様子を見る, elisp macrolet デバッグ
-#+TAGS: package:macrostep, emacs 使い方, emacs コマンド, emacs, macrostep, macrostep.el, emacs lisp macrostep, elisp macrostep, emacs melpa macrostep, emacs macrostep 使い方, emacs macrostep 設定, emacs パッケージ macrostep, emacs macrostep スクリーンショット, elisp マクロ展開, macroexpand, elisp デバッグ, edebug, relate:lisp, emacs-lisp-mode, elisp マクロをデバッグする, マクロ展開の様子を見る, elisp macrolet デバッグ, Emacs, Emacs Lisp, , macroexpand, macrostep.el, macrolet, cl-macrolet, macroexpand, macrostep.el, macrolet, cl-macrolet
-#+TITLE: emacs macrostep.el : 【コードリーディング支援】elispのマクロ展開をその場で順番に眺める | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>macrostep</td></tr>
-<tr><td>概要(原文)</td><td>interactive macro stepper for Emacs Lisp</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/joddie/macrostep">https://github.com/joddie/macrostep</a></td></tr>
-<tr><td>バージョン</td><td>20150416.1831</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:macrostep/">package:macrostep</a> <a href="http://rubikitch.com/tag/package:lisp/">package:lisp</a></td></tr>
-</table>
-<br />
-#+END_HTML
-Lispのマクロはとても強力で、制御構造すら隠蔽できてしまいます。
-
-もちろんelispだって例外ではありません。
-
-マクロは何度も「展開」され、
-最終的にはスペシャルフォームと関数のみになります。
-
-マクロは便利さの反面、デバッグが困難になるという代償が伴います。
-
-マクロのデバッグの際には展開の様子を見ていくのがいいです。
-
-マクロがどのように展開されるかについては
- *macroexpand* という関数を使えばわかりますが、
-デバッグの際に使おうにもわざわざコピーして貼り付けるのでは面倒です。
-
-*macrostep.el* は、emacs-lisp-modeのバッファの中で
-その場でマクロ展開の様子を見られるようにします。
-
-*macrolet* や *cl-macrolet* によるローカルマクロにも対応しています。
-
-elispプログラマならば常備したいところです。
-** macrostep インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install macrostep
-
+#+TITLE: macrostep.el : 【コードリーディング支援】elispのマクロ展開をその場で順番に眺める
+[includeme file="inc-package-table.php" name="macrostep" where="melpa"]
 
 #+end:
-** 概要                                                             :noexport:
+** 概要
 Lispのマクロはとても強力で、制御構造すら隠蔽できてしまいます。
 
 もちろんelispだって例外ではありません。
@@ -80,6 +40,7 @@ Lispのマクロはとても強力で、制御構造すら隠蔽できてしま�
 *macrolet* や *cl-macrolet* によるローカルマクロにも対応しています。
 
 elispプログラマならば常備したいところです。
+[includeme file="inc-package-install.php" name="macrostep" where="melpa"]
 ** 使い方
 C-c eを押してマクロ展開状態にします。
 
@@ -146,3 +107,4 @@ $ emacs -Q -f package-initialize -l 150502050134.macrostep.el
 # /r/sync/screenshots/20150502050632.png http://rubikitch.com/wp-content/uploads/2015/05/wpid-20150502050632.png
 # /r/sync/screenshots/20150502051548.png http://rubikitch.com/wp-content/uploads/2015/05/wpid-20150502051548.png
 # /r/sync/screenshots/20150502051554.png http://rubikitch.com/wp-content/uploads/2015/05/wpid-20150502051554.png
+[includeme file="inc-package-relate.php" name="macrostep"]

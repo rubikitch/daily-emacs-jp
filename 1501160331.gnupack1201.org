@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 947
+#+POSTID: 624
+#+BLOG: rubikitch
 #+DATE: [2015-01-16 Fri 03:31]
 #+PERMALINK: gnupack1201
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,12 +8,11 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, gnupack, Emacs 24.4, 
+#+CATEGORY: リリース情報
 #+DESCRIPTION: 
-#+MYTAGS: 
 #+TITLE: gnupack 12.01リリース！Windowsでもemacsclientで瞬速Emacsを実現
 #+begin: org2blog-tags
-#+TAGS: , Emacs, gnupack, Emacs 24.4, , emacsclient, ドライブレター
+
 #+end:
 http://d.hatena.ne.jp/ksugita0510/20150111/p1
 
@@ -48,7 +48,7 @@ emacsclientは起動中のEmacsにファイルを渡すことにより、
 
 emacsclientファンはぜひともバージョンアップしてください。
 
-[[http://rubikitch.com/2014/12/31/gnupack12/][12.00の記事]] にも書きましたがgnupackを使うならば、
+[[http://emacs.rubikitch.com/gnupack12/][12.00の記事]] にも書きましたがgnupackを使うならば、
 開発者じゃなくてもdevelをおすすめします。
 
 本家Windows版よりも動作が遅いのは

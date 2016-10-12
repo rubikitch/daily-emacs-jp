@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 1924
+#+POSTID: 828
+#+BLOG: rubikitch
 #+DATE: [2015-04-07 Tue 04:33]
 #+PERMALINK: dired-filter
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,28 +8,17 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, dired
+#+CATEGORY: 検索
 #+EL_PKG_NAME: dired-filter
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, relate:phi-search-dired, diredをフィルタリング, diredでディレクトリのみを表示, diredでディレクトリを除外, dired ibuffer, relate:ibuffer, diredで特定のファイルのみを表示, package:dired, relate:dired, relate:dired-narrow
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: 正規表現, dired
 #+EL_TITLE0: diredでディレクトリ・特定の拡張子・ファイル名の正規表現にマッチしたもののみを表示
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージdired-filterの紹介
-#+MYTAGS: package:dired-filter, emacs 使い方, emacs コマンド, emacs, dired-filter, dired-filter.el, emacs lisp dired-filter, elisp dired-filter, emacs melpa dired-filter, emacs dired-filter 使い方, emacs dired-filter 設定, emacs パッケージ dired-filter, emacs dired-filter スクリーンショット, relate:phi-search-dired, diredをフィルタリング, diredでディレクトリのみを表示, diredでディレクトリを除外, dired ibuffer, relate:ibuffer, diredで特定のファイルのみを表示, package:dired, relate:dired, relate:dired-narrow
-#+TAGS: package:dired-filter, emacs 使い方, emacs コマンド, emacs, dired-filter, dired-filter.el, emacs lisp dired-filter, elisp dired-filter, emacs melpa dired-filter, emacs dired-filter 使い方, emacs dired-filter 設定, emacs パッケージ dired-filter, emacs dired-filter スクリーンショット, relate:phi-search-dired, diredをフィルタリング, diredでディレクトリのみを表示, diredでディレクトリを除外, dired ibuffer, relate:ibuffer, diredで特定のファイルのみを表示, package:dired, relate:dired, relate:dired-narrow, Emacs, dired, dired, ibuffer, dired-filter.el, ibuffer, dired-filter.el
-#+TITLE: emacs dired-filter.el : diredでディレクトリ・特定の拡張子・ファイル名の正規表現にマッチしたもののみを表示 | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>dired-filter</td></tr>
-<tr><td>概要(原文)</td><td>Ibuffer-like filtering for dired</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/Fuco1/dired-hacks">https://github.com/Fuco1/dired-hacks</a></td></tr>
-<tr><td>バージョン</td><td>20150819.948</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:dired-filter/">package:dired-filter</a> <a href="http://rubikitch.com/tag/package:phi-search-dired/">package:phi-search-dired</a> <a href="http://rubikitch.com/tag/package:ibuffer/">package:ibuffer</a> <a href="http://rubikitch.com/tag/package:dired/">package:dired</a> <a href="http://rubikitch.com/tag/package:dired-narrow/">package:dired-narrow</a></td></tr>
-</table>
-<br />
-#+END_HTML
+#+TITLE: dired-filter.el : diredでディレクトリ・特定の拡張子・ファイル名の正規表現にマッチしたもののみを表示
+[includeme file="inc-package-table.php" name="dired-filter" where="melpa"]
+
+#+end:
+** 概要
 *dired* で条件を満たすファイルのみを表示する標準コマンドは存在しますが、
 フィルタリング機能付きバッファリストの *ibuffer* をモデルに体系化したのが
 この *dired-filter.el* です。
@@ -54,7 +44,7 @@
 条件を満たすファイルをマークする機能もありますが、
 フィルタリング後に t を押して全部マークする方が簡単でしょう。
 
-ファイル名で絞り込むには[[http://rubikitch.com/2015/04/05/phi-search-dired/][phi-search-dired.el(レビュー)]] もあります。
+ファイル名で絞り込むには[[http://emacs.rubikitch.com/phi-search-dired/][phi-search-dired.el(レビュー)]] もあります。
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
 #+ATTR_HTML: :width 480
@@ -68,52 +58,6 @@ Fig2: / r emacsでemacsが含まれるファイルのみ表示
 #+ATTR_HTML: :width 480
 [[file:/r/sync/screenshots/20150407050129.png]]
 Fig3: さらに / r 244で244が含まれるファイルのみ表示。/ pでFig2に戻る。
-** dired-filter インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
 
-M-x package-refresh-contents
-M-x package-install dired-filter
-
-
-#+end:
-** 概要                                                             :noexport:
-*dired* で条件を満たすファイルのみを表示する標準コマンドは存在しますが、
-フィルタリング機能付きバッファリストの *ibuffer* をモデルに体系化したのが
-この *dired-filter.el* です。
-
-これを使うと、
-- ディレクトリのみを表示する (/ d)
-- 特定の拡張子のファイルのみを表示する (/ .)
-- 正規表現にマッチしたファイルのみを表示する (/ r)
-- それらを除外する (/ !)
-
-などが簡単にできるようになります。
-
-たとえばディレクトリを除外したければ / d / ! と操作します。
-
-フィルタリングはスタック状になっているので
-ガンガン絞り込めます。
-
-たとえばemacsと244が含まれるファイルに絞り込むには
-/ r emacs / r 244 と操作します。
-
-フィルタリングをすべて解除するには / / です。
-
-条件を満たすファイルをマークする機能もありますが、
-フィルタリング後に t を押して全部マークする方が簡単でしょう。
-
-ファイル名で絞り込むには[[http://rubikitch.com/2015/04/05/phi-search-dired/][phi-search-dired.el(レビュー)]] もあります。
-
-# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150407050110.png]]
-Fig4: 初期状態(dired-hide-details-modeでファイル名のみ表示)
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150407050118.png]]
-Fig5: / r emacsでemacsが含まれるファイルのみ表示
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150407050129.png]]
-Fig6: さらに / r 244で244が含まれるファイルのみ表示。/ pでFig2に戻る。
-
+[includeme file="inc-package-install.php" name="dired-filter" where="melpa"]
+[includeme file="inc-package-relate.php" name="dired-filter"]

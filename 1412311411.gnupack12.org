@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 842
+#+POSTID: 588
+#+BLOG: rubikitch
 #+DATE: [2014-12-31 Wed 14:11]
 #+PERMALINK: gnupack12
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,10 +8,9 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, Emacs 24.4, gnupack
+#+CATEGORY: リリース情報
 #+DESCRIPTION: 
-#+MYTAGS: gnupack, emacs, emacs windows, emacs gnupack, emacs24.4 windows, emacs cygwin, 
-#+TAGS: gnupack, emacs, emacs windows, emacs gnupack, emacs24.4 windows, emacs cygwin, , Emacs, Emacs 24.4, , gnupack, cygwin, ruby, python, cvs, git, subversion, gcc, Windows7, Windows8, Windows8.1
+#+TAGS: 
 #+TITLE: 【Emacs on Windows待望の新バージョン】公式版gnupack 12.00登場！！
 WindowsでEmacsを容易に使えるようにする *gnupack* ですが、
 先日、公式で新バージョン(12.00-2014.12.29)が出ました。
@@ -64,7 +64,7 @@ gnupackにはbasicとdevelがありますが、
 http://d.hatena.ne.jp/ksugita0510/20141229
 
 どうしても64bitがいいというならば
-[[http://rubikitch.com/2014/11/11/ntemacs64/][NTEmacs64 on gnupackという選択肢]] もあります。
+[[http://emacs.rubikitch.com/ntemacs64/][NTEmacs64 on gnupackという選択肢]] もあります。
 
 公式で64bit版が配布されたらもっと幸せになれることでしょう。
 

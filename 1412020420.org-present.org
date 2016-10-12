@@ -1,59 +1,23 @@
 #+BLOG: rubikitch
-#+POSTID: 644
+#+POSTID: 447
+#+BLOG: rubikitch
 #+DATE: [2014-12-02 Tue 04:20]
 #+PERMALINK: org-present
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
 #+ISPAGE: nil
-#+DESCRIPTION:
+#+DESCRIPTION:すぐに使えるorg-modeベースのプレゼンテーションツール。
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, org-mode, 
+#+CATEGORY: 文書作成
 #+EL_PKG_NAME: org-present
-#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, org-mode プレゼンテーション, relate:org, プレゼンテーション
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: org
 #+EL_TITLE0: org-modeでプレゼンテーションしようぜ！もちろん画像対応
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージorg-presentの紹介
-#+MYTAGS: package:org-present, emacs 使い方, emacs コマンド, emacs, emacs lisp org-present, elisp org-present, emacs melpa org-present, emacs org-present 使い方, emacs org-present 設定, emacs パッケージ org-present, emacs org-present スクリーンショット, org-mode プレゼンテーション, relate:org, プレゼンテーション
-#+TITLE: emacs org-present.el : org-modeでプレゼンテーションしようぜ！もちろん画像対応 | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>org-present</td></tr>
-<tr><td>概要(原文)</td><td>Minimalist presentation minor-mode for Emacs org-mode.</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/rlister/org-present">https://github.com/rlister/org-present</a></td></tr>
-<tr><td>バージョン</td><td>20141109.1756</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:org-present/">package:org-present</a> <a href="http://rubikitch.com/tag/package:org/">package:org</a></td></tr>
-</table>
-<br />
-#+END_HTML
-*org-present.el* は、 *org-mode* でプレゼンテーションをするツールです。
-
-すぐに覚えられて使いやすいです。
-
-まず準備として、環境に合わせて文字の大きさを
-*org-present-text-scale* で指定しておき、
-レイアウトを調節したスライドを作ってください。
-
-*M-x org-present* でプレゼンテーションモードにし、
-左右キーで前後のスライドへ移動し、C-c C-qで終了します。
-
-また、デフォルトではC-c C-=で文字を大きくしますが、
-その背景には英語キーボードでは「+」は「Shift+=」だからです。
-
-日本語キーボードではC-c C-;に割り当てておくとよいです。
-
-類似品には *org-tree-slide.el* があり、
-僕も使ったことがあります。
-** org-present インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install org-present
-
+#+TITLE: org-present.el : org-modeでプレゼンテーションしようぜ！もちろん画像対応
+[includeme file="inc-package-table.php" name="org-present" where="melpa"]
 
 #+end:
-** 概要                                                             :noexport:
+** 概要
 *org-present.el* は、 *org-mode* でプレゼンテーションをするツールです。
 
 すぐに覚えられて使いやすいです。
@@ -72,6 +36,7 @@ M-x package-install org-present
 
 類似品には *org-tree-slide.el* があり、
 僕も使ったことがあります。
+[includeme file="inc-package-install.php" name="org-present" where="melpa"]
 ** 設定 [[http://rubikitch.com/f/141202041220.org-present.el][141202041220.org-present.el(以下のコードと同一)]]
 #+BEGIN: include :file "/r/sync/junk/141202/141202041220.org-present.el"
 #+BEGIN_SRC fundamental
@@ -157,3 +122,4 @@ Fig4: 4枚目
 
 http://rubikitch.com/f/20141202042014.png
 Fig5: 5枚目
+[includeme file="inc-package-relate.php" name="org-present"]

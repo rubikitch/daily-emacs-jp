@@ -1,32 +1,21 @@
 #+BLOG: rubikitch
-#+POSTID: 189
+#+POSTID: 230
+#+BLOG: rubikitch
 #+DATE: [2014-08-21 Thu 13:27]
 #+PERMALINK: psession
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t
 #+ISPAGE: nil
-#+DESCRIPTION:
+#+DESCRIPTION:変数の値を ~/.emacs.d/elisp-objects/ 以下に保存し、再起動時に復元するライブラリ
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, Emacs Lisp,
+#+CATEGORY: データ永続化
 #+EL_PKG_NAME: psession
-#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p,emacs データ永続化, elisp データ永続化, elisp データ保存, emacs ウィンドウ構成 保存, emacs ウィンドウ構成 復元, relate:windows
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方  永続化
+#+TAGS: マイナーモード
 #+EL_TITLE0: Emacsのデータ・バッファ・ウィンドウ構成を永続化(保存)し、再起動時に復元する方法
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージpsessionの紹介
-#+MYTAGS: package:psession, emacs 使い方, emacs コマンド, emacs, emacs lisp psession, elisp psession, emacs melpa psession, emacs psession 使い方, emacs psession 設定, emacs パッケージ psession,emacs データ永続化, elisp データ永続化, elisp データ保存, emacs ウィンドウ構成 保存, emacs ウィンドウ構成 復元, relate:windows
-#+TITLE: emacs psession.el : Emacsのデータ・バッファ・ウィンドウ構成を永続化(保存)し、再起動時に復元する方法 | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方  永続化
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>psession</td></tr>
-<tr><td>概要(原文)</td><td>Persistent save of elisp objects.</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/thierryvolpiatto/psession">https://github.com/thierryvolpiatto/psession</a></td></tr>
-<tr><td>バージョン</td><td>20140829.217</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:psession/">package:psession</a> <a href="http://rubikitch.com/tag/package:windows/">package:windows</a></td></tr>
-</table>
-<br />
-#+END_HTML
+#+TITLE: psession.el : Emacsのデータ・バッファ・ウィンドウ構成を永続化(保存)し、再起動時に復元する方法
+[includeme file="inc-package-table.php" name="psession" where="melpa"]
+** 概要
 psessoin.elを使えば、Emacs終了時に特定の変数を保存し、
 再起動時にそれらを復元します。
 
@@ -39,12 +28,7 @@ psessoin.elを使えば、Emacs終了時に特定の変数を保存し、
 
 ちなみに、保存・復元するEmacs Lispは古くから *windows.el* があります。
 [[http://www.gentei.org/~yuuji/software/]]
-** psession インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install psession
-
+[includeme file="inc-package-install.php" name="psession" where="melpa"]
 
 #+end:
 ** 概要                                                             :noexport:
@@ -142,3 +126,4 @@ That may not work with Emacs versions <=23.1 for hash tables."
          (message "`%s' dumped to %sc" obj file))
     (delete-file file)))
 #+END_EXAMPLE
+[includeme file="inc-package-relate.php" name="psession"]

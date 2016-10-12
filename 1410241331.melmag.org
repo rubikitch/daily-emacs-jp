@@ -1,13 +1,14 @@
 #+BLOG: rubikitch
-#+POSTID: 512
+#+POSTID: 43
+#+BLOG: rubikitch
 #+DATE: [2014-10-24 Fri 13:31]
-#+PERMALINK: melmag
+#+PERMALINK: melmag152
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t
 #+ISPAGE: nil
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: メルマガ,
+#+CATEGORY: るびきち塾メルマガ
 #+DESCRIPTION: Emacsの鬼るびきちのココだけの話#152はEmacsでgnuplotコードを再利用して色々なグラフを描くお話
 #+MYTAGS:
 #+TAGS: , メルマガ,, org-mode, org-babel, DRY原則, gnuplot
@@ -38,7 +39,7 @@ org-babelの中で埋め込むソースコードを管理する方法は
 
 もちろんグラフの画像はEmacsでインライン画像として表示できます。
 
-[[http://rubikitch.com/2014/10/07/pandoc-2/][orgフォーマットはEmacsユーザにとっては最も可用性が高い]] と考えています。
+[[http://emacs.rubikitch.com/pandoc-2/][orgフォーマットはEmacsユーザにとっては最も可用性が高い]] と考えています。
 
 この方法を応用すれば、ソースコード・画像が含まれる
 文書やサイトを作ることがとても簡単になります。

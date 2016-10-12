@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 2085
+#+POSTID: 1196
+#+BLOG: rubikitch
 #+DATE: [2015-10-17 Sat 02:41]
 #+PERMALINK: uimage
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,28 +8,17 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs
+#+CATEGORY: 画像表示
 #+EL_PKG_NAME: uimage
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, relate:iimage, relate:org, インライン画像, Emacsで画像表示, iimage-mode, org-toggle-inline-images
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: image
 #+EL_TITLE0: Emacsのバッファの画像URLをインライン画像として表示する
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージuimageの紹介
-#+MYTAGS: package:uimage, emacs 使い方, emacs コマンド, emacs, uimage, uimage.el, emacs lisp uimage, elisp uimage, emacs melpa uimage, emacs uimage 使い方, emacs uimage 設定, emacs パッケージ uimage, emacs uimage スクリーンショット, relate:iimage, relate:org, インライン画像, Emacsで画像表示, iimage-mode, org-toggle-inline-images
-#+TAGS: package:uimage, emacs 使い方, emacs コマンド, emacs, uimage, uimage.el, emacs lisp uimage, elisp uimage, emacs melpa uimage, emacs uimage 使い方, emacs uimage 設定, emacs パッケージ uimage, emacs uimage スクリーンショット, relate:iimage, relate:org, インライン画像, Emacsで画像表示, iimage-mode, org-toggle-inline-images, Emacs, uimage.el, iimage.el, M-x uimage-mode, iimage.el, M-x uimage-mode
-#+TITLE: emacs uimage.el : Emacsのバッファの画像URLをインライン画像として表示する | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>uimage</td></tr>
-<tr><td>概要(原文)</td><td>Url image minor mode.</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/lujun9972/uimage">https://github.com/lujun9972/uimage</a></td></tr>
-<tr><td>バージョン</td><td>20151012.604</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:uimage/">package:uimage</a> <a href="http://rubikitch.com/tag/package:iimage/">package:iimage</a> <a href="http://rubikitch.com/tag/package:org/">package:org</a></td></tr>
-</table>
-<br />
-#+END_HTML
+#+TITLE: uimage.el : Emacsのバッファの画像URLをインライン画像として表示する
+[includeme file="inc-package-table.php" name="uimage" where="melpa"]
+
+#+end:
+** 概要
 *uimage.el* は標準添付の *iimage.el* のように画像をインライン表示します。
 ローカルの画像だけでなく、ネット上の画像をダウンロードして表示します。
 
@@ -60,47 +50,8 @@ Fig1: この状態でM-x uimage-modeを実行すると
 #+ATTR_HTML: :width 480
 [[file:/r/sync/screenshots/20151017024926.png]]
 Fig2: 画像表示される
-** uimage インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
 
-M-x package-refresh-contents
-M-x package-install uimage
-
-
-#+end:
-** 概要                                                             :noexport:
-*uimage.el* は標準添付の *iimage.el* のように画像をインライン表示します。
-ローカルの画像だけでなく、ネット上の画像をダウンロードして表示します。
-
-画像URLは以下の書式に対応しています。
-
-#+BEGIN_EXAMPLE
-    file://foo.png
-    `file://foo.png'
-    [[file://foo.gif]]
-    <file://foo.png>
-    `foo.png'
-    [[foo.gif]]
-    <foo.png>
-#+END_EXAMPLE
-
-この機能を有効にするにはマイナーモード *M-x uimage-mode* を実行します。
-有効にしたら画像URLをすべてダウンロードして描画します。
-なお、画像データはキャッシュされません。
-C-lで再描画します。
-
-org-modeにはiimage.el相当のインライン画像表示機能が含まれています。
-
-
-# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20151017024921.png]]
-Fig3: この状態でM-x uimage-modeを実行すると
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20151017024926.png]]
-Fig4: 画像表示される
-
+[includeme file="inc-package-install.php" name="uimage" where="melpa"]
 ** 設定 [[http://rubikitch.com/f/151017025251.uimage.el][151017025251.uimage.el(以下のコードと同一)]]
 #+BEGIN: include :file "/r/sync/junk/151017/151017025251.uimage.el"
 #+BEGIN_SRC fundamental
@@ -115,3 +66,4 @@ Fig4: 画像表示される
 $ wget http://rubikitch.com/f/151017025251.uimage.el
 $ emacs -Q -f package-initialize -l 151017025251.uimage.el
 #+END_EXAMPLE
+[includeme file="inc-package-relate.php" name="uimage"]

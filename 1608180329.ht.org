@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 2684
+#+POSTID: 1534
+#+BLOG: rubikitch
 #+DATE: [2016-08-18 Thu 03:29]
 #+PERMALINK: ht
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
@@ -7,63 +8,17 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, Emacs Lisp, ソース解読推奨, 
+#+CATEGORY: Lispオブジェクト
 #+EL_PKG_NAME: ht
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, Emacs Lisp ハッシュテーブル, alist, plist, 
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 
+#+TAGS: 
 #+EL_TITLE0: 【Rubyist歓喜】ハッシュテーブルを超絶使いやすくするライブラリ
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージhtの紹介
-#+MYTAGS: package:ht, emacs 使い方, emacs コマンド, emacs, ht, ht.el, emacs lisp ht, elisp ht, emacs melpa ht, emacs ht 使い方, emacs ht 設定, emacs パッケージ ht, Emacs Lisp ハッシュテーブル, alist, plist, 
-#+TAGS: package:ht, emacs 使い方, emacs コマンド, emacs, ht, ht.el, emacs lisp ht, elisp ht, emacs melpa ht, emacs ht 使い方, emacs ht 設定, emacs パッケージ ht, Emacs Lisp ハッシュテーブル, alist, plist, , Emacs, Emacs Lisp, ソース解読推奨, , make-hash-table, puthash, gethash, maphash, ht.el, make-hash-table, puthash, gethash, maphash, ht.el, ht, ht-get, ht-set, ht-p, ht-equal-p, ht-keys, ht-values, ht-contains-p, ht-get, ht-size, ht->alist, ht->plist, ht->alist, ht-clear, ht-map, ht-aeach, ht-amap, ht-reject, ht-delete-if, ht-reject, ht-find
-#+TITLE: emacs ht.el : 【Rubyist歓喜】ハッシュテーブルを超絶使いやすくするライブラリ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>ht</td></tr>
-<tr><td>概要(原文)</td><td>The missing hash table library for Emacs</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/Wilfred/ht.el">https://github.com/Wilfred/ht.el</a></td></tr>
-<tr><td>バージョン</td><td>20160806.1753</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:ht/">package:ht</a> </td></tr>
-</table>
-<br />
-#+END_HTML
-あなたはEmacs Lispでハッシュテーブルを使っていますか？
-Emacs LispはLispだけに、どうしてもリストに目がいってしまうでしょう。
-実際にリストを扱う関数は豊富です。
-
-key/valueペアを扱うにはalistやplistを使うのが普通でしょう。
-ハッシュテーブルにはそれらにない特性があります。
-ハッシュテーブルの持ち味はなんといっても
-/高速性/
-です。
-
-リストは頭から順に探索しますが、
-ハッシュテーブルはたとえ巨大なデータであっても一瞬でアクセスできます。
-
-ところが、
-
-Emacs Lispのハッシュテーブルは扱いにくいのが正直なところですよね。
-*make-hash-table* で作成して、
- *puthash* でkey/valueペアを設定して、
-*gethash* でkeyに対応するvalueを得ます。
-
-各ペアに対してループする *maphash* はmapと名乗ってるくせに
-nilを返すという奇妙な仕様…。
-これではどうしてもリストに流れてしまうのは仕方ないですね。
-
-*ht.el* はこの状況をなんとかすべく、使いやすい関数群を用意します。
-Rubyプログラマにはおなじみの関数名になっています。
-** ht インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install ht
-
+#+TITLE: ht.el : 【Rubyist歓喜】ハッシュテーブルを超絶使いやすくするライブラリ
+[includeme file="inc-package-table.php" name="ht" where="melpa"]
 
 #+end:
-** 概要                                                             :noexport:
+** 概要
 あなたはEmacs Lispでハッシュテーブルを使っていますか？
 Emacs LispはLispだけに、どうしてもリストに目がいってしまうでしょう。
 実際にリストを扱う関数は豊富です。
@@ -91,6 +46,7 @@ nilを返すという奇妙な仕様…。
 *ht.el* はこの状況をなんとかすべく、使いやすい関数群を用意します。
 Rubyプログラマにはおなじみの関数名になっています。
 
+[includeme file="inc-package-install.php" name="ht" where="melpa"]
 ** 基本
 使い方は簡単です。
 *ht* マクロでハッシュテーブルを作成し、
@@ -223,3 +179,4 @@ mapcとmapcarの違いと同じです。
 
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+[includeme file="inc-package-relate.php" name="ht"]

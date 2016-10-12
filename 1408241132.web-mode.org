@@ -1,36 +1,24 @@
 #+BLOG: rubikitch
-#+POSTID: 198
+#+POSTID: 234
+#+BLOG: rubikitch
 #+DATE: [2014-08-24 Sun 11:32]
 #+PERMALINK: web-mode
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t
 #+ISPAGE: nil
-#+DESCRIPTION:
+#+DESCRIPTION:複数の言語が混み入ったHTMLテンプレートを編集する単一のメジャーモード
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs
+#+CATEGORY: メジャーモード
 #+EL_PKG_NAME: web-mode
-#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs web-mode PHP,emacs web-mode JSP,emacs GSP,emacs Grails,emacs web-mode ASP,emacs ASP.NET,emacs web-mode AJAX,emacs Atlas,emacs Django,emacs Twig,emacs Jinja,emacs ErlyDTL,emacs Zotonic,emacs Selmer,emacs ERB,emacs EJS,emacs FreeMarker,emacs Velocity,emacs Cheetah,emacs Smarty,emacs CTemplate,emacs Mustache,emacs Hapax,emacs Handlebars,emacs Meteor,emacs Blaze,emacs ember.js,emacs Blade,emacs laravel,emacs Knockoutjs,emacs Go Template,emacs Revel,emacs Razor/Play,emacs Dust,emacs Closure,emacs soy,emacs underscore.js,emacs template-toolkit,emacs Liquid,emacs jekyll,emacs angular.js,emacs web2py,emacs mako,emacs pylons,emacs reactjs,emacs jsx,emacs mojolicious
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方
+#+TAGS: 
 #+EL_TITLE0: HTMLテンプレートを編集するweb-modeがめちゃくちゃ進化していた件
 #+EL_URL: http://web-mode.org/
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージweb-modeの紹介
-#+MYTAGS: package:web-mode, emacs 使い方, emacs コマンド, emacs, emacs lisp web-mode, elisp web-mode, emacs melpa web-mode, emacs web-mode 使い方, emacs web-mode 設定, emacs パッケージ web-mode, emacs web-mode PHP,emacs web-mode JSP,emacs GSP,emacs Grails,emacs web-mode ASP,emacs ASP.NET,emacs web-mode AJAX,emacs Atlas,emacs Django,emacs Twig,emacs Jinja,emacs ErlyDTL,emacs Zotonic,emacs Selmer,emacs ERB,emacs EJS,emacs FreeMarker,emacs Velocity,emacs Cheetah,emacs Smarty,emacs CTemplate,emacs Mustache,emacs Hapax,emacs Handlebars,emacs Meteor,emacs Blaze,emacs ember.js,emacs Blade,emacs laravel,emacs Knockoutjs,emacs Go Template,emacs Revel,emacs Razor/Play,emacs Dust,emacs Closure,emacs soy,emacs underscore.js,emacs template-toolkit,emacs Liquid,emacs jekyll,emacs angular.js,emacs web2py,emacs mako,emacs pylons,emacs reactjs,emacs jsx,emacs mojolicious
-#+TITLE: emacs web-mode.el : HTMLテンプレートを編集するweb-modeがめちゃくちゃ進化していた件 | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>web-mode</td></tr>
-<tr><td>概要(原文)</td><td>major mode for editing html templates</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>サイト</td><td><a href="http://web-mode.org/">http://web-mode.org/</td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/fxbois/web-mode">https://github.com/fxbois/web-mode</a></td></tr>
-<tr><td>バージョン</td><td>20141225.339</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:web-mode/">package:web-mode</a> </td></tr>
-</table>
-<br />
-#+END_HTML
+#+TITLE: web-mode.el : HTMLテンプレートを編集するweb-modeがめちゃくちゃ進化していた件
+[includeme file="inc-package-table.php" name="web-mode" where="melpa"]
+** 概要
 web-modeはHTML(CSS・JavaScript込み)・HTMLテンプレート(PHP等)を
-編集する新しいマイナーモードです。
+編集する新しいメジャーモードです。
 
 HTMLは複雑であり、内部にCSSやJavaScriptが入っています。
 
@@ -75,17 +63,12 @@ web-modeは単一のメジャーモードなので、
 今は10000行を超えていたのでびっくりしました。
 
 [[http://web-mode.org/][本家サイト]] にたくさんのスクリーンショットがあります。
-** web-mode インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install web-mode
-
+[includeme file="inc-package-install.php" name="web-mode" where="melpa"]
 
 #+end:
 ** 概要                                                             :noexport:
 web-modeはHTML(CSS・JavaScript込み)・HTMLテンプレート(PHP等)を
-編集する新しいマイナーモードです。
+編集する新しいメジャーモードです。
 
 HTMLは複雑であり、内部にCSSやJavaScriptが入っています。
 
@@ -155,3 +138,4 @@ web-modeは単一のメジャーモードなので、
 $ wget http://rubikitch.com/f/140824112201.web-mode.el
 $ emacs -Q -f package-initialize -l 140824112201.web-mode.el
 #+END_EXAMPLE
+[includeme file="inc-package-relate.php" name="web-mode"]

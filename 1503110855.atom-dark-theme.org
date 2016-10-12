@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 1286
+#+POSTID: 753
+#+BLOG: rubikitch
 #+DATE: [2015-03-11 Wed 08:55]
 #+PERMALINK: atom-dark-theme
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,76 +8,17 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, theme, 
+#+CATEGORY: ダーク
 #+EL_PKG_NAME: atom-dark-theme
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, 
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: from:atom
 #+EL_TITLE0: 【黒いぞ！】AtomのAtom Dark themeを移植したtheme
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージatom-dark-themeの紹介
-#+MYTAGS: package:atom-dark-theme, emacs 使い方, emacs コマンド, emacs, atom-dark-theme, atom-dark-theme.el, emacs lisp atom-dark-theme, elisp atom-dark-theme, emacs melpa atom-dark-theme, emacs atom-dark-theme 使い方, emacs atom-dark-theme 設定, emacs パッケージ atom-dark-theme, emacs atom-dark-theme スクリーンショット, 
-#+TAGS: package:atom-dark-theme, emacs 使い方, emacs コマンド, emacs, atom-dark-theme, atom-dark-theme.el, emacs lisp atom-dark-theme, elisp atom-dark-theme, emacs melpa atom-dark-theme, emacs atom-dark-theme 使い方, emacs atom-dark-theme 設定, emacs パッケージ atom-dark-theme, emacs atom-dark-theme スクリーンショット, , Emacs, theme, , diff-hl, flx, js2-mode, markdown-mode, powerline, diff-hl, flx, js2-mode, markdown-mode, powerline
-#+TITLE: emacs atom-dark-theme.el : 【黒いぞ！】AtomのAtom Dark themeを移植したtheme | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>atom-dark-theme</td></tr>
-<tr><td>概要(原文)</td><td>An Emacs port of the Atom Dark theme from Atom.io.</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/whitlockjc/atom-dark-theme-emacs">https://github.com/whitlockjc/atom-dark-theme-emacs</a></td></tr>
-<tr><td>バージョン</td><td>20150128.2127</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:atom-dark-theme/">package:atom-dark-theme</a> </td></tr>
-</table>
-<br />
-#+END_HTML
-Atom Dark themeは、 [[https://atom.io/][Atom.io]] のそれをEmacsに移植したものです。
-
-名前の通り、全体的に暗い色なのが特徴です。
-
-まぶしい画面を嫌い黒背景にしている人におすすめです。
-
-対応パッケージ
-- *diff-hl*
-- *flx*
-- [[http://rubikitch.com/2014/08/30/guide-key/][guide-key(レビュー)]]
-- *js2-mode*
-- *markdown-mode*
-- *powerline*
-
-# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
-[[file:/r/sync/screenshots/20150123134432.png]]
-Fig8: emacs-lisp-mode
-
-[[file:/r/sync/screenshots/20150123134439.png]]
-Fig9: emacs-lisp-mode
-
-[[file:/r/sync/screenshots/20150123134451.png]]
-Fig10: emacs-lisp-mode
-
-[[file:/r/sync/screenshots/20150123134554.png]]
-Fig11: js2-mode
-
-[[file:/r/sync/screenshots/20150123134617.png]]
-Fig12: js2-mode
-
-[[file:/r/sync/screenshots/20150123134649.png]]
-Fig13: c-mode
-
-[[file:/r/sync/screenshots/20150123134732.png]]
-Fig14: markdown-mode
-
-他のスクリーンショットはこちらまで
-https://github.com/whitlockjc/atom-dark-theme-emacs/tree/master/screenshots/README.md
-
-** atom-dark-theme インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install atom-dark-theme
-
+#+TITLE: atom-dark-theme.el : 【黒いぞ！】AtomのAtom Dark themeを移植したtheme
+[includeme file="inc-package-table.php" name="atom-dark-theme" where="melpa"]
 
 #+end:
-** 概要                                                             :noexport:
+** 概要
 Atom Dark themeは、 [[https://atom.io/][Atom.io]] のそれをEmacsに移植したものです。
 
 名前の通り、全体的に暗い色なのが特徴です。
@@ -86,37 +28,38 @@ Atom Dark themeは、 [[https://atom.io/][Atom.io]] のそれをEmacsに移植�
 対応パッケージ
 - *diff-hl*
 - *flx*
-- [[http://rubikitch.com/2014/08/30/guide-key/][guide-key(レビュー)]]
+- [[http://emacs.rubikitch.com/guide-key/][guide-key(レビュー)]]
 - *js2-mode*
 - *markdown-mode*
 - *powerline*
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
 [[file:/r/sync/screenshots/20150123134432.png]]
-Fig8: emacs-lisp-mode
+Fig1: emacs-lisp-mode
 
 [[file:/r/sync/screenshots/20150123134439.png]]
-Fig9: emacs-lisp-mode
+Fig2: emacs-lisp-mode
 
 [[file:/r/sync/screenshots/20150123134451.png]]
-Fig10: emacs-lisp-mode
+Fig3: emacs-lisp-mode
 
 [[file:/r/sync/screenshots/20150123134554.png]]
-Fig11: js2-mode
+Fig4: js2-mode
 
 [[file:/r/sync/screenshots/20150123134617.png]]
-Fig12: js2-mode
+Fig5: js2-mode
 
 [[file:/r/sync/screenshots/20150123134649.png]]
-Fig13: c-mode
+Fig6: c-mode
 
 [[file:/r/sync/screenshots/20150123134732.png]]
-Fig14: markdown-mode
+Fig7: markdown-mode
 
 他のスクリーンショットはこちらまで
 https://github.com/whitlockjc/atom-dark-theme-emacs/tree/master/screenshots/README.md
 
 
+[includeme file="inc-package-install.php" name="atom-dark-theme" where="melpa"]
 ** 設定 [[http://rubikitch.com/f/150123133929.atom-dark-theme.1.el][150123133929.atom-dark-theme.1.el(以下のコードと同一)]]
 #+BEGIN: include :file "/r/sync/junk/150123/150123133929.atom-dark-theme.1.el"
 #+BEGIN_SRC fundamental
@@ -141,3 +84,4 @@ $ emacs -Q -f package-initialize -l 150123133929.atom-dark-theme.1.el
 # /r/sync/screenshots/20150123134617.png http://rubikitch.com/wp-content/uploads/2015/03/wpid-20150123134617.png
 # /r/sync/screenshots/20150123134649.png http://rubikitch.com/wp-content/uploads/2015/03/wpid-20150123134649.png
 # /r/sync/screenshots/20150123134732.png http://rubikitch.com/wp-content/uploads/2015/03/wpid-20150123134732.png
+[includeme file="inc-package-relate.php" name="atom-dark-theme"]

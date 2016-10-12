@@ -1,18 +1,18 @@
 #+BLOG: rubikitch
-#+POSTID: 631
+#+POSTID: 439
+#+BLOG: rubikitch
 #+DATE: [2014-11-27 Thu 10:38]
 #+PERMALINK: helm-next-error
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
 #+ISPAGE: nil
-#+DESCRIPTION:
+#+DESCRIPTION:M-x next-errorとM-x previous-error(M-g M-n/M-g M-p)をhelm/anythingに対応させる
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, helm,
+#+CATEGORY: 検索
 #+DESCRIPTION:
-#+MYTAGS: package:helm, package:anything, relate:anything-grep, relate:helm-swoop, package:helm-swoop, package:helm-ag,
-#+TAGS: package:helm, package:anything, relate:anything-grep, relate:helm-swoop, package:helm-swoop, package:helm-ag,, Emacs, helm,, helm, anything.el, M-g M-n, M-x next-error, M-g M-p, M-x previous-error, 絞り込み検索, M-x occur, M-x helm-occur, helm-swoop.el, M-x grep, helm-anything.el
+#+TAGS: helm, anything
 #+TITLE: Emacs Tips: helm/anything.el検索結果を次々と辿る方法 - もはやM-x occurいらないよね
-<2014-12-25 Thu> [[http://rubikitch.com/2014/12/25/helm-swoop/][Emacs Advent Calendar 2014にてhelm-swoopについて書きました！]] 
+<2014-12-25 Thu> [[http://emacs.rubikitch.com/helm-swoop/][Emacs Advent Calendar 2014にてhelm-swoopについて書きました！]] 
 
 *helm* や *anything.el* を使っていると、
 つい *M-g M-n* (*M-x next-error*)や

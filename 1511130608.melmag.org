@@ -1,18 +1,19 @@
 #+BLOG: rubikitch
-#+POSTID: 2184
+#+POSTID: 145
+#+BLOG: rubikitch
 #+DATE: [2015-11-13 Fri 06:08]
-#+PERMALINK: melmag
+#+PERMALINK: melmag207
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
 #+ISPAGE: nil
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: メルマガ,
+#+CATEGORY: るびきち塾メルマガ
 #+DESCRIPTION: るびきち塾メルマガ『Emacsの鬼るびきちのココだけの話#207』の予告
 #+TITLE: 【メルマガ#207】らすとpeco
 #+MYTAGS: 
 #+begin: org2blog-tags
-#+TAGS: , メルマガ,, 
+
 #+end:
 今回は一連のpeco特集の最終回です。
 

@@ -1,15 +1,15 @@
 #+BLOG: rubikitch
-#+POSTID: 41
+#+POSTID: 574
+#+BLOG: rubikitch
 #+DATE: [2014-08-01 Fri 05:10]
 #+PERMALINK: melmag140
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t
 #+ISPAGE: nil
 #+DESCRIPTION:
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, メルマガ
+#+CATEGORY: るびきち塾メルマガ
 #+DESCRIPTION:
-#+MYTAGS: ライフハック, org-mode, Emacs, org習慣仕事術, 仕事術
-#+TAGS: ライフハック, org-mode, Emacs, org習慣仕事術, 仕事術, 仕組み, 成功体験
+#+TAGS: 
 #+TITLE: org習慣仕事術Ver.2　Emacs　org-mode
 ただいまメルマガでは僕が編み出した
 /org習慣仕事術/

@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 2311
+#+POSTID: 1341
+#+BLOG: rubikitch
 #+DATE: [2016-01-05 Tue 18:30]
 #+PERMALINK: arjen-grey-theme
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,47 +8,23 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, theme
+#+CATEGORY: ダーク
 #+EL_PKG_NAME: arjen-grey-theme
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, color-theme, カラーテーマ
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: 
 #+EL_TITLE0: グレー背景なカラーテーマ
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージarjen-grey-themeの紹介
-#+MYTAGS: package:arjen-grey-theme, emacs 使い方, emacs コマンド, emacs, arjen-grey-theme, arjen-grey-theme.el, emacs lisp arjen-grey-theme, elisp arjen-grey-theme, emacs melpa arjen-grey-theme, emacs arjen-grey-theme 使い方, emacs arjen-grey-theme 設定, emacs パッケージ arjen-grey-theme, emacs arjen-grey-theme スクリーンショット, color-theme, カラーテーマ
-#+TAGS: package:arjen-grey-theme, emacs 使い方, emacs コマンド, emacs, arjen-grey-theme, arjen-grey-theme.el, emacs lisp arjen-grey-theme, elisp arjen-grey-theme, emacs melpa arjen-grey-theme, emacs arjen-grey-theme 使い方, emacs arjen-grey-theme 設定, emacs パッケージ arjen-grey-theme, emacs arjen-grey-theme スクリーンショット, color-theme, カラーテーマ, Emacs, theme, arjen-grey-theme.el
-#+TITLE: emacs arjen-grey-theme.el : グレー背景なカラーテーマ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>arjen-grey-theme</td></tr>
-<tr><td>概要(原文)</td><td>A soothing dark grey theme</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/credmp/arjen-grey-theme">https://github.com/credmp/arjen-grey-theme</a></td></tr>
-<tr><td>バージョン</td><td>20150731.645</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:arjen-grey-theme/">package:arjen-grey-theme</a> </td></tr>
-</table>
-<br />
-#+END_HTML
-*arjen-grey-theme.el* は、以下のパッケージに対応したカラーテーマです。
-- mode-line
-- font-lock
-- helm
-- perspective
-** arjen-grey-theme インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install arjen-grey-theme
-
+#+TITLE: arjen-grey-theme.el : グレー背景なカラーテーマ
+[includeme file="inc-package-table.php" name="arjen-grey-theme" where="melpa"]
 
 #+end:
-** 概要                                                             :noexport:
+** 概要
 *arjen-grey-theme.el* は、以下のパッケージに対応したカラーテーマです。
 - mode-line
 - font-lock
 - helm
 - perspective
+[includeme file="inc-package-install.php" name="arjen-grey-theme" where="melpa"]
 ** スクリーンショット
 # (save-window-excursion (async-shell-command "emacs-test -eval '(load-theme (quote arjen-grey) t)'"))
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_theme_template" t))
@@ -105,3 +82,4 @@ $ emacs -Q -f package-initialize -eval '(load-theme (quote arjen-grey) t)'
 #+END_EXAMPLE
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+[includeme file="inc-package-relate.php" name="arjen-grey-theme"]

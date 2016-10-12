@@ -1,16 +1,16 @@
 #+BLOG: rubikitch
-#+POSTID: 815
+#+POSTID: 578
+#+BLOG: rubikitch
 #+DATE: [2014-12-28 Sun 09:08]
 #+PERMALINK: backward-delete-char
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
 #+ISPAGE: nil
-#+DESCRIPTION:
+#+DESCRIPTION:EmacsでもC-hは後退であるべき。シェルがそうであるように。
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, helm
+#+CATEGORY: キーバインド
 #+DESCRIPTION: 
-#+MYTAGS: package:bind-key, helm, Emacs helm C-h backward-delete-char, C-h backspace, 
-#+TAGS: package:bind-key, helm, Emacs helm C-h backward-delete-char, C-h backspace, , Emacs, helm, C-h, backward-delete-char, ウィンドウマネージャー, backspace, ratpoison
+#+TAGS: helm
 #+TITLE: C-hで確実にbackward-delete-charにする方法！helm対応
 *C-h* はやっぱり *backward-delete-char* ですよね？
 
@@ -36,7 +36,7 @@ definekey top C-h meta BackSpace
 
 ** 設定 [[http://rubikitch.com/f/141228090623.c-h.el][141228090623.c-h.el(以下のコードと同一)]]
 M-x package-install bind-key
-で [[http://rubikitch.com/2014/09/10/bind-key/][bind-key.el(レビュー)]] を導入します。
+で [[http://emacs.rubikitch.com/bind-key/][bind-key.el(レビュー)]] を導入します。
 
 #+BEGIN: include :file "/r/sync/junk/141228/141228090623.c-h.el"
 #+BEGIN_SRC fundamental

@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 1589
+#+POSTID: 877
+#+BLOG: rubikitch
 #+DATE: [2015-04-29 Wed 04:35]
 #+PERMALINK: ctags-update
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,58 +8,17 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, Emacs Lisp, 
+#+CATEGORY: タグジャンプ
 #+EL_PKG_NAME: ctags-update
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, relate:auto-save-buffers-enhanced, relate:real-auto-save, relate:imenu, relate:etags, emacs タグファイル 自動更新, emacs タグ更新, exuberant-ctagsを快適に使う, 関数定義にジャンプする, exuberant-ctags, 
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 
+#+TAGS: ctags
 #+EL_TITLE0: 【多言語対応関数定義ジャンプツール】Exuberant ctagsを賢く自動更新させる
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージctags-updateの紹介
-#+MYTAGS: package:ctags-update, emacs 使い方, emacs コマンド, emacs, ctags-update, ctags-update.el, emacs lisp ctags-update, elisp ctags-update, emacs melpa ctags-update, emacs ctags-update 使い方, emacs ctags-update 設定, emacs パッケージ ctags-update, relate:auto-save-buffers-enhanced, relate:real-auto-save, relate:imenu, relate:etags, emacs タグファイル 自動更新, emacs タグ更新, exuberant-ctagsを快適に使う, 関数定義にジャンプする, exuberant-ctags, 
-#+TAGS: package:ctags-update, emacs 使い方, emacs コマンド, emacs, ctags-update, ctags-update.el, emacs lisp ctags-update, elisp ctags-update, emacs melpa ctags-update, emacs ctags-update 使い方, emacs ctags-update 設定, emacs パッケージ ctags-update, relate:auto-save-buffers-enhanced, relate:real-auto-save, relate:imenu, relate:etags, emacs タグファイル 自動更新, emacs タグ更新, exuberant-ctagsを快適に使う, 関数定義にジャンプする, exuberant-ctags, , Emacs, Emacs Lisp, , imenu, ctags-update.el, M-x ctags-auto-update-mode, after-save-hook, ctags-update, tags-table-list, tags-file-name, imenu, ctags-update.el, M-x ctags-auto-update-mode, after-save-hook, ctags-update, tags-table-list, tags-file-name, start-process, M-x ctags-update, ctags-update-other-options
-#+TITLE: emacs ctags-update.el : 【多言語対応関数定義ジャンプツール】Exuberant ctagsを賢く自動更新させる | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>ctags-update</td></tr>
-<tr><td>概要(原文)</td><td>(auto) update TAGS in parent directory using exuberant-ctags</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/jixiuf/helm-etags-plus">https://github.com/jixiuf/helm-etags-plus</a></td></tr>
-<tr><td>バージョン</td><td>20150427.2014</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:ctags-update/">package:ctags-update</a> <a href="http://rubikitch.com/tag/package:auto-save-buffers-enhanced/">package:auto-save-buffers-enhanced</a> <a href="http://rubikitch.com/tag/package:real-auto-save/">package:real-auto-save</a> <a href="http://rubikitch.com/tag/package:imenu/">package:imenu</a> <a href="http://rubikitch.com/tag/package:etags/">package:etags</a></td></tr>
-</table>
-<br />
-#+END_HTML
-[[http://ctags.sourceforge.net/][Exuberant ctags]] は昔からある多言語に対応したタグファイル生成ツールです。
-
-タグファイルを使えばM-.で関数定義・クラス定義などに
-一発でジャンプすることができて便利です。
-
-Emacs内部でも *imenu* などを使えば同じようなことができますが、
-大きなプロジェクトになるとどうしても重くなってしまいます。
-
-一方、タグファイルによる方法は高速ですが、
-ファイルの内容と一致させる必要があります。
-
-ファイルを保存したら、その都度タグファイルも更新する必要があります。
-
-この欠点を克服するのが *ctags-update.el* です。
-
-*M-x ctags-auto-update-mode* を有効にすると、
-*after-save-hook* に *ctags-update* が登録され、
-ファイル保存時に自動的にタグファイル更新を行ってくれます。
-
-タグファイルが存在しないときは、
-*tags-table-list* と *tags-file-name* もチェックします。
-** ctags-update インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install ctags-update
-
+#+TITLE: ctags-update.el : 【多言語対応関数定義ジャンプツール】Exuberant ctagsを賢く自動更新させる
+[includeme file="inc-package-table.php" name="ctags-update" where="melpa"]
 
 #+end:
-** 概要                                                             :noexport:
+** 概要
 [[http://ctags.sourceforge.net/][Exuberant ctags]] は昔からある多言語に対応したタグファイル生成ツールです。
 
 タグファイルを使えばM-.で関数定義・クラス定義などに
@@ -81,13 +41,14 @@ Emacs内部でも *imenu* などを使えば同じようなことができます
 タグファイルが存在しないときは、
 *tags-table-list* と *tags-file-name* もチェックします。
 
+[includeme file="inc-package-install.php" name="ctags-update" where="melpa"]
 ** 5分ごとに更新！
 /侮るなかれ！/
 
 このctags-update.elは賢くてよく作り込まれています。
 
-[[http://rubikitch.com/2014/11/23/auto-save-buffers-enhanced/][auto-save-buffers-enhanced.el(レビュー)]] や
-[[http://rubikitch.com/2015/02/03/real-auto-save/][real-auto-save.el(レビュー)]] でファイル自動保存をしていると
+[[http://emacs.rubikitch.com/auto-save-buffers-enhanced/][auto-save-buffers-enhanced.el(レビュー)]] や
+[[http://emacs.rubikitch.com/real-auto-save/][real-auto-save.el(レビュー)]] でファイル自動保存をしていると
 自動保存のたびにctagsが実行されて重くなるのでは？
 
 という心配がありますが、大丈夫！
@@ -196,3 +157,4 @@ ctags-update.elのように自動更新に遅延をつけるといいです。
 $ wget http://rubikitch.com/f/150429051838.ctags-update.el
 $ emacs -Q -f package-initialize -l 150429051838.ctags-update.el
 #+END_EXAMPLE
+[includeme file="inc-package-relate.php" name="ctags-update"]

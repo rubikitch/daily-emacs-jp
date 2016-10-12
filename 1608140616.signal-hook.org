@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 2670
+#+POSTID: 1526
+#+BLOG: rubikitch
 #+DATE: [2016-08-14 Sun 06:16]
 #+PERMALINK: signal-hook
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
@@ -7,62 +8,17 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, Emacs Lisp, 
+#+CATEGORY: Emacs Lispライブラリ
 #+EL_PKG_NAME: signal
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs フック 使い方 調べる, add-hook, remove-hook, run-hooks, defvar, defcustom, defsignal, signal-emitb, signal-connect, signal-disconnect, signal, hook, フック, advice, アドバイス, run-hook-with-args-until-success, run-hook-with-args-until-failure, run-hook-with-args
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 使い方 
+#+TAGS: signal
 #+EL_TITLE0: フックの進化形が登場！その中身とは？
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージsignalの紹介
-#+MYTAGS: package:signal, emacs 使い方, emacs コマンド, emacs, signal, signal.el, emacs lisp signal, elisp signal, emacs melpa signal, emacs signal 使い方, emacs signal 設定, emacs パッケージ signal, emacs フック 使い方 調べる, add-hook, remove-hook, run-hooks, defvar, defcustom, defsignal, signal-emitb, signal-connect, signal-disconnect, signal, hook, フック, advice, アドバイス, run-hook-with-args-until-success, run-hook-with-args-until-failure, run-hook-with-args
-#+TAGS: package:signal, emacs 使い方, emacs コマンド, emacs, signal, signal.el, emacs lisp signal, elisp signal, emacs melpa signal, emacs signal 使い方, emacs signal 設定, emacs パッケージ signal, emacs フック 使い方 調べる, add-hook, remove-hook, run-hooks, defvar, defcustom, defsignal, signal-emitb, signal-connect, signal-disconnect, signal, hook, フック, advice, アドバイス, run-hook-with-args-until-success, run-hook-with-args-until-failure, run-hook-with-args, Emacs, Emacs Lisp, , signal, signal
-#+TITLE: emacs signal.el : フックの進化形が登場！その中身とは？ | MELPA Emacs Lisp Elisp パッケージ インストール 使い方 
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>signal</td></tr>
-<tr><td>概要(原文)</td><td>Advanced hook</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/Mola-T/signal">https://github.com/Mola-T/signal</a></td></tr>
-<tr><td>バージョン</td><td>20160424.10</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:signal/">package:signal</a> </td></tr>
-</table>
-<br />
-#+END_HTML
-あなたは、hookやadviceを活用していますか？
-これらは関数の挙動をあなた色に染めるものです。
-
-さて、、、
-
-Emacsを極めるにはEmacs Lispを学ぶことが不可欠です。
-なぜなら、hookやadviceに適切なコードを設定することでEmacsを強力にカスタマイズできるからです
-。
-たとえば、ファイルを開いたり保存したりするときに自動的にやって欲しい処理を記述できたりします。
-だからこそ、Emacs Lispを学んでいれば作業を効率化できるんですね。
-
-ということで、、
-
-この *signal* パッケージはhookの進化形ともいえるものです。
-今回はsignalをhookと同じように使う方法を示します。
-進化形なのですから、元の機能をエミュレートすることなど簡単なことなのです。
-
-hookとsignalの対応関係は以下のようになっています
-
-| 定義     | defvar(defcustom) | defsignal         |
-| 呼び出し | run-hooks         | signal-emitb      |
-| 追加     | add-hook          | signal-connect    |
-| 削除     | remove-hook       | signal-disconnect |
-
-[[http://rubikitch.com/2016/08/15/signal-emit/][明日はsignalがhookとは違うことを示します！]]
-** signal インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install signal
-
+#+TITLE: signal.el : フックの進化形が登場！その中身とは？
+[includeme file="inc-package-table.php" name="signal" where="melpa"]
 
 #+end:
-** 概要                                                             :noexport:
+** 概要
 あなたは、hookやadviceを活用していますか？
 これらは関数の挙動をあなた色に染めるものです。
 
@@ -87,7 +43,8 @@ hookとsignalの対応関係は以下のようになっています
 | 追加     | add-hook          | signal-connect    |
 | 削除     | remove-hook       | signal-disconnect |
 
-[[http://rubikitch.com/2016/08/15/signal-emit/][明日はsignalがhookとは違うことを示します！]]
+[[http://emacs.rubikitch.com/signal-emit/][明日はsignalがhookとは違うことを示します！]]
+[includeme file="inc-package-install.php" name="signal" where="melpa"]
 ** 使用例
 
 
@@ -127,3 +84,4 @@ hookとsignalの対応関係は以下のようになっています
 #+END_SRC
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+[includeme file="inc-package-relate.php" name="signal"]

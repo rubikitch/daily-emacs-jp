@@ -1,32 +1,21 @@
 #+BLOG: rubikitch
-#+POSTID: 325
+#+POSTID: 285
+#+BLOG: rubikitch
 #+DATE: [2014-09-09 Tue 10:58]
 #+PERMALINK: use-package
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t
 #+ISPAGE: nil
-#+DESCRIPTION:
+#+DESCRIPTION:init.elに書く定番の記述をひとまとめにして書きやすく整理する。初期設定支援。
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, Emacs Lisp,
+#+CATEGORY: init.el
 #+EL_PKG_NAME: use-package
-#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, John Wiegley, emacs init.el 整理, emacs init-loader, .emacs 整理, emacs define-key, emacs global-set-key, emacs キー割り当て, emacs キーバインド, emacs 初期設定, emacs init.el 設定方法, emacs bind-key, package:bind-key, relate:bind-key, bind-key.el
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方
+#+TAGS: るびきちオススメ, 
 #+EL_TITLE0: Emacsの世界的権威が行っている最先端ラクラクinit.el整理術
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージuse-packageの紹介
-#+MYTAGS: package:use-package, emacs 使い方, emacs コマンド, emacs, emacs lisp use-package, elisp use-package, emacs melpa use-package, emacs use-package 使い方, emacs use-package 設定, emacs パッケージ use-package, John Wiegley, emacs init.el 整理, emacs init-loader, .emacs 整理, emacs define-key, emacs global-set-key, emacs キー割り当て, emacs キーバインド, emacs 初期設定, emacs init.el 設定方法, emacs bind-key, package:bind-key, relate:bind-key, bind-key.el
-#+TITLE: emacs use-package.el : Emacsの世界的権威が行っている最先端ラクラクinit.el整理術 | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>use-package</td></tr>
-<tr><td>概要(原文)</td><td>A use-package declaration for simplifying your .emacs</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/jwiegley/use-package">https://github.com/jwiegley/use-package</a></td></tr>
-<tr><td>バージョン</td><td>20141220.1645</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:use-package/">package:use-package</a> <a href="http://rubikitch.com/tag/package:bind-key/">package:bind-key</a></td></tr>
-</table>
-<br />
-#+END_HTML
+#+TITLE: use-package.el : Emacsの世界的権威が行っている最先端ラクラクinit.el整理術
+[includeme file="inc-package-table.php" name="use-package" where="melpa"]
+** 概要
 *use-package* マクロは、emacsのパッケージ設定を
 劇的に簡潔にして読みやすくするマクロです。
 
@@ -44,7 +33,7 @@
 - Emacsがアイドル状態に行う処理
 - 一時的な設定の無効化
 
-特にキー割り当てに関しては [[http://rubikitch.com/2014/09/10/bind-key/][bind-key.el]] により
+特にキー割り当てに関しては [[http://emacs.rubikitch.com/bind-key/][bind-key.el]] により
 とてもすっきり記述できます。
 
 作者はEmacs界の重鎮John Wiegley氏であり
@@ -61,12 +50,7 @@
 などなど、有名どころが多いです。
 
 彼の名前が出てきたら安心してしまう僕がいるようです(笑)
-** use-package インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install use-package
-
+[includeme file="inc-package-install.php" name="use-package" where="melpa"]
 
 #+end:
 ** 概要                                                             :noexport:
@@ -87,7 +71,7 @@ M-x package-install use-package
 - Emacsがアイドル状態に行う処理
 - 一時的な設定の無効化
 
-特にキー割り当てに関しては [[http://rubikitch.com/2014/09/10/bind-key/][bind-key.el]] により
+特にキー割り当てに関しては [[http://emacs.rubikitch.com/bind-key/][bind-key.el]] により
 とてもすっきり記述できます。
 
 作者はEmacs界の重鎮John Wiegley氏であり
@@ -203,7 +187,7 @@ ruby-modeをrequireすることで正しくコンパイルされるための記�
 
 
 ** :bind : コマンドをglobal-mapに割り当てる
-use-package.elは [[http://rubikitch.com/2014/09/10/bind-key/][bind-key.el]] を内部で使っていて、
+use-package.elは [[http://emacs.rubikitch.com/bind-key/][bind-key.el]] を内部で使っていて、
 キー割り当てを簡単に記述できるようになっています。
 
 たとえば、 *ace-jump-mode* と *ace-jump-line-mode* を
@@ -507,3 +491,4 @@ Emacsがアイドル状態になったときに実行されます。
 #+END_SRC
 
 macroexpandしてもnilになるだけです。
+[includeme file="inc-package-relate.php" name="use-package"]

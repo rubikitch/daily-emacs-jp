@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 1881
+#+POSTID: 1068
+#+BLOG: rubikitch
 #+DATE: [2015-08-06 Thu 21:00]
 #+PERMALINK: spacegray-theme
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,28 +8,17 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, theme
+#+CATEGORY: ダーク
 #+EL_PKG_NAME: spacegray-theme
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, color-theme, カラーテーマ
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: from:sublime-text
 #+EL_TITLE0: Sublime Textから移植されたグレー背景で多パッケージ対応カラーテーマ
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージspacegray-themeの紹介
-#+MYTAGS: package:spacegray-theme, emacs 使い方, emacs コマンド, emacs, spacegray-theme, spacegray-theme.el, emacs lisp spacegray-theme, elisp spacegray-theme, emacs melpa spacegray-theme, emacs spacegray-theme 使い方, emacs spacegray-theme 設定, emacs パッケージ spacegray-theme, emacs spacegray-theme スクリーンショット, color-theme, カラーテーマ
-#+TAGS: package:spacegray-theme, emacs 使い方, emacs コマンド, emacs, spacegray-theme, spacegray-theme.el, emacs lisp spacegray-theme, elisp spacegray-theme, emacs melpa spacegray-theme, emacs spacegray-theme 使い方, emacs spacegray-theme 設定, emacs パッケージ spacegray-theme, emacs spacegray-theme スクリーンショット, color-theme, カラーテーマ, Emacs, theme, spacegray-theme.el
-#+TITLE: emacs spacegray-theme.el : Sublime Textから移植されたグレー背景で多パッケージ対応カラーテーマ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>spacegray-theme</td></tr>
-<tr><td>概要(原文)</td><td>A Hyperminimal UI Theme</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/bruce/emacs-spacegray-theme">https://github.com/bruce/emacs-spacegray-theme</a></td></tr>
-<tr><td>バージョン</td><td>20150719.1231</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:spacegray-theme/">package:spacegray-theme</a> </td></tr>
-</table>
-<br />
-#+END_HTML
+#+TITLE: spacegray-theme.el : Sublime Textから移植されたグレー背景で多パッケージ対応カラーテーマ
+[includeme file="inc-package-table.php" name="spacegray-theme" where="melpa"]
+
+#+end:
+** 概要
 *spacegray-theme.el* は、[[https://github.com/kkga/spacegray][Sublime Textの同名カラーテーマ]]
 をEmacsに移植したものです。
 
@@ -128,115 +118,8 @@ Fig8: markdown-mode
 #+ATTR_HTML: :width 480
 [[file:/r/sync/screenshots/20150806210706.png]]
 Fig9: helm
-** spacegray-theme インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
 
-M-x package-refresh-contents
-M-x package-install spacegray-theme
-
-
-#+end:
-** 概要                                                             :noexport:
-*spacegray-theme.el* は、[[https://github.com/kkga/spacegray][Sublime Textの同名カラーテーマ]]
-をEmacsに移植したものです。
-
-# (save-window-excursion (async-shell-command "emacs-test -eval '(load-theme (quote spacegray) t)'"))
-多くのパッケージに対応しています。
-- font-lock
-- Flycheck
-- Flymake
-- Clojure errors
-- EDTS errors
-- For Brian Carper's extended clojure syntax table
-- Rainbow-delimiters
-- MMM-mode
-- isearch
-- Anzu
-- IDO
-- flx-ido
-- which-function
-- linum
-- mode-line
-- whitespace
-- show-paren
-- smartparens
-- Parenthesis matching (mic-paren)
-- Parenthesis dimming (parenface)
-- slime
-- diff
-- ediff
-- eldoc
-- macrostep
-- undo-tree
-- dired+
-- Magit (a patch is pending in magit to make these standard upstream)
-- git-gutter
-- git-gutter-fringe
-- Compilation (most faces politely inherit from 'success, 'error, 'warning etc.)
-- Grep
-- regex-tool
-- mark-multiple
-- org
-- markdown
-- highlight-symbol
-- Python-specific overrides
-- js2-mode
-- js3-mode
-- coffee-mode
-- nxml
-- RHTML (erb)
-- Message-mode
-- Jabber
-- Powerline
-- Outline
-- Ledger-mode
-- mu4e
-- Gnus
-- there are several more -cite- faces...
-- emms
-- stripe-buffer
-- erc
-- twittering-mode
-- ansi-term
-- helm
-
-# (progn (forward-line 1)(shell-command "screenshot-time.rb org_theme_template" t))
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150806210628.png]]
-Fig10: emacs-lisp-mode
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150806210641.png]]
-Fig11: magit
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150806210644.png]]
-Fig12: grep
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150806210648.png]]
-Fig13: outline-mode
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150806210652.png]]
-Fig14: org-mode
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150806210655.png]]
-Fig15: dired
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150806210659.png]]
-Fig16: web-mode
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150806210702.png]]
-Fig17: markdown-mode
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150806210706.png]]
-Fig18: helm
-
+[includeme file="inc-package-install.php" name="spacegray-theme" where="melpa"]
 ** 設定
 #+BEGIN_SRC fundamental
 (load-theme 'spacegray t)
@@ -248,3 +131,4 @@ $ emacs -Q -f package-initialize -eval '(load-theme (quote spacegray) t)'
 #+END_EXAMPLE
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+[includeme file="inc-package-relate.php" name="spacegray-theme"]

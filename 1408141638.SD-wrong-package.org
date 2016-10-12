@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 167
+#+POSTID: 216
+#+BLOG: rubikitch
 #+DATE: [2014-08-14 Thu 16:38]
 #+PERMALINK: SD-wrong-package
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t
@@ -7,10 +8,9 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: 著書,
+#+CATEGORY: るびきち流Emacs超入門
 #+DESCRIPTION: Software Design 9月号連載記事の誤りについて
-#+MYTAGS: 技術評論社 Software Design るびきち流Emacs超入門, Emacs 連載, Software Design Emacs 連載, 正誤表
-#+TAGS: 技術評論社 Software Design るびきち流Emacs超入門, Emacs 連載, Software Design Emacs 連載, 正誤表, 著書,,
+#+TAGS: 正誤
 #+TITLE: 【正誤】Software Design 9月号連載記事の誤りについて
 ども、るびきちです。
 

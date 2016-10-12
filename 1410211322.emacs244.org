@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 493
+#+POSTID: 361
+#+BLOG: rubikitch
 #+DATE: [2014-10-21 Tue 13:22]
 #+PERMALINK: emacs244
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t
@@ -7,10 +8,9 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, Emacs 24.4, org-mode,
+#+CATEGORY: 新機能紹介
 #+DESCRIPTION: Emacs 24.4をインストールして目立った変更点について紹介します。
-#+MYTAGS: Emacs24.4, Emacs 24.4, Emacs 24.4 変更点, emacs バイトコンパイル 漏れ, Emacs 24.4 package エラー, void-function package-desc-vers, quelpa, relate:quelpa, quelpa エラー, emacs 組み込みWebブラウザ, relate:w3m, emacs バイトコンパイル問題, Emacs 24.4 新機能, Emacs 24.4 変更点, Emacs ビルド, Emacs コンパイル, relate:org
-#+TAGS: Emacs24.4, Emacs 24.4, Emacs 24.4 変更点, emacs バイトコンパイル 漏れ, Emacs 24.4 package エラー, void-function package-desc-vers, quelpa, relate:quelpa, quelpa エラー, emacs 組み込みWebブラウザ, relate:w3m, emacs バイトコンパイル問題, Emacs 24.4 新機能, Emacs 24.4 変更点, Emacs ビルド, Emacs コンパイル, relate:org, Emacs, Emacs 24.4, org-mode,, org-mode, package-desc-vers, package--ac-desc-version, quelpa-self-upgrade, emacs-w3m, M-x eww, org-mode, org-export, バイトコンパイル問題, C-x 2, split-window-below, eval-after-load
+#+TAGS: Emacs 24.4以降, ビルド・インストール
 #+TITLE: Emacs 24.4リリース！ファーストインプレッション
 今日、1年半ぶりにEmacsの新バージョン(24.4)がリリースされたので、
 さっそくインストールしてみました。
@@ -25,10 +25,10 @@
 → [[http://rubikitch.com/category/emacs-24-4/][カテゴリ「Emacs 24.4」記事全体]]
 
 <2014-12-21 Sun> melpaパッケージの削除について追記
-<2014-10-22 Wed> [[http://rubikitch.com/2014/10/22/emacs244-edit-changes/][編集コマンドの変更点について書きました。]]
-<2014-10-23 Thu> [[http://rubikitch.com/2014/10/23/emacs244-package-news/][標準パッケージの更新点も書きました。]]
-<2014-10-29 Wed> [[http://rubikitch.com/2014/10/29/new-files/][様々な設定ファイルが~/.emacs.d/以下になりました。]]
-<2014-10-30 Thu> [[http://rubikitch.com/2014/10/30/nadvice/][defadviceに代わる新しいアドバイス定義ができるようになりました。]]
+<2014-10-22 Wed> [[http://emacs.rubikitch.com/emacs244-edit-changes/][編集コマンドの変更点について書きました。]]
+<2014-10-23 Thu> [[http://emacs.rubikitch.com/emacs244-package-news/][標準パッケージの更新点も書きました。]]
+<2014-10-29 Wed> [[http://emacs.rubikitch.com/new-files/][様々な設定ファイルが~/.emacs.d/以下になりました。]]
+<2014-10-30 Thu> [[http://emacs.rubikitch.com/nadvice/][defadviceに代わる新しいアドバイス定義ができるようになりました。]]
 
 ** ビルド
 僕のところのconfigureビルドオプションはこんな感じです。環境はGNU/Linuxです。
@@ -115,7 +115,7 @@ C-u C-s ^ SPC SPC melpa
 でmelpaパッケージの行に行き、d xを押します。
 
 ** quelpa-self-upgradeでエラー
-[[http://rubikitch.com/2014/09/01/quelpa/][package.elの自然な拡張形quelpa]] を使っている人は注意です。
+[[http://emacs.rubikitch.com/quelpa/][package.elの自然な拡張形quelpa]] を使っている人は注意です。
 *quelpa-self-upgrade* でエラーになってしまいます。
 
 これもおそらくpackage.elのデータ構造変更が原因と思われます。
@@ -155,7 +155,7 @@ Fig1: *M-x eww* http://www.gnu.org/software/emacs/
 [[http://orgmode.org/Changes.html][8.1と8.2の相異点(ReleaseNote)]] を見てください。
 
 とくに *org-export* での操作性が大幅に変わった上、
-[[http://rubikitch.com/2014/10/13/org-src/][example, srcブロックの可読性がひどいことに]] なりました。
+[[http://emacs.rubikitch.com/org-src/][example, srcブロックの可読性がひどいことに]] なりました。
 
 ** load-prefer-newer: バイトコンパイル忘れでハマることはもうない
 *load-prefer-newer* 変数は、 *バイトコンパイル問題* を解決してくれます。

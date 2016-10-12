@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 2075
+#+POSTID: 1190
+#+BLOG: rubikitch
 #+DATE: [2015-10-13 Tue 04:11]
 #+PERMALINK: helm-perldoc
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,28 +8,17 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, helm
+#+CATEGORY: Perl支援
 #+EL_PKG_NAME: helm-perldoc
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, perldoc, perl モジュール, perl ドキュメント, perl pod, corelist, perl モジュールソースコード, perl5, PERL5LIB, relate:perl-mode, relate:cperl-mode, carton
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: helm, 外部プログラム使用
 #+EL_TITLE0: perldocをhelmから実行する
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージhelm-perldocの紹介
-#+MYTAGS: package:helm-perldoc, emacs 使い方, emacs コマンド, emacs, helm-perldoc, helm-perldoc.el, emacs lisp helm-perldoc, elisp helm-perldoc, emacs melpa helm-perldoc, emacs helm-perldoc 使い方, emacs helm-perldoc 設定, emacs パッケージ helm-perldoc, emacs helm-perldoc スクリーンショット, perldoc, perl モジュール, perl ドキュメント, perl pod, corelist, perl モジュールソースコード, perl5, PERL5LIB, relate:perl-mode, relate:cperl-mode, carton
-#+TAGS: package:helm-perldoc, emacs 使い方, emacs コマンド, emacs, helm-perldoc, helm-perldoc.el, emacs lisp helm-perldoc, elisp helm-perldoc, emacs melpa helm-perldoc, emacs helm-perldoc 使い方, emacs helm-perldoc 設定, emacs パッケージ helm-perldoc, emacs helm-perldoc スクリーンショット, perldoc, perl モジュール, perl ドキュメント, perl pod, corelist, perl モジュールソースコード, perl5, PERL5LIB, relate:perl-mode, relate:cperl-mode, carton, Emacs, helm, helm-perldoc.el, M-x helm-perldoc, M-x helm-perldoc
-#+TITLE: emacs helm-perldoc.el : perldocをhelmから実行する | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>helm-perldoc</td></tr>
-<tr><td>概要(原文)</td><td>perldoc with helm interface</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/syohex/emacs-helm-perldoc">https://github.com/syohex/emacs-helm-perldoc</a></td></tr>
-<tr><td>バージョン</td><td>20151008.727</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:helm-perldoc/">package:helm-perldoc</a> <a href="http://rubikitch.com/tag/package:perl-mode/">package:perl-mode</a> <a href="http://rubikitch.com/tag/package:cperl-mode/">package:cperl-mode</a></td></tr>
-</table>
-<br />
-#+END_HTML
+#+TITLE: helm-perldoc.el : perldocをhelmから実行する
+[includeme file="inc-package-table.php" name="helm-perldoc" where="melpa"]
+
+#+end:
+** 概要
 *helm-perldoc.el* は、Perlのドキュメント閲覧ツールperldocのhelmインターフェースです。
 *M-x helm-perldoc* からは以下のアクションが実行できます。
 - ドキュメントを見る
@@ -45,32 +35,8 @@ Fig1: M-x helm-perldoc
 #+ATTR_HTML: :width 480
 [[file:/r/sync/screenshots/20151013041753.png]]
 Fig2: perldocの結果を表示したりソースコードを開いたり
-** helm-perldoc インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
 
-M-x package-refresh-contents
-M-x package-install helm-perldoc
-
-
-#+end:
-** 概要                                                             :noexport:
-*helm-perldoc.el* は、Perlのドキュメント閲覧ツールperldocのhelmインターフェースです。
-*M-x helm-perldoc* からは以下のアクションが実行できます。
-- ドキュメントを見る
-- ソースコードを開く
-- import文を挿入
-- corelistでチェックする
-
-
-# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20151013041735.png]]
-Fig3: M-x helm-perldoc
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20151013041753.png]]
-Fig4: perldocの結果を表示したりソースコードを開いたり
-
+[includeme file="inc-package-install.php" name="helm-perldoc" where="melpa"]
 ** 設定 [[http://rubikitch.com/f/151013040530.helm-perldoc.el][151013040530.helm-perldoc.el(以下のコードと同一)]]
 #+BEGIN: include :file "/r/sync/junk/151013/151013040530.helm-perldoc.el"
 #+BEGIN_SRC fundamental
@@ -90,3 +56,4 @@ Fig4: perldocの結果を表示したりソースコードを開いたり
 $ wget http://rubikitch.com/f/151013040530.helm-perldoc.el
 $ emacs -Q -f package-initialize -l 151013040530.helm-perldoc.el
 #+END_EXAMPLE
+[includeme file="inc-package-relate.php" name="helm-perldoc"]

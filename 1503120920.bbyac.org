@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 1291
+#+POSTID: 755
+#+BLOG: rubikitch
 #+DATE: [2015-03-12 Thu 09:20]
 #+PERMALINK: bbyac
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,28 +8,17 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs
+#+CATEGORY: 入力支援
 #+EL_PKG_NAME: bbyac
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, package:ido, package:ido-vertical-mode, relate:ido, relate:ido-vertical-mode, relate:dabbrev, relate:browse-kill-ring, relate:anything-dabbrev, helm-dabbrev, relate:hippie-exp, hippie-expand, emacs 補完 部分文字列, emacs あいまいマッチ 補完, ido あいまい検索, ido あいまいマッチ
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: ido, 補完
 #+EL_TITLE0: 【タイプ数激減補完】ido式あいまいマッチなdabbrev-completion
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージbbyacの紹介
-#+MYTAGS: package:bbyac, emacs 使い方, emacs コマンド, emacs, bbyac, bbyac.el, emacs lisp bbyac, elisp bbyac, emacs melpa bbyac, emacs bbyac 使い方, emacs bbyac 設定, emacs パッケージ bbyac, emacs bbyac スクリーンショット, package:ido, package:ido-vertical-mode, relate:ido, relate:ido-vertical-mode, relate:dabbrev, relate:browse-kill-ring, relate:anything-dabbrev, helm-dabbrev, relate:hippie-exp, hippie-expand, emacs 補完 部分文字列, emacs あいまいマッチ 補完, ido あいまい検索, ido あいまいマッチ
-#+TAGS: package:bbyac, emacs 使い方, emacs コマンド, emacs, bbyac, bbyac.el, emacs lisp bbyac, elisp bbyac, emacs melpa bbyac, emacs bbyac 使い方, emacs bbyac 設定, emacs パッケージ bbyac, emacs bbyac スクリーンショット, package:ido, package:ido-vertical-mode, relate:ido, relate:ido-vertical-mode, relate:dabbrev, relate:browse-kill-ring, relate:anything-dabbrev, helm-dabbrev, relate:hippie-exp, hippie-expand, emacs 補完 部分文字列, emacs あいまいマッチ 補完, ido あいまい検索, ido あいまいマッチ, Emacs, M-/, dabbrev-expand, M-x hippie-expand, bbyac.el, ido, M-x dabbrev-completion, dabbrev-expand, M-x hippie-expand, bbyac.el, ido, M-x dabbrev-completion
-#+TITLE: emacs bbyac.el : 【タイプ数激減補完】ido式あいまいマッチなdabbrev-completion | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>bbyac</td></tr>
-<tr><td>概要(原文)</td><td>Type a little Bit, and Bang! You Are Completed.</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/baohaojun/bbyac">https://github.com/baohaojun/bbyac</a></td></tr>
-<tr><td>バージョン</td><td>20150316.301</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:bbyac/">package:bbyac</a> <a href="http://rubikitch.com/tag/package:ido/">package:ido</a> <a href="http://rubikitch.com/tag/package:ido-vertical-mode/">package:ido-vertical-mode</a> <a href="http://rubikitch.com/tag/package:dabbrev/">package:dabbrev</a> <a href="http://rubikitch.com/tag/package:browse-kill-ring/">package:browse-kill-ring</a> <a href="http://rubikitch.com/tag/package:anything-dabbrev/">package:anything-dabbrev</a> <a href="http://rubikitch.com/tag/package:hippie-exp/">package:hippie-exp</a></td></tr>
-</table>
-<br />
-#+END_HTML
+#+TITLE: bbyac.el : 【タイプ数激減補完】ido式あいまいマッチなdabbrev-completion
+[includeme file="inc-package-table.php" name="bbyac" where="melpa"]
+
+#+end:
+** 概要
 通常の *M-/* (*dabbrev-expand*) や *M-x hippie-expand* では、
 補完したい文字列の最初からタイプする必要があり、
 elispの長いシンボルを補完するのには向いていません。
@@ -45,7 +35,7 @@ elispの長いシンボルを補完するのには向いていません。
 パラグラフの補完(M-s p)があります。
 
 本設定ではbbyac.el内蔵の候補選択ではなく、
-[[http://rubikitch.com/2015/01/06/ido-vertical-mode/][ido-vertical-mode.el(レビュー)]] にインターフェースをすり替えています。
+[[http://emacs.rubikitch.com/ido-vertical-mode/][ido-vertical-mode.el(レビュー)]] にインターフェースをすり替えています。
 
 なぜならC-p/C-n以外にも文字をタイプして絞り込みができるからです。
 
@@ -60,47 +50,8 @@ Fig2: 長いシンボルが一発で補完！
 
 [[file:/r/sync/screenshots/20150312093819.png]]
 Fig3: thの後にC-@を押すとidoで選択
-** bbyac インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
 
-M-x package-refresh-contents
-M-x package-install bbyac
-
-
-#+end:
-** 概要                                                             :noexport:
-通常の *M-/* (*dabbrev-expand*) や *M-x hippie-expand* では、
-補完したい文字列の最初からタイプする必要があり、
-elispの長いシンボルを補完するのには向いていません。
-
-そこで、ido式あいまいマッチ(各文字間に「.*」をはさんだ正規表現に変換)
-を使って補完するのが *bbyac.el* です。
-
-候補が複数個ある場合は、ミニバッファでC-p/C-nとすることで選択できます。
-
-いわば *ido* ＋ *M-x dabbrev-completion* といった感じで、
-打鍵数を最小限にして適切にシンボルを補完してくれます。
-
-シンボル補完以外にも行補完(M-s RET、M-s l)や
-パラグラフの補完(M-s p)があります。
-
-本設定ではbbyac.el内蔵の候補選択ではなく、
-[[http://rubikitch.com/2015/01/06/ido-vertical-mode/][ido-vertical-mode.el(レビュー)]] にインターフェースをすり替えています。
-
-なぜならC-p/C-n以外にも文字をタイプして絞り込みができるからです。
-
-dabbrevやhippie-expandにフラストレーションを感じている方は
-絶対に試してみる価値があります。
-# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
-[[file:/r/sync/screenshots/20150312093753.png]]
-Fig4: texの後にC-@を押すと…
-
-[[file:/r/sync/screenshots/20150312093759.png]]
-Fig5: 長いシンボルが一発で補完！
-
-[[file:/r/sync/screenshots/20150312093819.png]]
-Fig6: thの後にC-@を押すとidoで選択
-
+[includeme file="inc-package-install.php" name="bbyac" where="melpa"]
 ** 設定 [[http://rubikitch.com/f/150312092945.bbyac.el][150312092945.bbyac.el(以下のコードと同一)]]
 #+BEGIN: include :file "/r/sync/junk/150312/150312092945.bbyac.el"
 #+BEGIN_SRC fundamental
@@ -139,3 +90,4 @@ $ emacs -Q -f package-initialize -l 150312092945.bbyac.el
 # /r/sync/screenshots/20150312093753.png http://rubikitch.com/wp-content/uploads/2015/03/wpid-20150312093753.png
 # /r/sync/screenshots/20150312093759.png http://rubikitch.com/wp-content/uploads/2015/03/wpid-20150312093759.png
 # /r/sync/screenshots/20150312093819.png http://rubikitch.com/wp-content/uploads/2015/03/wpid-20150312093819.png
+[includeme file="inc-package-relate.php" name="bbyac"]

@@ -1,53 +1,23 @@
 #+BLOG: rubikitch
-#+POSTID: 647
+#+POSTID: 449
+#+BLOG: rubikitch
 #+DATE: [2014-12-02 Tue 09:25]
 #+PERMALINK: org-aggregate
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
 #+ISPAGE: nil
-#+DESCRIPTION:
+#+DESCRIPTION:calcパッケージとdynamic blockで表計算を行う。慣れるまで少し難しいかも。
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, org-mode,
+#+CATEGORY: 表作成
 #+EL_PKG_NAME: orgtbl-aggregate
-#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, relate:org, org-mode 表計算, org-mode 合計, org-mode 平均, org-mode 統計, emacs calc
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方
+#+TAGS: org
 #+EL_TITLE0: org-modeの表で簡単に集計処理を行う！合計・平均・最大値・最小値・個数・中央値など…
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージorgtbl-aggregateの紹介
-#+MYTAGS: package:orgtbl-aggregate, emacs 使い方, emacs コマンド, emacs, emacs lisp orgtbl-aggregate, elisp orgtbl-aggregate, emacs melpa orgtbl-aggregate, emacs orgtbl-aggregate 使い方, emacs orgtbl-aggregate 設定, emacs パッケージ orgtbl-aggregate, relate:org, org-mode 表計算, org-mode 合計, org-mode 平均, org-mode 統計, emacs calc
-#+TITLE: emacs orgtbl-aggregate.el : org-modeの表で簡単に集計処理を行う！合計・平均・最大値・最小値・個数・中央値など… | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>orgtbl-aggregate</td></tr>
-<tr><td>概要(原文)</td><td>Create an aggregated Org table from another one</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/tbanel/orgaggregate">https://github.com/tbanel/orgaggregate</a></td></tr>
-<tr><td>バージョン</td><td>20141215.1239</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:orgtbl-aggregate/">package:orgtbl-aggregate</a> <a href="http://rubikitch.com/tag/package:org/">package:org</a></td></tr>
-</table>
-<br />
-#+END_HTML
-*org-aggregate.el* は、 *org-mode* の表に *集計機能* を提供します。
-
-各項目の合計・平均・最大値・最小値・個数などを計算する
-*dblock* (*dynamic block*)を作成します。
-
-とても機能は多いのですが、その裏には *Calc* パッケージがあるからです。
-
-CalcパッケージはEmacs上で数値計算・数式計算を行うものです。
-
-org-aggregateが何物なのかは、とりあえず使用例を見た方が早いです。
-
-なお、*C-c C-x i* を使うと対話的にdblockを入力できます。
-** orgtbl-aggregate インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install orgtbl-aggregate
-
+#+TITLE: orgtbl-aggregate.el : org-modeの表で簡単に集計処理を行う！合計・平均・最大値・最小値・個数・中央値など…
+[includeme file="inc-package-table.php" name="orgtbl-aggregate" where="melpa"]
 
 #+end:
-** 概要                                                             :noexport:
+** 概要
 *org-aggregate.el* は、 *org-mode* の表に *集計機能* を提供します。
 
 各項目の合計・平均・最大値・最小値・個数などを計算する
@@ -61,6 +31,7 @@ org-aggregateが何物なのかは、とりあえず使用例を見た方が早�
 
 なお、*C-c C-x i* を使うと対話的にdblockを入力できます。
 
+[includeme file="inc-package-install.php" name="orgtbl-aggregate" where="melpa"]
 ** 使用例 [[http://rubikitch.com/f/org-aggregate-sample.org][org-aggregate-sample.org(以下のコードと同一)]]
 #+BEGIN: include :file "/r/sync/junk/141202/org-aggregate-sample.org"
 #+BEGIN_SRC fundamental
@@ -126,6 +97,9 @@ org-aggregateが何物なのかは、とりあえず使用例を見た方が早�
 |-------+---------------+---------------|
 | Red   | 40.2857142857 |           144 |
 | Blue  | 15.5714285714 |            74 |
+,#+END:
+#+END_SRC
+
 #+END:
 #+END_SRC
 
@@ -135,3 +109,4 @@ org-aggregateが何物なのかは、とりあえず使用例を見た方が早�
 #+END:
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+[includeme file="inc-package-relate.php" name="orgtbl-aggregate"]

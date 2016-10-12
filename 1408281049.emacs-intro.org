@@ -1,4 +1,4 @@
-#+POSTID: 230
+#+POSTID: 247
 #+DATE: [2014-08-28 Thu 10:49]
 #+PERMALINK: emacs-intro
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t
@@ -7,8 +7,7 @@
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
 #+CATEGORY: Emacs,
-#+MYTAGS:
-#+TAGS: , Emacs,, 環境
+#+TAGS: 
 #+TITLE: Emacsとは
 [[http://www.gnu.org/software/emacs/][Emacs]] とは、Unix系OSでよく使われているテキストエディタ…
 ということになっていますが、実際はありとあらゆることができる *環境* です。

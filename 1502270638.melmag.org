@@ -1,18 +1,19 @@
 #+BLOG: rubikitch
-#+POSTID: 1219
+#+POSTID: 73
+#+BLOG: rubikitch
 #+DATE: [2015-02-27 Fri 06:38]
-#+PERMALINK: melmag
+#+PERMALINK: melmag170
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
 #+ISPAGE: nil
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: メルマガ,
+#+CATEGORY: るびきち塾メルマガ
 #+DESCRIPTION: るびきち塾メルマガ『Emacsの鬼るびきちのココだけの話#170』の予告
 #+TITLE: helmとanythingをdired化しよう！
 #+MYTAGS: 
 #+begin: org2blog-tags
-#+TAGS: , メルマガ,, 
+
 #+end:
 まずあなたに謝らなければならないことがあります。
 

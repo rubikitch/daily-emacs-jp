@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 2079
+#+POSTID: 1192
+#+BLOG: rubikitch
 #+DATE: [2015-10-14 Wed 11:34]
 #+PERMALINK: helm-google
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,28 +8,17 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, helm
+#+CATEGORY: 検索エンジン
 #+EL_PKG_NAME: helm-google
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, google検索, relate:google-this, helmでGoogle, emacsでググる, emacs google検索 カーソル位置, emacs ググる 方法, emacs ググれカス, emacs リージョン ググる google 検索, ググれカス, ggrks
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: helm, google
 #+EL_TITLE0: Google検索結果をhelmで表示する(HTML・API両対応)
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージhelm-googleの紹介
-#+MYTAGS: package:helm-google, emacs 使い方, emacs コマンド, emacs, helm-google, helm-google.el, emacs lisp helm-google, elisp helm-google, emacs melpa helm-google, emacs helm-google 使い方, emacs helm-google 設定, emacs パッケージ helm-google, emacs helm-google スクリーンショット, google検索, relate:google-this, helmでGoogle, emacsでググる, emacs google検索 カーソル位置, emacs ググる 方法, emacs ググれカス, emacs リージョン ググる google 検索, ググれカス, ggrks
-#+TAGS: package:helm-google, emacs 使い方, emacs コマンド, emacs, helm-google, helm-google.el, emacs lisp helm-google, elisp helm-google, emacs melpa helm-google, emacs helm-google 使い方, emacs helm-google 設定, emacs パッケージ helm-google, emacs helm-google スクリーンショット, google検索, relate:google-this, helmでGoogle, emacsでググる, emacs google検索 カーソル位置, emacs ググる 方法, emacs ググれカス, emacs リージョン ググる google 検索, ググれカス, ggrks, Emacs, helm, M-x helm-google
-#+TITLE: emacs helm-google.el : Google検索結果をhelmで表示する(HTML・API両対応) | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>helm-google</td></tr>
-<tr><td>概要(原文)</td><td>Emacs Helm Interface for quick Google searches</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/steckerhalter/helm-google">https://github.com/steckerhalter/helm-google</a></td></tr>
-<tr><td>バージョン</td><td>20141228.340</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:helm-google/">package:helm-google</a> <a href="http://rubikitch.com/tag/package:google-this/">package:google-this</a></td></tr>
-</table>
-<br />
-#+END_HTML
+#+TITLE: helm-google.el : Google検索結果をhelmで表示する(HTML・API両対応)
+[includeme file="inc-package-table.php" name="helm-google" where="melpa"]
+
+#+end:
+** 概要
 *M-x helm-google* は入力をインクリメンタルにgoogle検索し、その結果をhelmで表示します。
 regionを設定しているときはその文字列を検索対象とします。
 
@@ -44,31 +34,8 @@ APIは安定していますが、結果を4件しか表示できません。
 #+ATTR_HTML: :width 480
 [[file:/r/sync/screenshots/20151014114352.png]]
 Fig1: M-x helm-google emacs lisp
-** helm-google インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
 
-M-x package-refresh-contents
-M-x package-install helm-google
-
-
-#+end:
-** 概要                                                             :noexport:
-*M-x helm-google* は入力をインクリメンタルにgoogle検索し、その結果をhelmで表示します。
-regionを設定しているときはその文字列を検索対象とします。
-
-このコマンドはクエリそのものをGoogleに渡しているため、helmはあくまでも検索結果を表示しているに過ぎません。
-helmの強力な絞り込み検索機能は使えないことに注意してください。
-
-Google検索の方法はHTMLスクレイピング・APIの2通りあります。
-スクレイピングによる方法は結果を10件表示できますが、デザイン変更されたときにhelm-googleが対応しないと使えません。
-APIは安定していますが、結果を4件しか表示できません。
-デフォルトではスクレイピングします。
-
-# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20151014114352.png]]
-Fig2: M-x helm-google emacs lisp
-
+[includeme file="inc-package-install.php" name="helm-google" where="melpa"]
 ** 設定 [[http://rubikitch.com/f/151014113153.helm-google.el][151014113153.helm-google.el(以下のコードと同一)]]
 #+BEGIN: include :file "/r/sync/junk/151014/151014113153.helm-google.el"
 #+BEGIN_SRC fundamental
@@ -87,3 +54,4 @@ Fig2: M-x helm-google emacs lisp
 $ wget http://rubikitch.com/f/151014113153.helm-google.el
 $ emacs -Q -f package-initialize -l 151014113153.helm-google.el
 #+END_EXAMPLE
+[includeme file="inc-package-relate.php" name="helm-google"]

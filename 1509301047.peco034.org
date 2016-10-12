@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 2032
+#+POSTID: 1166
+#+BLOG: rubikitch
 #+DATE: [2015-09-30 Wed 10:47]
 #+PERMALINK: peco034
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,12 +8,12 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: helm, peco
+#+CATEGORY:  peco
 #+DESCRIPTION: 
-#+MYTAGS: relate:helm, relate:anything, , シェルでanythingの絞り込み, シェルでhelmの絞り込み, peco, percol, go, golang, zsh, bash, zaw, ターミナル版anything的なpercol, ターミナル版anything的なpeco, 端末版Unite.vimなpeco, 
 #+TITLE: 【helmを端末へ】peco-0.3.4リリース！大量・少量どちらの候補数でも使いやすく
 #+begin: org2blog-tags
-#+TAGS: relate:helm, relate:anything, , シェルでanythingの絞り込み, シェルでhelmの絞り込み, peco, percol, go, golang, zsh, bash, zaw, ターミナル版anything的なpercol, ターミナル版anything的なpeco, 端末版Unite.vimなpeco, , helm, peco, hit-a-hint
+# content-length: 1710
+
 #+end:
 [[http://rubikitch.com/category/helm/][helm(カテゴリ)]] の絞り込みを端末の世界で行う[[https://github.com/peco/peco][peco]] が
 バージョン0.3.4となって昨日リリースされました。
@@ -21,7 +22,7 @@ https://github.com/peco/peco/releases/tag/v0.3.4
 からダウンロードしてください。
 
 このバージョンでの最大の特徴は、
-[[http://rubikitch.com/2015/04/16/ace-jump-helm-line/][ace-jump-helm-line.el(レビュー)]] や anything-prefix-shortcut
+[[http://emacs.rubikitch.com/ace-jump-helm-line/][ace-jump-helm-line.el(レビュー)]] や anything-prefix-shortcut
 のようにショートカットで候補選択できる機能(*hit-a-hint*)が実装されたことです。
 
 pecoは元々大量の候補を絞り込み検索することで素早く選択できるようにしますが、
@@ -71,7 +72,7 @@ C-g、C-v、M-v、M-a、Pgup、Pgdnはhelm/anythingに合わせて
 
 pecoは端末上でしか動かないので、
 emacsのshell-mode/eshellやウィンドウマネージャーで動かすには
-[[http://rubikitch.com/2015/09/29/peco-wrapper][ターミナルエミュレータを媒介するラッパースクリプト]] を使う必要があります。
+[[http://emacs.rubikitch.com/peco-wrapper][ターミナルエミュレータを媒介するラッパースクリプト]] を使う必要があります。
 
 絞り込み検索はhelmとは比較にならないほど疾いので、
 emacsの中でもどんどん使っていこうと思っています。

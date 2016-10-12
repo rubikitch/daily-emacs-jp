@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 1613
+#+POSTID: 889
+#+BLOG: rubikitch
 #+DATE: [2015-05-04 Mon 04:57]
 #+PERMALINK: easy-repeat
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,73 +8,28 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, Emacs Lisp, , ソース解読推奨
+#+CATEGORY: キーバインド
 #+EL_PKG_NAME: easy-repeat
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, relate:smartrep, relate:hydra, emacs repeat, emacs smartrep, emacs 繰り返しコマンド, emacs プレフィクスキー 省略, プレフィクスキー, relate:switch-window, emacs ウィンドウ 切り替え, emacs C-x o 改善, ウィンドウ切り替え, relate:ace-window, relate:win-switch, relate:window-numbering
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 
+#+TAGS: 
 #+EL_TITLE0: 【簡易smartrep/hydra】最後のキーで直前のコマンドを繰り返し実行させる
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージeasy-repeatの紹介
-#+MYTAGS: package:easy-repeat, emacs 使い方, emacs コマンド, emacs, easy-repeat, easy-repeat.el, emacs lisp easy-repeat, elisp easy-repeat, emacs melpa easy-repeat, emacs easy-repeat 使い方, emacs easy-repeat 設定, emacs パッケージ easy-repeat, relate:smartrep, relate:hydra, emacs repeat, emacs smartrep, emacs 繰り返しコマンド, emacs プレフィクスキー 省略, プレフィクスキー, relate:switch-window, emacs ウィンドウ 切り替え, emacs C-x o 改善, ウィンドウ切り替え, relate:ace-window, relate:win-switch, relate:window-numbering
-#+TAGS: package:easy-repeat, emacs 使い方, emacs コマンド, emacs, easy-repeat, easy-repeat.el, emacs lisp easy-repeat, elisp easy-repeat, emacs melpa easy-repeat, emacs easy-repeat 使い方, emacs easy-repeat 設定, emacs パッケージ easy-repeat, relate:smartrep, relate:hydra, emacs repeat, emacs smartrep, emacs 繰り返しコマンド, emacs プレフィクスキー 省略, プレフィクスキー, relate:switch-window, emacs ウィンドウ 切り替え, emacs C-x o 改善, ウィンドウ切り替え, relate:ace-window, relate:win-switch, relate:window-numbering, Emacs, Emacs Lisp, , ソース解読推奨, easy-repeat.el, other-window, easy-repeat.el, other-window, easy-repeat-command-list, set-transient-map, repeat, set-temporary-overlay-map, C-x C-i(indent-rigidly), C-x e(kmacro-end-or-call-macro), C-x C--(text-scale-adjust)
-#+TITLE: emacs easy-repeat.el : 【簡易smartrep/hydra】最後のキーで直前のコマンドを繰り返し実行させる | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>easy-repeat</td></tr>
-<tr><td>概要(原文)</td><td>Repeat easily</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/xuchunyang/easy-repeat.el">https://github.com/xuchunyang/easy-repeat.el</a></td></tr>
-<tr><td>バージョン</td><td>20150516.148</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:easy-repeat/">package:easy-repeat</a> <a href="http://rubikitch.com/tag/package:smartrep/">package:smartrep</a> <a href="http://rubikitch.com/tag/package:hydra/">package:hydra</a> <a href="http://rubikitch.com/tag/package:switch-window/">package:switch-window</a> <a href="http://rubikitch.com/tag/package:ace-window/">package:ace-window</a> <a href="http://rubikitch.com/tag/package:win-switch/">package:win-switch</a> <a href="http://rubikitch.com/tag/package:window-numbering/">package:window-numbering</a></td></tr>
-</table>
-<br />
-#+END_HTML
-<2015-05-02 Sat> に登録された新入りです。
-
-たとえば、複数のウィンドウに分割されている状態で
-C-x oを連続してウィンドウを選択するのは面倒です。
-
-この問題に対処するために
-[[http://rubikitch.com/2014/12/26/ace-window/][ace-window.el(レビュー)]] とか
-[[http://rubikitch.com/2014/12/15/switch-window/][switch-window.el(レビュー)]] とか
-もっと強力な[[http://rubikitch.com/2015/02/21/win-switch/][win-switch.el(レビュー)]] などがあります。
-
-[[http://rubikitch.com/2015/01/25/hydra/][smartrep.elやhydra.el(比較レビュー)]] を使えば
-プレフィクスキーを省略できるようになり、
-C-x o o ...と操作できるようになります。
-
-この *easy-repeat.el* は、smartrep/hydraよりもシンプルで、
-指定されたコマンドの最後のキーで繰り返せるようにしています。
-
-C-x oの後にoを押せば *other-window* を繰り返せます。
-
-smartrep/hydraではo以外にも他のキーでも
-プレフィクスキーを省略できるようになります。
-
-機能的には縮小版ですが、コードはわずか40行です！
-
-そのうち中核をなす部分は10行少々です。
-** easy-repeat インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install easy-repeat
-
+#+TITLE: easy-repeat.el : 【簡易smartrep/hydra】最後のキーで直前のコマンドを繰り返し実行させる
+[includeme file="inc-package-table.php" name="easy-repeat" where="melpa"]
 
 #+end:
-** 概要                                                             :noexport:
+** 概要
 <2015-05-02 Sat> に登録された新入りです。
 
 たとえば、複数のウィンドウに分割されている状態で
 C-x oを連続してウィンドウを選択するのは面倒です。
 
 この問題に対処するために
-[[http://rubikitch.com/2014/12/26/ace-window/][ace-window.el(レビュー)]] とか
-[[http://rubikitch.com/2014/12/15/switch-window/][switch-window.el(レビュー)]] とか
-もっと強力な[[http://rubikitch.com/2015/02/21/win-switch/][win-switch.el(レビュー)]] などがあります。
+[[http://emacs.rubikitch.com/ace-window/][ace-window.el(レビュー)]] とか
+[[http://emacs.rubikitch.com/switch-window/][switch-window.el(レビュー)]] とか
+もっと強力な[[http://emacs.rubikitch.com/win-switch/][win-switch.el(レビュー)]] などがあります。
 
-[[http://rubikitch.com/2015/01/25/hydra/][smartrep.elやhydra.el(比較レビュー)]] を使えば
+[[http://emacs.rubikitch.com/hydra/][smartrep.elやhydra.el(比較レビュー)]] を使えば
 プレフィクスキーを省略できるようになり、
 C-x o o ...と操作できるようになります。
 
@@ -88,6 +44,7 @@ smartrep/hydraではo以外にも他のキーでも
 機能的には縮小版ですが、コードはわずか40行です！
 
 そのうち中核をなす部分は10行少々です。
+[includeme file="inc-package-install.php" name="easy-repeat" where="melpa"]
 ** メカニズム
 #+BEGIN_SRC emacs-lisp :results silent
 (defun easy-repeat--repeat (orig-fun &rest args)
@@ -109,7 +66,7 @@ smartrep/hydraではo以外にも他のキーでも
 
 これらの部分を読んでみればわかるように
 *easy-repeat-command-list* でリピート対象のコマンド各々に対して
-[[http://rubikitch.com/2014/10/30/nadvice/][Emacs 24.4で追加されたnadvice.el]] によるアドバイスがかけられています。
+[[http://emacs.rubikitch.com/nadvice/][Emacs 24.4で追加されたnadvice.el]] によるアドバイスがかけられています。
 
 で、 *set-transient-map* 関数で一度きりのキーマップにて
 *repeat* コマンド(C-x z)を指定しています。
@@ -126,3 +83,4 @@ smartrep風味にプレフィクスキーを省略できるようになってい
 
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+[includeme file="inc-package-relate.php" name="easy-repeat"]

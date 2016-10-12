@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 2038
+#+POSTID: 1170
+#+BLOG: rubikitch
 #+DATE: [2015-10-01 Thu 07:56]
 #+PERMALINK: peco-wrapper-update
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -9,12 +10,13 @@
 #+BLOG: rubikitch
 #+CATEGORY: 記事更新情報, 
 #+DESCRIPTION: 
-#+MYTAGS: 
 #+TITLE: 端末以外でpecoを使うスクリプトを更新
 #+begin: org2blog-tags
-#+TAGS: , 記事更新情報, , --xterm
+# content-length: 391
+#+HTML: <!-- noindex -->
+
 #+end:
-http://rubikitch.com/2015/09/29/peco-wrapper/
+http://emacs.rubikitch.com/peco-wrapper/
 
 <2015-10-01 Thu>スクリプトバグ修正・機能追加。
 - printfを使っていたため、入力を受け取りきれなかったバグを修正

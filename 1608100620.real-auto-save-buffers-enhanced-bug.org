@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 2654
+#+POSTID: 1520
+#+BLOG: rubikitch
 #+DATE: [2016-08-10 Wed 06:20]
 #+PERMALINK: real-auto-save-buffers-enhanced-bug
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
@@ -7,15 +8,15 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, 
+#+CATEGORY: 自動保存
 #+DESCRIPTION: 
-#+MYTAGS: package:real-auto-save, relate:auto-save-buffers-enhanced, emacs バッファファイル自動保存, Emacsでファイルを自動保存する, 更新するたびにバッファを自動で上書き保存, タイマー関数, run-with-timer, save-buffer, emacs 自動 セーブ, emacs データ消えた, emacs 事故対策, emacs 保険,
-#+TITLE: Emacsファイル自動保存にまつわる怪現象!？ real-auto-save auto-save-buffers-enhanced
+#+TITLE: Emacsファイル自動保存にまつわる怪現象!？ real-auto-save auto-save-buffers-enhance
 #+begin: org2blog-tags
-#+TAGS: package:real-auto-save, relate:auto-save-buffers-enhanced, emacs バッファファイル自動保存, Emacsでファイルを自動保存する, 更新するたびにバッファを自動で上書き保存, タイマー関数, run-with-timer, save-buffer, emacs 自動 セーブ, emacs データ消えた, emacs 事故対策, emacs 保険,, Emacs, , basic-save-buffer, run-at-time, run-with-idle-timer
+# content-length: 1274
+
 #+end:
 あなたは自動保存系のelispを使っていますか？
-[[http://rubikitch.com/2015/02/03/real-auto-save/][real-auto-save]] と[[http://rubikitch.com/2014/11/23/auto-save-buffers-enhanced/][auto-save-buffers-enhanced]] を本サイトでは紹介しました。
+[[http://emacs.rubikitch.com/real-auto-save/][real-auto-save]] と[[http://emacs.rubikitch.com/auto-save-buffers-enhanced/][auto-save-buffers-enhanced]] を本サイトでは紹介しました。
 
 どちらも一定時間ごとにバッファをファイルに保存してくれます。
 おかげさまでC-x C-sを押す手間を省いてくれます。

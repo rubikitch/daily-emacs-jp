@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 2463
+#+POSTID: 1463
+#+BLOG: rubikitch
 #+DATE: [2016-07-12 Tue 08:31]
 #+PERMALINK: my-quickrun
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,16 +8,17 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, Emacs Lisp, helm, 
+#+CATEGORY: プログラム実行
 #+DESCRIPTION: 
-#+MYTAGS: package:quickrun, emacs 使い方, emacs コマンド, emacs, emacs lisp quickrun, elisp quickrun, emacs melpa quickrun, emacs quickrun 使い方, emacs quickrun 設定, emacs パッケージ quickrun, emacs quickrun スクリーンショット, c-mode, c++-mode, objc-mode, csharp-mode, perl-mode, cperl-mode, ruby-mode, python-mode, php-mode, emacs-lisp-mode, lisp-mode, scheme-mode, javascript-mode, js-mode, js2-mode, clojure-mode, erlang-mode, ocaml-mode, tuareg-mode, fsharp-mode, go-mode, io-mode, lua-mode, haskell-mode, java-mode, d-mode, fortran-mode, markdown-mode, coffee-mode, jsx-mode, typescript-mode, scala-mode, groove-mode, haml-mode, sass-mode, less-mode, less-css-mode, sh-mode, awk-mode, rust-mode, dart-mode, elixir-mode, tcl-mode, swift-mode, ats-mode, ess-mode, relate:helm, relate:anything, relate:compile, relate:executable, quickrunを使いやすく, quickrun 使いづらい, quickrun 不満, quickrun 改良, quickrun 魔改造
 #+TITLE: quickrunを魔改造して開発中のプログラムの実行をチョーチョー簡単にする！
+#+TAGS: quickrun
 #+begin: org2blog-tags
-#+TAGS: package:quickrun, emacs 使い方, emacs コマンド, emacs, emacs lisp quickrun, elisp quickrun, emacs melpa quickrun, emacs quickrun 使い方, emacs quickrun 設定, emacs パッケージ quickrun, emacs quickrun スクリーンショット, c-mode, c++-mode, objc-mode, csharp-mode, perl-mode, cperl-mode, ruby-mode, python-mode, php-mode, emacs-lisp-mode, lisp-mode, scheme-mode, javascript-mode, js-mode, js2-mode, clojure-mode, erlang-mode, ocaml-mode, tuareg-mode, fsharp-mode, go-mode, io-mode, lua-mode, haskell-mode, java-mode, d-mode, fortran-mode, markdown-mode, coffee-mode, jsx-mode, typescript-mode, scala-mode, groove-mode, haml-mode, sass-mode, less-mode, less-css-mode, sh-mode, awk-mode, rust-mode, dart-mode, elixir-mode, tcl-mode, swift-mode, ats-mode, ess-mode, relate:helm, relate:anything, relate:compile, relate:executable, quickrunを使いやすく, quickrun 使いづらい, quickrun 不満, quickrun 改良, quickrun 魔改造, Emacs, Emacs Lisp, helm, , M-x executable-interpret, M-x quickrun, M-x quickrun-with-arg, M-x quickrun-shell, quickrun-option-args, eshell, outputter, quickrun-option-outputter, M-x add-file-local-variable, M-x normal-mode, C-x C-v RET, バッファローカル変数
+# content-length: 2491
+
 #+end:
 quickrunパッケージは、 *M-x executable-interpret* の進化形ともいえるもので、多種多様な言語に対応していて、開発中のプログラムの実行を簡単にしてくれます。
 
-quickrunのレビューは[[http://rubikitch.com/2014/11/06/quickrun/][ココ]] に書きました。
+quickrunのレビューは[[http://emacs.rubikitch.com/quickrun/][ココ]] に書きました。
 
 機能性には注目していたのですが、僕には不満点がいろいろと目に付いて使っていませんでした。
 そこで重い足を上げてquickrunの機能を再整理することで僕的には満足する仕上がりになりました。

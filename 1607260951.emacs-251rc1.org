@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 2554
+#+POSTID: 1494
+#+BLOG: rubikitch
 #+DATE: [2016-07-26 Tue 09:51]
 #+PERMALINK: emacs-251rc1
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,12 +8,13 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, Emacs 25.1, 記事紹介, 
+#+CATEGORY: リリース情報
 #+DESCRIPTION: 
-#+MYTAGS: 
 #+TITLE: 【Emacs新時代到来】Emacs 25.1 RC1がリリースされました
 #+begin: org2blog-tags
-#+TAGS: , Emacs, Emacs 25.1, 記事紹介, , 
+# content-length: 521
+#+HTML: <!-- noindex -->
+
 #+end:
 今日はcruxの詳細を書くつもりでしたが、
 急遽ビッグニュースが入ってきました！！！

@@ -1,18 +1,19 @@
 #+BLOG: rubikitch
-#+POSTID: 1375
+#+POSTID: 81
+#+BLOG: rubikitch
 #+DATE: [2015-03-27 Fri 07:01]
-#+PERMALINK: melmag
+#+PERMALINK: melmag174
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
 #+ISPAGE: nil
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: メルマガ,
+#+CATEGORY: るびきち塾メルマガ
 #+DESCRIPTION: るびきち塾メルマガ『Emacsの鬼るびきちのココだけの話#174』の予告
 #+TITLE: 【メルマガ#174】Emacsで暗記学習を攻略する！
 #+MYTAGS: 
 #+begin: org2blog-tags
-#+TAGS: , メルマガ,, 
+
 #+end:
 今回のメルマガはEmacsで暗記モノの勉強をする方法です。
 

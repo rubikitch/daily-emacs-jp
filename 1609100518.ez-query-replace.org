@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 2760
+#+POSTID: 1572
+#+BLOG: rubikitch
 #+DATE: [2016-09-10 Sat 05:18]
 #+PERMALINK: ez-query-replace
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
@@ -7,28 +8,17 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs
+#+CATEGORY: 置換
 #+EL_PKG_NAME: ez-query-replace
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, relate:visual-regexp, relate:visual-regexp-steroids, relate:replace-from-region, 置換, デフォルト 置換文字列, regionを置換文字列にする, シンボル置換, relate:replace-symbol, relate:highlight-symbol, 
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: るびきちオススメ, 初心者安心
 #+EL_TITLE0: 【置換】ちょっと賢くなったM-x query-replace (C-M-%)
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージez-query-replaceの紹介
-#+MYTAGS: package:ez-query-replace, emacs 使い方, emacs コマンド, emacs, ez-query-replace, ez-query-replace.el, emacs lisp ez-query-replace, elisp ez-query-replace, emacs melpa ez-query-replace, emacs ez-query-replace 使い方, emacs ez-query-replace 設定, emacs パッケージ ez-query-replace, emacs ez-query-replace スクリーンショット, relate:visual-regexp, relate:visual-regexp-steroids, relate:replace-from-region, 置換, デフォルト 置換文字列, regionを置換文字列にする, シンボル置換, relate:replace-symbol, relate:highlight-symbol, 
-#+TAGS: package:ez-query-replace, emacs 使い方, emacs コマンド, emacs, ez-query-replace, ez-query-replace.el, emacs lisp ez-query-replace, elisp ez-query-replace, emacs melpa ez-query-replace, emacs ez-query-replace 使い方, emacs ez-query-replace 設定, emacs パッケージ ez-query-replace, emacs ez-query-replace スクリーンショット, relate:visual-regexp, relate:visual-regexp-steroids, relate:replace-from-region, 置換, デフォルト 置換文字列, regionを置換文字列にする, シンボル置換, relate:replace-symbol, relate:highlight-symbol, , Emacs, ez-query-replace.el, query-replace, M-x ez-query-replace, M-x ez-query-replace-repeat, M-x vr/query-replace, query-replace, M-x ez-query-replace, M-x ez-query-replace-repeat, M-x vr/query-replace
-#+TITLE: emacs ez-query-replace.el : 【置換】ちょっと賢くなったM-x query-replace (C-M-%) | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>ez-query-replace</td></tr>
-<tr><td>概要(原文)</td><td>a smarter context-sensitive query-replace that can be reapplied</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/Wilfred/ez-query-replace.el">https://github.com/Wilfred/ez-query-replace.el</a></td></tr>
-<tr><td>バージョン</td><td>20140810.517</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:ez-query-replace/">package:ez-query-replace</a> <a href="http://rubikitch.com/tag/package:visual-regexp/">package:visual-regexp</a> <a href="http://rubikitch.com/tag/package:visual-regexp-steroids/">package:visual-regexp-steroids</a> <a href="http://rubikitch.com/tag/package:replace-from-region/">package:replace-from-region</a> <a href="http://rubikitch.com/tag/package:replace-symbol/">package:replace-symbol</a> <a href="http://rubikitch.com/tag/package:highlight-symbol/">package:highlight-symbol</a></td></tr>
-</table>
-<br />
-#+END_HTML
+#+TITLE: ez-query-replace.el : 【置換】ちょっと賢くなったM-x query-replace (C-M-%)
+[includeme file="inc-package-table.php" name="ez-query-replace" where="melpa"]
+
+#+end:
+** 概要
 *ez-query-replace.el* は、デフォルトの *query-replace* (C-M-%)を少しばかり賢くしたパッケージです。
 
 *M-x ez-query-replace* は置換対象文字列を以下のようにして、使いやすくしています。
@@ -41,10 +31,10 @@
 
 標準のC-M-% の挙動に不満を持っているならば、入れておくといいです。
 
-[[http://rubikitch.com/2014/08/26/visual-regexp/][visual-regexp(レビュー)]] を使っている方は *M-x vr/query-replace* をM-%に割り当てているかもしれませんが、
+[[http://emacs.rubikitch.com/visual-regexp/][visual-regexp(レビュー)]] を使っている方は *M-x vr/query-replace* をM-%に割り当てているかもしれませんが、
 両方使いたい人はどちらかのキーバインドを移動させてください。
 
-シンボル置換に特化したパッケージは[[http://rubikitch.com/2015/11/08/replace-symbol/][replace-symbol.el]] や[[http://rubikitch.com/2015/10/07/highlight-symbol/][highlight-symbol.el]] があります。
+シンボル置換に特化したパッケージは[[http://emacs.rubikitch.com/replace-symbol/][replace-symbol.el]] や[[http://emacs.rubikitch.com/highlight-symbol/][highlight-symbol.el]] があります。
 
 お好みで。
 
@@ -58,45 +48,8 @@ Fig1: デフォルトの置換文字列が設定される
 Fig2: 後は通常のM-%と同じように操作する
 
 
-** ez-query-replace インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
 
-M-x package-refresh-contents
-M-x package-install ez-query-replace
-
-
-#+end:
-** 概要                                                             :noexport:
-*ez-query-replace.el* は、デフォルトの *query-replace* (C-M-%)を少しばかり賢くしたパッケージです。
-
-*M-x ez-query-replace* は置換対象文字列を以下のようにして、使いやすくしています。
-- regionを指定してある場合はregionが置換対象文字列
-- regionがない場合は現在のシンボルが置換対象文字列
-
-*M-x ez-query-replace-repeat* は過去の置換履歴をたどって同じ置換をします。
-
-本設定ではC-u C-M-%でez-query-replace-repeatを起動させるようにしています。
-
-標準のC-M-% の挙動に不満を持っているならば、入れておくといいです。
-
-[[http://rubikitch.com/2014/08/26/visual-regexp/][visual-regexp(レビュー)]] を使っている方は *M-x vr/query-replace* をM-%に割り当てているかもしれませんが、
-両方使いたい人はどちらかのキーバインドを移動させてください。
-
-シンボル置換に特化したパッケージは[[http://rubikitch.com/2015/11/08/replace-symbol/][replace-symbol.el]] や[[http://rubikitch.com/2015/10/07/highlight-symbol/][highlight-symbol.el]] があります。
-
-お好みで。
-
-# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20160910052728.png]]
-Fig3: デフォルトの置換文字列が設定される
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20160910052738.png]]
-Fig4: 後は通常のM-%と同じように操作する
-
-
-
+[includeme file="inc-package-install.php" name="ez-query-replace" where="melpa"]
 ** 設定 [[http://rubikitch.com/f/160910051731.ez-query-replace.el][160910051731.ez-query-replace.el(以下のコードと同一)]]
 #+BEGIN: include :file "/r/sync/junk/160910/160910051731.ez-query-replace.el"
 #+BEGIN_SRC fundamental
@@ -118,3 +71,4 @@ $ emacs -Q -f package-initialize -l 160910051731.ez-query-replace.el
 
 # /r/sync/screenshots/20160910052728.png http://rubikitch.com/wp-content/uploads/2016/09/20160910052728.png
 # /r/sync/screenshots/20160910052738.png http://rubikitch.com/wp-content/uploads/2016/09/20160910052738.png
+[includeme file="inc-package-relate.php" name="ez-query-replace"]

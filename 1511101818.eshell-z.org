@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 2174
+#+POSTID: 1241
+#+BLOG: rubikitch
 #+DATE: [2015-11-10 火 18:18]
 #+PERMALINK: eshell-z
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,77 +8,17 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs
+#+CATEGORY: シェル・端末
 #+EL_PKG_NAME: eshell-z
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, , z, eshell z, relate:eshell, Tracks your most used directories, cd, 頻繁に移動するディレクトリ, よく行くディレクトリに手軽に移動, z.sh, 
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 
+#+TAGS: 
 #+EL_TITLE0: bash/zshのzコマンドをeshellに移植！頻繁に訪れるディレクトリへ移動する
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージeshell-zの紹介
-#+MYTAGS: package:eshell-z, emacs 使い方, emacs コマンド, emacs, eshell-z, eshell-z.el, emacs lisp eshell-z, elisp eshell-z, emacs melpa eshell-z, emacs eshell-z 使い方, emacs eshell-z 設定, emacs パッケージ eshell-z, , z, eshell z, relate:eshell, Tracks your most used directories, cd, 頻繁に移動するディレクトリ, よく行くディレクトリに手軽に移動, z.sh, 
-#+TAGS: package:eshell-z, emacs 使い方, emacs コマンド, emacs, eshell-z, eshell-z.el, emacs lisp eshell-z, elisp eshell-z, emacs melpa eshell-z, emacs eshell-z 使い方, emacs eshell-z 設定, emacs パッケージ eshell-z, , z, eshell z, relate:eshell, Tracks your most used directories, cd, 頻繁に移動するディレクトリ, よく行くディレクトリに手軽に移動, z.sh, , Emacs, eshell-z.el, eshell/z, M-x eshell-z, eshell/z, M-x eshell-z
-#+TITLE: emacs eshell-z.el : bash/zshのzコマンドをeshellに移植！頻繁に訪れるディレクトリへ移動する | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>eshell-z</td></tr>
-<tr><td>概要(原文)</td><td>cd to frequent directory in eshell</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/xuchunyang/eshell-z">https://github.com/xuchunyang/eshell-z</a></td></tr>
-<tr><td>バージョン</td><td>20150920.258</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:eshell-z/">package:eshell-z</a> <a href="http://rubikitch.com/tag/package:eshell/">package:eshell</a></td></tr>
-</table>
-<br />
-#+END_HTML
-*eshell-z.el* は [[https://github.com/rupa/z][z.sh]] のeshellへの移植版です。
-つまり、過去に訪れたディレクトリへの移動を簡単にしてくれます。
-これは言葉で説明するよりも、実際に体感してみれば便利さがよくわかります。
-
-そして、本家z.shと設定ファイル (~/.z) を共有しているので、通常のシェルと併用できるのが嬉しいです。
-
-eshell上でz -hでヘルプを表示させることもできます。
-
-#+BEGIN_EXAMPLE
-$ z -h
-usage: z [-chlrtx] [regex1 regex2 ... regexn]
-
-    -c, --current        estrict matches to subdirectories of the current directory
-    -h, --help           show a brief help message
-    -l, --list           list only
-    -r, --rank           match by rank only
-    -t, --time           match by recent access only
-    -x, --delete         remove the current directory from the datafile
-
-examples:
-
-    z foo         cd to most frecent dir matching foo
-    z foo bar     cd to most frecent dir matching foo, then bar
-    z -r foo      cd to highest ranked dir matching foo
-    z -t foo      cd to most recently accessed dir matching foo
-    z -l foo      list all dirs matching foo (by frecency)
-#+END_EXAMPLE
-
-z.shの全オプションを移植しているので、詳しい使い方については以下の記事を参照してください。
-- [[http://qiita.com/yoshikaw/items/38d3008ac7d0b19b4805][Zsh - z.shでよく行くディレクトリに手軽に移動する - Qiita]]
-- [[http://qiita.com/maxmellon/items/23325c22581e9187639e][3分でできる！zshでzの結果をpecoって爆速でディレクトリ移動する - Qiita]]
-
-eshellでのzの実装は *eshell/z* 関数です。
-この関数を読んでみると、Emacs Lispで書かれたeshellコマンドのヘルプ・オプションの扱いの勉強になります。
-
-また、 *M-x eshell-z* でeshellの外からzを使ってeshellを開くこともできます。
-
-これでzshにあってeshellにない機能がひとつ減りました！！
-
-# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
-** eshell-z インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install eshell-z
-
+#+TITLE: eshell-z.el : bash/zshのzコマンドをeshellに移植！頻繁に訪れるディレクトリへ移動する
+[includeme file="inc-package-table.php" name="eshell-z" where="melpa"]
 
 #+end:
-** 概要                                                             :noexport:
+** 概要
 *eshell-z.el* は [[https://github.com/rupa/z][z.sh]] のeshellへの移植版です。
 つまり、過去に訪れたディレクトリへの移動を簡単にしてくれます。
 これは言葉で説明するよりも、実際に体感してみれば便利さがよくわかります。
@@ -118,3 +59,5 @@ eshellでのzの実装は *eshell/z* 関数です。
 これでzshにあってeshellにない機能がひとつ減りました！！
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+[includeme file="inc-package-install.php" name="eshell-z" where="melpa"]
+[includeme file="inc-package-relate.php" name="eshell-z"]

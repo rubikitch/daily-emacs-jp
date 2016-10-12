@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 2449
+#+POSTID: 1453
+#+BLOG: rubikitch
 #+DATE: [2016-07-06 水 11:01]
 #+PERMALINK: emacs245-manual-ja
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,12 +8,13 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, Emacs 24.5, Emacs 25.0, 
+#+CATEGORY: サイト紹介
 #+DESCRIPTION: 
-#+MYTAGS: emacs24.5 日本語マニュアル, emacs 日本語info, emacs info マニュアル, emacs 日本語マニュアル, emacs24.4 日本語マニュアル, emacs24 日本語マニュアル, emacs24 日本語info, emacs 翻訳マニュアル, emacs 使い方, emacs 入門, emacs 初心者, emacs マニュアル 最新版 日本語, 
+#+TAGS: Emacs 24.5以降
 #+TITLE: 【大偉業】Emacs24.5日本語マニュアル登場！！info作成方法【感謝】
 #+begin: org2blog-tags
-#+TAGS: emacs24.5 日本語マニュアル, emacs 日本語info, emacs info マニュアル, emacs 日本語マニュアル, emacs24.4 日本語マニュアル, emacs24 日本語マニュアル, emacs24 日本語info, emacs 翻訳マニュアル, emacs 使い方, emacs 入門, emacs 初心者, emacs マニュアル 最新版 日本語, , Emacs, Emacs 24.5, Emacs 25.0, , 
+# content-length: 1927
+
 #+end:
 
 <2016-07-09 Sat>透過的に日本語infoへアクセスできる設定を公開。

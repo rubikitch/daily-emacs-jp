@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 2237
+#+POSTID: 1281
+#+BLOG: rubikitch
 #+DATE: [2015-12-02 Wed 12:48]
 #+PERMALINK: lice
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,28 +8,17 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs
+#+CATEGORY: 入力支援
 #+EL_PKG_NAME: lice
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, GPL, GPL3, GNU Affero General Public License, Mozilla Public License, GNU General Public License, GNU Free Documentation License, Eclipse Public License, Creative Commons Attribution-ShareAlike 4.0 International License, Apache License, GNU Affero General Public License, MITライセンス, BSDライセンス
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: 
 #+EL_TITLE0: GPLなどのライセンスの文面をカレントバッファに挿入する
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージliceの紹介
-#+MYTAGS: package:lice, emacs 使い方, emacs コマンド, emacs, lice, lice.el, emacs lisp lice, elisp lice, emacs melpa lice, emacs lice 使い方, emacs lice 設定, emacs パッケージ lice, emacs lice スクリーンショット, GPL, GPL3, GNU Affero General Public License, Mozilla Public License, GNU General Public License, GNU Free Documentation License, Eclipse Public License, Creative Commons Attribution-ShareAlike 4.0 International License, Apache License, GNU Affero General Public License, MITライセンス, BSDライセンス
-#+TAGS: package:lice, emacs 使い方, emacs コマンド, emacs, lice, lice.el, emacs lisp lice, elisp lice, emacs melpa lice, emacs lice 使い方, emacs lice 設定, emacs パッケージ lice, emacs lice スクリーンショット, GPL, GPL3, GNU Affero General Public License, Mozilla Public License, GNU General Public License, GNU Free Documentation License, Eclipse Public License, Creative Commons Attribution-ShareAlike 4.0 International License, Apache License, GNU Affero General Public License, MITライセンス, BSDライセンス, Emacs, lice.el, M-x lice, M-x lice
-#+TITLE: emacs lice.el : GPLなどのライセンスの文面をカレントバッファに挿入する | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>lice</td></tr>
-<tr><td>概要(原文)</td><td>License And Header Template</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/buzztaiki/lice-el">https://github.com/buzztaiki/lice-el</a></td></tr>
-<tr><td>バージョン</td><td>20151130.2023</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:lice/">package:lice</a> </td></tr>
-</table>
-<br />
-#+END_HTML
+#+TITLE: lice.el : GPLなどのライセンスの文面をカレントバッファに挿入する
+[includeme file="inc-package-table.php" name="lice" where="melpa"]
+
+#+end:
+** 概要
 *lice.el* はファイルのヘッダにライセンスのコメントを挿入することを容易にします。
 *M-x lice* を実行すると選択されたライセンスをコメント文字と一緒に挿入します。
 以下のライセンスに対応しています。
@@ -62,46 +52,6 @@ Fig3: Ｃ言語では
 #+ATTR_HTML: :width 480
 [[file:/r/sync/screenshots/20151202125715.png]]
 Fig4: Rubyでは
-** lice インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
 
-M-x package-refresh-contents
-M-x package-install lice
-
-
-#+end:
-** 概要                                                             :noexport:
-*lice.el* はファイルのヘッダにライセンスのコメントを挿入することを容易にします。
-*M-x lice* を実行すると選択されたライセンスをコメント文字と一緒に挿入します。
-以下のライセンスに対応しています。
-- agpl-3.0
-- apache-2.0
-- bsd-2-clause
-- cc-by-sa-4.0
-- epl-1.0
-- gfdl-1.3
-- gpl-2.0
-- gpl-3.0
-- mit
-- mozilla
-新しいライセンスを追加するには ~/.emacs.d/lice 以下に文面を書いたファイルを追加してください。
-
-
-
-# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20151202125632.png]]
-Fig5: M-x lice でライセンスを選択する
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20151202125634.png]]
-Fig6: elispでは
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20151202125707.png]]
-Fig7: Ｃ言語では
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20151202125715.png]]
-Fig8: Rubyでは
-
+[includeme file="inc-package-install.php" name="lice" where="melpa"]
+[includeme file="inc-package-relate.php" name="lice"]

@@ -1,87 +1,33 @@
 #+BLOG: rubikitch
-#+POSTID: 255
+#+POSTID: 257
+#+BLOG: rubikitch
 #+DATE: [2014-08-31 Sun 12:04]
 #+PERMALINK: helm-ls-git
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t
 #+ISPAGE: nil
-#+DESCRIPTION:
+#+DESCRIPTION:git lsの結果をhelmでアレコレする(magit非依存)
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs
+#+CATEGORY: git
 #+EL_PKG_NAME: helm-ls-git
-#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, relate:helm, emacs git ls-files, relate:magit, emacs magit, emacs vc git, relate:vc, git 使い方, emacs git status, relate:projectile, relate:helm-projectile, relate:helm-git-grep, emacs プロジェクト管理, relate:helm-cmd-t, emacs helm git, relate:projectile, relate:helm-projectile
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: git, 外部プログラム使用, るびきちオススメ, helm
 #+EL_TITLE0: gitで管理されているファイル群をhelmで絞り込み検索して操作する
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージhelm-ls-gitの紹介
-#+MYTAGS: package:helm-ls-git, emacs 使い方, emacs コマンド, emacs, emacs lisp helm-ls-git, elisp helm-ls-git, emacs melpa helm-ls-git, emacs helm-ls-git 使い方, emacs helm-ls-git 設定, emacs パッケージ helm-ls-git, emacs helm-ls-git スクリーンショット, relate:helm, emacs git ls-files, relate:magit, emacs magit, emacs vc git, relate:vc, git 使い方, emacs git status, relate:projectile, relate:helm-projectile, relate:helm-git-grep, emacs プロジェクト管理, relate:helm-cmd-t, emacs helm git, relate:projectile, relate:helm-projectile
-#+TITLE: emacs helm-ls-git.el : gitで管理されているファイル群をhelmで絞り込み検索して操作する | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>helm-ls-git</td></tr>
-<tr><td>概要(原文)</td><td>list git files.</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/emacs-helm/helm-ls-git">https://github.com/emacs-helm/helm-ls-git</a></td></tr>
-<tr><td>バージョン</td><td>20141205.2335</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:helm-ls-git/">package:helm-ls-git</a> <a href="http://rubikitch.com/tag/package:helm/">package:helm</a> <a href="http://rubikitch.com/tag/package:magit/">package:magit</a> <a href="http://rubikitch.com/tag/package:vc/">package:vc</a> <a href="http://rubikitch.com/tag/package:projectile/">package:projectile</a> <a href="http://rubikitch.com/tag/package:helm-projectile/">package:helm-projectile</a> <a href="http://rubikitch.com/tag/package:helm-git-grep/">package:helm-git-grep</a> <a href="http://rubikitch.com/tag/package:helm-cmd-t/">package:helm-cmd-t</a> <a href="http://rubikitch.com/tag/package:projectile/">package:projectile</a> <a href="http://rubikitch.com/tag/package:helm-projectile/">package:helm-projectile</a></td></tr>
-</table>
-<br />
-#+END_HTML
-*helm-ls-git.el* は *git* で管理されているファイル群を
- *helm* で操作するものです。
-
-<2014-12-28 Sun>追記
-[[http://rubikitch.com/2014/11/15/helm-cmd-t/][helm-cmd-t(レビュー)]] は他のバージョン管理システムに
-対応している上でなにより高速です。
-Windowsでも高速に動くように設計されています。
-
-Emacsとgitといえば *magit* が有名ですが、これはmagitに依存しません。
-
-gitリポジトリ上でM-x helm-browse-projectを実行してください。
-
-このコマンドは2つの情報源からできています。
-
-- git status
-- git ls-files
-
-操作したいファイルでRETを押せばそのファイルを開きます。
-
-それ以外の操作をするときにはTABでアクションを開いて選択してください。
-
-ファイルの状態によってアクションが変わってきます。
-
-git status情報源では新規ファイルの場合は「Add file(s)」が出てくるし、
-ファイルを変更した場合はcommit/diff/revertができるようになります。
-
-git ls-files情報源では、git lsでリストされるファイル名で
-通常のfileアクションが行えます… *grep* したり *ediff* したり。
-
-プロジェクト管理を行う *projectile* や
-*helm-projectile* との比較についてはそのうち。
-# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
-http://rubikitch.com/f/20140831124037.png
-Fig1: M-x helm-browse-project
-
-http://rubikitch.com/f/20140831124044.png
-Fig2: 変更されたファイルに対してのアクション
-** helm-ls-git インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install helm-ls-git
-
+#+TITLE: helm-ls-git.el : gitで管理されているファイル群をhelmで絞り込み検索して操作する
+[includeme file="inc-package-table.php" name="helm-ls-git" where="melpa"]
 
 #+end:
 このパッケージを使うにはhelmも最新版にしておく必要があります。
 
 M-x package-install helm
 
-** 概要                                                             :noexport:
+** 概要
+
 *helm-ls-git.el* は *git* で管理されているファイル群を
  *helm* で操作するものです。
 
 <2014-12-28 Sun>追記
-[[http://rubikitch.com/2014/11/15/helm-cmd-t/][helm-cmd-t(レビュー)]] は他のバージョン管理システムに
+[[http://emacs.rubikitch.com/helm-cmd-t/][helm-cmd-t(レビュー)]] は他のバージョン管理システムに
 対応している上でなにより高速です。
 Windowsでも高速に動くように設計されています。
 
@@ -114,3 +60,5 @@ Fig1: M-x helm-browse-project
 
 http://rubikitch.com/f/20140831124044.png
 Fig2: 変更されたファイルに対してのアクション
+[includeme file="inc-package-install.php" name="helm-ls-git" where="melpa"]
+[includeme file="inc-package-relate.php" name="helm-ls-git"]

@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 2709
+#+POSTID: 1548
+#+BLOG: rubikitch
 #+DATE: [2016-08-25 Thu 05:32]
 #+PERMALINK: loop
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
@@ -7,47 +8,17 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, Emacs Lisp, ソース解読推奨, 
+#+CATEGORY: 制御構造
 #+EL_PKG_NAME: loop
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, loop-while, loop-do-while, loop-until, loop-for-each, loop-for-each-line, loop-break, loop-continue, loop-return, relate:cl, relate:dash, catch, throw
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 使い方 
+#+TAGS: ループ
 #+EL_TITLE0: ループでbreak/continue/returnを使えるようにする
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージloopの紹介
-#+MYTAGS: package:loop, emacs 使い方, emacs コマンド, emacs, loop, loop.el, emacs lisp loop, elisp loop, emacs melpa loop, emacs loop 使い方, emacs loop 設定, emacs パッケージ loop, loop-while, loop-do-while, loop-until, loop-for-each, loop-for-each-line, loop-break, loop-continue, loop-return, relate:cl, relate:dash, catch, throw
-#+TAGS: package:loop, emacs 使い方, emacs コマンド, emacs, loop, loop.el, emacs lisp loop, elisp loop, emacs melpa loop, emacs loop 使い方, emacs loop 設定, emacs パッケージ loop, loop-while, loop-do-while, loop-until, loop-for-each, loop-for-each-line, loop-break, loop-continue, loop-return, relate:cl, relate:dash, catch, throw, Emacs, Emacs Lisp, ソース解読推奨, , loop.el, cl-loop, loop.el, cl-loop
-#+TITLE: emacs loop.el : ループでbreak/continue/returnを使えるようにする | MELPA Emacs Lisp Elisp パッケージ インストール 使い方 
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>loop</td></tr>
-<tr><td>概要(原文)</td><td>friendly imperative loop structures</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/Wilfred/loop.el">https://github.com/Wilfred/loop.el</a></td></tr>
-<tr><td>バージョン</td><td>20160813.707</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:loop/">package:loop</a> <a href="http://rubikitch.com/tag/package:cl/">package:cl</a> <a href="http://rubikitch.com/tag/package:dash/">package:dash</a></td></tr>
-</table>
-<br />
-#+END_HTML
-Emacsの素のループ制御構造は単体ではループを中断する機能が用意されていません。
-たいていの言語には組み込みで用意されていますが、
-Emacs Lispで実現するためにはcatchで囲む必要があって面倒です。
-そこで *loop.el* はbreak/continue/returnが使えるループ制御構造を用意します。
-
-標準で用意されているCommon Lispのloopマクロ *cl-loop* を使えば書けるものですが、
-loopマクロに苦手意識を持つならば使ってみてはいかがでしょうか。
-慣れ親しんだ感覚でループが記述できるのは安心感があります。
-
-各定義は簡単なマクロになっているので、ソースコードを読んでみると勉強になります。
-** loop インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install loop
-
+#+TITLE: loop.el : ループでbreak/continue/returnを使えるようにする
+[includeme file="inc-package-table.php" name="loop" where="melpa"]
 
 #+end:
-** 概要                                                             :noexport:
+** 概要
 Emacsの素のループ制御構造は単体ではループを中断する機能が用意されていません。
 たいていの言語には組み込みで用意されていますが、
 Emacs Lispで実現するためにはcatchで囲む必要があって面倒です。
@@ -59,6 +30,7 @@ loopマクロに苦手意識を持つならば使ってみてはいかがでし�
 
 各定義は簡単なマクロになっているので、ソースコードを読んでみると勉強になります。
 
+[includeme file="inc-package-install.php" name="loop" where="melpa"]
 ** 使用例 [[http://rubikitch.com/f/160825054100.loop.el][160825054100.loop.el(以下のコードと同一)]]
 #+BEGIN: include :file "/r/sync/junk/160825/160825054100.loop.el"
 #+BEGIN_SRC fundamental
@@ -208,3 +180,4 @@ $ emacs -Q -f package-initialize -l 160825054100.loop.el
 
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+[includeme file="inc-package-relate.php" name="loop"]

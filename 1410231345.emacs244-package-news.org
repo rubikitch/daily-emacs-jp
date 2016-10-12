@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 506
+#+POSTID: 365
+#+BLOG: rubikitch
 #+DATE: [2014-10-23 Thu 13:45]
 #+PERMALINK: emacs244-package-news
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,12 +8,11 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, Emacs 24.4,
+#+CATEGORY: 新機能紹介,
 #+DESCRIPTION: M-x cua-rectangle-mark-mode, M-x dired-hide-details-mode, M-:でeldoc, icompleteがパワーアップ, iswitchbがobsoleteに, M-s .でシンボルisearch, M-- M-%とM-- C-M-%で後方置換
-#+MYTAGS: Emacs 24.4, Emacs 24.4 編集コマンド, Emacs 24.4 新機能, Emacs 24.4 変更点, Emacs 24.4 標準パッケージ 更新, package:cua, relate:dired-details, relate:eldoc-eval, package:ido, package:icomplete, package:iswitchb, package:isearch, package:replace, package:eldoc
-#+TAGS: Emacs 24.4, Emacs 24.4 編集コマンド, Emacs 24.4 新機能, Emacs 24.4 変更点, Emacs 24.4 標準パッケージ 更新, package:cua, relate:dired-details, relate:eldoc-eval, package:ido, package:icomplete, package:iswitchb, package:isearch, package:replace, package:eldoc, Emacs, Emacs 24.4,, rectangle-mark-mode, cua.el, M-x cua-rectangle-mark-mode, cua-mode, M-x cua-selection-mode, dired-details.el, M-:, eldoc, eldoc-eval.el, ido.el, iswitchb.el, isearch, C-M-% (query-replace-regexp)
+#+TAGS: Emacs 24.4以降, 
 #+TITLE: Emacs 24.4でパワーアップした標準パッケージたち
-[[http://rubikitch.com/2014/10/22/emacs244-edit-changes/][昨日は標準の編集コマンドたちが便利になったことを紹介]] しましたが、
+[[http://emacs.rubikitch.com/emacs244-edit-changes/][昨日は標準の編集コマンドたちが便利になったことを紹介]] しましたが、
 今日は標準のパッケージの成長ぶりを紹介します。
 
 まあ昨日の続きということで。
@@ -26,7 +26,7 @@
      - [[#後方置換][後方置換]]
 
 ** cua-modeの矩形編集が独立して使える！
-[[http://rubikitch.com/2014/10/22/emacs244-edit-changes/][昨日]] 、 *C-x SPC*  (*rectangle-mark-mode*)
+[[http://emacs.rubikitch.com/emacs244-edit-changes/][昨日]] 、 *C-x SPC*  (*rectangle-mark-mode*)
 というコマンドが加わったことを紹介しましたが、
 *cua.el* の方も負けていません。
 
@@ -51,7 +51,7 @@ C-x SPCも同じような機能ですが、こちらに置き換えてもいい�
 他のパッケージとバッティングしやすいので僕はアンチCUAです。
 
 ** diredでファイル名のみ表示できるようになった！
-*M-x dired-hide-details-mode* は [[http://rubikitch.com/2014/09/08/dired-details/][dired-details.el]] と同様に
+*M-x dired-hide-details-mode* は [[http://emacs.rubikitch.com/dired-details/][dired-details.el]] と同様に
 diredでファイル名のみ表示するマイナーモードです。
 これがあれば *dired-details.el* はもう必要ないでしょう。
 

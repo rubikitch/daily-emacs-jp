@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 1045
+#+POSTID: 656
+#+BLOG: rubikitch
 #+DATE: [2015-01-30 Fri 14:45]
 #+PERMALINK: magit-time-format
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,12 +8,12 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, 
+#+CATEGORY: git
 #+DESCRIPTION: 
-#+MYTAGS: emacs magit, package:magit, magit time format, 
 #+TITLE: magitのログで、コミット日時を時刻で表示させる設定
+#+TAGS: magit, アドバイス
 #+begin: org2blog-tags
-#+TAGS: emacs magit, package:magit, magit time format, , Emacs, , magit.el, git, magit-log
+
 #+end:
 <2016-04-27 Wed>最新版でエラーになるので修正。
 

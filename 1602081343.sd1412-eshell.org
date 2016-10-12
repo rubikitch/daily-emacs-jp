@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 2388
+#+POSTID: 1411
+#+BLOG: rubikitch
 #+DATE: [2016-02-08 Mon 13:43]
 #+PERMALINK: sd1412-eshell
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,9 +8,9 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, 連載『るびきち流Emacs超入門』
+#+CATEGORY: るびきち流Emacs超入門
 #+DESCRIPTION:
-#+TAGS:package:eshell, emacs shell, 
+#+TAGS:
 #+TITLE: #8 カスタマブルな Emacs Lisp 製シェル「eshell」 (Software Design 2014年12月号掲載記事) Emacs  インストール 設定 使い方
 Software Design連載記事を掲載します。
 

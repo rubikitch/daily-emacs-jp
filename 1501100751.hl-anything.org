@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 891
+#+POSTID: 606
+#+BLOG: rubikitch
 #+DATE: [2015-01-10 Sat 07:51]
 #+PERMALINK: hl-anything
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -10,9 +11,9 @@
 #+CATEGORY: 記事更新情報, 
 #+DESCRIPTION: 
 #+MYTAGS: 
-#+TAGS: , 記事更新情報, , end-of-buffer
+#+TAGS: 
 #+TITLE: hl-anythingの設定変更
-[[http://rubikitch.com/2014/12/28/hl-anything/]]
+[[http://emacs.rubikitch.com/hl-anything/]]
 
 レビュー当時は *end-of-buffer* 関係がのバグがあったのですが
 本家で修正されたので設定から除去しました。

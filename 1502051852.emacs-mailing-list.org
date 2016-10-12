@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 1085
+#+POSTID: 680
+#+BLOG: rubikitch
 #+DATE: [2015-02-05 Thu 18:52]
 #+PERMALINK: emacs-mailing-list
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,12 +8,11 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, Emacs Lisp, 
+#+CATEGORY: Web
 #+DESCRIPTION: EmacsのMLをブラウザで開くM-x emacs-develなどを定義する
-#+MYTAGS: Emacs 開発を追い掛ける, Emacs 開発, emacs-devel ブラウザで開く, emacs-devel rss, emacs-devel atom, 
 #+TITLE: 【開発状況を追い掛けたい人へ】EmacsのメーリングリストをEmacsから開く！
 #+begin: org2blog-tags
-#+TAGS: Emacs 開発を追い掛ける, Emacs 開発, emacs-devel ブラウザで開く, emacs-devel rss, emacs-devel atom, , Emacs, Emacs Lisp, , メーリングリスト, fset, emacs-devel, bug-gnu-emacs, emacs-bug-tracker, emacs-buildstatus, emacs-diffs, emacs-elpa-diffs, gnu-emacs-sources, help-emacs-windows, help-gnu-emacs, info-gnu-emacs, emacs-tangents, レキシカルクロージャ, lexical-binding
+
 #+end:
 今月のEmacsの *メーリングリスト* をブラウザで開く短いコードです。
 

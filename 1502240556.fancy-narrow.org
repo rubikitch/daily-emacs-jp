@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 1210
+#+POSTID: 721
+#+BLOG: rubikitch
 #+DATE: [2015-02-24 Tue 05:56]
 #+PERMALINK: fancy-narrow
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,28 +8,17 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs
+#+CATEGORY: ナローイング
 #+EL_PKG_NAME: fancy-narrow
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, relate:narrow-indirect, relate:focus
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: 
 #+EL_TITLE0: ナローイングを可視化する
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージfancy-narrowの紹介
-#+MYTAGS: package:fancy-narrow, emacs 使い方, emacs コマンド, emacs, fancy-narrow, fancy-narrow.el, emacs lisp fancy-narrow, elisp fancy-narrow, emacs melpa fancy-narrow, emacs fancy-narrow 使い方, emacs fancy-narrow 設定, emacs パッケージ fancy-narrow, emacs fancy-narrow スクリーンショット, relate:narrow-indirect, relate:focus
-#+TAGS: package:fancy-narrow, emacs 使い方, emacs コマンド, emacs, fancy-narrow, fancy-narrow.el, emacs lisp fancy-narrow, elisp fancy-narrow, emacs melpa fancy-narrow, emacs fancy-narrow 使い方, emacs fancy-narrow 設定, emacs パッケージ fancy-narrow, emacs fancy-narrow スクリーンショット, relate:narrow-indirect, relate:focus, Emacs, ナローイング, fancy-narrow.el, point-min, point-max, M-x fancy-narrow-mode, fancy-narrow.el, point-min, point-max, M-x fancy-narrow-mode
-#+TITLE: emacs fancy-narrow.el : ナローイングを可視化する | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>fancy-narrow</td></tr>
-<tr><td>概要(原文)</td><td>narrow-to-region with more eye candy.</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/Malabarba/fancy-narrow">https://github.com/Malabarba/fancy-narrow</a></td></tr>
-<tr><td>バージョン</td><td>20141123.617</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:fancy-narrow/">package:fancy-narrow</a> <a href="http://rubikitch.com/tag/package:narrow-indirect/">package:narrow-indirect</a> <a href="http://rubikitch.com/tag/package:focus/">package:focus</a></td></tr>
-</table>
-<br />
-#+END_HTML
+#+TITLE: fancy-narrow.el : ナローイングを可視化する
+[includeme file="inc-package-table.php" name="fancy-narrow" where="melpa"]
+
+#+end:
+** 概要
 *ナローイング* とは、テキストの一部のみを表示するもので、
 編集操作をその部分に限定できます。
 
@@ -55,45 +45,11 @@ fancy-narrowの開始・終了位置を返すようになったり、
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
 [[file:/r/sync/screenshots/20150224061154.png]]
 Fig1: C-x n dでその関数以外を薄い色にする
-** fancy-narrow インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install fancy-narrow
-
-
-#+end:
-** 概要                                                             :noexport:
-*ナローイング* とは、テキストの一部のみを表示するもので、
-編集操作をその部分に限定できます。
-
-一方、ナローイングされたことに気付かなかったりすることもあります。
-
-そこで、 *fancy-narrow.el* はナローイングの
-範囲外においては薄い色で表示させます。
-
-
-とはいえ実装を見てみると、
-elispで「見える化されたナローイング」を実装していて
-ナローイングで起こる各現象をエミュレートしています。
-
-たとえば、 *point-min* や *point-max* が
-fancy-narrowの開始・終了位置を返すようになったり、
-カーソル移動コマンドがfancy-narrowの範囲外に行かないように
-アドバイスがかけられています。
-
-マイナーモード *M-x fancy-narrow-mode* を有効にすると、
-ナローイング系のC-x nコマンド群がfancy-narrowバージョンに
-再割り当てされます。
-
-
-# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
-[[file:/r/sync/screenshots/20150224061154.png]]
-Fig2: C-x n dでその関数以外を薄い色にする
+[includeme file="inc-package-install.php" name="fancy-narrow" where="melpa"]
 ** narrow-indirect.elと比較
 
 「ナローイングされたことをわかるようにする」という目的では、
-間接バッファを使った[[http://rubikitch.com/2015/01/07/narrow-indirect/][narrow-indirect.el(レビュー)]] もあります。
+間接バッファを使った[[http://emacs.rubikitch.com/narrow-indirect/][narrow-indirect.el(レビュー)]] もあります。
 
 fancy-narrow.elは無数のアドバイスにより
 標準の関数の挙動を変更しているので、
@@ -117,3 +73,4 @@ $ emacs -Q -f package-initialize -l 150224052934.fancy-narrow.el
 #+END_EXAMPLE
 
 # /r/sync/screenshots/20150224061154.png http://rubikitch.com/wp-content/uploads/2015/02/wpid-20150224061154.png
+[includeme file="inc-package-relate.php" name="fancy-narrow"]

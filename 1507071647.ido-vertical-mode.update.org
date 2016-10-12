@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 1810
+#+POSTID: 1014
+#+BLOG: rubikitch
 #+DATE: [2015-07-07 Tue 16:47]
 #+PERMALINK: ido-vertical-mode-update
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -9,12 +10,13 @@
 #+BLOG: rubikitch
 #+CATEGORY: 記事更新情報, 
 #+DESCRIPTION: 
-#+MYTAGS: 
 #+TITLE: ido-vertical-modeの設定を更新しました
 #+begin: org2blog-tags
-#+TAGS: , 記事更新情報, , 
+# content-length: 442
+#+HTML: <!-- noindex -->
+
 #+end:
-[[http://rubikitch.com/2015/01/06/ido-vertical-mode/][ido-vertical-mode.elの記事]] を更新しました。
+[[http://emacs.rubikitch.com/ido-vertical-mode/][ido-vertical-mode.elの記事]] を更新しました。
 
 最近の変更により
 

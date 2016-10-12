@@ -1,32 +1,21 @@
 #+BLOG: rubikitch
-#+POSTID: 759
+#+POSTID: 514
+#+BLOG: rubikitch
 #+DATE: [2014-12-20 Sat 15:34]
 #+PERMALINK: initsplit
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
 #+ISPAGE: nil
-#+DESCRIPTION:
+#+DESCRIPTION:特定のパッケージに関するカスタマイズ結果を別のファイルに追い出し、見通しを良くします。
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, Emacs Lisp, 
+#+CATEGORY: init.el
 #+EL_PKG_NAME: initsplit
-#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs カスタマイズ, M-x customize, M-x customize-group, カスタマイズ 変数 別ファイル
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 
+#+TAGS: 設定ファイル
 #+EL_TITLE0: M-x customizeの結果(custom-file)を変数名別に分ける
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージinitsplitの紹介
-#+MYTAGS: package:initsplit, emacs 使い方, emacs コマンド, emacs, emacs lisp initsplit, elisp initsplit, emacs melpa initsplit, emacs initsplit 使い方, emacs initsplit 設定, emacs パッケージ initsplit, emacs カスタマイズ, M-x customize, M-x customize-group, カスタマイズ 変数 別ファイル
-#+TITLE: emacs initsplit.el : M-x customizeの結果(custom-file)を変数名別に分ける | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>initsplit</td></tr>
-<tr><td>概要(原文)</td><td>code to split customizations into different files</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/dabrahams/initsplit">https://github.com/dabrahams/initsplit</a></td></tr>
-<tr><td>バージョン</td><td>20141219.1629</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:initsplit/">package:initsplit</a> </td></tr>
-</table>
-<br />
-#+END_HTML
+#+TITLE: initsplit.el : M-x customizeの結果(custom-file)を変数名別に分ける
+[includeme file="inc-package-table.php" name="initsplit" where="melpa"]
+** 概要
 *initsplit.el* は、M-x customize等によるGUIでのカスタマイズ結果を
 変数名別のファイルに分けます。
 
@@ -51,15 +40,11 @@
 (load "~/.emacs.d/gnus-settings.el")
 (load "~/.emacs.d/org-settings.el")
 #+END_SRC
-** initsplit インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install initsplit
-
+[includeme file="inc-package-install.php" name="initsplit" where="melpa"]
 
 #+end:
 ** 概要                                                             :noexport:
+
 *initsplit.el* は、M-x customize等によるGUIでのカスタマイズ結果を
 変数名別のファイルに分けます。
 
@@ -147,3 +132,4 @@ initsplit-test.elをinit.elにして読み込むと、
 これを見てわかるように、カスタマイズ結果をファイルに分けたら、
 すべてのファイルを読み込む必要があることです。
 
+[includeme file="inc-package-relate.php" name="initsplit"]

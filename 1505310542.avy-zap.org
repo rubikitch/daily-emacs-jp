@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 1707
+#+POSTID: 942
+#+BLOG: rubikitch
 #+DATE: [2015-05-31 Sun 05:42]
 #+PERMALINK: avy-zap
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,38 +8,27 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, ソース解読推奨
+#+CATEGORY: zap-to-char
 #+EL_PKG_NAME: avy-zap
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, relate:ace-jump-zap, relate:zop-to-char, relate:zzz-to-char
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: ace-jump, avy
 #+EL_TITLE0: zap-to-char(M-z)をavy化して自然に拡張する
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージavy-zapの紹介
-#+MYTAGS: package:avy-zap, emacs 使い方, emacs コマンド, emacs, avy-zap, avy-zap.el, emacs lisp avy-zap, elisp avy-zap, emacs melpa avy-zap, emacs avy-zap 使い方, emacs avy-zap 設定, emacs パッケージ avy-zap, emacs avy-zap スクリーンショット, relate:ace-jump-zap, relate:zop-to-char, relate:zzz-to-char
-#+TAGS: package:avy-zap, emacs 使い方, emacs コマンド, emacs, avy-zap, avy-zap.el, emacs lisp avy-zap, elisp avy-zap, emacs melpa avy-zap, emacs avy-zap 使い方, emacs avy-zap 設定, emacs パッケージ avy-zap, emacs avy-zap スクリーンショット, relate:ace-jump-zap, relate:zop-to-char, relate:zzz-to-char, Emacs, ソース解読推奨, avy-zap.el, M-x zap-to-char (M-z), M-x zap-to-char (M-z)
-#+TITLE: emacs avy-zap.el : zap-to-char(M-z)をavy化して自然に拡張する | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>avy-zap</td></tr>
-<tr><td>概要(原文)</td><td>Zap to char using `avy'</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/cute-jumper/avy-zap">https://github.com/cute-jumper/avy-zap</a></td></tr>
-<tr><td>バージョン</td><td>20160330.1130</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:avy-zap/">package:avy-zap</a> <a href="http://rubikitch.com/tag/package:ace-jump-zap/">package:ace-jump-zap</a> <a href="http://rubikitch.com/tag/package:zop-to-char/">package:zop-to-char</a> <a href="http://rubikitch.com/tag/package:zzz-to-char/">package:zzz-to-char</a></td></tr>
-</table>
-<br />
-#+END_HTML
+#+TITLE: avy-zap.el : zap-to-char(M-z)をavy化して自然に拡張する
+[includeme file="inc-package-table.php" name="avy-zap" where="melpa"]
+
+#+end:
+** 概要
 *avy-zap.el* は、 *M-x zap-to-char (M-z)* をavy化したものです。
 
-[[http://rubikitch.com/2015/05/20/avy/][avy.el(レビュー)]] というのは、[[http://rubikitch.com/2014/10/09/ace-jump-mode/][ace-jump-mode.el(レビュー)]] の
+[[http://emacs.rubikitch.com/avy/][avy.el(レビュー)]] というのは、[[http://emacs.rubikitch.com/ace-jump-mode/][ace-jump-mode.el(レビュー)]] の
 インターフェースを汎用的に使えるようにしたものなので、
 ユーザ視点ではほぼ同等のものだと言えます。
 
-よって、avy-zap.elは[[http://rubikitch.com/2014/09/23/ace-jump-zap/][ace-jump-zap.el(レビュー)]] と同じ働きをします。
+よって、avy-zap.elは[[http://emacs.rubikitch.com/ace-jump-zap/][ace-jump-zap.el(レビュー)]] と同じ働きをします。
 
 僕はインクリメンタルに範囲を広げられるように拡張した
-[[http://rubikitch.com/2015/01/24/zop-to-char/][zop-to-char.el(レビュー)]] の方を使っています。
+[[http://emacs.rubikitch.com/zop-to-char/][zop-to-char.el(レビュー)]] の方を使っています。
 
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
@@ -49,36 +39,8 @@ Fig1: andの前までを削除したいのでM-z aを押す
 #+ATTR_HTML: :width 480
 [[file:/r/sync/screenshots/20150531055741.png]]
 Fig2: 削除される！
-** avy-zap インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
 
-M-x package-refresh-contents
-M-x package-install avy-zap
-
-
-#+end:
-** 概要                                                             :noexport:
-*avy-zap.el* は、 *M-x zap-to-char (M-z)* をavy化したものです。
-
-[[http://rubikitch.com/2015/05/20/avy/][avy.el(レビュー)]] というのは、[[http://rubikitch.com/2014/10/09/ace-jump-mode/][ace-jump-mode.el(レビュー)]] の
-インターフェースを汎用的に使えるようにしたものなので、
-ユーザ視点ではほぼ同等のものだと言えます。
-
-よって、avy-zap.elは[[http://rubikitch.com/2014/09/23/ace-jump-zap/][ace-jump-zap.el(レビュー)]] と同じ働きをします。
-
-僕はインクリメンタルに範囲を広げられるように拡張した
-[[http://rubikitch.com/2015/01/24/zop-to-char/][zop-to-char.el(レビュー)]] の方を使っています。
-
-
-# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150531055737.png]]
-Fig3: andの前までを削除したいのでM-z aを押す
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150531055741.png]]
-Fig4: 削除される！
-
+[includeme file="inc-package-install.php" name="avy-zap" where="melpa"]
 ** 設定 [[http://rubikitch.com/f/150531055615.avy-zap.el][150531055615.avy-zap.el(以下のコードと同一)]]
 #+BEGIN: include :file "/r/sync/junk/150531/150531055615.avy-zap.el"
 #+BEGIN_SRC fundamental
@@ -92,3 +54,7 @@ Fig4: 削除される！
 $ wget http://rubikitch.com/f/150531055615.avy-zap.el
 $ emacs -Q -f package-initialize -l 150531055615.avy-zap.el
 #+END_EXAMPLE
+
+# /r/sync/screenshots/20150531055737.png http://rubikitch.com/wp-content/uploads/2016/07/20150531055737.png
+# /r/sync/screenshots/20150531055741.png http://rubikitch.com/wp-content/uploads/2016/07/20150531055741.png
+[includeme file="inc-package-relate.php" name="avy-zap"]

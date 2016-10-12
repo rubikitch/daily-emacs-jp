@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 2413
+#+POSTID: 1433
+#+BLOG: rubikitch
 #+DATE: [2016-02-19 Fri 22:08]
 #+PERMALINK: sd1511-key-chord-smartrep
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,9 +8,9 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, 連載『るびきち流Emacs超入門』
+#+CATEGORY: るびきち流Emacs超入門
 #+DESCRIPTION:
-#+TAGS:package:key-chord, package:smartrep, global-set-key, define-key, bind-key, describe-personal-keybindings, relate:bind-key, relate:mykie, package:bind-key, package:mykie, package:smex, view-mode, key-chord-define-global, key-chord-define, key-chord-mode, key-chord-two-keys-delay, key-chord-one-key-delay, repeat, org-mode, package:org, other-window, delete-window, delete-other-windows, split-window-below, split-window-right, shrink-window-horizontally, enlarge-window-horizontally, balance-windows, enlarge-window, shrink-window, package:key-combo, package:mag-menu
+
 #+TITLE: #19 同時押し＆リピート　少し特殊なキー設定 (Software Design 2015年11月号掲載記事) Emacs key-chord smartrep インストール 設定 使い方
 Software Design連載記事を掲載します。
 

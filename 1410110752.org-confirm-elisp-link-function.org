@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 451
+#+POSTID: 345
+#+BLOG: rubikitch
 #+DATE: [2014-10-11 Sat 07:52]
 #+PERMALINK: org-confirm-elisp-link-function
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t
@@ -7,10 +8,10 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs,
+#+CATEGORY: ハイパーリンク
+#+TAGS: org, セーフガード
 #+DESCRIPTION: org-confirm-elisp-link-functionとorg-confirm-shell-link-functionに自分が書いたorg文書に限りリンクをすぐに実行させる
-#+MYTAGS: package:org, org-confirm-elisp-link-function, org-confirm-shell-link-function, org-confirm-elisp-link-not-regexp, org-confirm-shell-link-not-regexp, emacs org-mode リンク, org-mode, org-mode ハイパーリンク
-#+TAGS: package:org, org-confirm-elisp-link-function, org-confirm-shell-link-function, org-confirm-elisp-link-not-regexp, org-confirm-shell-link-not-regexp, emacs org-mode リンク, org-mode, org-mode ハイパーリンク, Emacs,, org-mode, mew, GNUS, WL, GNU Screen, org-confirm-elisp-link-not-regexp, org-confirm-shell-link-not-regexp, trace-output
+#+TAGS: 
 #+TITLE: Emacs org-modeのelisp・shellリンクを快適かつ安全に実行する方法
 *org-mode* はハイパーリンク機能も装備しています。
 
@@ -97,7 +98,7 @@ org-mode開発者側はこの問題を認識していて、
 それ以外のorgバッファは危険とみなします。
 
 なお、*trace-output*を安全にしているのは
-[[http://rubikitch.com/2014/10/04/trace-org/][*trace-output*をorg-modeにする設定]] のためです。
+[[http://emacs.rubikitch.com/trace-org/][*trace-output*をorg-modeにする設定]] のためです。
 
 こうしておけば、自分が書いたorg文書をそのディレクトリに
 放り込んでおくだけでいいので、

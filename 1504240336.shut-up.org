@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 1557
+#+POSTID: 865
+#+BLOG: rubikitch
 #+DATE: [2015-04-24 Fri 03:36]
 #+PERMALINK: shut-up
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,76 +8,17 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, Emacs Lisp, 
+#+CATEGORY: ユーザインターフェース
 #+EL_PKG_NAME: shut-up
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, メッセージを抑制, 関数再定義, cl-labels, cl-letf, relate:cl-lib
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 
+#+TAGS: 
 #+EL_TITLE0: お前は黙ってろ！！！
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージshut-upの紹介
-#+MYTAGS: package:shut-up, emacs 使い方, emacs コマンド, emacs, shut-up, shut-up.el, emacs lisp shut-up, elisp shut-up, emacs melpa shut-up, emacs shut-up 使い方, emacs shut-up 設定, emacs パッケージ shut-up, メッセージを抑制, 関数再定義, cl-labels, cl-letf, relate:cl-lib
-#+TAGS: package:shut-up, emacs 使い方, emacs コマンド, emacs, shut-up, shut-up.el, emacs lisp shut-up, elisp shut-up, emacs melpa shut-up, emacs shut-up 使い方, emacs shut-up 設定, emacs パッケージ shut-up, メッセージを抑制, 関数再定義, cl-labels, cl-letf, relate:cl-lib, Emacs, Emacs Lisp, , message, write-region, load, エコーエリア, shut-up, inhibit-message, standard-output, shut-up-current-output, shut-up.el, 一時的な関数再定義, message, write-region, load, エコーエリア, shut-up, inhibit-message, standard-output, shut-up-current-output, shut-up.el, 一時的な関数再定義
-#+TITLE: emacs shut-up.el : お前は黙ってろ！！！ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>shut-up</td></tr>
-<tr><td>概要(原文)</td><td>Shut up would you!</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/cask/shut-up">https://github.com/cask/shut-up</a></td></tr>
-<tr><td>バージョン</td><td>20150423.522</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:shut-up/">package:shut-up</a> <a href="http://rubikitch.com/tag/package:cl-lib/">package:cl-lib</a></td></tr>
-</table>
-<br />
-#+END_HTML
-Emacsはたまに饒舌が過ぎることがあります。
-
-*message* 関数や *write-region* 関数、 *load* 関数は
-*エコーエリア* にメッセージを出力します。
-
-しかし、メッセージを抑制したいときがあります。
-
-たとえば一時ファイルの読み書きでは
-黙っててほしいものです。
-
-そこで *shut-up* というマクロを使います。
-
-使い方は簡単で黙らせたいコードを (shut-up 〜 ) で囲むだけです。
-
-すると、開発版Emacsで導入された *inhibit-message* = t に設定され、
-message、write-region、load関数がメッセージを表示しなくなります。
-
-また、 *standard-output* への出力もなくなります。
-
-実際はメッセージを消しているのではなくて、
-特定のバッファにリダイレクトしているだけですが、
-*shut-up-current-output* 関数で蓄えられたメッセージを得られます。
-
-#+BEGIN_SRC emacs-lisp :results silent
-;;; 何も表示しない
-(require 'shut-up)
-(shut-up
-  (message "test")                      ;このメッセージが蓄積される
-  (with-temp-buffer
-    (insert "a silent message")
-    (write-region nil nil  "/tmp/silent-message.txt") ;黙って保存
-    (shut-up-current-output)))          ; => "test\n"
-#+END_SRC
-
-*shut-up.el* は短いものの *一時的な関数再定義* をする
-巧妙なテクニックを使っているのでコードを読んでみると
-elispの勉強になるかと思います。
-
-# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
-** shut-up インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install shut-up
-
+#+TITLE: shut-up.el : お前は黙ってろ！！！
+[includeme file="inc-package-table.php" name="shut-up" where="melpa"]
 
 #+end:
-** 概要                                                             :noexport:
+** 概要
 Emacsはたまに饒舌が過ぎることがあります。
 
 *message* 関数や *write-region* 関数、 *load* 関数は
@@ -116,3 +58,5 @@ message、write-region、load関数がメッセージを表示しなくなりま
 elispの勉強になるかと思います。
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+[includeme file="inc-package-install.php" name="shut-up" where="melpa"]
+[includeme file="inc-package-relate.php" name="shut-up"]

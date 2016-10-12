@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 1891
+#+POSTID: 1076
+#+BLOG: rubikitch
 #+DATE: [2015-08-11 Tue 02:46]
 #+PERMALINK: general-close
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,64 +8,17 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, Ruby
+#+CATEGORY: 閉括弧入力
 #+EL_PKG_NAME: general-close
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, relate:paren-completer
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 
+#+TAGS: 補完
 #+EL_TITLE0: 自動判別で対応する閉括弧やendを入力するコマンド
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージgeneral-closeの紹介
-#+MYTAGS: package:general-close, emacs 使い方, emacs コマンド, emacs, general-close, general-close.el, emacs lisp general-close, elisp general-close, emacs melpa general-close, emacs general-close 使い方, emacs general-close 設定, emacs パッケージ general-close, relate:paren-completer
-#+TAGS: package:general-close, emacs 使い方, emacs コマンド, emacs, general-close, general-close.el, emacs lisp general-close, elisp general-close, emacs melpa general-close, emacs general-close 使い方, emacs general-close 設定, emacs パッケージ general-close, relate:paren-completer, Emacs, Ruby, general-close.el, M-x general-close, general-close.el, M-x general-close
-#+TITLE: emacs general-close.el : 自動判別で対応する閉括弧やendを入力するコマンド | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>general-close</td></tr>
-<tr><td>概要(原文)</td><td>Insert closing delimiter</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/emacs-berlin/general-close">https://github.com/emacs-berlin/general-close</a></td></tr>
-<tr><td>バージョン</td><td>20150811.249</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:general-close/">package:general-close</a> <a href="http://rubikitch.com/tag/package:paren-completer/">package:paren-completer</a></td></tr>
-</table>
-<br />
-#+END_HTML
-複数の括弧を使う言語を扱うとき、
-対応する閉括弧を判別して入力してくれるとありがたいものです。
-
-*general-close.el* の *M-x general-close* がそれをやってくれます。
-
-本設定ではM-)に割り当てています。
-
-#+BEGIN_EXAMPLE
-[{:a=>(3
-↓　M-)×3
-[{:a=>(3)}]
-#+END_EXAMPLE
-
-Rubyではendを入力してくれます。
-
-#+BEGIN_EXAMPLE
-if true
-  1
-↓　M-)
-if true
-  1
-end
-#+END_EXAMPLE
-
-他にもPython、PHPにも独自に対応しています。
-
-# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
-** general-close インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install general-close
-
+#+TITLE: general-close.el : 自動判別で対応する閉括弧やendを入力するコマンド
+[includeme file="inc-package-table.php" name="general-close" where="melpa"]
 
 #+end:
-** 概要                                                             :noexport:
+** 概要
 複数の括弧を使う言語を扱うとき、
 対応する閉括弧を判別して入力してくれるとありがたいものです。
 
@@ -92,6 +46,7 @@ end
 他にもPython、PHPにも独自に対応しています。
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+[includeme file="inc-package-install.php" name="general-close" where="melpa"]
 ** 設定 [[http://rubikitch.com/f/150811024230.general-close.el][150811024230.general-close.el(以下のコードと同一)]]
 #+BEGIN: include :file "/r/sync/junk/150811/150811024230.general-close.el"
 #+BEGIN_SRC fundamental
@@ -106,3 +61,4 @@ $ wget http://rubikitch.com/f/150811024230.general-close.el
 $ emacs -Q -f package-initialize -l 150811024230.general-close.el
 #+END_EXAMPLE
 
+[includeme file="inc-package-relate.php" name="general-close"]

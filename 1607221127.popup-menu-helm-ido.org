@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 2499
+#+POSTID: 1483
+#+BLOG: rubikitch
 #+DATE: [2016-07-22 Fri 11:27]
 #+PERMALINK: popup-menu-helm-ido
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,12 +8,13 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, Emacs Lisp, helm, ido, 
+#+CATEGORY: 候補選択
 #+DESCRIPTION: 
-#+MYTAGS: package:popup, package:helm, package:ido, popup-menu, popup-menu*, 候補選択, ido-completing-read, completing-read, helm-comp-read, アドバイス, package:nadvice, relate:helm, relate:ido, relate:dumb-jump
 #+TITLE: Emacs: popup.elをhelmやidoに置き換える方法
+#+TAGS: helm, ido
 #+begin: org2blog-tags
-#+TAGS: package:popup, package:helm, package:ido, popup-menu, popup-menu*, 候補選択, ido-completing-read, completing-read, helm-comp-read, アドバイス, package:nadvice, relate:helm, relate:ido, relate:dumb-jump, Emacs, Emacs Lisp, helm, ido, , popup-menu*
+# content-length: 994
+
 #+end:
 
 popup.elはauto-complete.elでも使われているように素晴しいelispです。
@@ -23,9 +25,9 @@ popup.elのポップアップメニューのエントリポイントは *popup-m
 リストを取り、その中のたった1つの候補を返します。
 
 それならばhelmやidoの同種の関数に置き換えることは
-[[http://rubikitch.com/2014/10/30/nadvice/][nadvice.elによるoverrideアドバイス ]]を使えば簡単です。
+[[http://emacs.rubikitch.com/nadvice/][nadvice.elによるoverrideアドバイス ]]を使えば簡単です。
 
-popup-menu*関数は [[http://rubikitch.com/2016/07/18/dumb-jump/][先日紹介した dump-jump.el]] でも使われています。
+popup-menu*関数は [[http://emacs.rubikitch.com/dumb-jump/][先日紹介した dump-jump.el]] でも使われています。
 
 ** helm化する
 

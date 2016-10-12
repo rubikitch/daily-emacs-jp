@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 1656
+#+POSTID: 916
+#+BLOG: rubikitch
 #+DATE: [2015-05-17 Sun 05:05]
 #+PERMALINK: speed-type
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,66 +8,17 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs
+#+CATEGORY: ゲーム
 #+EL_PKG_NAME: speed-type
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, TYPINGMANIA, タイピングマニア, emacs タイピングゲーム, emacs タイピング練習, タッチタイピングの練習, ブラインドタッチ
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: 
 #+EL_TITLE0: タイピングマニア in Emacs
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージspeed-typeの紹介
-#+MYTAGS: package:speed-type, emacs 使い方, emacs コマンド, emacs, speed-type, speed-type.el, emacs lisp speed-type, elisp speed-type, emacs melpa speed-type, emacs speed-type 使い方, emacs speed-type 設定, emacs パッケージ speed-type, emacs speed-type スクリーンショット, TYPINGMANIA, タイピングマニア, emacs タイピングゲーム, emacs タイピング練習, タッチタイピングの練習, ブラインドタッチ
-#+TAGS: package:speed-type, emacs 使い方, emacs コマンド, emacs, speed-type, speed-type.el, emacs lisp speed-type, elisp speed-type, emacs melpa speed-type, emacs speed-type 使い方, emacs speed-type 設定, emacs パッケージ speed-type, emacs speed-type スクリーンショット, TYPINGMANIA, タイピングマニア, emacs タイピングゲーム, emacs タイピング練習, タッチタイピングの練習, ブラインドタッチ, Emacs, speed-type.el, 激打, TYPINGMANIA, M-x speed-type-text, M-x speed-type-buffer, M-x speed-type-region, first-change-hook, after-change-functions, sticky.el, 激打, TYPINGMANIA, M-x speed-type-text, M-x speed-type-buffer, M-x speed-type-region, first-change-hook, after-change-functions, sticky.el
-#+TITLE: emacs speed-type.el : タイピングマニア in Emacs | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>speed-type</td></tr>
-<tr><td>概要(原文)</td><td>Practice touch and speed typing</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/hagleitn/speed-type">https://github.com/hagleitn/speed-type</a></td></tr>
-<tr><td>バージョン</td><td>20150120.2034</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:speed-type/">package:speed-type</a> </td></tr>
-</table>
-<br />
-#+END_HTML
-*speed-type.el* は、Emacsで動くタイピングゲームです。
-
-*激打* や *TYPINGMANIA* のようなものです。
-
-表示されたテキストを忠実にタイプして、
-正しく入力された文字は緑色に、
-間違ってしまった文字は赤色で表示されます。
-
-入力テキストの源より、3つのコマンドが使えます
-- *M-x speed-type-text* :: インターネット上の英文テキスト
-- *M-x speed-type-buffer* :: カレントバッファ
-- *M-x speed-type-region* :: region
-
-M-x speed-type-bufferやM-x speed-type-regionならば
-ソースコードの入力速度を測定することもできます。
-
-*first-change-hook* と *after-change-functions* で
-バッファの変更を察知するメカニズムなので、
-拙作 *sticky.el* など入力方式を変更するelispがそのまま使えます。
-
-他のタイピングゲームとは異なり、自分の愛用の入力環境で
-測定できるのは嬉しいことではないでしょうか。
-
-日本語については確定後に初めてバッファが変更されないと無理でしょう。
-
-ddskkのようにローマ字入力中に実際のバッファの内容を
-変更する日本語入力では正しく動作しません。
-
-T-Codeなどの漢直入力は大丈夫と思われます。
-** speed-type インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install speed-type
-
+#+TITLE: speed-type.el : タイピングマニア in Emacs
+[includeme file="inc-package-table.php" name="speed-type" where="melpa"]
 
 #+end:
-** 概要                                                             :noexport:
+** 概要
 *speed-type.el* は、Emacsで動くタイピングゲームです。
 
 *激打* や *TYPINGMANIA* のようなものです。
@@ -96,6 +48,7 @@ ddskkのようにローマ字入力中に実際のバッファの内容を
 変更する日本語入力では正しく動作しません。
 
 T-Codeなどの漢直入力は大丈夫と思われます。
+[includeme file="inc-package-install.php" name="speed-type" where="melpa"]
 ** やってみた
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
 #+ATTR_HTML: :width 480
@@ -110,3 +63,4 @@ Netが実質のスコアで、Grossが誤りを無視したスコアです。
 
 sticky.elの設定により「変換a」で「A」と入力できるようにしています。
 
+[includeme file="inc-package-relate.php" name="speed-type"]

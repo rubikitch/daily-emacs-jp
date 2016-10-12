@@ -1,5 +1,4 @@
 #+BLOG: rubikitch
-#+POSTID: 868
 #+DATE: [2015-01-05 Mon 06:37]
 #+PERMALINK: origami
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -11,7 +10,7 @@
 #+DESCRIPTION: 
 #+MYTAGS: 
 #+TITLE: origami.elでview-modeを更新しても折畳みを保持するようにしました
-[[http://rubikitch.com/2015/01/03/origami/]]
+[[http://emacs.rubikitch.com/origami/]]
 
 origami.elの設定を更新しました。
 

@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 2446
+#+POSTID: 1451
+#+BLOG: rubikitch
 #+DATE: [2016-07-05 Tue 05:25]
 #+PERMALINK: org2blog-slow
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,12 +8,13 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, org-mode
+#+CATEGORY: 文書作成
+#+TAGS: org
 #+DESCRIPTION: 
-#+MYTAGS: package:org2blog, package:org, relate:org, org WordPress, org2blog 遅い, org-mode ブログを書く, org-mode WordPress, org2blog login 遅い, org2blog/wp-login 時間がかかる, relate:nadvice, advice-add, override advice
 #+TITLE: org-modeでブログ書く人へ、org2blogでログインが超絶遅いとき解決法！
 #+begin: org2blog-tags
-#+TAGS: package:org2blog, package:org, relate:org, org WordPress, org2blog 遅い, org-mode ブログを書く, org-mode WordPress, org2blog login 遅い, org2blog/wp-login 時間がかかる, relate:nadvice, advice-add, override advice, Emacs, org-mode, M-x org2blog/wp-login, org2blog/wp-tags-list, org2blog/wp-pages-list
+# content-length: 6079
+
 #+end:
 僕はWordPressでこのサイトを運営していますが、その大きな理由としてorg-modeで原稿を書けるということがあります。
 org-modeでWordPressの原稿を書くにはorg2blogパッケージを使うのですが、最近ログインにめちゃくちゃ時間がかかります。
@@ -86,7 +88,7 @@ WordPressのタグは検索にひっかかりやすいので、検索から訪�
 
 ついでに *org2blog/wp-pages-list* もいらないので削除。
 
-というわけで、[[http://rubikitch.com/2014/10/30/nadvice/][override advice]] をかけて再定義してしゅーりょー♪
+というわけで、[[http://emacs.rubikitch.com/nadvice/][override advice]] をかけて再定義してしゅーりょー♪
 
 #+BEGIN_SRC emacs-lisp :results silent
 (defun org2blog/wp-login--no-fetch-list (&optional blog-name)

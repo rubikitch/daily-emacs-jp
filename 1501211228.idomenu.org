@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 978
+#+POSTID: 636
+#+BLOG: rubikitch
 #+DATE: [2015-01-21 Wed 12:28]
 #+PERMALINK: idomenu
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,37 +8,26 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, ido, ソース解読推奨
+#+CATEGORY: 候補選択
 #+EL_PKG_NAME: idomenu
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, package:imenu, package:ido, relate:ido, relate:imenu, relate:imenu-anywhere, package:ido-vertical-mode, emacs ido imenu, emacs iswitchb imenu, emacs helm imenu, emacs imenu カイゼン, relate:ido-vertical-mode, relate:imenu-list, package:ido-vertical-mode, relate:ido-vertical-mode, emacs iswitchb imenu, emacs imenu ido, emacs imenu helm, 同一メジャーモードのバッファの関数一覧を表示, emacs imenu カイゼン, emacs imenu 強化, anything-imenu, helm-imenu, ファイル内の関数一覧を表示, バッファ内の関数一覧を表示, 特定の関数を抽出, 関数定義へジャンプ, バッファ内の特定箇所に直接移動, relate:imenus
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: ソースコード解読推奨, imenu, ido
 #+EL_TITLE0: 【helmアンチ歓迎】imenuをidoインターフェースで操作する
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージidomenuの紹介
-#+MYTAGS: package:idomenu, emacs 使い方, emacs コマンド, emacs, idomenu, idomenu.el, emacs lisp idomenu, elisp idomenu, emacs melpa idomenu, emacs idomenu 使い方, emacs idomenu 設定, emacs パッケージ idomenu, emacs idomenu スクリーンショット, package:imenu, package:ido, relate:ido, relate:imenu, relate:imenu-anywhere, package:ido-vertical-mode, emacs ido imenu, emacs iswitchb imenu, emacs helm imenu, emacs imenu カイゼン, relate:ido-vertical-mode, relate:imenu-list, package:ido-vertical-mode, relate:ido-vertical-mode, emacs iswitchb imenu, emacs imenu ido, emacs imenu helm, 同一メジャーモードのバッファの関数一覧を表示, emacs imenu カイゼン, emacs imenu 強化, anything-imenu, helm-imenu, ファイル内の関数一覧を表示, バッファ内の関数一覧を表示, 特定の関数を抽出, 関数定義へジャンプ, バッファ内の特定箇所に直接移動, relate:imenus
-#+TAGS: package:idomenu, emacs 使い方, emacs コマンド, emacs, idomenu, idomenu.el, emacs lisp idomenu, elisp idomenu, emacs melpa idomenu, emacs idomenu 使い方, emacs idomenu 設定, emacs パッケージ idomenu, emacs idomenu スクリーンショット, package:imenu, package:ido, relate:ido, relate:imenu, relate:imenu-anywhere, package:ido-vertical-mode, emacs ido imenu, emacs iswitchb imenu, emacs helm imenu, emacs imenu カイゼン, relate:ido-vertical-mode, relate:imenu-list, package:ido-vertical-mode, relate:ido-vertical-mode, emacs iswitchb imenu, emacs imenu ido, emacs imenu helm, 同一メジャーモードのバッファの関数一覧を表示, emacs imenu カイゼン, emacs imenu 強化, anything-imenu, helm-imenu, ファイル内の関数一覧を表示, バッファ内の関数一覧を表示, 特定の関数を抽出, 関数定義へジャンプ, バッファ内の特定箇所に直接移動, relate:imenus, Emacs, ido, ソース解読推奨, idomenu.el, M-x imenu, ido, idomenu.el, M-x imenu, ido
-#+TITLE: emacs idomenu.el : 【helmアンチ歓迎】imenuをidoインターフェースで操作する | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>idomenu</td></tr>
-<tr><td>概要(原文)</td><td>imenu tag selection a la ido</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/birkenfeld/idomenu">https://github.com/birkenfeld/idomenu</a></td></tr>
-<tr><td>バージョン</td><td>20141123.1320</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:idomenu/">package:idomenu</a> <a href="http://rubikitch.com/tag/package:ido/">package:ido</a> <a href="http://rubikitch.com/tag/package:imenu/">package:imenu</a> <a href="http://rubikitch.com/tag/package:imenu-anywhere/">package:imenu-anywhere</a> <a href="http://rubikitch.com/tag/package:ido-vertical-mode/">package:ido-vertical-mode</a> <a href="http://rubikitch.com/tag/package:imenu-list/">package:imenu-list</a> <a href="http://rubikitch.com/tag/package:ido-vertical-mode/">package:ido-vertical-mode</a> <a href="http://rubikitch.com/tag/package:imenus/">package:imenus</a></td></tr>
-</table>
-<br />
-#+END_HTML
-<2015-04-09 Thu> [[http://rubikitch.com/2015/04/09/imenus/][imenus.el]] の方がoccur/helm-swoopもできたりとより便利です。
+#+TITLE: idomenu.el : 【helmアンチ歓迎】imenuをidoインターフェースで操作する
+[includeme file="inc-package-table.php" name="idomenu" where="melpa"]
+
+#+end:
+** 概要
+<2015-04-09 Thu> [[http://emacs.rubikitch.com/imenus/][imenus.el]] の方がoccur/helm-swoopもできたりとより便利です。
 
 *idomenu.el* は、 *M-x imenu* を
 *ido* インターフェースにするものです。
 
 関数名は長くなりがちなので、
-[[http://rubikitch.com/2015/01/06/ido-vertical-mode/][ido-vertical-mode(レビュー)]] と併用することをおすすめします。
+[[http://emacs.rubikitch.com/ido-vertical-mode/][ido-vertical-mode(レビュー)]] と併用することをおすすめします。
 
-imenu+idoインターフェースの [[http://rubikitch.com/2014/12/17/imenu-anywhere/][imenu-anywhere(レビュー)]] は
+imenu+idoインターフェースの [[http://emacs.rubikitch.com/imenu-anywhere/][imenu-anywhere(レビュー)]] は
 同一メジャーモードの他のバッファにもスコープを広げます。
 
 どちらを使うかは好み次第です。
@@ -50,37 +40,8 @@ Fig1: M-x idomenu
 Fig2: あいまいマッチ！
 
 
-** idomenu インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
 
-M-x package-refresh-contents
-M-x package-install idomenu
-
-
-#+end:
-** 概要                                                             :noexport:
-<2015-04-09 Thu> [[http://rubikitch.com/2015/04/09/imenus/][imenus.el]] の方がoccur/helm-swoopもできたりとより便利です。
-
-*idomenu.el* は、 *M-x imenu* を
-*ido* インターフェースにするものです。
-
-関数名は長くなりがちなので、
-[[http://rubikitch.com/2015/01/06/ido-vertical-mode/][ido-vertical-mode(レビュー)]] と併用することをおすすめします。
-
-imenu+idoインターフェースの [[http://rubikitch.com/2014/12/17/imenu-anywhere/][imenu-anywhere(レビュー)]] は
-同一メジャーモードの他のバッファにもスコープを広げます。
-
-どちらを使うかは好み次第です。
-
-# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
-[[file:/r/sync/screenshots/20150121123317.png]]
-Fig3: M-x idomenu
-
-[[file:/r/sync/screenshots/20150121123327.png]]
-Fig4: あいまいマッチ！
-
-
-
+[includeme file="inc-package-install.php" name="idomenu" where="melpa"]
 ** 設定 [[http://rubikitch.com/f/150121123052.idomenu.1.el][150121123052.idomenu.1.el(以下のコードと同一)]]
 #+BEGIN: include :file "/r/sync/junk/150121/150121123052.idomenu.1.el"
 #+BEGIN_SRC fundamental
@@ -102,3 +63,4 @@ $ emacs -Q -f package-initialize -l 150121123052.idomenu.1.el
 
 # /r/sync/screenshots/20150121123317.png http://rubikitch.com/wp-content/uploads/2015/01/wpid-20150121123317.png
 # /r/sync/screenshots/20150121123327.png http://rubikitch.com/wp-content/uploads/2015/01/wpid-20150121123327.png
+[includeme file="inc-package-relate.php" name="idomenu"]

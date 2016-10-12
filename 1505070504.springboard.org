@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 1623
+#+POSTID: 895
+#+BLOG: rubikitch
 #+DATE: [2015-05-07 Thu 05:04]
 #+PERMALINK: springboard
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,86 +8,14 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, helm, ido, dired, 
+#+CATEGORY: Emacsコマンド実行
 #+EL_PKG_NAME: springboard
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, emacs コマンド実行 カレントディレクトリ, M-!などのカレントディレクトリを一時的に変更する, package:ido-springboard, relate:helm, relate:ido, relate:dired, shell-command, 
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: helm, ido
 #+EL_TITLE0: M-!やM-x grepなどの実行時のカレントディレクトリを変更する
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージspringboardの紹介
-#+MYTAGS: package:springboard, emacs 使い方, emacs コマンド, emacs, springboard, springboard.el, emacs lisp springboard, elisp springboard, emacs melpa springboard, emacs springboard 使い方, emacs springboard 設定, emacs パッケージ springboard, emacs springboard スクリーンショット, emacs コマンド実行 カレントディレクトリ, M-!などのカレントディレクトリを一時的に変更する, package:ido-springboard, relate:helm, relate:ido, relate:dired, shell-command, 
-#+TAGS: package:springboard, emacs 使い方, emacs コマンド, emacs, springboard, springboard.el, emacs lisp springboard, elisp springboard, emacs melpa springboard, emacs springboard 使い方, emacs springboard 設定, emacs パッケージ springboard, emacs springboard スクリーンショット, emacs コマンド実行 カレントディレクトリ, M-!などのカレントディレクトリを一時的に変更する, package:ido-springboard, relate:helm, relate:ido, relate:dired, shell-command, , Emacs, helm, ido, dired, , M-!, M-x grep, springboard.el, M-x springboard, default-directory, helm, buffer-list, recentf-list, springboard-directories, M-x grep, springboard.el, M-x springboard, default-directory, helm, buffer-list, recentf-list, springboard-directories, Springboard
-#+TITLE: emacs springboard.el : M-!やM-x grepなどの実行時のカレントディレクトリを変更する | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>springboard</td></tr>
-<tr><td>概要(原文)</td><td>Temporarily change default-directory for one command</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/jwiegley/springboard">https://github.com/jwiegley/springboard</a></td></tr>
-<tr><td>バージョン</td><td>20150505.1011</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:springboard/">package:springboard</a> <a href="http://rubikitch.com/tag/package:helm/">package:helm</a> <a href="http://rubikitch.com/tag/package:ido/">package:ido</a> <a href="http://rubikitch.com/tag/package:dired/">package:dired</a></td></tr>
-</table>
-<br />
-#+END_HTML
-*M-!* を使えば手軽にシェルコマンドを実行できますが、
-実行したいカレントディレクトリが違っていると面倒です。
-
-*M-x grep* などについても同様です。
-
-たった1回だけ、次のコマンドのみカレントディレクトリを変更できたら…
-と思ったことはきっとあるはず！
-
-*springboard.el* が提供する *M-x springboard* は、
-次に実行するコマンドのカレントディレクトリ
-(*default-directory*)を変更してくれます。
-
-いきなり *helm* の画面が出てきて面喰らうかもしれませんが、
-標準コマンドは素通りするようになっているので、
-落ち着いてM-!やM-xなどを押してください。
-
-ここでRETを押せばdiredが出てきます。
-
-M-x springboardの優れた点は、なによりも
-カレントディレクトリをフルパスで入力する必要がないことです。
-
-経験上、実行したいカレントディレクトリというのは
-すでに開いたバッファか最近開いたファイルに関係することがほとんどなので、
-予め *buffer-list* や *recentf-list* から
-カレントディレクトリの候補を集めてくれます。
-
-また、よく使うディレクトリのリストを
-*springboard-directories* に設定することもできます。
-
-M-x springboardが気に入れば、キーに割り当てることをおすすめします。
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150507052855.png]]
-Fig1: M-x springboardすると候補がhelmで出てくる
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150507052904.png]]
-Fig2: 入力してくと絞られる
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150507052915.png]]
-Fig3: そこでおもむろにM-x grepと入力すると
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150507052924.png]]
-Fig4: そのディレクトリで実行できるのである！！
-
-
-ただ、helm的にはM-x helm-miniやM-x helm-find-filesなどから
-直接M-!やM-xなどを実行した方がスマートだと思います。
-
-せっかくhelmなんですからねー。
-** springboard インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install springboard
-
+#+TITLE: springboard.el : M-!やM-x grepなどの実行時のカレントディレクトリを変更する
+[includeme file="inc-package-table.php" name="springboard" where="melpa"]
 
 #+end:
 idoでも使いたい人はido-springboardもインストールする。
@@ -94,7 +23,7 @@ idoでも使いたい人はido-springboardもインストールする。
 M-x package-install ido-springboard
 
 
-** 概要                                                             :noexport:
+** 概要
 *M-!* を使えば手軽にシェルコマンドを実行できますが、
 実行したいカレントディレクトリが違っていると面倒です。
 
@@ -148,6 +77,7 @@ Fig4: そのディレクトリで実行できるのである！！
 
 せっかくhelmなんですからねー。
 
+[includeme file="inc-package-install.php" name="springboard" where="melpa"]
 ** 設定 [[http://rubikitch.com/f/150507052428.springboard.el][150507052428.springboard.el(以下のコードと同一)]]
 #+BEGIN: include :file "/r/sync/junk/150507/150507052428.springboard.el"
 #+BEGIN_SRC fundamental
@@ -195,3 +125,4 @@ shell/eshellのcdの候補にしたりなど応用できるでしょう。
 # /r/sync/screenshots/20150507052904.png http://rubikitch.com/wp-content/uploads/2015/05/wpid-20150507052904.png
 # /r/sync/screenshots/20150507052915.png http://rubikitch.com/wp-content/uploads/2015/05/wpid-20150507052915.png
 # /r/sync/screenshots/20150507052924.png http://rubikitch.com/wp-content/uploads/2015/05/wpid-20150507052924.png
+[includeme file="inc-package-relate.php" name="springboard"]

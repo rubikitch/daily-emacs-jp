@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 2643
+#+POSTID: 1518
+#+BLOG: rubikitch
 #+DATE: [2016-08-09 Tue 10:44]
 #+PERMALINK: helm-swoop-helm-occur
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
@@ -7,22 +8,23 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, Emacs Lisp, helm, 
-#+DESCRIPTION: 
-#+MYTAGS: isearch, インクリメンタルサーチ, relate:loccur, relate:replace, occur, relate:isearch, relate:ido-occur, relate:helm-swoop, package:helm-swoop, relate:swoop, package:swoop, relate:swiper, helm-swiper, helm-occur, バッファ内検索, grep, 絞り込み検索, relate:migemo, migemo検索
+#+CATEGORY: 検索
+#+DESCRIPTION:
+#+TAGS: occur, helm, ido
 #+TITLE: Emacs: バッファ内検索を【無敵】にする黄金ルール
 #+begin: org2blog-tags
-#+TAGS: isearch, インクリメンタルサーチ, relate:loccur, relate:replace, occur, relate:isearch, relate:ido-occur, relate:helm-swoop, package:helm-swoop, relate:swoop, package:swoop, relate:swiper, helm-swiper, helm-occur, バッファ内検索, grep, 絞り込み検索, relate:migemo, migemo検索, Emacs, Emacs Lisp, helm, , 
+# content-length: 2167
+
 #+End:
 あなたはEmacsでのバッファ内検索ツールとして何を使っていますか？
 
 isearch
 occur
-[[http://rubikitch.com/2015/06/13/loccur/][loccur]]
-[[http://rubikitch.com/2016/01/10/ido-occur/][ido-occur]]
-[[http://rubikitch.com/2014/12/25/helm-swoop/][helm-swoop]]
-[[http://rubikitch.com/2016/08/08/swoop/][swoop]]
-[[http://rubikitch.com/2015/03/18/swiper/][swiper (helm-swiper)]]
+[[http://emacs.rubikitch.com/loccur/][loccur]]
+[[http://emacs.rubikitch.com/ido-occur/][ido-occur]]
+[[http://emacs.rubikitch.com/helm-swoop/][helm-swoop]]
+[[http://emacs.rubikitch.com/swoop/][swoop]]
+[[http://emacs.rubikitch.com/swiper/][swiper (helm-swiper)]]
 [[http://rubikitch.com/category/helm/][helm-occur]]
 …
 
@@ -98,7 +100,7 @@ helm-swoopではなくてswoopが好きならば
 #+END_SRC
 
 
-ちなみにhelm-occurよりも高速なのは[[http://rubikitch.com/2015/10/26/pgrepper/][pgrepper]] をhelm化したものです。
+ちなみにhelm-occurよりも高速なのは[[http://emacs.rubikitch.com/pgrepper/][pgrepper]] をhelm化したものです。
 検索にgrepなどの外部ツールを使っているのですから当然ですね。
 
 

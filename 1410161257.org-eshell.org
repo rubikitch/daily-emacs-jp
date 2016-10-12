@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 478
+#+POSTID: 353
+#+BLOG: rubikitch
 #+DATE: [2014-10-16 Thu 12:57]
 #+PERMALINK: org-eshell
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t
@@ -7,10 +8,9 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, org-mode,
+#+CATEGORY: ハイパーリンク
 #+DESCRIPTION: (require 'org-eshell)と加えてeshellでM-x org-store-link(C-c l) で eshell:COMMAND 形式のリンクが作成できる
-#+MYTAGS:
-#+TAGS: , Emacs, org-mode,, eshell, org-eshell.el
+#+TAGS: 標準コマンド強化, org, eshell
 #+TITLE: Emacs org-eshell: org-modeでeshellへのリンクを張る
 org-modeは標準添付ですが、デフォルトでは
 読み込まれていない機能がたくさんあります。

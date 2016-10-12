@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 1885
+#+POSTID: 1070
+#+BLOG: rubikitch
 #+DATE: [2015-08-08 Sat 17:08]
 #+PERMALINK: oldlace-theme
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,28 +8,17 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, theme
+#+CATEGORY: ライト
 #+EL_PKG_NAME: oldlace-theme
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, color-theme, カラーテーマ
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: 
 #+EL_TITLE0: 白背景なカラーテーマ
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージoldlace-themeの紹介
-#+MYTAGS: package:oldlace-theme, emacs 使い方, emacs コマンド, emacs, oldlace-theme, oldlace-theme.el, emacs lisp oldlace-theme, elisp oldlace-theme, emacs melpa oldlace-theme, emacs oldlace-theme 使い方, emacs oldlace-theme 設定, emacs パッケージ oldlace-theme, emacs oldlace-theme スクリーンショット, color-theme, カラーテーマ
-#+TAGS: package:oldlace-theme, emacs 使い方, emacs コマンド, emacs, oldlace-theme, oldlace-theme.el, emacs lisp oldlace-theme, elisp oldlace-theme, emacs melpa oldlace-theme, emacs oldlace-theme 使い方, emacs oldlace-theme 設定, emacs パッケージ oldlace-theme, emacs oldlace-theme スクリーンショット, color-theme, カラーテーマ, Emacs, theme, oldlace-theme.el
-#+TITLE: emacs oldlace-theme.el : 白背景なカラーテーマ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>oldlace-theme</td></tr>
-<tr><td>概要(原文)</td><td>Emacs 24 theme with an 'oldlace' background.</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/mswift42/oldlace-theme">https://github.com/mswift42/oldlace-theme</a></td></tr>
-<tr><td>バージョン</td><td>20150705.600</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:oldlace-theme/">package:oldlace-theme</a> </td></tr>
-</table>
-<br />
-#+END_HTML
+#+TITLE: oldlace-theme.el : 白背景なカラーテーマ
+[includeme file="inc-package-table.php" name="oldlace-theme" where="melpa"]
+
+#+end:
+** 概要
 *oldlace-theme.el* は、白い背景のカラーテーマです。
 
 # (save-window-excursion (async-shell-command "emacs-test -eval '(load-theme (quote oldlace) t)'"))
@@ -98,84 +88,7 @@ Fig9: helm
 
 [[https://github.com/mswift42/oldlace-theme/raw/master/screenorg.png][本家スクリーンショット1]]
 [[https://github.com/mswift42/oldlace-theme/raw/master/screengolisp.png][本家スクリーンショット2]]
-** oldlace-theme インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install oldlace-theme
-
-
-#+end:
-** 概要                                                             :noexport:
-*oldlace-theme.el* は、白い背景のカラーテーマです。
-
-# (save-window-excursion (async-shell-command "emacs-test -eval '(load-theme (quote oldlace) t)'"))
-以下のパッケージに対応しています。
-- font-lock
-- hl-line
-- show-paren
-- isearch
-- mode-line
-- org
-- latex
-- ido
-- gnus
-- mu4e
-- ffap
-- js2
-- auto-complete
-- info
-- icomplete+
-- undo-tree
-- slime
-- magit
-- rainbow-delimiters
-- term
-- helm
-- company
-- web-mode
-- jde-java
-
-# (progn (forward-line 1)(shell-command "screenshot-time.rb org_theme_template" t))
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150808170939.png]]
-Fig10: emacs-lisp-mode
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150808170945.png]]
-Fig11: magit
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150808170948.png]]
-Fig12: grep
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150808170953.png]]
-Fig13: outline-mode
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150808170957.png]]
-Fig14: org-mode
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150808171001.png]]
-Fig15: dired
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150808171004.png]]
-Fig16: web-mode
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150808171008.png]]
-Fig17: markdown-mode
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150808171012.png]]
-Fig18: helm
-
-
-[[https://github.com/mswift42/oldlace-theme/raw/master/screenorg.png][本家スクリーンショット1]]
-[[https://github.com/mswift42/oldlace-theme/raw/master/screengolisp.png][本家スクリーンショット2]]
+[includeme file="inc-package-install.php" name="oldlace-theme" where="melpa"]
 ** 設定
 #+BEGIN_SRC fundamental
 (load-theme 'oldlace t)
@@ -187,3 +100,4 @@ $ emacs -Q -f package-initialize -eval '(load-theme (quote oldlace) t)'
 #+END_EXAMPLE
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+[includeme file="inc-package-relate.php" name="oldlace-theme"]

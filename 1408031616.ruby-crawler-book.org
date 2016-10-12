@@ -1,14 +1,14 @@
 #+BLOG: rubikitch
-#+POSTID: 64
+#+POSTID: 185
+#+BLOG: rubikitch
 #+DATE: [2014-08-03 Sun 16:16]
 #+PERMALINK: ruby-crawler-book
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t
 #+ISPAGE: nil
 #+BLOG: rubikitch
-#+CATEGORY: Ruby, 著書
+#+CATEGORY: Rubyによるクローラー開発技法
 #+DESCRIPTION: Rubyによるクローラー開発本『Rubyによるクローラー開発技法』を執筆しました。佐々木拓郎さんとの共著です。2014/08/25発売！
-#+MYTAGS: Rubyによるクローラー開発技法, ruby crawler, ruby スクレイピング, ruby anemone gem, ruby nokogiri gem, wget, ruby webrick, 岡崎図書館事件
-#+TAGS: Rubyによるクローラー開発技法, ruby crawler, ruby スクレイピング, ruby anemone gem, ruby nokogiri gem, wget, ruby webrick, 岡崎図書館事件, Ruby, 著書, Ruby, 佐々木拓郎, SBクリエイティブ, クローラー
+#+TAGS: Rubyによるクローラー開発技法
 #+TITLE: 新刊『Rubyによるクローラー開発技法』2014/08/25発売！
 久々に本を書かせていただきました。
 

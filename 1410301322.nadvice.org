@@ -1,16 +1,16 @@
 #+BLOG: rubikitch
-#+POSTID: 531
+#+POSTID: 379
+#+BLOG: rubikitch
 #+DATE: [2014-10-30 Thu 13:22]
 #+PERMALINK: nadvice
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
 #+ISPAGE: nil
-#+DESCRIPTION:
+#+DESCRIPTION:Emacs-24.4からはadvice-addで簡単にアドバイスが定義できるようになった
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, Emacs Lisp, Emacs 24.4
+#+CATEGORY: 関数再定義
 #+DESCRIPTION:
-#+MYTAGS: emacs アドバイス定義, emacs defadvice, package:advice, package:nadvice, 
-#+TAGS: emacs アドバイス定義, emacs defadvice, package:advice, package:nadvice, , Emacs, Emacs Lisp, Emacs 24.4, defadvice, アドバイス, advice.el, nadvice.el, ad-do-it, ad-return-value, advice-remove, ad-update, apply
+#+TAGS: Emacs 24.4以降, アドバイス
 #+TITLE: 【関数再定義革命】Emacs 24.4ではdefadviceは時代遅れ！nadvice.elによる洗練された新しいアドバイス定義方法！！
 Emacs Lispの関数で再定義なしに挙動を変更するには
 古くから *defadvice* による *アドバイス* が使われていました。

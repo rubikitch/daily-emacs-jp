@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 2013
+#+POSTID: 1151
+#+BLOG: rubikitch
 #+DATE: [2015-09-22 Tue 17:35]
 #+PERMALINK: new-maintainer-emacs25
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,12 +8,12 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, Emacs 25.0, 
+#+CATEGORY: 
 #+DESCRIPTION: 
-#+MYTAGS: Stefan Monnier, メンテナ辞任, 
 #+TITLE: 【ありがとう・お疲れ様】Emacsのメンテナのリーダーが辞任します
 #+begin: org2blog-tags
-#+TAGS: Stefan Monnier, メンテナ辞任, , Emacs, Emacs 25.0, , 
+# content-length: 1547
+
 #+end:
 http://lists.gnu.org/archive/html/emacs-devel/2015-09/msg00849.html
 
@@ -53,7 +54,7 @@ Emacsは彼のおかげで生き返ったのです！
 
 ELPAのおかげでEmacsにもパッケージ時代が到来しました。
 cl-libのおかげで、合法的にCommon Lisp関数が使えるようになりました。
-[[http://rubikitch.com/2014/10/30/nadvice/][nadvice.el]] のおかげでアドバイスがとても使いやすくなりました。
+[[http://emacs.rubikitch.com/nadvice/][nadvice.el]] のおかげでアドバイスがとても使いやすくなりました。
 pcase.elとgv.elというおもしろいライブラリはelispに新しい風を吹き込みました。
 その他、数えきれないほどの貢献をしてきました。
 そのおかげでEmacsは一気に進化し、使いやすくなりました。

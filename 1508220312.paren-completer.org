@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 1916
+#+POSTID: 1094
+#+BLOG: rubikitch
 #+DATE: [2015-08-22 Sat 03:12]
 #+PERMALINK: paren-completer
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,64 +8,24 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs
+#+CATEGORY: 閉括弧入力
 #+EL_PKG_NAME: paren-completer
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, relate:general-close
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 
+#+TAGS: 補完
 #+EL_TITLE0: 自動判別で対応する閉括弧を入力する
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージparen-completerの紹介
-#+MYTAGS: package:paren-completer, emacs 使い方, emacs コマンド, emacs, paren-completer, paren-completer.el, emacs lisp paren-completer, elisp paren-completer, emacs melpa paren-completer, emacs paren-completer 使い方, emacs paren-completer 設定, emacs パッケージ paren-completer, relate:general-close
-#+TAGS: package:paren-completer, emacs 使い方, emacs コマンド, emacs, paren-completer, paren-completer.el, emacs lisp paren-completer, elisp paren-completer, emacs melpa paren-completer, emacs paren-completer 使い方, emacs paren-completer 設定, emacs パッケージ paren-completer, relate:general-close, Emacs, paren-completer.el, M-x paren-completer-add-single-delimiter, M-x paren-completer-add-single-delimiter-with-newline, M-x paren-completer-add-all-delimiters, M-x paren-completer-add-all-delimiters-with-newline, paren-completer.el, M-x paren-completer-add-single-delimiter, M-x paren-completer-add-single-delimiter-with-newline, M-x paren-completer-add-all-delimiters, M-x paren-completer-add-all-delimiters-with-newline
-#+TITLE: emacs paren-completer.el : 自動判別で対応する閉括弧を入力する | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>paren-completer</td></tr>
-<tr><td>概要(原文)</td><td>Automatically, language agnostically, fill in delimiters.</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/MatthewBregg/paren-completer">https://github.com/MatthewBregg/paren-completer</a></td></tr>
-<tr><td>バージョン</td><td>20150711.1523</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:paren-completer/">package:paren-completer</a> <a href="http://rubikitch.com/tag/package:general-close/">package:general-close</a></td></tr>
-</table>
-<br />
-#+END_HTML
-複数の括弧を使う言語を扱うとき、
-対応する閉括弧を判別して入力してくれるとありがたいものです。
-
-*paren-completer.el* の *M-x paren-completer-add-single-delimiter* が
-それをやってくれます。
-
-[[http://rubikitch.com/2015/08/11/general-close/][general-close.el(レビュー)]] とほぼ同じですが、
-言語には依存していません。
-
-#+BEGIN_EXAMPLE
-[{:a=>(3)
-↓　M-)×3
-[{:a=>(3)}]
-#+END_EXAMPLE
-
-改行を加えたり、すべての閉括弧を一度に入力する
-*M-x paren-completer-add-single-delimiter-with-newline*
-*M-x paren-completer-add-all-delimiters*
-*M-x paren-completer-add-all-delimiters-with-newline*
-も用意されていますが、 M-x paren-completer-add-single-delimiter で十分です。
-** paren-completer インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install paren-completer
-
+#+TITLE: paren-completer.el : 自動判別で対応する閉括弧を入力する
+[includeme file="inc-package-table.php" name="paren-completer" where="melpa"]
 
 #+end:
-** 概要                                                             :noexport:
+** 概要
 複数の括弧を使う言語を扱うとき、
 対応する閉括弧を判別して入力してくれるとありがたいものです。
 
 *paren-completer.el* の *M-x paren-completer-add-single-delimiter* が
 それをやってくれます。
 
-[[http://rubikitch.com/2015/08/11/general-close/][general-close.el(レビュー)]] とほぼ同じですが、
+[[http://emacs.rubikitch.com/general-close/][general-close.el(レビュー)]] とほぼ同じですが、
 言語には依存していません。
 
 #+BEGIN_EXAMPLE
@@ -79,6 +40,7 @@ M-x package-install paren-completer
 *M-x paren-completer-add-all-delimiters-with-newline*
 も用意されていますが、 M-x paren-completer-add-single-delimiter で十分です。
 
+[includeme file="inc-package-install.php" name="paren-completer" where="melpa"]
 ** 設定 [[http://rubikitch.com/f/150822031645.paren-completer.el][150822031645.paren-completer.el(以下のコードと同一)]]
 #+BEGIN: include :file "/r/sync/junk/150822/150822031645.paren-completer.el"
 #+BEGIN_SRC fundamental
@@ -95,3 +57,4 @@ $ emacs -Q -f package-initialize -l 150822031645.paren-completer.el
 
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+[includeme file="inc-package-relate.php" name="paren-completer"]

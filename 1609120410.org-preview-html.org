@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 2783
+#+POSTID: 1576
+#+BLOG: rubikitch
 #+DATE: [2016-09-12 月 04:10]
 #+PERMALINK: org-preview-html
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
@@ -7,28 +8,17 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, org-mode, eww, ソース解読推奨, 
+#+CATEGORY: TODO・予定管理
 #+EL_PKG_NAME: org-preview-html
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, relate:org, relate:eww, org preview, orgファイルをリアルタイムにプレビュー, OPTIONS調整
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: org, EWW
 #+EL_TITLE0: 【表示確認】orgファイルをリアルタイムにEWWでプレビューする
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージorg-preview-htmlの紹介
-#+MYTAGS: package:org-preview-html, emacs 使い方, emacs コマンド, emacs, org-preview-html, org-preview-html.el, emacs lisp org-preview-html, elisp org-preview-html, emacs melpa org-preview-html, emacs org-preview-html 使い方, emacs org-preview-html 設定, emacs パッケージ org-preview-html, emacs org-preview-html スクリーンショット, relate:org, relate:eww, org preview, orgファイルをリアルタイムにプレビュー, OPTIONS調整
-#+TAGS: package:org-preview-html, emacs 使い方, emacs コマンド, emacs, org-preview-html, org-preview-html.el, emacs lisp org-preview-html, elisp org-preview-html, emacs melpa org-preview-html, emacs org-preview-html 使い方, emacs org-preview-html 設定, emacs パッケージ org-preview-html, emacs org-preview-html スクリーンショット, relate:org, relate:eww, org preview, orgファイルをリアルタイムにプレビュー, OPTIONS調整, Emacs, org-mode, eww, ソース解読推奨, , M-x org-preview-html-mode, after-save-hook, M-x org-preview-html-mode, after-save-hook
-#+TITLE: emacs org-preview-html.el : 【表示確認】orgファイルをリアルタイムにEWWでプレビューする | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>org-preview-html</td></tr>
-<tr><td>概要(原文)</td><td>automatically use eww to preview the current org file on save</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/lujun9972/org-preview-html">https://github.com/lujun9972/org-preview-html</a></td></tr>
-<tr><td>バージョン</td><td>20160906.2327</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:org-preview-html/">package:org-preview-html</a> <a href="http://rubikitch.com/tag/package:org/">package:org</a> <a href="http://rubikitch.com/tag/package:eww/">package:eww</a></td></tr>
-</table>
-<br />
-#+END_HTML
+#+TITLE: org-preview-html.el : 【表示確認】orgファイルをリアルタイムにEWWでプレビューする
+[includeme file="inc-package-table.php" name="org-preview-html" where="melpa"]
+
+#+end:
+** 概要
 orgファイルを書いていて、リアルタイムにプレビューしたいと思ったことはありませんか？
 *M-x org-preview-html-mode* は、orgファイルを保存するたびにewwで表示を確認できます。
 メカニズムはとても単純で、 *after-save-hook* を使って保存時にhtml exportしたファイルをewwで表示しているだけです。
@@ -43,26 +33,5 @@ Fig1: 本家スクリーンショット
 
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
-** org-preview-html インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install org-preview-html
-
-
-#+end:
-** 概要                                                             :noexport:
-orgファイルを書いていて、リアルタイムにプレビューしたいと思ったことはありませんか？
-*M-x org-preview-html-mode* は、orgファイルを保存するたびにewwで表示を確認できます。
-メカニズムはとても単純で、 *after-save-hook* を使って保存時にhtml exportしたファイルをewwで表示しているだけです。
-用途としては、OPTIONSでの細かい制御(tocで目次の有無、authorで著者名の有無など)を確認をしたり、画像が表示されるかの確認などでしょう。
-org-modeでWebを作成する人は使って損はないです。
-
-ソースコードが短いのでマイナーモードの作成例としてもふさわしいです。
-
-#+ATTR_HTML: :width 480
-[[https://github.com/lujun9972/org-preview-html/raw/master/org-preview-html.gif]]
-Fig2: 本家スクリーンショット
-
-
-# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+[includeme file="inc-package-install.php" name="org-preview-html" where="melpa"]
+[includeme file="inc-package-relate.php" name="org-preview-html"]

@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 1309
+#+POSTID: 761
+#+BLOG: rubikitch
 #+DATE: [2015-03-15 Sun 13:33]
 #+PERMALINK: update
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -12,9 +13,9 @@
 #+MYTAGS: 
 #+TITLE: highlight-thing.elが更新されました
 #+begin: org2blog-tags
-#+TAGS: , 記事更新情報, , 
+
 #+end:
-[[http://rubikitch.com/2015/03/14/highlight-thing/][highlight-thing.el(レビュー)]] が更新されました。
+[[http://emacs.rubikitch.com/highlight-thing/][highlight-thing.el(レビュー)]] が更新されました。
 
 レビュー記事の時点ではグローバルマイナーモードしか用意されていませんでしたが、
 今回の更新でローカルマイナーモードも用意されました。
@@ -29,15 +30,6 @@ global-highlight-thing-modeが元のグローバルマイナーモードです�
 ** 設定 [[http://rubikitch.com/f/50highlight-thing.el][50highlight-thing.el(以下のコードと同一)]]
 #+BEGIN: include :file "/r/sync/emacs/init.d/50highlight-thing.el"
 #+BEGIN_SRC fundamental
-(require 'highlight-thing)
-;;; 現在の関数のみをハイライト対象にする
-(setq highlight-thing-limit-to-defun t)
-;;; word,sexp,sentence,list,line,number,page,whitespace,defun,filename,url,emailも設定可
-(setq highlight-thing-what-thing 'symbol)
-;;; [2015-03-15 Sun]ローカルマイナーモード化により更新
-(add-to-list 'prog-mode-hook 'highlight-thing-mode)
-(add-to-list 'ruby-mode-hook 'highlight-thing-mode)
-#+END_SRC
 
 #+END:
 

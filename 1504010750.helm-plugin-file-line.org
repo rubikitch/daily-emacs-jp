@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 1404
+#+POSTID: 816
+#+BLOG: rubikitch
 #+DATE: [2015-04-01 Wed 07:50]
 #+PERMALINK: helm-plugin-file-line
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,12 +8,13 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, helm, 
+#+CATEGORY: ファイルを開く
 #+DESCRIPTION: 
-#+MYTAGS: package:helm, helm type line 動かない, helm type file-line 動かない, helm 動かない, helm 更新したら動かなくなった, helm-firefox-bookmark 動かない, helm-w3m-bookmark 動かない, helm-bbdb 動かない, helm-emms 動かない, helm-gentoo 動かない, helm-yaoddmuse 動かない
 #+TITLE: 【helm最新情報】type:line, type:file-line, helm-firefox-bookmarkが削除されていたので復活させた
+#+TAGS: helm
 #+begin: org2blog-tags
-#+TAGS: package:helm, helm type line 動かない, helm type file-line 動かない, helm 動かない, helm 更新したら動かなくなった, helm-firefox-bookmark 動かない, helm-w3m-bookmark 動かない, helm-bbdb 動かない, helm-emms 動かない, helm-gentoo 動かない, helm-yaoddmuse 動かない, Emacs, helm, , M-x helm-firefox-bookmark, M-x helm-w3m-bookmark, 時は命なり, anything.el
+# content-length: 2480
+
 #+end:
 僕はhelmの更新をちょくちょく追い掛けているが、
 このパッケージは本当に注意していないと
@@ -99,7 +101,7 @@ http://rubikitch.com/f/helm-bbdb.el
 http://rubikitch.com/f/helm-gentoo.el
 http://rubikitch.com/f/helm-yaoddmuse.el
 ** 時は命なり
-[[http://rubikitch.com/2014/08/14/helm/][C-eとC-jがいきなり使えなくなったり]] するなど、helmは本当に
+[[http://emacs.rubikitch.com/helm/][C-eとC-jがいきなり使えなくなったり]] するなど、helmは本当に
 いきなり動かなくなって戸惑うことがしばしばあります。
 
 「パッケージをバージョンアップしたら突然動かなくなった」

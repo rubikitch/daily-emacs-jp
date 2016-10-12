@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 1260
+#+POSTID: 747
+#+BLOG: rubikitch
 #+DATE: [2015-03-09 Mon 08:03]
 #+PERMALINK: orglink
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,58 +8,17 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, org-mode, 
+#+CATEGORY: ハイパーリンク
 #+EL_PKG_NAME: orglink
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, relate:wiki-nav, relate:linkd
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: org
 #+EL_TITLE0: org-modeのリンクを他のメジャーモードで使えるようにする
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージorglinkの紹介
-#+MYTAGS: package:orglink, emacs 使い方, emacs コマンド, emacs, orglink, orglink.el, emacs lisp orglink, elisp orglink, emacs melpa orglink, emacs orglink 使い方, emacs orglink 設定, emacs パッケージ orglink, emacs orglink スクリーンショット, relate:wiki-nav, relate:linkd
-#+TAGS: package:orglink, emacs 使い方, emacs コマンド, emacs, orglink, orglink.el, emacs lisp orglink, elisp orglink, emacs melpa orglink, emacs orglink 使い方, emacs orglink 設定, emacs パッケージ orglink, emacs orglink スクリーンショット, relate:wiki-nav, relate:linkd, Emacs, org-mode, , org-mode, orglink.el, M-x orglink-mode, org-mode, orglink.el, M-x orglink-mode
-#+TITLE: emacs orglink.el : org-modeのリンクを他のメジャーモードで使えるようにする | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>orglink</td></tr>
-<tr><td>概要(原文)</td><td>use Org Mode links in other modes</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/tarsius/orglink">https://github.com/tarsius/orglink</a></td></tr>
-<tr><td>バージョン</td><td>20141207.533</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:orglink/">package:orglink</a> <a href="http://rubikitch.com/tag/package:wiki-nav/">package:wiki-nav</a> <a href="http://rubikitch.com/tag/package:linkd/">package:linkd</a></td></tr>
-</table>
-<br />
-#+END_HTML
-
-*org-mode* のリンクはとても強力ですが、
-org-mode自体が巨大なメジャーモードであるため
-他のメジャーモードでそのまま使えない欠点があります。
-
-それを可能にしてくれるelispが *orglink.el* です。
-
-*M-x orglink-mode* というマイナーモードを有効にすることで、
-orgのリンクをfont-lockに追加し、RETやC-c C-oで辿れるようにします。
-
-[[http://rubikitch.com/2015/02/25/wiki-nav][wiki-nav.el(レビュー)]] のリンク実装は独自のものですが、
-これはorg-modeのそれを呼んでいるのでコードは簡潔です。
-
-当然、org-modeのリンクの設定がそのまま活かされます。
-
-# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
-[[file:/r/sync/screenshots/20150309081919.png]]
-Fig1: org-modeのリンクを書いて
-
-[[file:/r/sync/screenshots/20150309081926.png]]
-Fig2: orglink-modeを有効にするとorg同様の表示になって辿れる
-** orglink インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install orglink
-
+#+TITLE: orglink.el : org-modeのリンクを他のメジャーモードで使えるようにする
+[includeme file="inc-package-table.php" name="orglink" where="melpa"]
 
 #+end:
-** 概要                                                             :noexport:
+** 概要
 
 *org-mode* のリンクはとても強力ですが、
 org-mode自体が巨大なメジャーモードであるため
@@ -69,7 +29,7 @@ org-mode自体が巨大なメジャーモードであるため
 *M-x orglink-mode* というマイナーモードを有効にすることで、
 orgのリンクをfont-lockに追加し、RETやC-c C-oで辿れるようにします。
 
-[[http://rubikitch.com/2015/02/25/wiki-nav][wiki-nav.el(レビュー)]] のリンク実装は独自のものですが、
+[[http://emacs.rubikitch.com/wiki-nav][wiki-nav.el(レビュー)]] のリンク実装は独自のものですが、
 これはorg-modeのそれを呼んでいるのでコードは簡潔です。
 
 当然、org-modeのリンクの設定がそのまま活かされます。
@@ -81,6 +41,7 @@ Fig1: org-modeのリンクを書いて
 [[file:/r/sync/screenshots/20150309081926.png]]
 Fig2: orglink-modeを有効にするとorg同様の表示になって辿れる
 
+[includeme file="inc-package-install.php" name="orglink" where="melpa"]
 ** 設定 [[http://rubikitch.com/f/150309080643.orglink.1.el][150309080643.orglink.1.el(以下のコードと同一)]]
 #+BEGIN: include :file "/r/sync/junk/150309/150309080643.orglink.1.el"
 #+BEGIN_SRC fundamental
@@ -105,3 +66,4 @@ $ emacs -Q -f package-initialize -l 150309080643.orglink.1.el
 
 # /r/sync/screenshots/20150309081919.png http://rubikitch.com/wp-content/uploads/2015/03/wpid-20150309081919.png
 # /r/sync/screenshots/20150309081926.png http://rubikitch.com/wp-content/uploads/2015/03/wpid-20150309081926.png
+[includeme file="inc-package-relate.php" name="orglink"]

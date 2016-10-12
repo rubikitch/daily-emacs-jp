@@ -1,34 +1,22 @@
 #+BLOG: rubikitch
-#+POSTID: 516
+#+POSTID: 367
+#+BLOG: rubikitch
 #+DATE: [2014-10-25 Sat 07:24]
 #+PERMALINK: zlc
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
 #+ISPAGE: nil
-#+DESCRIPTION:
+#+DESCRIPTION:ミニバッファにてzshのような補完を行う
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, Emacs 24.4,
+#+CATEGORY: ミニバッファ
 #+EL_PKG_NAME: zlc
-#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs zsh ミニバッファ 補完, emacs 補完, relate:helm, relate:anything
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方
-#+EL_TITLE0: 【Emacs 24.4対応】ミニバッファでzshの補完を実現する
+#+TAGS: 補完
+#+EL_TITLE0: ミニバッファでzshの補完を実現する
 #+EL_URL: http://d.hatena.ne.jp/mooz/20101003/p1
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージzlcの紹介
-#+MYTAGS: package:zlc, emacs 使い方, emacs コマンド, emacs, emacs lisp zlc, elisp zlc, emacs melpa zlc, emacs zlc 使い方, emacs zlc 設定, emacs パッケージ zlc, emacs zsh ミニバッファ 補完, emacs 補完, relate:helm, relate:anything
-#+TITLE: emacs zlc.el : 【Emacs 24.4対応】ミニバッファでzshの補完を実現する | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>zlc</td></tr>
-<tr><td>概要(原文)</td><td>Provides zsh like completion system to Emacs</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>サイト</td><td><a href="http://d.hatena.ne.jp/mooz/20101003/p1">http://d.hatena.ne.jp/mooz/20101003/p1</td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/mooz/emacs-zlc">https://github.com/mooz/emacs-zlc</a></td></tr>
-<tr><td>バージョン</td><td>20141029.647</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:zlc/">package:zlc</a> <a href="http://rubikitch.com/tag/package:helm/">package:helm</a> <a href="http://rubikitch.com/tag/package:anything/">package:anything</a></td></tr>
-</table>
-<br />
-#+END_HTML
+#+TITLE: zlc.el : ミニバッファでzshの補完を実現する
+[includeme file="inc-package-table.php" name="zlc" where="melpa"]
+** 概要
 
 *zsh* の補完って気がきいていて便利ですよね！
 
@@ -57,12 +45,7 @@ Emacsもzsh大好きな人ならば絶対おすすめです！
 
 
 
-** zlc インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install zlc
-
+[includeme file="inc-package-install.php" name="zlc" where="melpa"]
 
 #+end:
 ** 概要                                                             :noexport:
@@ -117,3 +100,4 @@ $ emacs -Q -f package-initialize -l 141025072030.zlc.el
 #+END_EXAMPLE
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+[includeme file="inc-package-relate.php" name="zlc"]

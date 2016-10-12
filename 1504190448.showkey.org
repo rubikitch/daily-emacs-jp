@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 1529
+#+POSTID: 853
+#+BLOG: rubikitch
 #+DATE: [2015-04-19 Sun 04:48]
 #+PERMALINK: showkey
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,91 +8,17 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs
+#+CATEGORY: デバッグ
 #+EL_PKG_NAME: showkey
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, emacs 勉強会, emacs キー操作を表示, emacs 実行中のコマンドを表示, emacs コマンド履歴, emacs 勉強会に役立つ, emacs トラブルシューティング, emacs キー操作を再現
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: 
 #+EL_TITLE0: 【Emacs勉強会・トラブルシューティングの友】キー操作とコマンドの履歴を表示する
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージshowkeyの紹介
-#+MYTAGS: package:showkey, emacs 使い方, emacs コマンド, emacs, showkey, showkey.el, emacs lisp showkey, elisp showkey, emacs melpa showkey, emacs showkey 使い方, emacs showkey 設定, emacs パッケージ showkey, emacs showkey スクリーンショット, emacs 勉強会, emacs キー操作を表示, emacs 実行中のコマンドを表示, emacs コマンド履歴, emacs 勉強会に役立つ, emacs トラブルシューティング, emacs キー操作を再現
-#+TAGS: package:showkey, emacs 使い方, emacs コマンド, emacs, showkey, showkey.el, emacs lisp showkey, elisp showkey, emacs melpa showkey, emacs showkey 使い方, emacs showkey 設定, emacs パッケージ showkey, emacs showkey スクリーンショット, emacs 勉強会, emacs キー操作を表示, emacs 実行中のコマンドを表示, emacs コマンド履歴, emacs 勉強会に役立つ, emacs トラブルシューティング, emacs キー操作を再現, Emacs, 勉強会, トラブルシューティング, 問題が起きた操作を再現, showkey.el, M-x showkey-log-mode, M-x showkey-tooltip-mode, ratpoison, showkey-log-frame-alist, KEYS, トラブルシューティング, 問題が起きた操作を再現, showkey.el, M-x showkey-log-mode, M-x showkey-tooltip-mode, ratpoison, showkey-log-frame-alist, KEYS
-#+TITLE: emacs showkey.el : 【Emacs勉強会・トラブルシューティングの友】キー操作とコマンドの履歴を表示する | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>showkey</td></tr>
-<tr><td>概要(原文)</td><td>Show keys as you use them.</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="http://www.emacswiki.org/showkey.el">http://www.emacswiki.org/showkey.el</a></td></tr>
-<tr><td>バージョン</td><td>20150323.1631</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:showkey/">package:showkey</a> </td></tr>
-</table>
-<br />
-#+END_HTML
-Emacs *勉強会* で操作を披露するとき、
-どのように操作しているのかを示したいことがあります。
-
-そのとき操作しているキーとコマンドを表示してくれると理解されやすいです。
-
-また、 *トラブルシューティング* の相談をする際、
-相手に *問題が起きた操作を再現* させるためにも役立ちます。
-
-*showkey.el* は、2つの方法でキー操作を示します。
-
-- *M-x showkey-log-mode* は別フレームで操作履歴を表示 (Fig1, Fig2)
-- *M-x showkey-tooltip-mode* は操作中のキーをカーソルの近くで表示 (Fig3)
-
-Fig1のフレームは左右並んでいますが、
-これは僕が *ratpoison* ウィンドウマネージャーを使っているためであり、
-本当は小さいウィンドウがひょっこりと出てくるはずです。
-
-フレームの設定は *showkey-log-frame-alist* で行います。
-
-*KEYS*バッファに記録されるので、相談相手に操作方法を示す際には
-#+BEGIN_EXAMPLE
-M-x insert-buffer *KEYS*
-#+END_EXAMPLE
-でメールに貼り付けるといいです。
-
-僕の環境ではここで設定されているデフォルトのフォントがなくて
-エラーになったので愛用のRictyフォントにしていますが、
-インストールされている環境では無設定でも動作します。
-
-Fig3の黒い部分は本当は白地に赤字で
-#+BEGIN_EXAMPLE
-<up> runs the command `previous-line'
-#+END_EXAMPLE
-などと表示されます。
-
-どうやってもうまくスクリーンショットが撮れませんでした。
-
-使ってみたところshowkey-tooltip-modeはコマンド実行直後に
-毎回tooltipの描画が行われるため、もたつく印象があります。
-
-よって、showkey-log-modeの方をおすすめします。
-
-# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150419044724.png]]
-Fig1: M-x showkey-log-modeでコマンドのログを取るフレームが現れる
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150419044731.png]]
-Fig2: Fig1の拡大図！ログはこんな感じで記録される
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150419044749.png]]
-Fig3: カーソル位置にキー・コマンド情報がポップアップする
-** showkey インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install showkey
-
+#+TITLE: showkey.el : 【Emacs勉強会・トラブルシューティングの友】キー操作とコマンドの履歴を表示する
+[includeme file="inc-package-table.php" name="showkey" where="melpa"]
 
 #+end:
-** 概要                                                             :noexport:
+** 概要
 Emacs *勉強会* で操作を披露するとき、
 どのように操作しているのかを示したいことがあります。
 
@@ -147,6 +74,7 @@ Fig2: Fig1の拡大図！ログはこんな感じで記録される
 [[file:/r/sync/screenshots/20150419044749.png]]
 Fig3: カーソル位置にキー・コマンド情報がポップアップする
 
+[includeme file="inc-package-install.php" name="showkey" where="melpa"]
 ** 設定 [[http://rubikitch.com/f/150419044419.showkey.el][150419044419.showkey.el(以下のコードと同一)]]
 #+BEGIN: include :file "/r/sync/junk/150419/150419044419.showkey.el"
 #+BEGIN_SRC fundamental
@@ -165,3 +93,4 @@ $ emacs -Q -f package-initialize -l 150419044419.showkey.el
 # /r/sync/screenshots/20150419044724.png http://rubikitch.com/wp-content/uploads/2015/04/wpid-20150419044724.png
 # /r/sync/screenshots/20150419044731.png http://rubikitch.com/wp-content/uploads/2015/04/wpid-20150419044731.png
 # /r/sync/screenshots/20150419044749.png http://rubikitch.com/wp-content/uploads/2015/04/wpid-20150419044749.png
+[includeme file="inc-package-relate.php" name="showkey"]

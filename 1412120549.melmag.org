@@ -1,13 +1,14 @@
 #+BLOG: rubikitch
-#+POSTID: 706
+#+POSTID: 55
+#+BLOG: rubikitch
 #+DATE: [2014-12-12 Fri 05:49]
-#+PERMALINK: melmag
+#+PERMALINK: melmag159
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
 #+ISPAGE: nil
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: メルマガ, 
+#+CATEGORY: るびきち塾メルマガ 
 #+DESCRIPTION: 年末3回のメルマガ『Emacsの鬼るびきちのココだけの話』#159〜#161は今年の総集編！
 #+MYTAGS: 
 #+TITLE: 年末3回のメルマガは総集編＋最新情報！
@@ -26,7 +27,7 @@
 パッケージシステム登場により
 /Emacs新時代が到来しました！/
 
-今年は[[http://rubikitch.com/2014/10/21/emacs244-2/][新機能満載の24.4]] がリリースされましたね。
+今年は[[http://emacs.rubikitch.com/emacs244-2/][新機能満載の24.4]] がリリースされましたね。
 
 今回から3回に分けて今年の分のメルマガを
 要約した総集編をお送りします。

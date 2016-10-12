@@ -1,18 +1,19 @@
 #+BLOG: rubikitch
-#+POSTID: 2662
+#+POSTID: 163
+#+BLOG: rubikitch
 #+DATE: [2016-08-12 Fri 05:51]
-#+PERMALINK: melmag
+#+PERMALINK: melmag246
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
 #+ISPAGE: nil
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: メルマガ,
+#+CATEGORY: るびきち塾メルマガ
 #+DESCRIPTION: るびきち塾メルマガ『Emacsの鬼るびきちのココだけの話#246』の予告
 #+TITLE: 【るびきち塾メルマガ#246】難解機能の牙城を切り崩せ！
 #+MYTAGS: 
 #+begin: org2blog-tags
-#+TAGS: , メルマガ,, 
+
 #+end:
 
 あなたはEmacsを使っていて

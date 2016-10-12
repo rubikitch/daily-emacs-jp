@@ -1,74 +1,23 @@
 #+BLOG: rubikitch
-#+POSTID: 368
+#+POSTID: 306
+#+BLOG: rubikitch
 #+DATE: [2014-09-21 Sun 10:38]
 #+PERMALINK: org-toc
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t
 #+ISPAGE: nil
-#+DESCRIPTION:
+#+DESCRIPTION:orgファイルに目次をつける。GitHub対応
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, org-mode
+#+CATEGORY: 文書作成
 #+EL_PKG_NAME: toc-org
-#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, org-mode 目次 自動更新, org-mode export 目次, emacs org-mode table of contents, package:org, relate:org, package:toc-org
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方
+#+TAGS: GitHub, org
 #+EL_TITLE0: 【toc-orgへ名前変更】github用のREADME.orgの目次を自動生成！通常のorgファイルの目次も作れる
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージtoc-orgの紹介
-#+MYTAGS: package:toc-org, emacs 使い方, emacs コマンド, emacs, emacs lisp toc-org, elisp toc-org, emacs melpa toc-org, emacs toc-org 使い方, emacs toc-org 設定, emacs パッケージ toc-org, org-mode 目次 自動更新, org-mode export 目次, emacs org-mode table of contents, package:org, relate:org, package:toc-org
-#+TAGS: package:toc-org, emacs 使い方, emacs コマンド, emacs, emacs lisp toc-org, elisp toc-org, emacs melpa toc-org, emacs toc-org 使い方, emacs toc-org 設定, emacs パッケージ toc-org, org-mode 目次 自動更新, org-mode export 目次, emacs org-mode table of contents, package:org, relate:org, package:toc-org, Emacs, org-mode, org-toc.el, toc-org.el, orgファイル, 目次, github用README.org, org-toc.el, toc-org.el, orgファイル, 目次, github用README.org
-#+TITLE: emacs toc-org.el : 【toc-orgへ名前変更】github用のREADME.orgの目次を自動生成！通常のorgファイルの目次も作れる | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>toc-org</td></tr>
-<tr><td>概要(原文)</td><td>add table of contents to org-mode files (formerly, org-toc)</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/snosov1/toc-org">https://github.com/snosov1/toc-org</a></td></tr>
-<tr><td>バージョン</td><td>20150421.438</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:toc-org/">package:toc-org</a> <a href="http://rubikitch.com/tag/package:org/">package:org</a></td></tr>
-</table>
-<br />
-#+END_HTML
-<2015-04-22 Wed>
-*org-toc.el* は名前がかぶっているため toc-org.el にリネームされました。
-設定変更をお願いします！！！！
-
-*toc-org.el* は、 *orgファイル* に自動的に *目次* をつけます。
-
-とくに *github用README.org* を書く場合に便利です。
-
-html exportするときは勝手に目次がつけられるので、これは不要です。
-
-githubにおいてはexportされずに独自の方法で
-HTML化されるのでこのパッケージが役立ちます。
-
-設定を加えた後、目次用の見出しに「TOC」というタグをつけるだけで、
-その見出しが目次になります。
-
-
-タグは見出しでC-c C-c、あるいは任意の場所でC-c C-qでつけられます。
-
-目次はファイルを保存するときに自動更新されます。
-
-TOCタグのデフォルトの設定は
-- github用
-- 見出しレベル2(~**~)までが目次になる
-となっています。
-
-「TOC@3」と指定すれば、レベル3(~***~)までが目次になります。
-
-exportせずにorgファイル内でリンクをたどれるようにするには
-「TOC@2@org」のように目次化したいレベルとorgを指定します。
-
-# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
-** toc-org インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install toc-org
-
+#+TITLE: toc-org.el : 【toc-orgへ名前変更】github用のREADME.orgの目次を自動生成！通常のorgファイルの目次も作れる
+[includeme file="inc-package-table.php" name="toc-org" where="melpa"]
 
 #+end:
-** 概要                                                             :noexport:
+** 概要
 <2015-04-22 Wed>
 *org-toc.el* は名前がかぶっているため toc-org.el にリネームされました。
 設定変更をお願いします！！！！
@@ -101,6 +50,7 @@ exportせずにorgファイル内でリンクをたどれるようにするに�
 「TOC@2@org」のように目次化したいレベルとorgを指定します。
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+[includeme file="inc-package-install.php" name="toc-org" where="melpa"]
 ** 設定 [[http://rubikitch.com/f/140921104232.org-toc.1.el][140921104232.org-toc.1.el(以下のコードと同一)]]
 #+BEGIN: include :file "/r/sync/junk/140921/140921104232.org-toc.1.el"
 #+BEGIN_SRC fundamental
@@ -124,3 +74,4 @@ $ emacs -Q -f package-initialize -l 140921104232.org-toc.1.el
 
 *** org用
 #+INCLUDE: ../../../junk/140921/140921104633.org example
+[includeme file="inc-package-relate.php" name="toc-org"]

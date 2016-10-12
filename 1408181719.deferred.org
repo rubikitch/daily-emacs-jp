@@ -1,32 +1,21 @@
 #+BLOG: rubikitch
-#+POSTID: 181
+#+POSTID: 224
+#+BLOG: rubikitch
 #+DATE: [2014-08-18 Mon 17:19]
 #+PERMALINK: deferred
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t
 #+ISPAGE: nil
-#+DESCRIPTION:
+#+DESCRIPTION:タイマーによる非同期処理を行う
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, Emacs Lisp,
+#+CATEGORY: マルチスレッド
 #+EL_PKG_NAME: deferred
-#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, emacs マルチスレッド, emacs 遅延処理, emacs marquee, emacs httpアクセス, emacs httpクライアント, emacs プロセス処理, emacs 並列処理, relate:async
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: 非同期処理, タイマー, 
 #+EL_TITLE0: Emacs Lispで疑似マルチスレッドプログラミング
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージdeferredの紹介
-#+MYTAGS: package:deferred, emacs 使い方, emacs コマンド, emacs, emacs lisp deferred, elisp deferred, emacs melpa deferred, emacs deferred 使い方, emacs deferred 設定, emacs パッケージ deferred, emacs deferred スクリーンショット, emacs マルチスレッド, emacs 遅延処理, emacs marquee, emacs httpアクセス, emacs httpクライアント, emacs プロセス処理, emacs 並列処理, relate:async
-#+TITLE: emacs deferred.el : Emacs Lispで疑似マルチスレッドプログラミング | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>deferred</td></tr>
-<tr><td>概要(原文)</td><td>Simple asynchronous functions for emacs lisp</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/kiwanami/emacs-deferred">https://github.com/kiwanami/emacs-deferred</a></td></tr>
-<tr><td>バージョン</td><td>20141208.1613</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:deferred/">package:deferred</a> <a href="http://rubikitch.com/tag/package:async/">package:async</a></td></tr>
-</table>
-<br />
-#+END_HTML
+#+TITLE: deferred.el : Emacs Lispで疑似マルチスレッドプログラミング
+[includeme file="inc-package-table.php" name="deferred" where="melpa"]
+** 概要
 deferred.elはEmacs Lispで疑似マルチスレッド
 プログラミングができるようにするライブラリです。
 
@@ -50,12 +39,7 @@ strとdelayはレキシカルスコープでないと動作しません。
 ただし、レキシカルスコープがサポートされているのはEmacs24からなので、
 Emacs23以前を使っている方は *lexical-let* を使ってください。
 
-** deferred インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install deferred
-
+[includeme file="inc-package-install.php" name="deferred" where="melpa"]
 
 #+end:
 ** 概要                                                             :noexport:
@@ -172,3 +156,4 @@ Fig2: 画像を縮小して挿入
 $ wget http://rubikitch.com/f/mylisp-marquee.el
 $ emacs -Q -f package-initialize -l mylisp-marquee.el -eval '(marquee-string "foobarbaz" 0.2)'
 #+END_EXAMPLE
+[includeme file="inc-package-relate.php" name="deferred"]

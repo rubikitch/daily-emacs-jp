@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 1833
+#+POSTID: 1030
+#+BLOG: rubikitch
 #+DATE: [2015-07-16 Thu 01:38]
 #+PERMALINK: ffap-dired
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,12 +8,13 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, dired, 
+#+TAGS: ffap, dired
+#+CATEGORY: ファイルを開く
 #+DESCRIPTION: C-x C-fでカーソル位置のファイル・URL・dired(ワイルドカード対応)を開くようにする設定
-#+MYTAGS: package:ffap, package:dired, カーソル位置のファイルを開く, ワイルドカードをdired, URLをC-x C-fで開く
 #+TITLE: C-x C-fでカーソル位置のファイル・URLを開いたりワイルドカードをdiredで開いたり
 #+begin: org2blog-tags
-#+TAGS: package:ffap, package:dired, カーソル位置のファイルを開く, ワイルドカードをdired, URLをC-x C-fで開く, Emacs, dired, , ffap, browse-url, ffap-pass-wildcards-to-dired, minibuffer-local-filename-completion-map, C-x C-f, C-x d
+# content-length: 1001
+
 #+end:
 標準パッケージ *ffap* は、C-x C-fなどをカイゼンします。
 

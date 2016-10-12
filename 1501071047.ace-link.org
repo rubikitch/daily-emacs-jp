@@ -1,5 +1,4 @@
 #+BLOG: rubikitch
-#+POSTID: 879
 #+DATE: [2015-01-07 Wed 10:47]
 #+PERMALINK: ace-link
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -11,7 +10,7 @@
 #+DESCRIPTION: 
 #+MYTAGS: 
 #+TITLE: ace-linkでEWWの隣接するリンクが辿れないバグを修正
-[[http://rubikitch.com/2014/12/30/ace-link/]]
+[[http://emacs.rubikitch.com/ace-link/]]
 
 ace-link.elでEWWの隣接するリンクが辿れないバグがあったので、
 設定側で修正しておきました。

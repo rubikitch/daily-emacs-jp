@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 2009
+#+POSTID: 1149
+#+BLOG: rubikitch
 #+DATE: [2015-09-21 Mon 16:55]
 #+PERMALINK: sexp-move
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,28 +8,17 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs
+#+CATEGORY: カーソル移動
 #+EL_PKG_NAME: sexp-move
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: 
 #+EL_TITLE0: 【Lisp的単語移動】S式の最小単位(atom)で移動する
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージsexp-moveの紹介
-#+MYTAGS: package:sexp-move, emacs 使い方, emacs コマンド, emacs, sexp-move, sexp-move.el, emacs lisp sexp-move, elisp sexp-move, emacs melpa sexp-move, emacs sexp-move 使い方, emacs sexp-move 設定, emacs パッケージ sexp-move, emacs sexp-move スクリーンショット
-#+TAGS: package:sexp-move, emacs 使い方, emacs コマンド, emacs, sexp-move, sexp-move.el, emacs lisp sexp-move, elisp sexp-move, emacs melpa sexp-move, emacs sexp-move 使い方, emacs sexp-move 設定, emacs パッケージ sexp-move, emacs sexp-move スクリーンショット, Emacs, sexp-move.el, M-x sexp-move-forward, M-x sexp-move-backward, M-x sexp-move-forward, M-x sexp-move-backward
-#+TITLE: emacs sexp-move.el : 【Lisp的単語移動】S式の最小単位(atom)で移動する | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>sexp-move</td></tr>
-<tr><td>概要(原文)</td><td>Improved S-Expression Movement</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://gitlab.com/elzair/sexp-move">https://gitlab.com/elzair/sexp-move</a></td></tr>
-<tr><td>バージョン</td><td>20150915.1030</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:sexp-move/">package:sexp-move</a> </td></tr>
-</table>
-<br />
-#+END_HTML
+#+TITLE: sexp-move.el : 【Lisp的単語移動】S式の最小単位(atom)で移動する
+[includeme file="inc-package-table.php" name="sexp-move" where="melpa"]
+
+#+end:
+** 概要
 *sexp-move.el* は、Lispの最小単位の移動をするコマンド2つを定義しています。
 
 *M-x sexp-move-forward* と *M-x sexp-move-backward* です。
@@ -46,33 +36,8 @@ Fig1: 止まる場所
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
 
 
-** sexp-move インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
 
-M-x package-refresh-contents
-M-x package-install sexp-move
-
-
-#+end:
-** 概要                                                             :noexport:
-*sexp-move.el* は、Lispの最小単位の移動をするコマンド2つを定義しています。
-
-*M-x sexp-move-forward* と *M-x sexp-move-backward* です。
-
-これらのコマンドを実行すると、シンボルの前後や()に移動します。
-
-# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150921170912.png]]
-Fig2: 止まる場所
-
-
-単語移動のM-f/M-bに割り当てるとしっくりくるでしょう。
-
-# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
-
-
-
+[includeme file="inc-package-install.php" name="sexp-move" where="melpa"]
 ** 設定 [[http://rubikitch.com/f/150921170158.sexp-move.el][150921170158.sexp-move.el(以下のコードと同一)]]
 #+BEGIN: include :file "/r/sync/junk/150921/150921170158.sexp-move.el"
 #+BEGIN_SRC fundamental
@@ -95,3 +60,4 @@ Fig2: 止まる場所
 $ wget http://rubikitch.com/f/150921170158.sexp-move.el
 $ emacs -Q -f package-initialize -l 150921170158.sexp-move.el
 #+END_EXAMPLE
+[includeme file="inc-package-relate.php" name="sexp-move"]

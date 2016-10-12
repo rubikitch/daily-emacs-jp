@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 2543
+#+POSTID: 1490
+#+BLOG: rubikitch
 #+DATE: [2016-07-24 Sun 11:13]
 #+PERMALINK: openwith
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,54 +8,17 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, dired
+#+CATEGORY: ファイル関連付け
 #+EL_PKG_NAME: openwith
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, relate:dired-open, relate:runner, nohup, open, org-file-apps, relate:unify-opening, dired コマンド, dired コマンド登録, dired シェルコマンド, dired ファイル 関連付け, dired アプリケーション 関連付け, dired open, dired 拡張子 アプリケーション 関連付け, dired 拡張子 コマンド, dired 拡張子, relate:runner, emacs pdf 外部プログラム, メディアファイル 外部プログラム, メディアファイル, PDFファイル, relate:crux
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 
+#+TAGS: dired
 #+EL_TITLE0: C-x C-fやdiredで外部プログラムを使ってファイルを開く
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージopenwithの紹介
-#+MYTAGS: package:openwith, emacs 使い方, emacs コマンド, emacs, openwith, openwith.el, emacs lisp openwith, elisp openwith, emacs melpa openwith, emacs openwith 使い方, emacs openwith 設定, emacs パッケージ openwith, relate:dired-open, relate:runner, nohup, open, org-file-apps, relate:unify-opening, dired コマンド, dired コマンド登録, dired シェルコマンド, dired ファイル 関連付け, dired アプリケーション 関連付け, dired open, dired 拡張子 アプリケーション 関連付け, dired 拡張子 コマンド, dired 拡張子, relate:runner, emacs pdf 外部プログラム, メディアファイル 外部プログラム, メディアファイル, PDFファイル, relate:crux
-#+TAGS: package:openwith, emacs 使い方, emacs コマンド, emacs, openwith, openwith.el, emacs lisp openwith, elisp openwith, emacs melpa openwith, emacs openwith 使い方, emacs openwith 設定, emacs パッケージ openwith, relate:dired-open, relate:runner, nohup, open, org-file-apps, relate:unify-opening, dired コマンド, dired コマンド登録, dired シェルコマンド, dired ファイル 関連付け, dired アプリケーション 関連付け, dired open, dired 拡張子 アプリケーション 関連付け, dired 拡張子 コマンド, dired 拡張子, relate:runner, emacs pdf 外部プログラム, メディアファイル 外部プログラム, メディアファイル, PDFファイル, relate:crux, Emacs, dired, M-x openwith-mode, M-x openwith-mode
-#+TITLE: emacs openwith.el : C-x C-fやdiredで外部プログラムを使ってファイルを開く | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>openwith</td></tr>
-<tr><td>概要(原文)</td><td>Open files with external programs</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href=""></a></td></tr>
-<tr><td>バージョン</td><td>20120531.1436</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:openwith/">package:openwith</a> <a href="http://rubikitch.com/tag/package:dired-open/">package:dired-open</a> <a href="http://rubikitch.com/tag/package:runner/">package:runner</a> <a href="http://rubikitch.com/tag/package:unify-opening/">package:unify-opening</a> <a href="http://rubikitch.com/tag/package:runner/">package:runner</a> <a href="http://rubikitch.com/tag/package:crux/">package:crux</a></td></tr>
-</table>
-<br />
-#+END_HTML
-
-openwith.elは外部プログラムを使って
-ファイルを開くパッケージです。
-
-たとえばPDFを開きたいときは
-専用のPDFビューアで開きたいと思う人もいるでしょう。
-
-グローバルマイナーモード *M-x openwith-mode* を有効にすれば
-C-x C-fでシームレスに外部プログラムでファイルを開けます。
-
-[[http://rubikitch.com/2015/08/23/dired-open/][dired-open.el(レビュー)]] のように
-diredからでも外部プログラムを利用するようになります。
-
-openwith.elの特徴は、
-外部プログラムの親プロセスをEmacsから切り離すので、
-たとえEmacsが落ちても外部プログラムまで道連れにはしません。
-unixではnohupコマンドを、Windowsではopenコマンドを使用します。
-** openwith インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install openwith
-
+#+TITLE: openwith.el : C-x C-fやdiredで外部プログラムを使ってファイルを開く
+[includeme file="inc-package-table.php" name="openwith" where="melpa"]
 
 #+end:
-** 概要                                                             :noexport:
+** 概要
 
 openwith.elは外部プログラムを使って
 ファイルを開くパッケージです。
@@ -65,7 +29,7 @@ openwith.elは外部プログラムを使って
 グローバルマイナーモード *M-x openwith-mode* を有効にすれば
 C-x C-fでシームレスに外部プログラムでファイルを開けます。
 
-[[http://rubikitch.com/2015/08/23/dired-open/][dired-open.el(レビュー)]] のように
+[[http://emacs.rubikitch.com/dired-open/][dired-open.el(レビュー)]] のように
 diredからでも外部プログラムを利用するようになります。
 
 openwith.elの特徴は、
@@ -73,6 +37,7 @@ openwith.elの特徴は、
 たとえEmacsが落ちても外部プログラムまで道連れにはしません。
 unixではnohupコマンドを、Windowsではopenコマンドを使用します。
 
+[includeme file="inc-package-install.php" name="openwith" where="melpa"]
 ** 設定 [[http://rubikitch.com/f/160724112210.openwith.el][160724112210.openwith.el(以下のコードと同一)]]
 #+BEGIN: include :file "/r/sync/junk/160724/160724112210.openwith.el"
 #+BEGIN_SRC fundamental
@@ -114,3 +79,4 @@ $ emacs -Q -f package-initialize -l 160724112210.openwith.el
 
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+[includeme file="inc-package-relate.php" name="openwith"]

@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 2087
+#+POSTID: 1198
+#+BLOG: rubikitch
 #+DATE: [2015-10-18 Sun 09:49]
 #+PERMALINK: shrink-whitespace
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,28 +8,17 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs
+#+CATEGORY: 入力支援
 #+EL_PKG_NAME: shrink-whitespace
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, relate:smart-newline, just-one-space, M-SPC, open-line, C-o, M-＼, delete-horizontal-space, ホワイトスペース
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: 標準コマンド強化
 #+EL_TITLE0: 【M-＼拡張】カーソル周りの複数のホワイトスペースを1つ→除去する
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージshrink-whitespaceの紹介
-#+MYTAGS: package:shrink-whitespace, emacs 使い方, emacs コマンド, emacs, shrink-whitespace, shrink-whitespace.el, emacs lisp shrink-whitespace, elisp shrink-whitespace, emacs melpa shrink-whitespace, emacs shrink-whitespace 使い方, emacs shrink-whitespace 設定, emacs パッケージ shrink-whitespace, emacs shrink-whitespace スクリーンショット, relate:smart-newline, just-one-space, M-SPC, open-line, C-o, M-＼, delete-horizontal-space, ホワイトスペース
-#+TAGS: package:shrink-whitespace, emacs 使い方, emacs コマンド, emacs, shrink-whitespace, shrink-whitespace.el, emacs lisp shrink-whitespace, elisp shrink-whitespace, emacs melpa shrink-whitespace, emacs shrink-whitespace 使い方, emacs shrink-whitespace 設定, emacs パッケージ shrink-whitespace, emacs shrink-whitespace スクリーンショット, relate:smart-newline, just-one-space, M-SPC, open-line, C-o, M-＼, delete-horizontal-space, ホワイトスペース, Emacs, shrink-whitespace.el, M-x shrink-whitespace, M-x shrink-whitespace-grow-whitespace-around, M-x shrink-whitespace-shrink-whitespace-around, M-x shrink-whitespace, M-x shrink-whitespace-grow-whitespace-around, M-x shrink-whitespace-shrink-whitespace-around
-#+TITLE: emacs shrink-whitespace.el : 【M-＼拡張】カーソル周りの複数のホワイトスペースを1つ→除去する | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>shrink-whitespace</td></tr>
-<tr><td>概要(原文)</td><td>Whitespace removal DWIM key</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/jcpetkovich/shrink-whitespace.el">https://github.com/jcpetkovich/shrink-whitespace.el</a></td></tr>
-<tr><td>バージョン</td><td>20150916.1215</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:shrink-whitespace/">package:shrink-whitespace</a> <a href="http://rubikitch.com/tag/package:smart-newline/">package:smart-newline</a></td></tr>
-</table>
-<br />
-#+END_HTML
+#+TITLE: shrink-whitespace.el : 【M-＼拡張】カーソル周りの複数のホワイトスペースを1つ→除去する
+[includeme file="inc-package-table.php" name="shrink-whitespace" where="melpa"]
+
+#+end:
+** 概要
 *shrink-whitespace.el* は、カーソル周りのホワイトスペースを調節してくれるコマンド群です。
 
 元々EmacsにはM-SPC(just-one-space)というカーソル周りのスペースを1つにするコマンドとM-\(delete-horizontal-space)というスペースを除去するコマンドが用意されています。
@@ -39,7 +29,7 @@ M-SPCの自然な拡張なのでM-SPCに割り当てるとよいでしょう。
 好みによってはM-\でもいいでしょう。
 
 *M-x shrink-whitespace-grow-whitespace-around* は、実行のたびにカーソル行前後に空行を設置します。
-これは[[http://rubikitch.com/2014/12/31/smart-newline/][smart-newline.el(レビュー)]] と働きがかぶるのでわざわざ新設コマンドにするまでもないでしょう。
+これは[[http://emacs.rubikitch.com/smart-newline/][smart-newline.el(レビュー)]] と働きがかぶるのでわざわざ新設コマンドにするまでもないでしょう。
 
 *M-x shrink-whitespace-shrink-whitespace-around* は、実行のたびにカーソル行周りの空行を減らします。
 これも利用価値はよくわかりません。
@@ -68,55 +58,8 @@ Fig5: 改行が1つになり、さらにM-SPCすると
 #+ATTR_HTML: :width 480
 [[file:/r/sync/screenshots/20151018100835.png]]
 Fig6: 改行がなくなる
-** shrink-whitespace インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
 
-M-x package-refresh-contents
-M-x package-install shrink-whitespace
-
-
-#+end:
-** 概要                                                             :noexport:
-*shrink-whitespace.el* は、カーソル周りのホワイトスペースを調節してくれるコマンド群です。
-
-元々EmacsにはM-SPC(just-one-space)というカーソル周りのスペースを1つにするコマンドとM-\(delete-horizontal-space)というスペースを除去するコマンドが用意されています。
-*M-x shrink-whitespace* はこれらを統合します。
-最初に実行するとM-SPC同様スペースを1つにし、再実行でスペースを除去します。
-このコマンドはスペースに限らず改行についても働き、空行で実行すると複数の改行を1つにし、再実行で改行を取り除きます。
-M-SPCの自然な拡張なのでM-SPCに割り当てるとよいでしょう。
-好みによってはM-\でもいいでしょう。
-
-*M-x shrink-whitespace-grow-whitespace-around* は、実行のたびにカーソル行前後に空行を設置します。
-これは[[http://rubikitch.com/2014/12/31/smart-newline/][smart-newline.el(レビュー)]] と働きがかぶるのでわざわざ新設コマンドにするまでもないでしょう。
-
-*M-x shrink-whitespace-shrink-whitespace-around* は、実行のたびにカーソル行周りの空行を減らします。
-これも利用価値はよくわかりません。
-
-# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20151018100808.png]]
-Fig7: この状態でM-SPCすると
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20151018100814.png]]
-Fig8: 標準同様スペースが1つに。さらにM-SPCで
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20151018100818.png]]
-Fig9: M-\同様スペースがなくなる。
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20151018100824.png]]
-Fig10: この状態でM-SPCすると
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20151018100830.png]]
-Fig11: 改行が1つになり、さらにM-SPCすると
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20151018100835.png]]
-Fig12: 改行がなくなる
-
+[includeme file="inc-package-install.php" name="shrink-whitespace" where="melpa"]
 ** 設定 [[http://rubikitch.com/f/151018100726.shrink-whitespace.el][151018100726.shrink-whitespace.el(以下のコードと同一)]]
 #+BEGIN: include :file "/r/sync/junk/151018/151018100726.shrink-whitespace.el"
 #+BEGIN_SRC fundamental
@@ -130,3 +73,4 @@ Fig12: 改行がなくなる
 $ wget http://rubikitch.com/f/151018100726.shrink-whitespace.el
 $ emacs -Q -f package-initialize -l 151018100726.shrink-whitespace.el
 #+END_EXAMPLE
+[includeme file="inc-package-relate.php" name="shrink-whitespace"]

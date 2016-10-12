@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 1597
+#+POSTID: 881
+#+BLOG: rubikitch
 #+DATE: [2015-05-01 Fri 04:12]
 #+PERMALINK: xah-replace-pairs
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,46 +8,22 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, Emacs Lisp, 
+#+CATEGORY: 置換
 #+EL_PKG_NAME: xah-replace-pairs
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, elisp 置換, replace-string, replace-regexp, elisp 正規表現置換
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール ライブラリ 使い方 
+#+TAGS: 
 #+EL_TITLE0: elispで文字列置換・正規表現置換をスタイリッシュに記述する！
 #+EL_URL: http://ergoemacs.org/emacs/elisp_replace_string_region.html
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージxah-replace-pairsの紹介
-#+MYTAGS: package:xah-replace-pairs, emacs 使い方, emacs コマンド, emacs, xah-replace-pairs, xah-replace-pairs.el, emacs lisp xah-replace-pairs, elisp xah-replace-pairs, emacs melpa xah-replace-pairs, emacs xah-replace-pairs 使い方, emacs xah-replace-pairs 設定, emacs パッケージ xah-replace-pairs, elisp 置換, replace-string, replace-regexp, elisp 正規表現置換
-#+TAGS: package:xah-replace-pairs, emacs 使い方, emacs コマンド, emacs, xah-replace-pairs, xah-replace-pairs.el, emacs lisp xah-replace-pairs, elisp xah-replace-pairs, emacs melpa xah-replace-pairs, emacs xah-replace-pairs 使い方, emacs xah-replace-pairs 設定, emacs パッケージ xah-replace-pairs, elisp 置換, replace-string, replace-regexp, elisp 正規表現置換, Emacs, Emacs Lisp, , xah-replace-pairs.el, xah-replace-pairs.el, replace-string, replace-regexp, replace-regexp-in-string, xah-replace-pairs-region, xah-replace-regexp-pairs-region, xah-replace-pairs-in-string, xah-replace-pairs-region, with-temp-buffer, insert, buffer-string, xah-replace-regexp-pairs-in-string, xah-replace-pairs-region-recursive, xah-replace-pairs-in-string-recursive
-#+TITLE: emacs xah-replace-pairs.el : elispで文字列置換・正規表現置換をスタイリッシュに記述する！ | MELPA Emacs Lisp Elisp パッケージ インストール ライブラリ 使い方 
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>xah-replace-pairs</td></tr>
-<tr><td>概要(原文)</td><td>Multi-pair find/replace in strings and region.</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>サイト</td><td><a href="http://ergoemacs.org/emacs/elisp_replace_string_region.html">http://ergoemacs.org/emacs/elisp_replace_string_region.html</td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/xahlee/xah-replace-pairs">https://github.com/xahlee/xah-replace-pairs</a></td></tr>
-<tr><td>バージョン</td><td>20150429.530</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:xah-replace-pairs/">package:xah-replace-pairs</a> </td></tr>
-</table>
-<br />
-#+END_HTML
-elispで置換処理を書くのはけっこう面倒です。
-
-*xah-replace-pairs.el* は、バッファ内・文字列の置換を
-一発で記述できるようにするライブラリです。
-** xah-replace-pairs インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install xah-replace-pairs
-
+#+TITLE: xah-replace-pairs.el : elispで文字列置換・正規表現置換をスタイリッシュに記述する！
+[includeme file="inc-package-table.php" name="xah-replace-pairs" where="melpa"]
 
 #+end:
-** 概要                                                             :noexport:
+** 概要
 elispで置換処理を書くのはけっこう面倒です。
 
 *xah-replace-pairs.el* は、バッファ内・文字列の置換を
 一発で記述できるようにするライブラリです。
+[includeme file="inc-package-install.php" name="xah-replace-pairs" where="melpa"]
 ** replace-stringやreplace-regexpをelispで使ってはいけない
 
 バッファ内の文字列や正規表現を置換するならば、
@@ -221,3 +198,4 @@ xah-replace(-regexp)?-pairs-(region|in-string)(-recursive)?
 elispプログラマならば、ぜひ導入したいところです。
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+[includeme file="inc-package-relate.php" name="xah-replace-pairs"]

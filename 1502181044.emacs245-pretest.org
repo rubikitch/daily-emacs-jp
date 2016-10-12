@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 1174
+#+POSTID: 712
+#+BLOG: rubikitch
 #+DATE: [2015-02-18 Wed 10:44]
 #+PERMALINK: emacs245-pretest
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,12 +8,13 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, Emacs 24.5
+#+CATEGORY: リリース情報
+#+TAGS: Emacs 24.5以降
 #+DESCRIPTION: Emacs 24.5のpretest登場。24.4のバグ修正がメインのようだ。
-#+MYTAGS: 
 #+TITLE: Emacs24.5 pretest(24.4.90)出ました
 #+begin: org2blog-tags
-#+TAGS: , Emacs, Emacs 24.5, Emacs24.5
+# content-length: 927
+
 #+end:
 http://lists.gnu.org/archive/html/emacs-devel/2015-02/msg01028.html
 

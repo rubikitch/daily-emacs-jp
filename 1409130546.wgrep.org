@@ -1,70 +1,29 @@
 #+BLOG: rubikitch
-#+POSTID: 345
+#+POSTID: 292
+#+BLOG: rubikitch
 #+DATE: [2014-09-13 Sat 05:46]
 #+PERMALINK: wgrep
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t
 #+ISPAGE: nil
-#+DESCRIPTION:
+#+DESCRIPTION:M-x grep/M-x agなどの検索結果を編集してファイルに反映させる
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs
+#+CATEGORY: 置換
 #+EL_PKG_NAME: wgrep
-#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, emacs 置換 検索, emacs 正規表現置換, emacs grep ag pt, package:wgrep-ag, package:wgrep-pt, package:wgrep-helm, package:wgrep-ack, relate:ag, relate:wdired, emacs grep 編集, emacs ag 編集, emacs ack 編集, relate:helm
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: るびきちオススメ, 外部プログラム使用, the_silver_searcher, 正規表現
 #+EL_TITLE0: *grep*や*ag*バッファを編集してその結果をファイルに反映させる凄技
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージwgrepの紹介
-#+MYTAGS: package:wgrep, emacs 使い方, emacs コマンド, emacs, emacs lisp wgrep, elisp wgrep, emacs melpa wgrep, emacs wgrep 使い方, emacs wgrep 設定, emacs パッケージ wgrep, emacs wgrep スクリーンショット, emacs 置換 検索, emacs 正規表現置換, emacs grep ag pt, package:wgrep-ag, package:wgrep-pt, package:wgrep-helm, package:wgrep-ack, relate:ag, relate:wdired, emacs grep 編集, emacs ag 編集, emacs ack 編集, relate:helm
-#+TITLE: emacs wgrep.el : *grep*や*ag*バッファを編集してその結果をファイルに反映させる凄技 | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>wgrep</td></tr>
-<tr><td>概要(原文)</td><td>Writable grep buffer and apply the changes to files</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/mhayashi1120/Emacs-wgrep">https://github.com/mhayashi1120/Emacs-wgrep</a></td></tr>
-<tr><td>バージョン</td><td>20141016.1656</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:wgrep/">package:wgrep</a> <a href="http://rubikitch.com/tag/package:ag/">package:ag</a> <a href="http://rubikitch.com/tag/package:wdired/">package:wdired</a> <a href="http://rubikitch.com/tag/package:helm/">package:helm</a></td></tr>
-</table>
-<br />
-#+END_HTML
-*wgrep.el* は、 *M-x grep* や *M-x ag* の結果を編集して
-その結果をファイルに反映させるものです。
-
-これで複数のファイルにわたる置換も楽勝でできます。
-
-[[http://rubikitch.com/2014/08/23/wdired/][wdired]] はdiredの編集結果をファイル名に反映させるように、
-wgrep はgrepの編集結果をファイル内容に反映させます。
-
-使い方は簡単です。
-
-1. M-x grep
-2. eでwgrep-modeにする
-3. *grep*バッファを編集する
-4. C-c C-c (C-x C-s)でファイルに反映！
-
-C-c C-kで編集を破棄します。
-
-この設定では*grep*編集後にファイルに反映させたら即保存しています。
-
-
-パッケージwgrepには、 *wgrep-ag.el* 、 *wgrep-pt.el* 、
-*wgrep-ack.el* 、 *wgrep-helm.el* も同梱されているので、
-[[http://rubikitch.com/2014/09/12/ag/][M-x ag]] の結果なども編集できます。
-** wgrep インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install wgrep
-
+#+TITLE: wgrep.el : *grep*や*ag*バッファを編集してその結果をファイルに反映させる凄技
+[includeme file="inc-package-table.php" name="wgrep" where="melpa"]
 
 #+end:
-** 概要                                                             :noexport:
+** 概要
 *wgrep.el* は、 *M-x grep* や *M-x ag* の結果を編集して
 その結果をファイルに反映させるものです。
 
 これで複数のファイルにわたる置換も楽勝でできます。
 
-[[http://rubikitch.com/2014/08/23/wdired/][wdired]] はdiredの編集結果をファイル名に反映させるように、
+[[http://emacs.rubikitch.com/wdired/][wdired]] はdiredの編集結果をファイル名に反映させるように、
 wgrep はgrepの編集結果をファイル内容に反映させます。
 
 使い方は簡単です。
@@ -81,7 +40,8 @@ C-c C-kで編集を破棄します。
 
 パッケージwgrepには、 *wgrep-ag.el* 、 *wgrep-pt.el* 、
 *wgrep-ack.el* 、 *wgrep-helm.el* も同梱されているので、
-[[http://rubikitch.com/2014/09/12/ag/][M-x ag]] の結果なども編集できます。
+[[http://emacs.rubikitch.com/ag/][M-x ag]] の結果なども編集できます。
+[includeme file="inc-package-install.php" name="wgrep" where="melpa"]
 ** 設定 [[http://rubikitch.com/f/140913054041.wgrep.el][140913054041.wgrep.el(以下のコードと同一)]]
 #+BEGIN: include :file "/r/sync/junk/140913/140913054041.wgrep.el"
 #+BEGIN_SRC fundamental
@@ -105,3 +65,4 @@ $ emacs -Q -f package-initialize -l 140913054041.wgrep.el
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
 http://rubikitch.com/f/20140913054555.png
 Fig1: wgrepで編集(反映直前)
+[includeme file="inc-package-relate.php" name="wgrep"]

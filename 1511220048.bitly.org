@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 2206
+#+POSTID: 1261
+#+BLOG: rubikitch
 #+DATE: [2015-11-22 Sun 00:48]
 #+PERMALINK: bitly
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,28 +8,17 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, ソース解読推奨
+#+CATEGORY: Web
 #+EL_PKG_NAME: bitly
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, 短縮URL, relate:twittering-mode, emacs bit.ly
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: 
 #+EL_TITLE0: カーソル位置のURLをbit.lyを使って短縮URLに置き換える
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージbitlyの紹介
-#+MYTAGS: package:bitly, emacs 使い方, emacs コマンド, emacs, bitly, bitly.el, emacs lisp bitly, elisp bitly, emacs melpa bitly, emacs bitly 使い方, emacs bitly 設定, emacs パッケージ bitly, emacs bitly スクリーンショット, 短縮URL, relate:twittering-mode, emacs bit.ly
-#+TAGS: package:bitly, emacs 使い方, emacs コマンド, emacs, bitly, bitly.el, emacs lisp bitly, elisp bitly, emacs melpa bitly, emacs bitly 使い方, emacs bitly 設定, emacs パッケージ bitly, emacs bitly スクリーンショット, 短縮URL, relate:twittering-mode, emacs bit.ly, Emacs, ソース解読推奨, bitly.el, M-x bitly-url-at-point, bitly-access-token, M-x twittering-tinyurl-replace-at-point, M-x bitly-url-at-point, bitly-access-token, M-x twittering-tinyurl-replace-at-point
-#+TITLE: emacs bitly.el : カーソル位置のURLをbit.lyを使って短縮URLに置き換える | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>bitly</td></tr>
-<tr><td>概要(原文)</td><td>Shorten URLs using the bitly.com shortener service</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/jorgenschaefer/bitly-el">https://github.com/jorgenschaefer/bitly-el</a></td></tr>
-<tr><td>バージョン</td><td>20151125.848</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:bitly/">package:bitly</a> <a href="http://rubikitch.com/tag/package:twittering-mode/">package:twittering-mode</a></td></tr>
-</table>
-<br />
-#+END_HTML
+#+TITLE: bitly.el : カーソル位置のURLをbit.lyを使って短縮URLに置き換える
+[includeme file="inc-package-table.php" name="bitly" where="melpa"]
+
+#+end:
+** 概要
 *bitly.el* は[[https://bitly.com/][bitly.com]] 短縮URLを扱います。
 *M-x bitly-url-at-point* はカーソル位置のURLを短縮URLに置き換えます。
 
@@ -47,34 +37,8 @@ Fig1: URL上でM-x bitly-url-at-pointを実行すると
 #+ATTR_HTML: :width 480
 [[file:/r/sync/screenshots/20151122005550.png]]
 Fig2: 短縮URLに置換される
-** bitly インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
 
-M-x package-refresh-contents
-M-x package-install bitly
-
-
-#+end:
-** 概要                                                             :noexport:
-*bitly.el* は[[https://bitly.com/][bitly.com]] 短縮URLを扱います。
-*M-x bitly-url-at-point* はカーソル位置のURLを短縮URLに置き換えます。
-
-使うためにはbitlyのAPI access tokenが必要なのでhttps://bitly.com/a/oauth_apps にて取得してください。
-「Sign up」をクリックしてユーザ名、メールアドレス、パスワードを入力すれば取得できます。
-そして、パスワードを入力し、「Generate Token」を押せばtokenが表示されます。
-それを *bitly-access-token* に設定してください。
-
-なお、twittering-mode.elでもtinyurl.comによる短縮URL置換機能が存在し、 *M-x twittering-tinyurl-replace-at-point* (ツイート時にf4)で使えます。
-
-# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20151122005526.png]]
-Fig3: URL上でM-x bitly-url-at-pointを実行すると
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20151122005550.png]]
-Fig4: 短縮URLに置換される
-
+[includeme file="inc-package-install.php" name="bitly" where="melpa"]
 ** 設定 [[http://rubikitch.com/f/151122004527.bitly.1.el][151122004527.bitly.1.el(以下のコードと同一)]]
 #+BEGIN: include :file "/r/sync/junk/151122/151122004527.bitly.1.el"
 #+BEGIN_SRC fundamental
@@ -90,3 +54,7 @@ Fig4: 短縮URLに置換される
 $ wget http://rubikitch.com/f/151122004527.bitly.1.el
 $ emacs -Q -f package-initialize -l 151122004527.bitly.1.el
 #+END_EXAMPLE
+
+# /r/sync/screenshots/20151122005526.png http://rubikitch.com/wp-content/uploads/2016/07/20151122005526.png
+# /r/sync/screenshots/20151122005550.png http://rubikitch.com/wp-content/uploads/2016/07/20151122005550.png
+[includeme file="inc-package-relate.php" name="bitly"]

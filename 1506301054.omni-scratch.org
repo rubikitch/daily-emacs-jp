@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 1788
+#+POSTID: 1002
+#+BLOG: rubikitch
 #+DATE: [2015-06-30 Tue 10:54]
 #+PERMALINK: omni-scratch
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,28 +8,17 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, ソース解読推奨
+#+CATEGORY: scratchバッファ
 #+EL_PKG_NAME: omni-scratch
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, relate:scratch-pop, relate:scratch-palette, scratch
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: 
 #+EL_TITLE0: メジャーモードごとのscratchバッファをサッとポップアップする
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージomni-scratchの紹介
-#+MYTAGS: package:omni-scratch, emacs 使い方, emacs コマンド, emacs, omni-scratch, omni-scratch.el, emacs lisp omni-scratch, elisp omni-scratch, emacs melpa omni-scratch, emacs omni-scratch 使い方, emacs omni-scratch 設定, emacs パッケージ omni-scratch, emacs omni-scratch スクリーンショット, relate:scratch-pop, relate:scratch-palette, scratch
-#+TAGS: package:omni-scratch, emacs 使い方, emacs コマンド, emacs, omni-scratch, omni-scratch.el, emacs lisp omni-scratch, elisp omni-scratch, emacs melpa omni-scratch, emacs omni-scratch 使い方, emacs omni-scratch 設定, emacs パッケージ omni-scratch, emacs omni-scratch スクリーンショット, relate:scratch-pop, relate:scratch-palette, scratch, Emacs, ソース解読推奨, omni-scratch.el, M-x omni-scratch-new-scratch-major-buffer, M-x omni-scratch-new-scratch-buffer, scratch:draft, M-x omni-scratch-new-scratch-major-buffer, M-x omni-scratch-new-scratch-buffer, scratch:draft
-#+TITLE: emacs omni-scratch.el : メジャーモードごとのscratchバッファをサッとポップアップする | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>omni-scratch</td></tr>
-<tr><td>概要(原文)</td><td>Easy and mode-specific draft buffers</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/AdrieanKhisbe/omni-scratch.el">https://github.com/AdrieanKhisbe/omni-scratch.el</a></td></tr>
-<tr><td>バージョン</td><td>20151211.859</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:omni-scratch/">package:omni-scratch</a> <a href="http://rubikitch.com/tag/package:scratch-pop/">package:scratch-pop</a> <a href="http://rubikitch.com/tag/package:scratch-palette/">package:scratch-palette</a></td></tr>
-</table>
-<br />
-#+END_HTML
+#+TITLE: omni-scratch.el : メジャーモードごとのscratchバッファをサッとポップアップする
+[includeme file="inc-package-table.php" name="omni-scratch" where="melpa"]
+
+#+end:
+** 概要
 *omni-scratch.el* は、メジャーモードごとのscratchバッファを実現します。
 
 これを使えば試行錯誤用のscratchバッファが実現します。
@@ -42,8 +32,8 @@
 *M-x omni-scratch-new-scratch-buffer* は、
 *scratch:draft* という新しいscratchバッファを開きます。
 
-前者は [[http://rubikitch.com/2015/02/07/scratch-palette/][scratch-palette.el(レビュー)]] に、
-後者は [[http://rubikitch.com/2014/11/24/scratch-pop/][scratch-pop.el(レビュー)]] に似ています。
+前者は [[http://emacs.rubikitch.com/scratch-palette/][scratch-palette.el(レビュー)]] に、
+後者は [[http://emacs.rubikitch.com/scratch-pop/][scratch-pop.el(レビュー)]] に似ています。
 
 保存機能はまだ実装されていないので、
 欲しければ各自で実装してください(笑)
@@ -59,43 +49,9 @@ Fig1: lisp-interaction-modeの*scratch*バッファ
 #+ATTR_HTML: :width 480
 [[file:/r/sync/screenshots/20150630110345.png]]
 Fig2: M-x omni-scratch-new-scratch-major-bufferでlisp-interaction-modeのscratchバッファが生成
-** omni-scratch インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install omni-scratch
 
 
-#+end:
-** 概要                                                             :noexport:
-*omni-scratch.el* は、メジャーモードごとのscratchバッファを実現します。
-
-これを使えば試行錯誤用のscratchバッファが実現します。
-
-*M-x omni-scratch-new-scratch-major-buffer* は、
-現在のメジャーモードに対応したscratchバッファを開きます。
-
-たとえばorg-modeならば*scratch:org*という名前で、
-メジャーモードもorg-modeになります。
-
-*M-x omni-scratch-new-scratch-buffer* は、
-*scratch:draft* という新しいscratchバッファを開きます。
-
-前者は [[http://rubikitch.com/2015/02/07/scratch-palette/][scratch-palette.el(レビュー)]] に、
-後者は [[http://rubikitch.com/2014/11/24/scratch-pop/][scratch-pop.el(レビュー)]] に似ています。
-
-保存機能はまだ実装されていないので、
-欲しければ各自で実装してください(笑)
-
-まだプロトタイプ段階なので、コマンド名や挙動が変更されると思われます。
-
-
-# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150630110337.png]]
-Fig3: lisp-interaction-modeの*scratch*バッファ
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150630110345.png]]
-Fig4: M-x omni-scratch-new-scratch-major-bufferでlisp-interaction-modeのscratchバッファが生成
-
+# /r/sync/screenshots/20150630110337.png http://rubikitch.com/wp-content/uploads/2016/07/20150630110337.png
+# /r/sync/screenshots/20150630110345.png http://rubikitch.com/wp-content/uploads/2016/07/20150630110345.png
+[includeme file="inc-package-install.php" name="omni-scratch" where="melpa"]
+[includeme file="inc-package-relate.php" name="omni-scratch"]

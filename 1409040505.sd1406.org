@@ -1,18 +1,18 @@
 #+BLOG: rubikitch
-#+POSTID: 280
+#+POSTID: 267
+#+BLOG: rubikitch
 #+DATE: [2014-09-04 Thu 05:05]
 #+PERMALINK: sd1406
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t
 #+ISPAGE: nil
-#+DESCRIPTION:
+#+DESCRIPTION:Emacsを使う最大のメリット、それは文字入力が一元化できることです。メールもファイル操作も、Twitterも、アプリケーションを切り替えることなく、スムースに操作できるというものです。しかし、ビギナーがそこまで使うことができるようになるには、手順を踏んで、スジ良く使い方を学ぶことが必要です。本稿を手がかりにしてください!
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs,連載『るびきち流Emacs超入門』
-#+DESCRIPTION: Emacsを使う最大のメリット、それは文字入力が一元化できることです。メールもファイル操作も、Twitterも、アプリケーションを切り替えることなく、スムースに操作できるというものです。しかし、ビギナーがそこまで使うことができるようになるには、手順を踏んで、スジ良く使い方を学ぶことが必要です。本稿を手がかりにしてください!
-#+MYTAGS: Emacs入門, Emacs 使い方, Emacs コマンド, Emacs 終了, Emacs チュートリアル, Emacs ショートカットキー, Emacs カーソル移動, Emacs 起動, Emacsとは, Emacs 初心者, Emacs 魅力, Emacs 始めの一歩, Emacs 文字入力, Emacs 外部プログラム, Emacs 外部プロセス, Emacs 関数プログラミング, Software Design連載記事
-#+TAGS: Emacs入門, Emacs 使い方, Emacs コマンド, Emacs 終了, Emacs チュートリアル, Emacs ショートカットキー, Emacs カーソル移動, Emacs 起動, Emacsとは, Emacs 初心者, Emacs 魅力, Emacs 始めの一歩, Emacs 文字入力, Emacs 外部プログラム, Emacs 外部プロセス, Emacs 関数プログラミング, Software Design連載記事, Emacs, , テキストエディタ, Emacs Lisp, 外部プログラム, 文字入力の一元化, Emacs記法, バッファとは, ミニバッファ, 補完機能, cua-mode, CUA(Common User Access), 日本語チュートリアル
+#+CATEGORY: るびきち流Emacs超入門
+#+DESCRIPTION: 
+#+TAGS: るびきちオススメ, 初心者安心
 #+TITLE: #2 スマートにEmacsを始めるための小さいけど重要なコツ (Software Design 2014年6月号掲載記事)
-[[http://rubikitch.com/2014/08/28/sd1405/][前回『#1 なぜEmacsをお勧めするのか？』]] に引き続き、
+[[http://emacs.rubikitch.com/sd1405/][前回『#1 なぜEmacsをお勧めするのか？』]] に引き続き、
 Software Design連載記事を掲載します。
 
 株式会社技術評論社の許可を得て掲載しています。

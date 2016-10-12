@@ -1,18 +1,19 @@
 #+BLOG: rubikitch
-#+POSTID: 1794
+#+POSTID: 109
+#+BLOG: rubikitch
 #+DATE: [2015-07-03 Fri 12:58]
-#+PERMALINK: melmag
+#+PERMALINK: melmag188
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
 #+ISPAGE: nil
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: メルマガ,
+#+CATEGORY: るびきち塾メルマガ
 #+DESCRIPTION: るびきち塾メルマガ『Emacsの鬼るびきちのココだけの話#188』の予告
 #+TITLE: 【メルマガ#188】るびきちの座右の銘
 #+MYTAGS: 
 #+begin: org2blog-tags
-#+TAGS: , メルマガ,, 
+
 #+end:
 今回は僕の座右の銘を紹介します。
 

@@ -1,34 +1,22 @@
 #+BLOG: rubikitch
-#+POSTID: 609
+#+POSTID: 427
+#+BLOG: rubikitch
 #+DATE: [2014-11-23 Sun 03:41]
 #+PERMALINK: auto-save-buffers-enhanced
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
 #+ISPAGE: nil
-#+DESCRIPTION:
+#+DESCRIPTION:ファイルを自動保存して保存の手間を省き、データ消失を防ぐ。
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs
+#+CATEGORY: 自動保存
 #+EL_PKG_NAME: auto-save-buffers-enhanced
-#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs 自動保存, emacs scratch 保存, relate:backup-each-save, relate:real-auto-save, emacs データ消えた, emacs 事故対策, emacs 保険,
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方
+#+TAGS: セーフガード
 #+EL_TITLE0: 【自動保存】Emacsから「ファイル保存」という概念を消し飛ばす。*scratch*も自動保存
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージauto-save-buffers-enhancedの紹介
-#+MYTAGS: package:auto-save-buffers-enhanced, emacs 使い方, emacs コマンド, emacs, emacs lisp auto-save-buffers-enhanced, elisp auto-save-buffers-enhanced, emacs melpa auto-save-buffers-enhanced, emacs auto-save-buffers-enhanced 使い方, emacs auto-save-buffers-enhanced 設定, emacs パッケージ auto-save-buffers-enhanced, emacs 自動保存, emacs scratch 保存, relate:backup-each-save, relate:real-auto-save, emacs データ消えた, emacs 事故対策, emacs 保険,
-#+TAGS: package:auto-save-buffers-enhanced, emacs 使い方, emacs コマンド, emacs, emacs lisp auto-save-buffers-enhanced, elisp auto-save-buffers-enhanced, emacs melpa auto-save-buffers-enhanced, emacs auto-save-buffers-enhanced 使い方, emacs auto-save-buffers-enhanced 設定, emacs パッケージ auto-save-buffers-enhanced, emacs 自動保存, emacs scratch 保存, relate:backup-each-save, relate:real-auto-save, emacs データ消えた, emacs 事故対策, emacs 保険,, Emacs, auto-save-buffers-enhanced.el, 自動保存, auto-save-buffers.el, C-x C-s, M-x recover-file, auto-save, M-x auto-save-buffers-enhanced-toggle-activity, CVS, Subversion, Git, auto-save-buffers-enhanced.el, 自動保存, auto-save-buffers.el, C-x C-s, M-x recover-file, auto-save, M-x auto-save-buffers-enhanced-toggle-activity, CVS, Subversion, Git
-#+TITLE: emacs auto-save-buffers-enhanced.el : 【自動保存】Emacsから「ファイル保存」という概念を消し飛ばす。*scratch*も自動保存 | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>auto-save-buffers-enhanced</td></tr>
-<tr><td>概要(原文)</td><td>Automatically save buffers in a decent way</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/kentaro/auto-save-buffers-enhanced">https://github.com/kentaro/auto-save-buffers-enhanced</a></td></tr>
-<tr><td>バージョン</td><td>20130607.1949</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:auto-save-buffers-enhanced/">package:auto-save-buffers-enhanced</a> <a href="http://rubikitch.com/tag/package:backup-each-save/">package:backup-each-save</a> <a href="http://rubikitch.com/tag/package:real-auto-save/">package:real-auto-save</a></td></tr>
-</table>
-<br />
-#+END_HTML
-<2015-02-03 Tue> [[http://rubikitch.com/2015/02/03/real-auto-save/][real-auto-save.el]] という同じ機能のマイナーモードがあります。
+#+TITLE: auto-save-buffers-enhanced.el : 【自動保存】Emacsから「ファイル保存」という概念を消し飛ばす。*scratch*も自動保存
+[includeme file="inc-package-table.php" name="auto-save-buffers-enhanced" where="melpa"]
+** 概要
+<2015-02-03 Tue> [[http://emacs.rubikitch.com/real-auto-save/][real-auto-save.el]] という同じ機能のマイナーモードがあります。
 
 *auto-save-buffers-enhanced.el* は、Emacsに本当の *自動保存* を提供します。
 
@@ -58,18 +46,13 @@ Emacsではウン十年前から *auto-save* 機能が実装されているか�
 *CVS* 、 *Subversion* 、 *Git* リポジトリ内の
 ファイルのみに適用することもできます。
 
-もちろん [[http://rubikitch.com/2014/11/02/backup-each-save/][backup-each-save.el]] と併用していると、
+もちろん [[http://emacs.rubikitch.com/backup-each-save/][backup-each-save.el]] と併用していると、
 バックアップファイルが大量に作られます(笑)
-** auto-save-buffers-enhanced インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install auto-save-buffers-enhanced
-
+[includeme file="inc-package-install.php" name="auto-save-buffers-enhanced" where="melpa"]
 
 #+end:
 ** 概要                                                             :noexport:
-<2015-02-03 Tue> [[http://rubikitch.com/2015/02/03/real-auto-save/][real-auto-save.el]] という同じ機能のマイナーモードがあります。
+<2015-02-03 Tue> [[http://emacs.rubikitch.com/real-auto-save/][real-auto-save.el]] という同じ機能のマイナーモードがあります。
 
 *auto-save-buffers-enhanced.el* は、Emacsに本当の *自動保存* を提供します。
 
@@ -99,7 +82,7 @@ Emacsではウン十年前から *auto-save* 機能が実装されているか�
 *CVS* 、 *Subversion* 、 *Git* リポジトリ内の
 ファイルのみに適用することもできます。
 
-もちろん [[http://rubikitch.com/2014/11/02/backup-each-save/][backup-each-save.el]] と併用していると、
+もちろん [[http://emacs.rubikitch.com/backup-each-save/][backup-each-save.el]] と併用していると、
 バックアップファイルが大量に作られます(笑)
 
 ** 設定 [[http://rubikitch.com/f/141123033929.auto-save-buffers-enhanced.el][141123033929.auto-save-buffers-enhanced.el(以下のコードと同一)]]
@@ -107,6 +90,8 @@ Emacsではウン十年前から *auto-save* 機能が実装されているか�
 #+BEGIN_SRC fundamental
 (require 'auto-save-buffers-enhanced)
 
+;;; 1秒後に保存
+(setq auto-save-buffers-enhanced-interval 1)
 ;;; 特定のファイルのみ有効にする
 (setq auto-save-buffers-enhanced-include-regexps '(".+")) ;全ファイル
 ;; not-save-fileと.ignoreは除外する
@@ -140,3 +125,4 @@ Emacsではウン十年前から *auto-save* 機能が実装されているか�
 $ wget http://rubikitch.com/f/141123033929.auto-save-buffers-enhanced.el
 $ emacs -Q -f package-initialize -l 141123033929.auto-save-buffers-enhanced.el
 #+END_EXAMPLE
+[includeme file="inc-package-relate.php" name="auto-save-buffers-enhanced"]

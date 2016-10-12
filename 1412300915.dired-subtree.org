@@ -1,5 +1,4 @@
 #+BLOG: rubikitch
-#+POSTID: 834
 #+DATE: [2014-12-30 Tue 09:15]
 #+PERMALINK: dired-subtree
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -11,7 +10,7 @@
 #+DESCRIPTION: 
 #+MYTAGS: 
 #+TITLE: dired-subtree.elで^が使えるようにしました
-[[http://rubikitch.com/2014/12/22/dired-subtree/][dired-subtree.el]] の設定にて、^をdired-subtreeに対応させました。
+[[http://emacs.rubikitch.com/dired-subtree/][dired-subtree.el]] の設定にて、^をdired-subtreeに対応させました。
 
 つまり、subtreeの親ディレクトリに移動するか、
 そうでないならば通常の^を実行します。

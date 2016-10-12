@@ -1,16 +1,16 @@
 #+BLOG: rubikitch
-#+POSTID: 420
+#+POSTID: 37
+#+BLOG: rubikitch
 #+DATE: [2014-10-03 Fri 10:28]
-#+PERMALINK: melmag
+#+PERMALINK: melmag149
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t
 #+ISPAGE: nil
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: メルマガ,
+#+CATEGORY: るびきち塾メルマガ
 #+DESCRIPTION: Emacsの鬼るびきちのココだけの話#149はEmacsでグラフを描くお話
-#+MYTAGS: emacs, gnuplot, org-mode, emacs グラフ gnuplot org-mode
-#+TAGS: emacs, gnuplot, org-mode, emacs グラフ gnuplot org-mode, メルマガ,, gnuplot, org-mode
+#+TAGS:
 #+TITLE: Emacsでグラフを描きませんか？
 最近はやや自己啓発よりなメルマガでしたが、
 今月は再びEmacsどっぷりな内容にするつもりです。

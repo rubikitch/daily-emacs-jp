@@ -1,3 +1,5 @@
+#+BLOG: rubikitch
+#+POSTID: 968
 #+DATE: [2015-06-11 Thu 15:08]
 #+PERMALINK: avy-move-line-thing
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -5,22 +7,22 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, Emacs Lisp, org-mode, 
-#+POSTID: 1737
-#+DESCRIPTION: 
-#+MYTAGS: relate:avy, relate:org, relate:thingatpt, package:avy, package:org
+#+CATEGORY: テキスト移動
+#+DESCRIPTION:
+#+TAGS: org, ace-jump, avy
 #+TITLE: 【文章作成支援】行移動・org-modeのM-↑/M-↓を開始・終了行指定できるようにしてみた
 #+begin: org2blog-tags
-#+TAGS: relate:avy, relate:org, relate:thingatpt, package:avy, package:org, Emacs, Emacs Lisp, org-mode, , avy--line, M-x avy-move-line-thing
+# content-length: 2522
+
 #+end:
-[[http://rubikitch.com/2015/06/10/org-element-at-point][昨日、org-elementをthing-at-pointで扱えるようにしてみた]] けど、
+[[http://emacs.rubikitch.com/org-element-at-point][昨日、org-elementをthing-at-pointで扱えるようにしてみた]] けど、
 今日はその続きで、M-↑/M-↓を行指定でやれるようにしてみます。
 
 というのは、これらのコマンドは現在の要素(subtree/段落など)を
 1つずつ上下に移動するものであり、多くの要素を繰り返し入れ替えるには
 面倒だからです。
 
-行指定ということならば、ace-jump-modeの汎用版ともいえる[[http://rubikitch.com/2015/05/20/avy/][avy.el(レビュー)]] を
+行指定ということならば、ace-jump-modeの汎用版ともいえる[[http://emacs.rubikitch.com/avy/][avy.el(レビュー)]] を
 使うことにしました。
 
 画面内の特定の場所を指定するならばぜひとも使いたいインターフェースです。

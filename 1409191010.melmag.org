@@ -1,16 +1,15 @@
 #+BLOG: rubikitch
-#+POSTID: 363
+#+POSTID: 33
+#+BLOG: rubikitch
 #+DATE: [2014-09-19 Fri 10:10]
-#+PERMALINK: melmag
+#+PERMALINK: melmag147
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t
 #+ISPAGE: nil
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: メルマガ,
+#+CATEGORY: るびきち塾メルマガ
 #+DESCRIPTION:
-#+MYTAGS:
-#+TAGS: , メルマガ,, Emacs, ライフハック, 自己啓発, 仕事術, うさんくさい, 成功法則, 心技体, 根性論, 心の問題, パフォーマンス
 #+TITLE: Emacsさんにメンタルトレーナーになってもらおう
 最近は、 *Emacs* と何かを組み合わせるのがマイブームです(笑)
 

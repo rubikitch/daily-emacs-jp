@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 2224
+#+POSTID: 1273
+#+BLOG: rubikitch
 #+DATE: [2015-11-28 Sat 05:53]
 #+PERMALINK: helm-mode-manager
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,28 +8,17 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, helm
+#+CATEGORY: メジャーモード
 #+EL_PKG_NAME: helm-mode-manager
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, relate:helm, helm モード切り替え, 
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: helm, マイナーモード
 #+EL_TITLE0: helmインターフェースでメジャーモードを切替えたりマイナーモードをトグルしたり
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージhelm-mode-managerの紹介
-#+MYTAGS: package:helm-mode-manager, emacs 使い方, emacs コマンド, emacs, helm-mode-manager, helm-mode-manager.el, emacs lisp helm-mode-manager, elisp helm-mode-manager, emacs melpa helm-mode-manager, emacs helm-mode-manager 使い方, emacs helm-mode-manager 設定, emacs パッケージ helm-mode-manager, emacs helm-mode-manager スクリーンショット, relate:helm, helm モード切り替え, 
-#+TAGS: package:helm-mode-manager, emacs 使い方, emacs コマンド, emacs, helm-mode-manager, helm-mode-manager.el, emacs lisp helm-mode-manager, elisp helm-mode-manager, emacs melpa helm-mode-manager, emacs helm-mode-manager 使い方, emacs helm-mode-manager 設定, emacs パッケージ helm-mode-manager, emacs helm-mode-manager スクリーンショット, relate:helm, helm モード切り替え, , Emacs, helm, helm-mode-manager.el, M-x helm-switch-major-mode, M-x helm-enable-minor-mode, M-x helm-disable-minor-mode, M-x helm-switch-major-mode, M-x helm-enable-minor-mode, M-x helm-disable-minor-mode
-#+TITLE: emacs helm-mode-manager.el : helmインターフェースでメジャーモードを切替えたりマイナーモードをトグルしたり | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>helm-mode-manager</td></tr>
-<tr><td>概要(原文)</td><td>Select and toggle major and minor modes with helm</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/istib/helm-mode-manager">https://github.com/istib/helm-mode-manager</a></td></tr>
-<tr><td>バージョン</td><td>20151124.138</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:helm-mode-manager/">package:helm-mode-manager</a> <a href="http://rubikitch.com/tag/package:helm/">package:helm</a></td></tr>
-</table>
-<br />
-#+END_HTML
+#+TITLE: helm-mode-manager.el : helmインターフェースでメジャーモードを切替えたりマイナーモードをトグルしたり
+[includeme file="inc-package-table.php" name="helm-mode-manager" where="melpa"]
+
+#+end:
+** 概要
 *helm-mode-manager.el* はモード切り替えをhelmインターフェースで行うものです。
 
 *M-x helm-switch-major-mode* はメジャーモードを切替えます。
@@ -56,40 +46,6 @@ Fig2: M-x helm-enable-minor-mode
 #+ATTR_HTML: :width 480
 [[file:/r/sync/screenshots/20151128060118.png]]
 Fig3: M-x helm-disable-minor-mode でC-zを押したところ(persistent-action)
-** helm-mode-manager インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
 
-M-x package-refresh-contents
-M-x package-install helm-mode-manager
-
-
-#+end:
-** 概要                                                             :noexport:
-*helm-mode-manager.el* はモード切り替えをhelmインターフェースで行うものです。
-
-*M-x helm-switch-major-mode* はメジャーモードを切替えます。
-
-*M-x helm-enable-minor-mode* はマイナーモードを有効にし、
-*M-x helm-disable-minor-mode* は無効にします。
-
-それぞれのコマンドのpersistent-action(候補でC-zを押す)は説明を表示します。
-
-helmによって表示されるべきモードが絞り込まれているので現時点でのモードの存在確認(定義されているか否か)に使うこともできます。
-
-ただ、せっかく複数の情報源を持てるhelmを使っているのだからM-x helm-mode-managerでそれらのコマンドをまとめるべきではないでしょうか。
-
-無設定で使えるコマンド群なのでhelm愛好家ならば入れておいても損はありません。
-
-# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20151128060055.png]]
-Fig4: M-x helm-switch-major-mode
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20151128060108.png]]
-Fig5: M-x helm-enable-minor-mode
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20151128060118.png]]
-Fig6: M-x helm-disable-minor-mode でC-zを押したところ(persistent-action)
-
+[includeme file="inc-package-install.php" name="helm-mode-manager" where="melpa"]
+[includeme file="inc-package-relate.php" name="helm-mode-manager"]

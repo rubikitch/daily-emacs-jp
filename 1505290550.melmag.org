@@ -1,18 +1,17 @@
 #+BLOG: rubikitch
-#+POSTID: 1699
 #+DATE: [2015-05-29 Fri 05:50]
-#+PERMALINK: melmag
+#+PERMALINK: melmag183
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
 #+ISPAGE: nil
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: メルマガ,
+#+CATEGORY: るびきち塾メルマガ
 #+DESCRIPTION: るびきち塾メルマガ『Emacsの鬼るびきちのココだけの話#183』の予告
 #+TITLE: 【メルマガ#183】スクリプト言語Emacs Lisp
 #+MYTAGS: 
 #+begin: org2blog-tags
-#+TAGS: , メルマガ,, 
+
 #+end:
 今回はelispで簡単なテキスト処理を行います。
 

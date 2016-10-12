@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 1567
+#+POSTID: 867
+#+BLOG: rubikitch
 #+DATE: [2015-04-25 Sat 03:12]
 #+PERMALINK: pcre2el
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,84 +8,17 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs
+#+CATEGORY: 置換
 #+EL_PKG_NAME: pcre2el
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, relate:visual-regexp-steroids, relate:rx, relate:font-lock, emacs pcre, emacs perl regexp, relate:swoop, re-bulderでPerlの正規表現, emacs 正規表現 わかりにくい, emacs 正規表現 理解できない, 正規表現 文法 変換, 正規表現 シンタックス, regexp syntax, relate:foreign-regexp, Emacs 正規表現 つらい, emacs 普通の正規表現, 他言語流の正規表現, emacs 正規表現 バックスラッシュ, emacs 正規表現 地獄, 正規表現 エスケープ
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: 正規表現, pcre
 #+EL_TITLE0: Emacs正規表現の呪いを解け！Emacs/PCRE(Perlの正規表現)/rx相互変換・解説！PCRE対応re-builder！！
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージpcre2elの紹介
-#+MYTAGS: package:pcre2el, emacs 使い方, emacs コマンド, emacs, pcre2el, pcre2el.el, emacs lisp pcre2el, elisp pcre2el, emacs melpa pcre2el, emacs pcre2el 使い方, emacs pcre2el 設定, emacs パッケージ pcre2el, emacs pcre2el スクリーンショット, relate:visual-regexp-steroids, relate:rx, relate:font-lock, emacs pcre, emacs perl regexp, relate:swoop, re-bulderでPerlの正規表現, emacs 正規表現 わかりにくい, emacs 正規表現 理解できない, 正規表現 文法 変換, 正規表現 シンタックス, regexp syntax, relate:foreign-regexp, Emacs 正規表現 つらい, emacs 普通の正規表現, 他言語流の正規表現, emacs 正規表現 バックスラッシュ, emacs 正規表現 地獄, 正規表現 エスケープ
-#+TAGS: package:pcre2el, emacs 使い方, emacs コマンド, emacs, pcre2el, pcre2el.el, emacs lisp pcre2el, elisp pcre2el, emacs melpa pcre2el, emacs pcre2el 使い方, emacs pcre2el 設定, emacs パッケージ pcre2el, emacs pcre2el スクリーンショット, relate:visual-regexp-steroids, relate:rx, relate:font-lock, emacs pcre, emacs perl regexp, relate:swoop, re-bulderでPerlの正規表現, emacs 正規表現 わかりにくい, emacs 正規表現 理解できない, 正規表現 文法 変換, 正規表現 シンタックス, regexp syntax, relate:foreign-regexp, Emacs 正規表現 つらい, emacs 普通の正規表現, 他言語流の正規表現, emacs 正規表現 バックスラッシュ, emacs 正規表現 地獄, 正規表現 エスケープ, Emacs, 正規表現, pcre2el.el, PCRE, rx, M-x re-builder, rx, 正規表現, pcre2el.el, PCRE, rx, M-x re-builder, rx, C-c / /, rxt-explain, C-c / c, rxt-convert-syntax, C-c / x, rxt-convert-to-rx, C-c / ′, rxt-convert-to-strings, regexp-opt, reb-re-syntax, swoop.el, M-x swoop-pcre-regexp
-#+TITLE: emacs pcre2el.el : Emacs正規表現の呪いを解け！Emacs/PCRE(Perlの正規表現)/rx相互変換・解説！PCRE対応re-builder！！ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>pcre2el</td></tr>
-<tr><td>概要(原文)</td><td>parse, convert, and font-lock PCRE, Emacs and rx regexps</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/joddie/pcre2el">https://github.com/joddie/pcre2el</a></td></tr>
-<tr><td>バージョン</td><td>20150408.1721</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:pcre2el/">package:pcre2el</a> <a href="http://rubikitch.com/tag/package:visual-regexp-steroids/">package:visual-regexp-steroids</a> <a href="http://rubikitch.com/tag/package:rx/">package:rx</a> <a href="http://rubikitch.com/tag/package:font-lock/">package:font-lock</a> <a href="http://rubikitch.com/tag/package:swoop/">package:swoop</a> <a href="http://rubikitch.com/tag/package:foreign-regexp/">package:foreign-regexp</a></td></tr>
-</table>
-<br />
-#+END_HTML
-/Emacsの正規表現は呪いです。/
-
-なんだあのバックスラッシュの連発は…
-
-Emacs大好きでもあの *正規表現* だけは許せないという人は
-僕も含め、それなりの数がいると思われます。
-
-そんなあなたにとっておきのパッケージを紹介します。
-
-*pcre2el.el* は、以下の機能をもって呪わしき正規表現から救ってくれます。
-
-- Emacsの正規表現から *PCRE* へ変換
-- Emacsの正規表現から *rx* (S式による表現)へ変換
-- 正規表現を分解して文字列リスト化
-- カーソル位置・regionの正規表現をrx形式に変換して解説！
-- *M-x re-builder* でPCREに対応！！
-
-これはそもそもelispで書かれたPCREエミュレータであり、
-Emacsの正規表現に変換できる範囲でPCREが使えます。
-
-そもそもEmacsの正規表現とPCREは一対一対応ではないので、
-完全にPCREの機能が使えるわけではないですが、
-よっぽど混み入った機能を使わないのであれば実用上問題ありません。
-
-外部プログラムを使ってないのでWindowsでも安心です。
-
-
-
-
-この超大作elispは本当に素晴しいです。
-
-/ただ、名前で思い切り損しています。/
-
-この名前だとEmacsでPCREが使えるだけだと誤解されてしまうので、
-正規表現変換・解説機能、re-builder対応については
-ファイルを分割して別々のMELPAパッケージにすべきだと思います。
-
-複雑な正規表現を分解して解説してくれる機能と
-re-builderでPCREが使えるのは圧巻です！！！！
-
-elispプログラマ以外でも正規表現に悩めるすべての人に
-使ってもらいたいパッケージです。
-
-そして、elispプログラマならば
-複雑な正規表現は極力 *rx* で書いてください！
-
-
-** pcre2el インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install pcre2el
-
+#+TITLE: pcre2el.el : Emacs正規表現の呪いを解け！Emacs/PCRE(Perlの正規表現)/rx相互変換・解説！PCRE対応re-builder！！
+[includeme file="inc-package-table.php" name="pcre2el" where="melpa"]
 
 #+end:
-** 概要                                                             :noexport:
+** 概要
 /Emacsの正規表現は呪いです。/
 
 なんだあのバックスラッシュの連発は…
@@ -133,6 +67,7 @@ elispプログラマ以外でも正規表現に悩めるすべての人に
 
 
 
+[includeme file="inc-package-install.php" name="pcre2el" where="melpa"]
 ** 正規表現変換・解説
 *M-x rxt-mode* でRegular eXpression Translationマイナーモードを
 有効にすると、以下のコマンドが使えます。
@@ -216,10 +151,10 @@ C-c C-iで文法を切り替えられます。
 Fig7: PCREでre-bulder！！
 
 ** pcre2elを使っているパッケージ
-[[http://rubikitch.com/2015/04/20/visual-regexp-steroids/][visual-regexp-steroids.el(レビュー)]] はPCRE/Pythonの正規表現で
+[[http://emacs.rubikitch.com/visual-regexp-steroids/][visual-regexp-steroids.el(レビュー)]] はPCRE/Pythonの正規表現で
 置換結果を見ながらの置換・isearchを行います。
 
-[[http://rubikitch.com/2014/12/25/helm-swoop/][helm-swoop.el(大々的レビュー)]] の元となった *swoop.el* でも
+[[http://emacs.rubikitch.com/helm-swoop/][helm-swoop.el(大々的レビュー)]] の元となった *swoop.el* でも
 *M-x swoop-pcre-regexp* でPCREによる絞り込みができます。
 
 swoop.elはhelm-swoop.elと同じ作者なので、
@@ -249,3 +184,4 @@ $ emacs -Q -f package-initialize -l 150425034446.pcre2el.el
 # /r/sync/screenshots/20150425035107.png http://rubikitch.com/wp-content/uploads/2015/04/wpid-20150425035107.png
 # /r/sync/screenshots/20150425035115.png http://rubikitch.com/wp-content/uploads/2015/04/wpid-20150425035115.png
 # /r/sync/screenshots/20150425040117.png http://rubikitch.com/wp-content/uploads/2015/04/wpid-20150425040117.png
+[includeme file="inc-package-relate.php" name="pcre2el"]

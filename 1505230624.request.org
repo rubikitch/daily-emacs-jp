@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 1678
+#+POSTID: 926
+#+BLOG: rubikitch
 #+DATE: [2015-05-23 Sat 06:24]
 #+PERMALINK: request
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,80 +8,17 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, Emacs Lisp, 
+#+CATEGORY: Web
 #+EL_PKG_NAME: request
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, url-retrieve-synchronously, url-retrieve, relate:url, relate:request-deferred, curl, relate:furl, relate:grapnel, relate:emacs-curl, relate:http, emacs ネットアクセス, emacs curl windows, url-retrieveを強化
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール ライブラリ 使い方 
+#+TAGS: 
 #+EL_TITLE0: 【HTTPクライアント】url-retrieveなんか捨てろ、requestで書き直せ！
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージrequestの紹介
-#+MYTAGS: package:request, emacs 使い方, emacs コマンド, emacs, request, request.el, emacs lisp request, elisp request, emacs melpa request, emacs request 使い方, emacs request 設定, emacs パッケージ request, url-retrieve-synchronously, url-retrieve, relate:url, relate:request-deferred, curl, relate:furl, relate:grapnel, relate:emacs-curl, relate:http, emacs ネットアクセス, emacs curl windows, url-retrieveを強化
-#+TAGS: package:request, emacs 使い方, emacs コマンド, emacs, request, request.el, emacs lisp request, elisp request, emacs melpa request, emacs request 使い方, emacs request 設定, emacs パッケージ request, url-retrieve-synchronously, url-retrieve, relate:url, relate:request-deferred, curl, relate:furl, relate:grapnel, relate:emacs-curl, relate:http, emacs ネットアクセス, emacs curl windows, url-retrieveを強化, Emacs, Emacs Lisp, , url-retrieve, HTTPクライアント, curl, wget, request.el, url-retrieve, HTTPクライアント, curl, wget, request.el, cl-function, request-result, request-result, shell-command-on-region, request demo, request demo, request demo
-#+TITLE: emacs request.el : 【HTTPクライアント】url-retrieveなんか捨てろ、requestで書き直せ！ | MELPA Emacs Lisp Elisp パッケージ インストール ライブラリ 使い方 
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>request</td></tr>
-<tr><td>概要(原文)</td><td>Compatible layer for URL request in Emacs</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/tkf/emacs-request">https://github.com/tkf/emacs-request</a></td></tr>
-<tr><td>バージョン</td><td>20140316.417</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:request/">package:request</a> <a href="http://rubikitch.com/tag/package:url/">package:url</a> <a href="http://rubikitch.com/tag/package:request-deferred/">package:request-deferred</a> <a href="http://rubikitch.com/tag/package:furl/">package:furl</a> <a href="http://rubikitch.com/tag/package:grapnel/">package:grapnel</a> <a href="http://rubikitch.com/tag/package:emacs-curl/">package:emacs-curl</a> <a href="http://rubikitch.com/tag/package:http/">package:http</a></td></tr>
-</table>
-<br />
-#+END_HTML
-この偉大なライブラリを、なぜみんな知らないのでしょうか。
-
-Emacsにはビルトインで *url-retrieve* というネットアクセス関数があり、
-EmacsでHTTPアクセスをする場合はそれを使うのが普通です。
-
-これは *HTTPクライアント* としてはお粗末な実装で、
-しばしば意味不明な問題に遭遇するし、DNS解決の際には固まります。
-
-それならば *curl* や *wget* を外部プロセスとして呼び出した方が、
-固まらない上に、より信頼でき、より高機能です。
-
-「餅は餅屋」ということで専用の外部プログラムに頼るのは
-本来のEmacsの精神、Unixの精神に沿っています。
-
-しかしWindowsにはそれらがインストールされていないので
-それがわかっていてもurl-retrieveに固執してしまいます。
-
-せっかくcurlを持っているUnix系OSのユーザからすれば
-有難迷惑なもので、url-retrieveの不自由さにイライラします。
-
-なぜ強力な武器があるのに使わないのですか！
-もったいないじゃないですか！
-
-*request.el* は、url-retrieveとcurlのバックエンドに対応した
-ネットワークアクセスを行うライブラリです。
-
-curlがインストールされていればそれを使い、
-されていなければurl-retrieveにfallbackします。
-
-しかもparserも定義でき、より宣言的で強力な表現ができます。
-
-elispプログラマはより強力な表現力を亨受でき、
-curlを持っているユーザはそれを使って快適なネットアクセスができ、
-持っていないならurl-retrieveを使ってくれるようになります。
-
-おまけにEmacs23.1という化石にも対応しているので
-古いバージョンのEmacsでも問題なく動きます。
-
-request.elを使えばみんな幸せになれるわけです。
-
-結論は
-/url-retrieveなんか捨てて、今すぐrequestに書き換えろ！/
-ということです。
-** request インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install request
-
+#+TITLE: request.el : 【HTTPクライアント】url-retrieveなんか捨てろ、requestで書き直せ！
+[includeme file="inc-package-table.php" name="request" where="melpa"]
 
 #+end:
-** 概要                                                             :noexport:
+** 概要
 この偉大なライブラリを、なぜみんな知らないのでしょうか。
 
 Emacsにはビルトインで *url-retrieve* というネットアクセス関数があり、
@@ -124,6 +62,7 @@ request.elを使えばみんな幸せになれるわけです。
 結論は
 /url-retrieveなんか捨てて、今すぐrequestに書き換えろ！/
 ということです。
+[includeme file="inc-package-install.php" name="request" where="melpa"]
 ** 使用例
 代表的な使用例を見れば、使い方が見えてきます。
 
@@ -169,7 +108,7 @@ parserはネットワークアクセスの結果をカレントバッファに�
 (buffer-string)でその内容を文字列にします。
 
 *** GET でデータを送る
-[[http://rubikitch.com/2015/05/21/http/][http.el(レビュー)]] で示したようにHTTPクライアント開発支援サイトの
+[[http://emacs.rubikitch.com/http/][http.el(レビュー)]] で示したようにHTTPクライアント開発支援サイトの
 http://httpbin.org/ を使ってみましょう。
 
 ここからはREADMEの例です。
@@ -367,3 +306,4 @@ I sent: ((key2 . "value2") (key . "value"))
 #+END_EXAMPLE
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+[includeme file="inc-package-relate.php" name="request"]

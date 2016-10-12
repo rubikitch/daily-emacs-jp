@@ -1,35 +1,28 @@
 #+BLOG: rubikitch
-#+POSTID: 74
+#+POSTID: 187
+#+BLOG: rubikitch
 #+DATE: [2014-08-09 Sat 10:13]
 #+PERMALINK: ace-jump-buffer
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t
 #+ISPAGE: nil
-#+DESCRIPTION:
+#+DESCRIPTION: ace-jump-modeのインターフェースで最近使ったバッファに切り替える
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs
+#+CATEGORY: バッファ切り替え
 #+EL_PKG_NAME: ace-jump-buffer
-#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, relate:ace-jump-mode, emacs ace-jump-mode
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: ace-jump
 #+EL_TITLE0: ace-jump-bufferでワンタッチバッファ切り替え
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージace-jump-bufferの紹介
-#+MYTAGS: package:ace-jump-buffer, emacs 使い方, emacs コマンド, emacs, emacs lisp ace-jump-buffer, elisp ace-jump-buffer, emacs melpa ace-jump-buffer, emacs ace-jump-buffer 使い方, emacs ace-jump-buffer 設定, emacs パッケージ ace-jump-buffer, emacs ace-jump-buffer スクリーンショット, relate:ace-jump-mode, emacs ace-jump-mode
-#+TITLE: emacs ace-jump-buffer.el : ace-jump-bufferでワンタッチバッファ切り替え | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>ace-jump-buffer</td></tr>
-<tr><td>概要(原文)</td><td>fast buffer switching extension to `ace-jump-mode'</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/waymondo/ace-jump-buffer">https://github.com/waymondo/ace-jump-buffer</a></td></tr>
-<tr><td>バージョン</td><td>20141107.1317</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:ace-jump-buffer/">package:ace-jump-buffer</a> <a href="http://rubikitch.com/tag/package:ace-jump-mode/">package:ace-jump-mode</a></td></tr>
-</table>
-<br />
-#+END_HTML
+#+TITLE: ace-jump-buffer.el : ace-jump-bufferでワンタッチバッファ切り替え
+[includeme file="inc-package-table.php" name="ace-jump-buffer" where="melpa"]
+** 概要
+ace-jump-bufferとは、最近使ったバッファからキーボードメニューでバッファ選択を行うものです。
+
+ここではC-:で起動するように設定しています。
+[includeme file="inc-package-install.php" name="ace-jump-buffer" where="melpa"]
 
 #+end:
-** ace-jump-bufferとは
+** 概要                                                            :noexport:
 ace-jump-bufferとは、最近使ったバッファからキーボードメニューでバッファ選択を行うものです。
 
 ここではC-:で起動するように設定しています。
@@ -57,3 +50,4 @@ Fig1: M-x ace-jump-bufferを起動したところ
 
 http://rubikitch.com/f/20140809101946.png
 Fig2: bを押して選択
+[includeme file="inc-package-relate.php" name="ace-jump-buffer"]

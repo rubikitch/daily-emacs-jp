@@ -1,18 +1,19 @@
 #+BLOG: rubikitch
-#+POSTID: 2028
+#+POSTID: 1164
+#+BLOG: rubikitch
 #+DATE: [2015-09-29 Tue 04:52]
 #+PERMALINK: peco-wrapper
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
 #+ISPAGE: nil
-#+DESCRIPTION:
+#+DESCRIPTION:このスクリプトを使うことでEmacs内でもそのままpecoを使えます
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, Ruby, helm, peco
+#+CATEGORY: peco
 #+DESCRIPTION: pecoを端末以外から実行できるようにするラッパースクリプト。
-#+MYTAGS: relate:helm, relate:anything, relate:shell, relate:eshell, シェルでanythingの絞り込み, シェルでhelmの絞り込み, peco, percol, go, golang, zsh, bash, zaw, ターミナル版anything的なpercol, ターミナル版anything的なpeco, 端末版Unite.vimなpeco, pecoをemacsで動かす, pecoをeshellで動かす, , 端末エミュレータでpecoを動かす, ターミナルエミュレータでpecoを動作させる
 #+TITLE: 端末でhelm風絞り込み候補選択をするpecoを端末外から実行できるようにした
 #+begin: org2blog-tags
-#+TAGS: relate:helm, relate:anything, relate:shell, relate:eshell, シェルでanythingの絞り込み, シェルでhelmの絞り込み, peco, percol, go, golang, zsh, bash, zaw, ターミナル版anything的なpercol, ターミナル版anything的なpeco, 端末版Unite.vimなpeco, pecoをemacsで動かす, pecoをeshellで動かす, , 端末エミュレータでpecoを動かす, ターミナルエミュレータでpecoを動作させる, Emacs, Ruby, helm, peco, --xterm, --xterm
+# content-length: 3104
+
 #+end:
 
 <2015-10-01 Thu>スクリプトバグ修正・機能追加。
@@ -85,6 +86,8 @@ $ peco --xterm='urxvt -fn xft:Ricty-80' /proc/meminfo
 ## カスタマイズ定数
 # pecoバイナリ
 PECO = File.expand_path "~/gocode/bin/peco"
+#PECO = File.expand_path "~/bin/peco040"
+#PECO = File.expand_path "~/bin/peco036"
 # 端末エミュレータ
 XTERM = "urxvt"                 # or mlterm/xterm etc
 # 端末エミュレータを使うTERM環境変数

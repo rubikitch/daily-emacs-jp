@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 184
+#+POSTID: 226
+#+BLOG: rubikitch
 #+DATE: [2014-08-19 Tue 03:39]
 #+PERMALINK: system-specific-settings
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t
@@ -7,58 +8,16 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, Emacs Lisp,
+#+CATEGORY: システム
 #+EL_PKG_NAME: system-specific-settings
-#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, emacs ホスト名 分岐, emacs OS 分岐, emacs OS特有の処理, emacs system-type, emacs system-name, elisp ホスト名 分岐, elisp OS 分岐, elisp OS特有の処理, elisp system-type, elisp system-name
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: OS, マクロ
 #+EL_TITLE0: OS(プラットホーム)やホスト名ごとの処理を記述するマクロ群
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージsystem-specific-settingsの紹介
-#+MYTAGS: package:system-specific-settings, emacs 使い方, emacs コマンド, emacs, emacs lisp system-specific-settings, elisp system-specific-settings, emacs melpa system-specific-settings, emacs system-specific-settings 使い方, emacs system-specific-settings 設定, emacs パッケージ system-specific-settings, emacs system-specific-settings スクリーンショット, emacs ホスト名 分岐, emacs OS 分岐, emacs OS特有の処理, emacs system-type, emacs system-name, elisp ホスト名 分岐, elisp OS 分岐, elisp OS特有の処理, elisp system-type, elisp system-name
-#+TITLE: emacs system-specific-settings.el : OS(プラットホーム)やホスト名ごとの処理を記述するマクロ群 | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>system-specific-settings</td></tr>
-<tr><td>概要(原文)</td><td>Apply settings only on certain systems</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/DarwinAwardWinner/emacs-system-specific-settings">https://github.com/DarwinAwardWinner/emacs-system-specific-settings</a></td></tr>
-<tr><td>バージョン</td><td>20140818.757</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:system-specific-settings/">package:system-specific-settings</a> </td></tr>
-</table>
-<br />
-#+END_HTML
-Emacs Lispプログラミングをしたり、複数のマシンで共通する設定を書くときには
-ホスト名やOSごとの処理を記述する必要が出てきます。
-
-そこで、system-specific-settings.elで提供されているマクロを使うと便利です。
-
-- *when-system-name-match*
-- *when-system-type-match*
-- *if-system-name-match*
-- *if-system-type-match*
-
-これらのマクロはautoloadされるので、MELPA経由でインストールすれば
-requireを書かなくても使えます。
-
-使い方は通常のwhenやifと同じですが、条件の書き方が異なります。
-
-- 完全一致
-- '(not X) →X以外
-- '(X Y) →XまたはY
-- '(regexp . RE) →REにマッチする
-
-ちなみに関数も指定できますが、使用例が思い付きませんでした(笑)
-
-# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
-** system-specific-settings インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install system-specific-settings
-
+#+TITLE: system-specific-settings.el : OS(プラットホーム)やホスト名ごとの処理を記述するマクロ群
+[includeme file="inc-package-table.php" name="system-specific-settings" where="melpa"]
 
 #+end:
-** 概要                                                             :noexport:
+** 概要
 Emacs Lispプログラミングをしたり、複数のマシンで共通する設定を書くときには
 ホスト名やOSごとの処理を記述する必要が出てきます。
 
@@ -82,6 +41,7 @@ requireを書かなくても使えます。
 ちなみに関数も指定できますが、使用例が思い付きませんでした(笑)
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+[includeme file="inc-package-install.php" name="system-specific-settings" where="melpa"]
 ** 使用例 [[http://rubikitch.com/f/140819032304.system-specific-settings.el][140819032304.system-specific-settings.el(以下のコードと同一)]]
 #+BEGIN: include :file "/r/sync/junk/140819/140819032304.system-specific-settings.el"
 #+BEGIN_SRC fundamental
@@ -105,3 +65,4 @@ requireを書かなくても使えます。
 #+END_SRC
 
 #+END:
+[includeme file="inc-package-relate.php" name="system-specific-settings"]

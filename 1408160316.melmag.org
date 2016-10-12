@@ -1,16 +1,15 @@
 #+BLOG: rubikitch
-#+POSTID: 172
+#+POSTID: 29
+#+BLOG: rubikitch
 #+DATE: [2014-08-16 Sat 03:16]
-#+PERMALINK: melmag
+#+PERMALINK: melmag142
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t
 #+ISPAGE: nil
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: メルマガ,
+#+CATEGORY: るびきち塾メルマガ
 #+DESCRIPTION: Emacsの鬼るびきちのココだけの話 142号
-#+MYTAGS: Emacs, emacs キーマップ, emacs global-map, emacs emacs define-key, emacs help, emacs ヘルプ, emacs 操作方法, emacs キーバインド, Emacsの鬼るびきちのココだけの話, emacs メルマガ
-#+TAGS: Emacs, emacs キーマップ, emacs global-map, emacs emacs define-key, emacs help, emacs ヘルプ, emacs 操作方法, emacs キーバインド, Emacsの鬼るびきちのココだけの話, emacs メルマガ, メルマガ,,
 #+TITLE: あふれ返るキーにどう対処する？
 Emacsを使っていると、ありますよね、
 無数のキーバインドに溺れてしまうことが…

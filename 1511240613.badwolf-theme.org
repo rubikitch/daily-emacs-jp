@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 2212
+#+POSTID: 1267
+#+BLOG: rubikitch
 #+DATE: [2015-11-24 Tue 06:13]
 #+PERMALINK: badwolf-theme
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,47 +8,17 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, theme
+#+CATEGORY: ダーク
 #+EL_PKG_NAME: badwolf-theme
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, color-theme, カラーテーマ
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: from:vim
 #+EL_TITLE0: Vimから移植されたダークなカラーテーマ
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージbadwolf-themeの紹介
-#+MYTAGS: package:badwolf-theme, emacs 使い方, emacs コマンド, emacs, badwolf-theme, badwolf-theme.el, emacs lisp badwolf-theme, elisp badwolf-theme, emacs melpa badwolf-theme, emacs badwolf-theme 使い方, emacs badwolf-theme 設定, emacs パッケージ badwolf-theme, emacs badwolf-theme スクリーンショット, color-theme, カラーテーマ
-#+TAGS: package:badwolf-theme, emacs 使い方, emacs コマンド, emacs, badwolf-theme, badwolf-theme.el, emacs lisp badwolf-theme, elisp badwolf-theme, emacs melpa badwolf-theme, emacs badwolf-theme 使い方, emacs badwolf-theme 設定, emacs パッケージ badwolf-theme, emacs badwolf-theme スクリーンショット, color-theme, カラーテーマ, Emacs, theme, badwolf-theme.el
-#+TITLE: emacs badwolf-theme.el : Vimから移植されたダークなカラーテーマ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>badwolf-theme</td></tr>
-<tr><td>概要(原文)</td><td>Bad Wolf color theme</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/bkruczyk/badwolf-emacs">https://github.com/bkruczyk/badwolf-emacs</a></td></tr>
-<tr><td>バージョン</td><td>20151122.803</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:badwolf-theme/">package:badwolf-theme</a> </td></tr>
-</table>
-<br />
-#+END_HTML
-*badwolf-theme.el* は、以下のパッケージに対応したカラーテーマです。
-- font-lock
-- linum
-- hl-line
-- mode-line
-- whitespace-mode
-- isearch
-- show-paren-mode
-- anzu
-- rainbow-delimiters
-** badwolf-theme インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install badwolf-theme
-
+#+TITLE: badwolf-theme.el : Vimから移植されたダークなカラーテーマ
+[includeme file="inc-package-table.php" name="badwolf-theme" where="melpa"]
 
 #+end:
-** 概要                                                             :noexport:
+** 概要
 *badwolf-theme.el* は、以下のパッケージに対応したカラーテーマです。
 - font-lock
 - linum
@@ -59,6 +30,7 @@ M-x package-install badwolf-theme
 - anzu
 - rainbow-delimiters
 
+[includeme file="inc-package-install.php" name="badwolf-theme" where="melpa"]
 ** スクリーンショット
 # (save-window-excursion (async-shell-command "emacs-test -eval '(load-theme (quote badwolf) t)'"))
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_theme_template" t))
@@ -120,3 +92,4 @@ $ emacs -Q -f package-initialize -eval '(load-theme (quote badwolf) t)'
 
 # sync/emacs/quelpa/build/badwolf-theme/screenshots/cljs.png http://rubikitch.com/wp-content/uploads/2015/11/wpid-cljs.png
 # sync/emacs/quelpa/build/badwolf-theme/screenshots/ruby.png http://rubikitch.com/wp-content/uploads/2015/11/wpid-ruby.png
+[includeme file="inc-package-relate.php" name="badwolf-theme"]

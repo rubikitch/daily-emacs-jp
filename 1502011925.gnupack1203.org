@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 1055
+#+POSTID: 663
+#+BLOG: rubikitch
 #+DATE: [2015-02-01 Sun 19:25]
 #+PERMALINK: gnupack1203
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,12 +8,11 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, gnupack, Emacs 24.4, 
+#+CATEGORY:  リリース情報
 #+DESCRIPTION: 
-#+MYTAGS: 
 #+TITLE: 【Windowsで展開するだけでCygwin Emacs】gnupack 12.03-2015.02.01出ました！
 #+begin: org2blog-tags
-#+TAGS: , Emacs, gnupack, Emacs 24.4, , Windows, Cygwin, Emacs24.4
+
 #+end:
 http://d.hatena.ne.jp/ksugita0510/20150201/p1
 

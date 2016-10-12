@@ -1,59 +1,23 @@
 #+BLOG: rubikitch
-#+POSTID: 818
+#+POSTID: 580
+#+BLOG: rubikitch
 #+DATE: [2014-12-29 Mon 04:13]
 #+PERMALINK: load-relative
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
 #+ISPAGE: nil
-#+DESCRIPTION:
+#+DESCRIPTION:require-relative, load-relative, FILE, provide-me。Rubyからの移植。
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs
+#+CATEGORY: システム
 #+EL_PKG_NAME: load-relative
-#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, require_relative, __FILE__
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 
+#+TAGS: from:ruby
 #+EL_TITLE0: 【Emacs Lisper即導入推奨】相対パスによるrequire-relativeとパス指定なしで使えるprovide-me
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージload-relativeの紹介
-#+MYTAGS: package:load-relative, emacs 使い方, emacs コマンド, emacs, emacs lisp load-relative, elisp load-relative, emacs melpa load-relative, emacs load-relative 使い方, emacs load-relative 設定, emacs パッケージ load-relative, require_relative, __FILE__
-#+TAGS: package:load-relative, emacs 使い方, emacs コマンド, emacs, emacs lisp load-relative, elisp load-relative, emacs melpa load-relative, emacs load-relative 使い方, emacs load-relative 設定, emacs パッケージ load-relative, require_relative, __FILE__, Emacs, FILE, require_relative, require-relative, load-relative, FILE, provide-me, FILE, require_relative, require-relative, load-relative, FILE, provide-me, require, provide
-#+TITLE: emacs load-relative.el : 【Emacs Lisper即導入推奨】相対パスによるrequire-relativeとパス指定なしで使えるprovide-me | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>load-relative</td></tr>
-<tr><td>概要(原文)</td><td>relative file load (within a multi-file Emacs package)</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/rocky/emacs-load-relative">https://github.com/rocky/emacs-load-relative</a></td></tr>
-<tr><td>バージョン</td><td>20141216.1331</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:load-relative/">package:load-relative</a> </td></tr>
-</table>
-<br />
-#+END_HTML
-
-他言語を使っていると、ついその機能が羨しく思ったりするものです。
-
-このパッケージはRubyの
-- *FILE*
-- *require_relative*
-をEmacs Lispに移植したものです。
-
-このパッケージを導入するだけで、
-自分自身をrequireすることなく以下の関数・マクロが使えます。
-
-- *require-relative*
-- *load-relative*
-- *FILE*
-- *provide-me*
-
-autoloadに感謝あるのみです。
-** load-relative インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install load-relative
-
+#+TITLE: load-relative.el : 【Emacs Lisper即導入推奨】相対パスによるrequire-relativeとパス指定なしで使えるprovide-me
+[includeme file="inc-package-table.php" name="load-relative" where="melpa"]
 
 #+end:
-** 概要                                                             :noexport:
+** 概要
 
 他言語を使っていると、ついその機能が羨しく思ったりするものです。
 
@@ -72,6 +36,7 @@ M-x package-install load-relative
 
 autoloadに感謝あるのみです。
 
+[includeme file="inc-package-install.php" name="load-relative" where="melpa"]
 ** __FILE__
 #+BEGIN_SRC emacs-lisp :results silent
 (__FILE__)
@@ -141,3 +106,4 @@ fuga = 1
 #+END_EXAMPLE
 
 
+[includeme file="inc-package-relate.php" name="load-relative"]

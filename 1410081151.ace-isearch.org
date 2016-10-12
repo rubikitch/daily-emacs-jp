@@ -1,32 +1,21 @@
 #+BLOG: rubikitch
-#+POSTID: 441
+#+POSTID: 339
+#+BLOG: rubikitch
 #+DATE: [2014-10-08 Wed 11:51]
 #+PERMALINK: ace-isearch
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t
 #+ISPAGE: nil
-#+DESCRIPTION:
+#+DESCRIPTION:C-s後1文字→ace-jump-mode、2〜5文字→isearch、6文字以上→helm-swoop
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs
+#+CATEGORY: 検索
 #+EL_PKG_NAME: ace-isearch
-#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs スクリーンショット %p, package:helm, package:ace-jump-mode, package:helm-swoop, relate:ace-jump-mode, relate:helm, relate:helm-swoop, isearch, インクリメンタルサーチ, Emacs インクリメンタルサーチ カイゼン, emacs isearch ace-jump-mode helm, emacs 検索 カーソル移動 拡張, カーソル移動, 検索, helm-occur, emacs occur isearch helm, emacs occur インクリメンタルサーチ helm
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: ace-jump, helm
 #+EL_TITLE0: 超isearch＝isearch＋ace-jump-mode＋helm-swoop　カーソル移動と検索を統合！
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージace-isearchの紹介
-#+MYTAGS: package:ace-isearch, emacs 使い方, emacs コマンド, emacs, emacs lisp ace-isearch, elisp ace-isearch, emacs melpa ace-isearch, emacs ace-isearch 使い方, emacs ace-isearch 設定, emacs パッケージ ace-isearch, emacs スクリーンショット ace-isearch, package:helm, package:ace-jump-mode, package:helm-swoop, relate:ace-jump-mode, relate:helm, relate:helm-swoop, isearch, インクリメンタルサーチ, Emacs インクリメンタルサーチ カイゼン, emacs isearch ace-jump-mode helm, emacs 検索 カーソル移動 拡張, カーソル移動, 検索, helm-occur, emacs occur isearch helm, emacs occur インクリメンタルサーチ helm
-#+TITLE: emacs ace-isearch.el : 超isearch＝isearch＋ace-jump-mode＋helm-swoop　カーソル移動と検索を統合！ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>ace-isearch</td></tr>
-<tr><td>概要(原文)</td><td>A seamless bridge between isearch and ace-jump-mode</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/tam17aki/ace-isearch">https://github.com/tam17aki/ace-isearch</a></td></tr>
-<tr><td>バージョン</td><td>20141024.2256</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:ace-isearch/">package:ace-isearch</a> <a href="http://rubikitch.com/tag/package:ace-jump-mode/">package:ace-jump-mode</a> <a href="http://rubikitch.com/tag/package:helm/">package:helm</a> <a href="http://rubikitch.com/tag/package:helm-swoop/">package:helm-swoop</a></td></tr>
-</table>
-<br />
-#+END_HTML
+#+TITLE: ace-isearch.el : 超isearch＝isearch＋ace-jump-mode＋helm-swoop　カーソル移動と検索を統合！
+[includeme file="inc-package-table.php" name="ace-isearch" where="melpa"]
+** 概要
 *ace-isearch* は、isearch(インクリメンタルサーチ)を
 超強化するEmacs Lispです。
 
@@ -51,7 +40,7 @@ isearchとoccurのいいとこ取りをしたものといえます。
 helm-swoop.elは作者が日本人だけにデフォルトで *migemo* にも対応しています。
 
 +helm-swoop.elは他にも機能がありますが、そのうち取り上げる予定です。+
-<2014-12-25 Thu> [[http://rubikitch.com/2014/12/25/helm-swoop/][Emacs Advent Calendar 2014にてhelm-swoopについて書きました！]] 
+<2014-12-25 Thu> [[http://emacs.rubikitch.com/helm-swoop/][Emacs Advent Calendar 2014にてhelm-swoopについて書きました！]] 
 
 
 これらをC-s/C-rでひとまとまめにしたのがace-isearchです。
@@ -60,12 +49,7 @@ helm-swoop.elは作者が日本人だけにデフォルトで *migemo* にも対
 
 検索ベースのカーソル移動が劇的に改善します！
 ぜひとも導入してみましょう。
-** ace-isearch インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install ace-isearch
-
+[includeme file="inc-package-install.php" name="ace-isearch" where="melpa"]
 
 #+end:
 ** 概要                                                             :noexport:
@@ -93,7 +77,7 @@ isearchとoccurのいいとこ取りをしたものといえます。
 helm-swoop.elは作者が日本人だけにデフォルトで *migemo* にも対応しています。
 
 +helm-swoop.elは他にも機能がありますが、そのうち取り上げる予定です。+
-<2014-12-25 Thu> [[http://rubikitch.com/2014/12/25/helm-swoop/][Emacs Advent Calendar 2014にてhelm-swoopについて書きました！]] 
+<2014-12-25 Thu> [[http://emacs.rubikitch.com/helm-swoop/][Emacs Advent Calendar 2014にてhelm-swoopについて書きました！]] 
 
 
 これらをC-s/C-rでひとまとまめにしたのがace-isearchです。
@@ -124,3 +108,4 @@ Fig2: 2〜5文字のときはisearch
 
 http://rubikitch.com/f/20141008135016.png
 Fig3: 6文字以上のときはhelm-swoop
+[includeme file="inc-package-relate.php" name="ace-isearch"]

@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 871
+#+POSTID: 598
+#+BLOG: rubikitch
 #+DATE: [2015-01-06 Tue 05:45]
 #+PERMALINK: ido-vertical-mode
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,28 +8,17 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs
+#+CATEGORY: 候補選択
 #+EL_PKG_NAME: ido-vertical-mode
-#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, relate:helm, relate:smex, package:ido, emacs ido helm, relate:iswitchb, emacs iswitchb helm, iswitchb, emacs バッファ選択, emacs バッファ切り替え, relate:imenu-anywhere, relate:idomenu, relate:ido-ubiquitous, 
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: ido, 補完
 #+EL_TITLE0: idoの候補を縦に並べ、helmっぽい見た目にする！
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージido-vertical-modeの紹介
-#+MYTAGS: package:ido-vertical-mode, emacs 使い方, emacs コマンド, emacs, emacs lisp ido-vertical-mode, elisp ido-vertical-mode, emacs melpa ido-vertical-mode, emacs ido-vertical-mode 使い方, emacs ido-vertical-mode 設定, emacs パッケージ ido-vertical-mode, emacs ido-vertical-mode スクリーンショット, relate:helm, relate:smex, package:ido, emacs ido helm, relate:iswitchb, emacs iswitchb helm, iswitchb, emacs バッファ選択, emacs バッファ切り替え, relate:imenu-anywhere, relate:idomenu, relate:ido-ubiquitous, 
-#+TAGS: package:ido-vertical-mode, emacs 使い方, emacs コマンド, emacs, emacs lisp ido-vertical-mode, elisp ido-vertical-mode, emacs melpa ido-vertical-mode, emacs ido-vertical-mode 使い方, emacs ido-vertical-mode 設定, emacs パッケージ ido-vertical-mode, emacs ido-vertical-mode スクリーンショット, relate:helm, relate:smex, package:ido, emacs ido helm, relate:iswitchb, emacs iswitchb helm, iswitchb, emacs バッファ選択, emacs バッファ切り替え, relate:imenu-anywhere, relate:idomenu, relate:ido-ubiquitous, , Emacs, ido-vertical-define-keys, ido, ido-vertical-mode.el, ido, ido-vertical-mode.el
-#+TITLE: emacs ido-vertical-mode.el : idoの候補を縦に並べ、helmっぽい見た目にする！ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>ido-vertical-mode</td></tr>
-<tr><td>概要(原文)</td><td>Makes ido-mode display vertically.</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/creichert/ido-vertical-mode.el">https://github.com/creichert/ido-vertical-mode.el</a></td></tr>
-<tr><td>バージョン</td><td>20150623.1410</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:ido-vertical-mode/">package:ido-vertical-mode</a> <a href="http://rubikitch.com/tag/package:helm/">package:helm</a> <a href="http://rubikitch.com/tag/package:smex/">package:smex</a> <a href="http://rubikitch.com/tag/package:iswitchb/">package:iswitchb</a> <a href="http://rubikitch.com/tag/package:imenu-anywhere/">package:imenu-anywhere</a> <a href="http://rubikitch.com/tag/package:idomenu/">package:idomenu</a> <a href="http://rubikitch.com/tag/package:ido-ubiquitous/">package:ido-ubiquitous</a></td></tr>
-</table>
-<br />
-#+END_HTML
+#+TITLE: ido-vertical-mode.el : idoの候補を縦に並べ、helmっぽい見た目にする！
+[includeme file="inc-package-table.php" name="ido-vertical-mode" where="melpa"]
+
+#+end:
+** 概要
 <2015-07-07 Tue>現在のバージョンでは *ido-vertical-define-keys*
 を設定しないとC-p/C-nで選択できないようになっています。
 
@@ -51,40 +41,9 @@ Fig1: M-x smex(ido版M-x)をhelmっぽく縦に並べる
 
 idoのあいまいマッチはhelmよりもタイプ数が減らせます。
 
-[[http://rubikitch.com/2014/12/16/smex/][M-xのido版であるsmex(レビュー)]] も入れておくと幸せになれます。
-** ido-vertical-mode インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
+[[http://emacs.rubikitch.com/smex/][M-xのido版であるsmex(レビュー)]] も入れておくと幸せになれます。
 
-M-x package-refresh-contents
-M-x package-install ido-vertical-mode
-
-
-#+end:
-** 概要                                                             :noexport:
-<2015-07-07 Tue>現在のバージョンでは *ido-vertical-define-keys*
-を設定しないとC-p/C-nで選択できないようになっています。
-
-標準添付パッケージの *ido* はC-x C-fやC-x bで
-快適に選択できるようにするものです。
-
-idoの候補選択は快適なのでいろいろな拡張パッケージがあります。
-
-*ido-vertical-mode.el* は、idoの候補を
-helmっぽく縦に並べて表示するものです。
-
-# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
-[[file:/r/sync/screenshots/20150106055458.png]]
-Fig2: M-x smex(ido版M-x)をhelmっぽく縦に並べる
-
-この視覚効果は大変大きく、
-目線を横に広げなくても候補がひと目でわかります。
-
-候補選択はC-n/C-pとごく自然に選択できます。
-
-idoのあいまいマッチはhelmよりもタイプ数が減らせます。
-
-[[http://rubikitch.com/2014/12/16/smex/][M-xのido版であるsmex(レビュー)]] も入れておくと幸せになれます。
-
+[includeme file="inc-package-install.php" name="ido-vertical-mode" where="melpa"]
 ** 設定 [[http://rubikitch.com/f/150106053940.ido-vertical-mode.el][150106053940.ido-vertical-mode.el(以下のコードと同一)]]
 #+BEGIN: include :file "/r/sync/junk/150106/150106053940.ido-vertical-mode.el"
 #+BEGIN_SRC fundamental
@@ -112,3 +71,4 @@ $ emacs -Q -f package-initialize -l 150106053940.ido-vertical-mode.el
 
 
 # /r/sync/screenshots/20150106055458.png http://rubikitch.com/wp-content/uploads/2015/01/wpid-20150106055458.png
+[includeme file="inc-package-relate.php" name="ido-vertical-mode"]

@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 2171
+#+POSTID: 1239
+#+BLOG: rubikitch
 #+DATE: [2015-11-09 Mon 11:52]
 #+PERMALINK: gnupack1306
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,12 +8,13 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, 
+#+CATEGORY: リリース情報
 #+DESCRIPTION: 
-#+MYTAGS: Emacs 24.5 windows, Emacs24.5 cygwin, Emacs24.5 gnupack, W32-IME emacs, cygwin 2.2.1, 
 #+TITLE: 【gnupack 13.06リリース】cygwin 2.2.1にバージョンアップ
 #+begin: org2blog-tags
-#+TAGS: Emacs 24.5 windows, Emacs24.5 cygwin, Emacs24.5 gnupack, W32-IME emacs, cygwin 2.2.1, , Emacs, , 
+# content-length: 363
+#+HTML: <!-- noindex -->
+
 #+end:
 http://d.hatena.ne.jp/ksugita0510/20151108/p1
 

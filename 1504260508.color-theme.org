@@ -1,18 +1,19 @@
 #+BLOG: rubikitch
-#+POSTID: 1575
+#+POSTID: 869
+#+BLOG: rubikitch
 #+DATE: [2015-04-26 Sun 05:08]
 #+PERMALINK: color-theme
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
 #+ISPAGE: nil
-#+DESCRIPTION:
+#+DESCRIPTION:100を超えるカラーテーマの一覧。カラーテーマはload-theme関数を使って設定する。
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, theme, 
+#+CATEGORY: テーマ設定
 #+DESCRIPTION: Emacsのcolor themeを一覧・テストするサイトの紹介と、設定方法
-#+MYTAGS: relate:helm-package, relate:helm, relate:color-theme, emacs 色設定, emacs theme, emacs color theme, emacs color-theme.el, emacs スキン, emacs テーマ, emacs skin, emacs color setting, emacs カラーテーマ, emacs テーマ 変更, emacs カラーテーマ 設定, emacs 見た目の変更, emacs 好みの色設定, emacs 背景色, 
 #+TITLE: Emacsのcolor-theme(カラーテーマ)を一覧・テスト・設定する
 #+begin: org2blog-tags
-#+TAGS: relate:helm-package, relate:helm, relate:color-theme, emacs 色設定, emacs theme, emacs color theme, emacs color-theme.el, emacs スキン, emacs テーマ, emacs skin, emacs color setting, emacs カラーテーマ, emacs テーマ 変更, emacs カラーテーマ 設定, emacs 見た目の変更, emacs 好みの色設定, emacs 背景色, , Emacs, theme, , M-x list-packages, M-x occur RET theme, M-x helm-package, M-x helm-list-elisp-packages, color-theme.el, M-x customize-face, custom-file, custom-set-faces
+# content-length: 2453
+
 #+end:
 Emacsの色設定は奥が深く、面倒だったりします。
 

@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 1592
+#+POSTID: 879
+#+BLOG: rubikitch
 #+DATE: [2015-04-30 Thu 05:33]
 #+PERMALINK: broadcast
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,65 +8,20 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs
+#+CATEGORY: 複数のカーソル
 #+EL_PKG_NAME: broadcast
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, relate:multiple-cursors
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: マイナーモード
 #+EL_TITLE0: 【multiple-cursorsの別バッファ版】複数のウィンドウで同じ操作をする
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージbroadcastの紹介
-#+MYTAGS: package:broadcast, emacs 使い方, emacs コマンド, emacs, broadcast, broadcast.el, emacs lisp broadcast, elisp broadcast, emacs melpa broadcast, emacs broadcast 使い方, emacs broadcast 設定, emacs パッケージ broadcast, emacs broadcast スクリーンショット, relate:multiple-cursors
-#+TAGS: package:broadcast, emacs 使い方, emacs コマンド, emacs, broadcast, broadcast.el, emacs lisp broadcast, elisp broadcast, emacs melpa broadcast, emacs broadcast 使い方, emacs broadcast 設定, emacs パッケージ broadcast, emacs broadcast スクリーンショット, relate:multiple-cursors, Emacs, broadcast.el, M-x broadcast-mode, M-x broadcast-mode
-#+TITLE: emacs broadcast.el : 【multiple-cursorsの別バッファ版】複数のウィンドウで同じ操作をする | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>broadcast</td></tr>
-<tr><td>概要(原文)</td><td>Links buffers together for simultaneous editing.</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/killdash9/broadcast.el">https://github.com/killdash9/broadcast.el</a></td></tr>
-<tr><td>バージョン</td><td>20150313.1659</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:broadcast/">package:broadcast</a> <a href="http://rubikitch.com/tag/package:multiple-cursors/">package:multiple-cursors</a></td></tr>
-</table>
-<br />
-#+END_HTML
-*broadcast.el* は、複数のウィンドウにて同じ編集操作をさせます。
-
-[[http://rubikitch.com/2014/11/10/multiple-cursors/][multiple-cursors.el(レビュー)]] は同じバッファで同じ操作をしますが、
-こっちは別のバッファが操作対象となります。
-
-kill-ringは各ウィンドウで独立になっているので、
-コピー＆ペーストの操作をするとそのウィンドウの内容が対象です。
-
-同じ操作をさせたいウィンドウ各々で *M-x broadcast-mode* を実行すると、
-このアニメーションのようになります。(作者のを拝借)
-
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/broadcast-demo.gif]]
-
-broadcast-modeをやめるにはC-0 M-x broadcast-modeとします。
-
-とはいえコマンドを真似ているだけなので、
-日本語入力をするとおかしくなります。
-
-
-
-# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
-
-# /r/sync/screenshots/broadcast-demo.gif http://rubikitch.com/wp-content/uploads/2015/04/wpid-broadcast-demo.gif
-** broadcast インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install broadcast
-
+#+TITLE: broadcast.el : 【multiple-cursorsの別バッファ版】複数のウィンドウで同じ操作をする
+[includeme file="inc-package-table.php" name="broadcast" where="melpa"]
 
 #+end:
-** 概要                                                             :noexport:
+** 概要
 *broadcast.el* は、複数のウィンドウにて同じ編集操作をさせます。
 
-[[http://rubikitch.com/2014/11/10/multiple-cursors/][multiple-cursors.el(レビュー)]] は同じバッファで同じ操作をしますが、
+[[http://emacs.rubikitch.com/multiple-cursors/][multiple-cursors.el(レビュー)]] は同じバッファで同じ操作をしますが、
 こっちは別のバッファが操作対象となります。
 
 kill-ringは各ウィンドウで独立になっているので、
@@ -88,3 +44,5 @@ broadcast-modeをやめるにはC-0 M-x broadcast-modeとします。
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
 
 # /r/sync/screenshots/broadcast-demo.gif http://rubikitch.com/wp-content/uploads/2015/04/wpid-broadcast-demo.gif
+[includeme file="inc-package-install.php" name="broadcast" where="melpa"]
+[includeme file="inc-package-relate.php" name="broadcast"]

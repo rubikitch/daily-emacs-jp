@@ -1,32 +1,21 @@
 #+BLOG: rubikitch
-#+POSTID: 522
+#+POSTID: 371
+#+BLOG: rubikitch
 #+DATE: [2014-10-27 Mon 14:57]
 #+PERMALINK: noflet
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
 #+ISPAGE: nil
-#+DESCRIPTION:
+#+DESCRIPTION:関数内で関数を再定義(元の関数定義も参照可能)するnofletマクロ
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, Emacs Lisp,
+#+CATEGORY: 関数再定義
 #+EL_PKG_NAME: noflet
-#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs パッケージ %p, emacs lisp flet, emacs lisp labels, emacs lisp cl-flet, emacs-lisp cl-labels, emacs lisp dflet, relate:dflet, package:cl-lib, emacs defadvice, emacs アドバイス
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール  使い方
+#+TAGS: アドバイス
 #+EL_TITLE0: 関数内でローカル関数を定義する最強の方法
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージnofletの紹介
-#+MYTAGS: package:noflet, emacs 使い方, emacs コマンド, emacs, emacs lisp noflet, elisp noflet, emacs melpa noflet, emacs noflet 使い方, emacs パッケージ noflet, emacs lisp flet, emacs lisp labels, emacs lisp cl-flet, emacs-lisp cl-labels, emacs lisp dflet, relate:dflet, package:cl-lib, emacs defadvice, emacs アドバイス
-#+TITLE: emacs noflet.el : 関数内でローカル関数を定義する最強の方法 | MELPA Emacs Lisp Elisp パッケージ インストール  使い方
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>noflet</td></tr>
-<tr><td>概要(原文)</td><td>locally override functions</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/nicferrier/emacs-noflet">https://github.com/nicferrier/emacs-noflet</a></td></tr>
-<tr><td>バージョン</td><td>20141102.654</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:noflet/">package:noflet</a> <a href="http://rubikitch.com/tag/package:dflet/">package:dflet</a></td></tr>
-</table>
-<br />
-#+END_HTML
+#+TITLE: noflet.el : 関数内でローカル関数を定義する最強の方法
+[includeme file="inc-package-table.php" name="noflet" where="melpa"]
+** 概要
 *noflet* は *flet* の強力版で、ローカル関数を定義するマクロです。
 
 Emacs Lispにおけるローカル関数といえば、
@@ -52,12 +41,7 @@ noflet内での関数定義においては
 
 なお、インデントを正しくしてくれるコードもあるのですが、
 僕の環境(Emacs 24.4)では正しくインデントしてくれませんでした。
-** noflet インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install noflet
-
+[includeme file="inc-package-install.php" name="noflet" where="melpa"]
 
 #+end:
 ** 概要                                                             :noexport:
@@ -130,3 +114,4 @@ dfletやcl-letfといった旧来の書き方と比較してみてください�
 
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+[includeme file="inc-package-relate.php" name="noflet"]

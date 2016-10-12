@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 1353
+#+POSTID: 774
+#+BLOG: rubikitch
 #+DATE: [2015-03-22 Sun 07:51]
 #+PERMALINK: unkillable-scratch
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,70 +8,17 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs
+#+CATEGORY: scratchバッファ
 #+EL_PKG_NAME: unkillable-scratch
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs バッファ 削除阻止, scratch 永続化, relate:scratch-log, relate:scratch-pop
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 
+#+TAGS: マイナーモード
 #+EL_TITLE0: *scratch*など特定のバッファが削除されることを阻止する！
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージunkillable-scratchの紹介
-#+MYTAGS: package:unkillable-scratch, emacs 使い方, emacs コマンド, emacs, unkillable-scratch, unkillable-scratch.el, emacs lisp unkillable-scratch, elisp unkillable-scratch, emacs melpa unkillable-scratch, emacs unkillable-scratch 使い方, emacs unkillable-scratch 設定, emacs パッケージ unkillable-scratch, emacs バッファ 削除阻止, scratch 永続化, relate:scratch-log, relate:scratch-pop
-#+TAGS: package:unkillable-scratch, emacs 使い方, emacs コマンド, emacs, unkillable-scratch, unkillable-scratch.el, emacs lisp unkillable-scratch, elisp unkillable-scratch, emacs melpa unkillable-scratch, emacs unkillable-scratch 使い方, emacs unkillable-scratch 設定, emacs パッケージ unkillable-scratch, emacs バッファ 削除阻止, scratch 永続化, relate:scratch-log, relate:scratch-pop, Emacs, scratch, M-x unkillable-scratch, unkillable-buffers, unkillable-scratch-behavior, bury-buffer, buffer-list, kill-buffer-query-functions, M-x unkillable-scratch, unkillable-buffers, unkillable-scratch-behavior, bury-buffer, buffer-list, kill-buffer-query-functions
-#+TITLE: emacs unkillable-scratch.el : *scratch*など特定のバッファが削除されることを阻止する！ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>unkillable-scratch</td></tr>
-<tr><td>概要(原文)</td><td>Disallow buffers from being killed by regexp -- default is *scratch* buffer</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/EricCrosson/unkillable-scratch">https://github.com/EricCrosson/unkillable-scratch</a></td></tr>
-<tr><td>バージョン</td><td>20150318.2044</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:unkillable-scratch/">package:unkillable-scratch</a> <a href="http://rubikitch.com/tag/package:scratch-log/">package:scratch-log</a> <a href="http://rubikitch.com/tag/package:scratch-pop/">package:scratch-pop</a></td></tr>
-</table>
-<br />
-#+END_HTML
-バッファを誤って削除してしまうことってありますよね？
-
-特に特定のバッファを誤削除から守るマイナーモードが
-*M-x unkillable-scratch* です。
-
-名前からして*scratch*バッファ限定と思われがちですが、
-保護対象のバッファ名の正規表現リスト *unkillable-buffers*
-を指定すれば任意のバッファに適用できます。
-
-開くのに時間がかかる巨大なファイルに対して使うのもいいです。
-
-*scratch*については特別扱いされていて、
-*scratch*を削除しようとしたら、
-現在の*scratch*の内容がクリアされます。
-
-unkillable-buffers に指定されたバッファを削除しようとしたとき、
-デフォルトでは何もしませんが、 *unkillable-scratch-behavior* を
-buryに指定すれば *bury-buffer* が実行されます。
-
-そのとき、見かけ上はそのバッファが削除されたようですが、
-実は *buffer-list* の最後尾に回されるだけで選択しづらくなるだけです。
-
-マイナーモードとして実装されていますが、
-単に *kill-buffer-query-functions* を設定しているだけです。
-
-*scratch*バッファを削除不能にするelispは他にも
-[[http://rubikitch.com/2015/01/05/scratch-log/][scratch-log.el(レビュー)]] があり、それはさらに
-*scratch*の内容を記録し、再起動時に復元までします。
-
-*scratch*バッファを選択しやすくする [[http://rubikitch.com/2014/11/24/scratch-pop/][scratch-pop.el(レビュー)]]
-も便利でしょう。
-
-# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
-** unkillable-scratch インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install unkillable-scratch
-
+#+TITLE: unkillable-scratch.el : *scratch*など特定のバッファが削除されることを阻止する！
+[includeme file="inc-package-table.php" name="unkillable-scratch" where="melpa"]
 
 #+end:
-** 概要                                                             :noexport:
+** 概要
 バッファを誤って削除してしまうことってありますよね？
 
 特に特定のバッファを誤削除から守るマイナーモードが
@@ -97,13 +45,14 @@ buryに指定すれば *bury-buffer* が実行されます。
 単に *kill-buffer-query-functions* を設定しているだけです。
 
 *scratch*バッファを削除不能にするelispは他にも
-[[http://rubikitch.com/2015/01/05/scratch-log/][scratch-log.el(レビュー)]] があり、それはさらに
+[[http://emacs.rubikitch.com/scratch-log/][scratch-log.el(レビュー)]] があり、それはさらに
 *scratch*の内容を記録し、再起動時に復元までします。
 
-*scratch*バッファを選択しやすくする [[http://rubikitch.com/2014/11/24/scratch-pop/][scratch-pop.el(レビュー)]]
+*scratch*バッファを選択しやすくする [[http://emacs.rubikitch.com/scratch-pop/][scratch-pop.el(レビュー)]]
 も便利でしょう。
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+[includeme file="inc-package-install.php" name="unkillable-scratch" where="melpa"]
 ** 設定 [[http://rubikitch.com/f/150322075829.unkillable-scratch.el][150322075829.unkillable-scratch.el(以下のコードと同一)]]
 #+BEGIN: include :file "/r/sync/junk/150322/150322075829.unkillable-scratch.el"
 #+BEGIN_SRC fundamental
@@ -123,3 +72,4 @@ buryに指定すれば *bury-buffer* が実行されます。
 $ wget http://rubikitch.com/f/150322075829.unkillable-scratch.el
 $ emacs -Q -f package-initialize -l 150322075829.unkillable-scratch.el
 #+END_EXAMPLE
+[includeme file="inc-package-relate.php" name="unkillable-scratch"]

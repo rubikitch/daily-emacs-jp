@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 2365
+#+POSTID: 1389
+#+BLOG: rubikitch
 #+DATE: [2016-01-28 Thu 14:08]
 #+PERMALINK: flatland-black-theme
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,54 +8,17 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, theme
+#+CATEGORY: ダーク
 #+EL_PKG_NAME: flatland-black-theme
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, color-theme, カラーテーマ
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: 
 #+EL_TITLE0: 黒背景のカラーテーマ
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージflatland-black-themeの紹介
-#+MYTAGS: package:flatland-black-theme, emacs 使い方, emacs コマンド, emacs, flatland-black-theme, flatland-black-theme.el, emacs lisp flatland-black-theme, elisp flatland-black-theme, emacs melpa flatland-black-theme, emacs flatland-black-theme 使い方, emacs flatland-black-theme 設定, emacs パッケージ flatland-black-theme, emacs flatland-black-theme スクリーンショット, color-theme, カラーテーマ
-#+TAGS: package:flatland-black-theme, emacs 使い方, emacs コマンド, emacs, flatland-black-theme, flatland-black-theme.el, emacs lisp flatland-black-theme, elisp flatland-black-theme, emacs melpa flatland-black-theme, emacs flatland-black-theme 使い方, emacs flatland-black-theme 設定, emacs パッケージ flatland-black-theme, emacs flatland-black-theme スクリーンショット, color-theme, カラーテーマ, Emacs, theme, flatland-black-theme.el
-#+TITLE: emacs flatland-black-theme.el : 黒背景のカラーテーマ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>flatland-black-theme</td></tr>
-<tr><td>概要(原文)</td><td>an Emacs 24 theme based on Flatland Black (tmTheme)</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/emacsfodder/emacs-flatland-black-theme">https://github.com/emacsfodder/emacs-flatland-black-theme</a></td></tr>
-<tr><td>バージョン</td><td>20141115.2230</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:flatland-black-theme/">package:flatland-black-theme</a> </td></tr>
-</table>
-<br />
-#+END_HTML
-*flatland-black-theme.el* は、以下のパッケージに対応したカラーテーマです。
-- linum
-- link
-- button
-- header-line
-- mode-line
-- isearch
-- tooltip
-- js3
-- cua-rectangle
-- magit
-- flyspell-mode
-- flymake-mode
-- git-gutter
-- diff
-- font-lock
-- rainbow-delimiters
-** flatland-black-theme インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install flatland-black-theme
-
+#+TITLE: flatland-black-theme.el : 黒背景のカラーテーマ
+[includeme file="inc-package-table.php" name="flatland-black-theme" where="melpa"]
 
 #+end:
-** 概要                                                             :noexport:
+** 概要
 *flatland-black-theme.el* は、以下のパッケージに対応したカラーテーマです。
 - linum
 - link
@@ -73,6 +37,7 @@ M-x package-install flatland-black-theme
 - font-lock
 - rainbow-delimiters
 
+[includeme file="inc-package-install.php" name="flatland-black-theme" where="melpa"]
 ** スクリーンショット
 # (save-window-excursion (async-shell-command "emacs-test -eval '(load-theme (quote flatland-black) t)'"))
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_theme_template" t))
@@ -94,3 +59,4 @@ $ emacs -Q -f package-initialize -eval '(load-theme (quote flatland-black) t)'
 #+END_EXAMPLE
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+[includeme file="inc-package-relate.php" name="flatland-black-theme"]

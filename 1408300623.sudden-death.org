@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 236
+#+POSTID: 251
+#+BLOG: rubikitch
 #+DATE: [2014-08-30 Sat 06:23]
 #+PERMALINK: sudden-death
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t
@@ -7,47 +8,16 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs
+#+CATEGORY: ネタ
 #+EL_PKG_NAME: sudden-death
-#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, Emacs 突然の死ジェネレーター
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 
+#+TAGS: 
 #+EL_TITLE0: Emacsで＞突然の死＜　えっ、なにこれwwwww
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージsudden-deathの紹介
-#+MYTAGS: package:sudden-death, emacs 使い方, emacs コマンド, emacs, emacs lisp sudden-death, elisp sudden-death, emacs melpa sudden-death, emacs sudden-death 使い方, emacs sudden-death 設定, emacs パッケージ sudden-death, Emacs 突然の死ジェネレーター
-#+TITLE: emacs sudden-death.el : Emacsで＞突然の死＜　えっ、なにこれwwwww | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>sudden-death</td></tr>
-<tr><td>概要(原文)</td><td>Totsuzen-no-Shi</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/yewton/sudden-death.el">https://github.com/yewton/sudden-death.el</a></td></tr>
-<tr><td>バージョン</td><td>20140829.538</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:sudden-death/">package:sudden-death</a> </td></tr>
-</table>
-<br />
-#+END_HTML
-Twitterでちょっと前に流行った『突然の死』！
-
-これをEmacsでやっちまおうというやつ。
-
-regionを指定してM-x sudden-death、これだけでできるよ。設定不要！
-
-ちなみに[[http://starwing.net/suddenly_death.html][本家突然の死ジェネレータはこちら]] 。
-
-＿人人人人人＿
-＞　Emacsで　＜
-￣ＹＹＹＹＹ￣
-# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
-** sudden-death インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install sudden-death
-
+#+TITLE: sudden-death.el : Emacsで＞突然の死＜　えっ、なにこれwwwww
+[includeme file="inc-package-table.php" name="sudden-death" where="melpa"]
 
 #+end:
-** 概要                                                             :noexport:
+** 概要
 Twitterでちょっと前に流行った『突然の死』！
 
 これをEmacsでやっちまおうというやつ。
@@ -60,3 +30,5 @@ regionを指定してM-x sudden-death、これだけでできるよ。設定不�
 ＞　Emacsで　＜
 ￣ＹＹＹＹＹ￣
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+[includeme file="inc-package-install.php" name="sudden-death" where="melpa"]
+[includeme file="inc-package-relate.php" name="sudden-death"]

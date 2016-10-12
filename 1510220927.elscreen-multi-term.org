@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 2105
+#+POSTID: 1206
+#+BLOG: rubikitch
 #+DATE: [2015-10-22 Thu 09:27]
 #+PERMALINK: elscreen-multi-term
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,29 +8,18 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs
+#+CATEGORY: シェル・端末
 #+EL_PKG_NAME: elscreen-multi-term
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, relate:multi-term, relate:elscreen, M-x ansi-term, M-x term, 端末エミュレーター, Emacs シェル, terminal-emulator, M-x term, M-x ansi-term, ターミナルエミュレータ, 端末エミュレーター, xterm, mlterm, urxvt, rxvt-unicode, ratpoison, stumpwm, タイル型ウィンドウマネージャー, 端末, tty, rxvt, relate:sane-term
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: elscreen
 #+EL_TITLE0: elscreenのscreenごとにmulti-term(端末)を起動させる
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージelscreen-multi-termの紹介
-#+MYTAGS: package:elscreen-multi-term, emacs 使い方, emacs コマンド, emacs, elscreen-multi-term, elscreen-multi-term.el, emacs lisp elscreen-multi-term, elisp elscreen-multi-term, emacs melpa elscreen-multi-term, emacs elscreen-multi-term 使い方, emacs elscreen-multi-term 設定, emacs パッケージ elscreen-multi-term, emacs elscreen-multi-term スクリーンショット, relate:multi-term, relate:elscreen, M-x ansi-term, M-x term, 端末エミュレーター, Emacs シェル, terminal-emulator, M-x term, M-x ansi-term, ターミナルエミュレータ, 端末エミュレーター, xterm, mlterm, urxvt, rxvt-unicode, ratpoison, stumpwm, タイル型ウィンドウマネージャー, 端末, tty, rxvt, relate:sane-term
-#+TAGS: package:elscreen-multi-term, emacs 使い方, emacs コマンド, emacs, elscreen-multi-term, elscreen-multi-term.el, emacs lisp elscreen-multi-term, elisp elscreen-multi-term, emacs melpa elscreen-multi-term, emacs elscreen-multi-term 使い方, emacs elscreen-multi-term 設定, emacs パッケージ elscreen-multi-term, emacs elscreen-multi-term スクリーンショット, relate:multi-term, relate:elscreen, M-x ansi-term, M-x term, 端末エミュレーター, Emacs シェル, terminal-emulator, M-x term, M-x ansi-term, ターミナルエミュレータ, 端末エミュレーター, xterm, mlterm, urxvt, rxvt-unicode, ratpoison, stumpwm, タイル型ウィンドウマネージャー, 端末, tty, rxvt, relate:sane-term, Emacs, elscreen-multi-term.el, M-x emt-multi-term, M-x emt-toggle-multi-term, M-x emt-pop-multi-term, M-x emt-multi-term, M-x emt-toggle-multi-term, M-x emt-pop-multi-term
-#+TITLE: emacs elscreen-multi-term.el : elscreenのscreenごとにmulti-term(端末)を起動させる | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>elscreen-multi-term</td></tr>
-<tr><td>概要(原文)</td><td>Multi term for elscreen</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/wamei/elscreen-multi-term">https://github.com/wamei/elscreen-multi-term</a></td></tr>
-<tr><td>バージョン</td><td>20151015.2045</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:elscreen-multi-term/">package:elscreen-multi-term</a> <a href="http://rubikitch.com/tag/package:multi-term/">package:multi-term</a> <a href="http://rubikitch.com/tag/package:elscreen/">package:elscreen</a> <a href="http://rubikitch.com/tag/package:sane-term/">package:sane-term</a></td></tr>
-</table>
-<br />
-#+END_HTML
-*elscreen-multi-term.el* は [[http://rubikitch.com/2014/09/05/elscreen/][elscreen.el(レビュー)]] と
+#+TITLE: elscreen-multi-term.el : elscreenのscreenごとにmulti-term(端末)を起動させる
+[includeme file="inc-package-table.php" name="elscreen-multi-term" where="melpa"]
+
+#+end:
+** 概要
+*elscreen-multi-term.el* は [[http://emacs.rubikitch.com/elscreen/][elscreen.el(レビュー)]] と
 multi-term.el (複数のM-x term) を組み合わせたものです。
 elscreenユーザでEmacsの端末を使う人は使ってみるといいです。
 
@@ -42,9 +32,9 @@ multi-termバッファが存在するときはそれに切替えます。
 *M-x emt-toggle-multi-term* はカレントバッファとmulti-termを切替えます。
 
 *M-x emt-pop-multi-term* はmulti-termバッファをポップアップさせます。
-[[http://rubikitch.com/2015/06/16/shell-pop/][shell-pop.el(レビュー)]] のような感じです。
+[[http://emacs.rubikitch.com/shell-pop/][shell-pop.el(レビュー)]] のような感じです。
 
-Emacsでの端末は遅いので、[[http://rubikitch.com/2015/10/04/sane-term/][僕は使っていません]] 。
+Emacsでの端末は遅いので、[[http://emacs.rubikitch.com/sane-term/][僕は使っていません]] 。
 
 
 
@@ -56,43 +46,8 @@ Fig1: M-x emt-multi-termでmulti-termを立ち上げる
 #+ATTR_HTML: :width 480
 [[file:/r/sync/screenshots/20151022092603.png]]
 Fig2: screenごとに個別のmulti-termになる
-** elscreen-multi-term インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
 
-M-x package-refresh-contents
-M-x package-install elscreen-multi-term
-
-
-#+end:
-** 概要                                                             :noexport:
-*elscreen-multi-term.el* は [[http://rubikitch.com/2014/09/05/elscreen/][elscreen.el(レビュー)]] と
-multi-term.el (複数のM-x term) を組み合わせたものです。
-elscreenユーザでEmacsの端末を使う人は使ってみるといいです。
-
-elscreenのscreenに固有の端末でシェルが立ち上がります。
-バッファ名はウィンドウIDとscreenの番号により固有の名前になります。
-
-*M-x emt-multi-term* はscreen固有のmulti-termを立ち上げます。
-multi-termバッファが存在するときはそれに切替えます。
-
-*M-x emt-toggle-multi-term* はカレントバッファとmulti-termを切替えます。
-
-*M-x emt-pop-multi-term* はmulti-termバッファをポップアップさせます。
-[[http://rubikitch.com/2015/06/16/shell-pop/][shell-pop.el(レビュー)]] のような感じです。
-
-Emacsでの端末は遅いので、[[http://rubikitch.com/2015/10/04/sane-term/][僕は使っていません]] 。
-
-
-
-# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20151022092557.png]]
-Fig3: M-x emt-multi-termでmulti-termを立ち上げる
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20151022092603.png]]
-Fig4: screenごとに個別のmulti-termになる
-
+[includeme file="inc-package-install.php" name="elscreen-multi-term" where="melpa"]
 ** 設定 [[http://rubikitch.com/f/151022092302.elscreen-multi-term.el][151022092302.elscreen-multi-term.el(以下のコードと同一)]]
 #+BEGIN: include :file "/r/sync/junk/151022/151022092302.elscreen-multi-term.el"
 #+BEGIN_SRC fundamental
@@ -110,3 +65,4 @@ Fig4: screenごとに個別のmulti-termになる
 $ wget http://rubikitch.com/f/151022092302.elscreen-multi-term.el
 $ emacs -Q -f package-initialize -l 151022092302.elscreen-multi-term.el
 #+END_EXAMPLE
+[includeme file="inc-package-relate.php" name="elscreen-multi-term"]

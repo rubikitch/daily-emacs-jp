@@ -1,32 +1,21 @@
 #+BLOG: rubikitch
-#+POSTID: 564
+#+POSTID: 397
+#+BLOG: rubikitch
 #+DATE: [2014-11-09 Sun 09:44]
 #+PERMALINK: mykie
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
 #+ISPAGE: nil
-#+DESCRIPTION:
+#+DESCRIPTION:C-u付きで別な機能を割り当てたりできる
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs
+#+CATEGORY: キーバインド
 #+EL_PKG_NAME: mykie
-#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, emacs キー割り当て, emacs キーバインド, emacs 空気読める, emacs global-set-key, relate:org, relate:winner
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方
+#+TAGS: るびきちオススメ, 標準コマンド強化
 #+EL_TITLE0: 1つのキーに複数の機能を割り当てる記憶にやさしいキーバインド節約術
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージmykieの紹介
-#+MYTAGS: package:mykie, emacs 使い方, emacs コマンド, emacs, emacs lisp mykie, elisp mykie, emacs melpa mykie, emacs mykie 使い方, emacs mykie 設定, emacs パッケージ mykie, emacs mykie スクリーンショット, emacs キー割り当て, emacs キーバインド, emacs 空気読める, emacs global-set-key, relate:org, relate:winner
-#+TITLE: emacs mykie.el : 1つのキーに複数の機能を割り当てる記憶にやさしいキーバインド節約術 | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>mykie</td></tr>
-<tr><td>概要(原文)</td><td>Command multiplexer: Register multiple functions to a keybind</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/yuutayamada/mykie-el">https://github.com/yuutayamada/mykie-el</a></td></tr>
-<tr><td>バージョン</td><td>20140221.1925</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:mykie/">package:mykie</a> <a href="http://rubikitch.com/tag/package:org/">package:org</a> <a href="http://rubikitch.com/tag/package:winner/">package:winner</a></td></tr>
-</table>
-<br />
-#+END_HTML
+#+TITLE: mykie.el : 1つのキーに複数の機能を割り当てる記憶にやさしいキーバインド節約術
+[includeme file="inc-package-table.php" name="mykie" where="melpa"]
+** 概要
 このパッケージは僕がずっと愛用していてお気に入りです。
 
 当サイトの設定にもしばしば登場させたいので、ここで紹介しておきます。
@@ -78,12 +67,7 @@ http://sleepboy-zzz.blogspot.com/2013/12/emacsmykieel.html
 http://sleepboy-zzz.blogspot.com/2014/02/mykieel-v021.html
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
-** mykie インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install mykie
-
+[includeme file="inc-package-install.php" name="mykie" where="melpa"]
 
 #+end:
 ** 概要                                                             :noexport:
@@ -203,3 +187,4 @@ org-clock-outはC-uを読んでしまうので、そうする必要がありま�
 | :minibuff          | Call this if current point is in minibuffer                |
 | :readonly          | Call this if current buffer is read-only                   |
 | :comment           | Call this if current point is string or comment face       |
+[includeme file="inc-package-relate.php" name="mykie"]

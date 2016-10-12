@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 1334
+#+POSTID: 770
+#+BLOG: rubikitch
 #+DATE: [2015-03-19 Thu 05:33]
 #+PERMALINK: sd1409-migemo-ace-jump-mode-dabbrev
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,22 +8,22 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, SKK, 連載『るびきち流Emacs超入門』
+#+CATEGORY: るびきち流Emacs超入門
 #+DESCRIPTION: エディタ選びで最初に注目するのは、やはり「どれだけ効率的に文章・コードを書けるか」ですよね。今回は「isearch＋Migemo(＋ace-jump-mode)」を使った高速なカーソル移動、「dabbrev-expand」、「hippie-expand」を使った強力な入力支援を紹介します。
-#+MYTAGS: package:ace-jump-mode, package:ddskk, package:ace-jump-mode, package:hippie-exp, package:dabbrev, package:migemo, hippie-expand, ace-jump-mode, cmigemo, migemo.el
 #+TITLE: #5 カーソル移動と入力支援でスピードアップ！ (Software Design 2014年9月号掲載記事) Emacs Migemo ace-jump-mode dabbrev hippie-exp
 #+begin: org2blog-tags
-#+TAGS: package:ace-jump-mode, package:ddskk, package:ace-jump-mode, package:hippie-exp, package:dabbrev, package:migemo, hippie-expand, ace-jump-mode, cmigemo, migemo.el, Emacs, SKK, 連載『るびきち流Emacs超入門』, helm, 文字入力の一元化, カーソル移動, 効率的な文字入力, 変数名, 関数名, シンボル, 文字列リテラル, 対応する括弧の末尾, S式, インクリメンタルサーチ, isearch, 正規表現isearch, 正規表現, メタ文字, 漢字変換, 漢字変換なしでローマ字で日本語文字列をisearch, Migemo, cmigemo, migemo.el, 入力支援機能, dabbrev, M-/, 補完, SKK, ファイル名補完, hippie-expand-try-functions-list, try-complete-file-name-partially, try-complete-file-name, try-expand-line, try-expand-list, 単語登録, 英字変換
+# content-length: 12398
+
 #+end:
 Software Design連載記事を掲載します。
 
 株式会社技術評論社の許可を得て掲載しています。
 草稿なので細かい部分は実際の記事とは異なることがあります。
 
-1. 2014/05 [[http://rubikitch.com/2014/08/28/sd1405/][なぜEmacsをお勧めするのか？]]
-2. 2014/06 [[http://rubikitch.com/2014/09/04/sd1406/][スマートにEmacsを始めるための小さいけど重要なコツ]]
-3. 2014/07 [[http://rubikitch.com/2014/10/05/sd1407/][反復練習に勝るものなし -- 打鍵すべし！設定書くべし！]]
-4. 2014/09 [[http://rubikitch.com/2015/03/16/sd1408-ddskk/][SKK＋AZIKで快適・効率的な日本語入力を！]]
+1. 2014/05 [[http://emacs.rubikitch.com/sd1405/][なぜEmacsをお勧めするのか？]]
+2. 2014/06 [[http://emacs.rubikitch.com/sd1406/][スマートにEmacsを始めるための小さいけど重要なコツ]]
+3. 2014/07 [[http://emacs.rubikitch.com/sd1407/][反復練習に勝るものなし -- 打鍵すべし！設定書くべし！]]
+4. 2014/09 [[http://emacs.rubikitch.com/sd1408-ddskk/][SKK＋AZIKで快適・効率的な日本語入力を！]]
 
 今回はカーソル移動の基礎、
 isearch、Migemoによるローマ字isearch、
@@ -30,11 +31,11 @@ ace-jump-mode.elによる高速画面内移動、
 dabbrev-expand/hippie-expandによる入力支援がテーマです。
 
 本サイトのレビュー記事もあります。
-- [[http://rubikitch.com/2014/08/20/migemo/][Migemo(cmigemo+migemo.el)]]
+- [[http://emacs.rubikitch.com/migemo/][Migemo(cmigemo+migemo.el)]]
   - 多くのelispで対応しています→ [[http://rubikitch.com/tag/migemo][tag:migemo]]
-- [[http://rubikitch.com/2014/10/09/ace-jump-mode/][ace-jump-mode.el]]
+- [[http://emacs.rubikitch.com/ace-jump-mode/][ace-jump-mode.el]]
   - ace-jump-modeを使った応用例→ [[http://rubikitch.com/tag/ace-jump-mode/][tag:ace-jump-mode]]
-- *helm* ユーザならば断然 [[http://rubikitch.com/2014/12/25/helm-swoop/][helm-swoop.el (Emacs Advent Calendar 2014記事)]]
+- *helm* ユーザならば断然 [[http://emacs.rubikitch.com/helm-swoop/][helm-swoop.el (Emacs Advent Calendar 2014記事)]]
 * カーソル移動
 　ども、Emacsと熱愛状態にあるるびきちです。「Emacsの恩恵は *文字入力の一元化* にある」という路線で本連載は進めていっています。今回はテキストエディタの本質である *カーソル移動* と *効率的な文字入力* について触れていきます。本記事を読んで設定していけば、Emacs以外で文章を書くことが本当に馬鹿らしくなってきますので楽しみにしててください。
 ** 基本
@@ -239,7 +240,7 @@ SD1405.pdf
 ** SKKを使う
 　dabbrev-expandやその進化形のhippie-expandは強力ですが日本語は苦手としています。日本語入力においては独自のノウハウがあります。
 
-　[[http://rubikitch.com/2015/03/16/sd1408-ddskk/][先月紹介した日本語入力システムSKK]] は単語変換だからこそ独自のメリットが存在します。特筆すべきはすぐに使える単語登録と英字変換です。SKK辞書は品詞情報がないため、見出し語と変換結果のテーブルに過ぎません。つまり、好き勝手に *単語登録* しまくれるのです。
+　[[http://emacs.rubikitch.com/sd1408-ddskk/][先月紹介した日本語入力システムSKK]] は単語変換だからこそ独自のメリットが存在します。特筆すべきはすぐに使える単語登録と英字変換です。SKK辞書は品詞情報がないため、見出し語と変換結果のテーブルに過ぎません。つまり、好き勝手に *単語登録* しまくれるのです。
 
 　そして、 *英字変換* は英数字を見出し語にできることです。たとえば、「code→コード」のような変換が行えます。「/code」を変換すればコードと出てきます。
 

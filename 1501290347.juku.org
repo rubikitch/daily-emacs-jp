@@ -1,18 +1,19 @@
 #+BLOG: rubikitch
-#+POSTID: 1021
+#+POSTID: 27
+#+BLOG: rubikitch
 #+DATE: [2015-01-29 Thu 03:47]
-#+PERMALINK: juku
+#+PERMALINK: juku-thanks
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
 #+ISPAGE: nil
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: メルマガ, 
+#+CATEGORY: るびきち塾メルマガ
 #+DESCRIPTION: 
 #+MYTAGS: 
 #+TITLE: るびきち塾の入塾者(メルマガ登録者)が大幅増！
 #+begin: org2blog-tags
-#+TAGS: , メルマガ, , 
+
 #+end:
 昨日、Twitterでさりげなく「るびきち塾」の告知を行いましたところ、
 一気に20人以上も入塾者が増えました。

@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 1611
+#+POSTID: 887
+#+BLOG: rubikitch
 #+DATE: [2015-05-03 Sun 05:49]
 #+PERMALINK: gnupack1300
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,11 +8,13 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, gnupack, Emacs 24.5, 
+#+CATEGORY: リリース情報
 #+DESCRIPTION: 展開するだけでEmacs on Cygwinを味わえるgnupackが更新され、Emacs 24.5化されました。
-#+MYTAGS: Emacs 24.5 windows, Emacs24.5 cygwin, Emacs24.5 gnupack, Cygwin Can't fork, cygwin トラブル対応, rebaseall, peflagsall, takeown, icacls
+#+TAGS: Emacs 24.5以降
 #+begin: org2blog-tags
-#+TAGS: Emacs 24.5 windows, Emacs24.5 cygwin, Emacs24.5 gnupack, Cygwin Can't fork, cygwin トラブル対応, rebaseall, peflagsall, takeown, icacls, Emacs, gnupack, Emacs 24.5, , 
+# content-length: 460
+#+HTML: <!-- noindex -->
+
 #+end:
 #+TITLE: 【gnupack 13.00リリース】Emacs24.5対応！Cygwin 2.0.1化
 http://d.hatena.ne.jp/ksugita0510/20150502/p1

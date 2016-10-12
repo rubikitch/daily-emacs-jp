@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 2253
+#+POSTID: 1293
+#+BLOG: rubikitch
 #+DATE: [2015-12-09 Wed 10:48]
 #+PERMALINK: material-theme
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,105 +8,17 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, theme
+#+CATEGORY: 明暗対応
 #+EL_PKG_NAME: material-theme
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, color-theme, カラーテーマ
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: google
 #+EL_TITLE0: Google Material Designに基いたカラーテーマ
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージmaterial-themeの紹介
-#+MYTAGS: package:material-theme, emacs 使い方, emacs コマンド, emacs, material-theme, material-theme.el, emacs lisp material-theme, elisp material-theme, emacs melpa material-theme, emacs material-theme 使い方, emacs material-theme 設定, emacs パッケージ material-theme, emacs material-theme スクリーンショット, color-theme, カラーテーマ
-#+TAGS: package:material-theme, emacs 使い方, emacs コマンド, emacs, material-theme, material-theme.el, emacs lisp material-theme, elisp material-theme, emacs melpa material-theme, emacs material-theme 使い方, emacs material-theme 設定, emacs パッケージ material-theme, emacs material-theme スクリーンショット, color-theme, カラーテーマ, Emacs, theme, material-theme.el
-#+TITLE: emacs material-theme.el : Google Material Designに基いたカラーテーマ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>material-theme</td></tr>
-<tr><td>概要(原文)</td><td>A Theme based on the colors of the Google Material Design</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/cpaulik/emacs-material-theme">https://github.com/cpaulik/emacs-material-theme</a></td></tr>
-<tr><td>バージョン</td><td>20151125.25</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:material-theme/">package:material-theme</a> </td></tr>
-</table>
-<br />
-#+END_HTML
-*material-theme.el* は、以下のパッケージに対応したカラーテーマ群です。
-
-- ace-window 
-- ace-jump-mode
-- Flycheck
-- highlight indentation
-- Flymake
-- Clojure errors
-- EDTS errors
-- For Brian Carper's extended clojure syntax table
-- Rainbow-delimiters
-- MMM-mode
-- Search
-- Evil
-- iedit
-- ahs
-- Anzu
-- IDO
-- flx-ido
-- which-function
-- Emacs interface
-- Parenthesis matching (built-in)
-- Smartparens paren matching
-- Parenthesis matching (mic-paren)
-- Parenthesis dimming (parenface)
-- macrostep
-- undo-tree
-- dired+
-- Magit
-- git-gutter
-- git-gutter-fringe
-- Compilation (most faces politely inherit from 'success, 'error, 'warning etc.)
-- Grep
-- Helm
-- guide-key
-- which-key
-- mark-multiple
-- Python-specific overrides
-- ein (emacs-ipython-notebook) specific colors
-- js2-mode
-- js3-mode
-- coffee-mode
-- nxml
-- RHTML
-- Message-mode
-- cfw emacs calendar
-- Jabber
-- Company autocomplete
-- Powerline
-- Spaceline
-- Outline
-- Ledger-mode
-- mu4e
-- Gnus
-- emms
-- stripe-buffer
-- erc
-- twittering-mode
-- ansi-term
-- highlight-sexp-mode
-
-
-以下のカラーテーマが定義されています。
-
-- material
-- material-light
-
-
-** material-theme インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install material-theme
-
+#+TITLE: material-theme.el : Google Material Designに基いたカラーテーマ
+[includeme file="inc-package-table.php" name="material-theme" where="melpa"]
 
 #+end:
-** 概要                                                             :noexport:
+** 概要
 *material-theme.el* は、以下のパッケージに対応したカラーテーマ群です。
 
 - ace-window 
@@ -175,6 +88,7 @@ M-x package-install material-theme
 
 #+end:
 
+[includeme file="inc-package-install.php" name="material-theme" where="melpa"]
 ** theme: material
 # *material-theme.el*
 *** スクリーンショット
@@ -297,3 +211,4 @@ $ emacs -Q -f package-initialize -eval '(load-theme (quote material-light) t)'
 
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+[includeme file="inc-package-relate.php" name="material-theme"]

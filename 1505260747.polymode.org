@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 1685
+#+POSTID: 932
+#+BLOG: rubikitch
 #+DATE: [2015-05-26 Tue 07:47]
 #+PERMALINK: polymode
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,28 +8,17 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, org-mode, 
+#+CATEGORY: 複数のメジャーモード
 #+EL_PKG_NAME: polymode
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, org-modeでC-c 'を使わないでメジャーモードを切り替える, relate:multi-mode, relate:mmm-mode, 複数のメジャーモードを切り替える, relate:poporg
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: org
 #+EL_TITLE0: org/markdown/R言語で複数のメジャーモードを1つのバッファに混在・切替
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージpolymodeの紹介
-#+MYTAGS: package:polymode, emacs 使い方, emacs コマンド, emacs, polymode, polymode.el, emacs lisp polymode, elisp polymode, emacs melpa polymode, emacs polymode 使い方, emacs polymode 設定, emacs パッケージ polymode, emacs polymode スクリーンショット, org-modeでC-c 'を使わないでメジャーモードを切り替える, relate:multi-mode, relate:mmm-mode, 複数のメジャーモードを切り替える, relate:poporg
-#+TAGS: package:polymode, emacs 使い方, emacs コマンド, emacs, polymode, polymode.el, emacs lisp polymode, elisp polymode, emacs melpa polymode, emacs polymode 使い方, emacs polymode 設定, emacs パッケージ polymode, emacs polymode スクリーンショット, org-modeでC-c 'を使わないでメジャーモードを切り替える, relate:multi-mode, relate:mmm-mode, 複数のメジャーモードを切り替える, relate:poporg, Emacs, org-mode, , polymode.el, Noweb for R, Rd, rapport, polymode.el, Noweb for R, Rd, rapport
-#+TITLE: emacs polymode.el : org/markdown/R言語で複数のメジャーモードを1つのバッファに混在・切替 | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>polymode</td></tr>
-<tr><td>概要(原文)</td><td>Versatile multiple modes with extensive literate programming support</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/vitoshka/polymode">https://github.com/vitoshka/polymode</a></td></tr>
-<tr><td>バージョン</td><td>20150523.1626</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:polymode/">package:polymode</a> <a href="http://rubikitch.com/tag/package:multi-mode/">package:multi-mode</a> <a href="http://rubikitch.com/tag/package:mmm-mode/">package:mmm-mode</a> <a href="http://rubikitch.com/tag/package:poporg/">package:poporg</a></td></tr>
-</table>
-<br />
-#+END_HTML
+#+TITLE: polymode.el : org/markdown/R言語で複数のメジャーモードを1つのバッファに混在・切替
+[includeme file="inc-package-table.php" name="polymode" where="melpa"]
+
+#+end:
+** 概要
 1つのバッファに複数の言語のテキストを含ませることがあります。
 
 たとえば、org-modeやmarkdown-modeでのコードブロック、
@@ -41,7 +31,7 @@ org-modeでC-c 'を使わずにモードを切り替えてくれるのは便利�
 
 以下のモードに対応していて、現在はWeb関係には対応していません。
 
-Webのテンプレートを編集するには[[http://rubikitch.com/2014/08/24/web-mode/][web-mode.el(レビュー)]] があります。
+Webのテンプレートを編集するには[[http://emacs.rubikitch.com/web-mode/][web-mode.el(レビュー)]] があります。
 
 - org-mode
 - markdown-mode
@@ -72,59 +62,8 @@ Fig1: ソースブロックの外ではorg-mode
 #+ATTR_HTML: :width 480
 [[file:/r/sync/screenshots/20150526080840.png]]
 Fig2: ソースブロックのメジャーモードに変わる！
-** polymode インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
 
-M-x package-refresh-contents
-M-x package-install polymode
-
-
-#+end:
-** 概要                                                             :noexport:
-1つのバッファに複数の言語のテキストを含ませることがあります。
-
-たとえば、org-modeやmarkdown-modeでのコードブロック、
-PHP/ERBなどのWeb関係のテキストなどです。
-
-*polymode.el* はバッファ内の『言語』を瞬時に判別し、
-カーソル位置によって適切なメジャーモードに切り替えます。
-
-org-modeでC-c 'を使わずにモードを切り替えてくれるのは便利です。
-
-以下のモードに対応していて、現在はWeb関係には対応していません。
-
-Webのテンプレートを編集するには[[http://rubikitch.com/2014/08/24/web-mode/][web-mode.el(レビュー)]] があります。
-
-- org-mode
-- markdown-mode
-- R言語
-  - *Noweb for R* (*.Snw, *.Rnw)
-  - *markdown+R* (*.Rmd)
-  - *HTML KnitR* (*.Rhtml)
-  - *Brew* (*.Rbrew)
-  - *Ess help* 
-  - *Rd*
-  - *rapport* (*.rapport)
-  - *R C++* (*.Rcpp, *.cppR)
-
-メジャーモードの切り替え方式はmmm-modeとは違い、
-[[http://www.loveshack.ukfsn.org/emacs/multi-mode.el][multi-mode.el]] のように間接バッファを用意し、
-post-command-hookで切り替えています。
-
-そのため切り替えは瞬時に終わり、動作は軽いです。
-
-polymode自体EIEIOのオブジェクト指向で書かれているため、
-他のモードにも対応させられます。
-
-# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150526080833.png]]
-Fig3: ソースブロックの外ではorg-mode
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150526080840.png]]
-Fig4: ソースブロックのメジャーモードに変わる！
-
+[includeme file="inc-package-install.php" name="polymode" where="melpa"]
 ** 設定 [[http://rubikitch.com/f/150526080511.polymode.1.el][150526080511.polymode.1.el(以下のコードと同一)]]
 #+BEGIN: include :file "/r/sync/junk/150526/150526080511.polymode.1.el"
 #+BEGIN_SRC fundamental
@@ -138,3 +77,4 @@ Fig4: ソースブロックのメジャーモードに変わる！
 $ wget http://rubikitch.com/f/150526080511.polymode.1.el
 $ emacs -Q -f package-initialize -l 150526080511.polymode.1.el
 #+END_EXAMPLE
+[includeme file="inc-package-relate.php" name="polymode"]

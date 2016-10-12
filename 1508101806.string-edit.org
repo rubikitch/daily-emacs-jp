@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 1889
+#+POSTID: 1074
+#+BLOG: rubikitch
 #+DATE: [2015-08-10 月 18:06]
 #+PERMALINK: string-edit
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,28 +8,17 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs
+#+CATEGORY: 複数のメジャーモード
 #+EL_PKG_NAME: string-edit
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, relate:js2-mode, JavaScript, js, 文字列リテラル, エスケープ文字, 
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: 
 #+EL_TITLE0: 【エスケープ地獄からの脱出】JavaScript文字列リテラルを別バッファで編集する
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージstring-editの紹介
-#+MYTAGS: package:string-edit, emacs 使い方, emacs コマンド, emacs, string-edit, string-edit.el, emacs lisp string-edit, elisp string-edit, emacs melpa string-edit, emacs string-edit 使い方, emacs string-edit 設定, emacs パッケージ string-edit, emacs string-edit スクリーンショット, relate:js2-mode, JavaScript, js, 文字列リテラル, エスケープ文字, 
-#+TAGS: package:string-edit, emacs 使い方, emacs コマンド, emacs, string-edit, string-edit.el, emacs lisp string-edit, elisp string-edit, emacs melpa string-edit, emacs string-edit 使い方, emacs string-edit 設定, emacs パッケージ string-edit, emacs string-edit スクリーンショット, relate:js2-mode, JavaScript, js, 文字列リテラル, エスケープ文字, , Emacs, string-edit.el, M-x string-edit-at-point, js2-mode, se/find-original, se/string-at-point, M-x string-edit-at-point, js2-mode, se/find-original, se/string-at-point
-#+TITLE: emacs string-edit.el : 【エスケープ地獄からの脱出】JavaScript文字列リテラルを別バッファで編集する | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>string-edit</td></tr>
-<tr><td>概要(原文)</td><td>Avoid escape nightmares by editing string in separate buffer</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/magnars/string-edit.el">https://github.com/magnars/string-edit.el</a></td></tr>
-<tr><td>バージョン</td><td>20130815.2115</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:string-edit/">package:string-edit</a> <a href="http://rubikitch.com/tag/package:js2-mode/">package:js2-mode</a></td></tr>
-</table>
-<br />
-#+END_HTML
+#+TITLE: string-edit.el : 【エスケープ地獄からの脱出】JavaScript文字列リテラルを別バッファで編集する
+[includeme file="inc-package-table.php" name="string-edit" where="melpa"]
+
+#+end:
+** 概要
 *string-edit.el* は、ソースコード中の文字列リテラルを
 別バッファで編集するパッケージです。
 
@@ -67,51 +57,6 @@ Fig2: 編集
 #+ATTR_HTML: :width 480
 [[file:/r/sync/screenshots/20150810181615.png]]
 Fig3: C-c C-cで反映される(js以外では1行化される…)
-** string-edit インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
 
-M-x package-refresh-contents
-M-x package-install string-edit
-
-
-#+end:
-** 概要                                                             :noexport:
-*string-edit.el* は、ソースコード中の文字列リテラルを
-別バッファで編集するパッケージです。
-
-文字列リテラルで *M-x string-edit-at-point* を
-実行すれば、その文字列が別バッファにてポップアップされます。
-
-編集終了時にC-c C-cを押せば元のコードに反映され、
-C-c C-kで取り止めます。
-
-[[https://asciinema.org/a/3040][本家動画]] を見れがわかるように、JavaScript(*js2-mode*)は
-特別な処理がなされていて、複数行の文字列に対応してくれます。
-
-それ以外の言語の場合、複数行の文字列リテラルは\nで1行になってしまいます。
-
-とはいえ、 *se/find-original* がこのようになっているので、
-言語に特化した *se/string-at-point* を定義し、
-それを呼ぶようにse/find-originalを再定義すれば多言語に対応できるでしょう。
-
-#+BEGIN_SRC emacs-lisp :results silent
-(defun se/find-original ()
-  (if (derived-mode-p 'js2-mode 'js-mode)
-      (se/js-strings-at-point)
-    (se/string-at-point)))
-#+END_SRC
-
-
-# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150810181600.png]]
-Fig4: 文字列リテラルでM-x string-at-pointするとポップアップ
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150810181611.png]]
-Fig5: 編集
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150810181615.png]]
-Fig6: C-c C-cで反映される(js以外では1行化される…)
-
+[includeme file="inc-package-install.php" name="string-edit" where="melpa"]
+[includeme file="inc-package-relate.php" name="string-edit"]

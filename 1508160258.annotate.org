@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 1903
+#+POSTID: 1084
+#+BLOG: rubikitch
 #+DATE: [2015-08-16 Sun 02:58]
 #+PERMALINK: annotate
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,28 +8,17 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs
+#+CATEGORY: コードリーディング
 #+EL_PKG_NAME: annotate
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, コードリーディング, relate:ipa, 
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: 
 #+EL_TITLE0: 【コードリーディング支援】ファイルを修正することなく行に注釈をつける
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージannotateの紹介
-#+MYTAGS: package:annotate, emacs 使い方, emacs コマンド, emacs, annotate, annotate.el, emacs lisp annotate, elisp annotate, emacs melpa annotate, emacs annotate 使い方, emacs annotate 設定, emacs パッケージ annotate, emacs annotate スクリーンショット, コードリーディング, relate:ipa, 
-#+TAGS: package:annotate, emacs 使い方, emacs コマンド, emacs, annotate, annotate.el, emacs lisp annotate, elisp annotate, emacs melpa annotate, emacs annotate 使い方, emacs annotate 設定, emacs パッケージ annotate, emacs annotate スクリーンショット, コードリーディング, relate:ipa, , Emacs, annotate.el, annotate.el
-#+TITLE: emacs annotate.el : 【コードリーディング支援】ファイルを修正することなく行に注釈をつける | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>annotate</td></tr>
-<tr><td>概要(原文)</td><td>annotate files without changing them</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/bastibe/annotate.el">https://github.com/bastibe/annotate.el</a></td></tr>
-<tr><td>バージョン</td><td>20150702.123</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:annotate/">package:annotate</a> <a href="http://rubikitch.com/tag/package:ipa/">package:ipa</a></td></tr>
-</table>
-<br />
-#+END_HTML
+#+TITLE: annotate.el : 【コードリーディング支援】ファイルを修正することなく行に注釈をつける
+[includeme file="inc-package-table.php" name="annotate" where="melpa"]
+
+#+end:
+** 概要
 ときにファイルを修正することなく、
 ファイルの内容にメモをしたくなるときがあります。
 
@@ -52,59 +42,11 @@ C-c a(デフォルトはC-c C-aとなっていてメジャーモードとかぶ�
 Fig1: 右端に注釈を表示
 
 [[https://raw.githubusercontent.com/bastibe/annotate.el/master/example.png][本家スクリーンショット]]
-** annotate インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
 
-M-x package-refresh-contents
-M-x package-install annotate
-
-
-#+end:
-** 概要                                                             :noexport:
-ときにファイルを修正することなく、
-ファイルの内容にメモをしたくなるときがあります。
-
-そんな場合は *annotate.el* を使ってみてください。
-
-C-c a(デフォルトはC-c C-aとなっていてメジャーモードとかぶる)で
-その行やregionに対して注釈をつけます。
-
-注釈は右端に表示されます。
-
-同種のelispとしてipa.elがEmacsWikiにありますが、
-注釈の位置がカーソルの前になるため見辛いです。
-
-その点、annotate.elの方がわかりやすく、
-ワイドディスプレイを有効活用できます。
-
-
-# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150816030901.png]]
-Fig2: 右端に注釈を表示
-
-[[https://raw.githubusercontent.com/bastibe/annotate.el/master/example.png][本家スクリーンショット]]
-
+[includeme file="inc-package-install.php" name="annotate" where="melpa"]
 ** 設定 [[http://rubikitch.com/f/50annotate.el][50annotate.el(以下のコードと同一)]]
 #+BEGIN: include :file "/r/sync/emacs/init.d/50annotate.el"
 #+BEGIN_SRC fundamental
-(require 'annotate)
-(setq annotate-file "~/.emacs.d/annotations")
-;;; view-modeでも使えるようにする
-(defun annotate-editing-text-property (&rest them)
-  (let ((bmp (buffer-modified-p))
-        (inhibit-read-only t))
-    (apply them)
-    (set-buffer-modified-p bmp)))
-(advice-add 'annotate-change-annotation :around 'annotate-editing-text-property)
-(advice-add 'annotate-create-annotation :around 'annotate-editing-text-property)
-;;; 規約違反なキーバインドを矯正
-(define-key annotate-mode-map (kbd "C-c C-a") nil)
-(define-key annotate-mode-map (kbd "C-c a") 'annotate-annotate)
-
-;;; 常に使えるようにする
-(add-hook 'find-file-hook 'annotate-mode)
-#+END_SRC
 
 #+END:
 
@@ -113,3 +55,4 @@ Fig2: 右端に注釈を表示
 $ wget http://rubikitch.com/f/50annotate.el
 $ emacs -Q -f package-initialize -l 50annotate.el
 #+END_EXAMPLE
+[includeme file="inc-package-relate.php" name="annotate"]

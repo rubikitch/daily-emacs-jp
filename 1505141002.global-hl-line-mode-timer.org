@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 1647
+#+POSTID: 912
+#+BLOG: rubikitch
 #+DATE: [2015-05-14 Thu 10:02]
 #+PERMALINK: global-hl-line-mode-timer
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,12 +8,12 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, Emacs Lisp, 
+#+CATEGORY: 高速化
 #+DESCRIPTION: 
-#+MYTAGS: package:hl-line, emacs アイドルタイマー, emacs post-command-hook timer, emacs カーソル移動 重い, emacs カーソル移動 遅い
 #+TITLE: 【高速化】Emacsのカーソル移動が重い？現在行ハイライトhl-line-modeに原因があるかも…
 #+begin: org2blog-tags
-#+TAGS: package:hl-line, emacs アイドルタイマー, emacs post-command-hook timer, emacs カーソル移動 重い, emacs カーソル移動 遅い, Emacs, Emacs Lisp, , global-hl-line-mode, pre-command-hook, post-command-hook, run-with-idle-timer
+# content-length: 1040
+
 #+end:
 現在行をハイライトする *global-hl-line-mode* は、
 当たり前すぎてもはや空気のようなマイナーモードだと思います。

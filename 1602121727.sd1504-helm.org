@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 2399
+#+POSTID: 1419
+#+BLOG: rubikitch
 #+DATE: [2016-02-12 Fri 17:27]
 #+PERMALINK: sd1504-helm
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,9 +8,9 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, 連載『るびきち流Emacs超入門』, helm
+#+CATEGORY: るびきち流Emacs超入門
 #+DESCRIPTION:
-#+TAGS:package:helm, package:helm-migemo, package:migemo, relate:migemo, relate:recentf-ext, package:recentf-ext, 
+#+TAGS:helm, recentf, Migemo対応
 #+TITLE: #12 Emacs に革命を起こすパッケージ「helm」 (Software Design 2015年4月号掲載記事) Emacs helm migemo インストール 設定 使い方
 Software Design連載記事を掲載します。
 
@@ -162,7 +163,7 @@ M-x package-install helm-migemo
 [[file:/r/sync/screenshots/20150126072924.png]]
 Fig3: M-x helm-occur (Migemo有効)
 
-　さらに該当行をハイライトしたり、カーソル位置のシンボルを検索させたり等より使いやすくしたものがhelm-swoop.elです。特にシンボル検索は、プログラミングにおいて欠かせない機能です。筆者の一番好きなパッケージのひとつなので、サイトでも詳しく解説しています。http://rubikitch.com/2014/12/25/helm-swoop
+　さらに該当行をハイライトしたり、カーソル位置のシンボルを検索させたり等より使いやすくしたものがhelm-swoop.elです。特にシンボル検索は、プログラミングにおいて欠かせない機能です。筆者の一番好きなパッケージのひとつなので、サイトでも詳しく解説しています。http://emacs.rubikitch.com/helm-swoop
 
 * その他のhelmコマンド
 　他にもたくさんのhelmコマンドが用意されています。

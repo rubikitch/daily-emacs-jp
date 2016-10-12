@@ -1,34 +1,22 @@
 #+BLOG: rubikitch
-#+POSTID: 314
+#+POSTID: 277
+#+BLOG: rubikitch
 #+DATE: [2014-09-07 Sun 14:14]
 #+PERMALINK: tabbar
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t
 #+ISPAGE: nil
-#+DESCRIPTION:
+#+DESCRIPTION:header-lineにバッファリストを表示させて切替えられるようにする
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs
+#+CATEGORY: バッファ切り替え
 #+EL_PKG_NAME: tabbar
-#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, relate:elscreen, relate:ace-jump-buffer, relate:helm, emacs ace-jump-buffer.el, emacs helm.el, emacs バッファ切り替え, emacs elscreen 乗り変え, emacs タブエディタ, relate:buffer-flip
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: 初心者安心, header-line
 #+EL_TITLE0: Emacsをタブエディタ化し、バッファを俯瞰する
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージtabbarの紹介
-#+MYTAGS: package:tabbar, emacs 使い方, emacs コマンド, emacs, emacs lisp tabbar, elisp tabbar, emacs melpa tabbar, emacs tabbar 使い方, emacs tabbar 設定, emacs パッケージ tabbar, emacs tabbar スクリーンショット, relate:elscreen, relate:ace-jump-buffer, relate:helm, emacs ace-jump-buffer.el, emacs helm.el, emacs バッファ切り替え, emacs elscreen 乗り変え, emacs タブエディタ, relate:buffer-flip
-#+TAGS: package:tabbar, emacs 使い方, emacs コマンド, emacs, emacs lisp tabbar, elisp tabbar, emacs melpa tabbar, emacs tabbar 使い方, emacs tabbar 設定, emacs パッケージ tabbar, emacs tabbar スクリーンショット, relate:elscreen, relate:ace-jump-buffer, relate:helm, emacs ace-jump-buffer.el, emacs helm.el, emacs バッファ切り替え, emacs elscreen 乗り変え, emacs タブエディタ, relate:buffer-flip, Emacs, elscreen.el, header-line, elscreen.el, header-line, helm
-#+TITLE: emacs tabbar.el : Emacsをタブエディタ化し、バッファを俯瞰する | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>tabbar</td></tr>
-<tr><td>概要(原文)</td><td>Display a tab bar in the header line</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/dholm/tabbar">https://github.com/dholm/tabbar</a></td></tr>
-<tr><td>バージョン</td><td>20141109.143</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:tabbar/">package:tabbar</a> <a href="http://rubikitch.com/tag/package:elscreen/">package:elscreen</a> <a href="http://rubikitch.com/tag/package:ace-jump-buffer/">package:ace-jump-buffer</a> <a href="http://rubikitch.com/tag/package:helm/">package:helm</a> <a href="http://rubikitch.com/tag/package:buffer-flip/">package:buffer-flip</a></td></tr>
-</table>
-<br />
-#+END_HTML
-[[http://rubikitch.com/2014/09/05/elscreen/][この前elscreenを紹介したばかりだが、]]
+#+TITLE: tabbar.el : Emacsをタブエディタ化し、バッファを俯瞰する
+[includeme file="inc-package-table.php" name="tabbar" where="melpa"]
+** 概要
+[[http://emacs.rubikitch.com/elscreen/][この前elscreenを紹介したばかりだが、]]
 対抗馬といわれているtabbar.elも見てみましょう。
 
 始めに言っておきますが、 *elscreen.el* とは別物です。
@@ -38,16 +26,11 @@ elscreen.elではウィンドウ構成一覧を表示します。
 
 これはバッファリストを *header-line* に並べて
 順次切り替えられるようにするものです。
-** tabbar インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install tabbar
-
+[includeme file="inc-package-install.php" name="tabbar" where="melpa"]
 
 #+end:
 ** 概要                                                             :noexport:
-[[http://rubikitch.com/2014/09/05/elscreen/][この前elscreenを紹介したばかりだが、]]
+[[http://emacs.rubikitch.com/elscreen/][この前elscreenを紹介したばかりだが、]]
 対抗馬といわれているtabbar.elも見てみましょう。
 
 始めに言っておきますが、 *elscreen.el* とは別物です。
@@ -125,6 +108,7 @@ Date:   Wed Apr 11 14:44:03 2012 -0400
 すぐに狹くなってしまいます。
 
 バッファを俯瞰して切り替える方法ならば、
-[[http://rubikitch.com/2014/08/09/ace-jump-buffer/][ace-jump-buffer.el]] や *helm* を使うこともできます。
+[[http://emacs.rubikitch.com/ace-jump-buffer/][ace-jump-buffer.el]] や *helm* を使うこともできます。
 
-そう考えると僕的にはタブエディタ化は[[http://rubikitch.com/2014/09/05/elscreen/][elscreen]] の方をおすすめします。
+そう考えると僕的にはタブエディタ化は[[http://emacs.rubikitch.com/elscreen/][elscreen]] の方をおすすめします。
+[includeme file="inc-package-relate.php" name="tabbar"]

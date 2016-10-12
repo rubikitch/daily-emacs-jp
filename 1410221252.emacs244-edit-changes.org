@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 498
+#+POSTID: 363
+#+BLOG: rubikitch
 #+DATE: [2014-10-22 Wed 12:52]
 #+PERMALINK: emacs244-edit-changes
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t
@@ -7,21 +8,20 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, Emacs 24.4,
+#+CATEGORY: 新機能紹介,
 #+DESCRIPTION: C-x C-i (indent-rigidly), uniquify.el, C-x SPC (rectangle-mark-mode), M-x delete-duplicate-lines, M-SPC (just-one-space) の進化形M-x cycle-spacing, レジスタの改善, ＜f1＞ nで新機能を見る
-#+MYTAGS: Emacs 24.4, Emacs 24.4 編集コマンド, Emacs 24.4 新機能, Emacs 24.4 変更点, relate:uniquify, relate:register, relate:smartrep, relate:cua
-#+TAGS: Emacs 24.4, Emacs 24.4 編集コマンド, Emacs 24.4 新機能, Emacs 24.4 変更点, relate:uniquify, relate:register, relate:smartrep, relate:cua, Emacs, Emacs 24.4,, view-mode, viewer.el, regctangle-mark-mode, cua-selection-mode, cua.el, M-SPC (just-one-space), C-x r s (copy-to-register), M-x list-registers
+#+TAGS: Emacs 24.4以降, 
 #+TITLE: Emacs 24.4で快適になった編集コマンドたち！新機能、改善点
 昨日に引き続き、Emacs 24.4の新機能のレビューです。
 
 今日は編集コマンドの変更点についてです。
 
-ハマりどころや目立った機能については[[http://rubikitch.com/2014/10/21/emacs244-2/][昨日の記事]] を見てください。
+ハマりどころや目立った機能については[[http://emacs.rubikitch.com/emacs244-2/][昨日の記事]] を見てください。
 
 ついでに *view-mode* をカイゼンする拙作 *viewer.el* も
 Emacs 24.4に対応させておきました。MELPAからどうぞ。
 
-<2014-10-23 Thu> [[http://rubikitch.com/2014/10/23/emacs244-package-news/][標準パッケージの更新点も書きました]]
+<2014-10-23 Thu> [[http://emacs.rubikitch.com/emacs244-package-news/][標準パッケージの更新点も書きました]]
 
 ** 概要                                                               :TOC:
      - [[#c-x-c-i-indent-rigidly-がsmartrep風味に][C-x C-i (indent-rigidly) がsmartrep風味に]]

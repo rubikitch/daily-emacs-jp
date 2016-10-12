@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 1446
+#+POSTID: 826
+#+BLOG: rubikitch
 #+DATE: [2015-04-06 Mon 05:42]
 #+PERMALINK: phi-search-update
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -12,9 +13,11 @@
 #+MYTAGS: 
 #+TITLE: phi-search.elが生まれ変わったので再レビューしました
 #+begin: org2blog-tags
-#+TAGS: , 記事更新情報, , 
+# content-length: 296
+#+HTML: <!-- noindex -->
+
 #+end:
-[[http://rubikitch.com/2014/11/11/phi-search/]]
+[[http://emacs.rubikitch.com/phi-search/]]
 
 phi-search.elが大幅に変更されたので、
 レビューを書き直しました。

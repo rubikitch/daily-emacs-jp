@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 2162
+#+POSTID: 1235
+#+BLOG: rubikitch
 #+DATE: [2015-11-07 Sat 12:57]
 #+PERMALINK: dired-toggle-sudo
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,49 +8,24 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, dired, 
+#+CATEGORY: sudo
 #+EL_PKG_NAME: dired-toggle-sudo
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p,  emacs sudo dired, relate:dired, relate:tramp, sudo, sudoedit, visudo, /sudo:root, sudoでdiredを開く, emacs システム管理, 
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 
+#+TAGS: dired
 #+EL_TITLE0: sudo状態でdiredを開く
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージdired-toggle-sudoの紹介
-#+MYTAGS: package:dired-toggle-sudo, emacs 使い方, emacs コマンド, emacs, dired-toggle-sudo, dired-toggle-sudo.el, emacs lisp dired-toggle-sudo, elisp dired-toggle-sudo, emacs melpa dired-toggle-sudo, emacs dired-toggle-sudo 使い方, emacs dired-toggle-sudo 設定, emacs パッケージ dired-toggle-sudo,  emacs sudo dired, relate:dired, relate:tramp, sudo, sudoedit, visudo, /sudo:root, sudoでdiredを開く, emacs システム管理, 
-#+TAGS: package:dired-toggle-sudo, emacs 使い方, emacs コマンド, emacs, dired-toggle-sudo, dired-toggle-sudo.el, emacs lisp dired-toggle-sudo, elisp dired-toggle-sudo, emacs melpa dired-toggle-sudo, emacs dired-toggle-sudo 使い方, emacs dired-toggle-sudo 設定, emacs パッケージ dired-toggle-sudo,  emacs sudo dired, relate:dired, relate:tramp, sudo, sudoedit, visudo, /sudo:root, sudoでdiredを開く, emacs システム管理, , Emacs, dired, , dired-toggle-sudo.el, M-x dired-toggle-sudo, M-x dired-toggle-sudo
-#+TITLE: emacs dired-toggle-sudo.el : sudo状態でdiredを開く | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>dired-toggle-sudo</td></tr>
-<tr><td>概要(原文)</td><td>Browse directory with sudo privileges.</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/renard/dired-toggle-sudo">https://github.com/renard/dired-toggle-sudo</a></td></tr>
-<tr><td>バージョン</td><td>20131022.626</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:dired-toggle-sudo/">package:dired-toggle-sudo</a> <a href="http://rubikitch.com/tag/package:dired/">package:dired</a> <a href="http://rubikitch.com/tag/package:tramp/">package:tramp</a></td></tr>
-</table>
-<br />
-#+END_HTML
-*dired-toggle-sudo.el* を使えばsudo状態でdiredを開くことができます。
-一般ユーザでは見られないディレクトリやファイルを開くときにとても便利です。
-trampを使って /sudo:root@hostname:dir で開けばいいのですが、覚えにくいのでC-c C-s (*M-x dired-toggle-sudo*)で一般ユーザ→sudoの切替えをした方がよいでしょう。
-toggleと名乗っているように、sudo状態から通常の一般ユーザでのdiredへも切替えられます。
-わざわざrootで慣れないviを起動しなくても、いつものEmacsでシステムファイルを編集できるのは嬉しいのではないでしょうか。
-# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
-** dired-toggle-sudo インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install dired-toggle-sudo
-
+#+TITLE: dired-toggle-sudo.el : sudo状態でdiredを開く
+[includeme file="inc-package-table.php" name="dired-toggle-sudo" where="melpa"]
 
 #+end:
-** 概要                                                             :noexport:
+** 概要
 *dired-toggle-sudo.el* を使えばsudo状態でdiredを開くことができます。
 一般ユーザでは見られないディレクトリやファイルを開くときにとても便利です。
 trampを使って /sudo:root@hostname:dir で開けばいいのですが、覚えにくいのでC-c C-s (*M-x dired-toggle-sudo*)で一般ユーザ→sudoの切替えをした方がよいでしょう。
 toggleと名乗っているように、sudo状態から通常の一般ユーザでのdiredへも切替えられます。
 わざわざrootで慣れないviを起動しなくても、いつものEmacsでシステムファイルを編集できるのは嬉しいのではないでしょうか。
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+[includeme file="inc-package-install.php" name="dired-toggle-sudo" where="melpa"]
 ** 設定 [[http://rubikitch.com/f/151107124324.dired-toggle-sudo.el][151107124324.dired-toggle-sudo.el(以下のコードと同一)]]
 #+BEGIN: include :file "/r/sync/junk/151107/151107124324.dired-toggle-sudo.el"
 #+BEGIN_SRC fundamental
@@ -68,3 +44,4 @@ toggleと名乗っているように、sudo状態から通常の一般ユーザ�
 $ wget http://rubikitch.com/f/151107124324.dired-toggle-sudo.el
 $ emacs -Q -f package-initialize -l 151107124324.dired-toggle-sudo.el
 #+END_EXAMPLE
+[includeme file="inc-package-relate.php" name="dired-toggle-sudo"]

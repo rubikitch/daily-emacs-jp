@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 2054
+#+POSTID: 1179
+#+BLOG: rubikitch
 #+DATE: [2015-10-06 Tue 10:06]
 #+PERMALINK: rul-generic-mode-fix
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,12 +8,13 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, Emacs 24.5, bug
+#+CATEGORY:メジャーモード
+#+TAGS: バグ修正
 #+DESCRIPTION: rul-generic-modeでfont-lockがおかしくなる問題をadviceで解決
-#+MYTAGS: package:generic-x, rul-generic-mode, emacs InstallShield, インストールシールド, インストーラを作成する, emacs windows, InstallShield メジャーモード, 
 #+TITLE: Emacs generic-xのrul-generic-modeを使うとfont-lockがおかしくなるバグ修正
 #+begin: org2blog-tags
-#+TAGS: package:generic-x, rul-generic-mode, emacs InstallShield, インストールシールド, インストーラを作成する, emacs windows, InstallShield メジャーモード, , Emacs, Emacs 24.5, bug, *.rul, rul-generic-mode, generic-rul-mode-setup-function, font-lock-syntax-table
+# content-length: 940
+
 #+end:
 EmacsでWindowsのInstallShieldファイル(=*.rul=)を編集するには
 標準添付のgeneric-xをロードすれば *rul-generic-mode* という

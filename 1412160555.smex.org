@@ -1,32 +1,21 @@
 #+BLOG: rubikitch
-#+POSTID: 724
+#+POSTID: 487
+#+BLOG: rubikitch
 #+DATE: [2014-12-16 Tue 05:55]
 #+PERMALINK: smex
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
 #+ISPAGE: nil
-#+DESCRIPTION:
+#+DESCRIPTION:idoインターフェースによりあいまい検索でM-xできる！コマンドの説明を見られたり定義にジャンプしたりもできる。超絶おすすめ。
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs
+#+CATEGORY: Emacsコマンド実行
 #+EL_PKG_NAME: smex
-#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, helm, helm-M-x, package:ido, relate:ido, relate:helm, ido flex-match, ido あいまい検索, ido あいまいマッチ
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: るびきちオススメ, 初心者安心, ido
 #+EL_TITLE0: M-xをあいまい検索対応で候補選択できるよ！helmアンチも見ておいで
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージsmexの紹介
-#+MYTAGS: package:smex, emacs 使い方, emacs コマンド, emacs, emacs lisp smex, elisp smex, emacs melpa smex, emacs smex 使い方, emacs smex 設定, emacs パッケージ smex, emacs smex スクリーンショット, helm, helm-M-x, package:ido, relate:ido, relate:helm, ido flex-match, ido あいまい検索, ido あいまいマッチ
-#+TITLE: emacs smex.el : M-xをあいまい検索対応で候補選択できるよ！helmアンチも見ておいで | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>smex</td></tr>
-<tr><td>概要(原文)</td><td>M-x interface with Ido-style fuzzy matching.</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/nonsequitur/smex">https://github.com/nonsequitur/smex</a></td></tr>
-<tr><td>バージョン</td><td>20141210.1422</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:smex/">package:smex</a> <a href="http://rubikitch.com/tag/package:ido/">package:ido</a> <a href="http://rubikitch.com/tag/package:helm/">package:helm</a></td></tr>
-</table>
-<br />
-#+END_HTML
+#+TITLE: smex.el : M-xをあいまい検索対応で候補選択できるよ！helmアンチも見ておいで
+[includeme file="inc-package-table.php" name="smex" where="melpa"]
+** 概要
 
 
 *smex.el* は、 *M-x* を *ido* の *flex-match*
@@ -62,12 +51,7 @@ M-x をカイゼンしたい、けれどhelmはいまいち好きになれない
 
 また、メジャーモードに対応するコマンドのみを列挙する
 *M-x smex-major-mode-commands* も用意しています。
-** smex インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install smex
-
+[includeme file="inc-package-install.php" name="smex" where="melpa"]
 
 #+end:
 ** 概要                                                             :noexport:
@@ -131,3 +115,4 @@ Fig1: M-xがido化！あいまい検索対応
 http://rubikitch.com/f/20141216055453.png
 Fig2: M-Xはメジャーモードに関するコマンドのみ
 
+[includeme file="inc-package-relate.php" name="smex"]

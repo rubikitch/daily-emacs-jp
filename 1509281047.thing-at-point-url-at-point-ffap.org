@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 2026
+#+POSTID: 1161
+#+BLOG: rubikitch
 #+DATE: [2015-09-28 月 10:47]
 #+PERMALINK: thing-at-point-url-at-point-ffap
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,12 +8,13 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, 
+#+CATEGORY: Web
 #+DESCRIPTION: 
-#+MYTAGS: ffap, thingatpt, thing-at-point--bounds-of-well-formed-url, ffapでURLを得る, カーソル位置のURL, ポイントのURL, ffap-guesser, relate:ffap, relate:thingatpt
 #+TITLE: ffap等でURLの末尾の「'」を取り除く
+#+TAGS: バグ修正
 #+begin: org2blog-tags
-#+TAGS: ffap, thingatpt, thing-at-point--bounds-of-well-formed-url, ffapでURLを得る, カーソル位置のURL, ポイントのURL, ffap-guesser, relate:ffap, relate:thingatpt, Emacs, , 
+# content-length: 1361
+
 #+end:
 ffap下( (ffap-bindings) 実行後)において
 ''で囲まれたURL内でC-x C-fを実行すると
@@ -42,7 +44,7 @@ thing-at-point--bounds-of-well-formed-url 関数が絡んでいます。
 (require 'thingatpt)
 (defun thing-at-point--bounds-of-well-formed-url--strip-last-apostrophe (&rest them)
   (let ((orig (apply them)))
-    (if (and orig (memq (char-before (cdr orig)) '(?')))
+    (if (memq (char-before (cdr orig)) '(?'))
         (cons (car orig) (1- (cdr orig)))
       orig)))
 (advice-add 'thing-at-point--bounds-of-well-formed-url :around

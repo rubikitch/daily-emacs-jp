@@ -1,3 +1,5 @@
+#+BLOG: rubikitch
+#+POSTID: 966
 #+DATE: [2015-06-10 Wed 20:19]
 #+PERMALINK: org-element-at-point
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -5,20 +7,20 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+POSTID: 1732
-#+CATEGORY: Emacs, Emacs Lisp, org-mode, 
+#+CATEGORY: バッファ関連
 #+DESCRIPTION: 
-#+MYTAGS: package:org, package:avy, relate:date-at-point, relate:org, relate:avy, relate:thingatpt, org-element-at-point, thing-at-point, bounds-of-thing-at-point, org-element-at-point, org-element-property, org-mode thing-at-point
 #+TITLE: org文書の現在の要素(element)をthing-at-pointで扱えるようにする
+#+TAGS: org, thing-at-point
 #+begin: org2blog-tags
-#+TAGS: package:org, package:avy, relate:date-at-point, relate:org, relate:avy, relate:thingatpt, org-element-at-point, thing-at-point, bounds-of-thing-at-point, org-element-at-point, org-element-property, org-mode thing-at-point, Emacs, Emacs Lisp, org-mode, , thing-at-point, org-mode, org-element, bounds-of-thing-at-point
+# content-length: 1185
+
 #+end:
 *thing-at-point* はカーソル位置のいろいろな THING を得る関数です。
 
 THINGはline, url, sexp, symbolなどいろいろ取りますが、
 ユーザ側で拡張できます。
 
-[[http://rubikitch.com/2015/05/15/date-at-point/][date-at-point.el(レビュー)]] は、dateが取れるように拡張したパッケージです。
+[[http://emacs.rubikitch.com/date-at-point/][date-at-point.el(レビュー)]] は、dateが取れるように拡張したパッケージです。
 
 コードを読めばとても簡単なので、それを使って *org-mode* の
 カーソル位置の要素 *org-element* を取得できるようにしてみました。

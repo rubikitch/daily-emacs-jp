@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 1615
+#+POSTID: 891
+#+BLOG: rubikitch
 #+DATE: [2015-05-05 Tue 05:27]
 #+PERMALINK: repeatable-motion
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,61 +8,18 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, org-mode, 
+#+CATEGORY: キーバインド
 #+EL_PKG_NAME: repeatable-motion
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, relate:smartrep, emacs repeat, emacs smartrep, emacs 繰り返しコマンド, emacs プレフィクスキー 省略, プレフィクスキー, relate:hydra, relate:easy-repeat, emacs 前後のコマンド, emacs next previous, emacs forward backward
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 
+#+TAGS: 
 #+EL_TITLE0: 対になるコマンド(nextに対してprevious)を簡単に実行できるようにする(org-modeの例あり)
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージrepeatable-motionの紹介
-#+MYTAGS: package:repeatable-motion, emacs 使い方, emacs コマンド, emacs, repeatable-motion, repeatable-motion.el, emacs lisp repeatable-motion, elisp repeatable-motion, emacs melpa repeatable-motion, emacs repeatable-motion 使い方, emacs repeatable-motion 設定, emacs パッケージ repeatable-motion, relate:smartrep, emacs repeat, emacs smartrep, emacs 繰り返しコマンド, emacs プレフィクスキー 省略, プレフィクスキー, relate:hydra, relate:easy-repeat, emacs 前後のコマンド, emacs next previous, emacs forward backward
-#+TAGS: package:repeatable-motion, emacs 使い方, emacs コマンド, emacs, repeatable-motion, repeatable-motion.el, emacs lisp repeatable-motion, elisp repeatable-motion, emacs melpa repeatable-motion, emacs repeatable-motion 使い方, emacs repeatable-motion 設定, emacs パッケージ repeatable-motion, relate:smartrep, emacs repeat, emacs smartrep, emacs 繰り返しコマンド, emacs プレフィクスキー 省略, プレフィクスキー, relate:hydra, relate:easy-repeat, emacs 前後のコマンド, emacs next previous, emacs forward backward, Emacs, org-mode, , 
-#+TITLE: emacs repeatable-motion.el : 対になるコマンド(nextに対してprevious)を簡単に実行できるようにする(org-modeの例あり) | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>repeatable-motion</td></tr>
-<tr><td>概要(原文)</td><td>Make repeatable versions of motions</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/willghatch/emacs-repeatable-motion">https://github.com/willghatch/emacs-repeatable-motion</a></td></tr>
-<tr><td>バージョン</td><td>20150502.1045</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:repeatable-motion/">package:repeatable-motion</a> <a href="http://rubikitch.com/tag/package:smartrep/">package:smartrep</a> <a href="http://rubikitch.com/tag/package:hydra/">package:hydra</a> <a href="http://rubikitch.com/tag/package:easy-repeat/">package:easy-repeat</a></td></tr>
-</table>
-<br />
-#+END_HTML
-昨日の[[http://rubikitch.com/2015/05/04/easy-repeat/][easy-repeat.el(レビュー)]] とちょっと似た新入りパッケージを紹介します。
-
-前後の対になるコマンドはしばしば繰り返し実行されます。
-
-たとえばforward-word・previous-wordだったり、
-next-error・previous-errorだったり、
-enlarge-window・shrink-windowだったり…
-
-そういうのを繰り返しキー(C-:)と逆繰り返しキー(C-M-:)で
-実行できたらよくないですか？
-
-org-modeでもC-c C-nを繰り返して次々と見出しに移動して、
-C-c C-pで戻ったりとかもします。
-
-この場合、 C-c C-n C-c C-n C-c C-n C-c C-p は
-本設定によりC-c C-n C-: C-: C-M-:と操作できるようになります。
-
-ただ、現時点では開発当初なので
-- Emacs標準のC-x z (repeat) を使うようにする
-- 対になるコマンドを登録するのではなくて類推させる
-ようにすればかなり使い勝手がよくなるでしょう。
-
-# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
-** repeatable-motion インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install repeatable-motion
-
+#+TITLE: repeatable-motion.el : 対になるコマンド(nextに対してprevious)を簡単に実行できるようにする(org-modeの例あり)
+[includeme file="inc-package-table.php" name="repeatable-motion" where="melpa"]
 
 #+end:
-** 概要                                                             :noexport:
-昨日の[[http://rubikitch.com/2015/05/04/easy-repeat/][easy-repeat.el(レビュー)]] とちょっと似た新入りパッケージを紹介します。
+** 概要
+昨日の[[http://emacs.rubikitch.com/easy-repeat/][easy-repeat.el(レビュー)]] とちょっと似た新入りパッケージを紹介します。
 
 前後の対になるコマンドはしばしば繰り返し実行されます。
 
@@ -84,6 +42,7 @@ C-c C-pで戻ったりとかもします。
 ようにすればかなり使い勝手がよくなるでしょう。
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+[includeme file="inc-package-install.php" name="repeatable-motion" where="melpa"]
 ** 設定 [[http://rubikitch.com/f/150505050057.repeatable-motion.1.el][150505050057.repeatable-motion.1.el(以下のコードと同一)]]
 #+BEGIN: include :file "/r/sync/junk/150505/150505050057.repeatable-motion.1.el"
 #+BEGIN_SRC fundamental
@@ -130,3 +89,4 @@ C-c C-pで戻ったりとかもします。
 $ wget http://rubikitch.com/f/150505050057.repeatable-motion.1.el
 $ emacs -Q -f package-initialize -l 150505050057.repeatable-motion.1.el
 #+END_EXAMPLE
+[includeme file="inc-package-relate.php" name="repeatable-motion"]

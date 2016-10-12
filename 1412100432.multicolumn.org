@@ -1,32 +1,21 @@
 #+BLOG: rubikitch
-#+POSTID: 698
+#+POSTID: 475
+#+BLOG: rubikitch
 #+DATE: [2014-12-10 Wed 04:32]
 #+PERMALINK: multicolumn
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
 #+ISPAGE: nil
-#+DESCRIPTION:
+#+DESCRIPTION:C-x 4 4でウィンドウを分割した後にfollow-modeにする。C-x 3で予め決められた桁数によって左右分割しまくる。
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs
+#+CATEGORY: ウィンドウ操作
 #+EL_PKG_NAME: multicolumn
-#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, package:follow, emacs 表示行数, emacs follow-mode 改善, follow-mode, 
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: マイナーモード, 
 #+EL_TITLE0: 【ワイドディスプレイ支援】follow-modeで表示行数を何倍にも増やす方法＋α
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージmulticolumnの紹介
-#+MYTAGS: package:multicolumn, emacs 使い方, emacs コマンド, emacs, emacs lisp multicolumn, elisp multicolumn, emacs melpa multicolumn, emacs multicolumn 使い方, emacs multicolumn 設定, emacs パッケージ multicolumn, emacs multicolumn スクリーンショット, package:follow, emacs 表示行数, emacs follow-mode 改善, follow-mode, 
-#+TITLE: emacs multicolumn.el : 【ワイドディスプレイ支援】follow-modeで表示行数を何倍にも増やす方法＋α | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>multicolumn</td></tr>
-<tr><td>概要(原文)</td><td>Creating and managing multiple side-by-side windows.</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/Lindydancer/multicolumn">https://github.com/Lindydancer/multicolumn</a></td></tr>
-<tr><td>バージョン</td><td>20141111.1349</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:multicolumn/">package:multicolumn</a> </td></tr>
-</table>
-<br />
-#+END_HTML
+#+TITLE: multicolumn.el : 【ワイドディスプレイ支援】follow-modeで表示行数を何倍にも増やす方法＋α
+[includeme file="inc-package-table.php" name="multicolumn" where="melpa"]
+** 概要
 
 multicolumn.elは、昨今の *ワイドディスプレイ* を有効活用するelispです。
 
@@ -53,12 +42,7 @@ Emacs標準機能の *M-x follow-mode* を
 
 C-x 4プレフィクスキーにいくつかのコマンドが用意されていますが、
 それについても操作性の観点から不要です。
-** multicolumn インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install multicolumn
-
+[includeme file="inc-package-install.php" name="multicolumn" where="melpa"]
 
 #+end:
 ** 概要                                                             :noexport:
@@ -136,3 +120,4 @@ C-4 C-x 3で3分割というふうにです。
 http://rubikitch.com/f/20141210050410.png
 Fig1: C-x 4 4でウィンドウが分割されてfollow-modeに！
 
+[includeme file="inc-package-relate.php" name="multicolumn"]

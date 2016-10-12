@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 2004
+#+POSTID: 1144
+#+BLOG: rubikitch
 #+DATE: [2015-09-19 Sat 05:02]
 #+PERMALINK: indent-guide
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,28 +8,17 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs
+#+CATEGORY: コードリーディング
 #+EL_PKG_NAME: indent-guide
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, relate:highlight-indentation, インデントを表示, prog-mode-hook
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: 
 #+EL_TITLE0: インデントを縦線で表示してくれるよ
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージindent-guideの紹介
-#+MYTAGS: package:indent-guide, emacs 使い方, emacs コマンド, emacs, indent-guide, indent-guide.el, emacs lisp indent-guide, elisp indent-guide, emacs melpa indent-guide, emacs indent-guide 使い方, emacs indent-guide 設定, emacs パッケージ indent-guide, emacs indent-guide スクリーンショット, relate:highlight-indentation, インデントを表示, prog-mode-hook
-#+TAGS: package:indent-guide, emacs 使い方, emacs コマンド, emacs, indent-guide, indent-guide.el, emacs lisp indent-guide, elisp indent-guide, emacs melpa indent-guide, emacs indent-guide 使い方, emacs indent-guide 設定, emacs パッケージ indent-guide, emacs indent-guide スクリーンショット, relate:highlight-indentation, インデントを表示, prog-mode-hook, Emacs, indent-guide.el, indent-guide-global-mode, indent-guide.el, indent-guide-global-mode
-#+TITLE: emacs indent-guide.el : インデントを縦線で表示してくれるよ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>indent-guide</td></tr>
-<tr><td>概要(原文)</td><td>show vertical lines to guide indentation</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/zk-phi/indent-guide">https://github.com/zk-phi/indent-guide</a></td></tr>
-<tr><td>バージョン</td><td>20150713.2327</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:indent-guide/">package:indent-guide</a> <a href="http://rubikitch.com/tag/package:highlight-indentation/">package:highlight-indentation</a></td></tr>
-</table>
-<br />
-#+END_HTML
+#+TITLE: indent-guide.el : インデントを縦線で表示してくれるよ
+[includeme file="inc-package-table.php" name="indent-guide" where="melpa"]
+
+#+end:
+** 概要
 プログラミングにおいてインデントは階層を意味するのでとても重要です。
 
 *indent-guide.el* は、カーソル位置に関連するインデントを縦線で表示してくれます。
@@ -36,7 +26,7 @@
 *indent-guide-global-mode* もありますが、
 本設定ではプログラムのみに有効にしています。
 
-ただし、自動補完を行う[[http://rubikitch.com/2014/10/14/company/][company.el(レビュー)]] や[[http://rubikitch.com/2014/11/05/auto-complete/][auto-complete.el(レビュー)]] 、
+ただし、自動補完を行う[[http://emacs.rubikitch.com/company/][company.el(レビュー)]] や[[http://emacs.rubikitch.com/auto-complete/][auto-complete.el(レビュー)]] 、
 そしてpopup.elやpager.elとは相性がよくないとのことです。
 
 [[https://github.com/zk-phi/indent-guide/blob/master/screencast.gif][本家動画1]]
@@ -49,36 +39,8 @@
 #+ATTR_HTML: :width 480
 [[file:/r/sync/screenshots/20150919050954.png]]
 Fig1: インデントを明示！
-** indent-guide インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
 
-M-x package-refresh-contents
-M-x package-install indent-guide
-
-
-#+end:
-** 概要                                                             :noexport:
-プログラミングにおいてインデントは階層を意味するのでとても重要です。
-
-*indent-guide.el* は、カーソル位置に関連するインデントを縦線で表示してくれます。
-
-*indent-guide-global-mode* もありますが、
-本設定ではプログラムのみに有効にしています。
-
-ただし、自動補完を行う[[http://rubikitch.com/2014/10/14/company/][company.el(レビュー)]] や[[http://rubikitch.com/2014/11/05/auto-complete/][auto-complete.el(レビュー)]] 、
-そしてpopup.elやpager.elとは相性がよくないとのことです。
-
-[[https://github.com/zk-phi/indent-guide/blob/master/screencast.gif][本家動画1]]
-
-[[https://github.com/zk-phi/indent-guide/blob/master/screencast2.gif][本家動画2]]
-
-
-
-# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150919050954.png]]
-Fig2: インデントを明示！
-
+[includeme file="inc-package-install.php" name="indent-guide" where="melpa"]
 ** 設定 [[http://rubikitch.com/f/150919050104.indent-guide.el][150919050104.indent-guide.el(以下のコードと同一)]]
 #+BEGIN: include :file "/r/sync/junk/150919/150919050104.indent-guide.el"
 #+BEGIN_SRC fundamental
@@ -94,3 +56,4 @@ Fig2: インデントを明示！
 $ wget http://rubikitch.com/f/150919050104.indent-guide.el
 $ emacs -Q -f package-initialize -l 150919050104.indent-guide.el
 #+END_EXAMPLE
+[includeme file="inc-package-relate.php" name="indent-guide"]

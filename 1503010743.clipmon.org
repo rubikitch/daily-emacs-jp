@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 1229
+#+POSTID: 731
+#+BLOG: rubikitch
 #+DATE: [2015-03-01 Sun 07:43]
 #+PERMALINK: clipmon
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,82 +8,17 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, org-mode, 
+#+CATEGORY: コピー・貼り付け
 #+EL_PKG_NAME: clipmon
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs クリップボード キルリング, emacs clipboard kill-ring, emacs ブラウザ メモ, メモ, org-capture, play-sound, play-sound-file, emacs firefox メモ, emacs Chrome メモ, emacs クリップボード メモ, 
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 
+#+TAGS: メモ
 #+EL_TITLE0: 【メモ革命】任意のブラウザからクリップボード経由でガンガンメモれ！！
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージclipmonの紹介
-#+MYTAGS: package:clipmon, emacs 使い方, emacs コマンド, emacs, clipmon, clipmon.el, emacs lisp clipmon, elisp clipmon, emacs melpa clipmon, emacs clipmon 使い方, emacs clipmon 設定, emacs パッケージ clipmon, emacs クリップボード キルリング, emacs clipboard kill-ring, emacs ブラウザ メモ, メモ, org-capture, play-sound, play-sound-file, emacs firefox メモ, emacs Chrome メモ, emacs クリップボード メモ, 
-#+TAGS: package:clipmon, emacs 使い方, emacs コマンド, emacs, clipmon, clipmon.el, emacs lisp clipmon, elisp clipmon, emacs melpa clipmon, emacs clipmon 使い方, emacs clipmon 設定, emacs パッケージ clipmon, emacs クリップボード キルリング, emacs clipboard kill-ring, emacs ブラウザ メモ, メモ, org-capture, play-sound, play-sound-file, emacs firefox メモ, emacs Chrome メモ, emacs クリップボード メモ, , Emacs, org-mode, , M-x org-capture, ChangeLogメモ, emacs-w3m, M-x clipmon-autoinsert-toggle, M-x org-capture, M-x clipmon-autoinsert-toggle, Firefox, Chrome, M-x org-capture, ChangeLogメモ, emacs-w3m, M-x clipmon-autoinsert-toggle, M-x org-capture, M-x clipmon-autoinsert-toggle, Firefox, Chrome, clipmon.el
-#+TITLE: emacs clipmon.el : 【メモ革命】任意のブラウザからクリップボード経由でガンガンメモれ！！ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>clipmon</td></tr>
-<tr><td>概要(原文)</td><td>Clipboard monitor - watch system clipboard, add changes to kill ring/autoinsert</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/bburns/clipmon">https://github.com/bburns/clipmon</a></td></tr>
-<tr><td>バージョン</td><td>20150212.712</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:clipmon/">package:clipmon</a> </td></tr>
-</table>
-<br />
-#+END_HTML
-これはすごい！
-
-Emacsでメモをとる方法は従来ならば *M-x org-capture* や
-*ChangeLogメモ* などの方法があります。
-
-しかし、これらの方法だとEmacsに閉じているため、
-Emacs以外のアプリケーションから直接メモすることができません。
-
-時代の流れにより、今やEmacsだけですべてをまかなえなくなっています。
-
-Emacsに代わってWebブラウザこそが統合環境の王者なのが現状です。
-
-Webサイトを見ているとメモを取りたくなることが多々ありますが、
-Emacsでやるには[[http://rubikitch.com/category/eww/][Emacs内蔵WebブラウザEWW(カテゴリ)]] や *emacs-w3m* などの
-窮屈な方法に頼らざるを得ません。
-
-今(Emacs外の)Webブラウザで見ているサイトから直接メモを取るには
-クリップボードを経由するしかありません。
-
-しかし、それではクリップボードに保存して
-そこからC-yでEmacsに貼り付ける必要があり
-手間がかかってしまいます。
-
-そこで *M-x clipmon-autoinsert-toggle* コマンドを使いましょう。
-
-このコマンドはクリップボードが更新されるたびに、
-カレントバッファにその内容が貼り付けられます。
-
-よって、Webブラウザからメモを取るためには
-*M-x org-capture* などでメモ用のバッファを開き
-*M-x clipmon-autoinsert-toggle* を実行し、
-ブラウザに切り替えて、マウスで範囲選択するだけです。
-
-あとはブラウザ内で何度でも範囲選択すれば
-その内容が次々とEmacsに貼り付けられるので
-Emacsに戻ることなく、ガンガンメモできます。
-
-OSのクリップボードを経由するので、
-ブラウザは *Firefox* 、 *Chrome* などなんでも構いません。
-
-それどころかブラウザ以外の任意のアプリケーションで使えます。
-
-一度体験してみてください。
-
-/目から鱗です！！/
-** clipmon インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install clipmon
-
+#+TITLE: clipmon.el : 【メモ革命】任意のブラウザからクリップボード経由でガンガンメモれ！！
+[includeme file="inc-package-table.php" name="clipmon" where="melpa"]
 
 #+end:
-** 概要                                                             :noexport:
+** 概要
 これはすごい！
 
 Emacsでメモをとる方法は従来ならば *M-x org-capture* や
@@ -128,6 +64,7 @@ OSのクリップボードを経由するので、
 一度体験してみてください。
 
 /目から鱗です！！/
+[includeme file="inc-package-install.php" name="clipmon" where="melpa"]
 ** 音でお知らせ
 *M-x clipmon-autoinsert-toggle* を実行したときと、
 クリップボードの内容を貼り付けたときには音でお知らせしてくれます。
@@ -138,8 +75,9 @@ This Emacs binary lacks sound support
 #+END_EXAMPLE
 というエラーが出て *clipmon.el* が使えません。
 
-そのときは [[http://rubikitch.com/2015/03/01/play-sound/][この記事の設定で]] 外部プレイヤーを使うようにしてください。
+そのときは [[http://emacs.rubikitch.com/play-sound/][この記事の設定で]] 外部プレイヤーを使うようにしてください。
 
 OSのパッケージからインストールした場合は問題ありません。
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+[includeme file="inc-package-relate.php" name="clipmon"]

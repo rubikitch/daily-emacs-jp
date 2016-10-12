@@ -1,13 +1,14 @@
 #+BLOG: rubikitch
-#+POSTID: 581
+#+POSTID: 47
+#+BLOG: rubikitch
 #+DATE: [2014-11-14 Fri 05:23]
-#+PERMALINK: melmag
+#+PERMALINK: melmag155
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
 #+ISPAGE: nil
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: メルマガ,
+#+CATEGORY: るびきち塾メルマガ
 #+DESCRIPTION:
 #+MYTAGS:
 #+TAGS: , メルマガ,, org-babel, org-mode, Ruby, gnuplot, gem

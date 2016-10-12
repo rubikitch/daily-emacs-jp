@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 2186
+#+POSTID: 1247
+#+BLOG: rubikitch
 #+DATE: [2015-11-14 Sat 07:19]
 #+PERMALINK: dracula-theme
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,78 +8,17 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, theme
+#+CATEGORY: ダーク
 #+EL_PKG_NAME: dracula-theme
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, color-theme, カラーテーマ
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: 
 #+EL_TITLE0: ドラキュラをモチーフにしたダークなカラーテーマ
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージdracula-themeの紹介
-#+MYTAGS: package:dracula-theme, emacs 使い方, emacs コマンド, emacs, dracula-theme, dracula-theme.el, emacs lisp dracula-theme, elisp dracula-theme, emacs melpa dracula-theme, emacs dracula-theme 使い方, emacs dracula-theme 設定, emacs パッケージ dracula-theme, emacs dracula-theme スクリーンショット, color-theme, カラーテーマ
-#+TAGS: package:dracula-theme, emacs 使い方, emacs コマンド, emacs, dracula-theme, dracula-theme.el, emacs lisp dracula-theme, elisp dracula-theme, emacs melpa dracula-theme, emacs dracula-theme 使い方, emacs dracula-theme 設定, emacs パッケージ dracula-theme, emacs dracula-theme スクリーンショット, color-theme, カラーテーマ, Emacs, theme, dracula-theme.el
-#+TITLE: emacs dracula-theme.el : ドラキュラをモチーフにしたダークなカラーテーマ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>dracula-theme</td></tr>
-<tr><td>概要(原文)</td><td>Dracula Theme</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/zenorocha/dracula-theme">https://github.com/zenorocha/dracula-theme</a></td></tr>
-<tr><td>バージョン</td><td>20151109.845</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:dracula-theme/">package:dracula-theme</a> </td></tr>
-</table>
-<br />
-#+END_HTML
-*dracula-theme.el* は、Emacs以外にも多くのソフトウェアに対応したカラーテーマです。
-
-- [[http://atom.io/][Atom]]
-- [[http://www.alfredapp.com/][Alfred]]
-- [[http://www.iterm2.com/][iTerm]]
-- [[http://slack.com][Slack]]
-- [[http://www.sublimetext.com/3][Sublime Text]]
-- [[http://macromates.com/][TextMate]]
-- [[http://en.wikipedia.org/wiki/Terminal_%28OS_X%29][Terminal.app]]
-- [[http://www.vim.org/][Vim]]
-- [[https://itunes.apple.com/us/app/xcode/id497799835][Xcode]]
-- [[http://www.zsh.org/][Zsh]]
-
-以下のパッケージに対応しています。
-- font-lock
-- hi-line
-- show-paren
-- isearch
-- mode-line
-- linum
-- org
-- latex
-- ido
-- gnus
-- mu4e
-- ffap
-- js2-mode
-- js3-mode
-- auto-complete
-- info
-- icomplete+
-- undo-tree
-- slime
-- rainbow-delimiters
-- magit
-- term
-- helm
-- company
-- web-mode
-- jde
-- enh-ruby-mode
-** dracula-theme インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install dracula-theme
-
+#+TITLE: dracula-theme.el : ドラキュラをモチーフにしたダークなカラーテーマ
+[includeme file="inc-package-table.php" name="dracula-theme" where="melpa"]
 
 #+end:
-** 概要                                                             :noexport:
+** 概要
 *dracula-theme.el* は、Emacs以外にも多くのソフトウェアに対応したカラーテーマです。
 
 - [[http://atom.io/][Atom]]
@@ -121,6 +61,7 @@ M-x package-install dracula-theme
 - jde
 - enh-ruby-mode
 
+[includeme file="inc-package-install.php" name="dracula-theme" where="melpa"]
 ** スクリーンショット
 # (save-window-excursion (async-shell-command "emacs-test -eval '(load-theme (quote dracula) t)'"))
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_theme_template" t))
@@ -172,3 +113,4 @@ $ emacs -Q -f package-initialize -eval '(load-theme (quote dracula) t)'
 #+END_EXAMPLE
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+[includeme file="inc-package-relate.php" name="dracula-theme"]

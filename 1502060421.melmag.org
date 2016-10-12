@@ -1,18 +1,19 @@
 #+BLOG: rubikitch
-#+POSTID: 1088
+#+POSTID: 67
+#+BLOG: rubikitch
 #+DATE: [2015-02-06 Fri 04:21]
-#+PERMALINK: melmag
+#+PERMALINK: melmag167
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
 #+ISPAGE: nil
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: メルマガ, 
+#+CATEGORY: るびきち塾メルマガ 
 #+DESCRIPTION: Emacsの鬼るびきちのココだけの話#167
 #+MYTAGS: 
 #+TITLE: 今月のるびきち塾は自分ハック月間！
 #+begin: org2blog-tags
-#+TAGS: , メルマガ, , 
+
 #+end:
 
 今月の「るびきち塾」メルマガは、

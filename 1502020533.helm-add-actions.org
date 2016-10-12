@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 1063
+#+POSTID: 667
+#+BLOG: rubikitch
 #+DATE: [2015-02-02 Mon 05:33]
 #+PERMALINK: helm-add-actions
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,15 +8,15 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, helm, Emacs Lisp, 
+#+CATEGORY: キーバインド
 #+DESCRIPTION: 
-#+MYTAGS: emacs, helm, helm アクション 追加, package:helm, relate:anything
 #+TITLE: 【旧式！150706まで】emacs helmにアクション・キーバインドを超簡単に追加する方法！
 #+begin: org2blog-tags
-#+TAGS: emacs, helm, helm アクション 追加, package:helm, relate:anything, Emacs, helm, Emacs Lisp, , helm, helm-make-source, helm-setup-user-source, helm-source-add-action-to-source-if, helm-add-action-to-source, helm-add-action-to-source-if, helm-add-action-to-source, helm-add-action-to-source-if, helm-setup-user-source, helm-type-attributes, Stat, M-x helm-mini, M-x helm-recentf
+# content-length: 4742
+
 #+end:
 <2015-07-15 Wed> /150707以降のバージョンではアクションが追加できません！！！！！/
-→http://rubikitch.com/2015/07/15/helm-add-actions
+→http://emacs.rubikitch.com/helm-add-actions-2
 
 *helm* はEmacsにオブジェクト指向化をもたらす偉大なるパッケージです。
 
@@ -151,35 +152,6 @@ helmは情報源ごとにキーマップを設定できるようになってい�
 #+BEGIN_SRC fundamental
 ;;; -*- lexical-binding: t -*-
 (require 'helm)
-;;; それぞれの型に対する追加アクション
-(defvar helm-user-actions-type-file nil)
-(defvar helm-user-actions-type-buffer nil)
-(defvar helm-user-actions-type-command nil)
-(defvar helm-user-actions-type-function nil)
-(defun helm-source-add-user-actions (source user-actions)
-  (oset source :action
-        (append (oref source :action)
-                (cl-loop with orig = (oref source :action)
-                         for (name . action) in user-actions
-                         unless (member name orig)
-                         append (helm-make-actions name action)))))
-(defmethod helm-setup-user-source ((source helm-type-file))
-  (helm-source-add-user-actions source (helm-user-actions-type 'file)))
-(defmethod helm-setup-user-source ((source helm-type-buffer))
-  (helm-source-add-user-actions source (helm-user-actions-type 'buffer)))
-(defmethod helm-setup-user-source ((source helm-type-command))
-  (helm-source-add-user-actions source (helm-user-actions-type 'command)))
-(defmethod helm-setup-user-source ((source helm-type-function))
-  (helm-source-add-user-actions source (helm-user-actions-type 'function)))
-;;; 型に対して追加アクションを読まないバグを修正！
-(dolist (type '(file buffer function command))
-  (advice-add (intern (format "helm-actions-from-type-%s" type))
-              :around `(lambda (&rest them)
-                        (append (apply them)
-                                (helm-user-actions-type ',type)))))
-(defun helm-user-actions-type (type)
-  (symbol-value (intern (format "helm-user-actions-type-%s" type))))
-
 ;;; キーバインドの設定
 (defun helm-define-action-key (keymap key def)
   "アクションをキーバインドに設定"

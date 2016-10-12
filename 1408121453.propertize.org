@@ -1,16 +1,16 @@
 #+BLOG: rubikitch
-#+POSTID: 143
+#+POSTID: 208
+#+BLOG: rubikitch
 #+DATE: [2014-08-12 Tue 14:53]
 #+PERMALINK: propertize
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t
 #+ISPAGE: nil
-#+DESCRIPTION:
+#+DESCRIPTION: テキストプロパティがRubyの特異メソッドに見えた件
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs Lisp, Emacs,
+#+CATEGORY: Lispオブジェクト
 #+DESCRIPTION: propertize関数で文字列に固有のデータをくっつける話
-#+MYTAGS: Emacs, Emacs Lisp, elisp, emacs テキストプロパティ, emacs propertize, emacs get-text-property, emacs put-text-property, emacs set-text-properties, Ruby 特異メソッド, Emacs Lisp 特異メソッド, helm, helm display-to-real
-#+TAGS: Emacs, Emacs Lisp, elisp, emacs テキストプロパティ, emacs propertize, emacs get-text-property, emacs put-text-property, emacs set-text-properties, Ruby 特異メソッド, Emacs Lisp 特異メソッド, helm, helm display-to-real, Emacs Lisp, Emacs,, propertize, Rubyの特異メソッド, helm, display-to-real, テキストプロパティ
+#+TAGS: テキストプロパティ
 #+TITLE: Emacs Lispのテキストプロパティがどう見ても特異メソッドな件(笑)
 ふと思い立ったのでこんなコードを書いてみました。
 

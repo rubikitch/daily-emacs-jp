@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 2699
+#+POSTID: 1542
+#+BLOG: rubikitch
 #+DATE: [2016-08-22 Mon 04:23]
 #+PERMALINK: flimenu
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
@@ -7,31 +8,20 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, ido, helm
+#+CATEGORY: タグジャンプ
 #+EL_PKG_NAME: flimenu
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, relate:imenus, relate:idomenu, relate:imenu-list, relate:imenu-anywhere, relate:ido, relate:helm, relate:dumb-jump
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: imenu, ido
 #+EL_TITLE0: 【関数定義ジャンプ】imenuをちょっぴり使いやすくする
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージflimenuの紹介
-#+MYTAGS: package:flimenu, emacs 使い方, emacs コマンド, emacs, flimenu, flimenu.el, emacs lisp flimenu, elisp flimenu, emacs melpa flimenu, emacs flimenu 使い方, emacs flimenu 設定, emacs パッケージ flimenu, emacs flimenu スクリーンショット, relate:imenus, relate:idomenu, relate:imenu-list, relate:imenu-anywhere, relate:ido, relate:helm, relate:dumb-jump
-#+TAGS: package:flimenu, emacs 使い方, emacs コマンド, emacs, flimenu, flimenu.el, emacs lisp flimenu, elisp flimenu, emacs melpa flimenu, emacs flimenu 使い方, emacs flimenu 設定, emacs パッケージ flimenu, emacs flimenu スクリーンショット, relate:imenus, relate:idomenu, relate:imenu-list, relate:imenu-anywhere, relate:ido, relate:helm, relate:dumb-jump, Emacs, ido, helm, flimenu.el, flimenu.el
-#+TITLE: emacs flimenu.el : 【関数定義ジャンプ】imenuをちょっぴり使いやすくする | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>flimenu</td></tr>
-<tr><td>概要(原文)</td><td>Flatten imenu automatically</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/IvanMalison/flimenu">https://github.com/IvanMalison/flimenu</a></td></tr>
-<tr><td>バージョン</td><td>20160818.1053</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:flimenu/">package:flimenu</a> <a href="http://rubikitch.com/tag/package:imenus/">package:imenus</a> <a href="http://rubikitch.com/tag/package:idomenu/">package:idomenu</a> <a href="http://rubikitch.com/tag/package:imenu-list/">package:imenu-list</a> <a href="http://rubikitch.com/tag/package:imenu-anywhere/">package:imenu-anywhere</a> <a href="http://rubikitch.com/tag/package:ido/">package:ido</a> <a href="http://rubikitch.com/tag/package:helm/">package:helm</a> <a href="http://rubikitch.com/tag/package:dumb-jump/">package:dumb-jump</a></td></tr>
-</table>
-<br />
-#+END_HTML
+#+TITLE: flimenu.el : 【関数定義ジャンプ】imenuをちょっぴり使いやすくする
+[includeme file="inc-package-table.php" name="flimenu" where="melpa"]
+
+#+end:
+** 概要
 Emacsには標準機能でM-x imenuという簡易関数・変数定義ジャンプ機能が備わっています。
 現在のファイルに限定されるものの、タグジャンプとは違いタグファイルなしでお手軽に定義に移動できます。
-お手軽に定義へジャンプするパッケージといえば[[http://rubikitch.com/2016/07/18/dumb-jump/][dumb-jump(レビュー)]] がありますが、外部プログラムに頼らない場合ならimenuも手軽でいいものです。
+お手軽に定義へジャンプするパッケージといえば[[http://emacs.rubikitch.com/dumb-jump/][dumb-jump(レビュー)]] がありますが、外部プログラムに頼らない場合ならimenuも手軽でいいものです。
 
 ところが、imenuは階層構造になっているため、候補選択まで時間がかかってしまう欠点があります。
 そこで *flimenu.el* はimenuのインデックスを平滑化(FLatten)します。
@@ -49,41 +39,10 @@ Fig2: 平滑化されている
 
 
 なお、helmユーザならばM-x helm-imenuを使えば平滑化されたimenuが使えます。
-idoでも[[http://rubikitch.com/2015/04/09/imenus/][imenus.el(レビュー)]]によって平滑化されています。
+idoでも[[http://emacs.rubikitch.com/imenus/][imenus.el(レビュー)]]によって平滑化されています。
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
-** flimenu インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install flimenu
-
-
-#+end:
-** 概要                                                             :noexport:
-Emacsには標準機能でM-x imenuという簡易関数・変数定義ジャンプ機能が備わっています。
-現在のファイルに限定されるものの、タグジャンプとは違いタグファイルなしでお手軽に定義に移動できます。
-お手軽に定義へジャンプするパッケージといえば[[http://rubikitch.com/2016/07/18/dumb-jump/][dumb-jump(レビュー)]] がありますが、外部プログラムに頼らない場合ならimenuも手軽でいいものです。
-
-ところが、imenuは階層構造になっているため、候補選択まで時間がかかってしまう欠点があります。
-そこで *flimenu.el* はimenuのインデックスを平滑化(FLatten)します。
-
-相異点をわかりやすくするため、idomenuによりido化したimenuで比較してみます。
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20160822043510.png]]
-Fig3: 平滑化されていない
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20160822043519.png]]
-Fig4: 平滑化されている
-
-
-
-なお、helmユーザならばM-x helm-imenuを使えば平滑化されたimenuが使えます。
-idoでも[[http://rubikitch.com/2015/04/09/imenus/][imenus.el(レビュー)]]によって平滑化されています。
-
-# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+[includeme file="inc-package-install.php" name="flimenu" where="melpa"]
 ** 設定 [[http://rubikitch.com/f/160822043338.flimenu.1.el][160822043338.flimenu.1.el(以下のコードと同一)]]
 #+BEGIN: include :file "/r/sync/junk/160822/160822043338.flimenu.1.el"
 #+BEGIN_SRC fundamental
@@ -100,3 +59,4 @@ $ emacs -Q -f package-initialize -l 160822043338.flimenu.1.el
 
 # /r/sync/screenshots/20160822043510.png http://rubikitch.com/wp-content/uploads/2016/08/20160822043510.png
 # /r/sync/screenshots/20160822043519.png http://rubikitch.com/wp-content/uploads/2016/08/20160822043519.png
+[includeme file="inc-package-relate.php" name="flimenu"]

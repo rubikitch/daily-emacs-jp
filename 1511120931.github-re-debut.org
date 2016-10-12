@@ -1,17 +1,18 @@
 #+BLOG: rubikitch
-#+POSTID: 2180
+#+POSTID: 1245
+#+BLOG: rubikitch
 #+DATE: [2015-11-12 Thu 09:31]
 #+PERMALINK: github-re-debut
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
 #+ISPAGE: nil
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, 
+#+CATEGORY: 
 #+DESCRIPTION: 10/19にGitHub再デビューし、日々サイトを更新しつつ、気付いた点があったらpull-requestを送信するなど活発に活動しています。
-#+MYTAGS: 
 #+TITLE: 【活動報告】GitHub再デビューしてからpull-requestが習慣化しています
 #+begin: org2blog-tags
-#+TAGS: , Emacs, , GitHubを活動拠点としている, GitHub再デビュー
+# content-length: 4614
+
 #+end:
 ** 10/19 GitHub再デビュー！
 日頃からEmacsのパッケージを見てレビューを書いている僕ですが、この機会なので活動報告も兼ねて普段何をやっているかを書いていきます。
@@ -31,7 +32,7 @@ Emacs界により貢献したいのでpull-requestを円滑に送信する方法
 やはりpull-requestを作者に送る方が全世界への貢献になると判断したからです。
 これからもこの活動をしてくにあたっては何度もpull-requestを送ることになるので、ここで確実に学んでおいた方が良いに決まっています。
 
-学んで出た結論が[[http://rubikitch.com/2015/10/28/git-push-or-pull-request/][git-push-or-pull-requestスクリプト]] です。
+学んで出た結論が[[http://emacs.rubikitch.com/git-push-or-pull-request/][git-push-or-pull-requestスクリプト]] です。
 一連のコミットが終わった後でC-x v pでこのスクリプトを実行するようにしています。
 自分のリポジトリに対してはgit pushを、他人のリポジトリに対してはpull-requestを送信します。
 そのココロは「とにかく適切なものをGitHubに送信してくれ!」です。
@@ -62,25 +63,25 @@ GitHubについては何周分も遅れてしまいましたが、今やっと�
 - デモ終了後にウィンドウ構成を復元するようにした
 - デモ開始時にdelete-other-windows実行
 - autoload付加
-*** 10/22 [[http://rubikitch.com/2015/10/22/elscreen-multi-term/][wamei/elscreen-multi-term(レビュー)]]
+*** 10/22 [[http://emacs.rubikitch.com/elscreen-multi-term/][wamei/elscreen-multi-term(レビュー)]]
 - autoload付加
-*** 10/23 [[http://rubikitch.com/2015/10/26/pgrepper/][pgrepper(解説)]] 登録！
+*** 10/23 [[http://emacs.rubikitch.com/pgrepper/][pgrepper(解説)]] 登録！
 grepなどを用いてpecoの検索を超強化する自作プログラム
-*** 10/24 [[http://rubikitch.com/2015/10/24/all-pages-in-github-2/][rubikitch/daily-emacs-jp(解説)]]
+*** 10/24 [[http://emacs.rubikitch.com/all-pages-in-github-2/][rubikitch/daily-emacs-jp(解説)]]
 本サイト全体をGitHubに置きました！！
-*** 10/25 [[http://rubikitch.com/2015/10/25/paper-theme/][cadadr/paper-theme(レビュー)]]
+*** 10/25 [[http://emacs.rubikitch.com/paper-theme/][cadadr/paper-theme(レビュー)]]
 - autoload付加でemacs -Qからでもエラーが起きないようにした
-*** 10/21〜10/26 [[http://rubikitch.com/2015/10/21/state/][thisirs/state(レビュー)]]
+*** 10/21〜10/26 [[http://emacs.rubikitch.com/state/][thisirs/state(レビュー)]]
 理解しづらかったので、理解を促進させるために大きなリファクタリングを敢行！
-[[http://rubikitch.com/2015/10/20/test-simple/][test-simple.el(レビュー)]] によるテストも書きました。
+[[http://emacs.rubikitch.com/test-simple/][test-simple.el(レビュー)]] によるテストも書きました。
 
 - 大幅なリファクタリング
 - テストを書いた
 - priorityのバグを修正
-*** 10/27 [[http://rubikitch.com/2015/10/28/git-push-or-pull-request/][git-push-or-pull-request(解説)]] 登録！
+*** 10/27 [[http://emacs.rubikitch.com/git-push-or-pull-request/][git-push-or-pull-request(解説)]] 登録！
 動作が軌道に乗ってきたのでGitHubで公開しました。
 
-*** 10/28 [[http://rubikitch.com/2015/03/06/yatemplate/][mineo/yatemplate(レビュー)]]
+*** 10/28 [[http://emacs.rubikitch.com/yatemplate/][mineo/yatemplate(レビュー)]]
 yasnippetでautoinsertの設定をする便利なパッケージですが、大きなバグがあったので修正しました。
 マージされるのが遅く11/11にてやっとマージされました。
 
@@ -88,13 +89,13 @@ yasnippetでautoinsertの設定をする便利なパッケージですが、大�
 - yatemplateファイル保存後、auto-insert-alistに反映させる
 - 古い設定が残ってしまうバグを修正
 - テスト付加
-*** 11/1 [[http://rubikitch.com/2015/11/01/iodine-theme/][srdja/iodine-theme(レビュー)]]
+*** 11/1 [[http://emacs.rubikitch.com/iodine-theme/][srdja/iodine-theme(レビュー)]]
 - emacs -Qで実行するとエラーが起きるので修正
-*** 11/3〜11/4 [[http://rubikitch.com/2015/11/03/bpr/][ilya-babanov/emacs-bpr(レビュー)]]
+*** 11/3〜11/4 [[http://emacs.rubikitch.com/bpr/][ilya-babanov/emacs-bpr(レビュー)]]
 - autoload付加
 - emacs -Qでのエラー修正
 - M-x bpr-open-last-buffer新設
-*** 11/7 [[http://rubikitch.com/2015/11/07/dired-toggle-sudo/][renard/dired-toggle-sudo(レビュー)]]
+*** 11/7 [[http://emacs.rubikitch.com/dired-toggle-sudo/][renard/dired-toggle-sudo(レビュー)]]
 - emacs -Qでのエラー修正
 - sudo/userの切り替え後、元と同じファイルを指すようにした
 *** 11/6〜11/9 [[https://github.com/abo-abo/auto-yasnippet][abo-abo/auto-yasnippet]]
@@ -106,7 +107,7 @@ yasnippetでautoinsertの設定をする便利なパッケージですが、大�
 
 *** 11/10 [[https://github.com/rubikitch/auto-document/][昔つくったauto-document.el]] 登録
 昔作ったものだがパッチが送られてきたのでGitHubに登録。
-*** 10/23〜10/25 11/10〜11/11 [[http://rubikitch.com/2015/10/20/test-simple/][rocky/emacs-test-simple(レビュー)]] 
+*** 10/23〜10/25 11/10〜11/11 [[http://emacs.rubikitch.com/test-simple/][rocky/emacs-test-simple(レビュー)]] 
 今一番のお気に入りのelisp用テスティングフレームワーク！
 
 - assert-equalで失敗したときにきちんとS式を表示するように修正
@@ -115,7 +116,7 @@ yasnippetでautoinsertの設定をする便利なパッケージですが、大�
   - これを実行することでemacs -batch -Q状態でテストを開始する
   - コマンドラインを登録できるようにした
 - emacs -batchでのテストが失敗したら異常終了させた
-*** 11/11 [[http://rubikitch.com/2015/11/11/multi-compile/][ReanGD/emacs-multi-compile(レビュー)]] 
+*** 11/11 [[http://emacs.rubikitch.com/multi-compile/][ReanGD/emacs-multi-compile(レビュー)]] 
 - 無限ループすることがあるバグを修正
 - アクションが1つのときは選択肢を表示させずにそのまま実行させるように修正
 

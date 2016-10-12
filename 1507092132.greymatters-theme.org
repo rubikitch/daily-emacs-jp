@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 1815
+#+POSTID: 1018
+#+BLOG: rubikitch
 #+DATE: [2015-07-09 Thu 21:32]
 #+PERMALINK: greymatters-theme
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,28 +8,17 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, theme
+#+CATEGORY: ライト
 #+EL_PKG_NAME: greymatters-theme
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, color-theme, カラーテーマ
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: 
 #+EL_TITLE0: 白い背景の暖かみのある色調のカラーテーマ
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージgreymatters-themeの紹介
-#+MYTAGS: package:greymatters-theme, emacs 使い方, emacs コマンド, emacs, greymatters-theme, greymatters-theme.el, emacs lisp greymatters-theme, elisp greymatters-theme, emacs melpa greymatters-theme, emacs greymatters-theme 使い方, emacs greymatters-theme 設定, emacs パッケージ greymatters-theme, emacs greymatters-theme スクリーンショット, color-theme, カラーテーマ
-#+TAGS: package:greymatters-theme, emacs 使い方, emacs コマンド, emacs, greymatters-theme, greymatters-theme.el, emacs lisp greymatters-theme, elisp greymatters-theme, emacs melpa greymatters-theme, emacs greymatters-theme 使い方, emacs greymatters-theme 設定, emacs パッケージ greymatters-theme, emacs greymatters-theme スクリーンショット, color-theme, カラーテーマ, Emacs, theme, greymatters-theme.el
-#+TITLE: emacs greymatters-theme.el : 白い背景の暖かみのある色調のカラーテーマ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>greymatters-theme</td></tr>
-<tr><td>概要(原文)</td><td>Emacs 24 theme with a light background.</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/mswift42/greymatters-theme">https://github.com/mswift42/greymatters-theme</a></td></tr>
-<tr><td>バージョン</td><td>20150621.423</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:greymatters-theme/">package:greymatters-theme</a> </td></tr>
-</table>
-<br />
-#+END_HTML
+#+TITLE: greymatters-theme.el : 白い背景の暖かみのある色調のカラーテーマ
+[includeme file="inc-package-table.php" name="greymatters-theme" where="melpa"]
+
+#+end:
+** 概要
 *greymatters-theme.el* は、カラーテーマです。
 
 # (save-window-excursion (async-shell-command "emacs-test -eval '(load-theme (quote greymatters) t)'"))
@@ -94,81 +84,8 @@ Fig8: markdown-mode
 #+ATTR_HTML: :width 480
 [[file:/r/sync/screenshots/20150709213447.png]]
 Fig9: helm
-** greymatters-theme インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
 
-M-x package-refresh-contents
-M-x package-install greymatters-theme
-
-
-#+end:
-** 概要                                                             :noexport:
-*greymatters-theme.el* は、カラーテーマです。
-
-# (save-window-excursion (async-shell-command "emacs-test -eval '(load-theme (quote greymatters) t)'"))
-以下のパッケージに対応しています。
-- font-lock-builtin-face
-- hl-line
-- show-paren
-- isearch
-- mode-line
-- org
-- latex
-- ido
-- gnus
-- mu4e
-- js2-mode
-- js3-mode
-- auto-complete
-- info
-- icomplete
-- unod-tree
-- slime
-- rainbow-delimiters
-- magit
-- term
-- helm
-- company
-- jde
-- web-mode
-
-# (progn (forward-line 1)(shell-command "screenshot-time.rb org_theme_template" t))
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150709213358.png]]
-Fig10: emacs-lisp-mode
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150709213406.png]]
-Fig11: magit
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150709213415.png]]
-Fig12: grep
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150709213420.png]]
-Fig13: outline-mode
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150709213426.png]]
-Fig14: org-mode
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150709213430.png]]
-Fig15: dired
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150709213436.png]]
-Fig16: web-mode
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150709213441.png]]
-Fig17: markdown-mode
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150709213447.png]]
-Fig18: helm
-
+[includeme file="inc-package-install.php" name="greymatters-theme" where="melpa"]
 ** 設定
 #+BEGIN_SRC fundamental
 (load-theme 'greymatters t)
@@ -180,3 +97,4 @@ $ emacs -Q -f package-initialize -eval '(load-theme (quote greymatters) t)'
 #+END_EXAMPLE
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+[includeme file="inc-package-relate.php" name="greymatters-theme"]

@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 238
+#+POSTID: 253
+#+BLOG: rubikitch
 #+DATE: [2014-08-30 Sat 06:32]
 #+PERMALINK: guide-key
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t
@@ -7,28 +8,15 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs
+#+CATEGORY: キーバインド
 #+EL_PKG_NAME: guide-key
-#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, emacs describe-key, emacs describe-bindings, emacs キー操作, Emacs キーバインド, Emacs キーが覚えられない, Emacs one-key.el, emacs descbinds, emacs C-h b, emacs f1 b, emacs popwin, relate:helm-descbinds, emacs org-mode キー, emacs outline-minor-mode キー, relate:org, emacs rectangle, emacs register, emacs レジスタ, relate:which-key
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: るびきちオススメ, 初心者安心
 #+EL_TITLE0: もう迷子にならない！今のEmacsは自動的に次のキー操作を教えてくれるゾ！！
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージguide-keyの紹介
-#+MYTAGS: package:guide-key, emacs 使い方, emacs コマンド, emacs, emacs lisp guide-key, elisp guide-key, emacs melpa guide-key, emacs guide-key 使い方, emacs guide-key 設定, emacs パッケージ guide-key, emacs guide-key スクリーンショット, emacs describe-key, emacs describe-bindings, emacs キー操作, Emacs キーバインド, Emacs キーが覚えられない, Emacs one-key.el, emacs descbinds, emacs C-h b, emacs f1 b, emacs popwin, relate:helm-descbinds, emacs org-mode キー, emacs outline-minor-mode キー, relate:org, emacs rectangle, emacs register, emacs レジスタ, relate:which-key
-#+TAGS: package:guide-key, emacs 使い方, emacs コマンド, emacs, emacs lisp guide-key, elisp guide-key, emacs melpa guide-key, emacs guide-key 使い方, emacs guide-key 設定, emacs パッケージ guide-key, emacs guide-key スクリーンショット, emacs describe-key, emacs describe-bindings, emacs キー操作, Emacs キーバインド, Emacs キーが覚えられない, Emacs one-key.el, emacs descbinds, emacs C-h b, emacs f1 b, emacs popwin, relate:helm-descbinds, emacs org-mode キー, emacs outline-minor-mode キー, relate:org, emacs rectangle, emacs register, emacs レジスタ, relate:which-key, Emacs, org-mode, helm-descbinds.el, org-mode, helm-descbinds.el
-#+TITLE: emacs guide-key.el : もう迷子にならない！今のEmacsは自動的に次のキー操作を教えてくれるゾ！！ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>guide-key</td></tr>
-<tr><td>概要(原文)</td><td>Guide the following key bindings automatically and dynamically</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/kai2nenobu/guide-key">https://github.com/kai2nenobu/guide-key</a></td></tr>
-<tr><td>バージョン</td><td>20150107.2235</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:guide-key/">package:guide-key</a> <a href="http://rubikitch.com/tag/package:helm-descbinds/">package:helm-descbinds</a> <a href="http://rubikitch.com/tag/package:org/">package:org</a> <a href="http://rubikitch.com/tag/package:which-key/">package:which-key</a></td></tr>
-</table>
-<br />
-#+END_HTML
-<2015-09-14 Mon>[[http://rubikitch.com/2015/09/14/which-key/][which-key.elがguide-key.elの改良版です]]
+#+TITLE: guide-key.el : もう迷子にならない！今のEmacsは自動的に次のキー操作を教えてくれるゾ！！
+[includeme file="inc-package-table.php" name="guide-key" where="melpa"]
+** 概要
+<2015-09-14 Mon>[[http://emacs.rubikitch.com/which-key/][which-key.elがguide-key.elの改良版です]]
 
 guide-key.elはプレフィクスキーの次のキー操作を
 ポップアップで教えてくれるEmacs Lispです。
@@ -56,16 +44,11 @@ one-key.elを使っている人は乗り換えてみてはいかがでしょう�
 
 *helm-descbinds.el* と組み合わせると
 キーバインドに悩むことはなくなるでしょう。
-** guide-key インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install guide-key
-
+[includeme file="inc-package-install.php" name="guide-key" where="melpa"]
 
 #+end:
 ** 概要                                                             :noexport:
-<2015-09-14 Mon>[[http://rubikitch.com/2015/09/14/which-key/][which-key.elがguide-key.elの改良版です]]
+<2015-09-14 Mon>[[http://emacs.rubikitch.com/which-key/][which-key.elがguide-key.elの改良版です]]
 
 guide-key.elはプレフィクスキーの次のキー操作を
 ポップアップで教えてくれるEmacs Lispです。
@@ -132,3 +115,4 @@ Fig1: C-x 4
 
 http://rubikitch.com/f/20140830064819.png
 Fig2: C-x r
+[includeme file="inc-package-relate.php" name="guide-key"]

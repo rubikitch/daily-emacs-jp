@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 1773
+#+POSTID: 992
+#+BLOG: rubikitch
 #+DATE: [2015-06-25 Thu 20:48]
 #+PERMALINK: phoenix-dark-pink-theme
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,28 +8,17 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, theme
+#+CATEGORY: ダーク
 #+EL_PKG_NAME: phoenix-dark-pink-theme
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, color-theme, カラーテーマ
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: from:sublime-text
 #+EL_TITLE0: Sublime Text 2から移植されたカラーテーマ
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージphoenix-dark-pink-themeの紹介
-#+MYTAGS: package:phoenix-dark-pink-theme, emacs 使い方, emacs コマンド, emacs, phoenix-dark-pink-theme, phoenix-dark-pink-theme.el, emacs lisp phoenix-dark-pink-theme, elisp phoenix-dark-pink-theme, emacs melpa phoenix-dark-pink-theme, emacs phoenix-dark-pink-theme 使い方, emacs phoenix-dark-pink-theme 設定, emacs パッケージ phoenix-dark-pink-theme, emacs phoenix-dark-pink-theme スクリーンショット, color-theme, カラーテーマ
-#+TAGS: package:phoenix-dark-pink-theme, emacs 使い方, emacs コマンド, emacs, phoenix-dark-pink-theme, phoenix-dark-pink-theme.el, emacs lisp phoenix-dark-pink-theme, elisp phoenix-dark-pink-theme, emacs melpa phoenix-dark-pink-theme, emacs phoenix-dark-pink-theme 使い方, emacs phoenix-dark-pink-theme 設定, emacs パッケージ phoenix-dark-pink-theme, emacs phoenix-dark-pink-theme スクリーンショット, color-theme, カラーテーマ, Emacs, theme, phoenix-dark-pink-theme.el
-#+TITLE: emacs phoenix-dark-pink-theme.el : Sublime Text 2から移植されたカラーテーマ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>phoenix-dark-pink-theme</td></tr>
-<tr><td>概要(原文)</td><td>Port of the Sublime Text 2 theme of the same name</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/j0ni/phoenix-dark-pink">https://github.com/j0ni/phoenix-dark-pink</a></td></tr>
-<tr><td>バージョン</td><td>20150406.2002</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:phoenix-dark-pink-theme/">package:phoenix-dark-pink-theme</a> </td></tr>
-</table>
-<br />
-#+END_HTML
+#+TITLE: phoenix-dark-pink-theme.el : Sublime Text 2から移植されたカラーテーマ
+[includeme file="inc-package-table.php" name="phoenix-dark-pink-theme" where="melpa"]
+
+#+end:
+** 概要
 *phoenix-dark-pink-theme.el* は Sublime Text 2から移植された
 カラーテーマです。
 
@@ -99,86 +89,8 @@ Fig8: markdown-mode
 #+ATTR_HTML: :width 480
 [[file:/r/sync/screenshots/20150625205008.png]]
 Fig9: helm
-** phoenix-dark-pink-theme インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
 
-M-x package-refresh-contents
-M-x package-install phoenix-dark-pink-theme
-
-
-#+end:
-** 概要                                                             :noexport:
-*phoenix-dark-pink-theme.el* は Sublime Text 2から移植された
-カラーテーマです。
-
-以下のパッケージに対応しています。
-
-- font-lock
-- compilation
-- mode-line
-- cider
-- isearch
-- grep
-- highlight-symbol
-- ido
-- linum
-- flx
-- auto-complete
-- popup
-- company
-- speedbar
-- eval-sexp-fu
-- nrepl
-- magit
-- git-gutter
-- show-paren
-- rainbow-delimiters
-- js2-mole
-- erc
-- circe
-- lui
-- w3m
-- highlight-indentation
-- org
-
-
-# (progn (forward-line 1)(shell-command "screenshot-time.rb org_theme_template" t))
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150625204926.png]]
-Fig10: emacs-lisp-mode
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150625204932.png]]
-Fig11: magit
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150625204936.png]]
-Fig12: grep
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150625204943.png]]
-Fig13: outline-mode
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150625204946.png]]
-Fig14: org-mode
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150625204951.png]]
-Fig15: dired
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150625204958.png]]
-Fig16: web-mode
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150625205002.png]]
-Fig17: markdown-mode
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150625205008.png]]
-Fig18: helm
-
+[includeme file="inc-package-install.php" name="phoenix-dark-pink-theme" where="melpa"]
 ** 設定 [[http://rubikitch.com/f/150625204855.phoenix-dark-pink-theme.el][150625204855.phoenix-dark-pink-theme.el(以下のコードと同一)]]
 #+BEGIN: include :file "/r/sync/junk/150625/150625204855.phoenix-dark-pink-theme.el"
 #+BEGIN_SRC fundamental
@@ -192,3 +104,4 @@ Fig18: helm
 $ wget http://rubikitch.com/f/150625204855.phoenix-dark-pink-theme.el
 $ emacs -Q -f package-initialize -l 150625204855.phoenix-dark-pink-theme.el
 #+END_EXAMPLE
+[includeme file="inc-package-relate.php" name="phoenix-dark-pink-theme"]

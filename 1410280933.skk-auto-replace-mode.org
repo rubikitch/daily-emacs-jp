@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 525
+#+POSTID: 373
+#+BLOG: rubikitch
 #+DATE: [2014-10-28 Tue 09:33]
 #+PERMALINK: skk-auto-replace-mode
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,10 +8,10 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, SKK
+#+CATEGORY:  日本語入力
+#+TAGS: ddskk
 #+DESCRIPTION: skk-auto-replace-modeは確定後にカーソル以後に登場に同じ見出し語に対してquery-replaceします。
-#+MYTAGS: replate:skk, emacs SKK, DDSKK, emacs DDSKK, query-replace SKK, emacs SKK 校正, skk 変換 置換
-#+TAGS: replate:skk, emacs SKK, DDSKK, emacs DDSKK, query-replace SKK, emacs SKK 校正, skk 変換 置換, Emacs, SKK, 会議, セミナー, 議事録, SKK, query-replace, M-x skk-auto-replace-mode, マイナーモード, C-u C-SPC
+#+TAGS: 議事録
 #+TITLE: 【SKK校正】emacs DDSKKで議事録の校正スピードを3倍にする方法
 *会議* や *セミナー* の *議事録* をPCを使って録るときには、
 リアルタイム性が求められます。

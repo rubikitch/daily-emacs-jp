@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 284
+#+POSTID: 269
+#+BLOG: rubikitch
 #+DATE: [2014-09-04 Thu 17:34]
 #+PERMALINK: ruby-crawler-book
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t
@@ -7,12 +8,11 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Ruby, 著書,
+#+CATEGORY: Rubyによるクローラー開発技法,
 #+DESCRIPTION: 佐々木拓郎さんとの共著『Rubyによるクローラー開発技法』が増刷されました。ありがとうございます。即席クローラーの作り方も。
-#+MYTAGS: Rubyによるクローラー開発技法,, Ruby, 著書, Ruby, 佐々木拓郎, SBクリエイティブ, クローラー, Ruby メタプログラミング, Ruby クラス 継承, Ruby サブクラス, Ruby スクレイピング, ruby crawler
-#+TAGS: Rubyによるクローラー開発技法,, Ruby, 著書, Ruby, 佐々木拓郎, SBクリエイティブ, クローラー, Ruby メタプログラミング, Ruby クラス 継承, Ruby サブクラス, Ruby スクレイピング, ruby crawler, Ruby, 著書,, Anemone, curl, Parallel, Class#inherited, フック
+#+TAGS: Rubyによるクローラー開発技法
 #+TITLE: 『Rubyによるクローラー開発技法』増刷決定！Amazon 1位なう！！個人用即席クローラーの作り方
-[[http://rubikitch.com/2014/08/03/ruby-crawler-book/][新刊『Rubyによるクローラー開発技法』]] が8/25に発売されましたが、
+[[http://emacs.rubikitch.com/ruby-crawler-book/][新刊『Rubyによるクローラー開発技法』]] が8/25に発売されましたが、
 わずか10日で増刷のお知らせが届きました。
 
 http://www.amazon.co.jp/dp/4797380357

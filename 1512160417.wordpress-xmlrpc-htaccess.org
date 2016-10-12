@@ -1,17 +1,18 @@
+#+BLOG: rubikitch
+#+POSTID: 1307
 #+DATE: [2015-12-16 Wed 04:17]
-#+POSTID: 2267
 #+PERMALINK: wordpress-xmlrpc-htaccess
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
 #+ISPAGE: nil
-#+DESCRIPTION:
+#+DESCRIPTION:変動する自分のIPアドレスのみからxmlrpc.phpにアクセスできるように.htaccessを作成するスクリプトをcronで実行させる
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Ruby
+#+CATEGORY: Rubyスクリプト
 #+DESCRIPTION: 
-#+MYTAGS: 
 #+TITLE: WordPressのxmlrpcに不正アクセス対策と.htaccess自動生成
 #+begin: org2blog-tags
-#+TAGS: , Ruby, 
+# content-length: 2261
+
 #+end:
 本サイトはWordPressで運営していて、org2blogパッケージを使ってEmacsのorg-modeから投稿しています。
 org2blogはxmlrpcを使って投稿するのですが、不正アクセスの温床になっています。

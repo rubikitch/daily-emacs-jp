@@ -1,18 +1,19 @@
 #+BLOG: rubikitch
-#+POSTID: 2108
+#+POSTID: 141
+#+BLOG: rubikitch
 #+DATE: [2015-10-23 Fri 01:46]
-#+PERMALINK: melmag
+#+PERMALINK: melmag204
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
 #+ISPAGE: nil
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: メルマガ,
+#+CATEGORY: るびきち塾メルマガ
 #+DESCRIPTION: るびきち塾メルマガ『Emacsの鬼るびきちのココだけの話#204』の予告
 #+TITLE: 【メルマガ#204】pecoの可能性
 #+MYTAGS: 
 #+begin: org2blog-tags
-#+TAGS: , メルマガ,, 
+
 #+end:
 端末にanything/helmの絞り込み検索を提供するpecoはとても便利です。
 

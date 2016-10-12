@@ -1,34 +1,22 @@
 #+BLOG: rubikitch
-#+POSTID: 445
+#+POSTID: 341
+#+BLOG: rubikitch
 #+DATE: [2014-10-09 Thu 11:50]
 #+PERMALINK: ace-jump-mode
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t
 #+ISPAGE: nil
-#+DESCRIPTION:
+#+DESCRIPTION:画面内の任意の場所に3ストローク以下で移動するコマンド
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs
+#+CATEGORY: カーソル移動
 #+EL_PKG_NAME: ace-jump-mode
-#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, relate:ace-jump-buffer, relate:ace-jump-zap, relate:ace-isearch, emacs インクリメンタルサーチ, isearch, インクリメンタルサーチ, emacs カーソル移動, ace-jump-mode, relate:ace-pinyin
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: ace-jump, 初心者安心
 #+EL_TITLE0: 【インクリメンタルサーチ王者陥落】3ストローク以下でカーソルを飛ばせ
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージace-jump-modeの紹介
-#+MYTAGS: package:ace-jump-mode, emacs 使い方, emacs コマンド, emacs, emacs lisp ace-jump-mode, elisp ace-jump-mode, emacs melpa ace-jump-mode, emacs ace-jump-mode 使い方, emacs ace-jump-mode 設定, emacs パッケージ ace-jump-mode, emacs ace-jump-mode スクリーンショット, relate:ace-jump-buffer, relate:ace-jump-zap, relate:ace-isearch, emacs インクリメンタルサーチ, isearch, インクリメンタルサーチ, emacs カーソル移動, ace-jump-mode, relate:ace-pinyin
-#+TAGS: package:ace-jump-mode, emacs 使い方, emacs コマンド, emacs, emacs lisp ace-jump-mode, elisp ace-jump-mode, emacs melpa ace-jump-mode, emacs ace-jump-mode 使い方, emacs ace-jump-mode 設定, emacs パッケージ ace-jump-mode, emacs ace-jump-mode スクリーンショット, relate:ace-jump-buffer, relate:ace-jump-zap, relate:ace-isearch, emacs インクリメンタルサーチ, isearch, インクリメンタルサーチ, emacs カーソル移動, ace-jump-mode, relate:ace-pinyin, Emacs, ace-jump, ace-jump-mode.el, ace-jump, ace-jump-mode.el, M-x ace-jump-char-mode, M-x ace-jump-word-mode, M-x ace-jump-line-mode, M-x other-window
-#+TITLE: emacs ace-jump-mode.el : 【インクリメンタルサーチ王者陥落】3ストローク以下でカーソルを飛ばせ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>ace-jump-mode</td></tr>
-<tr><td>概要(原文)</td><td>a quick cursor location minor mode for emacs</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/winterTTr/ace-jump-mode">https://github.com/winterTTr/ace-jump-mode</a></td></tr>
-<tr><td>バージョン</td><td>20140616.115</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:ace-jump-mode/">package:ace-jump-mode</a> <a href="http://rubikitch.com/tag/package:ace-jump-buffer/">package:ace-jump-buffer</a> <a href="http://rubikitch.com/tag/package:ace-jump-zap/">package:ace-jump-zap</a> <a href="http://rubikitch.com/tag/package:ace-isearch/">package:ace-isearch</a> <a href="http://rubikitch.com/tag/package:ace-pinyin/">package:ace-pinyin</a></td></tr>
-</table>
-<br />
-#+END_HTML
-<2015-04-18 Sat> [[http://rubikitch.com/2015/04/18/ace-pinyin/][ace-jump-char-modeがMigemo化されました！！！]] 
+#+TITLE: ace-jump-mode.el : 【インクリメンタルサーチ王者陥落】3ストローク以下でカーソルを飛ばせ
+[includeme file="inc-package-table.php" name="ace-jump-mode" where="melpa"]
+** 概要
+<2015-04-18 Sat> [[http://emacs.rubikitch.com/ace-pinyin/][ace-jump-char-modeがMigemo化されました！！！]] 
 
 これまで何回か *ace-jump* 関係の記事を書きましたが、
 大元のace-jump-modeの記事はまだでした。
@@ -42,16 +30,11 @@
 
 しかし、画面に表示されている範囲に限定すると
 isearchはもはや時代遅れの方法なのです…
-** ace-jump-mode インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install ace-jump-mode
-
+[includeme file="inc-package-install.php" name="ace-jump-mode" where="melpa"]
 
 #+end:
 ** 概要                                                             :noexport:
-<2015-04-18 Sat> [[http://rubikitch.com/2015/04/18/ace-pinyin/][ace-jump-char-modeがMigemo化されました！！！]] 
+<2015-04-18 Sat> [[http://emacs.rubikitch.com/ace-pinyin/][ace-jump-char-modeがMigemo化されました！！！]] 
 
 これまで何回か *ace-jump* 関係の記事を書きましたが、
 大元のace-jump-modeの記事はまだでした。
@@ -108,7 +91,7 @@ eshell / shell / 日本語を含むバッファにおいては ace-jump-word-mod
 
 ** 任意の場所に3ストロークで移動！
 この設定ではC-:にace-jump-char-modeを割り当てていますが、
-昨日紹介した [[http://rubikitch.com/2014/10/08/ace-isearch/][ace-isearch.el]] と組み合わせれば
+昨日紹介した [[http://emacs.rubikitch.com/ace-isearch/][ace-isearch.el]] と組み合わせれば
 ace-jump-char-modeをキーに割り当てる必要はなくなります。
 
 C-s 文字 ヒント文字
@@ -146,3 +129,4 @@ C-tなど1ストロークに *M-x other-window* を割り当てたとしても
 
 よって近距離における検索ベースの移動は
 ace-jump-modeかその類似品が最強です。
+[includeme file="inc-package-relate.php" name="ace-jump-mode"]

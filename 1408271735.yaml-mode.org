@@ -1,32 +1,21 @@
 #+BLOG: rubikitch
-#+POSTID: 221
+#+POSTID: 243
+#+BLOG: rubikitch
 #+DATE: [2014-08-27 Wed 17:35]
 #+PERMALINK: yaml-mode
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t
 #+ISPAGE: nil
-#+DESCRIPTION:
+#+DESCRIPTION:YAMLを編集するメジャーモード
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs
+#+CATEGORY: メジャーモード
 #+EL_PKG_NAME: yaml-mode
-#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, emacs YAML
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: 
 #+EL_TITLE0: EmacsでYAMLを編集するyaml-modeが進化していた
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージyaml-modeの紹介
-#+MYTAGS: package:yaml-mode, emacs 使い方, emacs コマンド, emacs, emacs lisp yaml-mode, elisp yaml-mode, emacs melpa yaml-mode, emacs yaml-mode 使い方, emacs yaml-mode 設定, emacs パッケージ yaml-mode, emacs yaml-mode スクリーンショット, emacs YAML
-#+TITLE: emacs yaml-mode.el : EmacsでYAMLを編集するyaml-modeが進化していた | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>yaml-mode</td></tr>
-<tr><td>概要(原文)</td><td>Major mode for editing YAML files</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/yoshiki/yaml-mode">https://github.com/yoshiki/yaml-mode</a></td></tr>
-<tr><td>バージョン</td><td>20141125.37</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:yaml-mode/">package:yaml-mode</a> </td></tr>
-</table>
-<br />
-#+END_HTML
+#+TITLE: yaml-mode.el : EmacsでYAMLを編集するyaml-modeが進化していた
+[includeme file="inc-package-table.php" name="yaml-mode" where="melpa"]
+** 概要
 EmacsでYAMLを編集するyaml-modeが更新されていました。
 
 以前よりもインデントや色付け(font-lock)が賢くなっているようです。
@@ -37,12 +26,7 @@ YAMLは今更説明する必要はないと思いますが、
 
 あらゆる場面で使われているYAMLですが、
 そのメジャーモードがEmacs標準になっていないのが不思議です。
-** yaml-mode インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install yaml-mode
-
+[includeme file="inc-package-install.php" name="yaml-mode" where="melpa"]
 
 #+end:
 ** 概要                                                             :noexport:
@@ -76,3 +60,4 @@ $ emacs -Q -f package-initialize -l 140827172956.yaml-mode.1.el
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
 http://rubikitch.com/f/20140827173534.png
 Fig1: yaml-mode
+[includeme file="inc-package-relate.php" name="yaml-mode"]

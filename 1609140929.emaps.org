@@ -1,30 +1,31 @@
 #+BLOG: rubikitch
-#+POSTID: 2799
+#+POSTID: 6
+#+BLOG: rubikitch
 #+DATE: [2016-09-14 Wed 09:29]
 #+PERMALINK: emaps
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
 #+ISPAGE: nil
-#+DESCRIPTION:
+#+DESCRIPTION: M-x emaps-describe-keymap-bindings / M-x emaps-describe-keymap
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, Emacs 24.4, 
+#+CATEGORY: キーバインド
 #+EL_PKG_NAME: emaps
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, relate:helm-descbinds, relate:nadvice, アドバイス, キーマップ, keymap, relate:bind-key
-#+MYTAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, relate:helm-descbinds, relate:nadvice, アドバイス, キーマップ, keymap, relate:bind-key
-#+TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, relate:helm-descbinds, relate:nadvice, アドバイス, キーマップ, keymap, relate:bind-key, Emacs, Emacs 24.4, , 
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: 
 #+EL_TITLE0: ＜f1＞ kでキーマップをわかりやすく表示するアドバイス(おまけ付き)
 #+EL_URL: 
 #+begin: org2blog
 #+TITLE: emaps.el : ＜f1＞ kでキーマップをわかりやすく表示するアドバイス(おまけ付き)
 [includeme file="inc-package-table.php" name="emaps" where="melpa"]
+
+#+end:
 ** 概要
+
 *emap.el* は、キーマップを便利に扱うライブラリです。
 
 キーマップの扱いについては、すでに枯れた分野ですが、これを使うことで、ちょうどかゆいところに手が届く感じです。
 
 *M-x emaps-describe-keymap-bindings* は、指定されたキーマップを *describe-bindings* 形式で表示します。
-describe-bindingsといえば[[http://rubikitch.com/2014/08/30/helm-descbinds/][helm-descbinds(レビュー)]]を使っている人もいると思いますが、構造上連携はできません。
+describe-bindingsといえば[[http://emacs.rubikitch.com/helm-descbinds/][helm-descbinds(レビュー)]]を使っている人もいると思いますが、構造上連携はできません。
 
 *M-x emaps-describe-keymap* は、 *M-x describe-variable* とほぼ同じですが、キーマップにおける文字コードを数字ではなくて文字として表示するようにします。
 たとえば、「3→^C」という風にです。
@@ -43,35 +44,9 @@ Fig2: M-x describe-variables lisp-mode-shared-map (before)
 [[file:/r/sync/screenshots/20160914094954.png]]
 Fig3: M-x describe-variables lisp-mode-shared-map (after)
 [includeme file="inc-package-install.php" name="emaps" where="melpa"]
-
-#+end:
-** 概要                                                             :noexport:
-*emap.el* は、キーマップを便利に扱うライブラリです。
-
-キーマップの扱いについては、すでに枯れた分野ですが、これを使うことで、ちょうどかゆいところに手が届く感じです。
-
-*M-x emaps-describe-keymap-bindings* は、指定されたキーマップを *describe-bindings* 形式で表示します。
-describe-bindingsといえば[[http://rubikitch.com/2014/08/30/helm-descbinds/][helm-descbinds(レビュー)]]を使っている人もいると思いますが、構造上連携はできません。
-
-*M-x emaps-describe-keymap* は、 *M-x describe-variable* とほぼ同じですが、キーマップにおける文字コードを数字ではなくて文字として表示するようにします。
-たとえば、「3→^C」という風にです。
-これは本設定ではdescribe-variableのアドバイスにしてありますので、このコマンドを覚えなくても使えます。
-そのまま<f1> kで使ってください。
-
-# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20160914094354.png]]
-Fig4: M-x emaps-describe-keymap emacs-lisp-mode-map
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20160914095016.png]]
-Fig5: M-x describe-variables lisp-mode-shared-map (before)
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20160914094954.png]]
-Fig6: M-x describe-variables lisp-mode-shared-map (after)
 ** おまけ
 *emaps-define-key* を使えば、複数の *define-key* をひとまとめに書けます。
-[[http://rubikitch.com/2014/09/10/bind-key/][bind-key.el(レビュー)]] の *bind-keys* と似たような感じですが、kbd記法ではない分劣ります。
+[[http://emacs.rubikitch.com/bind-key/][bind-key.el(レビュー)]] の *bind-keys* と似たような感じですが、kbd記法ではない分劣ります。
 
 #+BEGIN_SRC emacs-lisp
 (define-key keymap "a" 'fun-a)
@@ -114,3 +89,4 @@ $ emacs -Q -f package-initialize -l 160914093321.emaps.el
 # /r/sync/screenshots/20160914094354.png http://rubikitch.com/wp-content/uploads/2016/09/20160914094354.png
 # /r/sync/screenshots/20160914095016.png http://rubikitch.com/wp-content/uploads/2016/09/20160914095016.png
 # /r/sync/screenshots/20160914094954.png http://rubikitch.com/wp-content/uploads/2016/09/20160914094954.png
+[includeme file="inc-package-relate.php" name="emaps"]

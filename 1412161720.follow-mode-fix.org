@@ -1,19 +1,19 @@
 #+BLOG: rubikitch
-#+POSTID: 729
+#+POSTID: 491
+#+BLOG: rubikitch
 #+DATE: [2014-12-16 Tue 17:20]
 #+PERMALINK: follow-mode-fix
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
 #+ISPAGE: nil
-#+DESCRIPTION:
+#+DESCRIPTION:follow-modeやmulticolumn.elを使っている人は入れておきましょう
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, Emacs 24.4, 
+#+CATEGORY: ウィンドウ操作
 #+DESCRIPTION: 
-#+MYTAGS: relate:multicolumn
-#+TAGS: relate:multicolumn, Emacs, Emacs 24.4, , M-x follow-mode
+#+TAGS: バグ修正
 #+TITLE: follow-modeで画面最下行が表示されないバグを修正
 ワイドディスプレイでEmacsするには *M-x follow-mode* と
-[[http://rubikitch.com/2014/12/10/multicolumn/][multicolumn.el(レビュー記事)]] が便利です。
+[[http://emacs.rubikitch.com/multicolumn/][multicolumn.el(レビュー記事)]] が便利です。
 
 しかし、フォントの大きさによっては画面最下行が表示されない
 あるいはほとんど表示されない状態のことがあります。

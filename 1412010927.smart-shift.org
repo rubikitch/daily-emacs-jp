@@ -1,52 +1,23 @@
 #+BLOG: rubikitch
-#+POSTID: 642
+#+POSTID: 445
+#+BLOG: rubikitch
 #+DATE: [2014-12-01 Mon 09:27]
 #+PERMALINK: smart-shift
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
 #+ISPAGE: nil
-#+DESCRIPTION:
+#+DESCRIPTION:文章を並び換えるときにはregionか行をC-c＋上下キーを使うと便利。
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs
+#+CATEGORY: テキスト移動
 #+EL_PKG_NAME: smart-shift
-#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, emacs インデント, emacs 行をずらす, relate:smartrep, relate:drag-stuff
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: るびきちオススメ, 初心者安心
 #+EL_TITLE0: 矢印キーで行やregionをsmartrep的にずらしたりインデントしたり
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージsmart-shiftの紹介
-#+MYTAGS: package:smart-shift, emacs 使い方, emacs コマンド, emacs, emacs lisp smart-shift, elisp smart-shift, emacs melpa smart-shift, emacs smart-shift 使い方, emacs smart-shift 設定, emacs パッケージ smart-shift, emacs smart-shift スクリーンショット, emacs インデント, emacs 行をずらす, relate:smartrep, relate:drag-stuff
-#+TAGS: package:smart-shift, emacs 使い方, emacs コマンド, emacs, emacs lisp smart-shift, elisp smart-shift, emacs melpa smart-shift, emacs smart-shift 使い方, emacs smart-shift 設定, emacs パッケージ smart-shift, emacs smart-shift スクリーンショット, emacs インデント, emacs 行をずらす, relate:smartrep, relate:drag-stuff, Emacs, smart-shift.el, smart-shift.el
-#+TITLE: emacs smart-shift.el : 矢印キーで行やregionをsmartrep的にずらしたりインデントしたり | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>smart-shift</td></tr>
-<tr><td>概要(原文)</td><td>Smart shift text left/right.</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/hbin/smart-shift">https://github.com/hbin/smart-shift</a></td></tr>
-<tr><td>バージョン</td><td>20150202.2325</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:smart-shift/">package:smart-shift</a> <a href="http://rubikitch.com/tag/package:smartrep/">package:smartrep</a> <a href="http://rubikitch.com/tag/package:drag-stuff/">package:drag-stuff</a></td></tr>
-</table>
-<br />
-#+END_HTML
-
-*smart-shift.el* を使うと行やregionをずらしたりインデントしたりできます。
-
-使い方は簡単で、C-cの後に矢印キーを連続的に追う押すだけです。
-
-上下キーで行単位でずらし、左右キーでインデントです。
-
-行をずらす機能は、文章を書いているときに特に便利です。
-
-インデントされる幅は、バッファによって自動判別されます。
-** smart-shift インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install smart-shift
-
+#+TITLE: smart-shift.el : 矢印キーで行やregionをsmartrep的にずらしたりインデントしたり
+[includeme file="inc-package-table.php" name="smart-shift" where="melpa"]
 
 #+end:
-** 概要                                                             :noexport:
+** 概要
 
 *smart-shift.el* を使うと行やregionをずらしたりインデントしたりできます。
 
@@ -57,6 +28,7 @@ M-x package-install smart-shift
 行をずらす機能は、文章を書いているときに特に便利です。
 
 インデントされる幅は、バッファによって自動判別されます。
+[includeme file="inc-package-install.php" name="smart-shift" where="melpa"]
 ** 設定 [[http://rubikitch.com/f/141201091806.smart-shift.el][141201091806.smart-shift.el(以下のコードと同一)]]
 #+BEGIN: include :file "/r/sync/junk/141201/141201091806.smart-shift.el"
 #+BEGIN_SRC fundamental
@@ -83,3 +55,4 @@ Fig2: C-c ↑を押すと上にずれる
 
 http://rubikitch.com/f/20141201092714.png
 Fig3: さらに→を押すとインデントされる
+[includeme file="inc-package-relate.php" name="smart-shift"]

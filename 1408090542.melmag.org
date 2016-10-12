@@ -1,17 +1,16 @@
 #+BLOG: rubikitch
-#+POSTID: 72
+#+POSTID: 175
+#+BLOG: rubikitch
 #+DATE: [2014-08-09 Sat 05:42]
-#+PERMALINK: melmag-141
+#+PERMALINK: melmag141
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t
 #+ISPAGE: nil
 #+DESCRIPTION:
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, メルマガ
+#+CATEGORY: るびきち塾メルマガ
 #+DESCRIPTION:
-#+MYTAGS: ライフハック, org-mode, Emacs, org習慣仕事術, 仕事術
-#+TAGS: ライフハック, org-mode, Emacs, org習慣仕事術, 仕事術, Emacs, メルマガ, 習慣の奴隷, org習慣仕事術
 #+TITLE: org習慣仕事術完全体！　Emacs　org-mode
-[[http://rubikitch.com/2014/08/01/melmag140][先週紹介したorg習慣仕事術Ver.2]] は
+[[http://emacs.rubikitch.com/melmag140][先週紹介したorg習慣仕事術Ver.2]] は
 /今回で完全体/ になります。
 
 人間は *習慣の奴隷* です。

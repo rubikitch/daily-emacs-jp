@@ -1,17 +1,17 @@
 #+BLOG: rubikitch
-#+POSTID: 268
+#+POSTID: 261
+#+BLOG: rubikitch
 #+DATE: [2014-09-02 Tue 06:37]
 #+PERMALINK: melpa-dl-ranking
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t
 #+ISPAGE: nil
-#+DESCRIPTION:
+#+DESCRIPTION:MELPAダウンロードランキング発表＆Rubyスクリプト
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, Ruby,
+#+CATEGORY: パッケージ管理
 #+DESCRIPTION:
 # relate:magit, relate:git-commit-mode, relate:git-rebase-mode, relate:gitconfig-mode, relate:gitignore-mode, relate:dash, relate:s, relate:f, relate:auto-complete, relate:popup, relate:exec-path-from-shell, relate:anzu, relate:deferred
-#+MYTAGS: emacs, emacs melpa, emacs パッケージ, emacs 人気 パッケージ, emacs 定番 パッケージ, emacs 人気 elisp, emacs 定番 elisp, emacs おすすめ パッケージ, emacs おすすめ elisp, ruby json open-uri, emacs describe-package,
-#+TAGS: emacs, emacs melpa, emacs パッケージ, emacs 人気 パッケージ, emacs 定番 パッケージ, emacs 人気 elisp, emacs 定番 elisp, emacs おすすめ パッケージ, emacs おすすめ elisp, ruby json open-uri, emacs describe-package,, Emacs, Ruby,, magit, git-commit-mode, gitconfig-mode, gitignore-mode, dash, f, auto-complete, exec-path-from-shell, deferred
+#+TAGS: るびきちオススメ
 #+TITLE: Emacs MELPA ダウンロードランキングを見てみる
 ** 解析
 [[http://melpa.milkbox.net/][MELPAのサイト]] には更新日時やダウンロードランキングが記されているが、

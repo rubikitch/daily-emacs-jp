@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 37
+#+POSTID: 179
+#+BLOG: rubikitch
 #+DATE: [2014-07-30 Wed 09:54]
 #+PERMALINK: profile
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t

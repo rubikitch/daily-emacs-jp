@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 1136
+#+POSTID: 702
+#+BLOG: rubikitch
 #+DATE: [2015-02-13 Fri 07:14]
 #+PERMALINK: persp-mode
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -9,13 +10,12 @@
 #+BLOG: rubikitch
 #+CATEGORY: 記事更新情報, 
 #+DESCRIPTION: 
-#+MYTAGS: 
 #+TITLE: perspectiveとsave-visited-filesのリンクを更新
 #+begin: org2blog-tags
-#+TAGS: , 記事更新情報, , 
+
 #+end:
-[[http://rubikitch.com/2015/02/13/persp-mode/][persp-mode.el]] のレビューにともない、
-[[http://rubikitch.com/2015/01/28/perspective/][perspective.el]] と [[http://rubikitch.com/2015/02/08/save-visited-files/][save-visited-files.el]] の記事を更新しました。
+[[http://emacs.rubikitch.com/persp-mode/][persp-mode.el]] のレビューにともない、
+[[http://emacs.rubikitch.com/perspective/][perspective.el]] と [[http://emacs.rubikitch.com/save-visited-files/][save-visited-files.el]] の記事を更新しました。
 
 persp-mode.elはperspective.elの機能を完全に包括し、
 開いているファイルバッファの復元機能も備えているからです。

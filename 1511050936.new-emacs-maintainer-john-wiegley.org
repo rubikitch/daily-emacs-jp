@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 2158
+#+POSTID: 1233
+#+BLOG: rubikitch
 #+DATE: [2015-11-05 Thu 09:36]
 #+PERMALINK: new-emacs-maintainer-john-wiegley
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,14 +8,14 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, Emacs 25.0, 記事紹介
+#+CATEGORY: 
 #+DESCRIPTION: 
-#+MYTAGS: John Wiegley, Stefan Monnier, メンテナ, メンテナ就任, 
 #+TITLE: Emacsの新メンテナがJohn Wiegley氏に決まりました
 #+begin: org2blog-tags
-#+TAGS: John Wiegley, Stefan Monnier, メンテナ, メンテナ就任, , Emacs, Emacs 25.0, 記事紹介, 
+# content-length: 1107
+
 #+end:
-長きにわたってEmacsのメンテナを務めていたStefan Monnier氏が [[http://rubikitch.com/2015/09/22/new-maintainer-emacs25/][9/21に辞退しましたが、]] 後継者が決まりました。
+長きにわたってEmacsのメンテナを務めていたStefan Monnier氏が [[http://emacs.rubikitch.com/new-maintainer-emacs25/][9/21に辞退しましたが、]] 後継者が決まりました。
 大昔から数々のelispの開発に携ってきたJohn Wiegley氏です。
 
 Richard Stallman「John Wiegley is the new Emacs maintainer」 
@@ -27,15 +28,15 @@ http://lists.gnu.org/archive/html/emacs-devel/2015-11/msg00195.html
 - remember
 - [[http://rubikitch.com/category/org-mode/][org]]
 - pcomplete
-- [[http://rubikitch.com/2014/09/18/async/][async]]
+- [[http://emacs.rubikitch.com/async/][async]]
 - magit
 - regex-tool
 - erc
 - muse
-- [[http://rubikitch.com/2014/09/10/bind-key/][bind-key]]
-- [[http://rubikitch.com/2014/09/09/use-package/][use-package]]
-- [[http://rubikitch.com/2015/05/07/springboard/][ido-springboard]]
-- [[http://rubikitch.com/2014/12/20/initsplit/][initsplit]]
+- [[http://emacs.rubikitch.com/bind-key/][bind-key]]
+- [[http://emacs.rubikitch.com/use-package/][use-package]]
+- [[http://emacs.rubikitch.com/springboard/][ido-springboard]]
+- [[http://emacs.rubikitch.com/initsplit/][initsplit]]
 などなど…
 
 見えないところでも貢献していると思うので、Emacsユーザはほぼ必ずといっていいほど彼が関わったelispプログラムを使っていることでしょう。

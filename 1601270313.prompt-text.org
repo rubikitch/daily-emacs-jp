@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 2363
+#+POSTID: 1387
+#+BLOG: rubikitch
 #+DATE: [2016-01-27 Wed 03:13]
 #+PERMALINK: prompt-text
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,28 +8,17 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, ソース解読推奨
+#+CATEGORY: ミニバッファ
 #+EL_PKG_NAME: prompt-text
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: ソース解読推奨
 #+EL_TITLE0: ミニバッファ入力時にカレントディレクトリなどを表示する
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージprompt-textの紹介
-#+MYTAGS: package:prompt-text, emacs 使い方, emacs コマンド, emacs, prompt-text, prompt-text.el, emacs lisp prompt-text, elisp prompt-text, emacs melpa prompt-text, emacs prompt-text 使い方, emacs prompt-text 設定, emacs パッケージ prompt-text, emacs prompt-text スクリーンショット
-#+TAGS: package:prompt-text, emacs 使い方, emacs コマンド, emacs, prompt-text, prompt-text.el, emacs lisp prompt-text, elisp prompt-text, emacs melpa prompt-text, emacs prompt-text 使い方, emacs prompt-text 設定, emacs パッケージ prompt-text, emacs prompt-text スクリーンショット, Emacs, ソース解読推奨, prompt-text.el
-#+TITLE: emacs prompt-text.el : ミニバッファ入力時にカレントディレクトリなどを表示する | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>prompt-text</td></tr>
-<tr><td>概要(原文)</td><td>Various information in minibuffer prompt</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/10sr/prompt-text-el">https://github.com/10sr/prompt-text-el</a></td></tr>
-<tr><td>バージョン</td><td>20160106.609</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:prompt-text/">package:prompt-text</a> </td></tr>
-</table>
-<br />
-#+END_HTML
+#+TITLE: prompt-text.el : ミニバッファ入力時にカレントディレクトリなどを表示する
+[includeme file="inc-package-table.php" name="prompt-text" where="melpa"]
+
+#+end:
+** 概要
 *prompt-text.el* を導入すると、ミニバッファ入力時にシェルのようなプロンプトがつきます。
 デフォルトではログイン名、ホスト名、カレントディレクトリが表示されます。
 
@@ -39,25 +29,7 @@ Fig1: M-xで表示されるプロンプト
 
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
-** prompt-text インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install prompt-text
-
-
-#+end:
-** 概要                                                             :noexport:
-*prompt-text.el* を導入すると、ミニバッファ入力時にシェルのようなプロンプトがつきます。
-デフォルトではログイン名、ホスト名、カレントディレクトリが表示されます。
-
-#+ATTR_HTML: :width 480
-[[https://github.com/10sr/prompt-text-el/raw/master/ss.png]]
-Fig2: M-xで表示されるプロンプト
-
-
-
-# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+[includeme file="inc-package-install.php" name="prompt-text" where="melpa"]
 ** 設定 [[http://rubikitch.com/f/160127032054.prompt-text.el][160127032054.prompt-text.el(以下のコードと同一)]]
 #+BEGIN: include :file "/r/sync/junk/160127/160127032054.prompt-text.el"
 #+BEGIN_SRC fundamental
@@ -80,3 +52,4 @@ Fig2: M-xで表示されるプロンプト
 $ wget http://rubikitch.com/f/160127032054.prompt-text.el
 $ emacs -Q -f package-initialize -l 160127032054.prompt-text.el
 #+END_EXAMPLE
+[includeme file="inc-package-relate.php" name="prompt-text"]

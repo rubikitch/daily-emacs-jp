@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 1993
+#+POSTID: 1138
+#+BLOG: rubikitch
 #+DATE: [2015-09-15 Tue 00:51]
 #+PERMALINK: expand-line
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,28 +8,17 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs
+#+CATEGORY: コピー・貼り付け
 #+EL_PKG_NAME: expand-line
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, relate:expand-region, 行region, 行 リージョン, 複数行選択, relate:easy-kill
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: 
 #+EL_TITLE0: 現在行を中心に行単位でregionを広げていく
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージexpand-lineの紹介
-#+MYTAGS: package:expand-line, emacs 使い方, emacs コマンド, emacs, expand-line, expand-line.el, emacs lisp expand-line, elisp expand-line, emacs melpa expand-line, emacs expand-line 使い方, emacs expand-line 設定, emacs パッケージ expand-line, emacs expand-line スクリーンショット, relate:expand-region, 行region, 行 リージョン, 複数行選択, relate:easy-kill
-#+TAGS: package:expand-line, emacs 使い方, emacs コマンド, emacs, expand-line, expand-line.el, emacs lisp expand-line, elisp expand-line, emacs melpa expand-line, emacs expand-line 使い方, emacs expand-line 設定, emacs パッケージ expand-line, emacs expand-line スクリーンショット, relate:expand-region, 行region, 行 リージョン, 複数行選択, relate:easy-kill, Emacs, expand-line.el, M-x turn-on-expand-line-mode, M-x turn-on-expand-line-mode
-#+TITLE: emacs expand-line.el : 現在行を中心に行単位でregionを広げていく | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>expand-line</td></tr>
-<tr><td>概要(原文)</td><td>Expand selection by line</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/cheunghy/expand-line">https://github.com/cheunghy/expand-line</a></td></tr>
-<tr><td>バージョン</td><td>20150911.1755</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:expand-line/">package:expand-line</a> <a href="http://rubikitch.com/tag/package:expand-region/">package:expand-region</a> <a href="http://rubikitch.com/tag/package:easy-kill/">package:easy-kill</a></td></tr>
-</table>
-<br />
-#+END_HTML
+#+TITLE: expand-line.el : 現在行を中心に行単位でregionを広げていく
+[includeme file="inc-package-table.php" name="expand-line" where="melpa"]
+
+#+end:
+** 概要
 *expand-line.el* は、行単位のregionを簡単に作成できるようにします。
 
 使い方は簡単！ *M-x turn-on-expand-line-mode* で現在行を選択し、
@@ -48,35 +38,8 @@ Fig2: C-p
 #+ATTR_HTML: :width 480
 [[file:/r/sync/screenshots/20150915010208.png]]
 Fig3: C-n
-** expand-line インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
 
-M-x package-refresh-contents
-M-x package-install expand-line
-
-
-#+end:
-** 概要                                                             :noexport:
-*expand-line.el* は、行単位のregionを簡単に作成できるようにします。
-
-使い方は簡単！ *M-x turn-on-expand-line-mode* で現在行を選択し、
-C-p とC-n で広げ、M-pとM-nで縮めます。
-
-あとはC-wやM-wでregionを自由に料理してください。
-
-# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150915010200.png]]
-Fig4: 2行目でM-x turn-on-expand-line-mode
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150915010205.png]]
-Fig5: C-p
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150915010208.png]]
-Fig6: C-n
-
+[includeme file="inc-package-install.php" name="expand-line" where="melpa"]
 ** 設定 [[http://rubikitch.com/f/150915010031.expand-line.el][150915010031.expand-line.el(以下のコードと同一)]]
 #+BEGIN: include :file "/r/sync/junk/150915/150915010031.expand-line.el"
 #+BEGIN_SRC fundamental
@@ -90,3 +53,4 @@ Fig6: C-n
 $ wget http://rubikitch.com/f/150915010031.expand-line.el
 $ emacs -Q -f package-initialize -l 150915010031.expand-line.el
 #+END_EXAMPLE
+[includeme file="inc-package-relate.php" name="expand-line"]

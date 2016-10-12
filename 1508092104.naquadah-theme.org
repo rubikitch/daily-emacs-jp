@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 1887
+#+POSTID: 1072
+#+BLOG: rubikitch
 #+DATE: [2015-08-09 Sun 21:04]
 #+PERMALINK: naquadah-theme
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,28 +8,17 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, theme
+#+CATEGORY: ダーク
 #+EL_PKG_NAME: naquadah-theme
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, color-theme, カラーテーマ
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: 
 #+EL_TITLE0: Tangoカラーセットを元にしたカラーテーマ
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージnaquadah-themeの紹介
-#+MYTAGS: package:naquadah-theme, emacs 使い方, emacs コマンド, emacs, naquadah-theme, naquadah-theme.el, emacs lisp naquadah-theme, elisp naquadah-theme, emacs melpa naquadah-theme, emacs naquadah-theme 使い方, emacs naquadah-theme 設定, emacs パッケージ naquadah-theme, emacs naquadah-theme スクリーンショット, color-theme, カラーテーマ
-#+TAGS: package:naquadah-theme, emacs 使い方, emacs コマンド, emacs, naquadah-theme, naquadah-theme.el, emacs lisp naquadah-theme, elisp naquadah-theme, emacs melpa naquadah-theme, emacs naquadah-theme 使い方, emacs naquadah-theme 設定, emacs パッケージ naquadah-theme, emacs naquadah-theme スクリーンショット, color-theme, カラーテーマ, Emacs, theme, naquadah-theme.el
-#+TITLE: emacs naquadah-theme.el : Tangoカラーセットを元にしたカラーテーマ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>naquadah-theme</td></tr>
-<tr><td>概要(原文)</td><td>A theme based on Tango color set</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/jd/naquadah-theme">https://github.com/jd/naquadah-theme</a></td></tr>
-<tr><td>バージョン</td><td>20150720.709</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:naquadah-theme/">package:naquadah-theme</a> </td></tr>
-</table>
-<br />
-#+END_HTML
+#+TITLE: naquadah-theme.el : Tangoカラーセットを元にしたカラーテーマ
+[includeme file="inc-package-table.php" name="naquadah-theme" where="melpa"]
+
+#+end:
+** 概要
 *naquadah-theme.el* は、Tangoカラーセットベースのダークなカラーテーマです。
 
 # (save-window-excursion (async-shell-command "emacs-test -eval '(load-theme (quote naquadah) t)'"))
@@ -102,89 +92,8 @@ Fig8: markdown-mode
 #+ATTR_HTML: :width 480
 [[file:/r/sync/screenshots/20150809210812.png]]
 Fig9: helm
-** naquadah-theme インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
 
-M-x package-refresh-contents
-M-x package-install naquadah-theme
-
-
-#+end:
-** 概要                                                             :noexport:
-*naquadah-theme.el* は、Tangoカラーセットベースのダークなカラーテーマです。
-
-# (save-window-excursion (async-shell-command "emacs-test -eval '(load-theme (quote naquadah) t)'"))
-以下のパッケージに対応しています。
-- hl-line
-- mode-line
-- font-lock
-- comint
-- isearch
-- show-paren
-- custom
-- gnus
-- message
-- org
-- egocentric-mode
-- erc
-- which-func
-- dired
-- diff
-- ediff
-- smerge
-- magit
-- git-commit-mode
-- makefile-mode
-- mmm-mode
-- rainbow-delimiters
-- rst
-- term
-- idle-highlight
-- doc-mode
-- markup-faces
-- flymake
-- flycheck
-- flyspell
-- git-gutter
-- helm
-- jabber
-# (progn (forward-line 1)(shell-command "screenshot-time.rb org_theme_template" t))
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150809210736.png]]
-Fig10: emacs-lisp-mode
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150809210742.png]]
-Fig11: magit
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150809210748.png]]
-Fig12: grep
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150809210752.png]]
-Fig13: outline-mode
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150809210755.png]]
-Fig14: org-mode
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150809210801.png]]
-Fig15: dired
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150809210804.png]]
-Fig16: web-mode
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150809210808.png]]
-Fig17: markdown-mode
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150809210812.png]]
-Fig18: helm
-
+[includeme file="inc-package-install.php" name="naquadah-theme" where="melpa"]
 ** 設定
 #+BEGIN_SRC fundamental
 (load-theme 'naquadah t)
@@ -196,3 +105,4 @@ $ emacs -Q -f package-initialize -eval '(load-theme (quote naquadah) t)'
 #+END_EXAMPLE
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+[includeme file="inc-package-relate.php" name="naquadah-theme"]

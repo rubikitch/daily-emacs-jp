@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 2794
+#+POSTID: 1578
+#+BLOG: rubikitch
 #+DATE: [2016-09-13 火 14:44]
 #+PERMALINK: plain-theme
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
@@ -7,44 +8,17 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, theme
+#+CATEGORY: ライト
 #+EL_PKG_NAME: plain-theme
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, color-theme, カラーテーマ
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: 
 #+EL_TITLE0: font-lockを無効にし、モードラインの色も消す白黒アンチカラーテーマ
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージplain-themeの紹介
-#+MYTAGS: package:plain-theme, emacs 使い方, emacs コマンド, emacs, plain-theme, plain-theme.el, emacs lisp plain-theme, elisp plain-theme, emacs melpa plain-theme, emacs plain-theme 使い方, emacs plain-theme 設定, emacs パッケージ plain-theme, emacs plain-theme スクリーンショット, color-theme, カラーテーマ
-#+TAGS: package:plain-theme, emacs 使い方, emacs コマンド, emacs, plain-theme, plain-theme.el, emacs lisp plain-theme, elisp plain-theme, emacs melpa plain-theme, emacs plain-theme 使い方, emacs plain-theme 設定, emacs パッケージ plain-theme, emacs plain-theme スクリーンショット, color-theme, カラーテーマ, Emacs, theme, plain-theme.el
-#+TITLE: emacs plain-theme.el : font-lockを無効にし、モードラインの色も消す白黒アンチカラーテーマ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>plain-theme</td></tr>
-<tr><td>概要(原文)</td><td>Black and white theme without syntax highlighting</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/yegortimoshenko/plain-theme">https://github.com/yegortimoshenko/plain-theme</a></td></tr>
-<tr><td>バージョン</td><td>20160903.1029</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:plain-theme/">package:plain-theme</a> </td></tr>
-</table>
-<br />
-#+END_HTML
-*plain-theme.el* は、以下のパッケージに対応したカラーテーマです。
-- font-lock
-- mode-line
-
-これはfont-lockを無効にし、mode-lineを単調にするというある意味、
-常識を覆した『アンチ』カラーテーマです。
-
-** plain-theme インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install plain-theme
-
+#+TITLE: plain-theme.el : font-lockを無効にし、モードラインの色も消す白黒アンチカラーテーマ
+[includeme file="inc-package-table.php" name="plain-theme" where="melpa"]
 
 #+end:
-** 概要                                                             :noexport:
+** 概要
 *plain-theme.el* は、以下のパッケージに対応したカラーテーマです。
 - font-lock
 - mode-line
@@ -53,6 +27,7 @@ M-x package-install plain-theme
 常識を覆した『アンチ』カラーテーマです。
 
 
+[includeme file="inc-package-install.php" name="plain-theme" where="melpa"]
 ** スクリーンショット
 # (save-window-excursion (async-shell-command "emacs-test -eval '(load-theme (quote plain) t)'"))
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_theme_template" t))
@@ -124,3 +99,4 @@ $ emacs -Q -f package-initialize -eval '(load-theme (quote plain) t)'
 # /r/sync/screenshots/20160913144614.png http://rubikitch.com/wp-content/uploads/2016/09/20160913144614.png
 # /r/sync/screenshots/20160913144616.png http://rubikitch.com/wp-content/uploads/2016/09/20160913144616.png
 # /r/sync/screenshots/20160913144620.png http://rubikitch.com/wp-content/uploads/2016/09/20160913144620.png
+[includeme file="inc-package-relate.php" name="plain-theme"]

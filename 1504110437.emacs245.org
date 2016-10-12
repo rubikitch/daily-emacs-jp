@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 1489
+#+POSTID: 839
+#+BLOG: rubikitch
 #+DATE: [2015-04-11 Sat 04:37]
 #+PERMALINK: emacs245
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,12 +8,13 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, Emacs 24.5, 
+#+CATEGORY: リリース情報
 #+DESCRIPTION: Emacs24.5がリリースされました！！！バグフィクスなので安心してアップグレードできます。
-#+MYTAGS: 
 #+TITLE: たった今Emacs24.5リリース！バグフィクスです
+#+TAGS: Emacs 24.5以降
 #+begin: org2blog-tags
-#+TAGS: , Emacs, Emacs 24.5, , 
+# content-length: 1262
+
 #+end:
 当初の予定から10日遅れながらも、たった今Emacs24.5がリリースされました。
 
@@ -50,7 +52,7 @@ NEWSやChangeLogを見たところ、とくに変わっていません。
 
 ビルド方法などは以下の記事を参考にしてください。
 
-[[http://rubikitch.com/2015/03/30/emacs245-news/]]
+[[http://emacs.rubikitch.com/emacs245-news/]]
 
 Emacsは僕の人生において欠かせないパートナーです。
 リリース作業お疲れ様です。

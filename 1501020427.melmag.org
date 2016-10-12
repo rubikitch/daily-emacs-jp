@@ -1,13 +1,14 @@
 #+BLOG: rubikitch
-#+POSTID: 851
+#+POSTID: 57
+#+BLOG: rubikitch
 #+DATE: [2015-01-02 Fri 04:27]
-#+PERMALINK: melmag
+#+PERMALINK: melmag162
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
 #+ISPAGE: nil
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: メルマガ, 
+#+CATEGORY: るびきち塾メルマガ 
 #+DESCRIPTION: 『Emacsの鬼るびきちのココだけの話』#162はEmacsで音を鳴らすお話！
 #+MYTAGS: 
 #+TITLE: Emacsで音を鳴らしてみよう

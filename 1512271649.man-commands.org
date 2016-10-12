@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 2292
+#+POSTID: 1327
+#+BLOG: rubikitch
 #+DATE: [2015-12-27 Sun 16:49]
 #+PERMALINK: man-commands
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,28 +8,17 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs
+#+CATEGORY: プログラミングヘルプ
 #+EL_PKG_NAME: man-commands
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, relate:man, manpage, manページ, 
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: 
 #+EL_TITLE0: 各manページを開くEmacsコマンドを定義する
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージman-commandsの紹介
-#+MYTAGS: package:man-commands, emacs 使い方, emacs コマンド, emacs, man-commands, man-commands.el, emacs lisp man-commands, elisp man-commands, emacs melpa man-commands, emacs man-commands 使い方, emacs man-commands 設定, emacs パッケージ man-commands, relate:man, manpage, manページ, 
-#+TAGS: package:man-commands, emacs 使い方, emacs コマンド, emacs, man-commands, man-commands.el, emacs lisp man-commands, elisp man-commands, emacs melpa man-commands, emacs man-commands 使い方, emacs man-commands 設定, emacs パッケージ man-commands, relate:man, manpage, manページ, , Emacs, man-commands.el
-#+TITLE: emacs man-commands.el : 各manページを開くEmacsコマンドを定義する | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>man-commands</td></tr>
-<tr><td>概要(原文)</td><td>Add interactive commands for every manpages installed in your computer.</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/nflath/man-commands">https://github.com/nflath/man-commands</a></td></tr>
-<tr><td>バージョン</td><td>20151221.1421</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:man-commands/">package:man-commands</a> <a href="http://rubikitch.com/tag/package:man/">package:man</a></td></tr>
-</table>
-<br />
-#+END_HTML
+#+TITLE: man-commands.el : 各manページを開くEmacsコマンドを定義する
+[includeme file="inc-package-table.php" name="man-commands" where="melpa"]
+
+#+end:
+** 概要
 *man-commands.el* をロードすると、コンピュータにインストールされている各々のmanページを開くコマンドを定義します。
 たとえば、cpコマンドに対してM-x man-cp、rsyncに対してM-x man-rsyncなどです。
 ファイルをロードするだけで使えます。
@@ -41,28 +31,8 @@
 #+ATTR_HTML: :width 480
 [[file:/r/sync/screenshots/20151227165403.png]]
 Fig1: smexと併用した場合
-** man-commands インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
 
-M-x package-refresh-contents
-M-x package-install man-commands
-
-
-#+end:
-** 概要                                                             :noexport:
-*man-commands.el* をロードすると、コンピュータにインストールされている各々のmanページを開くコマンドを定義します。
-たとえば、cpコマンドに対してM-x man-cp、rsyncに対してM-x man-rsyncなどです。
-ファイルをロードするだけで使えます。
-
-ただし、manページがたくさんインストールされている場合は定義に数秒ほどかかります。
-
-
-
-# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20151227165403.png]]
-Fig2: smexと併用した場合
-
+[includeme file="inc-package-install.php" name="man-commands" where="melpa"]
 ** 設定 [[http://rubikitch.com/f/151227165317.man-commands.el][151227165317.man-commands.el(以下のコードと同一)]]
 #+BEGIN: include :file "/r/sync/junk/151227/151227165317.man-commands.el"
 #+BEGIN_SRC fundamental
@@ -76,3 +46,4 @@ Fig2: smexと併用した場合
 $ wget http://rubikitch.com/f/151227165317.man-commands.el
 $ emacs -Q -f package-initialize -l 151227165317.man-commands.el
 #+END_EXAMPLE
+[includeme file="inc-package-relate.php" name="man-commands"]

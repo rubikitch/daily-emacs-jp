@@ -1,17 +1,19 @@
 #+BLOG: rubikitch
-#+POSTID: 557
+#+POSTID: 394
+#+BLOG: rubikitch
 #+DATE: [2014-11-08 Sat 06:51]
 #+PERMALINK: help-me-rubikitch-san
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
 #+ISPAGE: nil
-#+DESCRIPTION:
+#+DESCRIPTION:M-x help-me-rubikitch-sanで日刊Emacsを開く(笑)
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, Emacs Lisp, Emacs 24.4,
+#+CATEGORY: プログラミングヘルプ
 #+DESCRIPTION:
-#+MYTAGS: relate:w3m, package:eww
-#+TAGS: relate:w3m, package:eww, Emacs, Emacs Lisp, Emacs 24.4,, eww, libxml-parse-html-region, emacs-w3m, format, interactive
+#+TAGS: eww
 #+TITLE: なんと、eww(Emacs 24.4組み込みWebブラウザ)で…
+<2016-09-20 Tue>「新生日刊Emacs」に対応させました。むしろgit cloneする方が早いです。
+
 時は2014/11/06、事件は起きました…
 
 事の発端はこのツイートから。
@@ -78,9 +80,6 @@ Gistに晒されました(笑)
 当サイトは特定のパッケージの記事を
 一括して表示する機能があります。
 
-[[http://rubikitch.com/tag/package:helm][package:helm]] のようにタグを辿れば
-helmに関する記事が出てきます。
-
 
 まだ出来たてホヤホヤのサイトなので、
 該当する記事がまだ存在しないこともありますが、
@@ -134,7 +133,7 @@ s -- Any string.  Does not inherit the current input method.
 #+BEGIN_SRC fundamental
 (defun help-me-rubikitch-san (package)
   (interactive "sPackageName: ")
-  (eww-browse-url (format "http://rubikitch.com/tag/package:%s/" package)))
+  (eww-browse-url (format "http://emacs.rubikitch.com/%s/" package)))
 #+END_SRC
 
 #+END:

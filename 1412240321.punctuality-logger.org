@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 780
+#+POSTID: 1640
+#+BLOG: rubikitch
 #+DATE: [2014-12-24 Wed 03:21]
 #+PERMALINK: punctuality-logger
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,60 +8,16 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs
+#+CATEGORY: TODO・予定管理
 #+EL_PKG_NAME: punctuality-logger
-#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, 時間管理, ライフハック, 遅刻管理, 勤怠管理
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: 
 #+EL_TITLE0: Emacsで遅刻癖を矯正する
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージpunctuality-loggerの紹介
-#+MYTAGS: package:punctuality-logger, emacs 使い方, emacs コマンド, emacs, emacs lisp punctuality-logger, elisp punctuality-logger, emacs melpa punctuality-logger, emacs punctuality-logger 使い方, emacs punctuality-logger 設定, emacs パッケージ punctuality-logger, emacs punctuality-logger スクリーンショット, 時間管理, ライフハック, 遅刻管理, 勤怠管理
-#+TITLE: emacs punctuality-logger.el : Emacsで遅刻癖を矯正する | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>punctuality-logger</td></tr>
-<tr><td>概要(原文)</td><td>Punctuality logger for Emacs</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="http://gitlab.com/elzair/punctuality-logger.git">http://gitlab.com/elzair/punctuality-logger.git</a></td></tr>
-<tr><td>バージョン</td><td>20141120.1231</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:punctuality-logger/">package:punctuality-logger</a> </td></tr>
-</table>
-<br />
-#+END_HTML
-*punctuality-logger.el* は、Emacsがあなたの
-遅刻癖を直してくれるようサポートしてくれます。
-
-用意されているコマンドは3つです。
-
-- *M-x punctuality-logger-new-entry* :: 今日遅刻したかどうかを記録する
-- *M-x punctuality-logger-all-days* :: すべての日の遅刻ログを表示する
-- *M-x puntuality-logger-late-days* :: 遅刻した日をリストする
-
-使い方はまずM-x punctuality-logger-new-entryを実行します。
-
-遅刻してないのであればnを、
-遅刻したのであれば何分遅れたかを入力します。
-
-日数が経ってからM-x punctuality-logger-all-daysや
-M-x puntuality-logger-late-daysを実行します。
-
-ただ、これは1日1エントリ限定なのでおもちゃみたいなものでしょう。
-
-# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
-http://rubikitch.com/f/20141224033349.png
-Fig1: M-x punctuality-logger-all-days
-
-http://rubikitch.com/f/20141224033359.png
-Fig2: M-x puntuality-logger-late-days
-** punctuality-logger インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install punctuality-logger
-
+#+TITLE: punctuality-logger.el : Emacsで遅刻癖を矯正する
+[includeme file="inc-package-table.php" name="punctuality-logger" where="melpa"]
 
 #+end:
-** 概要                                                             :noexport:
+** 概要
 *punctuality-logger.el* は、Emacsがあなたの
 遅刻癖を直してくれるようサポートしてくれます。
 
@@ -87,3 +44,5 @@ Fig1: M-x punctuality-logger-all-days
 http://rubikitch.com/f/20141224033359.png
 Fig2: M-x puntuality-logger-late-days
 
+[includeme file="inc-package-install.php" name="punctuality-logger" where="melpa"]
+[includeme file="inc-package-relate.php" name="punctuality-logger"]

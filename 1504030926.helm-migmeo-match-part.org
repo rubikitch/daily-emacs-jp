@@ -1,25 +1,28 @@
 #+BLOG: rubikitch
-#+POSTID: 1416
+#+POSTID: 820
+#+BLOG: rubikitch
 #+DATE: [2015-04-03 Fri 09:26]
 #+PERMALINK: helm-migmeo-match-part
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
 #+ISPAGE: nil
-#+DESCRIPTION:
+#+DESCRIPTION: 今はhelm-migemo-modeとなって本家helmに入っているのでこの設定は不要です
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+TAGS: helm, Migemo対応
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, helm, 
+#+CATEGORY: 候補選択
 #+DESCRIPTION: 
-#+MYTAGS: package:helm-migemo, package:migemo, package:helm, relate:helm, relate:migemo, helm migemo 動かない, helm 日本語 マッチしない, helm match-part, helm migemo
 #+TITLE: helm-migemo上でmatch-partが効かないのを修正
+#+TAGS: バグ修正
 #+begin: org2blog-tags
-#+TAGS: package:helm-migemo, package:migemo, package:helm, relate:helm, relate:migemo, helm migemo 動かない, helm 日本語 マッチしない, helm match-part, helm migemo, Emacs, helm, , helm, match-part, migemo, match-part
+# content-length: 2838
+
 #+end:
-[[http://rubikitch.com/2014/12/19/helm-migemo/][helm-migemo.el(レビュー)]] は、 *helm* で[[http://rubikitch.com/2014/08/20/migemo/][Migemo(レビュー)]] を使うことで
+[[http://emacs.rubikitch.com/helm-migemo/][helm-migemo.el(レビュー)]] は、 *helm* で[[http://emacs.rubikitch.com/migemo/][Migemo(レビュー)]] を使うことで
 ローマ字で日本語文字列の候補選択を行う日本人必携のパッケージです。
 
 しかし、 *match-part* 属性という表示文字列の一部にマッチさせる機能に
 helm-migemo.elとhelm.elが対応していないので
-[[http://rubikitch.com/2014/10/30/nadvice/][Emacs24.4標準のnadvice.el]] で修正しました。
+[[http://emacs.rubikitch.com/nadvice/][Emacs24.4標準のnadvice.el]] で修正しました。
 
 なお、この修正が必要なのは以下のように
 *migemo* 属性と *match-part* 属性を併用している
@@ -49,10 +52,10 @@ helmパッケージに入っている情報源ではこのケースはないの�
 (require 'helm-migemo)
 
 (defvar helm-match-part-use-migemo nil)
-(defun helm-search-from-candidate-buffer--migemo-p (pattern get-line-fn search-fns
-                                                            limit start-point match-part-fn source)
+(defun helm-search-from-candidate-buffer--migemo-p (_ _ _ _ _ _ source)
   (setq helm-match-part-use-migemo (assq 'migemo source)))
-(advice-add 'helm-search-from-candidate-buffer :before 'helm-search-from-candidate-buffer--migemo-p)
+(advice-add 'helm-search-from-candidate-buffer :before
+            'helm-search-from-candidate-buffer--migemo-p)
 
 ;;; REDEFINED
 (defun helm-search-match-part--use-migemo (candidate pattern match-part-fn)

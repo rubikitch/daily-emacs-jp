@@ -1,18 +1,19 @@
 #+BLOG: rubikitch
-#+POSTID: 990
+#+POSTID: 63
+#+BLOG: rubikitch
 #+DATE: [2015-01-23 Fri 09:40]
-#+PERMALINK: melmag
+#+PERMALINK: melmag165
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
 #+ISPAGE: nil
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: メルマガ, 
+#+CATEGORY: るびきち塾メルマガ 
 #+DESCRIPTION: Emacsの鬼るびきちのココだけの話#165 は集中力を引き上げるアイテムを紹介。
 #+MYTAGS: 
 #+TITLE: 集中力の秘密
 #+begin: org2blog-tags
-#+TAGS: , メルマガ, , 
+
 #+end:
 我々Emacsユーザにとって、
 というか知的作業に携わる人間全員にとって

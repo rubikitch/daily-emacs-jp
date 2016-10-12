@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 1652
+#+POSTID: 914
+#+BLOG: rubikitch
 #+DATE: [2015-05-15 Fri 04:58]
 #+PERMALINK: date-at-point
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,56 +8,17 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, Emacs Lisp, ソース解読推奨
+#+CATEGORY: バッファ関連
 #+EL_PKG_NAME: date-at-point
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p ライブラリ, emacs パッケージ %p, relate:thingatpt, elisp 日付文字列, relate:ietf-docs
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール ライブラリ 使い方 
+#+TAGS: thing-at-point, ソース解読推奨
 #+EL_TITLE0: thing-at-pointで日付文字列(date)も扱えるようにする
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージdate-at-pointの紹介
-#+MYTAGS: package:date-at-point, emacs 使い方, emacs コマンド, emacs, date-at-point, date-at-point.el, emacs lisp date-at-point, elisp date-at-point, emacs melpa date-at-point, emacs date-at-point 使い方, emacs date-at-point ライブラリ, emacs パッケージ date-at-point, relate:thingatpt, elisp 日付文字列, relate:ietf-docs
-#+TAGS: package:date-at-point, emacs 使い方, emacs コマンド, emacs, date-at-point, date-at-point.el, emacs lisp date-at-point, elisp date-at-point, emacs melpa date-at-point, emacs date-at-point 使い方, emacs date-at-point ライブラリ, emacs パッケージ date-at-point, relate:thingatpt, elisp 日付文字列, relate:ietf-docs, Emacs, Emacs Lisp, ソース解読推奨, date-at-point.el, thing-at-point, thing-at-point
-#+TITLE: emacs date-at-point.el : thing-at-pointで日付文字列(date)も扱えるようにする | MELPA Emacs Lisp Elisp パッケージ インストール ライブラリ 使い方 
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>date-at-point</td></tr>
-<tr><td>概要(原文)</td><td>Add `date' to `thing-at-point' function</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/alezost/date-at-point.el">https://github.com/alezost/date-at-point.el</a></td></tr>
-<tr><td>バージョン</td><td>20150108.418</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:date-at-point/">package:date-at-point</a> <a href="http://rubikitch.com/tag/package:thingatpt/">package:thingatpt</a> <a href="http://rubikitch.com/tag/package:ietf-docs/">package:ietf-docs</a></td></tr>
-</table>
-<br />
-#+END_HTML
-*date-at-point.el* は *thing-at-point* を拡張する20行足らずのライブラリです。
-
-使い方は
-#+BEGIN_SRC emacs-lisp :results silent
-(date-at-point)
-#+END_SRC
-とelispに書くだけです。
-
-カーソル位置が
-- 2014-12-31
-- 31.12.2014
-- 12/31/13
-- 2014/12/31
-などの年月日文字列ならばそれを得ます。
-
-thing-at-pointについて興味があるのならば、
-ぜひともソースコードを読んでみることをおすすめします。
-
-# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
-** date-at-point インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install date-at-point
-
+#+TITLE: date-at-point.el : thing-at-pointで日付文字列(date)も扱えるようにする
+[includeme file="inc-package-table.php" name="date-at-point" where="melpa"]
 
 #+end:
-** 概要                                                             :noexport:
+** 概要
 *date-at-point.el* は *thing-at-point* を拡張する20行足らずのライブラリです。
 
 使い方は
@@ -76,3 +38,5 @@ thing-at-pointについて興味があるのならば、
 ぜひともソースコードを読んでみることをおすすめします。
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+[includeme file="inc-package-install.php" name="date-at-point" where="melpa"]
+[includeme file="inc-package-relate.php" name="date-at-point"]

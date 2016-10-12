@@ -1,18 +1,19 @@
 #+BLOG: rubikitch
-#+POSTID: 950
+#+POSTID: 61
+#+BLOG: rubikitch
 #+DATE: [2015-01-16 Fri 04:11]
-#+PERMALINK: melmag
+#+PERMALINK: melmag164
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
 #+ISPAGE: nil
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: メルマガ, 
+#+CATEGORY: るびきち塾メルマガ 
 #+DESCRIPTION: 
 #+MYTAGS: 
 #+TITLE: EWWを骨までしゃぶろう！
 #+begin: org2blog-tags
-#+TAGS: , メルマガ, , 
+
 #+end:
 今週の「るびきち塾」メルマガはEWW！
 

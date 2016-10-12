@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 1824
+#+POSTID: 1024
+#+BLOG: rubikitch
 #+DATE: [2015-07-13 Mon 23:33]
 #+PERMALINK: cyberpunk-theme
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,28 +8,17 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, theme
+#+CATEGORY: ダーク
 #+EL_PKG_NAME: cyberpunk-theme
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, color-theme, カラーテーマ
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: 
 #+EL_TITLE0: emacs-liveから移植されたダークなカラーテーマ
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージcyberpunk-themeの紹介
-#+MYTAGS: package:cyberpunk-theme, emacs 使い方, emacs コマンド, emacs, cyberpunk-theme, cyberpunk-theme.el, emacs lisp cyberpunk-theme, elisp cyberpunk-theme, emacs melpa cyberpunk-theme, emacs cyberpunk-theme 使い方, emacs cyberpunk-theme 設定, emacs パッケージ cyberpunk-theme, emacs cyberpunk-theme スクリーンショット, color-theme, カラーテーマ
-#+TAGS: package:cyberpunk-theme, emacs 使い方, emacs コマンド, emacs, cyberpunk-theme, cyberpunk-theme.el, emacs lisp cyberpunk-theme, elisp cyberpunk-theme, emacs melpa cyberpunk-theme, emacs cyberpunk-theme 使い方, emacs cyberpunk-theme 設定, emacs パッケージ cyberpunk-theme, emacs cyberpunk-theme スクリーンショット, color-theme, カラーテーマ, Emacs, theme, cyberpunk-theme.el
-#+TITLE: emacs cyberpunk-theme.el : emacs-liveから移植されたダークなカラーテーマ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>cyberpunk-theme</td></tr>
-<tr><td>概要(原文)</td><td>Cyberpunk Color Theme</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/n3mo/cyberpunk-theme.el">https://github.com/n3mo/cyberpunk-theme.el</a></td></tr>
-<tr><td>バージョン</td><td>20150326.1914</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:cyberpunk-theme/">package:cyberpunk-theme</a> </td></tr>
-</table>
-<br />
-#+END_HTML
+#+TITLE: cyberpunk-theme.el : emacs-liveから移植されたダークなカラーテーマ
+[includeme file="inc-package-table.php" name="cyberpunk-theme" where="melpa"]
+
+#+end:
+** 概要
 *cyberpunk-theme.el* は、[[https://github.com/overtone/emacs-live][emacs-live]] から移植されたカラーテーマです。
 
 黒い背景色とハイコントラストなのが特徴です。
@@ -119,106 +109,8 @@ Fig8: markdown-mode
 #+ATTR_HTML: :width 480
 [[file:/r/sync/screenshots/20150713233452.png]]
 Fig9: helm
-** cyberpunk-theme インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
 
-M-x package-refresh-contents
-M-x package-install cyberpunk-theme
-
-
-#+end:
-** 概要                                                             :noexport:
-*cyberpunk-theme.el* は、[[https://github.com/overtone/emacs-live][emacs-live]] から移植されたカラーテーマです。
-
-黒い背景色とハイコントラストなのが特徴です。
-
-# (save-window-excursion (async-shell-command "emacs-test -eval '(load-theme (quote cyberpunk) t)'"))
-以下のパッケージに対応しています。
-- compilation
-- grep
-- multiple-cursors
-- isearch
-- font-lock
-- newsticker
-- full-ack
-- auctex
-- auto-complete
-- company-mode
-- diff
-- ediff
-- ert
-- eshell
-- flymake
-- flyspell
-- erc
-- gnus
-- helm
-- hl-line-mode
-- ido-mode
-- js2-mode
-- jabber-mode
-- linum-mode
-- linum-relative
-- magit
-- message-mode
-- mew
-- mic-paren
-- nav
-- mumamo
-- org
-- outline
-- rainbow-delimiters
-- rpm-mode
-- rst-mode
-- show-paren
-- SLIME
-- ansi-term
-- volatile-highlights
-- whitespace-mode
-- wanderlust
-- which-func-mode
-- yasnippet
-- enh-ruby-mode
-- yascroll
-- fill-column-indicator
-
-# (progn (forward-line 1)(shell-command "screenshot-time.rb org_theme_template" t))
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150713233410.png]]
-Fig10: emacs-lisp-mode
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150713233418.png]]
-Fig11: magit
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150713233423.png]]
-Fig12: grep
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150713233428.png]]
-Fig13: outline-mode
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150713233433.png]]
-Fig14: org-mode
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150713233437.png]]
-Fig15: dired
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150713233442.png]]
-Fig16: web-mode
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150713233446.png]]
-Fig17: markdown-mode
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150713233452.png]]
-Fig18: helm
-
+[includeme file="inc-package-install.php" name="cyberpunk-theme" where="melpa"]
 ** 設定
 #+BEGIN_SRC fundamental
 (load-theme 'cyberpunk t)
@@ -230,3 +122,4 @@ $ emacs -Q -f package-initialize -eval '(load-theme (quote cyberpunk) t)'
 #+END_EXAMPLE
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+[includeme file="inc-package-relate.php" name="cyberpunk-theme"]

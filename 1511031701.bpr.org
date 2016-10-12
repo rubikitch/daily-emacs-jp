@@ -1,5 +1,4 @@
 #+BLOG: rubikitch
-#+POSTID: 2152
 #+DATE: [2015-11-03 Tue 17:01]
 #+PERMALINK: bpr
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,15 +6,13 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs
+#+CATEGORY: プログラム実行
 #+EL_PKG_NAME: bpr
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, relate:subshell-proc, relate:projector, 外部プログラム, 外部コマンド, シェルコマンド, call-process, call-process-shell-command, start-process, start-process-shell-command, comint-run, make-comint, M-x shell, comint, async-shell-command, comint-mode, relate:projectile
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: 
 #+EL_TITLE0: ビルドやテストなどのプログラムをバックグラウンドで動かして終了を通知する
 #+EL_URL: 
 #+begin: org2blog
 #+DESCRIPTION: MELPAのEmacs Lispパッケージbprの紹介
-#+MYTAGS: package:bpr, emacs 使い方, emacs コマンド, emacs, bpr, bpr.el, emacs lisp bpr, elisp bpr, emacs melpa bpr, emacs bpr 使い方, emacs bpr 設定, emacs パッケージ bpr, emacs bpr スクリーンショット, relate:subshell-proc, relate:projector, 外部プログラム, 外部コマンド, シェルコマンド, call-process, call-process-shell-command, start-process, start-process-shell-command, comint-run, make-comint, M-x shell, comint, async-shell-command, comint-mode, relate:projectile
 #+TAGS: package:bpr, emacs 使い方, emacs コマンド, emacs, bpr, bpr.el, emacs lisp bpr, elisp bpr, emacs melpa bpr, emacs bpr 使い方, emacs bpr 設定, emacs パッケージ bpr, emacs bpr スクリーンショット, relate:subshell-proc, relate:projector, 外部プログラム, 外部コマンド, シェルコマンド, call-process, call-process-shell-command, start-process, start-process-shell-command, comint-run, make-comint, M-x shell, comint, async-shell-command, comint-mode, relate:projectile, Emacs, bpr.el, M-x bpr-spawn, projectile-project-root, default-direcotry, M-x bpr-spawn, projectile-project-root, default-direcotry
 #+TITLE: emacs bpr.el : ビルドやテストなどのプログラムをバックグラウンドで動かして終了を通知する | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
 #+BEGIN_HTML
@@ -32,7 +29,7 @@
 *bpr.el* は外部プログラムをバックグラウンドで動かし、実行完了を通知します。
 正常終了(終了ステータスが0)のときはエコーエリアにsuccessと表示され、異常終了のときは実行結果のバッファをポップアップします。
 異常終了時のみ結果表示するのがデフォルトなのでビルドやテストを実行するのに向いています。
-常に実行結果を見ながらシェルコマンドを実行したいのならば、M-!やM-&あるいは[[http://rubikitch.com/2015/10/27/subshell-proc/][subshell-proc.elでdefprocによってEmacsコマンド化]] すればいいです。
+常に実行結果を見ながらシェルコマンドを実行したいのならば、M-!やM-&あるいは[[http://emacs.rubikitch.com/subshell-proc/][subshell-proc.elでdefprocによってEmacsコマンド化]] すればいいです。
 
 エントリポイントは *M-x bpr-spawn* でシェルコマンドを入力すれば使えます。
 Emacsコマンド化したければbpr-spawnを呼び出すコマンドを定義します。
@@ -67,7 +64,7 @@ M-x package-install bpr
 *bpr.el* は外部プログラムをバックグラウンドで動かし、実行完了を通知します。
 正常終了(終了ステータスが0)のときはエコーエリアにsuccessと表示され、異常終了のときは実行結果のバッファをポップアップします。
 異常終了時のみ結果表示するのがデフォルトなのでビルドやテストを実行するのに向いています。
-常に実行結果を見ながらシェルコマンドを実行したいのならば、M-!やM-&あるいは[[http://rubikitch.com/2015/10/27/subshell-proc/][subshell-proc.elでdefprocによってEmacsコマンド化]] すればいいです。
+常に実行結果を見ながらシェルコマンドを実行したいのならば、M-!やM-&あるいは[[http://emacs.rubikitch.com/subshell-proc/][subshell-proc.elでdefprocによってEmacsコマンド化]] すればいいです。
 
 エントリポイントは *M-x bpr-spawn* でシェルコマンドを入力すれば使えます。
 Emacsコマンド化したければbpr-spawnを呼び出すコマンドを定義します。
@@ -109,3 +106,4 @@ Fig4: M-x bpr-fail-test
 $ wget http://rubikitch.com/f/151103171655.bpr-example.el
 $ emacs -Q -f package-initialize -l 151103171655.bpr-example.el
 #+END_EXAMPLE
+[includeme file="inc-package-relate.php" name="bpr"]

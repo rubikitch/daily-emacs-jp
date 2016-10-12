@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 1276
+#+POSTID: 751
+#+BLOG: rubikitch
 #+DATE: [2015-03-10 Tue 07:28]
 #+PERMALINK: shackle
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,61 +8,17 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, helm, 
+#+CATEGORY: ウィンドウ操作
 #+EL_PKG_NAME: shackle
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, ヘルプバッファ, 補完バッファ, Emacs ポップアップ, relate:popwin, Emacs ウィンドウ分割, emacs display-buffer カイゼン, display-buffer, display-buffer-function, package:winner, 
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: 
 #+EL_TITLE0: 【シンプルなpopwin】ウィンドウの表示方法を柔軟にカスタマイズ！helm・補完・ヘルプバッファにも対応
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージshackleの紹介
-#+MYTAGS: package:shackle, emacs 使い方, emacs コマンド, emacs, shackle, shackle.el, emacs lisp shackle, elisp shackle, emacs melpa shackle, emacs shackle 使い方, emacs shackle 設定, emacs パッケージ shackle, emacs shackle スクリーンショット, ヘルプバッファ, 補完バッファ, Emacs ポップアップ, relate:popwin, Emacs ウィンドウ分割, emacs display-buffer カイゼン, display-buffer, display-buffer-function, package:winner, 
-#+TAGS: package:shackle, emacs 使い方, emacs コマンド, emacs, shackle, shackle.el, emacs lisp shackle, elisp shackle, emacs melpa shackle, emacs shackle 使い方, emacs shackle 設定, emacs パッケージ shackle, emacs shackle スクリーンショット, ヘルプバッファ, 補完バッファ, Emacs ポップアップ, relate:popwin, Emacs ウィンドウ分割, emacs display-buffer カイゼン, display-buffer, display-buffer-function, package:winner, , Emacs, helm, , shackle.el, display-buffer-alist, popwin.el, shackle.el, display-buffer-alist, popwin.el, Help, Completions, helm mini, compilation, Help, *compilation*, *Help*, *completions*, *helm mini*, *helm buffers*
-#+TITLE: emacs shackle.el : 【シンプルなpopwin】ウィンドウの表示方法を柔軟にカスタマイズ！helm・補完・ヘルプバッファにも対応 | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>shackle</td></tr>
-<tr><td>概要(原文)</td><td>Enforce rules for popups</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/wasamasa/shackle">https://github.com/wasamasa/shackle</a></td></tr>
-<tr><td>バージョン</td><td>20150122.1419</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:shackle/">package:shackle</a> <a href="http://rubikitch.com/tag/package:popwin/">package:popwin</a></td></tr>
-</table>
-<br />
-#+END_HTML
-
-*shackle.el* は、バッファの表示方法を
-シンプルなルールで記述してカスタマイズするものです。
-
-Emacs24から *display-buffer-alist* という
-表示方法を細かく設定するオプションが導入されましたが、
-複雑怪奇な代物で理解がとても困難です。
-
-それを理解しやすい形で記述できるようにします。
-
-バッファの表示方法とかポップアップといえば [[http://d.hatena.ne.jp/m2ym/20110120/1295524932][popwin.el(本家)]] が有名です。
-
-しかし、タイマーを使っているなど、かなり入れ込んだ構造になっていて、
-shackle.el作者曰く、デバッグ困難で不可解なバグがあるらしいです。
-
-対してshackle.elは、標準のdisplay-buffer-alistに
-ひとつのエントリを追加するだけの
-シンプルで内部理解しやすい構造になっています。
-
-*popwin.el* ではC-gでポップアップウィンドウを消せますが、
-*M-x winner-undo*をキーに割り当ててしまえば(ここではC-z)
-特にメリットを感じません。
-
-シンプルな方が好きならばshackle.elを試してみてください。
-** shackle インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install shackle
-
+#+TITLE: shackle.el : 【シンプルなpopwin】ウィンドウの表示方法を柔軟にカスタマイズ！helm・補完・ヘルプバッファにも対応
+[includeme file="inc-package-table.php" name="shackle" where="melpa"]
 
 #+end:
-** 概要                                                             :noexport:
+** 概要
 
 *shackle.el* は、バッファの表示方法を
 シンプルなルールで記述してカスタマイズするものです。
@@ -86,6 +43,7 @@ shackle.el作者曰く、デバッグ困難で不可解なバグがあるらし�
 特にメリットを感じません。
 
 シンプルな方が好きならばshackle.elを試してみてください。
+[includeme file="inc-package-install.php" name="shackle" where="melpa"]
 ** 設定 [[http://rubikitch.com/f/150310063649.shackle.el][150310063649.shackle.el(以下のコードと同一)]]
 #+BEGIN: include :file "/r/sync/junk/150310/150310063649.shackle.el"
 #+BEGIN_SRC fundamental
@@ -184,3 +142,4 @@ Fig10: abc
 # /r/sync/screenshots/20150310074834.png http://rubikitch.com/wp-content/uploads/2015/03/wpid-20150310074834.png
 # /r/sync/screenshots/20150310074844.png http://rubikitch.com/wp-content/uploads/2015/03/wpid-20150310074844.png
 # /r/sync/screenshots/20150310074851.png http://rubikitch.com/wp-content/uploads/2015/03/wpid-20150310074851.png
+[includeme file="inc-package-relate.php" name="shackle"]

@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 1409
+#+POSTID: 818
+#+BLOG: rubikitch
 #+DATE: [2015-04-02 Thu 08:43]
 #+PERMALINK: emacs245rc2
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,17 +8,18 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, Emacs 24.5, 
+#+CATEGORY: リリース情報
 #+DESCRIPTION: Emacs24.5RC1でtrampのscpメソッドが動いていないので、その修正がバックポートされ本日RC2がリリースされました。本番リリースは4/6の予定です。
-#+MYTAGS: 
 #+TITLE: 本日Emacs24.5RC2リリース、6日にEmacs24.5リリース予定
+#+TAGS: Emacs 24.5以降
 #+begin: org2blog-tags
-#+TAGS: , Emacs, Emacs 24.5, , 
+# content-length: 1480
+
 #+end:
 本来ならば今日(現地時間で1日)にEmacs24.5がリリースされるはずでしたが、
 細かい問題があったことで今日Release Candidate 2がリリースされました。
 
-[[http://rubikitch.com/2015/03/30/emacs245-news/][Emacs24.5の最新情報はこちら]]
+[[http://emacs.rubikitch.com/emacs245-news/][Emacs24.5の最新情報はこちら]]
 
 ** 本日RC2登場
 http://lists.gnu.org/archive/html/emacs-devel/2015-04/msg00070.html

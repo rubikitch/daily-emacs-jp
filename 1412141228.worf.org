@@ -1,75 +1,24 @@
 #+BLOG: rubikitch
-#+POSTID: 713
+#+POSTID: 481
+#+BLOG: rubikitch
 #+DATE: [2014-12-14 Sun 12:28]
 #+PERMALINK: worf
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
 #+ISPAGE: nil
-#+DESCRIPTION:
+#+DESCRIPTION:org-modeの見出しの操作性を改善させる
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, org-mode
+#+CATEGORY: キーバインド
 #+EL_PKG_NAME: worf
-#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, relate:helm, relate:ace-link, package:org, org-mode vi, org-mode speed key, org-mode キーバインド, relate:org-multiple-keymap
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 
+#+TAGS: org
 #+EL_TITLE0: org-modeの見出しでviライクな操作性を実現！打鍵数を削減だ
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージworfの紹介
-#+MYTAGS: package:worf, emacs 使い方, emacs コマンド, emacs, emacs lisp worf, elisp worf, emacs melpa worf, emacs worf 使い方, emacs worf 設定, emacs パッケージ worf, relate:helm, relate:ace-link, package:org, org-mode vi, org-mode speed key, org-mode キーバインド, relate:org-multiple-keymap
-#+TAGS: package:worf, emacs 使い方, emacs コマンド, emacs, emacs lisp worf, elisp worf, emacs melpa worf, emacs worf 使い方, emacs worf 設定, emacs パッケージ worf, relate:helm, relate:ace-link, package:org, org-mode vi, org-mode speed key, org-mode キーバインド, relate:org-multiple-keymap, Emacs, org-mode, worf.el, org-mode, vi, speed key, M-x worf-mode, worf.el, org-mode, vi, speed key, M-x worf-mode
-#+TITLE: emacs worf.el : org-modeの見出しでviライクな操作性を実現！打鍵数を削減だ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>worf</td></tr>
-<tr><td>概要(原文)</td><td>A warrior does not press so many keys! (in org-mode)</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/abo-abo/worf">https://github.com/abo-abo/worf</a></td></tr>
-<tr><td>バージョン</td><td>20150203.58</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:worf/">package:worf</a> <a href="http://rubikitch.com/tag/package:helm/">package:helm</a> <a href="http://rubikitch.com/tag/package:ace-link/">package:ace-link</a> <a href="http://rubikitch.com/tag/package:org-multiple-keymap/">package:org-multiple-keymap</a></td></tr>
-</table>
-<br />
-#+END_HTML
-<2015-03-17 Tue> [[http://rubikitch.com/2015/03/17/org-multiple-keymap/][org-multiple-keymap.el]] は見出し行以外でも操作を簡便に！
-
-*worf.el* は、 *org-mode* に *vi* のような操作性を実現します。
-
-org-modeには *speed key* という見出し行の先頭限定の操作があります。
-
-それをviっぽくしたのがworfです。
-
-Emacsを使いながらも、viの軽快な操作性に憧れている人は
-試してみる価値があります。
-
-*M-x worf-mode* でマイナーモードが有効になり、
-モードラインに「✇」が表示されます。
-
-基本はもちろんhjklです。
-
-jとkは見出し間を移動し、
-hが親見出し、lが子見出しへ移動します。
-
-iがTAB、IがS-TAB相当の挙動をするので、折畳み・展開が楽になります。
-
-oでリンクをたどれます。
-
-gで見出しをhelmで選択できます。
-
-他にも様々なコマンドが実装されています。
-
-マニュアルはこちら
-- HTML :: http://abo-abo.github.io/worf/README.html
-- org :: https://raw.githubusercontent.com/abo-abo/worf/gh-pages/README.org
-
-# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
-** worf インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install worf
-
+#+TITLE: worf.el : org-modeの見出しでviライクな操作性を実現！打鍵数を削減だ
+[includeme file="inc-package-table.php" name="worf" where="melpa"]
 
 #+end:
-** 概要                                                             :noexport:
-<2015-03-17 Tue> [[http://rubikitch.com/2015/03/17/org-multiple-keymap/][org-multiple-keymap.el]] は見出し行以外でも操作を簡便に！
+** 概要
+<2015-03-17 Tue> [[http://emacs.rubikitch.com/org-multiple-keymap/][org-multiple-keymap.el]] は見出し行以外でも操作を簡便に！
 
 *worf.el* は、 *org-mode* に *vi* のような操作性を実現します。
 
@@ -101,3 +50,5 @@ gで見出しをhelmで選択できます。
 - org :: https://raw.githubusercontent.com/abo-abo/worf/gh-pages/README.org
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+[includeme file="inc-package-install.php" name="worf" where="melpa"]
+[includeme file="inc-package-relate.php" name="worf"]

@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 1108
+#+POSTID: 692
+#+BLOG: rubikitch
 #+DATE: [2015-02-10 Tue 07:02]
 #+PERMALINK: symon
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -9,12 +10,11 @@
 #+BLOG: rubikitch
 #+CATEGORY: 記事更新情報, 
 #+DESCRIPTION: symon.elがグラフィカルになり、表示情報をカスタマイズできるようになりました。
-#+MYTAGS: 
 #+TITLE: Emacsで動くシステムモニターsymonが大幅に進化！！
 #+begin: org2blog-tags
-#+TAGS: , 記事更新情報, , symon.el, symon--make-sparkline
+
 #+end:
-[[http://rubikitch.com/2015/02/01/symon/]]
+[[http://emacs.rubikitch.com/symon/]]
 
 *symon.el* が初期レビュー時から大幅に進化しました。
 
@@ -44,7 +44,7 @@ Fig1: 古いスクリーンショット
 Fig2: 新しいスクリーンショット
 
 
-新しくなった記事へ→ [[http://rubikitch.com/2015/02/01/symon/]]
+新しくなった記事へ→ [[http://emacs.rubikitch.com/symon/]]
 
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

@@ -1,21 +1,21 @@
 #+BLOG: rubikitch
-#+POSTID: 375
+#+POSTID: 308
+#+BLOG: rubikitch
 #+DATE: [2014-09-22 Mon 15:40]
 #+PERMALINK: pandoc
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t
 #+ISPAGE: nil
-#+DESCRIPTION:
+#+DESCRIPTION:pandocプログラムの紹介。Emacs Lispではないがorg-modeにも対応している
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs,
+#+CATEGORY: 文書作成
 #+DESCRIPTION:
-#+MYTAGS: emacs, haskell, ドキュメント変換,reStructuredText,docbook, haddock, html, json, latex, markdown,markdown_github,markdown_mmd, markdown_phpextra, markdown_strict, mediawiki,native, opml, org, rst, textileasciidoc, beamer, context, docbook, docx, dzslides,epub, epub3,fb2, html, html5, icml, json, latex, man, markdown,markdown_github, markdown_mmd, markdown_phpextra,markdown_strict, mediawiki, native, odt, opendocument, opml,org, pdf*, plain, revealjs, rst, rtf, s5, slideous, slidy,texinfo, textile
-#+TAGS: emacs, haskell, ドキュメント変換,reStructuredText,docbook, haddock, html, json, latex, markdown,markdown_github,markdown_mmd, markdown_phpextra, markdown_strict, mediawiki,native, opml, org, rst, textileasciidoc, beamer, context, docbook, docx, dzslides,epub, epub3,fb2, html, html5, icml, json, latex, man, markdown,markdown_github, markdown_mmd, markdown_phpextra,markdown_strict, mediawiki, native, odt, opendocument, opml,org, pdf*, plain, revealjs, rst, rtf, s5, slideous, slidy,texinfo, textile, Emacs,, Pandoc, Markdown, org-mode, orgフォーマット
+#+TAGS: 外部プログラム使用, org
 #+TITLE: 万能ドキュメント変換器Pandocいいね！org-modeにも対応
 *Pandoc* は多種多様なフォーマットに対応した
 ドキュメント変換ソフトウェアです。
 
-[[http://rubikitch.com/2014/10/07/pandoc-2/][→{2014-10-07 Tue}続報！もっと正しく快適にorg文書に変換しよう]]
+[[http://emacs.rubikitch.com/pandoc-2/][→{2014-10-07 Tue}続報！もっと正しく快適にorg文書に変換しよう]]
 
 [[http://rubikitch.com/tag/pandoc/][→Pandoc関連記事]]
 

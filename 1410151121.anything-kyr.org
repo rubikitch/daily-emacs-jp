@@ -1,32 +1,22 @@
 #+BLOG: rubikitch
-#+POSTID: 469
+#+POSTID: 351
+#+BLOG: rubikitch
 #+DATE: [2014-10-15 Wed 11:21]
 #+PERMALINK: anything-kyr
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t
 #+ISPAGE: nil
-#+DESCRIPTION:
+#+DESCRIPTION:メジャーモード、任意のS式の評価結果、ファイル名の正規表現に基いて最適なコマンドを提示するanythingインターフェース
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, 自作プログラム
+#+CATEGORY: Emacsコマンド実行
 #+EL_PKG_NAME: anything-kyr
 #+EL_DOC: Show context-aware commands
-#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, relate:anything, relate:helm, relate:trace, relate:org, relate:yaoddmuse
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方
+#+TAGS: anything, 自作プログラム
 #+EL_TITLE0: 空気を読んで必要なコマンドを提示してくれる古えの最終兵器…anything.elの秘蔵っ子
 #+begin: org2blog
-#+DESCRIPTION: Emacs Lispパッケージanything-kyrの紹介
-#+MYTAGS: package:anything-kyr, emacs 使い方, emacs コマンド, emacs, emacs lisp anything-kyr, elisp anything-kyr, emacs  anything-kyr, emacs anything-kyr 使い方, emacs anything-kyr 設定, emacs パッケージ anything-kyr, relate:anything, relate:helm, relate:trace, relate:org, relate:yaoddmuse
-#+TAGS: package:anything-kyr, emacs 使い方, emacs コマンド, emacs, emacs lisp anything-kyr, elisp anything-kyr, emacs  anything-kyr, emacs anything-kyr 使い方, emacs anything-kyr 設定, emacs パッケージ anything-kyr, relate:anything, relate:helm, relate:trace, relate:org, relate:yaoddmuse, Emacs, 自作プログラム, anything-kyr.el, org-mode, anything-kyr-commands-by-major-mode, anything-kyr-commands-by-condition, anything-kyr-commands-by-file-name, anything.el, helm, M-x anything-kyr, anything-c-source-kyr, org-mode, anything-kyr-commands-by-major-mode, anything-kyr-commands-by-condition, anything-kyr-commands-by-file-name, anything.el, helm, M-x anything-kyr, anything-c-source-kyr
-#+TITLE: emacs anything-kyr.el : 空気を読んで必要なコマンドを提示してくれる古えの最終兵器…anything.elの秘蔵っ子 |  Emacs Lisp Elisp パッケージ インストール 設定 使い方
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>anything-kyr</td></tr>
-<tr><td>概要(原文)</td><td>Show context-aware commands</td></tr>
-<tr><td>リポジトリ</td><td>まだパッケージに登録されていない</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:anything-kyr/">package:anything-kyr</a> <a href="http://rubikitch.com/tag/package:anything/">package:anything</a> <a href="http://rubikitch.com/tag/package:helm/">package:helm</a> <a href="http://rubikitch.com/tag/package:trace/">package:trace</a> <a href="http://rubikitch.com/tag/package:org/">package:org</a> <a href="http://rubikitch.com/tag/package:yaoddmuse/">package:yaoddmuse</a></td></tr>
-</table>
-<br />
-#+END_HTML
+#+TITLE: anything-kyr.el : 空気を読んで必要なコマンドを提示してくれる古えの最終兵器…anything.elの秘蔵っ子
+[includeme file="inc-package-table.php" name="anything-kyr" where=""]
+** 概要
 昨晩から今朝まで 一連のつぶやき に登場してた *anything-kyr.el* というのは、
 条件が整ったときに、実行されるであろうコマンド・URL
 (正確には *org-mode* のリンク)を提示してくれるコマンドです。
@@ -56,9 +46,7 @@ anything-kyr.elのみを使うのであれば不要です。
 
 今更anything関連をMELPAに上げるのはアレなので、
 auto-installベースでインストールするようにしています。
-** anything-kyr インストール
-これはまだパッケージ化されていないので、[[http://rubikitch.com/package-initialize/#sec-2][手動でインストール]] する必要があります。
-
+[includeme file="inc-package-install.php" name="anything-kyr" where=""]
 
 #+end:
 
@@ -175,3 +163,4 @@ Fig1: 条件が整ったときに◎がつき、コマンドが提示される
    せっかく作ったコマンドを忘れないようにするために昔作ったけどいまだ現役。
    元々ある機能しか使ってないから置換するだけでhelmでも動くかと。  by るびきち＠日刊Emacs from twmode [Emacs on Debian]
 -  2014/10/14 21:08:45 rubikitch > もう忘れられてると思うが5年半ぶりに更新!anything-kyr-should-notify-p でコマンドを提示してくれるか否かを判定。モードラインに表示するといい #Emacs (install-elisp-from-emacswiki "anything-kyr.el")  by るびきち＠日刊Emacs from twmode [Emacs on Debian]
+[includeme file="inc-package-relate.php" name="anything-kyr"]

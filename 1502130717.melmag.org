@@ -1,18 +1,19 @@
 #+BLOG: rubikitch
-#+POSTID: 1138
+#+POSTID: 69
+#+BLOG: rubikitch
 #+DATE: [2015-02-13 Fri 07:17]
-#+PERMALINK: melmag
+#+PERMALINK: melmag168
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
 #+ISPAGE: nil
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: メルマガ, 
+#+CATEGORY: るびきち塾メルマガ 
 #+DESCRIPTION: 『Emacsの鬼るびきちのココだけの話#168』の予告
 #+MYTAGS: 
 #+TITLE: あなたの願いを叶える科学的な方法です
 #+begin: org2blog-tags
-#+TAGS: , メルマガ, , 
+
 #+end:
 
 今回のメルマガは、本「るびきち塾」の入塾者特典の

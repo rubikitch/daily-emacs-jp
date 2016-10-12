@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 1255
+#+POSTID: 745
+#+BLOG: rubikitch
 #+DATE: [2015-03-08 Sun 06:00]
 #+PERMALINK: find-temp-file
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,64 +8,17 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs
+#+CATEGORY: ファイルを開く
 #+EL_PKG_NAME: find-temp-file
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, , emacs 使い捨てファイル, emacs 試行錯誤 ファイル, emacs メモファイル, emacs scratch 保存, emacs サンプルコード, 
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 
+#+TAGS: メモ
 #+EL_TITLE0: 【open-junk-fileの類似品】試行錯誤用のファイルを開く
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージfind-temp-fileの紹介
-#+MYTAGS: package:find-temp-file, emacs 使い方, emacs コマンド, emacs, find-temp-file, find-temp-file.el, emacs lisp find-temp-file, elisp find-temp-file, emacs melpa find-temp-file, emacs find-temp-file 使い方, emacs find-temp-file 設定, emacs パッケージ find-temp-file, , emacs 使い捨てファイル, emacs 試行錯誤 ファイル, emacs メモファイル, emacs scratch 保存, emacs サンプルコード, 
-#+TAGS: package:find-temp-file, emacs 使い方, emacs コマンド, emacs, find-temp-file, find-temp-file.el, emacs lisp find-temp-file, elisp find-temp-file, emacs melpa find-temp-file, emacs find-temp-file 使い方, emacs find-temp-file 設定, emacs パッケージ find-temp-file, , emacs 使い捨てファイル, emacs 試行錯誤 ファイル, emacs メモファイル, emacs scratch 保存, emacs サンプルコード, , Emacs, find-temp-file.el, open-junk-file.el, open-junk-file, find-temp-file, find-temp-file.el, open-junk-file.el, open-junk-file, find-temp-file
-#+TITLE: emacs find-temp-file.el : 【open-junk-fileの類似品】試行錯誤用のファイルを開く | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>find-temp-file</td></tr>
-<tr><td>概要(原文)</td><td>Open quickly a temporary file</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/thisirs/find-temp-file">https://github.com/thisirs/find-temp-file</a></td></tr>
-<tr><td>バージョン</td><td>20150101.601</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:find-temp-file/">package:find-temp-file</a> </td></tr>
-</table>
-<br />
-#+END_HTML
-
-*find-temp-file.el* は、拙作 *open-junk-file.el* の類似品です。
-
-つまり、試行錯誤用のファイルを開くものです。
-
-- [[http://d.hatena.ne.jp/rubikitch/20080923/1222104034][open-junk-fileのプロトタイプ(旧ブログ)]]
-- M-x package-install open-junk-file でインストール可
-
-find-temp-file.elは拡張子を入力するだけで
-定められたファイル名のフォーマットのファイルを作成します。
-
-open-junk-file.elはシンプルに現在時刻ベースのファイル名になりますが、
-find-temp-file.elの方はsha1や特定のprefixがついた名前になります。
-
-本設定ではopen-junk-file.el互換のファイル名を生成させています。
-
-ただ、現時点では拡張子以外は自分でファイル名を指定できません。
-
-僕は *open-junk-file* で
-~/junk/150308/150308053912.find-temp-file.el のように
-時刻とファイルの内容を識別するための名前をつけています。
-
-しかし *find-temp-file* では拡張子以外を指定すると、
-ファイル名そのものをになってしまいます。
-
-たとえばhoge.elと入力したら ~/junk/150308/hoge.el が
-作成されてしまいます。
-** find-temp-file インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install find-temp-file
-
+#+TITLE: find-temp-file.el : 【open-junk-fileの類似品】試行錯誤用のファイルを開く
+[includeme file="inc-package-table.php" name="find-temp-file" where="melpa"]
 
 #+end:
-** 概要                                                             :noexport:
+** 概要
 
 *find-temp-file.el* は、拙作 *open-junk-file.el* の類似品です。
 
@@ -93,6 +47,7 @@ find-temp-file.elの方はsha1や特定のprefixがついた名前になりま�
 たとえばhoge.elと入力したら ~/junk/150308/hoge.el が
 作成されてしまいます。
 
+[includeme file="inc-package-install.php" name="find-temp-file" where="melpa"]
 ** 設定 [[http://rubikitch.com/f/150308053912.find-temp-file.el][150308053912.find-temp-file.el(以下のコードと同一)]]
 #+BEGIN: include :file "/r/sync/junk/150308/150308053912.find-temp-file.el"
 #+BEGIN_SRC fundamental
@@ -122,3 +77,4 @@ $ emacs -Q -f package-initialize -l 150308053912.find-temp-file.el
 #+END_EXAMPLE
 
 
+[includeme file="inc-package-relate.php" name="find-temp-file"]

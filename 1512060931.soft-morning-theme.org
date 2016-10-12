@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 2245
+#+POSTID: 1287
+#+BLOG: rubikitch
 #+DATE: [2015-12-06 Sun 09:31]
 #+PERMALINK: soft-morning-theme
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,53 +8,17 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, theme
+#+CATEGORY: ライト
 #+EL_PKG_NAME: soft-morning-theme
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, color-theme, カラーテーマ
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: 
 #+EL_TITLE0: 明るいカラーテーマ
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージsoft-morning-themeの紹介
-#+MYTAGS: package:soft-morning-theme, emacs 使い方, emacs コマンド, emacs, soft-morning-theme, soft-morning-theme.el, emacs lisp soft-morning-theme, elisp soft-morning-theme, emacs melpa soft-morning-theme, emacs soft-morning-theme 使い方, emacs soft-morning-theme 設定, emacs パッケージ soft-morning-theme, emacs soft-morning-theme スクリーンショット, color-theme, カラーテーマ
-#+TAGS: package:soft-morning-theme, emacs 使い方, emacs コマンド, emacs, soft-morning-theme, soft-morning-theme.el, emacs lisp soft-morning-theme, elisp soft-morning-theme, emacs melpa soft-morning-theme, emacs soft-morning-theme 使い方, emacs soft-morning-theme 設定, emacs パッケージ soft-morning-theme, emacs soft-morning-theme スクリーンショット, color-theme, カラーテーマ, Emacs, theme, soft-morning-theme.el
-#+TITLE: emacs soft-morning-theme.el : 明るいカラーテーマ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>soft-morning-theme</td></tr>
-<tr><td>概要(原文)</td><td>Emacs24 theme with a light background.</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/mswift42/soft-morning-theme">https://github.com/mswift42/soft-morning-theme</a></td></tr>
-<tr><td>バージョン</td><td>20150918.1341</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:soft-morning-theme/">package:soft-morning-theme</a> </td></tr>
-</table>
-<br />
-#+END_HTML
-*soft-morning-theme.el* は、以下のパッケージに対応したカラーテーマです。
-- hl-line
-- show-paren
-- isearch
-- mode-line
-- powerline
-- font-lock
-- org
-- latexido
-- gnus
-- magit
-- auto-complete
-- rainbow-delimiters
-- slime
-- info
-- js2-mode
-** soft-morning-theme インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install soft-morning-theme
-
+#+TITLE: soft-morning-theme.el : 明るいカラーテーマ
+[includeme file="inc-package-table.php" name="soft-morning-theme" where="melpa"]
 
 #+end:
-** 概要                                                             :noexport:
+** 概要
 *soft-morning-theme.el* は、以下のパッケージに対応したカラーテーマです。
 - hl-line
 - show-paren
@@ -70,6 +35,7 @@ M-x package-install soft-morning-theme
 - slime
 - info
 - js2-mode
+[includeme file="inc-package-install.php" name="soft-morning-theme" where="melpa"]
 ** スクリーンショット
 # (save-window-excursion (async-shell-command "emacs-test -eval '(load-theme (quote soft-morning) t)'"))
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_theme_template" t))
@@ -127,3 +93,4 @@ $ emacs -Q -f package-initialize -eval '(load-theme (quote soft-morning) t)'
 #+END_EXAMPLE
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+[includeme file="inc-package-relate.php" name="soft-morning-theme"]

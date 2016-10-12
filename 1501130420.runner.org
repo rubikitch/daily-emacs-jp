@@ -1,63 +1,24 @@
 #+BLOG: rubikitch
-#+POSTID: 931
+#+POSTID: 618
+#+BLOG: rubikitch
 #+DATE: [2015-01-13 Tue 04:20]
 #+PERMALINK: runner
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
 #+ISPAGE: nil
-#+DESCRIPTION:
+#+DESCRIPTION:diredで「!」(dired-do-shell-command)を押したときに複数のアプリケーションを選択できるようにする。またその場で(拡張子などで)関連付けられるようにする。
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, dired
+#+CATEGORY: ファイル関連付け
 #+EL_PKG_NAME: runner
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, package:dired, dired, relate:openwith, relate:dired-open, dired コマンド, dired コマンド登録, dired シェルコマンド, dired ファイル 関連付け, dired アプリケーション 関連付け, dired open, dired 拡張子 アプリケーション 関連付け, dired 拡張子 コマンド, dired 拡張子, relate:unify-opening
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: dired
 #+EL_TITLE0: 【アプリケーション関連付け】diredから複数の外部コマンドをその場で登録し選択実行！
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージrunnerの紹介
-#+MYTAGS: package:runner, emacs 使い方, emacs コマンド, emacs, runner, runner.el, emacs lisp runner, elisp runner, emacs melpa runner, emacs runner 使い方, emacs runner 設定, emacs パッケージ runner, emacs runner スクリーンショット, package:dired, dired, relate:openwith, relate:dired-open, dired コマンド, dired コマンド登録, dired シェルコマンド, dired ファイル 関連付け, dired アプリケーション 関連付け, dired open, dired 拡張子 アプリケーション 関連付け, dired 拡張子 コマンド, dired 拡張子, relate:unify-opening
-#+TAGS: package:runner, emacs 使い方, emacs コマンド, emacs, runner, runner.el, emacs lisp runner, elisp runner, emacs melpa runner, emacs runner 使い方, emacs runner 設定, emacs パッケージ runner, emacs runner スクリーンショット, package:dired, dired, relate:openwith, relate:dired-open, dired コマンド, dired コマンド登録, dired シェルコマンド, dired ファイル 関連付け, dired アプリケーション 関連付け, dired open, dired 拡張子 アプリケーション 関連付け, dired 拡張子 コマンド, dired 拡張子, relate:unify-opening, Emacs, dired, runner.el, dired-do-shell-command, dired-guess-shell-alist-user, アプリケーション関連付け, M-x runner-add-extension, C-c !, dired-do-shell-command, dired-guess-shell-alist-user, アプリケーション関連付け, M-x runner-add-extension, C-c !
-#+TITLE: emacs runner.el : 【アプリケーション関連付け】diredから複数の外部コマンドをその場で登録し選択実行！ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>runner</td></tr>
-<tr><td>概要(原文)</td><td>Improved "open with" suggestions for dired</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/thamer/runner">https://github.com/thamer/runner</a></td></tr>
-<tr><td>バージョン</td><td>20140106.758</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:runner/">package:runner</a> <a href="http://rubikitch.com/tag/package:openwith/">package:openwith</a> <a href="http://rubikitch.com/tag/package:dired-open/">package:dired-open</a> <a href="http://rubikitch.com/tag/package:unify-opening/">package:unify-opening</a></td></tr>
-</table>
-<br />
-#+END_HTML
-*runner.el* はdiredから外部プログラムを呼ぶことを支援します。
-
-diredで「!」(*dired-do-shell-command*) を押すと
-シェルコマンドを実行できます。
-
-*dired-guess-shell-alist-user* という変数を設定すると、
-!を押したときにコマンドを提示してくれますが、
-たった1つしか提示してくれません。
-
-Windowsでいう *アプリケーション関連付け* です。
-
-おまけに登録するたびにinit.elを変更する必要があったりと面倒です。
-
-runner.elを使うと、
-- その場でアプリケーション関連付けが設定できる
-- 複数のアプリケーションが設定できる
-- M-p/M-nでコマンドを選択できる
-
-拡張子とアプリケーションを関連づけるコマンドが
-*M-x runner-add-extension* で、 *C-c !* に割り当てておきます。
-** runner インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install runner
-
+#+TITLE: runner.el : 【アプリケーション関連付け】diredから複数の外部コマンドをその場で登録し選択実行！
+[includeme file="inc-package-table.php" name="runner" where="melpa"]
 
 #+end:
-** 概要                                                             :noexport:
+** 概要
 *runner.el* はdiredから外部プログラムを呼ぶことを支援します。
 
 diredで「!」(*dired-do-shell-command*) を押すと
@@ -79,6 +40,7 @@ runner.elを使うと、
 拡張子とアプリケーションを関連づけるコマンドが
 *M-x runner-add-extension* で、 *C-c !* に割り当てておきます。
 
+[includeme file="inc-package-install.php" name="runner" where="melpa"]
 ** 設定 [[http://rubikitch.com/f/150113041509.runner.el][150113041509.runner.el(以下のコードと同一)]]
 #+BEGIN: include :file "/r/sync/junk/150113/150113041509.runner.el"
 #+BEGIN_SRC fundamental
@@ -113,3 +75,4 @@ Fig4: !を押すと定義したばかりのxzgvが提示される
 # /r/sync/screenshots/20150113041957.png http://rubikitch.com/wp-content/uploads/2015/01/wpid-20150113041957.png
 # /r/sync/screenshots/20150113042005.png http://rubikitch.com/wp-content/uploads/2015/01/wpid-20150113042005.png
 # /r/sync/screenshots/20150113042015.png http://rubikitch.com/wp-content/uploads/2015/01/wpid-20150113042015.png
+[includeme file="inc-package-relate.php" name="runner"]

@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 1359
+#+POSTID: 778
+#+BLOG: rubikitch
 #+DATE: [2015-03-24 Tue 03:50]
 #+PERMALINK: org-multiple-keymap-update
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -12,9 +13,9 @@
 #+MYTAGS: 
 #+TITLE: org-multiple-keymap.elが更新されました
 #+begin: org2blog-tags
-#+TAGS: , 記事更新情報, , 
+
 #+end:
-http://rubikitch.com/2015/03/17/org-multiple-keymap
+http://emacs.rubikitch.com/org-multiple-keymap
 
 レビュー時点ではタイムスタンプと優先度のみの対応でしたが、
 現時点では見出し行にも対応しています。

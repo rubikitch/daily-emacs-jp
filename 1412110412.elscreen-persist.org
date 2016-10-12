@@ -1,74 +1,30 @@
 #+BLOG: rubikitch
-#+POSTID: 701
+#+POSTID: 477
+#+BLOG: rubikitch
 #+DATE: [2014-12-11 Thu 04:12]
 #+PERMALINK: elscreen-persist
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
 #+ISPAGE: nil
-#+DESCRIPTION:
+#+DESCRIPTION:elscreenのウィンドウ構成が永続化され、Emacs再起動後に復元できるようになる。
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs
+#+CATEGORY: ウィンドウ構成切り替え
 #+EL_PKG_NAME: elscreen-persist
-#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, package:elscreen, relate:elscreen, emacs ウィンドウ構成, emacs ウィンドウ構成 保存 復元, emacs screen, emacs window-configuration, emacs ウィンドウ構成, emacs windows.el, emacs escreen.el, emacs gnu screen, emacs tmux, helm elscreen, relate:helm, relate:windows, emacs タブエディタ, relate:tabbar
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方
+#+TAGS: 永続化, elscreen
 #+EL_TITLE0: elscreenのウィンドウ構成がwindows.elばりに再起動時に復元できるゾ！
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージelscreen-persistの紹介
-#+MYTAGS: package:elscreen-persist, emacs 使い方, emacs コマンド, emacs, emacs lisp elscreen-persist, elisp elscreen-persist, emacs melpa elscreen-persist, emacs elscreen-persist 使い方, emacs elscreen-persist 設定, emacs パッケージ elscreen-persist, package:elscreen, relate:elscreen, emacs ウィンドウ構成, emacs ウィンドウ構成 保存 復元, emacs screen, emacs window-configuration, emacs ウィンドウ構成, emacs windows.el, emacs escreen.el, emacs gnu screen, emacs tmux, helm elscreen, relate:helm, relate:windows, emacs タブエディタ, relate:tabbar
-#+TITLE: emacs elscreen-persist.el : elscreenのウィンドウ構成がwindows.elばりに再起動時に復元できるゾ！ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>elscreen-persist</td></tr>
-<tr><td>概要(原文)</td><td>persist the elscreen across sessions</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/robario/elscreen-persist">https://github.com/robario/elscreen-persist</a></td></tr>
-<tr><td>バージョン</td><td>20141220.38</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:elscreen-persist/">package:elscreen-persist</a> <a href="http://rubikitch.com/tag/package:elscreen/">package:elscreen</a> <a href="http://rubikitch.com/tag/package:helm/">package:helm</a> <a href="http://rubikitch.com/tag/package:windows/">package:windows</a> <a href="http://rubikitch.com/tag/package:tabbar/">package:tabbar</a></td></tr>
-</table>
-<br />
-#+END_HTML
-
-*elscreen-persist.el* は、 *ウィンドウ構成管理* の
-elscreenに永続化をもたらします。
-
-Emacsを再起動したときにウィンドウ構成が復元できるようになります。
-
-[[http://rubikitch.com/2014/09/05/elscreen/][elscreenのレビューはこちら]] 。
-
-
-ウィンドウ構成が復元可能なelispは昔から *windows.el* が有名でしたが、
-elscreenもついに仲間入りしました。
-
-というか、windows.el内部で使っている *revive.el* を
-elscreenにも適用したものです。
-
-elscreenには[[http://rubikitch.com/2014/09/07/tabbar/][tabbar.elのような]] タブがつくし、
-バッファをelscreenで開く *helm* のアクションがありますし、
-/きちんとメンテナンスされている/
-のでおすすめです。
-
-本設定を加えるとEmacs終了時にウィンドウ構成をディスクに保存し、
-再起動時に復元します。
-
-また、 *M-x elscreen-persist-store* と
-*M-x elscreen-persist-restore* で
-明示的に保存・復元できます。
-** elscreen-persist インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install elscreen-persist
-
+#+TITLE: elscreen-persist.el : elscreenのウィンドウ構成がwindows.elばりに再起動時に復元できるゾ！
+[includeme file="inc-package-table.php" name="elscreen-persist" where="melpa"]
 
 #+end:
-** 概要                                                             :noexport:
+** 概要
 
 *elscreen-persist.el* は、 *ウィンドウ構成管理* の
 elscreenに永続化をもたらします。
 
 Emacsを再起動したときにウィンドウ構成が復元できるようになります。
 
-[[http://rubikitch.com/2014/09/05/elscreen/][elscreenのレビューはこちら]] 。
+[[http://emacs.rubikitch.com/elscreen/][elscreenのレビューはこちら]] 。
 
 
 ウィンドウ構成が復元可能なelispは昔から *windows.el* が有名でしたが、
@@ -77,7 +33,7 @@ elscreenもついに仲間入りしました。
 というか、windows.el内部で使っている *revive.el* を
 elscreenにも適用したものです。
 
-elscreenには[[http://rubikitch.com/2014/09/07/tabbar/][tabbar.elのような]] タブがつくし、
+elscreenには[[http://emacs.rubikitch.com/tabbar/][tabbar.elのような]] タブがつくし、
 バッファをelscreenで開く *helm* のアクションがありますし、
 /きちんとメンテナンスされている/
 のでおすすめです。
@@ -88,6 +44,7 @@ elscreenには[[http://rubikitch.com/2014/09/07/tabbar/][tabbar.elのような]]
 また、 *M-x elscreen-persist-store* と
 *M-x elscreen-persist-restore* で
 明示的に保存・復元できます。
+[includeme file="inc-package-install.php" name="elscreen-persist" where="melpa"]
 ** 設定 [[http://rubikitch.com/f/141211041802.elscreen-persist.el][141211041802.elscreen-persist.el(以下のコードと同一)]]
 #+BEGIN: include :file "/r/sync/junk/141211/141211041802.elscreen-persist.el"
 #+BEGIN_SRC fundamental
@@ -107,3 +64,4 @@ $ emacs -Q -f package-initialize -l 141211041802.elscreen-persist.el
 
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+[includeme file="inc-package-relate.php" name="elscreen-persist"]

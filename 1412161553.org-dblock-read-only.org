@@ -1,16 +1,16 @@
 #+BLOG: rubikitch
-#+POSTID: 727
+#+POSTID: 489
+#+BLOG: rubikitch
 #+DATE: [2014-12-16 Tue 15:53]
 #+PERMALINK: org-dblock-read-only
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
 #+ISPAGE: nil
-#+DESCRIPTION:
+#+DESCRIPTION:dynamic blockを誤って書き換えてしまう事故を防ぐショートコード。
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, org-mode, 
+#+CATEGORY: 文書作成
 #+DESCRIPTION: org-modeのdblockをread-onlyにしてdblockを手で書き換えることを阻止するコード。
-#+MYTAGS: org-mode, org-dblock, org-mode dynamic block, relate:org2blog, package:org
-#+TAGS: org-mode, org-dblock, org-mode dynamic block, relate:org2blog, package:org, Emacs, org-mode, , org2blog, org-mode, dblock(dynamic block), read-only
+#+TAGS: るびきちオススメ, org, バグ修正
 #+TITLE: org-modeのdblock(dynamic block)をread-onlyにする修正
 僕は毎日の記事を *org2blog* パッケージを使って、
 *org-mode* で書いています。

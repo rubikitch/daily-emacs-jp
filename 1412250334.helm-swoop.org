@@ -1,74 +1,25 @@
 #+BLOG: rubikitch
-#+POSTID: 782
+#+POSTID: 569
+#+BLOG: rubikitch
 #+DATE: [2014-12-25 Thu 03:34]
 #+PERMALINK: helm-swoop
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
 #+ISPAGE: nil
-#+DESCRIPTION:
+#+DESCRIPTION:isearchとoccurを融合し、絞り込み検索もできる超親切な検索インターフェース。
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, helm, 
+#+CATEGORY: 検索
 #+EL_PKG_NAME: helm-swoop
-#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, package:helm, relate:all-ext, relate:helm, relate:helm-migemo, relate:highlight-symbol, relate:all, relate:all-ext, relate:migemo, emacs helm migemo, emacs 行 絞り込み検索, relate:ace-jump-mode, package:ace-isearch, emacs helm-occur, anything-c-moccur, emacs occur, relate:helm-anything, relate:helm-ag-r, relate:swiper, relate:loccur, relate:highlight-symbol, relate:hide-lines, relate:ido-occur
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: るびきちオススメ, Migemo対応, helm
 #+EL_TITLE0: 【これはすごい】バッファ全体をMigemo絞り込み検索して走り回れ！Emacs Advent Calendar 2014
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージhelm-swoopの紹介
-#+MYTAGS: package:helm-swoop, emacs 使い方, emacs コマンド, emacs, emacs lisp helm-swoop, elisp helm-swoop, emacs melpa helm-swoop, emacs helm-swoop 使い方, emacs helm-swoop 設定, emacs パッケージ helm-swoop, emacs helm-swoop スクリーンショット, package:helm, relate:all-ext, relate:helm, relate:helm-migemo, relate:highlight-symbol, relate:all, relate:all-ext, relate:migemo, emacs helm migemo, emacs 行 絞り込み検索, relate:ace-jump-mode, package:ace-isearch, emacs helm-occur, anything-c-moccur, emacs occur, relate:helm-anything, relate:helm-ag-r, relate:swiper, relate:loccur, relate:highlight-symbol, relate:hide-lines, relate:ido-occur
-#+TAGS: package:helm-swoop, emacs 使い方, emacs コマンド, emacs, emacs lisp helm-swoop, elisp helm-swoop, emacs melpa helm-swoop, emacs helm-swoop 使い方, emacs helm-swoop 設定, emacs パッケージ helm-swoop, emacs helm-swoop スクリーンショット, package:helm, relate:all-ext, relate:helm, relate:helm-migemo, relate:highlight-symbol, relate:all, relate:all-ext, relate:migemo, emacs helm migemo, emacs 行 絞り込み検索, relate:ace-jump-mode, package:ace-isearch, emacs helm-occur, anything-c-moccur, emacs occur, relate:helm-anything, relate:helm-ag-r, relate:swiper, relate:loccur, relate:highlight-symbol, relate:hide-lines, relate:ido-occur, Emacs, helm, , helm, 絞り込み検索, M-x helm-occur, M-x helm-multi-occur, helm, 絞り込み検索, M-x helm-occur, M-x helm-multi-occur, インクリメンタル絞り込み検索, 候補選択, anything.el, cmigemo, helm-migemo, C-x c b, M-x helm-resume, シンボル検索, highlight-symbol.el, M-x helm-swoop-nomigemo, M-x all, M-x occur-edit-mode, ace-isearch, ace-jump-char-mode, M-x occur, M-g M-p, M-g M-n, next-error, helm-next-error, M-x occur, C-u C-s, C-u C-u C-s, helm-swoop-pre-input-function, helm-ag-r, M-x helm-mini
-#+TITLE: emacs helm-swoop.el : 【これはすごい】バッファ全体をMigemo絞り込み検索して走り回れ！Emacs Advent Calendar 2014 | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>helm-swoop</td></tr>
-<tr><td>概要(原文)</td><td>Efficiently hopping squeezed lines powered by helm interface</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/ShingoFukuyama/helm-swoop">https://github.com/ShingoFukuyama/helm-swoop</a></td></tr>
-<tr><td>バージョン</td><td>20151022.1750</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:helm-swoop/">package:helm-swoop</a> <a href="http://rubikitch.com/tag/package:all-ext/">package:all-ext</a> <a href="http://rubikitch.com/tag/package:helm/">package:helm</a> <a href="http://rubikitch.com/tag/package:helm-migemo/">package:helm-migemo</a> <a href="http://rubikitch.com/tag/package:highlight-symbol/">package:highlight-symbol</a> <a href="http://rubikitch.com/tag/package:all/">package:all</a> <a href="http://rubikitch.com/tag/package:all-ext/">package:all-ext</a> <a href="http://rubikitch.com/tag/package:migemo/">package:migemo</a> <a href="http://rubikitch.com/tag/package:ace-jump-mode/">package:ace-jump-mode</a> <a href="http://rubikitch.com/tag/package:helm-anything/">package:helm-anything</a> <a href="http://rubikitch.com/tag/package:helm-ag-r/">package:helm-ag-r</a> <a href="http://rubikitch.com/tag/package:swiper/">package:swiper</a> <a href="http://rubikitch.com/tag/package:loccur/">package:loccur</a> <a href="http://rubikitch.com/tag/package:highlight-symbol/">package:highlight-symbol</a> <a href="http://rubikitch.com/tag/package:hide-lines/">package:hide-lines</a> <a href="http://rubikitch.com/tag/package:ido-occur/">package:ido-occur</a></td></tr>
-</table>
-<br />
-#+END_HTML
-<2015-03-23 Mon>isearchと併合しました。
-
-ども、[[http://qiita.com/advent-calendar/2014/emacs][Emacs Advent Calendar 2014]] の最後を
-務めさせていただきまするびきちです。
-
-昨日は[[http://g000001.cddddr.org/][g000001]] さんの[[http://g000001.cddddr.org/3628335601][M-gを活用しよう]] でした。
-
-僕は『日刊Emacs』というサイトを立ち上げ、
-文字通り毎日Emacsについて何か書いています。
-
-未熟者ですが、サイト・メルマガ・書籍によって
-僭越ながらもEmacs道の伝道に携わっています。
-
-今後とも広大なるEmacs界の道具として
-より一掃あなたの役に立ちたい気持ちでいっぱいです。
-
-
-さて、今回主役になるEmacs Lispは…
-/helm-swoopです！/
-
-これを一言で言うと、 *helm* インターフェースを使って
-バッファ内・全バッファを *絞り込み検索* するものです。
-
-*M-x helm-occur* 、 *M-x helm-multi-occur* の超強化版です。
-
-/『かゆいところに手が届く』helm-occur＋αです。/
-
-helm-swoopを使いこなすことで、
-あなたが日常行っている「検索」が
-一気に進化すること間違いありません。
-** helm-swoop インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install helm-swoop
-
+#+TITLE: helm-swoop.el : 【これはすごい】バッファ全体をMigemo絞り込み検索して走り回れ！Emacs Advent Calendar 2014
+[includeme file="inc-package-table.php" name="helm-swoop" where="melpa"]
 
 #+end:
 M-x package-install helm-migemo
 M-x package-install ace-isearch
-** 概要                                                             :noexport:
+** 概要
 <2015-03-23 Mon>isearchと併合しました。
 
 ども、[[http://qiita.com/advent-calendar/2014/emacs][Emacs Advent Calendar 2014]] の最後を
@@ -100,6 +51,7 @@ helm-swoopを使いこなすことで、
 あなたが日常行っている「検索」が
 一気に進化すること間違いありません。
 
+[includeme file="inc-package-install.php" name="helm-swoop" where="melpa"]
 ** helmとは
 *helm* とは *インクリメンタル絞り込み検索* を通じて
 *候補選択* をし、何らかのアクションを行うフレームワークです。
@@ -141,7 +93,7 @@ Fig1: M-x helm-miniで串刺し検索！
 Migemoは日本人Emacserにとっては常識です。
 
 万一入っていないというのならば、
-http://rubikitch.com/2014/08/20/migemo/
+http://emacs.rubikitch.com/migemo/
 を見て
 /今すぐ設定してください！/
 
@@ -171,7 +123,7 @@ helm-swoopはhelm-migemoに対応しているので、
 
 helmでmigemoが効かない不具合も設定で直しています。
 
-http://rubikitch.com/2014/12/19/helm-migemo/
+http://emacs.rubikitch.com/helm-migemo/
 
 動作確認はhelm-swoopで行うので
 helm-migemoはインストール・設定だけでいいです。
@@ -297,7 +249,7 @@ Fig10: C-c C-aでhelm-swoopからallが起動！すぐに反映される
 しかも *ace-isearch* と併用してしまえば、
 M-iを押す必要すらありません。
 
-http://rubikitch.com/2014/10/08/ace-isearch/
+http://emacs.rubikitch.com/ace-isearch/
 
 ace-isearchは以下の挙動をします。
 
@@ -318,7 +270,7 @@ ace-isearchは以下の挙動をします。
 これをhelm-swoop等のhelm/anythingの結果にも適用できるように
 拡張したコードを用意しました。
 
-http://rubikitch.com/2014/11/27/helm-next-error/
+http://emacs.rubikitch.com/helm-next-error/
 
 これでM-x occurは用済みとなりました(笑)
 
@@ -356,7 +308,7 @@ C-u C-sは本来正規表現isearchですがhelm-swoopに置き換えても
 isearchと同様の使い勝手にするため、
 初期入力(*helm-swoop-pre-input-function*)を無効にしました。
 
-なお、この発想は類似品[[http://rubikitch.com/2015/03/18/swiper/][swiper.el(レビュー)]] のアイデアの応用です。
+なお、この発想は類似品[[http://emacs.rubikitch.com/swiper/][swiper.el(レビュー)]] のアイデアの応用です。
 
 ** 妄想etc
 *M-x helm-multi-swoop* はとにかく遅いので
@@ -453,3 +405,4 @@ helm-swoopは一番活躍しているhelmコマンドなので、
 $ wget http://rubikitch.com/f/141225040059.helm-swoop.1.el
 $ emacs -Q -f package-initialize -l your-migemo-settings.el -l 141225040059.helm-swoop.1.el
 #+END_EXAMPLE
+[includeme file="inc-package-relate.php" name="helm-swoop"]

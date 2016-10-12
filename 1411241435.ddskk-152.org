@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 617
+#+POSTID: 431
+#+BLOG: rubikitch
 #+DATE: [2014-11-24 Mon 14:35]
 #+PERMALINK: ddskk-152
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,10 +8,10 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, Emacs 24.4, Emacs 25.0, SKK
+#+CATEGORY: 日本語入力
+#+TAGS: ddskk
 #+DESCRIPTION: ddskk 15.2本日リリース
-#+MYTAGS: ddskk, ddskk 15.2, ddskk15.2 インストール, emacs24.4, emacs25
-#+TAGS: ddskk, ddskk 15.2, ddskk15.2 インストール, emacs24.4, emacs25, Emacs, Emacs 24.4, Emacs 25.0, SKK, NTEmacs 24.4, インラインパッチ
+#+TAGS: るびきちオススメ
 #+TITLE: ddskk 15.2本日リリース！Emacs 24.4以降の方はアップグレードしてください
 本日、ddskk 15.2がリリースされました。
 

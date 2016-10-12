@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 2575
+#+POSTID: 1500
+#+BLOG: rubikitch
 #+DATE: [2016-07-30 Sat 05:58]
 #+PERMALINK: crux-editing-commands
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,46 +8,23 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs
+#+CATEGORY: インデント
 #+EL_PKG_NAME: crux
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, helm-show-kill-ring, anything-show-kill-ring, markdown, github, open-line, relate:smart-newline, open-line, delete-indentation, kill-whole-line, move-beginning-of-line, indent-defun, aspell, スペルチェック 略語展開, 現在時刻を入力
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 
+#+TAGS: ソース解読推奨, crux
 #+EL_TITLE0: 【10選】標準コマンドをちょっと便利にするいろいろな編集コマンド
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージcruxの紹介
-#+MYTAGS: package:crux, emacs 使い方, emacs コマンド, emacs, crux, crux.el, emacs lisp crux, elisp crux, emacs melpa crux, emacs crux 使い方, emacs crux 設定, emacs パッケージ crux, helm-show-kill-ring, anything-show-kill-ring, markdown, github, open-line, relate:smart-newline, open-line, delete-indentation, kill-whole-line, move-beginning-of-line, indent-defun, aspell, スペルチェック 略語展開, 現在時刻を入力
-#+TAGS: package:crux, emacs 使い方, emacs コマンド, emacs, crux, crux.el, emacs lisp crux, elisp crux, emacs melpa crux, emacs crux 使い方, emacs crux 設定, emacs パッケージ crux, helm-show-kill-ring, anything-show-kill-ring, markdown, github, open-line, relate:smart-newline, open-line, delete-indentation, kill-whole-line, move-beginning-of-line, indent-defun, aspell, スペルチェック 略語展開, 現在時刻を入力, Emacs, M-x crux-smart-open-line-above, M-x kill-whole-line, M-x beginning-of-line, M-x back-to-indentation, M-x move-beginning-of-line, M-x ispell-word, define-abbrev
-#+TITLE: emacs crux.el : 【10選】標準コマンドをちょっと便利にするいろいろな編集コマンド | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>crux</td></tr>
-<tr><td>概要(原文)</td><td>A Collection of Ridiculously Useful eXtensions</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/bbatsov/crux">https://github.com/bbatsov/crux</a></td></tr>
-<tr><td>バージョン</td><td>20160725.59</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:crux/">package:crux</a> <a href="http://rubikitch.com/tag/package:smart-newline/">package:smart-newline</a></td></tr>
-</table>
-<br />
-#+END_HTML
-#+INCLUDE: "include.crux.org" 
-
-cruxには様々な編集コマンドが用意されています。
-ひとつひとつ見ていきましょう。
-** crux インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install crux
-
+#+TITLE: crux.el : 【10選】標準コマンドをちょっと便利にするいろいろな編集コマンド
+[includeme file="inc-package-table.php" name="crux" where="melpa"]
 
 #+end:
-** 概要                                                             :noexport:
+** 概要
 #+INCLUDE: "include.crux.org" 
 
 cruxには様々な編集コマンドが用意されています。
 ひとつひとつ見ていきましょう。
 
+[includeme file="inc-package-install.php" name="crux" where="melpa"]
 ** M-x crux-indent-rigidly-and-copy-to-clipboard
 *M-x crux-indent-rigidly-and-copy-to-clipboard* は、
 regionをインデントした内容をキルリングとクリップボードに格納します。
@@ -223,3 +201,4 @@ Sat Jul 30 06:00:50 2016
 
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+[includeme file="inc-package-relate.php" name="crux"]

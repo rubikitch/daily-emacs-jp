@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 1714
+#+POSTID: 954
+#+BLOG: rubikitch
 #+DATE: [2015-06-03 Wed 11:30]
 #+PERMALINK: organic-green-theme
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,28 +8,17 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, theme
+#+CATEGORY: ライト
 #+EL_PKG_NAME: organic-green-theme
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, color-theme, カラーテーマ
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: 
 #+EL_TITLE0: 緑を基調とした明るく低コントラストのカラーテーマ
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージorganic-green-themeの紹介
-#+MYTAGS: package:organic-green-theme, emacs 使い方, emacs コマンド, emacs, organic-green-theme, organic-green-theme.el, emacs lisp organic-green-theme, elisp organic-green-theme, emacs melpa organic-green-theme, emacs organic-green-theme 使い方, emacs organic-green-theme 設定, emacs パッケージ organic-green-theme, emacs organic-green-theme スクリーンショット, color-theme, カラーテーマ
-#+TAGS: package:organic-green-theme, emacs 使い方, emacs コマンド, emacs, organic-green-theme, organic-green-theme.el, emacs lisp organic-green-theme, elisp organic-green-theme, emacs melpa organic-green-theme, emacs organic-green-theme 使い方, emacs organic-green-theme 設定, emacs パッケージ organic-green-theme, emacs organic-green-theme スクリーンショット, color-theme, カラーテーマ, Emacs, theme, organic-green-theme.el
-#+TITLE: emacs organic-green-theme.el : 緑を基調とした明るく低コントラストのカラーテーマ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>organic-green-theme</td></tr>
-<tr><td>概要(原文)</td><td>Low-contrast green color theme.</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/kostafey/organic-green-theme">https://github.com/kostafey/organic-green-theme</a></td></tr>
-<tr><td>バージョン</td><td>20150602.213</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:organic-green-theme/">package:organic-green-theme</a> </td></tr>
-</table>
-<br />
-#+END_HTML
+#+TITLE: organic-green-theme.el : 緑を基調とした明るく低コントラストのカラーテーマ
+[includeme file="inc-package-table.php" name="organic-green-theme" where="melpa"]
+
+#+end:
+** 概要
 *organic-green-theme.el* は、緑を中心としたカラーテーマです。
 
 以下のパッケージに対応しています。
@@ -75,59 +65,6 @@ Fig4: rst
 [[file:/r/sync/screenshots/20150603114050.png]]
 Fig5: web-mode
 
-** organic-green-theme インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
 
-M-x package-refresh-contents
-M-x package-install organic-green-theme
-
-
-#+end:
-** 概要                                                             :noexport:
-*organic-green-theme.el* は、緑を中心としたカラーテーマです。
-
-以下のパッケージに対応しています。
-
-- font-lock
-- jabber
-- LaTeX
-- quack
-- erc
-- rst
-- whitespace-mode
-- magit
-- nxml
-- speedbar
-- yasnippet
-- comint
-- flx
-- powerline
-- web-mode
-- show-paren
-- rainbow-delimiters
-- lisp parentheses rainbow
-- fill-column-indicator
-- highlight-symbol
-
-# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150603113824.png]]
-Fig6: emacs-lisp-mode (font-lock)
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150603113839.png]]
-Fig7: outline-mode
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150603113951.png]]
-Fig8: magit
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150603114014.png]]
-Fig9: rst
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150603114050.png]]
-Fig10: web-mode
-
-
+[includeme file="inc-package-install.php" name="organic-green-theme" where="melpa"]
+[includeme file="inc-package-relate.php" name="organic-green-theme"]

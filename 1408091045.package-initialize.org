@@ -1,4 +1,4 @@
-#+POSTID: 82
+#+POSTID: 190
 #+DATE: [2014-08-09 Sat 10:45]
 #+PERMALINK: package-initialize
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t
@@ -6,10 +6,9 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, Emacs Lisp,
-#+DESCRIPTION:
-#+MYTAGS: パッケージ, ELPA, MELPA, Marmalade, package-install, package-refresh-contents, list-packages, package-list-packages, Emacs パッケージ インストール, Emacs パッケージ 設定, package.el, emacs package.el
-#+TAGS: パッケージ, ELPA, MELPA, Marmalade, package-install, package-refresh-contents, list-packages, package-list-packages, Emacs パッケージ インストール, Emacs パッケージ 設定, package.el, emacs package.el, Emacs, Emacs Lisp,,
+#+CATEGORY: 
+#+DESCRIPTION:パッケージシステムを使うための初期設定をします。これにより外部Emacs Lispパッケージを簡単に導入できます。
+#+TAGS: 
 #+TITLE: 初期設定
 ** package.elの設定
 Emacs24からパッケージシステムが標準添付されるようになり、
@@ -22,13 +21,14 @@ Emacs Lispプログラムのインストールが一気に楽になりました�
 
 ただし、以下の設定を加える必要があります。
 
-#+BEGIN: include :file "/r/sync/book/sd-emacs-rensai/init-package.el"
 #+BEGIN_SRC fundamental
 (package-initialize)
-(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
+(setq package-archives
+      '(("gnu" . "http://elpa.gnu.org/packages/")
+        ("melpa" . "http://melpa.org/packages/")
+        ("org" . "http://orgmode.org/elpa/")))
 #+END_SRC
 
-#+END:
 
 以後、パッケージをインストールするには
 M-x list-packages

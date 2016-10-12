@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 1683
+#+POSTID: 930
+#+BLOG: rubikitch
 #+DATE: [2015-05-25 Mon 07:31]
 #+PERMALINK: gnupack-1302
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,12 +8,12 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, gnupack, Emacs 24.5, 
+#+CATEGORY: リリース情報
 #+DESCRIPTION: 
-#+MYTAGS: Emacs 24.5 windows, Emacs24.5 cygwin, Emacs24.5 gnupack, Cygwin Can't fork, cygwin トラブル対応, rebaseall, peflagsall, takeown, icacls, emacs、cygwinが起動しない, /etc/fstabのフォーマットエラー, perlのマニュアルをバンドル, gnupack User エラー, gnupack ユーザ名 エラー, gnupack ドメイン環境, Emacs 機種依存文字 文字化け, cp932 文字化け, sjis 文字化け, cygwin2.0.2 /etc/passwd
 #+TITLE: 【gnupack 13.02リリース】バグフィクスリリース
 #+begin: org2blog-tags
-#+TAGS: Emacs 24.5 windows, Emacs24.5 cygwin, Emacs24.5 gnupack, Cygwin Can't fork, cygwin トラブル対応, rebaseall, peflagsall, takeown, icacls, emacs、cygwinが起動しない, /etc/fstabのフォーマットエラー, perlのマニュアルをバンドル, gnupack User エラー, gnupack ユーザ名 エラー, gnupack ドメイン環境, Emacs 機種依存文字 文字化け, cp932 文字化け, sjis 文字化け, cygwin2.0.2 /etc/passwd, Emacs, gnupack, Emacs 24.5, , 
+# content-length: 1223
+
 #+end:
 http://d.hatena.ne.jp/ksugita0510/20150524/p1
 

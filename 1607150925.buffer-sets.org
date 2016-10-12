@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 2476
+#+POSTID: 1469
+#+BLOG: rubikitch
 #+DATE: [2016-07-15 Fri 09:25]
 #+PERMALINK: buffer-sets
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,47 +8,17 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs
+#+CATEGORY: ファイルを開く
 #+EL_PKG_NAME: buffer-sets
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, buffer, find-file, switch-to-buffer, 
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 
+#+TAGS: 
 #+EL_TITLE0: 予め決められたファイル群を同時に開くようにする
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージbuffer-setsの紹介
-#+MYTAGS: package:buffer-sets, emacs 使い方, emacs コマンド, emacs, buffer-sets, buffer-sets.el, emacs lisp buffer-sets, elisp buffer-sets, emacs melpa buffer-sets, emacs buffer-sets 使い方, emacs buffer-sets 設定, emacs パッケージ buffer-sets, buffer, find-file, switch-to-buffer, 
-#+TAGS: package:buffer-sets, emacs 使い方, emacs コマンド, emacs, buffer-sets, buffer-sets.el, emacs lisp buffer-sets, elisp buffer-sets, emacs melpa buffer-sets, emacs buffer-sets 使い方, emacs buffer-sets 設定, emacs パッケージ buffer-sets, buffer, find-file, switch-to-buffer, , Emacs, C-x L l, C-x L l, buffer-set-definitions
-#+TITLE: emacs buffer-sets.el : 予め決められたファイル群を同時に開くようにする | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>buffer-sets</td></tr>
-<tr><td>概要(原文)</td><td>Sets of Buffers for Buffer Management</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/swflint/buffer-sets">https://github.com/swflint/buffer-sets</a></td></tr>
-<tr><td>バージョン</td><td>20160712.1627</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:buffer-sets/">package:buffer-sets</a> </td></tr>
-</table>
-<br />
-#+END_HTML
-
-buffer-sets.elは、複数のファイルバッファをひとつのグループにして扱えるようにするelispです。
-あるファイルを開いたら、同時に他のファイルも開いてほしいという場合に便利です。
-また、buffer-setを開いたときに実行するフォームを指定できるので、一連のファイルを開いた後に行う処理を記述できます。
-
-現時点での使い方としては、init.elに define-buffer-set でbuffer-setを定義してから、M-x buffer-sets-load-setで開くという形になります。
-あるいはM-x buffer-sets-modeというマイナーモードを有効にした上で *C-x L l* と操作します。
-
-まだ開発初期で荒削りで他のコマンドにはバグがあります。
-とりあえずC-x L lのバグはpull-requestを送りました。
-** buffer-sets インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install buffer-sets
-
+#+TITLE: buffer-sets.el : 予め決められたファイル群を同時に開くようにする
+[includeme file="inc-package-table.php" name="buffer-sets" where="melpa"]
 
 #+end:
-** 概要                                                             :noexport:
+** 概要
 
 buffer-sets.elは、複数のファイルバッファをひとつのグループにして扱えるようにするelispです。
 あるファイルを開いたら、同時に他のファイルも開いてほしいという場合に便利です。
@@ -58,6 +29,7 @@ buffer-sets.elは、複数のファイルバッファをひとつのグループ
 
 まだ開発初期で荒削りで他のコマンドにはバグがあります。
 とりあえずC-x L lのバグはpull-requestを送りました。
+[includeme file="inc-package-install.php" name="buffer-sets" where="melpa"]
 ** 使用例
 #+BEGIN_SRC emacs-lisp :results silent
 (progn
@@ -80,3 +52,4 @@ buffer-sets.elは、複数のファイルバッファをひとつのグループ
 #+END_SRC
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+[includeme file="inc-package-relate.php" name="buffer-sets"]

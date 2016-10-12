@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 959
+#+POSTID: 626
+#+BLOG: rubikitch
 #+DATE: [2015-01-17 Sat 08:29]
 #+PERMALINK: outline-magic
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,70 +8,24 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, org-mode, 
+#+CATEGORY: 文書作成
 #+EL_PKG_NAME: outline-magic
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, relate:outline, outline-minor-mode, outline-mode, emacs org-mode outline-minor-mode, relate:origami
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: org, アウトライン
 #+EL_TITLE0: 【新機能追加】他のメジャーモードでもorg-modeのように操作しようぜ！
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージoutline-magicの紹介
-#+MYTAGS: package:outline-magic, emacs 使い方, emacs コマンド, emacs, outline-magic, outline-magic.el, emacs lisp outline-magic, elisp outline-magic, emacs melpa outline-magic, emacs outline-magic 使い方, emacs outline-magic 設定, emacs パッケージ outline-magic, emacs outline-magic スクリーンショット, relate:outline, outline-minor-mode, outline-mode, emacs org-mode outline-minor-mode, relate:origami
-#+TAGS: package:outline-magic, emacs 使い方, emacs コマンド, emacs, outline-magic, outline-magic.el, emacs lisp outline-magic, elisp outline-magic, emacs melpa outline-magic, emacs outline-magic 使い方, emacs outline-magic 設定, emacs パッケージ outline-magic, emacs outline-magic スクリーンショット, relate:outline, outline-minor-mode, outline-mode, emacs org-mode outline-minor-mode, relate:origami, Emacs, org-mode, , outline-magic.el, outline-mode, outline-minor-mode, org-mode, outline-magic.el, rd-mode, rdoc-mode, outline-mode, outline-minor-mode, org-mode, outline-magic.el, rd-mode, rdoc-mode
-#+TITLE: emacs outline-magic.el : 【新機能追加】他のメジャーモードでもorg-modeのように操作しようぜ！ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>outline-magic</td></tr>
-<tr><td>概要(原文)</td><td>outline mode extensions for Emacs</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/tj64/outline-magic">https://github.com/tj64/outline-magic</a></td></tr>
-<tr><td>バージョン</td><td>20150115.1201</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:outline-magic/">package:outline-magic</a> <a href="http://rubikitch.com/tag/package:outline/">package:outline</a> <a href="http://rubikitch.com/tag/package:origami/">package:origami</a></td></tr>
-</table>
-<br />
-#+END_HTML
-*outline-magic.el* は、 *outline-mode* や *outline-minor-mode* でも
-*org-mode* でのアウトライン操作を行えるようにするものです。
-
-昔からあるelispですが、15日にC-u TABが使えるようになり、
-さらに使いやすくなりました。
-
-[[http://rubikitch.com/2015/01/03/origami/][origami.el+俺設定(レビュー)]] は emacs-lisp-mode やＣ系言語で
-org-mode風の折畳み・展開をします。
-
-org-modeでのアウトライン操作
-- TABで現在のサブツリーの折畳み・展開
-- C-u TABで全ツリーの折畳み・展開
-- M-<up> と M-<down> でサブツリーの移動
-- M-<left> と M-<right> でサブツリーの階層変更
-は素晴しい操作性を実現させてくれます。
-
-それらを他のモードでも使えるようにするのが、
-この *outline-magic.el* です。
-
-この効用をすぐに確かめる方法は、<f1> nで見られるEmacs NEWSです。
-
-outline-minor-modeは標準で提供されている操作性は
-ろくでもないですが、構造化テキストであれば有効にして
-org-modeベースのアウトライン操作を行ってください。
-
-*rd-mode* や *rdoc-mode* ではデフォルトで有効になっています。
-** outline-magic インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install outline-magic
-
+#+TITLE: outline-magic.el : 【新機能追加】他のメジャーモードでもorg-modeのように操作しようぜ！
+[includeme file="inc-package-table.php" name="outline-magic" where="melpa"]
 
 #+end:
-** 概要                                                             :noexport:
+** 概要
 *outline-magic.el* は、 *outline-mode* や *outline-minor-mode* でも
 *org-mode* でのアウトライン操作を行えるようにするものです。
 
 昔からあるelispですが、15日にC-u TABが使えるようになり、
 さらに使いやすくなりました。
 
-[[http://rubikitch.com/2015/01/03/origami/][origami.el+俺設定(レビュー)]] は emacs-lisp-mode やＣ系言語で
+[[http://emacs.rubikitch.com/origami/][origami.el+俺設定(レビュー)]] は emacs-lisp-mode やＣ系言語で
 org-mode風の折畳み・展開をします。
 
 org-modeでのアウトライン操作
@@ -91,6 +46,7 @@ org-modeベースのアウトライン操作を行ってください。
 
 *rd-mode* や *rdoc-mode* ではデフォルトで有効になっています。
 
+[includeme file="inc-package-install.php" name="outline-magic" where="melpa"]
 ** 設定 [[http://rubikitch.com/f/150117081925.outline-magic.1.el][150117081925.outline-magic.1.el(以下のコードと同一)]]
 #+BEGIN: include :file "/r/sync/junk/150117/150117081925.outline-magic.1.el"
 #+BEGIN_SRC fundamental
@@ -136,3 +92,4 @@ Fig6: さらにTABでサブツリーを表示
 # /r/sync/screenshots/20150117084210.png http://rubikitch.com/wp-content/uploads/2015/01/wpid-20150117084210.png
 # /r/sync/screenshots/20150117084216.png http://rubikitch.com/wp-content/uploads/2015/01/wpid-20150117084216.png
 # /r/sync/screenshots/20150117084222.png http://rubikitch.com/wp-content/uploads/2015/01/wpid-20150117084222.png
+[includeme file="inc-package-relate.php" name="outline-magic"]

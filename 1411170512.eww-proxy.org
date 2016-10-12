@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 587
+#+POSTID: 414
+#+BLOG: rubikitch
 #+DATE: [2014-11-17 Mon 05:12]
 #+PERMALINK: eww-proxy
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,10 +8,9 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, Emacs 24.4,
+#+CATEGORY: Web
 #+DESCRIPTION: Emacsでプロキシを使うには環境変数http_proxyか変数url-proxy-servicesを設定する。eww等ネットワークアクセスをするelisp共通。
-#+MYTAGS: package:eww,
-#+TAGS: package:eww,, Emacs, Emacs 24.4,, eww, プロキシ, url-retrieve-synchronously, http_proxy, url-proxy-services, ファイヤーウォール, ローカルプロキシ, polipo, squid, adzapper, 広告避け
+#+TAGS: 
 #+TITLE: Emacsでproxyを使う設定 - この1行でewwもpackageも広告避けもバッチリ！
 Emacs 24.4になってEmacs標準添付のブラウザ *eww* が話題になっていますね。
 

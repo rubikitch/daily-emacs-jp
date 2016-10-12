@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 1544
+#+POSTID: 859
+#+BLOG: rubikitch
 #+DATE: [2015-04-22 Wed 04:02]
 #+PERMALINK: toc-org-rename
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -9,12 +10,13 @@
 #+BLOG: rubikitch
 #+CATEGORY: 記事更新情報, 
 #+DESCRIPTION: 目次自動生成のorg-toc.elはリネームされたので、使っている人は設定をorg-toc→toc-orgに置換してください。
-#+MYTAGS: 
 #+TITLE: org-tocはtoc-orgにリネームされました
 #+begin: org2blog-tags
-#+TAGS: , 記事更新情報, , 
+# content-length: 260
+#+HTML: <!-- noindex -->
+
 #+end:
-[[http://rubikitch.com/2014/09/21/org-toc/]]
+[[http://emacs.rubikitch.com/org-toc/]]
 
 org-modeで目次を自動生成する元org-toc.elは
 toc-org.elにリネームされました。

@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 2753
+#+POSTID: 1570
+#+BLOG: rubikitch
 #+DATE: [2016-09-08 Thu 10:23]
 #+PERMALINK: fish
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
@@ -7,12 +8,12 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: fish, 
+#+CATEGORY: サイト紹介
 #+DESCRIPTION: 
-#+MYTAGS: 
 #+TITLE: fishシェル専門サイトfish.rubikitch.com設立！
 #+begin: org2blog-tags
-#+TAGS: , fish, , 
+# content-length: 1045
+
 #+end:
 少し前から[[http://fishshell.com/][fish]] というシェルを使っています。
 
@@ -27,8 +28,8 @@ Emacsで動くeshellは魅力的ですが、どうしてもEmacs自体の制約�
 
 以前も2つfish関係の記事を書きました。
 
-- [[http://rubikitch.com/2016/08/16/fish-mode/][emacs fish-mode.el : 【Unixシェル】若者よ、騙されたと思ってfish使ってみろ！bashやzshなんか捨ててしまえ]]
-- [[http://rubikitch.com/2016/08/21/zsh-fish-emacs-eshell/][あなたがzsh/bash/eshellからfishに乗り換えるべき17の理由]]
+- [[http://emacs.rubikitch.com/fish-mode/][emacs fish-mode.el : 【Unixシェル】若者よ、騙されたと思ってfish使ってみろ！bashやzshなんか捨ててしまえ]]
+- [[http://emacs.rubikitch.com/zsh-fish-emacs-eshell/][あなたがzsh/bash/eshellからfishに乗り換えるべき17の理由]]
 
 最近
 /「やりたいと思ったことはすぐにやれ」/

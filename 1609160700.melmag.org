@@ -1,18 +1,19 @@
 #+BLOG: rubikitch
-#+POSTID: 2805
+#+POSTID: 171
+#+BLOG: rubikitch
 #+DATE: [2016-09-16 Fri 07:00]
-#+PERMALINK: melmag
+#+PERMALINK: melmag251
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
 #+ISPAGE: nil
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: メルマガ,
+#+CATEGORY: るびきち塾メルマガ
 #+DESCRIPTION: るびきち塾メルマガ『Emacsの鬼るびきちのココだけの話#251』の予告
 #+TITLE: 【るびきち塾メルマガ#251】ひとりTwitter
 #+MYTAGS: 
 #+begin: org2blog-tags
-#+TAGS: , メルマガ,, 
+
 #+end:
 アンケートというのはいいものです。
 お客さんが直接求めているものを聞けますから。

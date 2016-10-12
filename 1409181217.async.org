@@ -1,37 +1,26 @@
 #+BLOG: rubikitch
-#+POSTID: 360
+#+POSTID: 302
+#+BLOG: rubikitch
 #+DATE: [2014-09-18 Thu 12:17]
 #+PERMALINK: async
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t
 #+ISPAGE: nil
-#+DESCRIPTION:
+#+DESCRIPTION:別なEmacsプロセスを立ち上げることで並列処理を行うライブラリ
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs
+#+CATEGORY: マルチスレッド
 #+EL_PKG_NAME: async
-#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs マルチスレッド, emacs 遅延処理 , emacs プロセス処理, emacs 並列処理, relate:deferred
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方
+#+TAGS: 
 #+EL_TITLE0: Emacs Lispで本物の並列処理ができた…だと!？その実態に迫る
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージasyncの紹介
-#+MYTAGS: package:async, emacs 使い方, emacs コマンド, emacs, emacs lisp async, elisp async, emacs melpa async, emacs async 使い方, emacs async 設定, emacs パッケージ async, emacs マルチスレッド, emacs 遅延処理 , emacs プロセス処理, emacs 並列処理, relate:deferred
-#+TITLE: emacs async.el : Emacs Lispで本物の並列処理ができた…だと!？その実態に迫る | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>async</td></tr>
-<tr><td>概要(原文)</td><td>Asynchronous processing in Emacs</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/jwiegley/emacs-async">https://github.com/jwiegley/emacs-async</a></td></tr>
-<tr><td>バージョン</td><td>20141224.2140</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:async/">package:async</a> <a href="http://rubikitch.com/tag/package:deferred/">package:deferred</a></td></tr>
-</table>
-<br />
-#+END_HTML
+#+TITLE: async.el : Emacs Lispで本物の並列処理ができた…だと!？その実態に迫る
+[includeme file="inc-package-table.php" name="async" where="melpa"]
+** 概要
 *async.el* はEmacs Lispで *並列処理* を行うライブラリです。
 
 作者はEmacsの世界的権威 *John Wiegley* 氏。
 
-eshellや[[http://rubikitch.com/2014/09/09/use-package/][use-package.el]] 、[[http://rubikitch.com/2014/09/10/bind-key/][bind-key.el]] など
+eshellや[[http://emacs.rubikitch.com/use-package/][use-package.el]] 、[[http://emacs.rubikitch.com/bind-key/][bind-key.el]] など
 多くのEmacs Lispをリリースしています。
 
 Emacs Lispでは並列処理が弱点と言われていますし、
@@ -49,16 +38,11 @@ async.elは新しいEmacsプロセスでS式を評価したり、
 S式を返す外部プログラムを起動したりすることで
 Emacs Lispで並列実行を行います。
 
-[[http://rubikitch.com/2014/08/18/deferred/][deferred.el]] でも並列処理をしますが、
+[[http://emacs.rubikitch.com/deferred/][deferred.el]] でも並列処理をしますが、
 あれはタイマーによる疑似スレッドなので
 残念ながらせっかくのマルチコアが生きません。
 
-** async インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install async
-
+[includeme file="inc-package-install.php" name="async" where="melpa"]
 
 #+end:
 ** 概要                                                             :noexport:
@@ -66,7 +50,7 @@ M-x package-install async
 
 作者はEmacsの世界的権威 *John Wiegley* 氏。
 
-eshellや[[http://rubikitch.com/2014/09/09/use-package/][use-package.el]] 、[[http://rubikitch.com/2014/09/10/bind-key/][bind-key.el]] など
+eshellや[[http://emacs.rubikitch.com/use-package/][use-package.el]] 、[[http://emacs.rubikitch.com/bind-key/][bind-key.el]] など
 多くのEmacs Lispをリリースしています。
 
 Emacs Lispでは並列処理が弱点と言われていますし、
@@ -84,7 +68,7 @@ async.elは新しいEmacsプロセスでS式を評価したり、
 S式を返す外部プログラムを起動したりすることで
 Emacs Lispで並列実行を行います。
 
-[[http://rubikitch.com/2014/08/18/deferred/][deferred.el]] でも並列処理をしますが、
+[[http://emacs.rubikitch.com/deferred/][deferred.el]] でも並列処理をしますが、
 あれはタイマーによる疑似スレッドなので
 残念ながらせっかくのマルチコアが生きません。
 
@@ -185,3 +169,4 @@ Emacs Lispで書くと遅い処理でもEmacsが止まることなく処理し�
 
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+[includeme file="inc-package-relate.php" name="async"]

@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 1726
+#+POSTID: 960
+#+BLOG: rubikitch
 #+DATE: [2015-06-07 Sun 16:54]
 #+PERMALINK: poporg
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,28 +8,17 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, org-mode, 
+#+CATEGORY: 複数のメジャーモード
 #+EL_PKG_NAME: poporg
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, relate:polymode, relate:multi-mode, relate:mmm-mode
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: org
 #+EL_TITLE0: 複数行の文字列・コメントを独立したバッファで編集する
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージpoporgの紹介
-#+MYTAGS: package:poporg, emacs 使い方, emacs コマンド, emacs, poporg, poporg.el, emacs lisp poporg, elisp poporg, emacs melpa poporg, emacs poporg 使い方, emacs poporg 設定, emacs パッケージ poporg, emacs poporg スクリーンショット, relate:polymode, relate:multi-mode, relate:mmm-mode
-#+TAGS: package:poporg, emacs 使い方, emacs コマンド, emacs, poporg, poporg.el, emacs lisp poporg, elisp poporg, emacs melpa poporg, emacs poporg 使い方, emacs poporg 設定, emacs パッケージ poporg, emacs poporg スクリーンショット, relate:polymode, relate:multi-mode, relate:mmm-mode, Emacs, org-mode, , poporg.el, M-x poporg-dwim, M-x poporg-dwim
-#+TITLE: emacs poporg.el : 複数行の文字列・コメントを独立したバッファで編集する | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>poporg</td></tr>
-<tr><td>概要(原文)</td><td>Pop a comment or string to an empty buffer for text editing</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/QBobWatson/poporg">https://github.com/QBobWatson/poporg</a></td></tr>
-<tr><td>バージョン</td><td>20150603.1847</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:poporg/">package:poporg</a> <a href="http://rubikitch.com/tag/package:polymode/">package:polymode</a> <a href="http://rubikitch.com/tag/package:multi-mode/">package:multi-mode</a> <a href="http://rubikitch.com/tag/package:mmm-mode/">package:mmm-mode</a></td></tr>
-</table>
-<br />
-#+END_HTML
+#+TITLE: poporg.el : 複数行の文字列・コメントを独立したバッファで編集する
+[includeme file="inc-package-table.php" name="poporg" where="melpa"]
+
+#+end:
+** 概要
 *poporg.el* は、プログラム中の複数行の文字列・コメントを
 独立したバッファで編集します。
 
@@ -54,38 +44,6 @@ Fig3: 編集し
 #+ATTR_HTML: :width 480
 [[file:/r/sync/screenshots/20150607170242.png]]
 Fig4: C-x C-sあるいはM-x poporg-dwimで反映！
-** poporg インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
 
-M-x package-refresh-contents
-M-x package-install poporg
-
-
-#+end:
-** 概要                                                             :noexport:
-*poporg.el* は、プログラム中の複数行の文字列・コメントを
-独立したバッファで編集します。
-
-長いコメントをそのままで編集しづらいと感じたら
-ぜひとも使ってみてください。
-
-提供しているコマンドは *M-x poporg-dwim* のみです。
-
-
-# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150607170222.png]]
-Fig5: ここでM-x poporg-dwimを実行すると
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150607170227.png]]
-Fig6: 別バッファ(org-mode)でコメントが抽出され
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150607170238.png]]
-Fig7: 編集し
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150607170242.png]]
-Fig8: C-x C-sあるいはM-x poporg-dwimで反映！
-
+[includeme file="inc-package-install.php" name="poporg" where="melpa"]
+[includeme file="inc-package-relate.php" name="poporg"]

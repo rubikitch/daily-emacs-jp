@@ -1,5 +1,4 @@
 #+BLOG: rubikitch
-#+POSTID: 2296
 #+DATE: [2015-12-29 Tue 15:38]
 #+PERMALINK: highlight-leading-spaces
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,28 +6,17 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs
+#+CATEGORY: テキスト色付け
 #+EL_PKG_NAME: highlight-leading-spaces
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, relate:whitespace, インデント ハイライト
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: 
 #+EL_TITLE0: 行頭のスペースのみをハイライトする
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージhighlight-leading-spacesの紹介
-#+MYTAGS: package:highlight-leading-spaces, emacs 使い方, emacs コマンド, emacs, highlight-leading-spaces, highlight-leading-spaces.el, emacs lisp highlight-leading-spaces, elisp highlight-leading-spaces, emacs melpa highlight-leading-spaces, emacs highlight-leading-spaces 使い方, emacs highlight-leading-spaces 設定, emacs パッケージ highlight-leading-spaces, emacs highlight-leading-spaces スクリーンショット, relate:whitespace, インデント ハイライト
-#+TAGS: package:highlight-leading-spaces, emacs 使い方, emacs コマンド, emacs, highlight-leading-spaces, highlight-leading-spaces.el, emacs lisp highlight-leading-spaces, elisp highlight-leading-spaces, emacs melpa highlight-leading-spaces, emacs highlight-leading-spaces 使い方, emacs highlight-leading-spaces 設定, emacs パッケージ highlight-leading-spaces, emacs highlight-leading-spaces スクリーンショット, relate:whitespace, インデント ハイライト, Emacs, highlight-leading-spaces.el
-#+TITLE: emacs highlight-leading-spaces.el : 行頭のスペースのみをハイライトする | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>highlight-leading-spaces</td></tr>
-<tr><td>概要(原文)</td><td>Highlight leading spaces</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/mrBliss/highlight-leading-spaces">https://github.com/mrBliss/highlight-leading-spaces</a></td></tr>
-<tr><td>バージョン</td><td>20151216.422</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:highlight-leading-spaces/">package:highlight-leading-spaces</a> <a href="http://rubikitch.com/tag/package:whitespace/">package:whitespace</a></td></tr>
-</table>
-<br />
-#+END_HTML
+#+TITLE: highlight-leading-spaces.el : 行頭のスペースのみをハイライトする
+[includeme file="inc-package-table.php" name="highlight-leading-spaces" where="melpa"]
+
+#+end:
+** 概要
 *highlight-leading-spaces.el* は行頭のスペースをハイライトします。
 標準添付のwhitespace.elはすべてのホワイトスペースをハイライトしますが、これは行頭のみが対象です。
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
@@ -39,26 +27,8 @@ Fig1: before
 #+ATTR_HTML: :width 480
 [[file:/r/sync/screenshots/20151229154437.png]]
 Fig2: after
-** highlight-leading-spaces インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
 
-M-x package-refresh-contents
-M-x package-install highlight-leading-spaces
-
-
-#+end:
-** 概要                                                             :noexport:
-*highlight-leading-spaces.el* は行頭のスペースをハイライトします。
-標準添付のwhitespace.elはすべてのホワイトスペースをハイライトしますが、これは行頭のみが対象です。
-# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20151229154431.png]]
-Fig3: before
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20151229154437.png]]
-Fig4: after
-
+[includeme file="inc-package-install.php" name="highlight-leading-spaces" where="melpa"]
 ** 設定 [[http://rubikitch.com/f/151229154041.highlight-leading-spaces.el][151229154041.highlight-leading-spaces.el(以下のコードと同一)]]
 #+BEGIN: include :file "/r/sync/junk/151229/151229154041.highlight-leading-spaces.el"
 #+BEGIN_SRC fundamental
@@ -72,3 +42,4 @@ Fig4: after
 $ wget http://rubikitch.com/f/151229154041.highlight-leading-spaces.el
 $ emacs -Q -f package-initialize -l 151229154041.highlight-leading-spaces.el
 #+END_EXAMPLE
+[includeme file="inc-package-relate.php" name="highlight-leading-spaces"]

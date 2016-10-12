@@ -1,63 +1,20 @@
 #+BLOG: rubikitch
-#+POSTID: 773
+#+POSTID: 565
+#+BLOG: rubikitch
 #+DATE: [2014-12-22 Mon 13:52]
 #+PERMALINK: dired-subtree
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
 #+ISPAGE: nil
-#+DESCRIPTION:
+#+DESCRIPTION:diredのサブディレクトリ直下にその内容を挿入する。「i」(dired-maybe-insert-subdir)とは違い、見た目的にスッキリしている
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs
+#+CATEGORY: ファイラ
 #+EL_PKG_NAME: dired-subtree
-#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, emacs dired, package:dired, package:dired-details, relate:dired-details, dired-subtree dired-details, dired-subtree dired-hide-details-mode
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: dired
 #+EL_TITLE0: 【<2014-12-30 Tue>更新】 diredがディレクトリツリーエディタに進化！dired-detailsにも対応
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージdired-subtreeの紹介
-#+MYTAGS: package:dired-subtree, emacs 使い方, emacs コマンド, emacs, emacs lisp dired-subtree, elisp dired-subtree, emacs melpa dired-subtree, emacs dired-subtree 使い方, emacs dired-subtree 設定, emacs パッケージ dired-subtree, emacs dired-subtree スクリーンショット, emacs dired, package:dired, package:dired-details, relate:dired-details, dired-subtree dired-details, dired-subtree dired-hide-details-mode
-#+TAGS: package:dired-subtree, emacs 使い方, emacs コマンド, emacs, emacs lisp dired-subtree, elisp dired-subtree, emacs melpa dired-subtree, emacs dired-subtree 使い方, emacs dired-subtree 設定, emacs パッケージ dired-subtree, emacs dired-subtree スクリーンショット, emacs dired, package:dired, package:dired-details, relate:dired-details, dired-subtree dired-details, dired-subtree dired-hide-details-mode, Emacs, dired-subtree.el, dired, dired-maybe-insert-subdir, wdired, dired-hide-details-mode, dired, dired-maybe-insert-subdir, wdired, dired-hide-details-mode
-#+TITLE: emacs dired-subtree.el : 【<2014-12-30 Tue>更新】 diredがディレクトリツリーエディタに進化！dired-detailsにも対応 | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>dired-subtree</td></tr>
-<tr><td>概要(原文)</td><td>Insert subdirectories in a tree-like fashion</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/Fuco1/dired-hacks">https://github.com/Fuco1/dired-hacks</a></td></tr>
-<tr><td>バージョン</td><td>20150109.838</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:dired-subtree/">package:dired-subtree</a> <a href="http://rubikitch.com/tag/package:dired-details/">package:dired-details</a></td></tr>
-</table>
-<br />
-#+END_HTML
-*dired-subtree.el* は、 *dired* にて
-ディレクトリの直下にその内容を挿入します。
-
-<2014-12-30 Tue> 「^」をdired-subtreeに対応させました。
-
-標準の「i」(*dired-maybe-insert-subdir*)は
-diredバッファの最後尾に挿入しますが、
-dired-subtree.elを使えばディレクトリの直下に挿入されます。
-
-つまり、ディレクトリツリーらしく表示されるわけです。
-
-たったこれだけの違いですが、表示が直観的になってわかりやすくなります。
-
-最新版では[[http://rubikitch.com/2014/09/08/dired-details/][dired-details.el(レビュー記事)]] に対応したので、
-本設定ではdired-details.elの設定もしておきます。
-
-また、dired-subtreeによって表示させたサブディレクトリに対して
-*wdired* を使うこともできます。
-
-なお、同じ機能を持つEmacs 24.4標準の *dired-hide-details-mode* には
-まだ対応していません。
-
-作者がまだ24.3を使っているので対応が待たれるところです。
-
-** dired-subtree インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install dired-subtree
-
+#+TITLE: dired-subtree.el : 【<2014-12-30 Tue>更新】 diredがディレクトリツリーエディタに進化！dired-detailsにも対応
+[includeme file="inc-package-table.php" name="dired-subtree" where="melpa"]
 
 #+END:
 ** dired-subtree インストール
@@ -72,7 +29,7 @@ dired-detailsもインストールしましょう。
 
 M-x package-install dired-details
 
-** 概要                                                             :noexport:
+** 概要
 *dired-subtree.el* は、 *dired* にて
 ディレクトリの直下にその内容を挿入します。
 
@@ -86,7 +43,7 @@ dired-subtree.elを使えばディレクトリの直下に挿入されます。
 
 たったこれだけの違いですが、表示が直観的になってわかりやすくなります。
 
-最新版では[[http://rubikitch.com/2014/09/08/dired-details/][dired-details.el(レビュー記事)]] に対応したので、
+最新版では[[http://emacs.rubikitch.com/dired-details/][dired-details.el(レビュー記事)]] に対応したので、
 本設定ではdired-details.elの設定もしておきます。
 
 また、dired-subtreeによって表示させたサブディレクトリに対して
@@ -98,6 +55,7 @@ dired-subtree.elを使えばディレクトリの直下に挿入されます。
 作者がまだ24.3を使っているので対応が待たれるところです。
 
 
+[includeme file="inc-package-install.php" name="dired-subtree" where="melpa"]
 ** 設定 [[http://rubikitch.com/f/141222134234.dired-subtree.1.el][141222134234.dired-subtree.1.el(以下のコードと同一)]]
 #+BEGIN: include :file "/r/sync/junk/141222/141222134234.dired-subtree.1.el"
 #+BEGIN_SRC fundamental
@@ -156,3 +114,4 @@ Fig1: ディレクトリ直下に表示！
 http://rubikitch.com/f/20141222140204.png
 Fig2: 「(」を押して詳細を隠したところ
 
+[includeme file="inc-package-relate.php" name="dired-subtree"]

@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 1052
+#+POSTID: 661
+#+BLOG: rubikitch
 #+DATE: [2015-02-01 Sun 08:45]
 #+PERMALINK: symon
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,78 +8,17 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs
+#+CATEGORY: プロセス
 #+EL_PKG_NAME: symon
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, emacs システムモニター, emacs CPU使用率, emacs メモリ使用量, emacs メモリ使用率, emacs battery, display-battery-mode
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: システムモニター
 #+EL_TITLE0: アイドル時にミニバッファにメモリ使用量・CPU使用率・バッテリ残量を表示するシステムモニター
 #+EL_URL: http://qiita.com/zk_phi/items/9576874a35a2affbefa8
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージsymonの紹介
-#+MYTAGS: package:symon, emacs 使い方, emacs コマンド, emacs, symon, symon.el, emacs lisp symon, elisp symon, emacs melpa symon, emacs symon 使い方, emacs symon 設定, emacs パッケージ symon, emacs symon スクリーンショット, emacs システムモニター, emacs CPU使用率, emacs メモリ使用量, emacs メモリ使用率, emacs battery, display-battery-mode
-#+TAGS: package:symon, emacs 使い方, emacs コマンド, emacs, symon, symon.el, emacs lisp symon, elisp symon, emacs melpa symon, emacs symon 使い方, emacs symon 設定, emacs パッケージ symon, emacs symon スクリーンショット, emacs システムモニター, emacs CPU使用率, emacs メモリ使用量, emacs メモリ使用率, emacs battery, display-battery-mode, Emacs, symon.el, グラフィカル, メモリ使用量, CPU使用率, バッテリ残量, symon-delay, symon-refresh-rate, symon-sparkline-height, symon-sparkline-width, symon-sparkline-ascent, symon-sparkline-thickness, symon.el, グラフィカル, メモリ使用量, CPU使用率, バッテリ残量, symon-delay, symon-refresh-rate, symon-sparkline-height, symon-sparkline-width, symon-sparkline-ascent, symon-sparkline-thickness, symon-monitors, define-symon-monitor, mode-line-format, symon-additional-info-format, symon-darwin-memory-monitor, symon-darwin-cpu-monitor, symon-darwin-network-rx-monitor, symon-darwin-network-tx-monitor, symon-monitors
-#+TITLE: emacs symon.el : アイドル時にミニバッファにメモリ使用量・CPU使用率・バッテリ残量を表示するシステムモニター | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>symon</td></tr>
-<tr><td>概要(原文)</td><td>tiny graphical system monitor</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>サイト</td><td><a href="http://qiita.com/zk_phi/items/9576874a35a2affbefa8">http://qiita.com/zk_phi/items/9576874a35a2affbefa8</td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/zk-phi/symon">https://github.com/zk-phi/symon</a></td></tr>
-<tr><td>バージョン</td><td>20150208.2114</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:symon/">package:symon</a> </td></tr>
-</table>
-<br />
-#+END_HTML
-<2015-02-10 Tue>更新
-1日のレビュー当初から大幅に進化し、
-グラフィカル化した上、表示内容をカスタマイズできるようになりました！！
-
-
-*symon.el* はEmacsで動く *グラフィカル* システムモニターです。
-
-GNU/LinuxとWindowsとCygwinに対応しています。
-
-現時点ではMac未対応ですが、
-コードを読めば対応できるようになっています。
-
-一定時間Emacsを操作しないと、図のように
-*メモリ使用量* 、 *CPU使用率* 、 *バッテリ残量* 、
-*受信・送信パケット量*(NEW) を表示します。
-
-デフォルトでは2秒間(*symon-delay*)操作しない場合に
-3秒間隔(*symon-refresh-rate*)で表示します。
-
-
-グラフの大きさについては、以下の変数を設定し、
-「実行方法」にあるように別のEmacsで表示テストをしてください。
-- *symon-sparkline-height*
-- *symon-sparkline-width*
-- *symon-sparkline-ascent*
-- *symon-sparkline-thickness*
-
-そしてお気に入りの設定を見付け次第、init.elに加えましょう。
-
-# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
-
-[[file:/r/sync/screenshots/20150201084451.png]]
-Fig3: 古いスクリーンショット
-
-
-[[file:/r/sync/screenshots/20150210064924.png]]
-Fig4: 新しいスクリーンショット
-
-
-
-** symon インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install symon
-
+#+TITLE: symon.el : アイドル時にミニバッファにメモリ使用量・CPU使用率・バッテリ残量を表示するシステムモニター
+[includeme file="inc-package-table.php" name="symon" where="melpa"]
 
 #+end:
-** 概要                                                             :noexport:
+** 概要
 <2015-02-10 Tue>更新
 1日のレビュー当初から大幅に進化し、
 グラフィカル化した上、表示内容をカスタマイズできるようになりました！！
@@ -111,15 +51,16 @@ GNU/LinuxとWindowsとCygwinに対応しています。
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
 
 [[file:/r/sync/screenshots/20150201084451.png]]
-Fig3: 古いスクリーンショット
+Fig1: 古いスクリーンショット
 
 
 [[file:/r/sync/screenshots/20150210064924.png]]
-Fig4: 新しいスクリーンショット
+Fig2: 新しいスクリーンショット
 
 
 
 
+[includeme file="inc-package-install.php" name="symon" where="melpa"]
 ** 設定 [[http://rubikitch.com/f/150210061315.symon.el][150210061315.symon.el(以下のコードと同一)]]
 #+BEGIN: include :file "/r/sync/junk/150210/150210061315.symon.el"
 #+BEGIN_SRC fundamental
@@ -238,3 +179,4 @@ Macにも対応させるには、
 
 # /r/sync/screenshots/20150201084451.png http://rubikitch.com/wp-content/uploads/2015/02/wpid-201502010844511.png
 # /r/sync/screenshots/20150210064924.png http://rubikitch.com/wp-content/uploads/2015/02/wpid-20150210064924.png
+[includeme file="inc-package-relate.php" name="symon"]

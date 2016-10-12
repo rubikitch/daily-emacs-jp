@@ -1,18 +1,19 @@
 #+BLOG: rubikitch
-#+POSTID: 1932
+#+POSTID: 125
+#+BLOG: rubikitch
 #+DATE: [2015-08-28 Fri 06:08]
-#+PERMALINK: melmag
+#+PERMALINK: melmag196
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
 #+ISPAGE: nil
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: メルマガ,
+#+CATEGORY: るびきち塾メルマガ
 #+DESCRIPTION: るびきち塾メルマガ『Emacsの鬼るびきちのココだけの話#196』の予告
 #+TITLE: 【メルマガ#196】日刊Emacs発端の舞台裏
 #+MYTAGS: 
 #+begin: org2blog-tags
-#+TAGS: , メルマガ,, 
+
 #+end:
 今回は「日刊Emacs」の発端について暴露します。
 

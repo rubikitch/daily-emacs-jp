@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 2415
+#+POSTID: 1435
+#+BLOG: rubikitch
 #+DATE: [2016-02-20 Sat 08:10]
 #+PERMALINK: sd1512-dabbrev-hippie-skeleton-yasnippet
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,9 +8,9 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, 連載『るびきち流Emacs超入門』
+#+CATEGORY: るびきち流Emacs超入門
 #+DESCRIPTION:
-#+TAGS:package:dabbrev, package:hippie-exp, hippie-expand, abbrev-mode, package:abbrev, skk-abbrev-mode, hippie-expand-dabbrev-limited-chars, package:hippie-exp-ext, hippie-expand-file-name, package:skeleton, スケルトン, advice-add, python-skeleton-autoinsert, package:yasnippet, emacs テンプレート展開, emacs スニペット, yas-prompt-functions, yas-global-mode, yas-snippet-dirs, yas-installed-snippets-dir, yas-insert-snippet, skeleton-insert, emacs スケルトン 使いづらい
+
 #+TITLE: #20 標準機能からyasnippetまで　Emacs の入力支援 (Software Design 2015年12月号掲載記事) Emacs yasnippet インストール 設定 使い方
 Software Design連載記事を掲載します。
 

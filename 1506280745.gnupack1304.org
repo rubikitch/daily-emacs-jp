@@ -1,15 +1,16 @@
 #+BLOG: rubikitch
-#+POSTID: 1781
+#+POSTID: 998
+#+BLOG: rubikitch
 #+DATE: [2015-06-28 Sun 07:45]
 #+PERMALINK: gnupack1304
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
 #+ISPAGE: nil
 #+DESCRIPTION:
-#+CATEGORY: Emacs, gnupack, Emacs 24.5, 
-#+MYTAGS: Emacs 24.5 windows, Emacs24.5 cygwin, Emacs24.5 gnupack, recenter-positions, recenter-top-bottom, cygwin symlink ショートカット
+#+CATEGORY: リリース情報
 #+TITLE: 【gnupack 13.04リリース】Cygwin symlinkをショートカットとして使えるように変更
 #+begin: org2blog-tags
-#+TAGS: Emacs 24.5 windows, Emacs24.5 cygwin, Emacs24.5 gnupack, recenter-positions, recenter-top-bottom, cygwin symlink ショートカット, Emacs, gnupack, Emacs 24.5, , 
+# content-length: 613
+
 #+end:
 http://d.hatena.ne.jp/ksugita0510/20150627/p1
 

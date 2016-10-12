@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 966
+#+POSTID: 630
+#+BLOG: rubikitch
 #+DATE: [2015-01-18 Sun 07:03]
 #+PERMALINK: gnupack1202
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,16 +8,15 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, gnupack, Emacs 24.4, 
+#+CATEGORY: , リリース情報
 #+DESCRIPTION: 
-#+MYTAGS: 
 #+TITLE: 展開するだけで使えるCygwin Emacsのgnupack 12.02がリリースされました
 #+begin: org2blog-tags
-#+TAGS: , Emacs, gnupack, Emacs 24.4, , Cygwin
+
 #+end:
 http://d.hatena.ne.jp/ksugita0510/20150117/p1
 
-[[http://rubikitch.com/2015/01/16/gnupack1201/][2日前、gnupack 12.01の記事を書きましたが、]]
+[[http://emacs.rubikitch.com/gnupack1201/][2日前、gnupack 12.01の記事を書きましたが、]]
 早くも12.02がリリースされました。
 
 変更点は以下のようになっています。(引用)

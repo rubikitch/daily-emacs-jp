@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 2131
+#+POSTID: 1223
+#+BLOG: rubikitch
 #+DATE: [2015-10-30 金 13:39]
 #+PERMALINK: quit-by-sigusr2
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,12 +8,14 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, 
+#+CATEGORY: デバッグ
 #+DESCRIPTION: シェルからpkill -USR2 emacsを実行すればEmacsで走っているLispプログラムを強制的に中断できます
-#+MYTAGS: emacs, C-gが効かない, emacs 停止, 中断, emacs quit, signal, keyboard-quit, keyboard-escape-quit, debug-on-event, emacs debugger, pkill -USR2 emacs, SIGUSR2, SIGUSR1
 #+TITLE: 死んだかもしれないEmacsを蘇生させられるかもしれない方法!？
+#+TAGS: セーフガード, 
 #+begin: org2blog-tags
-#+TAGS: emacs, C-gが効かない, emacs 停止, 中断, emacs quit, signal, keyboard-quit, keyboard-escape-quit, debug-on-event, emacs debugger, pkill -USR2 emacs, SIGUSR2, SIGUSR1, Emacs, , inhibit-quit, debug-on-event
+# content-length: 591
+#+HTML: <!-- noindex -->
+
 #+end:
 Emacsはごくたまに暴走してC-gを押しまくっても反応しないことがあります。
 たとえば、 *inhibit-quit* が t のときはquitできないようになりますが、その時に無限ループが発生したら止まらなくなります。
@@ -33,5 +36,11 @@ $ pkill -USR2 emacs
 一度試してみては？
 
 ちなみにこのSIGUSR2というのは *debug-on-event* 変数で指定されるものです。
+
+その後に
+#+BEGIN_EXAMPLE
+M-: (setq debug-on-quit nil)
+#+END_EXAMPLE
+を実行してください。
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

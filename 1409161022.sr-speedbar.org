@@ -1,70 +1,23 @@
 #+BLOG: rubikitch
-#+POSTID: 353
+#+POSTID: 298
+#+BLOG: rubikitch
 #+DATE: [2014-09-16 Tue 10:22]
 #+PERMALINK: sr-speedbar
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t
 #+ISPAGE: nil
-#+DESCRIPTION:
+#+DESCRIPTION:ファイル・関数・変数一覧を出したり引込めたり
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs
+#+CATEGORY: タグジャンプ
 #+EL_PKG_NAME: sr-speedbar
-#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, relate:imenu, relate:helm, emacs 関数一覧, emacs 変数一覧, emacs speedbar
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: 
 #+EL_TITLE0: speedbarを同一フレームに表示して関数・変数・ファイルを一覧する
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージsr-speedbarの紹介
-#+MYTAGS: package:sr-speedbar, emacs 使い方, emacs コマンド, emacs, emacs lisp sr-speedbar, elisp sr-speedbar, emacs melpa sr-speedbar, emacs sr-speedbar 使い方, emacs sr-speedbar 設定, emacs パッケージ sr-speedbar, emacs sr-speedbar スクリーンショット, relate:imenu, relate:helm, emacs 関数一覧, emacs 変数一覧, emacs speedbar
-#+TITLE: emacs sr-speedbar.el : speedbarを同一フレームに表示して関数・変数・ファイルを一覧する | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>sr-speedbar</td></tr>
-<tr><td>概要(原文)</td><td>Same frame speedbar</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="http://www.emacswiki.org/sr-speedbar.el">http://www.emacswiki.org/sr-speedbar.el</a></td></tr>
-<tr><td>バージョン</td><td>20141004.532</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:sr-speedbar/">package:sr-speedbar</a> <a href="http://rubikitch.com/tag/package:imenu/">package:imenu</a> <a href="http://rubikitch.com/tag/package:helm/">package:helm</a></td></tr>
-</table>
-<br />
-#+END_HTML
-
-*speedbar* は本来、別のフレームでしか使えませんでした。
-
-そこで、その制約を突破するのがsr-speedbar.elです。
-
-複数のフレームを使うのが嫌だったり、
--nw環境でspeedbarを使いたいときは
-これを使ってみましょう。
-
-*M-x sr-speedbar-toggle* でspeedbarを出したり引込めたりできます。
-
-speedbarとは何かというと、diredのようにファイルを一覧したり
-*imenu* や *tags* のように関数・変数一覧したりします。
-
-RETでディレクトリに移動・ファイルを開きます。
-
-SPCで子ツリーを展開・折畳みします。
-
-
-とはいえ、変数・関数一覧を見たり、移動したりするには、
-*helm* を使って *M-x helm-imenu* でも十分だったりします。
-
-図では右側にspeedbarを表示していますが、
-(setq sr-speedbar-right-side nil)
-を設定すれば左側に表示できます。
-
-# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
-http://rubikitch.com/f/20140916102331.png
-Fig1: M-x sr-speedbar-toggleの後にSPCで展開したところ
-** sr-speedbar インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install sr-speedbar
-
+#+TITLE: sr-speedbar.el : speedbarを同一フレームに表示して関数・変数・ファイルを一覧する
+[includeme file="inc-package-table.php" name="sr-speedbar" where="melpa"]
 
 #+end:
-** 概要                                                             :noexport:
+** 概要
 
 *speedbar* は本来、別のフレームでしか使えませんでした。
 
@@ -94,3 +47,5 @@ SPCで子ツリーを展開・折畳みします。
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
 http://rubikitch.com/f/20140916102331.png
 Fig1: M-x sr-speedbar-toggleの後にSPCで展開したところ
+[includeme file="inc-package-install.php" name="sr-speedbar" where="melpa"]
+[includeme file="inc-package-relate.php" name="sr-speedbar"]

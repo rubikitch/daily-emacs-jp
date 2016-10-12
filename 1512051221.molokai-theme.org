@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 2243
+#+POSTID: 1285
+#+BLOG: rubikitch
 #+DATE: [2015-12-05 Sat 12:21]
 #+PERMALINK: molokai-theme
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,55 +8,17 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, theme
+#+CATEGORY: ダーク
 #+EL_PKG_NAME: molokai-theme
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, color-theme, カラーテーマ
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: from:textmate, from:vim
 #+EL_TITLE0: TextMateやVimから移植されたダークなカラーテーマ
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージmolokai-themeの紹介
-#+MYTAGS: package:molokai-theme, emacs 使い方, emacs コマンド, emacs, molokai-theme, molokai-theme.el, emacs lisp molokai-theme, elisp molokai-theme, emacs melpa molokai-theme, emacs molokai-theme 使い方, emacs molokai-theme 設定, emacs パッケージ molokai-theme, emacs molokai-theme スクリーンショット, color-theme, カラーテーマ
-#+TAGS: package:molokai-theme, emacs 使い方, emacs コマンド, emacs, molokai-theme, molokai-theme.el, emacs lisp molokai-theme, elisp molokai-theme, emacs melpa molokai-theme, emacs molokai-theme 使い方, emacs molokai-theme 設定, emacs パッケージ molokai-theme, emacs molokai-theme スクリーンショット, color-theme, カラーテーマ, Emacs, theme, molokai-theme.el
-#+TITLE: emacs molokai-theme.el : TextMateやVimから移植されたダークなカラーテーマ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>molokai-theme</td></tr>
-<tr><td>概要(原文)</td><td>molokai theme with Emacs theme engine</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/alloy-d/color-theme-molokai">https://github.com/alloy-d/color-theme-molokai</a></td></tr>
-<tr><td>バージョン</td><td>20151016.845</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:molokai-theme/">package:molokai-theme</a> </td></tr>
-</table>
-<br />
-#+END_HTML
-*molokai-theme.el* は、以下のパッケージに対応したカラーテーマです。
-- custom
-- elfeed
-- css
-- diff
-- mode-line
-- font-lock
-- hl-line
-- icomplete+
-- ido
-- isearch
-- markdown
-- mumamo
-- outline
-- rainbow-delimiters
-- show-paren
-- undo-tree
-- woman
-** molokai-theme インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install molokai-theme
-
+#+TITLE: molokai-theme.el : TextMateやVimから移植されたダークなカラーテーマ
+[includeme file="inc-package-table.php" name="molokai-theme" where="melpa"]
 
 #+end:
-** 概要                                                             :noexport:
+** 概要
 *molokai-theme.el* は、以下のパッケージに対応したカラーテーマです。
 - custom
 - elfeed
@@ -74,6 +37,7 @@ M-x package-install molokai-theme
 - show-paren
 - undo-tree
 - woman
+[includeme file="inc-package-install.php" name="molokai-theme" where="melpa"]
 ** スクリーンショット
 # (save-window-excursion (async-shell-command "emacs-test -eval '(load-theme (quote molokai) t)'"))
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_theme_template" t))
@@ -128,3 +92,4 @@ $ emacs -Q -f package-initialize -eval '(load-theme (quote molokai) t)'
 #+END_EXAMPLE
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+[includeme file="inc-package-relate.php" name="molokai-theme"]

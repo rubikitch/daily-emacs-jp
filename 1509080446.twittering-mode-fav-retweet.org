@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 1963
+#+POSTID: 1126
+#+BLOG: rubikitch
 #+DATE: [2015-09-08 Tue 04:46]
 #+PERMALINK: twittering-mode-fav-retweet
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,12 +8,13 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, 
+#+CATEGORY: Web
+#+TAGS: twittering-mode
 #+DESCRIPTION: twittering-status-formatを設定すれば可能
-#+MYTAGS: package:twittering-mode, Emacs Twitter, Twitter ふぁぼ, favorites, like, Twitter retweet, favorite_count, retweet_count
 #+TITLE: Emacs twittering-modeでFavorite/Retweetを含め1行表示させる設定
 #+begin: org2blog-tags
-#+TAGS: package:twittering-mode, Emacs Twitter, Twitter ふぁぼ, favorites, like, Twitter retweet, favorite_count, retweet_count, Emacs, , twittering-mode.el, twittering-status-format
+# content-length: 874
+
 #+end:
 EmacsでTwitterするには *twittering-mode.el* が定番です。
 

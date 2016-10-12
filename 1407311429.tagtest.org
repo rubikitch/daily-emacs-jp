@@ -1,15 +1,22 @@
 #+BLOG: rubikitch
-#+POSTID: 39
+#+POSTID: 181
+#+BLOG: rubikitch
 #+DATE: [2014-07-31 Thu 14:29]
 #+PERMALINK: tagtest
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t
 #+ISPAGE: nil
 #+DESCRIPTION:
 #+BLOG: rubikitch
-#+CATEGORY: Emacs
+#+CATEGORY: 
 #+DESCRIPTION:
-#+MYTAGS: ho
-#+TAGS: ho, Emacs, emph
+#+NOINDEX: t
+#+begin: org2blog-tags
+# because of explicit-noindex
+#+HTML: <!-- noindex -->
+
+#+end:
+
+#+TAGS: 
 #+TITLE: tag test
 *emph*
 /italic/

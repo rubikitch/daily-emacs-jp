@@ -1,13 +1,14 @@
 #+BLOG: rubikitch
-#+POSTID: 664
+#+POSTID: 53
+#+BLOG: rubikitch
 #+DATE: [2014-12-05 Fri 02:58]
-#+PERMALINK: melmag
+#+PERMALINK: melmag158
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
 #+ISPAGE: nil
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: メルマガ,
+#+CATEGORY: るびきち塾メルマガ
 #+DESCRIPTION: Emacsの鬼るびきちのココだけの話#159
 #+MYTAGS:
 #+TAGS: , メルマガ, , helm-projectile.el

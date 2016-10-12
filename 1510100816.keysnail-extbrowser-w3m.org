@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 2069
+#+POSTID: 1186
+#+BLOG: rubikitch
 #+DATE: [2015-10-10 Sat 08:16]
 #+PERMALINK: keysnail-extbrowser-w3m
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -9,10 +10,10 @@
 #+BLOG: rubikitch
 #+CATEGORY: KeySnail, 
 #+DESCRIPTION: 
-#+MYTAGS: Firefox, Firefoxで外部プログラムを呼び出す, Firefoxからchromeを呼ぶ, FirefoxからIEで表示確認, KeySnailからw3mを呼び出す, mpvで動画を再生する, w3m, mpv, google-chrome, chrome, urxvt, rxvt, xterm, テキストブラウザ, mplayer, mplayer2, Firefoxから別のブラウザを呼び出す, 別ブラウザで動作確認, Unixの思想, Unixの精神, Unixの考え方
 #+TITLE: KeySnailで外部プログラム(ブラウザなど)を呼び出す設定
 #+begin: org2blog-tags
-#+TAGS: Firefox, Firefoxで外部プログラムを呼び出す, Firefoxからchromeを呼ぶ, FirefoxからIEで表示確認, KeySnailからw3mを呼び出す, mpvで動画を再生する, w3m, mpv, google-chrome, chrome, urxvt, rxvt, xterm, テキストブラウザ, mplayer, mplayer2, Firefoxから別のブラウザを呼び出す, 別ブラウザで動作確認, Unixの思想, Unixの精神, Unixの考え方, KeySnail, , ;3, ;w, ;g, M, C
+# content-length: 3157
+
 #+end:
 僕はプログラムにおいて最重要と考えている機能として、外部プログラム呼び出しがあります。
 それは、自分自身ではできない・不得意ことをそれが上手にできるプログラムに任せるというUnixの思想が好きだからです。

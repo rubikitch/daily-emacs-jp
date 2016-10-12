@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 1082
+#+POSTID: 677
+#+BLOG: rubikitch
 #+DATE: [2015-02-05 Thu 08:05]
 #+PERMALINK: show-marks
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,65 +8,24 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs
+#+CATEGORY: マーク
 #+EL_PKG_NAME: show-marks
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, emacs マーク 可視化, emacs マーク 見える, relate:bm, relate:visible-mark, マーク, mark, emacs 目に見えるマーク, relate:helm
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: 
 #+EL_TITLE0: マークされた行をoccur形式で表示し、巡回できるようにする
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージshow-marksの紹介
-#+MYTAGS: package:show-marks, emacs 使い方, emacs コマンド, emacs, show-marks, show-marks.el, emacs lisp show-marks, elisp show-marks, emacs melpa show-marks, emacs show-marks 使い方, emacs show-marks 設定, emacs パッケージ show-marks, emacs show-marks スクリーンショット, emacs マーク 可視化, emacs マーク 見える, relate:bm, relate:visible-mark, マーク, mark, emacs 目に見えるマーク, relate:helm
-#+TAGS: package:show-marks, emacs 使い方, emacs コマンド, emacs, show-marks, show-marks.el, emacs lisp show-marks, elisp show-marks, emacs melpa show-marks, emacs show-marks 使い方, emacs show-marks 設定, emacs パッケージ show-marks, emacs show-marks スクリーンショット, emacs マーク 可視化, emacs マーク 見える, relate:bm, relate:visible-mark, マーク, mark, emacs 目に見えるマーク, relate:helm, Emacs, helm, M-x helm-mark-ring, visible-mark.el, helm, M-x helm-mark-ring, visible-mark.el
-#+TITLE: emacs show-marks.el : マークされた行をoccur形式で表示し、巡回できるようにする | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>show-marks</td></tr>
-<tr><td>概要(原文)</td><td>Navigate and visualize the mark-ring</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/vapniks/show-marks">https://github.com/vapniks/show-marks</a></td></tr>
-<tr><td>バージョン</td><td>20130805.749</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:show-marks/">package:show-marks</a> <a href="http://rubikitch.com/tag/package:bm/">package:bm</a> <a href="http://rubikitch.com/tag/package:visible-mark/">package:visible-mark</a> <a href="http://rubikitch.com/tag/package:helm/">package:helm</a></td></tr>
-</table>
-<br />
-#+END_HTML
-これも[[http://rubikitch.com/2015/02/05/visible-mark/][visible-mark.el(レビュー)]] に引き続き、
-マーク(C-SPCで付けられるやつ)を可視化させるやつです。
-
-こっちはマークされた行を別バッファに表示し、
-そのバッファを経由して過去のマークを遡れるようにします。
-
-[[http://rubikitch.com/2014/11/21/bm/][bm.el(レビュー)]] はマークとは別の「目に見えるマーク」で、
-そのバッファの行がハイライトされるようになり、
-簡単に行き来できるようになっています。
-
-そういう意味においてbm.elの方がいいかもしれません。
-
-*helm* にも *M-x helm-mark-ring* というコマンドが存在し、
-同じようにhelmバッファで表示してくれ、絞り込み検索もできますが、
-マークされた位置ではなくて行頭にジャンプしてしまいます。
-
-マークされた位置を明示する *visible-mark.el* と併用できます。
-
-# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
-[[file:/r/sync/screenshots/20150205080712.png]]
-Fig1: マークをoccurのように表示！
-** show-marks インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install show-marks
-
+#+TITLE: show-marks.el : マークされた行をoccur形式で表示し、巡回できるようにする
+[includeme file="inc-package-table.php" name="show-marks" where="melpa"]
 
 #+end:
-** 概要                                                             :noexport:
-これも[[http://rubikitch.com/2015/02/05/visible-mark/][visible-mark.el(レビュー)]] に引き続き、
+** 概要
+これも[[http://emacs.rubikitch.com/visible-mark/][visible-mark.el(レビュー)]] に引き続き、
 マーク(C-SPCで付けられるやつ)を可視化させるやつです。
 
 こっちはマークされた行を別バッファに表示し、
 そのバッファを経由して過去のマークを遡れるようにします。
 
-[[http://rubikitch.com/2014/11/21/bm/][bm.el(レビュー)]] はマークとは別の「目に見えるマーク」で、
+[[http://emacs.rubikitch.com/bm/][bm.el(レビュー)]] はマークとは別の「目に見えるマーク」で、
 そのバッファの行がハイライトされるようになり、
 簡単に行き来できるようになっています。
 
@@ -81,6 +41,7 @@ M-x package-install show-marks
 [[file:/r/sync/screenshots/20150205080712.png]]
 Fig1: マークをoccurのように表示！
 
+[includeme file="inc-package-install.php" name="show-marks" where="melpa"]
 ** 設定 [[http://rubikitch.com/f/150205080223.show-marks.el][150205080223.show-marks.el(以下のコードと同一)]]
 #+BEGIN: include :file "/r/sync/junk/150205/150205080223.show-marks.el"
 #+BEGIN_SRC fundamental
@@ -106,3 +67,4 @@ $ emacs -Q -f package-initialize -l 150205080223.show-marks.el
 #+END_EXAMPLE
 
 # /r/sync/screenshots/20150205080712.png http://rubikitch.com/wp-content/uploads/2015/02/wpid-20150205080712.png
+[includeme file="inc-package-relate.php" name="show-marks"]

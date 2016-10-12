@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 2093
+#+POSTID: 1202
+#+BLOG: rubikitch
 #+DATE: [2015-10-20 Tue 00:45]
 #+PERMALINK: test-simple
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,45 +8,22 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, Emacs Lisp, 
+#+CATEGORY: Emacs Lisp支援
 #+EL_PKG_NAME: test-simple
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, , 自動テスト, ユニットテスト, Emacs ユニットテスト, relate:ert, emacs ert, relate:el-expectations, relate:ert-expectations, relate:el-spec, assert, assert-equal, emacs testing framework, テスティングフレームワーク, emacs lisp test
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 
+#+TAGS: ユニットテスト
 #+EL_TITLE0: 最強にシンプルなelisp用テスティングフレームワーク(ユニットテスト)
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージtest-simpleの紹介
-#+MYTAGS: package:test-simple, emacs 使い方, emacs コマンド, emacs, test-simple, test-simple.el, emacs lisp test-simple, elisp test-simple, emacs melpa test-simple, emacs test-simple 使い方, emacs test-simple 設定, emacs パッケージ test-simple, , 自動テスト, ユニットテスト, Emacs ユニットテスト, relate:ert, emacs ert, relate:el-expectations, relate:ert-expectations, relate:el-spec, assert, assert-equal, emacs testing framework, テスティングフレームワーク, emacs lisp test
-#+TAGS: package:test-simple, emacs 使い方, emacs コマンド, emacs, test-simple, test-simple.el, emacs lisp test-simple, elisp test-simple, emacs melpa test-simple, emacs test-simple 使い方, emacs test-simple 設定, emacs パッケージ test-simple, , 自動テスト, ユニットテスト, Emacs ユニットテスト, relate:ert, emacs ert, relate:el-expectations, relate:ert-expectations, relate:el-spec, assert, assert-equal, emacs testing framework, テスティングフレームワーク, emacs lisp test, Emacs, Emacs Lisp, , test-simple.el, test-simple, scratch
-#+TITLE: emacs test-simple.el : 最強にシンプルなelisp用テスティングフレームワーク(ユニットテスト) | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>test-simple</td></tr>
-<tr><td>概要(原文)</td><td>Simple Unit Test Framework for Emacs Lisp</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/rocky/emacs-test-simple">https://github.com/rocky/emacs-test-simple</a></td></tr>
-<tr><td>バージョン</td><td>20150331.302</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:test-simple/">package:test-simple</a> <a href="http://rubikitch.com/tag/package:ert/">package:ert</a> <a href="http://rubikitch.com/tag/package:el-expectations/">package:el-expectations</a> <a href="http://rubikitch.com/tag/package:ert-expectations/">package:ert-expectations</a> <a href="http://rubikitch.com/tag/package:el-spec/">package:el-spec</a></td></tr>
-</table>
-<br />
-#+END_HTML
-*test-simple.el* はものすごいシンプルなテスティングフレームワークです。
-僕もかつてel-expectations.elやERT対応版ert-expectations.elを作っていましたが、それをも上回るシンプルさです。
-なんとトップレベルでassert関数群が定義されています。
-そのため、C-M-xやC-x C-eで即座に1つのテストを評価できる手軽さです。
-** test-simple インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install test-simple
-
+#+TITLE: test-simple.el : 最強にシンプルなelisp用テスティングフレームワーク(ユニットテスト)
+[includeme file="inc-package-table.php" name="test-simple" where="melpa"]
 
 #+end:
-** 概要                                                             :noexport:
+** 概要
 *test-simple.el* はものすごいシンプルなテスティングフレームワークです。
 僕もかつてel-expectations.elやERT対応版ert-expectations.elを作っていましたが、それをも上回るシンプルさです。
 なんとトップレベルでassert関数群が定義されています。
 そのため、C-M-xやC-x C-eで即座に1つのテストを評価できる手軽さです。
+[includeme file="inc-package-install.php" name="test-simple" where="melpa"]
 ** 使用例:最大公約数GCD
 まず、gcd.elを用意します。
 
@@ -160,3 +138,4 @@ C-M-xやC-x C-eで個別に評価したとき、assertを満たすならばtを�
 #+END_EXAMPLE
 もはや説明不要でしょう。
 
+[includeme file="inc-package-relate.php" name="test-simple"]

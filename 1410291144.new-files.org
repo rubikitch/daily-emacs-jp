@@ -1,16 +1,16 @@
 #+BLOG: rubikitch
-#+POSTID: 527
+#+POSTID: 377
+#+BLOG: rubikitch
 #+DATE: [2014-10-29 Wed 11:44]
 #+PERMALINK: new-files
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
 #+ISPAGE: nil
-#+DESCRIPTION:
+#+DESCRIPTION:かつてはホームディレクトリ以下にあったEmacs関連の設定ファイルの多くはEmacs 24.4で~/.emacs.d/以下に置かれるようになりました
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, Emacs 24.4,
+#+CATEGORY:  新機能紹介,
 #+DESCRIPTION:
-#+MYTAGS:
-#+TAGS: , Emacs, Emacs 24.4,, locate-user-emacs-file
+#+TAGS: Emacs 24.4以降, 設定ファイル
 #+TITLE: Emacs 24.4で整理された設定ファイルたち
 元々Emacsはホームディレクトリに設定ファイルをばら撒いていました。
 

@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 2340
+#+POSTID: 1367
+#+BLOG: rubikitch
 #+DATE: [2016-01-18 Mon 22:21]
 #+PERMALINK: clues-theme
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,54 +8,17 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, theme
+#+CATEGORY: ダーク
 #+EL_PKG_NAME: clues-theme
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, color-theme, カラーテーマ
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: from:visual-studio
 #+EL_TITLE0: Visual Studioっぽい黒背景のカラーテーマ
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージclues-themeの紹介
-#+MYTAGS: package:clues-theme, emacs 使い方, emacs コマンド, emacs, clues-theme, clues-theme.el, emacs lisp clues-theme, elisp clues-theme, emacs melpa clues-theme, emacs clues-theme 使い方, emacs clues-theme 設定, emacs パッケージ clues-theme, emacs clues-theme スクリーンショット, color-theme, カラーテーマ
-#+TAGS: package:clues-theme, emacs 使い方, emacs コマンド, emacs, clues-theme, clues-theme.el, emacs lisp clues-theme, elisp clues-theme, emacs melpa clues-theme, emacs clues-theme 使い方, emacs clues-theme 設定, emacs パッケージ clues-theme, emacs clues-theme スクリーンショット, color-theme, カラーテーマ, Emacs, theme, clues-theme.el
-#+TITLE: emacs clues-theme.el : Visual Studioっぽい黒背景のカラーテーマ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>clues-theme</td></tr>
-<tr><td>概要(原文)</td><td>an Emacs 24 theme which may well be fully awesome...</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/jasonm23/emacs-clues-theme">https://github.com/jasonm23/emacs-clues-theme</a></td></tr>
-<tr><td>バージョン</td><td>20140922.2056</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:clues-theme/">package:clues-theme</a> </td></tr>
-</table>
-<br />
-#+END_HTML
-*clues-theme.el* は、以下のパッケージに対応したカラーテーマです。
-- linum
-- font-lock
-- link
-- button
-- header-line
-- mode-line
-- isearch
-- tooltip
-- js3
-- cua-rectangle
-- flyspell-mode
-- flymake-mode
-- magit
-- git-gutter
-- diff
-- rainbow-delimiters
-** clues-theme インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install clues-theme
-
+#+TITLE: clues-theme.el : Visual Studioっぽい黒背景のカラーテーマ
+[includeme file="inc-package-table.php" name="clues-theme" where="melpa"]
 
 #+end:
-** 概要                                                             :noexport:
+** 概要
 *clues-theme.el* は、以下のパッケージに対応したカラーテーマです。
 - linum
 - font-lock
@@ -73,6 +37,7 @@ M-x package-install clues-theme
 - diff
 - rainbow-delimiters
 
+[includeme file="inc-package-install.php" name="clues-theme" where="melpa"]
 ** スクリーンショット
 # (save-window-excursion (async-shell-command "emacs-test -eval '(load-theme (quote clues) t)'"))
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_theme_template" t))
@@ -130,3 +95,4 @@ $ emacs -Q -f package-initialize -eval '(load-theme (quote clues) t)'
 #+END_EXAMPLE
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+[includeme file="inc-package-relate.php" name="clues-theme"]

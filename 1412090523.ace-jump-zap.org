@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 684
+#+POSTID: 469
+#+BLOG: rubikitch
 #+DATE: [2014-12-09 Tue 05:23]
 #+PERMALINK: ace-jump-zap
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,28 +8,17 @@
 #+DESCRIPTION: ace-jump-zap.el更新情報
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs
+#+CATEGORY: zap-to-char
 #+EL_PKG_NAME: ace-jump-zap
-#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, relate:avy-zap
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: ace-jump
 #+EL_TITLE0: ace-jump式M-zが更新されたよ！前方文字列のみ選択できるようになった
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージace-jump-zapの紹介
-#+MYTAGS: package:ace-jump-zap, emacs 使い方, emacs コマンド, emacs, emacs lisp ace-jump-zap, elisp ace-jump-zap, emacs melpa ace-jump-zap, emacs ace-jump-zap 使い方, emacs ace-jump-zap 設定, emacs パッケージ ace-jump-zap, emacs ace-jump-zap スクリーンショット, relate:avy-zap
-#+TAGS: package:ace-jump-zap, emacs 使い方, emacs コマンド, emacs, emacs lisp ace-jump-zap, elisp ace-jump-zap, emacs melpa ace-jump-zap, emacs ace-jump-zap 使い方, emacs ace-jump-zap 設定, emacs パッケージ ace-jump-zap, emacs ace-jump-zap スクリーンショット, relate:avy-zap, Emacs, 
-#+TITLE: emacs ace-jump-zap.el : ace-jump式M-zが更新されたよ！前方文字列のみ選択できるようになった | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>ace-jump-zap</td></tr>
-<tr><td>概要(原文)</td><td>Character zapping, `ace-jump-mode` style</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/waymondo/ace-jump-zap">https://github.com/waymondo/ace-jump-zap</a></td></tr>
-<tr><td>バージョン</td><td>20150330.1342</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:ace-jump-zap/">package:ace-jump-zap</a> <a href="http://rubikitch.com/tag/package:avy-zap/">package:avy-zap</a></td></tr>
-</table>
-<br />
-#+END_HTML
-[[http://rubikitch.com/2014/09/23/ace-jump-zap/][M-zをace-jumpに置き換えるace-jump-zap.el]] が
+#+TITLE: ace-jump-zap.el : ace-jump式M-zが更新されたよ！前方文字列のみ選択できるようになった
+[includeme file="inc-package-table.php" name="ace-jump-zap" where="melpa"]
+
+#+end:
+** 概要
+[[http://emacs.rubikitch.com/ace-jump-zap/][M-zをace-jumpに置き換えるace-jump-zap.el]] が
 先程、新機能をひっさげて更新されました。
 
 この設定を加えることで、通常のM-zのように前方の文字のみを対象となります。
@@ -42,26 +32,5 @@
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
 http://rubikitch.com/f/20141209052818.png
 Fig1: 前方のみヒント文字が付く！
-** ace-jump-zap インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install ace-jump-zap
-
-
-#+end:
-** 概要                                                             :noexport:
-[[http://rubikitch.com/2014/09/23/ace-jump-zap/][M-zをace-jumpに置き換えるace-jump-zap.el]] が
-先程、新機能をひっさげて更新されました。
-
-この設定を加えることで、通常のM-zのように前方の文字のみを対象となります。
-
-#+BEGIN_SRC emacs-lisp :results silent
-(global-set-key (kbd "M-z") 'ace-jump-zap-up-to-char)
-(setq ajz/forward-only t)
-#+END_SRC
-
-
-# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
-http://rubikitch.com/f/20141209052818.png
-Fig2: 前方のみヒント文字が付く！
+[includeme file="inc-package-install.php" name="ace-jump-zap" where="melpa"]
+[includeme file="inc-package-relate.php" name="ace-jump-zap"]

@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 2118
+#+POSTID: 1215
+#+BLOG: rubikitch
 #+DATE: [2015-10-26 Mon 04:14]
 #+PERMALINK: pgrepper
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,15 +8,16 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, Ruby, peco, helm, 自作プログラム
+#+CATEGORY: peco
 #+DESCRIPTION: grepやcmigemo等を呼んで絞り込み検索をするpgrepper 1.0をリリースしました。pecoやhelmやanythingで使えます。
-#+MYTAGS: pgrepper, percol, peco, helm, anything, emacs, grep, ag, sary, csearch, nkf, パイプ, Rubyスクリプト, シェルスクリプト, migemo, cmigemo
 #+TITLE: peco/helm/anythingにMigemo/否定/単語検索機能等を追加するpgrepperを作りました
+#+TAGS: helm, anything
 #+begin: org2blog-tags
-#+TAGS: pgrepper, percol, peco, helm, anything, emacs, grep, ag, sary, csearch, nkf, パイプ, Rubyスクリプト, シェルスクリプト, migemo, cmigemo, Emacs, Ruby, peco, helm, 自作プログラム, --searcher, --migemo, --searcher, --fold=N, --dummy, -n
+# content-length: 5327
+
 #+end:
 端末でもhelm/anythingな絞り込みをするpecoは便利ですよね！
-動作は速く、[[http://rubikitch.com/2015/09/30/peco034/][0.3.4で実装されたHit-a-Hint]] により少量の候補でも素早く選択できるようになりました。
+動作は速く、[[http://emacs.rubikitch.com/peco034/][0.3.4で実装されたHit-a-Hint]] により少量の候補でも素早く選択できるようになりました。
 そんなpecoに僕はぞっこん惚れ込んでしまいました。
 
 しかし！pecoには大きな不満があります。

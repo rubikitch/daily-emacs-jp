@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 126
+#+POSTID: 198
+#+BLOG: rubikitch
 #+DATE: [2014-08-12 Tue 07:39]
 #+PERMALINK: guru-mode
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t
@@ -7,45 +8,22 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs
+#+CATEGORY: キーバインド
 #+EL_PKG_NAME: guru-mode
-#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, emacs カーソルキー, emacs 特殊キー, emacs drill-instructor, emacs 鬼軍曹
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: 
 #+EL_TITLE0: guru-modeは外国人による鬼軍曹だ
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージguru-modeの紹介
-#+MYTAGS: package:guru-mode, emacs 使い方, emacs コマンド, emacs, emacs lisp guru-mode, elisp guru-mode, emacs melpa guru-mode, emacs guru-mode 使い方, emacs guru-mode 設定, emacs パッケージ guru-mode, emacs guru-mode スクリーンショット, emacs カーソルキー, emacs 特殊キー, emacs drill-instructor, emacs 鬼軍曹
-#+TITLE: emacs guru-mode.el : guru-modeは外国人による鬼軍曹だ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>guru-mode</td></tr>
-<tr><td>概要(原文)</td><td>Become an Emacs guru</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/bbatsov/guru-mode">https://github.com/bbatsov/guru-mode</a></td></tr>
-<tr><td>バージョン</td><td>20140905.702</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:guru-mode/">package:guru-mode</a> </td></tr>
-</table>
-<br />
-#+END_HTML
-guru-modeはEmacsの操作方法を強引に習得するマイナーモードです。
-
-カーソルキーなどの特殊キーを使う軟弱者を鍛えてくれます。
-
-drill-instructorに似ていますね。
-** guru-mode インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install guru-mode
-
+#+TITLE: guru-mode.el : guru-modeは外国人による鬼軍曹だ
+[includeme file="inc-package-table.php" name="guru-mode" where="melpa"]
 
 #+end:
-** 概要                                                             :noexport:
+** 概要
 guru-modeはEmacsの操作方法を強引に習得するマイナーモードです。
 
 カーソルキーなどの特殊キーを使う軟弱者を鍛えてくれます。
 
 drill-instructorに似ていますね。
+[includeme file="inc-package-install.php" name="guru-mode" where="melpa"]
 ** こんなキーが無効にされる。
 ソースコードを抜き出すと、このように定義されています。
 
@@ -94,3 +72,4 @@ $ emacs -Q -f package-initialize -l 140812073729.guru-mode.el
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
 http://rubikitch.com/f/20140812073853.png
 Fig1: ←を押すとC-bを使えと怒られる(笑)
+[includeme file="inc-package-relate.php" name="guru-mode"]

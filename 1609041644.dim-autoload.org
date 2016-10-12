@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 2741
+#+POSTID: 1562
+#+BLOG: rubikitch
 #+DATE: [2016-09-04 Sun 16:44]
 #+PERMALINK: dim-autoload
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
@@ -7,28 +8,17 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, Emacs Lisp, 
+#+CATEGORY: テキスト色付け
 #+EL_PKG_NAME: dim-autoload
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, autoload, autoload cookie, font-lock, 色付け
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: 
 #+EL_TITLE0: autoloadクッキー(;;;###autoload)を別な色にする
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージdim-autoloadの紹介
-#+MYTAGS: package:dim-autoload, emacs 使い方, emacs コマンド, emacs, dim-autoload, dim-autoload.el, emacs lisp dim-autoload, elisp dim-autoload, emacs melpa dim-autoload, emacs dim-autoload 使い方, emacs dim-autoload 設定, emacs パッケージ dim-autoload, emacs dim-autoload スクリーンショット, autoload, autoload cookie, font-lock, 色付け
-#+TAGS: package:dim-autoload, emacs 使い方, emacs コマンド, emacs, dim-autoload, dim-autoload.el, emacs lisp dim-autoload, elisp dim-autoload, emacs melpa dim-autoload, emacs dim-autoload 使い方, emacs dim-autoload 設定, emacs パッケージ dim-autoload, emacs dim-autoload スクリーンショット, autoload, autoload cookie, font-lock, 色付け, Emacs, Emacs Lisp, , dim-autoload.el, dim-autoload.el
-#+TITLE: emacs dim-autoload.el : autoloadクッキー(;;;###autoload)を別な色にする | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>dim-autoload</td></tr>
-<tr><td>概要(原文)</td><td>dim complete autoload cookie lines</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/tarsius/dim-autoload">https://github.com/tarsius/dim-autoload</a></td></tr>
-<tr><td>バージョン</td><td>20160521.728</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:dim-autoload/">package:dim-autoload</a> </td></tr>
-</table>
-<br />
-#+END_HTML
+#+TITLE: dim-autoload.el : autoloadクッキー(;;;###autoload)を別な色にする
+[includeme file="inc-package-table.php" name="dim-autoload" where="melpa"]
+
+#+end:
+** 概要
 Emacs Lispのソースを見ていて「;;;###autoload」という文字列を見たことがありますか？
 これはautoload機能を活用するための魔法のコメントです。
 autoloadとは、関数やコマンドが呼ばれた時点でLispファイルを読み込むという遅延ロード機能です。
@@ -54,40 +44,7 @@ Fig2: after
 
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
-** dim-autoload インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install dim-autoload
-
-
-#+end:
-** 概要                                                             :noexport:
-Emacs Lispのソースを見ていて「;;;###autoload」という文字列を見たことがありますか？
-これはautoload機能を活用するための魔法のコメントです。
-autoloadとは、関数やコマンドが呼ばれた時点でLispファイルを読み込むという遅延ロード機能です。
-パッケージをインストールしても何も設定せずにコマンドが使えることがあるのは、autoloadのおかげです。
-init.elにrequireを記述する手間を省き、しかもEmacsの起動時間を短縮してくれるありがたい機能です。
-
-auto-mode-alistなどの初期設定もautoload機能でできたりします。
-たとえばlua-modeパッケージをインストールした時点で*.luaファイルを開くとlua-modeになります。
-
-この魔法のコメントはコメントでありながら「意味がある」ので他のコメントとは別の見た目であってもいいのではないでしょうか？
-*dim-autoload.el* はこの魔法のコメントを薄い文字で表示するように変更します。
-
-細かいですが、こんな工夫もありますよってことで。
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20160904165832.png]]
-Fig3: before
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20160904165839.png]]
-Fig4: after
-
-
-
-# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+[includeme file="inc-package-install.php" name="dim-autoload" where="melpa"]
 ** 設定 [[http://rubikitch.com/f/160904165757.dim-autoload.el][160904165757.dim-autoload.el(以下のコードと同一)]]
 #+BEGIN: include :file "/r/sync/junk/160904/160904165757.dim-autoload.el"
 #+BEGIN_SRC fundamental
@@ -104,3 +61,4 @@ $ emacs -Q -f package-initialize -l 160904165757.dim-autoload.el
 
 # /r/sync/screenshots/20160904165832.png http://rubikitch.com/wp-content/uploads/2016/09/20160904165832.png
 # /r/sync/screenshots/20160904165839.png http://rubikitch.com/wp-content/uploads/2016/09/20160904165839.png
+[includeme file="inc-package-relate.php" name="dim-autoload"]

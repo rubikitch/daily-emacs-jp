@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 903
+#+POSTID: 611
+#+BLOG: rubikitch
 #+DATE: [2015-01-11 Sun 09:38]
 #+PERMALINK: solarized-theme
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,49 +8,17 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, theme
+#+CATEGORY: 明暗対応
 #+EL_PKG_NAME: solarized-theme
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, color-theme, Vim, Ethan Schoonover, 
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: from:vim
 #+EL_TITLE0: Vimから移植したcolor-theme
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージsolarized-themeの紹介
-#+MYTAGS: package:solarized-theme, emacs 使い方, emacs コマンド, emacs, solarized-theme, solarized-theme.el, emacs lisp solarized-theme, elisp solarized-theme, emacs melpa solarized-theme, emacs solarized-theme 使い方, emacs solarized-theme 設定, emacs パッケージ solarized-theme, emacs solarized-theme スクリーンショット, color-theme, Vim, Ethan Schoonover, 
-#+TAGS: package:solarized-theme, emacs 使い方, emacs コマンド, emacs, solarized-theme, solarized-theme.el, emacs lisp solarized-theme, elisp solarized-theme, emacs melpa solarized-theme, emacs solarized-theme 使い方, emacs solarized-theme 設定, emacs パッケージ solarized-theme, emacs solarized-theme スクリーンショット, color-theme, Vim, Ethan Schoonover, , Emacs, theme, solarized-theme.el
-#+TITLE: emacs solarized-theme.el : Vimから移植したcolor-theme | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>solarized-theme</td></tr>
-<tr><td>概要(原文)</td><td>The Solarized color theme, ported to Emacs.</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/bbatsov/solarized-emacs">https://github.com/bbatsov/solarized-emacs</a></td></tr>
-<tr><td>バージョン</td><td>20141216.1548</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:solarized-theme/">package:solarized-theme</a> </td></tr>
-</table>
-<br />
-#+END_HTML
-*solarized-theme.el* は[[http://ethanschoonover.com/solarized][Vimのそれ]] をEmacsに移植したものです。
-
-# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
-[[file:/r/sync/screenshots/20150111101912.png]]
-Fig1: (load-theme 'solarized-light t)
-
-[[file:/r/sync/screenshots/20150111101922.png]]
-Fig2: (load-theme 'solarized-dark t)
-
-[[file:/r/sync/screenshots/20150111102324.png]]
-Fig1: (setq solarized-high-contrast-mode-line t)
-
-** solarized-theme インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install solarized-theme
-
+#+TITLE: solarized-theme.el : Vimから移植したcolor-theme
+[includeme file="inc-package-table.php" name="solarized-theme" where="melpa"]
 
 #+end:
-** 概要                                                             :noexport:
+** 概要
 *solarized-theme.el* は[[http://ethanschoonover.com/solarized][Vimのそれ]] をEmacsに移植したものです。
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
@@ -60,9 +29,10 @@ Fig1: (load-theme 'solarized-light t)
 Fig2: (load-theme 'solarized-dark t)
 
 [[file:/r/sync/screenshots/20150111102324.png]]
-Fig1: (setq solarized-high-contrast-mode-line t)
+Fig3: (setq solarized-high-contrast-mode-line t)
 
 
+[includeme file="inc-package-install.php" name="solarized-theme" where="melpa"]
 ** 設定 [[http://rubikitch.com/f/150111101612.solarized.el][150111101612.solarized.el(以下のコードと同一)]]
 #+BEGIN: include :file "/r/sync/junk/150111/150111101612.solarized.el"
 #+BEGIN_SRC fundamental
@@ -104,3 +74,8 @@ Fig1: (setq solarized-high-contrast-mode-line t)
 $ wget http://rubikitch.com/f/150111101612.solarized.el
 $ emacs -Q -f package-initialize -l 150111101612.solarized.el
 #+END_EXAMPLE
+[includeme file="inc-package-relate.php" name="solarized-theme"]
+
+# /r/sync/screenshots/20150111101912.png http://emacs.rubikitch.com/wp-content/uploads/2016/09/20150111101912.png
+# /r/sync/screenshots/20150111101922.png http://emacs.rubikitch.com/wp-content/uploads/2016/09/20150111101922.png
+# /r/sync/screenshots/20150111102324.png http://emacs.rubikitch.com/wp-content/uploads/2016/09/20150111102324.png

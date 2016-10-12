@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 2022
+#+POSTID: 1157
+#+BLOG: rubikitch
 #+DATE: [2015-09-26 Sat 16:54]
 #+PERMALINK: diffview
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,28 +8,17 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs
+#+CATEGORY: コードリーディング
 #+EL_PKG_NAME: diffview
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, unified diff, diffをわかりやすく表示, relate:ediff, relate:diff, パッチをわかりやすく, relate:magit, relate:vc
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: magit, diff, 
 #+EL_TITLE0: 【パッチブラウザ】unified diffをわかりやすくside-by-sideで閲覧する
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージdiffviewの紹介
-#+MYTAGS: package:diffview, emacs 使い方, emacs コマンド, emacs, diffview, diffview.el, emacs lisp diffview, elisp diffview, emacs melpa diffview, emacs diffview 使い方, emacs diffview 設定, emacs パッケージ diffview, emacs diffview スクリーンショット, unified diff, diffをわかりやすく表示, relate:ediff, relate:diff, パッチをわかりやすく, relate:magit, relate:vc
-#+TAGS: package:diffview, emacs 使い方, emacs コマンド, emacs, diffview, diffview.el, emacs lisp diffview, elisp diffview, emacs melpa diffview, emacs diffview 使い方, emacs diffview 設定, emacs パッケージ diffview, emacs diffview スクリーンショット, unified diff, diffをわかりやすく表示, relate:ediff, relate:diff, パッチをわかりやすく, relate:magit, relate:vc, Emacs, diffview.el, M-x diffview-current, M-x diffview-region, M-x diffview-dwim, M-x magit-ediff, diffview.el, M-x diffview-current, M-x diffview-region, M-x diffview-dwim, M-x magit-ediff
-#+TITLE: emacs diffview.el : 【パッチブラウザ】unified diffをわかりやすくside-by-sideで閲覧する | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>diffview</td></tr>
-<tr><td>概要(原文)</td><td>View diffs in side-by-side format</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/mgalgs/diffview-mode">https://github.com/mgalgs/diffview-mode</a></td></tr>
-<tr><td>バージョン</td><td>20150923.58</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:diffview/">package:diffview</a> <a href="http://rubikitch.com/tag/package:ediff/">package:ediff</a> <a href="http://rubikitch.com/tag/package:diff/">package:diff</a> <a href="http://rubikitch.com/tag/package:magit/">package:magit</a> <a href="http://rubikitch.com/tag/package:vc/">package:vc</a></td></tr>
-</table>
-<br />
-#+END_HTML
+#+TITLE: diffview.el : 【パッチブラウザ】unified diffをわかりやすくside-by-sideで閲覧する
+[includeme file="inc-package-table.php" name="diffview" where="melpa"]
+
+#+end:
+** 概要
 unified diffは、side by sideで見るとわかりやすいです。
 
 *diffview.el* はそれを行ってくれます。
@@ -54,41 +44,8 @@ Fig1: diffを表示してる状態で
 #+ATTR_HTML: :width 480
 [[file:/r/sync/screenshots/20150926171836.png]]
 Fig2: M-x diffview-dwimでわかりやすく表示
-** diffview インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
 
-M-x package-refresh-contents
-M-x package-install diffview
-
-
-#+end:
-** 概要                                                             :noexport:
-unified diffは、side by sideで見るとわかりやすいです。
-
-*diffview.el* はそれを行ってくれます。
-
-*M-x diffview-current* はカレントバッファ全体、
-*M-x diffview-region* はregionをside by sideで表示しますが、
-本設定では *M-x diffview-dwim* で統合しています。
-
-side by sideで表示された状態において、
-スクロールは双方のバッファで連動していて、
-qでその状態を終了します。
-
-これらのコマンドはパッチが含まれていれば使えるので、
-たとえばmagitやvcのコミットバッファでも使えます。
-
-とはいえmagitならば *M-x magit-ediff* でediff表示もできますが…
-
-# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150926171832.png]]
-Fig3: diffを表示してる状態で
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150926171836.png]]
-Fig4: M-x diffview-dwimでわかりやすく表示
-
+[includeme file="inc-package-install.php" name="diffview" where="melpa"]
 ** 設定 [[http://rubikitch.com/f/150926171234.diffview.el][150926171234.diffview.el(以下のコードと同一)]]
 #+BEGIN: include :file "/r/sync/junk/150926/150926171234.diffview.el"
 #+BEGIN_SRC fundamental
@@ -107,3 +64,4 @@ Fig4: M-x diffview-dwimでわかりやすく表示
 $ wget http://rubikitch.com/f/150926171234.diffview.el
 $ emacs -Q -f package-initialize -l 150926171234.diffview.el
 #+END_EXAMPLE
+[includeme file="inc-package-relate.php" name="diffview"]

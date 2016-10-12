@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 2147
+#+POSTID: 1229
+#+BLOG: rubikitch
 #+DATE: [2015-11-02 Mon 05:44]
 #+PERMALINK: describe-number
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,28 +8,17 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs
+#+CATEGORY: 解析ツール
 #+EL_PKG_NAME: describe-number
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, 2進数, 8進数, 16進数, 基数変換, base, 2進法, 8進法, 16進法, 
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: number
 #+EL_TITLE0: 自然数を8/10/16進数に変換したり文字コードを表示したり
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージdescribe-numberの紹介
-#+MYTAGS: package:describe-number, emacs 使い方, emacs コマンド, emacs, describe-number, describe-number.el, emacs lisp describe-number, elisp describe-number, emacs melpa describe-number, emacs describe-number 使い方, emacs describe-number 設定, emacs パッケージ describe-number, emacs describe-number スクリーンショット, 2進数, 8進数, 16進数, 基数変換, base, 2進法, 8進法, 16進法, 
-#+TAGS: package:describe-number, emacs 使い方, emacs コマンド, emacs, describe-number, describe-number.el, emacs lisp describe-number, elisp describe-number, emacs melpa describe-number, emacs describe-number 使い方, emacs describe-number 設定, emacs パッケージ describe-number, emacs describe-number スクリーンショット, 2進数, 8進数, 16進数, 基数変換, base, 2進法, 8進法, 16進法, , Emacs, describe-number.el, M-x describe-number, M-x describe-number-at-point, M-x describe-number, M-x describe-number-at-point
-#+TITLE: emacs describe-number.el : 自然数を8/10/16進数に変換したり文字コードを表示したり | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>describe-number</td></tr>
-<tr><td>概要(原文)</td><td>Describe arbitrarily large number at point.</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/netromdk/describe-number">https://github.com/netromdk/describe-number</a></td></tr>
-<tr><td>バージョン</td><td>20151030.1640</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:describe-number/">package:describe-number</a> </td></tr>
-</table>
-<br />
-#+END_HTML
+#+TITLE: describe-number.el : 自然数を8/10/16進数に変換したり文字コードを表示したり
+[includeme file="inc-package-table.php" name="describe-number" where="melpa"]
+
+#+end:
+** 概要
 *describe-number.el* は数値の基数変換を行うコマンドを提供します。
 数値を入力すると、8進数や16進数に変換されたり、その文字コードなどがエコーエリアに表示されます。
 プログラミングにおいてふと16進数表記が知りたくなったり、その逆をやりたくなったときなどに役立つでしょう。
@@ -46,30 +36,6 @@ Fig1: ThisにてM-x describe-number-at-point
 #+ATTR_HTML: :width 480
 [[file:/r/sync/screenshots/20151102144217.png]]
 Fig2: 他の例(テキストだとエラーになるため画像で)
-** describe-number インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
 
-M-x package-refresh-contents
-M-x package-install describe-number
-
-
-#+end:
-** 概要                                                             :noexport:
-*describe-number.el* は数値の基数変換を行うコマンドを提供します。
-数値を入力すると、8進数や16進数に変換されたり、その文字コードなどがエコーエリアに表示されます。
-プログラミングにおいてふと16進数表記が知りたくなったり、その逆をやりたくなったときなどに役立つでしょう。
-
-*M-x describe-number* はミニバッファから数値を入力します。
-*M-x describe-number-at-point* はregionあるいは現在の単語の各文字の文字コードを表示します。
-
-1と0のみの数値を入力したときは、2進数とみなしたときの結果を表示し、0〜7の場合は8進数、A〜Fが含まれる場合は16進数の結果も表示します。
-
-# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20151102144035.png]]
-Fig3: ThisにてM-x describe-number-at-point
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20151102144217.png]]
-Fig4: 他の例(テキストだとエラーになるため画像で)
-
+[includeme file="inc-package-install.php" name="describe-number" where="melpa"]
+[includeme file="inc-package-relate.php" name="describe-number"]

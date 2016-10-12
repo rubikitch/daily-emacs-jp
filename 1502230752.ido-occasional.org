@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 1204
+#+POSTID: 719
+#+BLOG: rubikitch
 #+DATE: [2015-02-23 Mon 07:52]
 #+PERMALINK: ido-occasional
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,35 +8,26 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, helm, 
+#+CATEGORY: 候補選択
 #+EL_PKG_NAME: ido-occasional
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, relate:helm, package:smex, package:ido-vertical-mode, emacs ido helm, relate:iswitchb, emacs iswitchb helm, iswitchb, emacs バッファ選択, emacs バッファ切り替え, ido あいまい検索, ido あいまいマッチ, , package:ido, relate:ido, relate:ido-vertical-mode, relate:ido-ubiquitous
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: helm, ido
 #+EL_TITLE0: 【helm時々ido】使いたいときだけido補完をする
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージido-occasionalの紹介
-#+MYTAGS: package:ido-occasional, emacs 使い方, emacs コマンド, emacs, ido-occasional, ido-occasional.el, emacs lisp ido-occasional, elisp ido-occasional, emacs melpa ido-occasional, emacs ido-occasional 使い方, emacs ido-occasional 設定, emacs パッケージ ido-occasional, emacs ido-occasional スクリーンショット, relate:helm, package:smex, package:ido-vertical-mode, emacs ido helm, relate:iswitchb, emacs iswitchb helm, iswitchb, emacs バッファ選択, emacs バッファ切り替え, ido あいまい検索, ido あいまいマッチ, , package:ido, relate:ido, relate:ido-vertical-mode, relate:ido-ubiquitous
-#+TAGS: package:ido-occasional, emacs 使い方, emacs コマンド, emacs, ido-occasional, ido-occasional.el, emacs lisp ido-occasional, elisp ido-occasional, emacs melpa ido-occasional, emacs ido-occasional 使い方, emacs ido-occasional 設定, emacs パッケージ ido-occasional, emacs ido-occasional スクリーンショット, relate:helm, package:smex, package:ido-vertical-mode, emacs ido helm, relate:iswitchb, emacs iswitchb helm, iswitchb, emacs バッファ選択, emacs バッファ切り替え, ido あいまい検索, ido あいまいマッチ, , package:ido, relate:ido, relate:ido-vertical-mode, relate:ido-ubiquitous, Emacs, helm, , helm, ido, ido-occasional.el, with-ido-completion, completing-read, ido-completing-read, helm-mode, global-set-key, define-key, describe-function, describe-function/with-ido, describe-variable, describe-variable/with-ido, info-lookup-symbol, info-lookup-symbol/with-ido, ido, ido-occasional.el, with-ido-completion, completing-read, ido-completing-read, helm-mode, global-set-key, define-key, describe-function, describe-function/with-ido, describe-variable, describe-variable/with-ido, info-lookup-symbol, info-lookup-symbol/with-ido
-#+TITLE: emacs ido-occasional.el : 【helm時々ido】使いたいときだけido補完をする | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>ido-occasional</td></tr>
-<tr><td>概要(原文)</td><td>Use ido where you choose.</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/abo-abo/ido-occasional">https://github.com/abo-abo/ido-occasional</a></td></tr>
-<tr><td>バージョン</td><td>20150214.448</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:ido-occasional/">package:ido-occasional</a> <a href="http://rubikitch.com/tag/package:helm/">package:helm</a> <a href="http://rubikitch.com/tag/package:iswitchb/">package:iswitchb</a> <a href="http://rubikitch.com/tag/package:ido/">package:ido</a> <a href="http://rubikitch.com/tag/package:ido-vertical-mode/">package:ido-vertical-mode</a> <a href="http://rubikitch.com/tag/package:ido-ubiquitous/">package:ido-ubiquitous</a></td></tr>
-</table>
-<br />
-#+END_HTML
+#+TITLE: ido-occasional.el : 【helm時々ido】使いたいときだけido補完をする
+[includeme file="inc-package-table.php" name="ido-occasional" where="melpa"]
+
+#+end:
+M-x package-install ido-vertical-mode
+
+** 概要
 優れた補完のインターフェースとして、 *helm* と *ido* があります。
 
 確かになんでもできるhelmはとても優れていますが、
 あいまいマッチ有効時のidoは打鍵数がhelmよりも少なくなります。
 
-ido原理主義者ならば [[http://rubikitch.com/2015/01/10/ido-ubiquitous/][ido-ubiquitous.el(レビュー)]]  を使えばいいですが、
-helmには複数情報源・複数アクション・[[http://rubikitch.com/2014/12/19/helm-migemo/][Migemo化]] というメリットもあります。
+ido原理主義者ならば [[http://emacs.rubikitch.com/ido-ubiquitous/][ido-ubiquitous.el(レビュー)]]  を使えばいいですが、
+helmには複数情報源・複数アクション・[[http://emacs.rubikitch.com/helm-migemo/][Migemo化]] というメリットもあります。
 
 よって、適材適所で両者を共存させるのがベストです。
 
@@ -67,68 +59,14 @@ idoの補完が使われるようになります。
 
 
 helm好きならば、ぜひともidoの候補を縦に並べる
-[[http://rubikitch.com/2015/01/06/ido-vertical-mode/][ido-vertical-mode(レビュー)]] も入れておきましょう。
+[[http://emacs.rubikitch.com/ido-vertical-mode/][ido-vertical-mode(レビュー)]] も入れておきましょう。
 
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
 [[file:/r/sync/screenshots/20150223080911.png]]
 Fig1: ido化されたdescribe-function with ido-vertical-mode
-** ido-occasional インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
 
-M-x package-refresh-contents
-M-x package-install ido-occasional
-
-
-#+end:
-M-x package-install ido-vertical-mode
-
-** 概要                                                             :noexport:
-優れた補完のインターフェースとして、 *helm* と *ido* があります。
-
-確かになんでもできるhelmはとても優れていますが、
-あいまいマッチ有効時のidoは打鍵数がhelmよりも少なくなります。
-
-ido原理主義者ならば [[http://rubikitch.com/2015/01/10/ido-ubiquitous/][ido-ubiquitous.el(レビュー)]]  を使えばいいですが、
-helmには複数情報源・複数アクション・[[http://rubikitch.com/2014/12/19/helm-migemo/][Migemo化]] というメリットもあります。
-
-よって、適材適所で両者を共存させるのがベストです。
-
-そこで、 *ido-occasional.el* の出番です。
-
-*with-ido-completion* マクロを使えば、
-既存のコマンドの内部で使われている *completing-read* 関数(補完入力関数)を
-idoのもの(*ido-completing-read*)に置き換えたコマンドを定義します。
-
-機能としては、たったこれだけ(1つの関数と1つのマクロしか定義されていない)ですが、
-より細かな制御ができるようになります。
-
-#+BEGIN_SRC emacs-lisp :results silent
-(global-set-key (kbd "<f1> f") (with-ido-completion describe-function))
-(global-set-key (kbd "<f1> v") (with-ido-completion describe-variable))
-(global-set-key (kbd "<f2> i") (with-ido-completion info-lookup-symbol))
-#+END_SRC
-
-
-と定義しておけば、<f1> fはたとえ *helm-mode* が有効が有効であったとしても
-idoの補完が使われるようになります。
-
-それぞれ以下のコマンドが定義され、
-そのまま *global-set-key* や *define-key* に設定できます。
-
-- *describe-function* -> *describe-function/with-ido* 
-- *describe-variable* -> *describe-variable/with-ido* 
-- *info-lookup-symbol* -> *info-lookup-symbol/with-ido* 
-
-
-helm好きならば、ぜひともidoの候補を縦に並べる
-[[http://rubikitch.com/2015/01/06/ido-vertical-mode/][ido-vertical-mode(レビュー)]] も入れておきましょう。
-
-
-# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
-[[file:/r/sync/screenshots/20150223080911.png]]
-Fig2: ido化されたdescribe-function with ido-vertical-mode
-
+[includeme file="inc-package-install.php" name="ido-occasional" where="melpa"]
 ** 設定 [[http://rubikitch.com/f/150223080750.ido-occasional.el][150223080750.ido-occasional.el(以下のコードと同一)]]
 #+BEGIN: include :file "/r/sync/junk/150223/150223080750.ido-occasional.el"
 #+BEGIN_SRC fundamental
@@ -155,3 +93,4 @@ $ emacs -Q -f package-initialize -l 150223080750.ido-occasional.el
 #+END_EXAMPLE
 
 # /r/sync/screenshots/20150223080911.png http://rubikitch.com/wp-content/uploads/2015/02/wpid-20150223080911.png
+[includeme file="inc-package-relate.php" name="ido-occasional"]

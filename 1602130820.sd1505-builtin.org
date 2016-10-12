@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 2401
+#+POSTID: 1421
+#+BLOG: rubikitch
 #+DATE: [2016-02-13 Sat 08:20]
 #+PERMALINK: sd1505-builtin
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,9 +8,9 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, 連載『るびきち流Emacs超入門』
+#+CATEGORY: るびきち流Emacs超入門
 #+DESCRIPTION:
-#+TAGS:プレフィクスキー, prefix, key, help, apropos, global-set-key, 数引数, 前置引数, 
+#+TAGS:
 #+TITLE: #13 標準コマンドから改めて見るEmacs (Software Design 2015年5月号掲載記事) Emacs 使い方
 Software Design連載記事を掲載します。
 
@@ -172,7 +173,7 @@ emacs -batch -f describe-bindings -eval '(with-current-buffer "*Help*" (princ (b
 
 　中にはC-uが押された数によって挙動が変化するコマンドも存在します。
 
-　このように、C-uを使うことで複数の機能を1つのコマンドにまとめられます。普段C-uを使わないコマンドに対してC-uを付けたときの挙動を追加したりすれば、限られたキーバインド資源を有効活用できます。それを行うパッケージがmykie.elで、筆者のサイトで紹介しています。http://rubikitch.com/2014/11/09/mykie
+　このように、C-uを使うことで複数の機能を1つのコマンドにまとめられます。普段C-uを使わないコマンドに対してC-uを付けたときの挙動を追加したりすれば、限られたキーバインド資源を有効活用できます。それを行うパッケージがmykie.elで、筆者のサイトで紹介しています。http://emacs.rubikitch.com/mykie
 
 * 終わりに
 　いかがだったでしょうか？パッケージ全盛時代でつい外部パッケージに目が行ってしまいがちな今日この頃ですが、あえて標準コマンドに立ち帰ってみました。意外な発見がありましたでしょうか？

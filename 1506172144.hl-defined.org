@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 1755
+#+POSTID: 978
+#+BLOG: rubikitch
 #+DATE: [2015-06-17 Wed 21:44]
 #+PERMALINK: hl-defined
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,29 +8,18 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs
+#+CATEGORY: テキスト色付け
 #+EL_PKG_NAME: hl-defined
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, relate:highlight-defined
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: 
 #+EL_TITLE0: elispファイルで定義済の関数・変数に色をつける
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージhl-definedの紹介
-#+MYTAGS: package:hl-defined, emacs 使い方, emacs コマンド, emacs, hl-defined, hl-defined.el, emacs lisp hl-defined, elisp hl-defined, emacs melpa hl-defined, emacs hl-defined 使い方, emacs hl-defined 設定, emacs パッケージ hl-defined, emacs hl-defined スクリーンショット, relate:highlight-defined
-#+TAGS: package:hl-defined, emacs 使い方, emacs コマンド, emacs, hl-defined, hl-defined.el, emacs lisp hl-defined, elisp hl-defined, emacs melpa hl-defined, emacs hl-defined 使い方, emacs hl-defined 設定, emacs パッケージ hl-defined, emacs hl-defined スクリーンショット, relate:highlight-defined, Emacs, hl-defined.el
-#+TITLE: emacs hl-defined.el : elispファイルで定義済の関数・変数に色をつける | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>hl-defined</td></tr>
-<tr><td>概要(原文)</td><td>Highlight defined or undefined symbols in Emacs-Lisp.</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="http://www.emacswiki.org/hl-defined.el">http://www.emacswiki.org/hl-defined.el</a></td></tr>
-<tr><td>バージョン</td><td>20150104.2220</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:hl-defined/">package:hl-defined</a> <a href="http://rubikitch.com/tag/package:highlight-defined/">package:highlight-defined</a></td></tr>
-</table>
-<br />
-#+END_HTML
-*hl-defined.el* は[[http://rubikitch.com/2014/09/15/highlight-defined/][highlight-defined.el(レビュー)]]同様
+#+TITLE: hl-defined.el : elispファイルで定義済の関数・変数に色をつける
+[includeme file="inc-package-table.php" name="hl-defined" where="melpa"]
+
+#+end:
+** 概要
+*hl-defined.el* は[[http://emacs.rubikitch.com/highlight-defined/][highlight-defined.el(レビュー)]]同様
 elispファイルの既存のシンボルに色をつけるものです。
 
 これにより未定義シンボルをミスタイプで
@@ -47,34 +37,8 @@ Fig1: ビフォー
 #+ATTR_HTML: :width 480
 [[file:/r/sync/screenshots/20150617215102.png]]
 Fig2: アフター
-** hl-defined インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
 
-M-x package-refresh-contents
-M-x package-install hl-defined
-
-
-#+end:
-** 概要                                                             :noexport:
-*hl-defined.el* は[[http://rubikitch.com/2014/09/15/highlight-defined/][highlight-defined.el(レビュー)]]同様
-elispファイルの既存のシンボルに色をつけるものです。
-
-これにより未定義シンボルをミスタイプで
-うっかり使ってしまうことを防げます。
-
-ハイライトされる色については
-M-x customize-group Highlight-Defined
-でカスタマイズしてください。
-
-# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150617215057.png]]
-Fig3: ビフォー
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150617215102.png]]
-Fig4: アフター
-
+[includeme file="inc-package-install.php" name="hl-defined" where="melpa"]
 ** 設定 [[http://rubikitch.com/f/150617214157.hl-defined.1.el][150617214157.hl-defined.1.el(以下のコードと同一)]]
 #+BEGIN: include :file "/r/sync/junk/150617/150617214157.hl-defined.1.el"
 #+BEGIN_SRC fundamental
@@ -89,3 +53,4 @@ Fig4: アフター
 $ wget http://rubikitch.com/f/150617214157.hl-defined.1.el
 $ emacs -Q -f package-initialize -l 150617214157.hl-defined.1.el
 #+END_EXAMPLE
+[includeme file="inc-package-relate.php" name="hl-defined"]

@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 1847
+#+POSTID: 1040
+#+BLOG: rubikitch
 #+DATE: [2015-07-22 Wed 01:58]
 #+PERMALINK: rake
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,35 +8,24 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, Ruby, ido, 
+#+CATEGORY: Ruby支援
 #+EL_PKG_NAME: rake
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, emacs Rakefile, relate:ido, relate:ido-vertical-mode
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: ido
 #+EL_TITLE0: Rakefileを補完選択実行する(zeus/spring/bundler対応)
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージrakeの紹介
-#+MYTAGS: package:rake, emacs 使い方, emacs コマンド, emacs, rake, rake.el, emacs lisp rake, elisp rake, emacs melpa rake, emacs rake 使い方, emacs rake 設定, emacs パッケージ rake, emacs rake スクリーンショット, emacs Rakefile, relate:ido, relate:ido-vertical-mode
-#+TAGS: package:rake, emacs 使い方, emacs コマンド, emacs, rake, rake.el, emacs lisp rake, elisp rake, emacs melpa rake, emacs rake 使い方, emacs rake 設定, emacs パッケージ rake, emacs rake スクリーンショット, emacs Rakefile, relate:ido, relate:ido-vertical-mode, Emacs, Ruby, ido, , rake.el, rake, M-x rake, zeus, spring, bundler, grizzl, C-u M-x rake, M-x rake-find-task, Rakefile, rake, M-x rake, zeus, spring, bundler, grizzl, C-u M-x rake, M-x rake-find-task, Rakefile
-#+TITLE: emacs rake.el : Rakefileを補完選択実行する(zeus/spring/bundler対応) | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>rake</td></tr>
-<tr><td>概要(原文)</td><td>Run rake commands</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/asok/rake">https://github.com/asok/rake</a></td></tr>
-<tr><td>バージョン</td><td>20150124.728</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:rake/">package:rake</a> <a href="http://rubikitch.com/tag/package:ido/">package:ido</a> <a href="http://rubikitch.com/tag/package:ido-vertical-mode/">package:ido-vertical-mode</a></td></tr>
-</table>
-<br />
-#+END_HTML
+#+TITLE: rake.el : Rakefileを補完選択実行する(zeus/spring/bundler対応)
+[includeme file="inc-package-table.php" name="rake" where="melpa"]
+
+#+end:
+** 概要
 *rake.el* は、Ruby版makeである *rake* をEmacsから扱います。
 
 *M-x rake* はrakeを実行します。
 
 *zeus* 、 *spring* 、 *bundler* の存在を自動判別します。
 
-タスク選択インターフェースは[[http://rubikitch.com/2015/01/06/ido-vertical-mode/][ido-vertical-mode.el(レビュー)]] がデフォルトですが、
+タスク選択インターフェースは[[http://emacs.rubikitch.com/ido-vertical-mode/][ido-vertical-mode.el(レビュー)]] がデフォルトですが、
 [[http://rubikitch.com/category/helm/][helm(カテゴリ)]] や *grizzl* も選択できます。
 
 引数をつける場合は *C-u M-x rake* を使います。
@@ -50,37 +40,8 @@
 [[file:/r/sync/screenshots/20150722021308.png]]
 Fig1: M-x rake
 
-** rake インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
 
-M-x package-refresh-contents
-M-x package-install rake
-
-
-#+end:
-** 概要                                                             :noexport:
-*rake.el* は、Ruby版makeである *rake* をEmacsから扱います。
-
-*M-x rake* はrakeを実行します。
-
-*zeus* 、 *spring* 、 *bundler* の存在を自動判別します。
-
-タスク選択インターフェースは[[http://rubikitch.com/2015/01/06/ido-vertical-mode/][ido-vertical-mode.el(レビュー)]] がデフォルトですが、
-[[http://rubikitch.com/category/helm/][helm(カテゴリ)]] や *grizzl* も選択できます。
-
-引数をつける場合は *C-u M-x rake* を使います。
-
-おまけとして、 *M-x rake-find-task* は *Rakefile* 中で
-指定したタスクにジャンプします。
-
-
-
-# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150722021308.png]]
-Fig2: M-x rake
-
-
+[includeme file="inc-package-install.php" name="rake" where="melpa"]
 ** 設定 [[http://rubikitch.com/f/150722020929.rake.el][150722020929.rake.el(以下のコードと同一)]]
 #+BEGIN: include :file "/r/sync/junk/150722/150722020929.rake.el"
 #+BEGIN_SRC fundamental
@@ -102,3 +63,4 @@ Fig2: M-x rake
 $ wget http://rubikitch.com/f/150722020929.rake.el
 $ emacs -Q -f package-initialize -l 150722020929.rake.el
 #+END_EXAMPLE
+[includeme file="inc-package-relate.php" name="rake"]

@@ -1,32 +1,20 @@
 #+BLOG: rubikitch
-#+POSTID: 756
+#+POSTID: 512
+#+BLOG: rubikitch
 #+DATE: [2014-12-20 Sat 14:59]
 #+PERMALINK: ack-menu
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
 #+ISPAGE: nil
-#+DESCRIPTION:
+#+DESCRIPTION:ackをmagit風のメニューで動かす。とはいえthe_silver_searcher(ag)の方が早いのでおすすめ
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, Emacs Lisp, 
+#+CATEGORY: 検索
 #+EL_PKG_NAME: ack-menu
-#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, package:mag-menu, relate:mag-menu, ack-grep, ack, grep, ag, pt, the_platinum_searcher, the_silver_searcher, relate:magit
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: ack, 外部プログラム使用, use:perl
 #+EL_TITLE0: ack-grepをmagitのメニューインターフェースで動かす！mag-menuの実例！！
-#+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージack-menuの紹介
-#+MYTAGS: package:ack-menu, emacs 使い方, emacs コマンド, emacs, emacs lisp ack-menu, elisp ack-menu, emacs melpa ack-menu, emacs ack-menu 使い方, emacs ack-menu 設定, emacs パッケージ ack-menu, emacs ack-menu スクリーンショット, package:mag-menu, relate:mag-menu, ack-grep, ack, grep, ag, pt, the_platinum_searcher, the_silver_searcher, relate:magit
-#+TITLE: emacs ack-menu.el : ack-grepをmagitのメニューインターフェースで動かす！mag-menuの実例！！ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>ack-menu</td></tr>
-<tr><td>概要(原文)</td><td>A menu-based front-end for ack</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/chumpage/ack-menu">https://github.com/chumpage/ack-menu</a></td></tr>
-<tr><td>バージョン</td><td>20130312.131</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:ack-menu/">package:ack-menu</a> <a href="http://rubikitch.com/tag/package:mag-menu/">package:mag-menu</a> <a href="http://rubikitch.com/tag/package:magit/">package:magit</a></td></tr>
-</table>
-<br />
-#+END_HTML
+#+TITLE: ack-menu.el : ack-grepをmagitのメニューインターフェースで動かす！mag-menuの実例！！
+[includeme file="inc-package-table.php" name="ack-menu" where="melpa"]
+** 概要
 *ack-menu.el* は、高速grepの[[http://beyondgrep.com/][ack(ack-grep)]] を
 *magit* のメニューインターフェースで
 細かくオプションを設定して実行します。
@@ -35,37 +23,7 @@ magitのインターフェースの素晴らしさは、
 複雑なオプションをもメニュー形式で指定でき
 誰にでも使いやすいことです。
 
-[[http://rubikitch.com/2014/12/20/mag-menu/][メニューインターフェースを提供するライブラリmag-menu]] の
-いい実例でもあります。
-
-興味ある方はソースコードを読んでみてください。
-
-同種の優れたインターフェースを作るいい勉強になることでしょう。
-
-# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
-http://rubikitch.com/f/20141220150449.png
-Fig1: magitのメニューインターフェースでackのオプションを選択
-
-http://rubikitch.com/f/20141220150504.png
-Fig2: ack検索結果を表示
-** ack-menu インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install ack-menu
-
-
-#+end:
-** 概要                                                             :noexport:
-*ack-menu.el* は、高速grepの[[http://beyondgrep.com/][ack(ack-grep)]] を
-*magit* のメニューインターフェースで
-細かくオプションを設定して実行します。
-
-magitのインターフェースの素晴らしさは、
-複雑なオプションをもメニュー形式で指定でき
-誰にでも使いやすいことです。
-
-[[http://rubikitch.com/2014/12/20/mag-menu/][メニューインターフェースを提供するライブラリmag-menu]] の
+[[http://emacs.rubikitch.com/mag-menu/][メニューインターフェースを提供するライブラリmag-menu]] の
 いい実例でもあります。
 
 興味ある方はソースコードを読んでみてください。
@@ -79,3 +37,5 @@ Fig1: magitのメニューインターフェースでackのオプションを選
 http://rubikitch.com/f/20141220150504.png
 Fig2: ack検索結果を表示
 
+[includeme file="inc-package-install.php" name="ack-menu" where="melpa"]
+[includeme file="inc-package-relate.php" name="ack-menu"]

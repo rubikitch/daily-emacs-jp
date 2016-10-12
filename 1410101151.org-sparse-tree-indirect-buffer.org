@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 448
+#+POSTID: 343
+#+BLOG: rubikitch
 #+DATE: [2014-10-10 Fri 11:51]
 #+PERMALINK: org-sparse-tree-indirect-buffer
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t
@@ -7,10 +8,9 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs,
+#+CATEGORY: 検索
 #+DESCRIPTION: org-modeのC-c /の結果表示にindirect-bufferを使い、すぐに元の表示に戻せるようにする。
-#+MYTAGS: package:org, org-mode, emacs org-mode, org-mode C-c /, make-indirect-buffer, clone-indirect-buffer, emacs 間接バッファ org-mode, org-mode 検索
-#+TAGS: package:org, org-mode, emacs org-mode, org-mode C-c /, make-indirect-buffer, clone-indirect-buffer, emacs 間接バッファ org-mode, org-mode 検索, Emacs,, アウトライン, スケジュール管理, 文書作成, C-c /, M-x org-sparse-tree, C-c / /, indirect-buffer
+#+TAGS: indirect-buffer, org
 #+TITLE: Emacs org-modeの検索機能を16倍パワーアップする方法
 org-mode使っていますかー？
 

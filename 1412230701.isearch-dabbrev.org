@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 778
+#+POSTID: 1585
+#+BLOG: rubikitch
 #+DATE: [2014-12-23 Tue 07:01]
 #+PERMALINK: isearch-dabbrev
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,58 +8,23 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, helm, 
+#+CATEGORY: 検索
 #+EL_PKG_NAME: isearch-dabbrev
-#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, relate:helm, relate:ace-isearch, relate:helm-swoop, isearch dabbrev-expand, dabbrev-expand, relate:ace-jump-mode
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: 
 #+EL_TITLE0: isearch中に検索語を補完する/ace-isearch(helm-swoop)のお供に
 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージisearch-dabbrevの紹介
-#+MYTAGS: package:isearch-dabbrev, emacs 使い方, emacs コマンド, emacs, emacs lisp isearch-dabbrev, elisp isearch-dabbrev, emacs melpa isearch-dabbrev, emacs isearch-dabbrev 使い方, emacs isearch-dabbrev 設定, emacs パッケージ isearch-dabbrev, emacs isearch-dabbrev スクリーンショット, relate:helm, relate:ace-isearch, relate:helm-swoop, isearch dabbrev-expand, dabbrev-expand, relate:ace-jump-mode
-#+TITLE: emacs isearch-dabbrev.el : isearch中に検索語を補完する/ace-isearch(helm-swoop)のお供に | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>isearch-dabbrev</td></tr>
-<tr><td>概要(原文)</td><td>Use dabbrev in isearch</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/Dewdrops/isearch-dabbrev">https://github.com/Dewdrops/isearch-dabbrev</a></td></tr>
-<tr><td>バージョン</td><td>20141223.2222</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:isearch-dabbrev/">package:isearch-dabbrev</a> <a href="http://rubikitch.com/tag/package:helm/">package:helm</a> <a href="http://rubikitch.com/tag/package:ace-isearch/">package:ace-isearch</a> <a href="http://rubikitch.com/tag/package:helm-swoop/">package:helm-swoop</a> <a href="http://rubikitch.com/tag/package:ace-jump-mode/">package:ace-jump-mode</a></td></tr>
-</table>
-<br />
-#+END_HTML
-*isearch-dabbrev.el* は、 *インクリメンタルサーチ* 中に
-TABを押すことで *dabbrev* (*動的略語展開*)を行うものです。
-
-つまり、検索語を完全に入力しなくても適宜補完してくれます。
-
-[[http://rubikitch.com/2014/10/08/ace-isearch/][isearchからhelm-swoopへと繋ぐace-isearch]] とは
-すこぶる相性がよく、数文字タイプしてからTABで補完し、
-自動的に *helm-swoop* へ移行できるようになります。
-
-クリスマスに *helm-swoop* を大々的に紹介しますが、
-helm-swoopは神拡張なのでアンチhelmもhelm-swoopのためだけに
-helmを使ってみてください。
-
-<2014-12-25 Thu> [[http://rubikitch.com/2014/12/25/helm-swoop/][Emacs Advent Calendar 2014にてhelm-swoopについて書きました！]] 
-
-
-** isearch-dabbrev インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install isearch-dabbrev
-
+#+TITLE: isearch-dabbrev.el : isearch中に検索語を補完する/ace-isearch(helm-swoop)のお供に
+[includeme file="inc-package-table.php" name="isearch-dabbrev" where="melpa"]
 
 #+end:
-** 概要                                                             :noexport:
+** 概要
 *isearch-dabbrev.el* は、 *インクリメンタルサーチ* 中に
 TABを押すことで *dabbrev* (*動的略語展開*)を行うものです。
 
 つまり、検索語を完全に入力しなくても適宜補完してくれます。
 
-[[http://rubikitch.com/2014/10/08/ace-isearch/][isearchからhelm-swoopへと繋ぐace-isearch]] とは
+[[http://emacs.rubikitch.com/ace-isearch/][isearchからhelm-swoopへと繋ぐace-isearch]] とは
 すこぶる相性がよく、数文字タイプしてからTABで補完し、
 自動的に *helm-swoop* へ移行できるようになります。
 
@@ -66,10 +32,11 @@ TABを押すことで *dabbrev* (*動的略語展開*)を行うものです。
 helm-swoopは神拡張なのでアンチhelmもhelm-swoopのためだけに
 helmを使ってみてください。
 
-<2014-12-25 Thu> [[http://rubikitch.com/2014/12/25/helm-swoop/][Emacs Advent Calendar 2014にてhelm-swoopについて書きました！]] 
+<2014-12-25 Thu> [[http://emacs.rubikitch.com/helm-swoop/][Emacs Advent Calendar 2014にてhelm-swoopについて書きました！]] 
 
 
 
+[includeme file="inc-package-install.php" name="isearch-dabbrev" where="melpa"]
 ** 設定 [[http://rubikitch.com/f/141223071031.isearch-dabbrev.el][141223071031.isearch-dabbrev.el(以下のコードと同一)]]
 #+BEGIN: include :file "/r/sync/junk/141223/141223071031.isearch-dabbrev.el"
 #+BEGIN_SRC fundamental
@@ -92,3 +59,4 @@ Fig1: isearchでisまで入力し
 http://rubikitch.com/f/20141223070902.png
 Fig2: TABを押すとisearchまで補完される(helm-swoop発動)
 
+[includeme file="inc-package-relate.php" name="isearch-dabbrev"]

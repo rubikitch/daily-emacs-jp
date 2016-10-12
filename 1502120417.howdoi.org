@@ -1,87 +1,24 @@
 #+BLOG: rubikitch
-#+POSTID: 1119
+#+POSTID: 698
+#+BLOG: rubikitch
 #+DATE: [2015-02-12 Thu 04:17]
 #+PERMALINK: howdoi
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
 #+ISPAGE: nil
-#+DESCRIPTION:
+#+DESCRIPTION:stackoverflow.comの膨大な知識ベースにEmacsからアクセスする
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs
+#+CATEGORY: プログラミングヘルプ
 #+EL_PKG_NAME: howdoi
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, emacs stackoverflow, emacs howdoi, emacs google, emacs プログラミング 質問, emacs プログラミング わからない, emacs コード 検索, emacs code snippet search, emacs どう書く？, 使い方 わからない, 使い方 調べる, 使い方 ググる
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: るびきちオススメ
 #+EL_TITLE0: 【どうやるの？】プログラミングのお助けマンをEmacsから召喚する
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージhowdoiの紹介
-#+MYTAGS: package:howdoi, emacs 使い方, emacs コマンド, emacs, howdoi, howdoi.el, emacs lisp howdoi, elisp howdoi, emacs melpa howdoi, emacs howdoi 使い方, emacs howdoi 設定, emacs パッケージ howdoi, emacs howdoi スクリーンショット, emacs stackoverflow, emacs howdoi, emacs google, emacs プログラミング 質問, emacs プログラミング わからない, emacs コード 検索, emacs code snippet search, emacs どう書く？, 使い方 わからない, 使い方 調べる, 使い方 ググる
-#+TAGS: package:howdoi, emacs 使い方, emacs コマンド, emacs, howdoi, howdoi.el, emacs lisp howdoi, elisp howdoi, emacs melpa howdoi, emacs howdoi 使い方, emacs howdoi 設定, emacs パッケージ howdoi, emacs howdoi スクリーンショット, emacs stackoverflow, emacs howdoi, emacs google, emacs プログラミング 質問, emacs プログラミング わからない, emacs コード 検索, emacs code snippet search, emacs どう書く？, 使い方 わからない, 使い方 調べる, 使い方 ググる, Emacs, howdoi.el, M-x howdoi-query, howdoi.el, M-x howdoi-query
-#+TITLE: emacs howdoi.el : 【どうやるの？】プログラミングのお助けマンをEmacsから召喚する | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>howdoi</td></tr>
-<tr><td>概要(原文)</td><td>Instant coding answers via Emacs.</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/atykhonov/emacs-howdoi">https://github.com/atykhonov/emacs-howdoi</a></td></tr>
-<tr><td>バージョン</td><td>20150203.1643</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:howdoi/">package:howdoi</a> </td></tr>
-</table>
-<br />
-#+END_HTML
-プログラミングでわからないことがあったら、どうしていますか？
-
-「どう書くの？」
-「どう使うの？」
-はプログラマならば常につきまとう疑問です。
-
-普通はマニュアルを参照したり、ググったりすることでしょう。
-
-実は [[http://stackoverflow.com/]] というプログラマのＱ＆Ａサイトがあって、
-<2015-02-12 Thu>時点で8837171ものエントリが登録されています！！
-
-まさに世界中のプログラマの叡智の宝庫というわけです。
-
-この膨大なデータベースにEmacsからアクセスするのが、
-この *howdoi.el* です。
-
-由来は「How Do I **? (どうやるの？)」です。
-
-これはPythonで書かれた[[https://github.com/gleitz/howdoi][同名のツール]] のelisp版です。
-
-使い方は簡単で、 *M-x howdoi-query* でクエリを入力します。
-
-*How do I*バッファに結果が表示され、
-「=======」が質問と回答の区切りで、
-「-------」が回答の区切りです。
-
-*How do I*バッファでは、以下の操作が使えます。
-
-- n :: 次の質問
-- p :: 前の質問
-- b :: ブラウザで開く
-- u :: 新しいクエリで調べる(howdoi-query再実行)
-- < :: バッファ先頭
-- > :: バッファ末尾
-- q :: ウィンドウを閉じる
-
-本設定ではURLを表示するようにしていますが、
-pで戻ったときには反映されていないバグがあります…
-
-
-
-# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
-[[file:/r/sync/screenshots/20150212043652.png]]
-Fig1: M-x howdoi-query format date bashの結果
-** howdoi インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install howdoi
-
+#+TITLE: howdoi.el : 【どうやるの？】プログラミングのお助けマンをEmacsから召喚する
+[includeme file="inc-package-table.php" name="howdoi" where="melpa"]
 
 #+end:
-** 概要                                                             :noexport:
+** 概要
 プログラミングでわからないことがあったら、どうしていますか？
 
 「どう書くの？」
@@ -127,6 +64,7 @@ pで戻ったときには反映されていないバグがあります…
 [[file:/r/sync/screenshots/20150212043652.png]]
 Fig1: M-x howdoi-query format date bashの結果
 
+[includeme file="inc-package-install.php" name="howdoi" where="melpa"]
 ** 設定 [[http://rubikitch.com/f/150212040937.howdoi.el][150212040937.howdoi.el(以下のコードと同一)]]
 #+BEGIN: include :file "/r/sync/junk/150212/150212040937.howdoi.el"
 #+BEGIN_SRC fundamental
@@ -151,3 +89,4 @@ $ emacs -Q -f package-initialize -l 150212040937.howdoi.el
 #+END_EXAMPLE
 
 # /r/sync/screenshots/20150212043652.png http://rubikitch.com/wp-content/uploads/2015/02/wpid-20150212043652.png
+[includeme file="inc-package-relate.php" name="howdoi"]

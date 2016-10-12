@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 2403
+#+POSTID: 1423
+#+BLOG: rubikitch
 #+DATE: [2016-02-14 Sun 07:21]
 #+PERMALINK: sd1506-builtin
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,9 +8,9 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, 連載『るびきち流Emacs超入門』
+#+CATEGORY: るびきち流Emacs超入門
 #+DESCRIPTION:
-#+TAGS:mark, yank, kill-ring, mark-ring, exchange-point-and-mark, set-mark-command-repeat-pop, global-mark, mark-word, mark-sexp, mark-whole-buffer, rectangle-mark-mode, キーボードマクロ, kmacro, centimacro, relate:centimacro, capitalize, relate:sequential-command, package:sequential-command, count-words-region, count-lines-page, what-cursor-position, find-library, recenter-top-bottom, balance-windows, shrink-window-if-larger-than-buffer, text-scale-adjust, set-selective-display, package:cn-outline, 
+#+TAGS:
 #+TITLE: #14 地味だけどあなどれない標準コマンドたち (Software Design 2015年6月号掲載記事) Emacs 使い方
 Software Design連載記事を掲載します。
 
@@ -71,7 +72,7 @@ Software Design連載記事を掲載します。
 
 　文字列の長さが異なる場合は単語、S式単位の移動やisearchを使ってください。
 
-　キーボードマクロを複数個同時に使いたいならばcentimacroパッケージが便利です。著者の筆者のサイト [[http://rubikitch.com/2015/03/31/centimacro/]]  で紹介しています。
+　キーボードマクロを複数個同時に使いたいならばcentimacroパッケージが便利です。著者の筆者のサイト [[http://emacs.rubikitch.com/centimacro/]]  で紹介しています。
 * 地味なコマンドたち
 　使用頻度こそ低いものの、知っておくと便利な標準機能を紹介します。
 

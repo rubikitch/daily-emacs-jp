@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 1671
+#+POSTID: 924
+#+BLOG: rubikitch
 #+DATE: [2015-05-21 Thu 10:05]
 #+PERMALINK: http
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,61 +8,18 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs
+#+CATEGORY: Web
 #+EL_PKG_NAME: http
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, , emacs httpクライアント, relate:request, relate:httprepl, relate:restclient, emacs クローラー, httpクライアント 開発, emacs httpアクセス, Webアクセスを自動化する
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 
+#+TAGS: 
 #+EL_TITLE0: 【HTTPクライアント】バッファからHTTPリクエストを対話的に送る
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージhttpの紹介
-#+MYTAGS: package:http, emacs 使い方, emacs コマンド, emacs, http, http.el, emacs lisp http, elisp http, emacs melpa http, emacs http 使い方, emacs http 設定, emacs パッケージ http, , emacs httpクライアント, relate:request, relate:httprepl, relate:restclient, emacs クローラー, httpクライアント 開発, emacs httpアクセス, Webアクセスを自動化する
-#+TAGS: package:http, emacs 使い方, emacs コマンド, emacs, http, http.el, emacs lisp http, elisp http, emacs melpa http, emacs http 使い方, emacs http 設定, emacs パッケージ http, , emacs httpクライアント, relate:request, relate:httprepl, relate:restclient, emacs クローラー, httpクライアント 開発, emacs httpアクセス, Webアクセスを自動化する, Emacs, http.el, http.el, \/
-#+TITLE: emacs http.el : 【HTTPクライアント】バッファからHTTPリクエストを対話的に送る | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>http</td></tr>
-<tr><td>概要(原文)</td><td>An HTTP client for Emacs</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/emacs-pe/http.el">https://github.com/emacs-pe/http.el</a></td></tr>
-<tr><td>バージョン</td><td>20141127.855</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:http/">package:http</a> <a href="http://rubikitch.com/tag/package:request/">package:request</a> <a href="http://rubikitch.com/tag/package:httprepl/">package:httprepl</a> <a href="http://rubikitch.com/tag/package:restclient/">package:restclient</a></td></tr>
-</table>
-<br />
-#+END_HTML
-去年は[[http://rubikitch.com/2014/08/03/ruby-crawler-book/][『Rubyによるクローラー開発技法』(共著)]] を出版し、
-お蔭様で大好評となっています。
-
-買ってくださった方々、本当にありがとうございます。
-
-Webアクセスを自動化したい、
-クローラーを作りたい
-そういった場合はまずHTTPリクエストとレスポンスを調査する必要があります。
-
-さて、今回紹介する *http.el* は対話型HTTPクライアントです。
-
-バッファ(ファイル)に1つ以上のHTTPリクエストを書いて送信すると
-別バッファにてレスポンスが表示されます。
-
-使い方はたった3ステップです。
-1. HTTPリクエストを書く
-2. M-x http-mode
-3. C-c C-cで送信！
-
-なお、使用例で使っている https://httpbin.org/ は
-HTTPクライアント開発のためのサイトで
-手軽にPOSTリクエストをテストできます。
-
-** http インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install http
-
+#+TITLE: http.el : 【HTTPクライアント】バッファからHTTPリクエストを対話的に送る
+[includeme file="inc-package-table.php" name="http" where="melpa"]
 
 #+end:
-** 概要                                                             :noexport:
-去年は[[http://rubikitch.com/2014/08/03/ruby-crawler-book/][『Rubyによるクローラー開発技法』(共著)]] を出版し、
+** 概要
+去年は[[http://emacs.rubikitch.com/ruby-crawler-book/][『Rubyによるクローラー開発技法』(共著)]] を出版し、
 お蔭様で大好評となっています。
 
 買ってくださった方々、本当にありがとうございます。
@@ -85,6 +43,7 @@ HTTPクライアント開発のためのサイトで
 手軽にPOSTリクエストをテストできます。
 
 
+[includeme file="inc-package-install.php" name="http" where="melpa"]
 ** 使用例
 misc/example.txtより抜粋！
 
@@ -153,3 +112,4 @@ Content-Type: application/json
 と出てきます。
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+[includeme file="inc-package-relate.php" name="http"]

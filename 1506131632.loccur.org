@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 1746
+#+POSTID: 970
+#+BLOG: rubikitch
 #+DATE: [2015-06-13 Sat 16:32]
 #+PERMALINK: loccur
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,28 +8,17 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs
+#+CATEGORY: 検索
 #+EL_PKG_NAME: loccur
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, relate:replace, occur, relate:helm-swoop, relate:swiper, relate:outline
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: occur
 #+EL_TITLE0: 画面分割しない新しいM-x occurでアウトラインを表示せよ！
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージloccurの紹介
-#+MYTAGS: package:loccur, emacs 使い方, emacs コマンド, emacs, loccur, loccur.el, emacs lisp loccur, elisp loccur, emacs melpa loccur, emacs loccur 使い方, emacs loccur 設定, emacs パッケージ loccur, emacs loccur スクリーンショット, relate:replace, occur, relate:helm-swoop, relate:swiper, relate:outline
-#+TAGS: package:loccur, emacs 使い方, emacs コマンド, emacs, loccur, loccur.el, emacs lisp loccur, elisp loccur, emacs melpa loccur, emacs loccur 使い方, emacs loccur 設定, emacs パッケージ loccur, emacs loccur スクリーンショット, relate:replace, occur, relate:helm-swoop, relate:swiper, relate:outline, Emacs, M-x occur, loccur.el, M-x loccur, M-x loccur-previous-match, loccur.el, M-x loccur, M-x loccur-previous-match
-#+TITLE: emacs loccur.el : 画面分割しない新しいM-x occurでアウトラインを表示せよ！ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>loccur</td></tr>
-<tr><td>概要(原文)</td><td>Performs an occur-like folding in current buffer.</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/fourier/loccur">https://github.com/fourier/loccur</a></td></tr>
-<tr><td>バージョン</td><td>20150611.1037</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:loccur/">package:loccur</a> <a href="http://rubikitch.com/tag/package:replace/">package:replace</a> <a href="http://rubikitch.com/tag/package:helm-swoop/">package:helm-swoop</a> <a href="http://rubikitch.com/tag/package:swiper/">package:swiper</a> <a href="http://rubikitch.com/tag/package:outline/">package:outline</a></td></tr>
-</table>
-<br />
-#+END_HTML
+#+TITLE: loccur.el : 画面分割しない新しいM-x occurでアウトラインを表示せよ！
+[includeme file="inc-package-table.php" name="loccur" where="melpa"]
+
+#+end:
+** 概要
 バッファ内をgrepするならば、 *M-x occur* が定番ですね。
 
 しかし画面分割するため、結果表示が狹くなってしまいます。
@@ -36,7 +26,7 @@
 *loccur.el* はinvisible overlayを使って
 マッチした行のみを見かけ上表示する形式の新しいoccurを提供します。
 
-[[http://rubikitch.com/2014/12/25/helm-swoop/][helm-swoop.el(レビュー)]] や [[http://rubikitch.com/2015/03/18/swiper/][swiper.el(レビュー)]] は
+[[http://emacs.rubikitch.com/helm-swoop/][helm-swoop.el(レビュー)]] や [[http://emacs.rubikitch.com/swiper/][swiper.el(レビュー)]] は
 インクリメンタルなoccurですが、やはり表示面積が狹くなる問題があります。
 
 「今はマッチした行のみが見たい！」
@@ -58,41 +48,5 @@ Fig2: RETを押せば当該行へ移動！
 
 再びマッチした行のみを表示したければ、
 *M-x loccur-previous-match* を使ってください。
-** loccur インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install loccur
-
-
-#+end:
-** 概要                                                             :noexport:
-バッファ内をgrepするならば、 *M-x occur* が定番ですね。
-
-しかし画面分割するため、結果表示が狹くなってしまいます。
-
-*loccur.el* はinvisible overlayを使って
-マッチした行のみを見かけ上表示する形式の新しいoccurを提供します。
-
-[[http://rubikitch.com/2014/12/25/helm-swoop/][helm-swoop.el(レビュー)]] や [[http://rubikitch.com/2015/03/18/swiper/][swiper.el(レビュー)]] は
-インクリメンタルなoccurですが、やはり表示面積が狹くなる問題があります。
-
-「今はマッチした行のみが見たい！」
-という場合はこの *M-x loccur* を使ってみてください。
-
-M-x loccurを実行すると、occur同様に正規表現の入力を求められますが、
-そのままRETを押せばカーソル位置の単語を検索します。
-
-elispファイルのdefunのみを一覧したければ…
-
-# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150613163917.png]]
-Fig3: M-x loccur defunでdefunにマッチした行のみが表示される
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150613163925.png]]
-Fig4: RETを押せば当該行へ移動！
-
-再びマッチした行のみを表示したければ、
-*M-x loccur-previous-match* を使ってください。
+[includeme file="inc-package-install.php" name="loccur" where="melpa"]
+[includeme file="inc-package-relate.php" name="loccur"]

@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 1161
+#+POSTID: 710
+#+BLOG: rubikitch
 #+DATE: [2015-02-17 Tue 08:29]
 #+PERMALINK: jg-quicknav
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,77 +8,20 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs
+#+CATEGORY: ファイラ
 #+EL_PKG_NAME: jg-quicknav
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, relate:lusty-explorer, relate:helm, relate:ido
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: 
 #+EL_TITLE0: ido以上helm未満なfind-file/dired/cd
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージjg-quicknavの紹介
-#+MYTAGS: package:jg-quicknav, emacs 使い方, emacs コマンド, emacs, jg-quicknav, jg-quicknav.el, emacs lisp jg-quicknav, elisp jg-quicknav, emacs melpa jg-quicknav, emacs jg-quicknav 使い方, emacs jg-quicknav 設定, emacs パッケージ jg-quicknav, emacs jg-quicknav スクリーンショット, relate:lusty-explorer, relate:helm, relate:ido
-#+TAGS: package:jg-quicknav, emacs 使い方, emacs コマンド, emacs, jg-quicknav, jg-quicknav.el, emacs lisp jg-quicknav, elisp jg-quicknav, emacs melpa jg-quicknav, emacs jg-quicknav 使い方, emacs jg-quicknav 設定, emacs パッケージ jg-quicknav, emacs jg-quicknav スクリーンショット, relate:lusty-explorer, relate:helm, relate:ido, Emacs, jg-quicknav.el, ido, anything.el, helm, M-x helm-find-files, helm-find-files, jg-quicknav.el, ido, anything.el, helm, M-x helm-find-files, helm-find-files
-#+TITLE: emacs jg-quicknav.el : ido以上helm未満なfind-file/dired/cd | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>jg-quicknav</td></tr>
-<tr><td>概要(原文)</td><td>Quickly navigate the file system to find a file.</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/jeffgran/jg-quicknav">https://github.com/jeffgran/jg-quicknav</a></td></tr>
-<tr><td>バージョン</td><td>20150216.1800</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:jg-quicknav/">package:jg-quicknav</a> <a href="http://rubikitch.com/tag/package:lusty-explorer/">package:lusty-explorer</a> <a href="http://rubikitch.com/tag/package:helm/">package:helm</a> <a href="http://rubikitch.com/tag/package:ido/">package:ido</a></td></tr>
-</table>
-<br />
-#+END_HTML
-<2015-02-18 Wed> trampをrequireしなくても動くようになりました。
-
-*jg-quicknav.el* は *ido* や [[http://rubikitch.com/2015/02/15/lusty-explorer/][lusty-explorer.el(レビュー)]] や
- *anything.el* や *helm* で満足できなかった人が
-*M-x helm-find-files* っぽいのを自分でこしらえたものです。
-
-C-x C-f をそのまま置き換えて使います。
-
-- RET: そのファイルを開く、ディレクトリの場合は潜る
-- C-,: 親ディレクトリへ戻る
-- C-.: ディレクトリ履歴を戻る
-- C-/: そのディレクトリのdiredを開く
-- C-o: ミニバッファに入力されたファイルを新規作成
-- C-d: shell-modeにて表示されているディレクトリへcdする
-
-コードを読んだところ、シェルを/bin/bashにして「ls -1AF」を
-呼んでいるのでUnix系OS向きです。
-
-Cygwinならば動くかもしれませんが、
-おそらくnativeなWindowsでは動きません。
-
-動作はけっこう重く、現時点ではスクロールができず、
-jg-quicknavを開いたバッファを保存していないので
-C-dも動いてくれません。
-
-まだまだ開発が必要と感じました。
-
-「anythingやhelmで満足できなかった」ということで試用しましたが、
-anythingでもキーマップやミニバッファの内容が指定できることを
-知らなかったのでしょうか？
-
-使い勝手や機能面を考えれば *helm-find-files* の方がよいでしょう。
-
-helmアンチでしたら、むしろlusty-explorerを拡張した方が
-よかったと思います。
-
-lusty-explorerでもC-d(壊れているけど)以外は使えますから。
-** jg-quicknav インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install jg-quicknav
-
+#+TITLE: jg-quicknav.el : ido以上helm未満なfind-file/dired/cd
+[includeme file="inc-package-table.php" name="jg-quicknav" where="melpa"]
 
 #+end:
-** 概要                                                             :noexport:
+** 概要
 <2015-02-18 Wed> trampをrequireしなくても動くようになりました。
 
-*jg-quicknav.el* は *ido* や [[http://rubikitch.com/2015/02/15/lusty-explorer/][lusty-explorer.el(レビュー)]] や
+*jg-quicknav.el* は *ido* や [[http://emacs.rubikitch.com/lusty-explorer/][lusty-explorer.el(レビュー)]] や
  *anything.el* や *helm* で満足できなかった人が
 *M-x helm-find-files* っぽいのを自分でこしらえたものです。
 
@@ -112,6 +56,7 @@ helmアンチでしたら、むしろlusty-explorerを拡張した方が
 よかったと思います。
 
 lusty-explorerでもC-d(壊れているけど)以外は使えますから。
+[includeme file="inc-package-install.php" name="jg-quicknav" where="melpa"]
 ** 設定 [[http://rubikitch.com/f/150217082028.jg-quicknav.el][150217082028.jg-quicknav.el(以下のコードと同一)]]
 #+BEGIN: include :file "/r/sync/junk/150217/150217082028.jg-quicknav.el"
 #+BEGIN_SRC fundamental
@@ -133,3 +78,4 @@ Fig1: こんな感じであいまいマッチにも対応
 
 
 # /r/sync/screenshots/20150217085018.png http://rubikitch.com/wp-content/uploads/2015/02/wpid-20150217085018.png
+[includeme file="inc-package-relate.php" name="jg-quicknav"]

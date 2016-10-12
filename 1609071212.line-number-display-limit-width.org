@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 2750
+#+POSTID: 1568
+#+BLOG: rubikitch
 #+DATE: [2016-09-07 Wed 12:12]
 #+PERMALINK: line-number-display-limit-width
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
@@ -7,12 +8,12 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, 
+#+CATEGORY: 行番号
 #+DESCRIPTION: 
-#+MYTAGS: emacs 行番号が表示されない, 行番号, 現在行がわからない, line-number-mode 
 #+TITLE: Emacs: 行番号を『常に』表示する | line-number-mode line-number-display-limit-width
 #+begin: org2blog-tags
-#+TAGS: emacs 行番号が表示されない, 行番号, 現在行がわからない, line-number-mode , Emacs, , line-number-display-limit-width
+# content-length: 764
+
 #+end:
 あなたは、現在の行番号を知りたいと思うのにもかかわらず、
 「L??」と表示されてて困ったことはありますか？

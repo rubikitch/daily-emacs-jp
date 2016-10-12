@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 2627
+#+POSTID: 1514
+#+BLOG: rubikitch
 #+DATE: [2016-08-07 Sun 08:36]
 #+PERMALINK: dumb-jump-update
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,14 +8,15 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, 記事更新情報, 
+#+CATEGORY:  記事更新情報, 
 #+DESCRIPTION: 
-#+MYTAGS: 
 #+TITLE: 【速報】定義ジャンプのdumb-jumpが大進化しました！
 #+begin: org2blog-tags
-#+TAGS: , Emacs, 記事更新情報, , 
+# content-length: 396
+#+HTML: <!-- noindex -->
+
 #+end:
-http://rubikitch.com/2016/07/18/dumb-jump/
+http://emacs.rubikitch.com/dumb-jump/
 
 Emacsを使うプログラマの皆さん！
 /嬉しいお知らせです！！/

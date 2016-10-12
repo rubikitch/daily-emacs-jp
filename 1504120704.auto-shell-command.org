@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 1495
+#+POSTID: 841
+#+BLOG: rubikitch
 #+DATE: [2015-04-12 Sun 07:04]
 #+PERMALINK: auto-shell-command
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,64 +8,17 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs
+#+CATEGORY: プログラム実行
 #+EL_PKG_NAME: auto-shell-command
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p , emacs ファイル保存後, emacs コマンド実行後, flymake, autotest, guard, ファイルの監視, 日々の定型作業を自動化する, ファイルセーブ時に指定したシェルコマンドを非同期で実行, プロジェクトのビルド, 自動テストの実行, エミュレータやブラウザを自動起動, 自動テストやコンパイルを簡単に記述, ファイル保存時に自動実行, relate:deferred, relate:popwin, relate:auto-save-buffers-enhanced, relate:real-auto-save, relate:hookify, relate:watch-buffer, relate:firestarter, relate:backup-each-save, emacs シェルコマンド 自動実行, emacs テスト自動実行, emacs 保存したらすぐに実行, after-save-hook, deferred:process-shell, emacs deferred.el 使い方, growl, growlnotify
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 
+#+TAGS: るびきちオススメ, 初心者安心
 #+EL_TITLE0: ファイル保存後に自動でシェルコマンドを実行させる
 #+EL_URL: http://qiita.com/ongaeshi/items/b3f4315082c1c7942fcd
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージauto-shell-commandの紹介
-#+MYTAGS: package:auto-shell-command, emacs 使い方, emacs コマンド, emacs, auto-shell-command, auto-shell-command.el, emacs lisp auto-shell-command, elisp auto-shell-command, emacs melpa auto-shell-command, emacs auto-shell-command 使い方, emacs auto-shell-command 設定, emacs パッケージ auto-shell-command , emacs ファイル保存後, emacs コマンド実行後, flymake, autotest, guard, ファイルの監視, 日々の定型作業を自動化する, ファイルセーブ時に指定したシェルコマンドを非同期で実行, プロジェクトのビルド, 自動テストの実行, エミュレータやブラウザを自動起動, 自動テストやコンパイルを簡単に記述, ファイル保存時に自動実行, relate:deferred, relate:popwin, relate:auto-save-buffers-enhanced, relate:real-auto-save, relate:hookify, relate:watch-buffer, relate:firestarter, relate:backup-each-save, emacs シェルコマンド 自動実行, emacs テスト自動実行, emacs 保存したらすぐに実行, after-save-hook, deferred:process-shell, emacs deferred.el 使い方, growl, growlnotify
-#+TAGS: package:auto-shell-command, emacs 使い方, emacs コマンド, emacs, auto-shell-command, auto-shell-command.el, emacs lisp auto-shell-command, elisp auto-shell-command, emacs melpa auto-shell-command, emacs auto-shell-command 使い方, emacs auto-shell-command 設定, emacs パッケージ auto-shell-command , emacs ファイル保存後, emacs コマンド実行後, flymake, autotest, guard, ファイルの監視, 日々の定型作業を自動化する, ファイルセーブ時に指定したシェルコマンドを非同期で実行, プロジェクトのビルド, 自動テストの実行, エミュレータやブラウザを自動起動, 自動テストやコンパイルを簡単に記述, ファイル保存時に自動実行, relate:deferred, relate:popwin, relate:auto-save-buffers-enhanced, relate:real-auto-save, relate:hookify, relate:watch-buffer, relate:firestarter, relate:backup-each-save, emacs シェルコマンド 自動実行, emacs テスト自動実行, emacs 保存したらすぐに実行, after-save-hook, deferred:process-shell, emacs deferred.el 使い方, growl, growlnotify, Emacs, auto-shell-command.el, after-save-hook, popwin.el, auto-shell-command.el, after-save-hook, popwin.el, Auto Shell Command
-#+TITLE: emacs auto-shell-command.el : ファイル保存後に自動でシェルコマンドを実行させる | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>auto-shell-command</td></tr>
-<tr><td>概要(原文)</td><td>Run the shell command asynchronously that you specified when you save the file.</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>サイト</td><td><a href="http://qiita.com/ongaeshi/items/b3f4315082c1c7942fcd">http://qiita.com/ongaeshi/items/b3f4315082c1c7942fcd</td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/ongaeshi/auto-shell-command">https://github.com/ongaeshi/auto-shell-command</a></td></tr>
-<tr><td>バージョン</td><td>20130404.923</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:auto-shell-command/">package:auto-shell-command</a> <a href="http://rubikitch.com/tag/package:deferred/">package:deferred</a> <a href="http://rubikitch.com/tag/package:popwin/">package:popwin</a> <a href="http://rubikitch.com/tag/package:auto-save-buffers-enhanced/">package:auto-save-buffers-enhanced</a> <a href="http://rubikitch.com/tag/package:real-auto-save/">package:real-auto-save</a> <a href="http://rubikitch.com/tag/package:hookify/">package:hookify</a> <a href="http://rubikitch.com/tag/package:watch-buffer/">package:watch-buffer</a> <a href="http://rubikitch.com/tag/package:firestarter/">package:firestarter</a> <a href="http://rubikitch.com/tag/package:backup-each-save/">package:backup-each-save</a></td></tr>
-</table>
-<br />
-#+END_HTML
-特に開発をしていると、ファイルを保存したらすぐに
-特定のシェルコマンドを実行したいことがよくあります。
-
-たとえば保存後すぐにコンパイル・実行したり、
-設定ファイルの内容を動作中のプログラムに反映させたりなどです。
-
-こんなときに使いたいのが[[http://ongaeshi.hatenablog.com/][ongaeshi]] さんの *auto-shell-command.el* です。
-
-彼は[[http://ongaeshi.hatenablog.com/archive/category/milkode][ソースコード検索エンジンMilkode]] を作っただけでなく、
-最近は [[http://ongaeshi.hatenablog.com/entry/i-got-the-award-in-fukuoka-ruby-07][Ruby製電子書籍検索エンジンHonyomiがGMOペパボ賞を受賞]] するなど
-Rubyの世界でも大活躍をしています。
-
-ファイル保存時に実行されるフック *after-save-hook* に
-シェルコマンドを実行させる関数を登録しています。
-
-実行するコマンドは対象ファイル名の正規表現とともにinit.elに記述します。
-
-実行が無事に成功したらエコーエリアにsuccessと出るだけですが、
-失敗したら *popwin.el* で実行結果がポップアップされます。
-
-シェルコマンド実行の中心部分は [[http://rubikitch.com/2014/08/18/deferred/][deferred.el(レビュー)]] 
-によって非同期に行われます。
-
-<2015-04-12 Sun> 試したところ、実行失敗後に動作しなくなるようです。
-
-# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
-** auto-shell-command インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install auto-shell-command
-
+#+TITLE: auto-shell-command.el : ファイル保存後に自動でシェルコマンドを実行させる
+[includeme file="inc-package-table.php" name="auto-shell-command" where="melpa"]
 
 #+end:
-** 概要                                                             :noexport:
+** 概要
 特に開発をしていると、ファイルを保存したらすぐに
 特定のシェルコマンドを実行したいことがよくあります。
 
@@ -85,19 +39,20 @@ Rubyの世界でも大活躍をしています。
 実行が無事に成功したらエコーエリアにsuccessと出るだけですが、
 失敗したら *popwin.el* で実行結果がポップアップされます。
 
-シェルコマンド実行の中心部分は [[http://rubikitch.com/2014/08/18/deferred/][deferred.el(レビュー)]] 
+シェルコマンド実行の中心部分は [[http://emacs.rubikitch.com/deferred/][deferred.el(レビュー)]] 
 によって非同期に行われます。
 
 <2015-04-12 Sun> 試したところ、実行失敗後に動作しなくなるようです。
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+[includeme file="inc-package-install.php" name="auto-shell-command" where="melpa"]
 ** 保存時自動実行系
-[[http://rubikitch.com/2014/09/14/hookify/][hookify.el(レビュー)]] はafter-save-hook以外にも一時的なフックを設定できます。
+[[http://emacs.rubikitch.com/hookify/][hookify.el(レビュー)]] はafter-save-hook以外にも一時的なフックを設定できます。
 
-[[http://rubikitch.com/2014/11/02/backup-each-save/][backup-each-save.el(レビュー)]] は現在時刻付きのファイル名で
+[[http://emacs.rubikitch.com/backup-each-save/][backup-each-save.el(レビュー)]] は現在時刻付きのファイル名で
 自動バックアップを行います。
 
-[[http://rubikitch.com/2014/11/23/auto-save-buffers-enhanced/][auto-save-buffers-enhanced.el(レビュー)]] や[[http://rubikitch.com/2015/02/03/real-auto-save/][real-auto-save.el(レビュー)]] で
+[[http://emacs.rubikitch.com/auto-save-buffers-enhanced/][auto-save-buffers-enhanced.el(レビュー)]] や[[http://emacs.rubikitch.com/real-auto-save/][real-auto-save.el(レビュー)]] で
 ファイルを変更して一定時間後に自動保存するelispを使っている場合、
 自動保存間隔を調整しないと自動実行シェルコマンドが同時実行されてしまいます。
 
@@ -135,3 +90,4 @@ Rubyの世界でも大活躍をしています。
 $ wget http://rubikitch.com/f/150412065621.auto-shell-command.1.el
 $ emacs -Q -f package-initialize -l 150412065621.auto-shell-command.1.el
 #+END_EXAMPLE
+[includeme file="inc-package-relate.php" name="auto-shell-command"]

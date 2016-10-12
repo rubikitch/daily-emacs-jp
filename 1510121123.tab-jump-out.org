@@ -1,5 +1,4 @@
 #+BLOG: rubikitch
-#+POSTID: 2073
 #+DATE: [2015-10-12 Mon 11:23]
 #+PERMALINK: tab-jump-out
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,15 +6,13 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs
+#+CATEGORY: カーソル移動
 #+EL_PKG_NAME: tab-jump-out
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, Eclipse, jump out of closing characters, relate:paredit, insert-parentheses, relate:smartparens, tab out, Visual Studio, TabJump, tab jumping, relate:yasnippet
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: from:eclipse
 #+EL_TITLE0: EclipseのようにTABキーで閉括弧や区切り文字から脱出する
 #+EL_URL: 
 #+begin: org2blog
 #+DESCRIPTION: MELPAのEmacs Lispパッケージtab-jump-outの紹介
-#+MYTAGS: package:tab-jump-out, emacs 使い方, emacs コマンド, emacs, tab-jump-out, tab-jump-out.el, emacs lisp tab-jump-out, elisp tab-jump-out, emacs melpa tab-jump-out, emacs tab-jump-out 使い方, emacs tab-jump-out 設定, emacs パッケージ tab-jump-out, emacs tab-jump-out スクリーンショット, Eclipse, jump out of closing characters, relate:paredit, insert-parentheses, relate:smartparens, tab out, Visual Studio, TabJump, tab jumping, relate:yasnippet
 #+TAGS: package:tab-jump-out, emacs 使い方, emacs コマンド, emacs, tab-jump-out, tab-jump-out.el, emacs lisp tab-jump-out, elisp tab-jump-out, emacs melpa tab-jump-out, emacs tab-jump-out 使い方, emacs tab-jump-out 設定, emacs パッケージ tab-jump-out, emacs tab-jump-out スクリーンショット, Eclipse, jump out of closing characters, relate:paredit, insert-parentheses, relate:smartparens, tab out, Visual Studio, TabJump, tab jumping, relate:yasnippet, Emacs, tab-jump-out.el, M-x tab-jump-out-mode, tab-jump-out-delimiters, M-x tab-jump-out-mode, tab-jump-out-delimiters
 #+TITLE: emacs tab-jump-out.el : EclipseのようにTABキーで閉括弧や区切り文字から脱出する | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
 #+BEGIN_HTML
@@ -103,3 +100,4 @@ Fig4: 閉括弧から脱出
 $ wget http://rubikitch.com/f/151012113030.tab-jump-out.el
 $ emacs -Q -f package-initialize -l 151012113030.tab-jump-out.el
 #+END_EXAMPLE
+[includeme file="inc-package-relate.php" name="tab-jump-out"]

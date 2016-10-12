@@ -1,16 +1,16 @@
 #+BLOG: rubikitch
-#+POSTID: 549
+#+POSTID: 388
+#+BLOG: rubikitch
 #+DATE: [2014-11-04 Tue 12:06]
 #+PERMALINK: toggle-truncate-lines
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
 #+ISPAGE: nil
-#+DESCRIPTION:
+#+DESCRIPTION:標準コマンドM-x toggle-truncate-linesは長い行を折り返すかどうかをトグルする
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs,
+#+CATEGORY: 見やすく表示
 #+DESCRIPTION:
-#+MYTAGS: emacs 長い行 折り返し表示
-#+TAGS: emacs 長い行 折り返し表示, Emacs,, org-mode, アスキーアート, truncate-lines, M-x toggle-truncate-lines
+#+TAGS: 長い行
 #+TITLE: Emacs M-x toggle-truncate-lines: 長い行の折り返し表示を切り換える
 Emacsにおいて、長い行の扱い方は2種類あります。
 

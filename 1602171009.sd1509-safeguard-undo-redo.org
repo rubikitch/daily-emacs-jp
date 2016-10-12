@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 2409
+#+POSTID: 1429
+#+BLOG: rubikitch
 #+DATE: [2016-02-17 Wed 10:09]
 #+PERMALINK: sd1509-safeguard-undo-redo
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,9 +8,9 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, 連載『るびきち流Emacs超入門』
+#+CATEGORY: るびきち流Emacs超入門
 #+DESCRIPTION:
-#+TAGS:undo, redo, package:redo+, package:undohist, package:undo-tree, 暗黙のマーク, set-mark-command-repeat-pop, package:point-undo, package:goto-chg, package:winner, ウィンドウ構成, keyboard-escape-quit, keyboard-quit, relate:elscreen, relate:windows, relate:spaces, relate:windata
+
 #+TITLE: #17 “手遅れ”を防ぐ　Emacsのセーフガードシステム (Software Design 2015年9月号掲載記事) Emacs undo redo 使い方
 Software Design連載記事を掲載します。
 

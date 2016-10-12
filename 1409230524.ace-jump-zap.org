@@ -1,85 +1,28 @@
 #+BLOG: rubikitch
-#+POSTID: 377
+#+POSTID: 310
+#+BLOG: rubikitch
 #+DATE: [2014-09-23 Tue 05:24]
 #+PERMALINK: ace-jump-zap
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t
 #+ISPAGE: nil
-#+DESCRIPTION:
+#+DESCRIPTION:M-zをace-jump-modeで拡張する
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs
+#+CATEGORY: zap-to-char
 #+EL_PKG_NAME: ace-jump-zap
-#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs zap-to-char M-z, emacs zap-up-to-char M-z misc, ZapToChar, ZapUpToChar, relate:ace-jump-mode, relate:zop-to-char, relate:avy-zap, relate:zzz-to-char
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方
+#+TAGS: ace-jump
 #+EL_TITLE0: 【2014-12-09更新】zap-to-char(M-z)をace-jump化して自然に拡張する
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージace-jump-zapの紹介
-#+MYTAGS: package:ace-jump-zap, emacs 使い方, emacs コマンド, emacs, emacs lisp ace-jump-zap, elisp ace-jump-zap, emacs melpa ace-jump-zap, emacs ace-jump-zap 使い方, emacs ace-jump-zap 設定, emacs パッケージ ace-jump-zap, emacs zap-to-char M-z, emacs zap-up-to-char M-z misc, ZapToChar, ZapUpToChar, relate:ace-jump-mode, relate:zop-to-char, relate:avy-zap, relate:zzz-to-char
-#+TAGS: package:ace-jump-zap, emacs 使い方, emacs コマンド, emacs, emacs lisp ace-jump-zap, elisp ace-jump-zap, emacs melpa ace-jump-zap, emacs ace-jump-zap 使い方, emacs ace-jump-zap 設定, emacs パッケージ ace-jump-zap, emacs zap-to-char M-z, emacs zap-up-to-char M-z misc, ZapToChar, ZapUpToChar, relate:ace-jump-mode, relate:zop-to-char, relate:avy-zap, relate:zzz-to-char, Emacs, M-x zap-to-char (M-z), ace-jump-mode, ace-jump-zap.el, M-x ace-jump-zap-to-char, M-x ace-jump-zap-up-to-char, M-x zap-up-to-char, M-x zap-to-char (M-z), ace-jump-mode, ace-jump-zap.el, M-x ace-jump-zap-to-char, M-x ace-jump-zap-up-to-char, M-x zap-up-to-char
-#+TITLE: emacs ace-jump-zap.el : 【2014-12-09更新】zap-to-char(M-z)をace-jump化して自然に拡張する | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>ace-jump-zap</td></tr>
-<tr><td>概要(原文)</td><td>Character zapping, `ace-jump-mode` style</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/waymondo/ace-jump-zap">https://github.com/waymondo/ace-jump-zap</a></td></tr>
-<tr><td>バージョン</td><td>20150330.1342</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:ace-jump-zap/">package:ace-jump-zap</a> <a href="http://rubikitch.com/tag/package:ace-jump-mode/">package:ace-jump-mode</a> <a href="http://rubikitch.com/tag/package:zop-to-char/">package:zop-to-char</a> <a href="http://rubikitch.com/tag/package:avy-zap/">package:avy-zap</a> <a href="http://rubikitch.com/tag/package:zzz-to-char/">package:zzz-to-char</a></td></tr>
-</table>
-<br />
-#+END_HTML
-<2015-05-31 Sun> [[http://rubikitch.com/2015/05/31/avy-zap][同等のものにavy化したavy-zapもあります。]]
-
-<2014-12-09 Tue>更新 [[http://rubikitch.com/2014/12/09/ace-jump-zap][前方の文字のみにヒントがつけられます。]]
-
-<2015-01-24 Sat> [[http://rubikitch.com/2015/01/24/zop-to-char/][類似品zop-to-charもあります。]]
-
-あなたは、 *M-x zap-to-char (M-z)* というコマンドを知っていますか？
-
-これは、カーソル位置から指定した文字までを削除するコマンドです。
-
-でも、ある程度の距離を削除したいとき、M-zだと困ります。
-
-というのは、指定した文字が目的地よりも前に登場していたときは
-そこまでしか削除されないからです。
-
-文字を指定する…といえば *ace-jump-mode* ですね！
-
-*ace-jump-zap.el* は、M-zをace-jump化するものです。
-
-2つのコマンドが定義されています。
-
-- *M-x ace-jump-zap-to-char*
-- *M-x ace-jump-zap-up-to-char*
-
-M-x ace-jump-zap-to-charの方は、指定した文字「も」削除するのに対して、
-M-x ace-jump-zap-up-to-charは指定した文字以前を削除します。
-
-ちなみに *M-x zap-up-to-char* というコマンドは
-存在していて(require 'misc)の後に使えます。
-
-お好きな方をM-zにバインドしてください。
-
-ちなみに僕は ace-jump-zap-up-to-char の方が好きです。
-
-ace-jump-zap.elはMELPAに登録されたばかりなので、
-これからが楽しみです。
-
-# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
-** ace-jump-zap インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install ace-jump-zap
-
+#+TITLE: ace-jump-zap.el : 【2014-12-09更新】zap-to-char(M-z)をace-jump化して自然に拡張する
+[includeme file="inc-package-table.php" name="ace-jump-zap" where="melpa"]
 
 #+end:
-** 概要                                                             :noexport:
-<2015-05-31 Sun> [[http://rubikitch.com/2015/05/31/avy-zap][同等のものにavy化したavy-zapもあります。]]
+** 概要
+<2015-05-31 Sun> [[http://emacs.rubikitch.com/avy-zap][同等のものにavy化したavy-zapもあります。]]
 
-<2014-12-09 Tue>更新 [[http://rubikitch.com/2014/12/09/ace-jump-zap][前方の文字のみにヒントがつけられます。]]
+<2014-12-09 Tue>更新 [[http://emacs.rubikitch.com/ace-jump-zap][前方の文字のみにヒントがつけられます。]]
 
-<2015-01-24 Sat> [[http://rubikitch.com/2015/01/24/zop-to-char/][類似品zop-to-charもあります。]]
+<2015-01-24 Sat> [[http://emacs.rubikitch.com/zop-to-char/][類似品zop-to-charもあります。]]
 
 あなたは、 *M-x zap-to-char (M-z)* というコマンドを知っていますか？
 
@@ -113,6 +56,7 @@ ace-jump-zap.elはMELPAに登録されたばかりなので、
 これからが楽しみです。
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+[includeme file="inc-package-install.php" name="ace-jump-zap" where="melpa"]
 ** 設定 [[http://rubikitch.com/f/140923052957.el][140923052957.el(以下のコードと同一)]]
 #+BEGIN: include :file "/r/sync/junk/140923/140923052957.el"
 #+BEGIN_SRC fundamental
@@ -126,3 +70,4 @@ ace-jump-zap.elはMELPAに登録されたばかりなので、
 $ wget http://rubikitch.com/f/140923052957.el
 $ emacs -Q -f package-initialize -l 140923052957.el
 #+END_EXAMPLE
+[includeme file="inc-package-relate.php" name="ace-jump-zap"]

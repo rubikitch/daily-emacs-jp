@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 572
+#+POSTID: 404
+#+BLOG: rubikitch
 #+DATE: [2014-11-11 Tue 12:24]
 #+PERMALINK: ntemacs64
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,10 +8,9 @@
 #+DESCRIPTION: NTEmacs64 (Windows 64bit版Emacs)の24.4が出ました。画像表示、サウンド、IMEパッチ、EWW動作！
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, Emacs 24.4, gnupack, NTEmacs64
+#+CATEGORY:  リリース情報
 #+DESCRIPTION:
-#+MYTAGS: Emacs, NTEmacs64, NTEmacs, emacs windows, emacs 24.4 windows, emacs eww windows, emacs libxml2 windows, package:eww, eww, emacs windows インストール, emacs windows 設定
-#+TAGS: Emacs, NTEmacs64, NTEmacs, emacs windows, emacs 24.4 windows, emacs eww windows, emacs libxml2 windows, package:eww, eww, emacs windows インストール, emacs windows 設定, Emacs, Emacs 24.4,, M-x eww
+#+TAGS: 
 #+TITLE: 【Windowsユーザ待望】Windows用Emacs 24.4バイナリキターーーーーー（゜∀゜）ーーーーーー！！gnupack対応！
 https://github.com/chuntaro/NTEmacs64
 
@@ -35,10 +35,10 @@ https://github.com/chuntaro/NTEmacs64/archive/master.zip
 http://blechmusik.hatenablog.jp/entry/2014/11/14/002259
 
 <2014-12-31 Wed>追記: 32bit版ですがgnupack 12.00が出ました。
-[[http://rubikitch.com/2014/12/31/gnupack12/]]
+[[http://emacs.rubikitch.com/gnupack12/]]
 
 <2015-04-15 Wed>追記: Emacs 24.5に対応しました
-http://rubikitch.com/2015/04/15/ntemacs64-emacs245/
+http://emacs.rubikitch.com/ntemacs64-emacs245/
 
 ** WindowsでEmacsを動かすにあたって
 Emacsはスクリプト言語のように拡張ライブラリでガンガン拡張できるわけではなく、
@@ -87,7 +87,7 @@ eww-browse-url関数を使えば任意にURLを開いてくれます。
 
 これを使えばプログラミング言語のオンラインマニュアルも楽勝で参照できます。
 
-http://rubikitch.com/2014/11/08/help-me-rubikitch-san 参照
+http://emacs.rubikitch.com/help-me-rubikitch-san 参照
 
 これってすごいことだと思いませんか？
 

@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 318
+#+POSTID: 279
+#+BLOG: rubikitch
 #+DATE: [2014-09-08 Mon 06:18]
 #+PERMALINK: dired-toggle
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t
@@ -7,49 +8,17 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs
+#+CATEGORY: ファイラ
 #+EL_PKG_NAME: dired-toggle
-#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, relate:dired, emacs dired IDE, relate:dired-details, package:dired
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: るびきちオススメ, dired
 #+EL_TITLE0: ウィンドウの左側にdiredを設置して右側でファイルを開くようにする
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージdired-toggleの紹介
-#+MYTAGS: package:dired-toggle, emacs 使い方, emacs コマンド, emacs, emacs lisp dired-toggle, elisp dired-toggle, emacs melpa dired-toggle, emacs dired-toggle 使い方, emacs dired-toggle 設定, emacs パッケージ dired-toggle, emacs dired-toggle スクリーンショット, relate:dired, emacs dired IDE, relate:dired-details, package:dired
-#+TITLE: emacs dired-toggle.el : ウィンドウの左側にdiredを設置して右側でファイルを開くようにする | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>dired-toggle</td></tr>
-<tr><td>概要(原文)</td><td>provide a simple way to toggle dired buffer for current directory</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/fasheng/dired-toggle">https://github.com/fasheng/dired-toggle</a></td></tr>
-<tr><td>バージョン</td><td>20140907.1349</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:dired-toggle/">package:dired-toggle</a> <a href="http://rubikitch.com/tag/package:dired/">package:dired</a> <a href="http://rubikitch.com/tag/package:dired-details/">package:dired-details</a></td></tr>
-</table>
-<br />
-#+END_HTML
-*M-x dired-toggle* を実行すると、
-ウィンドウの左側に小さい幅の *dired* をポップアップします。
-
-そして、その状態でRETを押すと右側でファイルを開きます。
-
-qを押せば終了します。
-
-手軽に導入できるので試しに使ってみるとよいでしょう。
-
-[[http://rubikitch.com/2014/09/08/dired-details/][dired-details.el]] と組み合わせると幸せになれます。
-
-# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
-http://rubikitch.com/f/20140908062440.png
-Fig1: 左側にdired!
-** dired-toggle インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install dired-toggle
-
+#+TITLE: dired-toggle.el : ウィンドウの左側にdiredを設置して右側でファイルを開くようにする
+[includeme file="inc-package-table.php" name="dired-toggle" where="melpa"]
 
 #+end:
-** 概要                                                             :noexport:
+** 概要
+
 *M-x dired-toggle* を実行すると、
 ウィンドウの左側に小さい幅の *dired* をポップアップします。
 
@@ -59,8 +28,10 @@ qを押せば終了します。
 
 手軽に導入できるので試しに使ってみるとよいでしょう。
 
-[[http://rubikitch.com/2014/09/08/dired-details/][dired-details.el]] と組み合わせると幸せになれます。
+[[http://emacs.rubikitch.com/dired-details/][dired-details.el]] と組み合わせると幸せになれます。
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
 http://rubikitch.com/f/20140908062440.png
 Fig1: 左側にdired!
+[includeme file="inc-package-install.php" name="dired-toggle" where="melpa"]
+[includeme file="inc-package-relate.php" name="dired-toggle"]

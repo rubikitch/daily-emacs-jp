@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 1394
+#+POSTID: 792
+#+BLOG: rubikitch
 #+DATE: [2015-03-30 Mon 05:55]
 #+PERMALINK: emacs245-news
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,22 +8,23 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, Emacs 24.4, Emacs 24.5, 
+#+CATEGORY: 新機能紹介
+#+TAGS: Emacs 24.5以降
 #+DESCRIPTION: Emacs24.5はEmacs24.4のバグフィクスリリースとして4/11にリリースされました。
-#+MYTAGS: Emacs 24.5, Emacs24.5, Emacs24.5の変更点, Emacs24.5 リリースノート, Emacs24.5 更新点, Emacs24.5 アップグレード, Emacs24.5 バージョンアップ, Emacs24.5 ニュース, Emacs24.5 ChangeLog, Emacs24.5 新機能, Emacs24.5 ビルド, Emacs24.5 コンパイル
 #+TITLE: Emacs 24.5はバグフィクスとして4/11にリリースされました！ビルド方法 変更点
 #+begin: org2blog-tags
-#+TAGS: Emacs 24.5, Emacs24.5, Emacs24.5の変更点, Emacs24.5 リリースノート, Emacs24.5 更新点, Emacs24.5 アップグレード, Emacs24.5 バージョンアップ, Emacs24.5 ニュース, Emacs24.5 ChangeLog, Emacs24.5 新機能, Emacs24.5 ビルド, Emacs24.5 コンパイル, Emacs, Emacs 24.4, Emacs 24.5, , start-process-shell-command, call-process-shell-command, start-process, call-process, browse-url, browse-url-firefox-startup-arguments, ERC, find-dired
+# content-length: 3139
+
 #+end:
-<2015-04-11 Sat> [[http://rubikitch.com/2015/04/11/emacs245][リリースされました。]]
+<2015-04-11 Sat> [[http://emacs.rubikitch.com/emacs245][リリースされました。]]
 
-<2015-04-02 Thu> [[http://rubikitch.com/2015/04/02/emacs245rc2][リリース予定日が4/1から4/6に変更されました。]]
+<2015-04-02 Thu> [[http://emacs.rubikitch.com/emacs245rc2][リリース予定日が4/1から4/6に変更されました。]]
 
-[[http://rubikitch.com/2015/03/28/emacs245rc1/][Emacs 24.5 RC1]] が出て特に問題の報告がなさそうなので、
+[[http://emacs.rubikitch.com/emacs245rc1/][Emacs 24.5 RC1]] が出て特に問題の報告がなさそうなので、
 さっそくインストールしました。
 
 結論を言うと、Emacs 24.5はEmacs 24.4のバグフィクスリリースであり、
-[[http://rubikitch.com/2014/10/21/emacs244/][Emacs24.3→Emacs24.4のような劇的な変更]] はありません。
+[[http://emacs.rubikitch.com/emacs244/][Emacs24.3→Emacs24.4のような劇的な変更]] はありません。
 
 リリース直後に安心してアップグレードできます。
 

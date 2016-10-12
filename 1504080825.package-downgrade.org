@@ -1,18 +1,19 @@
 #+BLOG: rubikitch
-#+POSTID: 1457
+#+POSTID: 831
+#+BLOG: rubikitch
 #+DATE: [2015-04-08 Wed 08:25]
 #+PERMALINK: package-downgrade
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
 #+ISPAGE: nil
-#+DESCRIPTION:
+#+DESCRIPTION:Emacsパッケージを古いものに戻すには、特定のバージョンを削除するか、別なディレクトリに退避させる
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, 
+#+CATEGORY: パッケージ管理
 #+DESCRIPTION: 
-#+MYTAGS: package 最新版 動かない, パッケージを更新したら動作しない, package:package, relate:package, emacs パッケージ 動かない, emacs パッケージ バージョンを戻したい, emacs パッケージをダウングレードする,  emacs パッケージを古いものに戻す, relate:cask, relate:el-get, relate:quelpa, quelpa, package:quelpa
 #+TITLE: emacs package.el(含quelpa)管轄パッケージをダウングレードする方法！「最新版にアップグレードしたら動かない」をズバリ解決
 #+begin: org2blog-tags
-#+TAGS: package 最新版 動かない, パッケージを更新したら動作しない, package:package, relate:package, emacs パッケージ 動かない, emacs パッケージ バージョンを戻したい, emacs パッケージをダウングレードする,  emacs パッケージを古いものに戻す, relate:cask, relate:el-get, relate:quelpa, quelpa, package:quelpa, Emacs, , helm, M-x list-packages, Packages
+# content-length: 4591
+
 #+end:
 パッケージをアップグレードして突然動かなくなった！
 ということがあると思います。

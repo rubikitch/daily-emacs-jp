@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 1585
+#+POSTID: 875
+#+BLOG: rubikitch
 #+DATE: [2015-04-28 Tue 02:39]
 #+PERMALINK: face-remap-add-relative
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,12 +8,12 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, 
+#+CATEGORY: テキスト色付け
 #+DESCRIPTION: face-remap-add-relativeを使えばバッファローカルでフェイスを変更できる。ここではボールド体にする例。
-#+MYTAGS: フェイスを変更, フォントを変更, Emacs フォント 変更, ボールド体にする, emacs bold font, 
 #+TITLE: バッファローカルでフェイス(フォントや色)をbold体に変更する
 #+begin: org2blog-tags
-#+TAGS: フェイスを変更, フォントを変更, Emacs フォント 変更, ボールド体にする, emacs bold font, , Emacs, , M-x customize-face, ぱうフォント, Ricty, face-remap-add-relative, C-x C--, text-scale-adjust, text-mode-hook, text-mode, org-mode, markdown-mode
+# content-length: 888
+
 #+end:
 Emacs全体で使うフェイスを変更するには *M-x customize-face* や
 テーマを変更すればいいです。

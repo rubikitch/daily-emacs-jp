@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 2309
+#+POSTID: 1339
+#+BLOG: rubikitch
 #+DATE: [2016-01-04 Mon 17:58]
 #+PERMALINK: afternoon-theme
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,80 +8,17 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, theme
+#+CATEGORY: ダーク
 #+EL_PKG_NAME: afternoon-theme
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, color-theme, カラーテーマ
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: 
 #+EL_TITLE0: 青背景のダークなカラーテーマ
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージafternoon-themeの紹介
-#+MYTAGS: package:afternoon-theme, emacs 使い方, emacs コマンド, emacs, afternoon-theme, afternoon-theme.el, emacs lisp afternoon-theme, elisp afternoon-theme, emacs melpa afternoon-theme, emacs afternoon-theme 使い方, emacs afternoon-theme 設定, emacs パッケージ afternoon-theme, emacs afternoon-theme スクリーンショット, color-theme, カラーテーマ
-#+TAGS: package:afternoon-theme, emacs 使い方, emacs コマンド, emacs, afternoon-theme, afternoon-theme.el, emacs lisp afternoon-theme, elisp afternoon-theme, emacs melpa afternoon-theme, emacs afternoon-theme 使い方, emacs afternoon-theme 設定, emacs パッケージ afternoon-theme, emacs afternoon-theme スクリーンショット, color-theme, カラーテーマ, Emacs, theme, afternoon-theme.el
-#+TITLE: emacs afternoon-theme.el : 青背景のダークなカラーテーマ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>afternoon-theme</td></tr>
-<tr><td>概要(原文)</td><td>Dark color theme with a deep blue background</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/osener/emacs-afternoon-theme">https://github.com/osener/emacs-afternoon-theme</a></td></tr>
-<tr><td>バージョン</td><td>20140104.1059</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:afternoon-theme/">package:afternoon-theme</a> </td></tr>
-</table>
-<br />
-#+END_HTML
-*afternoon-theme.el* は、以下のパッケージに対応したカラーテーマです。
-- font-lock
-- Flycheck
-- Flymake
-- Clojure errors
-- EDTS errors
-- Rainbow-delimiters
-- MMM-mode
-- Search
-- Anzu
-- IDO
-- flx-ido
-- which-function
-- Parenthesis matching (built-in)
-- Smartparens paren matching
-- Parenthesis matching (mic-paren)
-- Parenthesis dimming (parenface)
-- macrostep
-- undo-tree
-- dired+
-- Magit
-- git-gutter
-- git-gutter-fringe
-- Compilation
-- Grep
-- mark-multiple
-- js2-mode
-- js3-mode
-- coffee-mode
-- nxml
-- RHTML
-- Message-mode
-- Jabber
-- Powerline
-- Outline
-- Ledger-mode
-- mu4e
-- Gnus
-- emms
-- stripe-buffer
-- erc
-- twittering-mode
-- ansi-term
-** afternoon-theme インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install afternoon-theme
-
+#+TITLE: afternoon-theme.el : 青背景のダークなカラーテーマ
+[includeme file="inc-package-table.php" name="afternoon-theme" where="melpa"]
 
 #+end:
-** 概要                                                             :noexport:
+** 概要
 *afternoon-theme.el* は、以下のパッケージに対応したカラーテーマです。
 - font-lock
 - Flycheck
@@ -125,6 +63,7 @@ M-x package-install afternoon-theme
 - twittering-mode
 - ansi-term
 
+[includeme file="inc-package-install.php" name="afternoon-theme" where="melpa"]
 ** スクリーンショット
 # (save-window-excursion (async-shell-command "emacs-test -eval '(load-theme (quote afternoon) t)'"))
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_theme_template" t))
@@ -186,3 +125,4 @@ $ emacs -Q -f package-initialize -eval '(load-theme (quote afternoon) t)'
 #+END_EXAMPLE
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+[includeme file="inc-package-relate.php" name="afternoon-theme"]

@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 2284
+#+POSTID: 1321
+#+BLOG: rubikitch
 #+DATE: [2015-12-23 Wed 03:39]
 #+PERMALINK: smartwin
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,28 +8,17 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs
+#+CATEGORY: ウィンドウ操作
 #+EL_PKG_NAME: smartwin
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: 
 #+EL_TITLE0: 特定のウィンドウの高さを自動調節する
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージsmartwinの紹介
-#+MYTAGS: package:smartwin, emacs 使い方, emacs コマンド, emacs, smartwin, smartwin.el, emacs lisp smartwin, elisp smartwin, emacs melpa smartwin, emacs smartwin 使い方, emacs smartwin 設定, emacs パッケージ smartwin, emacs smartwin スクリーンショット
-#+TAGS: package:smartwin, emacs 使い方, emacs コマンド, emacs, smartwin, smartwin.el, emacs lisp smartwin, elisp smartwin, emacs melpa smartwin, emacs smartwin 使い方, emacs smartwin 設定, emacs パッケージ smartwin, emacs smartwin スクリーンショット, Emacs, smartwin.el, smartwin-buffers, Miniedit Help, scratch, evil-registers, ielm, Inferior Octave, ensime-db-backtrace-buffer, Pp Macroexpand Output, Shell Command Output, vc-diff, vc-change-log, undo-tree, slime-apropos, slime-macroexpansion, slime-description, slime-compilation, slime-xref, smartwin-buffers, Miniedit Help, scratch, evil-registers, ielm, Inferior Octave, ensime-db-backtrace-buffer, Pp Macroexpand Output, Shell Command Output, vc-diff, vc-change-log, undo-tree, slime-apropos, slime-macroexpansion, slime-description, slime-compilation, slime-xref
-#+TITLE: emacs smartwin.el : 特定のウィンドウの高さを自動調節する | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>smartwin</td></tr>
-<tr><td>概要(原文)</td><td>A minor mode shows shell like buffers.</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/jerryxgh/smartwin">https://github.com/jerryxgh/smartwin</a></td></tr>
-<tr><td>バージョン</td><td>20151221.1843</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:smartwin/">package:smartwin</a> </td></tr>
-</table>
-<br />
-#+END_HTML
+#+TITLE: smartwin.el : 特定のウィンドウの高さを自動調節する
+[includeme file="inc-package-table.php" name="smartwin" where="melpa"]
+
+#+end:
+** 概要
 *smartwin.el* は、指定されたバッファを表示したウィンドウの高さを自動調節します。
 対象となるバッファは *smartwin-buffers* で指定され、デフォルトではshell-modeやgrep-modeなどです。
 対象となるバッファにフォーカスを移すとそのバッファの高さが広がり、フォーカスを外すと縮みます。
@@ -89,76 +79,8 @@ Fig2: コマンドを実行して行数が増えるとウィンドウは高く�
 #+ATTR_HTML: :width 480
 [[file:/r/sync/screenshots/20151223035948.png]]
 Fig3: フォーカスを外すとeshellウィンドウは小さくなる
-** smartwin インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
 
-M-x package-refresh-contents
-M-x package-install smartwin
-
-
-#+end:
-** 概要                                                             :noexport:
-*smartwin.el* は、指定されたバッファを表示したウィンドウの高さを自動調節します。
-対象となるバッファは *smartwin-buffers* で指定され、デフォルトではshell-modeやgrep-modeなどです。
-対象となるバッファにフォーカスを移すとそのバッファの高さが広がり、フォーカスを外すと縮みます。
-
-対象となるバッファは上下分割になります。
-ワイドディスプレイを使っているのであればこのような小細工は不要で素直に左右分割で表示させれば済む話です。
-このelispが役立つのは、ネットブックなど横幅が狭いディスプレイを使っているときでしょう。
-
-#+BEGIN_SRC emacs-lisp :results silent
-(defcustom smartwin-buffers
-  '(;; Emacs
-    "*Miniedit Help*"
-    completion-list-mode
-    compilation-mode
-    grep-mode
-    occur-mode
-    "*scratch*"
-    "*evil-registers*"
-    "*ielm*"
-    "*Inferior Octave*"
-    ("^\\*sbt\\*.*" :regexp t)
-    "*ensime-db-backtrace-buffer*"
-    ;; shell and eshell buffers
-    ("^\\*e?shell\\*\\(<.*>\\)?$" :regexp t)
-    "*Pp Macroexpand Output*"
-    "*Shell Command Output*"
-    ;; VC
-    "*vc-diff*"
-    "*vc-change-log*"
-    ;; Undo-Tree
-    " *undo-tree*"
-    ;; geiser
-    " Chicken REPL *"
-    ;; Anything
-    ("^\\*anything.*\\*$" :regexp t)
-    ;; SLIME
-    "*slime-apropos*"
-    "*slime-macroexpansion*"
-    "*slime-description*"
-    "*slime-compilation*"
-    "*slime-xref*"
-    sldb-mode
-    slime-repl-mode
-    slime-connection-list-mode)
-  略)
-#+END_SRC
-
-
-# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20151223035925.png]]
-Fig4: M-x eshellを実行したばかりだが、行数が少ないのでウィンドウの高さは低い
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20151223035945.png]]
-Fig5: コマンドを実行して行数が増えるとウィンドウは高くなる
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20151223035948.png]]
-Fig6: フォーカスを外すとeshellウィンドウは小さくなる
-
+[includeme file="inc-package-install.php" name="smartwin" where="melpa"]
 ** 設定 [[http://rubikitch.com/f/151223034535.smartwin.el][151223034535.smartwin.el(以下のコードと同一)]]
 #+BEGIN: include :file "/r/sync/junk/151223/151223034535.smartwin.el"
 #+BEGIN_SRC fundamental
@@ -172,3 +94,4 @@ Fig6: フォーカスを外すとeshellウィンドウは小さくなる
 $ wget http://rubikitch.com/f/151223034535.smartwin.el
 $ emacs -Q -f package-initialize -l 151223034535.smartwin.el
 #+END_EXAMPLE
+[includeme file="inc-package-relate.php" name="smartwin"]

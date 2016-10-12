@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 2716
+#+POSTID: 1552
+#+BLOG: rubikitch
 #+DATE: [2016-08-28 Sun 11:16]
 #+PERMALINK: yes-or-no-p
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
@@ -7,12 +8,13 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, 
+#+CATEGORY: カスタマイズ
+#+TAGS: るびきちオススメ
 #+DESCRIPTION: 
-#+MYTAGS: yes-or-no-p, y-or-n-p, 尋ねる, yes or noを1文字で, modified kill anyway, Modified buffers exist, exit anyway, Active processes exist, kill them and exit anyway
 #+TITLE: Emacs: ミニバッファでyesとかnoとか入力するのが面倒な方はこの一撃！
 #+begin: org2blog-tags
-#+TAGS: yes-or-no-p, y-or-n-p, 尋ねる, yes or noを1文字で, modified kill anyway, Modified buffers exist, exit anyway, Active processes exist, kill them and exit anyway, Emacs, , 
+# content-length: 776
+
 #+end:
 Emacsがあなたにyesかnoを尋ねるとき、
 この2種類あることに気付いていますか？

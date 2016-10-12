@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 1693
+#+POSTID: 938
+#+BLOG: rubikitch
 #+DATE: [2015-05-28 Thu 13:49]
 #+PERMALINK: nozakikun
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,12 +8,12 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Ruby
+#+CATEGORY: Rubyスクリプト
 #+DESCRIPTION: 
-#+MYTAGS: 
 #+TITLE: 【ネタ】Rubyで解く月刊少女野崎くんED「ウラオモテ・フォーチュン」
 #+begin: org2blog-tags
-#+TAGS: , Ruby, 
+# content-length: 1428
+
 #+end:
 Twitterでのぼってきてツボったので。
 
@@ -89,4 +90,4 @@ end
 #+END:
 
 
-[[http://rubikitch.com/2015/05/30/dash-threading-macro/][続き→(Emacs Lispでも語順を保存してみた)]]
+[[http://emacs.rubikitch.com/dash-threading-macro/][続き→(Emacs Lispでも語順を保存してみた)]]

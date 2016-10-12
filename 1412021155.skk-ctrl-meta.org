@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 655
+#+POSTID: 451
+#+BLOG: rubikitch
 #+DATE: [2014-12-02 Tue 11:55]
 #+PERMALINK: skk-ctrl-meta
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,10 +8,10 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, SKK,
-#+DESCRIPTION: SKK(ddskk)のプログラム実行変換機能を使ってASCIIモードにすることなくEmacsのキーシーケンスを入力する。
-#+MYTAGS:
-#+TAGS: , Emacs, SKK, , SKK, ddskk, キーシーケンス, プログラム実行変換
+#+TAGS: ddskk
+#+CATEGORY:  日本語入力,
+#+DESCRIPTION: SKK(ddskk)のプログラム実行変換機能を使ってASCIIモードにすることなくEmacsのキーシーケンスを入力する。たとえば/cを変換してC-、/mを変換してM-などのキーシーケンスを入力できるようにする。
+#+TAGS: 
 #+TITLE: SKK(ddskk)でEmacsのキーシーケンス(C-やM-など)を快適に入力する設定
 *SKK* (*ddskk*) でEmacsに関する文章を書いていると、
 Emacsの *キーシーケンス* を書くことがよくあります。
@@ -44,6 +45,7 @@ Emacsの *キーシーケンス* を書くことがよくあります。
 ** 設定 [[http://rubikitch.com/f/01skk-ctrl-meta.el][01skk-ctrl-meta.el(以下のコードと同一)]]
 #+BEGIN: include :file "/r/sync/emacs/init.d/01skk-ctrl-meta.el"
 #+BEGIN_SRC fundamental
+;;; C-/M-などをskkで入力するために
 (defun skk-henkan-C- ()
   (concat "C-" (skk-henkan-ctrl-meta-conversion (read-string "C-"))))
 (defun skk-henkan-M- ()
@@ -52,6 +54,8 @@ Emacsの *キーシーケンス* を書くことがよくあります。
   (concat "M-x " (read-string "M-x ")))
 (defun skk-henkan-C-c ()
   (concat "C-c " (skk-henkan-ctrl-meta-conversion (read-string "C-c "))))
+(defun skk-henkan-C-u ()
+  (concat "C-u " (skk-henkan-ctrl-meta-conversion (read-string "C-u "))))
 (defun skk-henkan-C-x ()
   (concat "C-x " (skk-henkan-ctrl-meta-conversion (read-string "C-x "))))
 (defun skk-henkan-ctrl-meta-conversion (input &optional metap)
@@ -77,6 +81,7 @@ Emacsの *キーシーケンス* を書くことがよくあります。
 ;;; (skk-henkan-M-)
 ;;; (skk-henkan-C-)
 ;;; (skk-henkan-C-c)
+;;; (skk-henkan-C-u)
 #+END_SRC
 
 #+END:

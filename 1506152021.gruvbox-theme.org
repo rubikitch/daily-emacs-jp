@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 1750
+#+POSTID: 974
+#+BLOG: rubikitch
 #+DATE: [2015-06-15 Mon 20:21]
 #+PERMALINK: gruvbox-theme
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,28 +8,17 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, theme
+#+CATEGORY: ダーク
 #+EL_PKG_NAME: gruvbox-theme
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, color-theme, カラーテーマ
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: 
 #+EL_TITLE0: Vimから移植されたグレーベースのカラーテーマ
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージgruvbox-themeの紹介
-#+MYTAGS: package:gruvbox-theme, emacs 使い方, emacs コマンド, emacs, gruvbox-theme, gruvbox-theme.el, emacs lisp gruvbox-theme, elisp gruvbox-theme, emacs melpa gruvbox-theme, emacs gruvbox-theme 使い方, emacs gruvbox-theme 設定, emacs パッケージ gruvbox-theme, emacs gruvbox-theme スクリーンショット, color-theme, カラーテーマ
-#+TAGS: package:gruvbox-theme, emacs 使い方, emacs コマンド, emacs, gruvbox-theme, gruvbox-theme.el, emacs lisp gruvbox-theme, elisp gruvbox-theme, emacs melpa gruvbox-theme, emacs gruvbox-theme 使い方, emacs gruvbox-theme 設定, emacs パッケージ gruvbox-theme, emacs gruvbox-theme スクリーンショット, color-theme, カラーテーマ, Emacs, theme, gruvbox-theme.el, Gruvbox colorscheme, Gruvbox colorscheme
-#+TITLE: emacs gruvbox-theme.el : Vimから移植されたグレーベースのカラーテーマ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>gruvbox-theme</td></tr>
-<tr><td>概要(原文)</td><td>A retro-groove colour theme for Emacs</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/Greduan/emacs-theme-gruvbox">https://github.com/Greduan/emacs-theme-gruvbox</a></td></tr>
-<tr><td>バージョン</td><td>20150410.1150</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:gruvbox-theme/">package:gruvbox-theme</a> </td></tr>
-</table>
-<br />
-#+END_HTML
+#+TITLE: gruvbox-theme.el : Vimから移植されたグレーベースのカラーテーマ
+[includeme file="inc-package-table.php" name="gruvbox-theme" where="melpa"]
+
+#+end:
+** 概要
 *gruvbox-theme.el* は、グレーベースなカラーテーマです。
 
 Vimの *Gruvbox colorscheme* の移植です。
@@ -88,72 +78,6 @@ Fig9: helm
 #+ATTR_HTML: :width 480
 [[file:/r/sync/screenshots/20150615202640.png]]
 Fig10: term with elscreen
-** gruvbox-theme インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
 
-M-x package-refresh-contents
-M-x package-install gruvbox-theme
-
-
-#+end:
-** 概要                                                             :noexport:
-*gruvbox-theme.el* は、グレーベースなカラーテーマです。
-
-Vimの *Gruvbox colorscheme* の移植です。
-
-以下のパッケージに対応しています。
-
-- whitespace-mode
-- rainbow-delimiters
-- linum-relative
-- Highlight indentation mode
-- Smartparens
-- elscreen
-- ag (The Silver Searcher)
-- Diffs
-- helm
-- Term
-- js2-mode
-
-
-# (progn (forward-line 1)(shell-command "screenshot-time.rb org_theme_template" t))
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150615201958.png]]
-Fig11: emacs-lisp-mode
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150615202005.png]]
-Fig12: magit
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150615202009.png]]
-Fig13: grep
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150615202021.png]]
-Fig14: outline-mode
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150615202026.png]]
-Fig15: org-mode
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150615202032.png]]
-Fig16: dired
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150615202039.png]]
-Fig17: web-mode
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150615202047.png]]
-Fig18: markdown-mode
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150615202058.png]]
-Fig19: helm
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150615202640.png]]
-Fig20: term with elscreen
-
+[includeme file="inc-package-install.php" name="gruvbox-theme" where="melpa"]
+[includeme file="inc-package-relate.php" name="gruvbox-theme"]

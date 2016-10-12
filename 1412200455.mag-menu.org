@@ -1,32 +1,23 @@
 #+BLOG: rubikitch
-#+POSTID: 752
+#+POSTID: 510
+#+BLOG: rubikitch
 #+DATE: [2014-12-20 Sat 04:55]
 #+PERMALINK: mag-menu
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
 #+ISPAGE: nil
-#+DESCRIPTION:
+#+DESCRIPTION:magitのメニューインターフェースがライブラリとして独立！今は本家magitがmagit-popupパッケージとして独立させている
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, Emacs Lisp, 
+#+CATEGORY: ユーザインターフェース
 #+EL_PKG_NAME: mag-menu
-#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, relate:magit, relate:ack-menu, relate:google-this, emacs メニュー, メニュー, menu, Emacs メニュー選択, emacs インターフェース, インターフェース, 
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: google, magit, 
 #+EL_TITLE0: 最強magitメニューインターフェースライブラリ！Google検索の実例あり
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージmag-menuの紹介
-#+MYTAGS: package:mag-menu, emacs 使い方, emacs コマンド, emacs, emacs lisp mag-menu, elisp mag-menu, emacs melpa mag-menu, emacs mag-menu 使い方, emacs mag-menu 設定, emacs パッケージ mag-menu, emacs mag-menu スクリーンショット, relate:magit, relate:ack-menu, relate:google-this, emacs メニュー, メニュー, menu, Emacs メニュー選択, emacs インターフェース, インターフェース, 
-#+TITLE: emacs mag-menu.el : 最強magitメニューインターフェースライブラリ！Google検索の実例あり | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>mag-menu</td></tr>
-<tr><td>概要(原文)</td><td>Intuitive keyboard-centric menu system</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/chumpage/mag-menu">https://github.com/chumpage/mag-menu</a></td></tr>
-<tr><td>バージョン</td><td>20141218.2327</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:mag-menu/">package:mag-menu</a> <a href="http://rubikitch.com/tag/package:magit/">package:magit</a> <a href="http://rubikitch.com/tag/package:ack-menu/">package:ack-menu</a> <a href="http://rubikitch.com/tag/package:google-this/">package:google-this</a></td></tr>
-</table>
-<br />
-#+END_HTML
+#+TITLE: mag-menu.el : 最強magitメニューインターフェースライブラリ！Google検索の実例あり
+[includeme file="inc-package-table.php" name="mag-menu" where="melpa"]
+** 概要
+<2016-09-21 Wed>今はmagit-popupパッケージとして本家がメニューライブラリとして独立させています。
+
 MELPAダウンロードランキングNo.1は *magit* ですが、
 なぜこんなに人気が高いのでしょうか？
 
@@ -57,15 +48,12 @@ Fig1: 本家magit logのメニュー
 magとはmagitの略です。
 
 ダウンロードランキングNo.1のエキスをあなたに！
-** mag-menu インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install mag-menu
-
+[includeme file="inc-package-install.php" name="mag-menu" where="melpa"]
 
 #+end:
 ** 概要                                                             :noexport:
+<2016-09-21 Wed>今はmagit-popupパッケージとして本家がメニューライブラリとして独立させています。
+
 MELPAダウンロードランキングNo.1は *magit* ですが、
 なぜこんなに人気が高いのでしょうか？
 
@@ -86,7 +74,7 @@ MELPAダウンロードランキングNo.1は *magit* ですが、
 一石二鳥、最強のメニューインターフェースといえます。
 
 http://rubikitch.com/f/20141220052055.png
-Fig1: 本家magit logのメニュー
+Fig2: 本家magit logのメニュー
 
 *mag-menu.el* はこの最強メニューインターフェースのみを
 一般化して利用するためのライブラリです。
@@ -156,7 +144,7 @@ mag-menuの構成要素はこうなっています。
 #+END:
 
 http://rubikitch.com/f/20141220051408.png
-Fig2: 2択メニュー
+Fig3: 2択メニュー
 
 ** Google検索の実例 [[http://rubikitch.com/f/141220041140.mag-menu.google.el][141220041140.mag-menu.google.el(以下のコードと同一)]]
 オプションを加えたら、一気に複雑になります。
@@ -209,11 +197,12 @@ M-x google-menuでクエリを入力したらメニューが出てきます。
 #+END:
 
 http://rubikitch.com/f/20141220051733.png
-Fig3: Google検索を実装
+Fig4: Google検索を実装
 
 
 ** もっと複雑な例
 もっと複雑な例はack-menuパッケージをインストールし、
 M-x find-function ack-menu で読んでみてください。
 
-→[[http://rubikitch.com/2014/12/20/ack-menu][ack-menuレビュー記事]]
+→[[http://emacs.rubikitch.com/ack-menu][ack-menuレビュー記事]]
+[includeme file="inc-package-relate.php" name="mag-menu"]

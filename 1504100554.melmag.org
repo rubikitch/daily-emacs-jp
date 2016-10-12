@@ -1,18 +1,19 @@
 #+BLOG: rubikitch
-#+POSTID: 1483
+#+POSTID: 85
+#+BLOG: rubikitch
 #+DATE: [2015-04-10 Fri 05:54]
-#+PERMALINK: melmag
+#+PERMALINK: melmag176
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
 #+ISPAGE: nil
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: メルマガ,
+#+CATEGORY: るびきち塾メルマガ
 #+DESCRIPTION: るびきち塾メルマガ『Emacsの鬼るびきちのココだけの話#176』の予告
 #+TITLE: 【メルマガ#176】入塾者限定elisp徹底添削サービスやってます
 #+MYTAGS: 
 #+begin: org2blog-tags
-#+TAGS: , メルマガ,, 
+
 #+end:
 新年度2発目のメルマガは先週のelisp添削の続きです。
 

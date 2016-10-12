@@ -1,20 +1,20 @@
 #+BLOG: rubikitch
-#+POSTID: 734
+#+POSTID: 499
+#+BLOG: rubikitch
 #+DATE: [2014-12-17 Wed 09:31]
 #+PERMALINK: bm-repository-open
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
 #+ISPAGE: nil
-#+DESCRIPTION:
+#+DESCRIPTION:起動直後からbm-repositoryに保存された全bmをhelmで見ることができる。
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, helm, 
+#+CATEGORY:  マーク
 #+DESCRIPTION: 
-#+MYTAGS: package:bm, package:helm-bm, relate:helm, relate:bookmark
-#+TAGS: package:bm, package:helm-bm, relate:helm, relate:bookmark, Emacs, helm, , bm-repository-load, bm-repository, bm-repository-file
+#+TAGS: るびきちオススメ, 永続化
 #+TITLE: 目に見えるブックマークbm.elの最強設定！helmで『全bm』を見られるようにする
-bm.elとは目に見えるブックマークのことです ([[http://rubikitch.com/2014/11/21/bm/][レビュー記事]]) 。
+bm.elとは目に見えるブックマークのことです ([[http://emacs.rubikitch.com/bm/][レビュー記事]]) 。
 
-さらに、[[http://rubikitch.com/2014/11/22/helm-bm/][helm-bmというhelmインターフェース]] も存在します。
+さらに、[[http://emacs.rubikitch.com/helm-bm/][helm-bmというhelmインターフェース]] も存在します。
 
 しかし、bmの大きな欠点はbmを永続化できるものの、
 開いているバッファの範囲でしかbmを一覧できないことです。

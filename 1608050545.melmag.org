@@ -1,18 +1,19 @@
 #+BLOG: rubikitch
-#+POSTID: 2617
+#+POSTID: 161
+#+BLOG: rubikitch
 #+DATE: [2016-08-05 Fri 05:45]
-#+PERMALINK: melmag
+#+PERMALINK: melmag245
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
 #+ISPAGE: nil
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: メルマガ,
+#+CATEGORY: るびきち塾メルマガ
 #+DESCRIPTION: るびきち塾メルマガ『Emacsの鬼るびきちのココだけの話#245』の予告
 #+TITLE: 【るびきち塾メルマガ#245】NEW大人の勉強法(後編)
 #+MYTAGS: 
 #+begin: org2blog-tags
-#+TAGS: , メルマガ,, 
+
 #+end:
 先週から引き続き大人の勉強法です。
 検索重視にメモを蓄積していくことが要点でしたね。
@@ -24,6 +25,7 @@
 - 行動力を上げる方法
 - 僕が辿り着いた正解
 
+# footer
 豪華な入塾特典付きで、初月無料月々527円のるびきち塾。
 Emacsについて、人生の質を上げる方法について
 メルマガでも個別メールでも懇切丁寧に指導します。

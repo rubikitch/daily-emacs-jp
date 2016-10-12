@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 1960
+#+POSTID: 1124
+#+BLOG: rubikitch
 #+DATE: [2015-09-07 Mon 05:45]
 #+PERMALINK: update
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -9,12 +10,13 @@
 #+BLOG: rubikitch
 #+CATEGORY: 記事更新情報, 
 #+DESCRIPTION: 
-#+MYTAGS: 
 #+TITLE: helm-migemoが動かなくなったので対処しました
 #+begin: org2blog-tags
-#+TAGS: , 記事更新情報, , 
+# content-length: 352
+#+HTML: <!-- noindex -->
+
 #+end:
-[[http://rubikitch.com/2014/12/19/helm-migemo/]]
+[[http://emacs.rubikitch.com/helm-migemo/]]
 
 helmの
 https://github.com/emacs-helm/helm/commit/b26db37

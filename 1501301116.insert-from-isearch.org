@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 1042
+#+POSTID: 654
+#+BLOG: rubikitch
 #+DATE: [2015-01-30 Fri 11:16]
 #+PERMALINK: insert-from-isearch
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,17 +8,16 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, 
+#+CATEGORY: 検索
 #+DESCRIPTION: インクリメンタルサーチでC-eを押してその部分のシンボルを、C-u C-eでその行を貼り付ける。fcopy.el風味、dabbrevやhippie-expandの補助。
-#+MYTAGS: Emacs, emacs isearch, relate:fcopy, fcopy.el, インクリメンタルサーチ, emacs isearch 貼り付け, relate:ace-isearch, relate:dabbrev, dabbrev, dynamic abbrev, screen, relate:hippie-exp
 #+TITLE: 【isearchでdabbrev風】インクリメンタルサーチにマッチした部分(シンボル、行)を挿入する
 #+begin: org2blog-tags
-#+TAGS: Emacs, emacs isearch, relate:fcopy, fcopy.el, インクリメンタルサーチ, emacs isearch 貼り付け, relate:ace-isearch, relate:dabbrev, dabbrev, dynamic abbrev, screen, relate:hippie-exp, Emacs, , ace-isearch-use-function-from-isearch, dabbrev-expand, M-/, hippie-expand
+
 #+end:
 
 <2015-02-11 Wed>追記
-[[http://rubikitch.com/2014/10/08/ace-isearch/][ace-isearch(レビュー)]] と併用している場合、デフォルトでは
-6文字以上で[[http://rubikitch.com/2014/12/25/helm-swoop/][helm-swoop(レビュー)]] が発動するため併用できません。
+[[http://emacs.rubikitch.com/ace-isearch/][ace-isearch(レビュー)]] と併用している場合、デフォルトでは
+6文字以上で[[http://emacs.rubikitch.com/helm-swoop/][helm-swoop(レビュー)]] が発動するため併用できません。
 そのため、isearchからhelm-swoopが発動しないように
 *ace-isearch-use-function-from-isearch* をnilにしました。
 

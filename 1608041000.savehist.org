@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 2612
+#+POSTID: 1510
+#+BLOG: rubikitch
 #+DATE: [2016-08-04 Thu 10:00]
 #+PERMALINK: savehist
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,12 +8,13 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, 
+#+CATEGORY: ミニバッファ
 #+DESCRIPTION: 
-#+MYTAGS: compile-command, elisp savehist, Emacs, emacs lisp savehist, emacs savehist, emacs savehist 使い方, emacs savehist 設定, emacs コマンド, emacs パッケージ savehist, emacs 使い方, history,kill-ring, package:savehist, relate:desktop, relate:pcache, relate:psession, relate:stash,relate:windows, savehist, savehist-additional-variables, savehist-ignored-variables,savehist-mode, savehist.el, キャッシュ, キルリング履歴を保存する, ミニバッファ, ミニバッファの履歴を保存する, ミニバッファ履歴を次回Emacs起動時にも保存する, ログ, 保存, 変数の値を次回のEmacs起動時に復元させる, 履歴, 永続化
 #+TITLE: emacs savehist: こんなの常識だよ？ミニバッファ履歴を保存する
+#+TAGS: 永続化
 #+begin: org2blog-tags
-#+TAGS: compile-command, elisp savehist, Emacs, emacs lisp savehist, emacs savehist, emacs savehist 使い方, emacs savehist 設定, emacs コマンド, emacs パッケージ savehist, emacs 使い方, history,kill-ring, package:savehist, relate:desktop, relate:pcache, relate:psession, relate:stash,relate:windows, savehist, savehist-additional-variables, savehist-ignored-variables,savehist-mode, savehist.el, キャッシュ, キルリング履歴を保存する, ミニバッファ, ミニバッファの履歴を保存する, ミニバッファ履歴を次回Emacs起動時にも保存する, ログ, 保存, 変数の値を次回のEmacs起動時に復元させる, 履歴, 永続化, Emacs, , savehist-mode, compile-command, kill-ring, savehist-additional-variables, savehist-ignored-variables
+# content-length: 972
+
 #+end:
 久々に標準ライブラリの紹介です。
 *savehist-mode* というマイナーモードを有効にすることで、

@@ -1,34 +1,22 @@
 #+BLOG: rubikitch
-#+POSTID: 203
+#+POSTID: 237
+#+BLOG: rubikitch
 #+DATE: [2014-08-25 Mon 12:13]
 #+PERMALINK: neotree
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t
 #+ISPAGE: nil
-#+DESCRIPTION:
+#+DESCRIPTION:VimのNerdTreeっぽいファイラ
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs
+#+CATEGORY: ファイラ
 #+EL_PKG_NAME: neotree
-#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, dired-subtree, dired-toggle, NerdTree emacs, relate:dired, relate:speedbar
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: from:vim
 #+EL_TITLE0: VimのNerdTreeをEmacsで！diredやspeedbarみたいなやつ
 #+EL_URL: http://www.emacswiki.org/emacs/NeoTree
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージneotreeの紹介
-#+MYTAGS: package:neotree, emacs 使い方, emacs コマンド, emacs, emacs lisp neotree, elisp neotree, emacs melpa neotree, emacs neotree 使い方, emacs neotree 設定, emacs パッケージ neotree, emacs neotree スクリーンショット, dired-subtree, dired-toggle, NerdTree emacs, relate:dired, relate:speedbar
-#+TITLE: emacs neotree.el : VimのNerdTreeをEmacsで！diredやspeedbarみたいなやつ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>neotree</td></tr>
-<tr><td>概要(原文)</td><td>A tree plugin like NerdTree for Vim</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>サイト</td><td><a href="http://www.emacswiki.org/emacs/NeoTree">http://www.emacswiki.org/emacs/NeoTree</td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/jaypei/emacs-neotree">https://github.com/jaypei/emacs-neotree</a></td></tr>
-<tr><td>バージョン</td><td>20141119.443</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:neotree/">package:neotree</a> <a href="http://rubikitch.com/tag/package:dired/">package:dired</a> <a href="http://rubikitch.com/tag/package:speedbar/">package:speedbar</a></td></tr>
-</table>
-<br />
-#+END_HTML
+#+TITLE: neotree.el : VimのNerdTreeをEmacsで！diredやspeedbarみたいなやつ
+[includeme file="inc-package-table.php" name="neotree" where="melpa"]
+** 概要
 neotreeはVimの *NerdTree* をEmacsに移植したものです。
 
 M-x neotreeを実行すると、左側にファイルリストがポップアップしてきます。
@@ -45,12 +33,7 @@ NeoTreeは *dedicated window* なので、NeoTreeのウィンドウで
 
 dedicated windowというのは、そのバッファ専用のウィンドウであり、
 他のバッファにウィンドウをゆずらないからです。
-** neotree インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install neotree
-
+[includeme file="inc-package-install.php" name="neotree" where="melpa"]
 
 #+end:
 ** 概要                                                             :noexport:
@@ -85,3 +68,4 @@ M-x dired-toggleでできてしまいます。
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
 http://rubikitch.com/f/20140825121535.png
 Fig1: M-x neotree
+[includeme file="inc-package-relate.php" name="neotree"]

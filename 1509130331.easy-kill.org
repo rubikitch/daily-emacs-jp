@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 1977
+#+POSTID: 1134
+#+BLOG: rubikitch
 #+DATE: [2015-09-13 Sun 03:31]
 #+PERMALINK: easy-kill
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,69 +8,17 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs
+#+CATEGORY: コピー・貼り付け
 #+EL_PKG_NAME: easy-kill
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, relate:omni-kill, relate:expand-region, relate:expand-line, relate:edit-at-point
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 
+#+TAGS: るびきちオススメ, thing-at-point
 #+EL_TITLE0: M-wで単語やS式などを即座にコピーできるように進化させる
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージeasy-killの紹介
-#+MYTAGS: package:easy-kill, emacs 使い方, emacs コマンド, emacs, easy-kill, easy-kill.el, emacs lisp easy-kill, elisp easy-kill, emacs melpa easy-kill, emacs easy-kill 使い方, emacs easy-kill 設定, emacs パッケージ easy-kill, relate:omni-kill, relate:expand-region, relate:expand-line, relate:edit-at-point
-#+TAGS: package:easy-kill, emacs 使い方, emacs コマンド, emacs, easy-kill, easy-kill.el, emacs lisp easy-kill, elisp easy-kill, emacs melpa easy-kill, emacs easy-kill 使い方, emacs easy-kill 設定, emacs パッケージ easy-kill, relate:omni-kill, relate:expand-region, relate:expand-line, relate:edit-at-point, Emacs, easy-kill.el, M-x easy-kill, easy-kill.el, M-x easy-kill
-#+TITLE: emacs easy-kill.el : M-wで単語やS式などを即座にコピーできるように進化させる | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>easy-kill</td></tr>
-<tr><td>概要(原文)</td><td>kill & mark things easily</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/leoliu/easy-kill">https://github.com/leoliu/easy-kill</a></td></tr>
-<tr><td>バージョン</td><td>20150713.2316</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:easy-kill/">package:easy-kill</a> <a href="http://rubikitch.com/tag/package:omni-kill/">package:omni-kill</a> <a href="http://rubikitch.com/tag/package:expand-region/">package:expand-region</a> <a href="http://rubikitch.com/tag/package:expand-line/">package:expand-line</a> <a href="http://rubikitch.com/tag/package:edit-at-point/">package:edit-at-point</a></td></tr>
-</table>
-<br />
-#+END_HTML
-Emacsで現在のthing(単語、defun、S式など)をコピーするのはかなり面倒です。
-
-カーソル位置の単語をコピーする場合でさえM-b M-@ M-wと押す必要があります。
-
-そこで、 *easy-kill.el* ではregionを指定しない場合のM-wに新たな役割を与えます。
-
-もちろん、region有のM-wは元の挙動をします。
-
-region無のM-wを *M-x easy-kill* に割り当てると、
-現在行などを即座にコピーします。
-
-コピーした後にC-wを押せば、その部分を削除(キル)します。
-
-単語を置き換えるときに効果的です。
-
-| キー  | コピー対象       |
-|-------+------------------|
-| M-w   | 行               |
-| M-w w | 単語             |
-| M-w s | S式              |
-| M-w l | リスト           |
-| M-w f | ファイル名       |
-| M-w d | defun            |
-| M-w D | 関数名           |
-| M-w e | 行               |
-| M-w b | buffer-file-name |
-
-なにより、即座にコピーされるのは本当に魅力的です。
-
-日常使うコマンドだけに、こういうちょっとしたカイゼンは大きな効果を生みますよね。
-
-# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
-** easy-kill インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install easy-kill
-
+#+TITLE: easy-kill.el : M-wで単語やS式などを即座にコピーできるように進化させる
+[includeme file="inc-package-table.php" name="easy-kill" where="melpa"]
 
 #+end:
-** 概要                                                             :noexport:
+** 概要
 Emacsで現在のthing(単語、defun、S式など)をコピーするのはかなり面倒です。
 
 カーソル位置の単語をコピーする場合でさえM-b M-@ M-wと押す必要があります。
@@ -102,6 +51,7 @@ region無のM-wを *M-x easy-kill* に割り当てると、
 日常使うコマンドだけに、こういうちょっとしたカイゼンは大きな効果を生みますよね。
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+[includeme file="inc-package-install.php" name="easy-kill" where="melpa"]
 ** 設定 [[http://rubikitch.com/f/150913034807.easy-kill.el][150913034807.easy-kill.el(以下のコードと同一)]]
 #+BEGIN: include :file "/r/sync/junk/150913/150913034807.easy-kill.el"
 #+BEGIN_SRC fundamental
@@ -115,3 +65,4 @@ region無のM-wを *M-x easy-kill* に割り当てると、
 $ wget http://rubikitch.com/f/150913034807.easy-kill.el
 $ emacs -Q -f package-initialize -l 150913034807.easy-kill.el
 #+END_EXAMPLE
+[includeme file="inc-package-relate.php" name="easy-kill"]

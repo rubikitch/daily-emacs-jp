@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 612
+#+POSTID: 429
+#+BLOG: rubikitch
 #+DATE: [2014-11-24 Mon 04:22]
 #+PERMALINK: scratch-pop
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,27 +8,14 @@
 #+DESCRIPTION: scratch-pop.el + popwin.el + auto-save-buffers-enhanced.el による快適メモ取り環境の構築方法！
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, ソース解読推奨
+#+CATEGORY: scratchバッファ
 #+EL_PKG_NAME: scratch-pop
-#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, relate:popwin, relate:org, define-minor-mode, scratchバッファ メモ, emacs scratch, package:auto-save-buffers-enhanced, relate:open-junk-file, scratch, relate:omni-scratch
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: ソース解読推奨
 #+EL_TITLE0: 【おまけ付き】自動保存*scratch*バッファをpopwinでサッと開いてメモを取る
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージscratch-popの紹介
-#+MYTAGS: package:scratch-pop, emacs 使い方, emacs コマンド, emacs, emacs lisp scratch-pop, elisp scratch-pop, emacs melpa scratch-pop, emacs scratch-pop 使い方, emacs scratch-pop 設定, emacs パッケージ scratch-pop, emacs scratch-pop スクリーンショット, relate:popwin, relate:org, define-minor-mode, scratchバッファ メモ, emacs scratch, package:auto-save-buffers-enhanced, relate:open-junk-file, scratch, relate:omni-scratch
-#+TAGS: package:scratch-pop, emacs 使い方, emacs コマンド, emacs, emacs lisp scratch-pop, elisp scratch-pop, emacs melpa scratch-pop, emacs scratch-pop 使い方, emacs scratch-pop 設定, emacs パッケージ scratch-pop, emacs scratch-pop スクリーンショット, relate:popwin, relate:org, define-minor-mode, scratchバッファ メモ, emacs scratch, package:auto-save-buffers-enhanced, relate:open-junk-file, scratch, relate:omni-scratch, Emacs, ソース解読推奨, scratch-pop.el, popwin.el, popwin.el, open-junk-file.el, M-x org-capture, org-mode, scratch*バッファ専用の *マイナーモード, scratch
-#+TITLE: emacs scratch-pop.el : 【おまけ付き】自動保存*scratch*バッファをpopwinでサッと開いてメモを取る | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>scratch-pop</td></tr>
-<tr><td>概要(原文)</td><td>Generate, popup (& optionally backup) scratch buffer(s).</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/zk-phi/scratch-pop">https://github.com/zk-phi/scratch-pop</a></td></tr>
-<tr><td>バージョン</td><td>20150820.139</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:scratch-pop/">package:scratch-pop</a> <a href="http://rubikitch.com/tag/package:popwin/">package:popwin</a> <a href="http://rubikitch.com/tag/package:org/">package:org</a> <a href="http://rubikitch.com/tag/package:open-junk-file/">package:open-junk-file</a> <a href="http://rubikitch.com/tag/package:omni-scratch/">package:omni-scratch</a></td></tr>
-</table>
-<br />
-#+END_HTML
+#+TITLE: scratch-pop.el : 【おまけ付き】自動保存*scratch*バッファをpopwinでサッと開いてメモを取る
+[includeme file="inc-package-table.php" name="scratch-pop" where="melpa"]
+** 概要
 *scratch-pop.el* は、 *popwin.el* を使って
 *scratch*バッファをポップアップさせます。
 
@@ -36,12 +24,7 @@ C-c cで*scratch*バッファを開き、
 
 scratch-pop.elが提供するのはたったこれだけの機能ですが、
 短期的なメモにおいては十分です。
-** scratch-pop インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install scratch-pop
-
+[includeme file="inc-package-install.php" name="scratch-pop" where="melpa"]
 
 #+end:
 ここではさらに以下のパッケージもインストールします。
@@ -74,7 +57,7 @@ scratch-pop.elが提供するのはたったこれだけの機能ですが、
  2014/11/23 16:27:39 kai2nenobu > これまじ便利。*scratch*でメモして、強制
  終了でメモ紛失という事故がなくなる。 "【自動保存】Emacsから「ファイル保存」
  という概念を消し飛ばす。*scratch*も自動保存 | るびきち「日刊Emacs」" -
- http://rubikitch.com/2014/11/23/auto-save-buffers-enhanced/ // by
+ http://emacs.rubikitch.com/auto-save-buffers-enhanced/ // by
  Tsuenobu Kai from KeySnail [Tokyo, Japan]
 
  2014/11/23 20:09:20 rubikitch > なるほど、*scratch*を短期的なメモ用途とし
@@ -88,7 +71,7 @@ org-captureによるものはあくまで永続性のあるメモであり、
 
 そこで*scratch*に目をつけました。
 ** auto-save-buffers-enhanced.elと組み合わせる
-[[http://rubikitch.com/2014/11/23/auto-save-buffers-enhanced/][昨日紹介したauto-save-buffers-enhanced.el]] では
+[[http://emacs.rubikitch.com/auto-save-buffers-enhanced/][昨日紹介したauto-save-buffers-enhanced.el]] では
 *scratach*バッファが自動保存されるので併用しましょう。
 
 これでメモがなくなる心配はありません。
@@ -156,3 +139,4 @@ $ emacs -Q -f package-initialize -l 141124043904.scratch-pop.el
 #+END_EXAMPLE
 http://rubikitch.com/f/20141124083446.png
 Fig1: *scratch*バッファがポップアップするよ！
+[includeme file="inc-package-relate.php" name="scratch-pop"]

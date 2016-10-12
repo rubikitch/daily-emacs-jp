@@ -1,13 +1,14 @@
 #+BLOG: rubikitch
-#+POSTID: 2573
+#+POSTID: 159
+#+BLOG: rubikitch
 #+DATE: [2016-07-29 Fri 14:10]
-#+PERMALINK: melmag
+#+PERMALINK: melmag244
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
 #+ISPAGE: nil
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: メルマガ,
+#+CATEGORY: るびきち塾メルマガ
 #+DESCRIPTION: るびきち塾メルマガ『Emacsの鬼るびきちのココだけの話#244』の予告
 #+TITLE: 【メルマガ#244】NEW大人の勉強法(前編)
 #+MYTAGS: 

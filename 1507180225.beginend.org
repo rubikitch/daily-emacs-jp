@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 1837
+#+POSTID: 1032
+#+BLOG: rubikitch
 #+DATE: [2015-07-18 Sat 02:25]
 #+PERMALINK: beginend
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,56 +8,17 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, dired
+#+CATEGORY: カーソル移動
 #+EL_PKG_NAME: beginend
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, relate:dired, relate:message, relate:mu4e, relate:mew
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 
+#+TAGS: 標準コマンド強化
 #+EL_TITLE0: モード(dired/mu4e/message/mew対応)に応じてM-<とM->を再定義する
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージbeginendの紹介
-#+MYTAGS: package:beginend, emacs 使い方, emacs コマンド, emacs, beginend, beginend.el, emacs lisp beginend, elisp beginend, emacs melpa beginend, emacs beginend 使い方, emacs beginend 設定, emacs パッケージ beginend, relate:dired, relate:message, relate:mu4e, relate:mew
-#+TAGS: package:beginend, emacs 使い方, emacs コマンド, emacs, beginend, beginend.el, emacs lisp beginend, elisp beginend, emacs melpa beginend, emacs beginend 使い方, emacs beginend 設定, emacs パッケージ beginend, relate:dired, relate:message, relate:mu4e, relate:mew, Emacs, dired, beginend.el, beginend-message-mode, beginend.el, beginend-message-mode
-#+TITLE: emacs beginend.el : モード(dired/mu4e/message/mew対応)に応じてM-<とM->を再定義する | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>beginend</td></tr>
-<tr><td>概要(原文)</td><td>Redefine M-< and M-> for some modes</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/DamienCassou/beginend">https://github.com/DamienCassou/beginend</a></td></tr>
-<tr><td>バージョン</td><td>20150607.1001</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:beginend/">package:beginend</a> <a href="http://rubikitch.com/tag/package:dired/">package:dired</a> <a href="http://rubikitch.com/tag/package:message/">package:message</a> <a href="http://rubikitch.com/tag/package:mu4e/">package:mu4e</a> <a href="http://rubikitch.com/tag/package:mew/">package:mew</a></td></tr>
-</table>
-<br />
-#+END_HTML
-M-<とM->はそれぞれバッファの先頭と末尾に移動しますが、
-メジャーモードによってはより望ましい「先頭と末尾」に移動してほしいものです。
-
-diredであれば最初のファイル、メールであれば本文の最初といった具合です。
-
-*beginend.el* は、以下のモードにおいてそれを可能にしてくれます。
-
-- dired
-- message
-- mu4e
-- mew (設定で対応)
-
-ソースコードはきちんと整理されているので、
-*beginend-message-mode* の定義を参考にすれば
-他のモードに対しても容易に対応できるはずです。
-
-
-
-# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
-** beginend インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install beginend
-
+#+TITLE: beginend.el : モード(dired/mu4e/message/mew対応)に応じてM-<とM->を再定義する
+[includeme file="inc-package-table.php" name="beginend" where="melpa"]
 
 #+end:
-** 概要                                                             :noexport:
+** 概要
 M-<とM->はそれぞれバッファの先頭と末尾に移動しますが、
 メジャーモードによってはより望ましい「先頭と末尾」に移動してほしいものです。
 
@@ -76,6 +38,7 @@ diredであれば最初のファイル、メールであれば本文の最初と
 
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+[includeme file="inc-package-install.php" name="beginend" where="melpa"]
 ** 設定 [[http://rubikitch.com/f/150718023056.beginend.el][150718023056.beginend.el(以下のコードと同一)]]
 #+BEGIN: include :file "/r/sync/junk/150718/150718023056.beginend.el"
 #+BEGIN_SRC fundamental
@@ -91,3 +54,4 @@ diredであれば最初のファイル、メールであれば本文の最初と
 $ wget http://rubikitch.com/f/150718023056.beginend.el
 $ emacs -Q -f package-initialize -l 150718023056.beginend.el
 #+END_EXAMPLE
+[includeme file="inc-package-relate.php" name="beginend"]

@@ -1,18 +1,19 @@
 #+BLOG: rubikitch
-#+POSTID: 2020
+#+POSTID: 133
+#+BLOG: rubikitch
 #+DATE: [2015-09-25 Fri 00:35]
-#+PERMALINK: melmag
+#+PERMALINK: melmag200
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
 #+ISPAGE: nil
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: メルマガ,
+#+CATEGORY: るびきち塾メルマガ
 #+DESCRIPTION: るびきち塾メルマガ『Emacsの鬼るびきちのココだけの話#200』の予告
 #+TITLE: 【メルマガ#200】刊行4年弱で200号を迎えました！！
 #+MYTAGS: 
 #+begin: org2blog-tags
-#+TAGS: , メルマガ,, 
+
 #+end:
 今回でメルマガは200号を迎えました。
 

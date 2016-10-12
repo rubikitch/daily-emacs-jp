@@ -1,82 +1,24 @@
 #+BLOG: rubikitch
-#+POSTID: 1171
+#+POSTID: 375
+#+BLOG: rubikitch
 #+DATE: [2015-02-18 Wed 07:04]
 #+PERMALINK: mpv
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
 #+ISPAGE: nil
-#+DESCRIPTION:
+#+DESCRIPTION:最強メディアプレイヤーmpv＋org-modeで議事録を録る
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, org-mode
+#+CATEGORY: 音声再生
 #+EL_PKG_NAME: mpv
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, emacs mplayer, emacs mpv, emacs メディアプレイヤー, セミナー音声 メモ, オーディオブック メモ, セミナー メモ, emacs テープ書き起こし
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: 議事録, org
 #+EL_TITLE0: 【mpv＋org-mode】オーディオブックやセミナー音声(動画)から時間情報付きでメモを取れ！
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージmpvの紹介
-#+MYTAGS: package:mpv, emacs 使い方, emacs コマンド, emacs, mpv, mpv.el, emacs lisp mpv, elisp mpv, emacs melpa mpv, emacs mpv 使い方, emacs mpv 設定, emacs パッケージ mpv, emacs mpv スクリーンショット, emacs mplayer, emacs mpv, emacs メディアプレイヤー, セミナー音声 メモ, オーディオブック メモ, セミナー メモ, emacs テープ書き起こし
-#+TAGS: package:mpv, emacs 使い方, emacs コマンド, emacs, mpv, mpv.el, emacs lisp mpv, elisp mpv, emacs melpa mpv, emacs mpv 使い方, emacs mpv 設定, emacs パッケージ mpv, emacs mpv スクリーンショット, emacs mplayer, emacs mpv, emacs メディアプレイヤー, セミナー音声 メモ, オーディオブック メモ, セミナー メモ, emacs テープ書き起こし, Emacs, org-mode, mplayer, mpv.el, EMMS, mpg123.el, オーディオブック, セミナー, mpv-pause, mpv-kill, mpv-seek-forward, mpv-speed-increase, mpv-insert-playback-position, mpv-seek-to-position-at-point, C-c C-l, mplayer, mpv.el, EMMS, mpg123.el, オーディオブック, セミナー, mpv-pause, mpv-kill, mpv-seek-forward, mpv-speed-increase, mpv-insert-playback-position, mpv-seek-to-position-at-point, C-c C-l, --input-unix-socket
-#+TITLE: emacs mpv.el : 【mpv＋org-mode】オーディオブックやセミナー音声(動画)から時間情報付きでメモを取れ！ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>mpv</td></tr>
-<tr><td>概要(原文)</td><td>control mpv for easy note-taking</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/kljohann/mpv.el">https://github.com/kljohann/mpv.el</a></td></tr>
-<tr><td>バージョン</td><td>20150218.118</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:mpv/">package:mpv</a> </td></tr>
-</table>
-<br />
-#+END_HTML
-
-[[http://mpv.io/][mpv(本家サイト)]]  というメディアプレイヤーは
-Unix系OSを中心に使われている *mplayer* *mplayer2* のforkです。
-
-GNU/Linux、Windows、Mac、FreeBSD、NetBSDに対応しています。
-
-*mpv.el* はmpvをEmacsから操作するelispです。
-
-こう言うと *EMMS* や *mpg123.el* のようなEmacs上のメディアプレイヤーと
-思われがちですが、mpv.elの本当の目的は音声や動画からメモを取ることです。
-
-今は数多くの *オーディオブック* や *セミナー* の音声・動画がありますが、
-重要な部分をメモすると早く頭に入ります。
-
-mpv.elは以下の機能を提供します。
-
-- mpvの操作
-  - *mpv-pause* - 一時停止
-  - *mpv-kill* - 停止
-  - *mpv-seek-forward* *mpv-seek-backward* - 再生位置を移動
-  - *mpv-speed-increase* *mpv-speed-decrease* - 再生速度を調整
-  - *mpv-insert-playback-position* - 現在の再生時間を挿入
-  - *mpv-seek-to-position-at-point* - カーソル位置の再生時間へ移動
-- org-modeとの連携
-  - *C-c C-l* で mpv: のリンクを挿入
-  - M-RETで再生位置を自動挿入
-  - 再生位置(h:mm:ss)上でC-c C-oを押すとその再生位置に移動
-
-本設定では[[https://github.com/kljohann/mpv.el/wiki][Wiki]] に書いているものを書き加え、ちょっと改良しています。
-- H-SPCで一時停止
-- H-bで5秒戻る
-- リンク挿入後に「0:00:00」と挿入して、スムーズにM-RETできるようにした
-
-mpvのバージョンが古いと動かないので新しいものにしてください。
-
-mplayer(mplayer2)と共存できますがIPCがしっかりしているので、
-僕はmplayer2から乗り換えようと思っています。
-
-# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
-** mpv インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install mpv
-
+#+TITLE: mpv.el : 【mpv＋org-mode】オーディオブックやセミナー音声(動画)から時間情報付きでメモを取れ！
+[includeme file="inc-package-table.php" name="mpv" where="melpa"]
 
 #+end:
-** 概要                                                             :noexport:
+** 概要
 
 [[http://mpv.io/][mpv(本家サイト)]]  というメディアプレイヤーは
 Unix系OSを中心に使われている *mplayer* *mplayer2* のforkです。
@@ -116,6 +58,7 @@ mplayer(mplayer2)と共存できますがIPCがしっかりしているので、
 僕はmplayer2から乗り換えようと思っています。
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+[includeme file="inc-package-install.php" name="mpv" where="melpa"]
 ** 設定 [[http://rubikitch.com/f/150218060806.mpv.el][150218060806.mpv.el(以下のコードと同一)]]
 #+BEGIN: include :file "/r/sync/junk/150218/150218060806.mpv.el"
 #+BEGIN_SRC fundamental
@@ -226,3 +169,4 @@ Fig6: 以下同様
 # /r/sync/screenshots/20150218074941.png http://rubikitch.com/wp-content/uploads/2015/02/wpid-20150218074941.png
 # /r/sync/screenshots/20150218074950.png http://rubikitch.com/wp-content/uploads/2015/02/wpid-20150218074950.png
 # /r/sync/screenshots/20150218074958.png http://rubikitch.com/wp-content/uploads/2015/02/wpid-20150218074958.png
+[includeme file="inc-package-relate.php" name="mpv"]

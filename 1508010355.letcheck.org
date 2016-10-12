@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 1869
+#+POSTID: 1058
+#+BLOG: rubikitch
 #+DATE: [2015-08-01 Sat 03:55]
 #+PERMALINK: letcheck
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,28 +8,17 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, Emacs Lisp, 
+#+CATEGORY: Emacs Lisp支援
 #+EL_PKG_NAME: letcheck
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, let, let*, 変数束縛, Common Lisp, Scheme
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: 初心者安心, るびきちオススメ
 #+EL_TITLE0: 【LISP】誤ったlet式を自動チェックする
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージletcheckの紹介
-#+MYTAGS: package:letcheck, emacs 使い方, emacs コマンド, emacs, letcheck, letcheck.el, emacs lisp letcheck, elisp letcheck, emacs melpa letcheck, emacs letcheck 使い方, emacs letcheck 設定, emacs パッケージ letcheck, emacs letcheck スクリーンショット, let, let*, 変数束縛, Common Lisp, Scheme
-#+TAGS: package:letcheck, emacs 使い方, emacs コマンド, emacs, letcheck, letcheck.el, emacs lisp letcheck, elisp letcheck, emacs melpa letcheck, emacs letcheck 使い方, emacs letcheck 設定, emacs パッケージ letcheck, emacs letcheck スクリーンショット, let, let*, 変数束縛, Common Lisp, Scheme, Emacs, Emacs Lisp, , letcheck.el, M-x letcheck-mode, letcheck.el, M-x letcheck-mode
-#+TITLE: emacs letcheck.el : 【LISP】誤ったlet式を自動チェックする | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>letcheck</td></tr>
-<tr><td>概要(原文)</td><td>Check the erroneous assignments in let forms</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/Fuco1/letcheck">https://github.com/Fuco1/letcheck</a></td></tr>
-<tr><td>バージョン</td><td>20150726.912</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:letcheck/">package:letcheck</a> </td></tr>
-</table>
-<br />
-#+END_HTML
+#+TITLE: letcheck.el : 【LISP】誤ったlet式を自動チェックする
+[includeme file="inc-package-table.php" name="letcheck" where="melpa"]
+
+#+end:
+** 概要
 Lispのlet式は他言語を使っている人にとってハマることがあります。
 
 というのは、ひとつのlet式のローカル変数は同時に初期化されるため、
@@ -64,48 +54,6 @@ xがvoidであるため、エラーになります。
 #+ATTR_HTML: :width 480
 [[file:/r/sync/screenshots/20150801040136.png]]
 Fig1: voidな変数xがハイライトされて誤用だとわかる
-** letcheck インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
 
-M-x package-refresh-contents
-M-x package-install letcheck
-
-
-#+end:
-** 概要                                                             :noexport:
-Lispのlet式は他言語を使っている人にとってハマることがあります。
-
-というのは、ひとつのlet式のローカル変数は同時に初期化されるため、
-前の変数を参照できないからです。
-
-たとえばRubyでこのようなコードを
-
-#+BEGIN_SRC ruby :results xmp silent
-x = 1
-y = x + 1
-[x, y]
-#+END_SRC
-
-elisp/Common Lisp/Schemeに直接変換してもうまくいきません。
-
-#+BEGIN_SRC emacs-lisp :results silent
-;;; 間違ったlet式
-(let ((x 1)
-      (y (+ x 1)))
-  (list x y))
-#+END_SRC
-
-xがvoidであるため、エラーになります。
-
-正しくはlet*を使うことです。
-
-*letcheck.el* には *M-x letcheck-mode* というマイナーモードが定義されていて
-参照されてない変数をハイライトします。
-
-
-
-# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150801040136.png]]
-Fig2: voidな変数xがハイライトされて誤用だとわかる
-
+[includeme file="inc-package-install.php" name="letcheck" where="melpa"]
+[includeme file="inc-package-relate.php" name="letcheck"]

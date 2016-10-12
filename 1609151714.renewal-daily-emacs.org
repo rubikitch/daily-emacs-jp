@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 2802
+#+POSTID: 1581
+#+BLOG: rubikitch
 #+DATE: [2016-09-15 Thu 17:14]
 #+PERMALINK: renewal-daily-emacs
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
@@ -7,12 +8,14 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: 未分類, 
+#+NOINDEX: t
+#+CATEGORY: 
 #+DESCRIPTION: 
-#+MYTAGS: お知らせ
 #+TITLE: M-x renewal-daily-emacs
 #+begin: org2blog-tags
-#+TAGS: お知らせ, 未分類, , 
+# because of explicit-noindex
+#+HTML: <!-- noindex -->
+
 #+end:
 この度、「日刊Emacs」を改築することにしました。
 2014年8月から運営を開始して以来、病休を除けば毎日記事を書き続けました。

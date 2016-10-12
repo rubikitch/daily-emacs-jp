@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 1968
+#+POSTID: 1130
+#+BLOG: rubikitch
 #+DATE: [2015-09-10 木 11:49]
 #+PERMALINK: keysnail-nocolor
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -9,10 +10,10 @@
 #+BLOG: rubikitch
 #+CATEGORY: KeySnail
 #+DESCRIPTION: 
-#+MYTAGS: Firefox, w3m
 #+TITLE: 【w3mもどき】Firefox/KeySnailで色情報をなくす設定
 #+begin: org2blog-tags
-#+TAGS: Firefox, w3m, KeySnail, 
+# content-length: 816
+
 #+end:
 FirefoxをEmacs化してくれるKeySnail便利ですねー！
 将来使えなくなったら、[[http://conkeror.org/][Conkeror]] にでも乗り換えようと思っています。
@@ -40,4 +41,4 @@ key.setViewKey('M-c', function (aEvent, aArg) {
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
 ** 参考
-- [[http://rubikitch.com/2014/11/19/eww-nocolor][Emacs組み込みWebブラウザEWWで色設定を無効にする方法]]
+- [[http://emacs.rubikitch.com/eww-nocolor][Emacs組み込みWebブラウザEWWで色設定を無効にする方法]]

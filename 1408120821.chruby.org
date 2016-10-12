@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 128
+#+POSTID: 200
+#+BLOG: rubikitch
 #+DATE: [2014-08-12 Tue 08:21]
 #+PERMALINK: chruby
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t
@@ -7,26 +8,14 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs
+#+CATEGORY: Ruby支援
 #+EL_PKG_NAME: chruby
-#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p , ruby, ruby バージョン切り替え, ruby rvm, ruby rbenv, ruby chruby, ruby ruby-install, ruby emacs chruby, relate:ruby-mode
-#+EL_TITLE: Emacs Lisp Elisp Ruby パッケージ インストール 使い方
+#+TAGS: 外部プログラム使用, use:ruby
 #+EL_TITLE0: chruby/chruby.el:Rubyのバージョンを切り替える最新の方法
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージchrubyの紹介
-#+MYTAGS: package:chruby, emacs 使い方, emacs コマンド, emacs, emacs lisp chruby, elisp chruby, emacs melpa chruby, emacs chruby 使い方, emacs chruby 設定, emacs パッケージ chruby , ruby, ruby バージョン切り替え, ruby rvm, ruby rbenv, ruby chruby, ruby ruby-install, ruby emacs chruby, relate:ruby-mode
-#+TITLE: emacs chruby.el : chruby/chruby.el:Rubyのバージョンを切り替える最新の方法 | MELPA Emacs Lisp Elisp Ruby パッケージ インストール 使い方
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>chruby</td></tr>
-<tr><td>概要(原文)</td><td>Emacs integration for chruby</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/plexus/chruby.el">https://github.com/plexus/chruby.el</a></td></tr>
-<tr><td>バージョン</td><td>20141126.57</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:chruby/">package:chruby</a> <a href="http://rubikitch.com/tag/package:ruby-mode/">package:ruby-mode</a></td></tr>
-</table>
-<br />
-#+END_HTML
+#+TITLE: chruby.el : chruby/chruby.el:Rubyのバージョンを切り替える最新の方法
+[includeme file="inc-package-table.php" name="chruby" where="melpa"]
+** 概要
 chrubyはRubyのバージョンを切り替えるものです。
 
 類似のものにrbenvやrvmがありますが、
@@ -49,12 +38,7 @@ http://www.oiax.jp/rails/zakkan/chruby_on_ubuntu.html
 がとても詳しいです。
 
 パッケージでインストールすれば設定は不要です。
-** chruby インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install chruby
-
+[includeme file="inc-package-install.php" name="chruby" where="melpa"]
 
 #+end:
 ** 概要                                                             :noexport:
@@ -100,3 +84,4 @@ ruby 2.1.2p95 (2014-05-08 revision 45877) [x86_64-linux]
 (chruby-test "1.9") ; => "ruby 1.9.3p547 (2014-05-14) [x86_64-linux]\n"
 (chruby-test "2")   ; => "ruby 2.1.2p95 (2014-05-08 revision 45877) [x86_64-linux]\n"
 #+end_src
+[includeme file="inc-package-relate.php" name="chruby"]

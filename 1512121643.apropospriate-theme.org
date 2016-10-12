@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 2259
+#+POSTID: 1297
+#+BLOG: rubikitch
 #+DATE: [2015-12-12 Sat 16:43]
 #+PERMALINK: apropospriate-theme
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,102 +8,17 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, theme
+#+CATEGORY: 明暗対応
 #+EL_PKG_NAME: apropospriate-theme
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, color-theme, カラーテーマ
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: 
 #+EL_TITLE0: 低コントラストでカレントバッファが目立つ明暗カラーテーマ
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージapropospriate-themeの紹介
-#+MYTAGS: package:apropospriate-theme, emacs 使い方, emacs コマンド, emacs, apropospriate-theme, apropospriate-theme.el, emacs lisp apropospriate-theme, elisp apropospriate-theme, emacs melpa apropospriate-theme, emacs apropospriate-theme 使い方, emacs apropospriate-theme 設定, emacs パッケージ apropospriate-theme, emacs apropospriate-theme スクリーンショット, color-theme, カラーテーマ
-#+TAGS: package:apropospriate-theme, emacs 使い方, emacs コマンド, emacs, apropospriate-theme, apropospriate-theme.el, emacs lisp apropospriate-theme, elisp apropospriate-theme, emacs melpa apropospriate-theme, emacs apropospriate-theme 使い方, emacs apropospriate-theme 設定, emacs パッケージ apropospriate-theme, emacs apropospriate-theme スクリーンショット, color-theme, カラーテーマ, Emacs, theme, apropospriate-theme.el
-#+TITLE: emacs apropospriate-theme.el : 低コントラストでカレントバッファが目立つ明暗カラーテーマ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>apropospriate-theme</td></tr>
-<tr><td>概要(原文)</td><td>A colorful, low-contrast, light & dark theme set for Emacs with a fun name.</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/waymondo/apropospriate-theme">https://github.com/waymondo/apropospriate-theme</a></td></tr>
-<tr><td>バージョン</td><td>20151112.859</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:apropospriate-theme/">package:apropospriate-theme</a> </td></tr>
-</table>
-<br />
-#+END_HTML
-*apropospriate-theme.el* は、以下のパッケージに対応したカラーテーマ群です。
-- hl-line
-- link
-- header-line
-- widget
-- ace-jump-mode
-- avy
-- ace-window
-- font-lock
-- mode-line
-- powerline
-- alert
-- anzu
-- persp
-- isearch
-- regex-tool
-- ag
-- visible-mark
-- ivy
-- swiper
-- wgrep
-- guide-key
-- which-key
-- tabbar
-- company
-- popup-tip
-- popup
-- flymake
-- flycheck
-- swoop
-- helm
-- show-paren
-- highlight-symbol
-- rainbow-delimiters
-- highlight-blocks
-- ido
-- ido-vertical-mode
-- flx
-- diff
-- ediff
-- git-gutter
-- diff-hl
-- eldoc
-- undo-tree
-- dired
-- dired+
-- magit
-- compilation
-- org
-- js2-mode
-- js3-mode
-- markdown-mode
-- erb
-- web-mode
-- pulse
-- eshell
-- evil
-
-
-以下のカラーテーマが定義されています。
-
-- apropospriate-dark
-- apropospriate-light
-
-
-** apropospriate-theme インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install apropospriate-theme
-
+#+TITLE: apropospriate-theme.el : 低コントラストでカレントバッファが目立つ明暗カラーテーマ
+[includeme file="inc-package-table.php" name="apropospriate-theme" where="melpa"]
 
 #+end:
-** 概要                                                             :noexport:
+** 概要
 *apropospriate-theme.el* は、以下のパッケージに対応したカラーテーマ群です。
 - hl-line
 - link
@@ -169,6 +85,7 @@ M-x package-install apropospriate-theme
 
 #+end:
 
+[includeme file="inc-package-install.php" name="apropospriate-theme" where="melpa"]
 ** theme: apropospriate-dark
 # *apropospriate-dark-theme.el*
 *** スクリーンショット
@@ -283,3 +200,4 @@ $ emacs -Q -f package-initialize -eval '(load-theme (quote apropospriate-light) 
 
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+[includeme file="inc-package-relate.php" name="apropospriate-theme"]

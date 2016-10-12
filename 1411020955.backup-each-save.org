@@ -1,34 +1,22 @@
 #+BLOG: rubikitch
-#+POSTID: 544
+#+POSTID: 384
+#+BLOG: rubikitch
 #+DATE: [2014-11-02 Sun 09:55]
 #+PERMALINK: backup-each-save
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
 #+ISPAGE: nil
-#+DESCRIPTION:
+#+DESCRIPTION:保存するたびに別ディレクトリに日付付きファイルで自動バックアップ
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, ソース解読推奨
+#+CATEGORY: 自動保存
 #+EL_PKG_NAME: backup-each-save
-#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs バックアップ, emacs データ消えた, emacs 事故対策, emacs 保険, relate:auto-save-buffers-enhanced, relate:real-auto-save
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方
+#+TAGS: ソース解読推奨, セーフガード
 #+EL_TITLE0: Emacs式大富豪的バックアップ！保存する度に日時付きファイルでバックアップ
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージbackup-each-saveの紹介
-#+MYTAGS: package:backup-each-save, emacs 使い方, emacs コマンド, emacs, emacs lisp backup-each-save, elisp backup-each-save, emacs melpa backup-each-save, emacs backup-each-save 使い方, emacs backup-each-save 設定, emacs パッケージ backup-each-save, emacs バックアップ, emacs データ消えた, emacs 事故対策, emacs 保険, relate:auto-save-buffers-enhanced, relate:real-auto-save
-#+TAGS: package:backup-each-save, emacs 使い方, emacs コマンド, emacs, emacs lisp backup-each-save, elisp backup-each-save, emacs melpa backup-each-save, emacs backup-each-save 使い方, emacs backup-each-save 設定, emacs パッケージ backup-each-save, emacs バックアップ, emacs データ消えた, emacs 事故対策, emacs 保険, relate:auto-save-buffers-enhanced, relate:real-auto-save, Emacs, ソース解読推奨, バックアップ, 上書き保存, バックアップ, 上書き保存
-#+TITLE: emacs backup-each-save.el : Emacs式大富豪的バックアップ！保存する度に日時付きファイルでバックアップ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>backup-each-save</td></tr>
-<tr><td>概要(原文)</td><td>backup each savepoint of a file</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="http://www.emacswiki.org/backup-each-save.el">http://www.emacswiki.org/backup-each-save.el</a></td></tr>
-<tr><td>バージョン</td><td>20130704.732</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:backup-each-save/">package:backup-each-save</a> <a href="http://rubikitch.com/tag/package:auto-save-buffers-enhanced/">package:auto-save-buffers-enhanced</a> <a href="http://rubikitch.com/tag/package:real-auto-save/">package:real-auto-save</a></td></tr>
-</table>
-<br />
-#+END_HTML
-<2015-02-03 Tue> [[http://rubikitch.com/2015/02/03/real-auto-save/][real-auto-save.el]] と組み合わせるといいです。
+#+TITLE: backup-each-save.el : Emacs式大富豪的バックアップ！保存する度に日時付きファイルでバックアップ
+[includeme file="inc-package-table.php" name="backup-each-save" where="melpa"]
+** 概要
+<2015-02-03 Tue> [[http://emacs.rubikitch.com/real-auto-save/][real-auto-save.el]] と組み合わせるといいです。
 
 あなたは大切なデータを失ってしまったことはないでしょうか？
 
@@ -64,8 +52,8 @@ C-x C-sするたびにバックアップディレクトリにバックアップ�
 とはいえ、このEmacs Lispは初出10年前だし、テラバイト時代の今では
 高々テキストファイルの逐次バックアップくらいは問題ないです。
 
-[[http://rubikitch.com/2014/11/23/auto-save-buffers-enhanced/][auto-save-buffers-enhanced.el(レビュー)]] や
-[[http://rubikitch.com/2015/02/03/real-auto-save/][real-auto-save.el(レビュー)]] と組み合わせて
+[[http://emacs.rubikitch.com/auto-save-buffers-enhanced/][auto-save-buffers-enhanced.el(レビュー)]] や
+[[http://emacs.rubikitch.com/real-auto-save/][real-auto-save.el(レビュー)]] と組み合わせて
 自動保存させてしまえばまさに鉄璧です。
 
 日々のバックアップ＋リモートバックアップもしてしまえば
@@ -73,16 +61,11 @@ C-x C-sするたびにバックアップディレクトリにバックアップ�
 もはや有り得なくなります。
 
 データ消失に対する万全の対策はなによりも安心です。
-** backup-each-save インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install backup-each-save
-
+[includeme file="inc-package-install.php" name="backup-each-save" where="melpa"]
 
 #+end:
 ** 概要                                                             :noexport:
-<2015-02-03 Tue> [[http://rubikitch.com/2015/02/03/real-auto-save/][real-auto-save.el]] と組み合わせるといいです。
+<2015-02-03 Tue> [[http://emacs.rubikitch.com/real-auto-save/][real-auto-save.el]] と組み合わせるといいです。
 
 あなたは大切なデータを失ってしまったことはないでしょうか？
 
@@ -118,8 +101,8 @@ C-x C-sするたびにバックアップディレクトリにバックアップ�
 とはいえ、このEmacs Lispは初出10年前だし、テラバイト時代の今では
 高々テキストファイルの逐次バックアップくらいは問題ないです。
 
-[[http://rubikitch.com/2014/11/23/auto-save-buffers-enhanced/][auto-save-buffers-enhanced.el(レビュー)]] や
-[[http://rubikitch.com/2015/02/03/real-auto-save/][real-auto-save.el(レビュー)]] と組み合わせて
+[[http://emacs.rubikitch.com/auto-save-buffers-enhanced/][auto-save-buffers-enhanced.el(レビュー)]] や
+[[http://emacs.rubikitch.com/real-auto-save/][real-auto-save.el(レビュー)]] と組み合わせて
 自動保存させてしまえばまさに鉄璧です。
 
 日々のバックアップ＋リモートバックアップもしてしまえば
@@ -159,3 +142,4 @@ $ emacs -Q -f package-initialize -l 141102094122.backup-each-save.el
 #+END_EXAMPLE
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+[includeme file="inc-package-relate.php" name="backup-each-save"]

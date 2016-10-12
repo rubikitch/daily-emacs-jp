@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 1853
+#+POSTID: 1044
+#+BLOG: rubikitch
 #+DATE: [2015-07-25 Sat 22:16]
 #+PERMALINK: alect-themes
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,105 +8,17 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, theme
+#+CATEGORY: 明暗対応
 #+EL_PKG_NAME: alect-themes
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, color-theme, カラーテーマ
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: 
 #+EL_TITLE0: カスタマイズ可能なカラーテーマ群
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージalect-themesの紹介
-#+MYTAGS: package:alect-themes, emacs 使い方, emacs コマンド, emacs, alect-themes, alect-themes.el, emacs lisp alect-themes, elisp alect-themes, emacs melpa alect-themes, emacs alect-themes 使い方, emacs alect-themes 設定, emacs パッケージ alect-themes, emacs alect-themes スクリーンショット, color-theme, カラーテーマ
-#+TAGS: package:alect-themes, emacs 使い方, emacs コマンド, emacs, alect-themes, alect-themes.el, emacs lisp alect-themes, elisp alect-themes, emacs melpa alect-themes, emacs alect-themes 使い方, emacs alect-themes 設定, emacs パッケージ alect-themes, emacs alect-themes スクリーンショット, color-theme, カラーテーマ, Emacs, theme, alect-themes.el
-#+TITLE: emacs alect-themes.el : カスタマイズ可能なカラーテーマ群 | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>alect-themes</td></tr>
-<tr><td>概要(原文)</td><td>Configurable light, dark and black themes for Emacs 24 or later</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/alezost/alect-themes">https://github.com/alezost/alect-themes</a></td></tr>
-<tr><td>バージョン</td><td>20150722.8</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:alect-themes/">package:alect-themes</a> </td></tr>
-</table>
-<br />
-#+END_HTML
-*alect-themes.el* は、カラーテーマ集です。
-
-5つのテーマで構成されています。
-
-- alect-dark
-- alect-light
-- alect-black
-- alect-dark-alt
-- alect-light-alt
-
-カラーパレットの設定など、細かなカスタマイズができます。
-
-詳しくはREADME.mdを参照してください。
-
-# (save-window-excursion (async-shell-command "emacs-test -eval '(load-theme (quote alect-light-alt) t)'"))
-多くのパッケージに対応しています。
-- isearch
-- ido
-- help
-- apropos
-- info
-- man
-- mode-line
-- calendar
-- diary
-- comint
-- eshell
-- term
-- compilation
-- widget
-- customization
-- diff
-- ediff
-- dired
-- erc
-- epa
-- ert
-- [[http://orgmode.org/][Org]]
-- message
-- gnus
-- flyspell
-- makefile
-- ruler
-- whitespace
-- linum
-- show-paren
-- [[https:/github.com/alezost/aurel][aurel]]
-- [[https:/github.com/auto-complete/auto-complete][auto-complete]]
-- [[https://github.com/ocaml/tuareg][tuareg]]
-- [[https://github.com/the-lambda-church/merlin][merlin]]
-- [[https://github.com/diml/utop][utop]]
-- [[http://company-mode.github.io/][company]]
-- [[https://github.com/jrockway/cperl-mode][cperl]]
-- [[https:/github.com/cheusov/dictem][dictem]]
-- [[https://www.gnu.org/software/emms/][EMMS]]
-- [[https:/github.com/jaor/geiser][Geiser]]
-- [[https:/github.com/atykhonov/google-translate][google-translate]]
-- [[https://www.gnu.org/software/guix/][GNU Guix]]
-- [[https://emacs-helm.github.io/helm/][Helm]] 
-- [[https:/github.com/zk-phi/indent-guide][indent-guide]]
-- [[http://magit.vc/][Magit]]
-- [[http://jblevins.org/projects/markdown-mode/][markdown]]
-- [[https:/github.com/djcb/sauron][sauron]]
-- [[https://common-lisp.net/project/slime/][slime]]
-- [[https:/github.com/escherdragon/sunrise-commander][sunrise-commander]]
-- [[https:/github.com/vapniks/syslog-mode][syslog]]
-- [[https:/github.com/dholm/tabbar][tabbar]]
-- [[http://emacs-w3m.namazu.org/][w3m]]
-** alect-themes インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install alect-themes
-
+#+TITLE: alect-themes.el : カスタマイズ可能なカラーテーマ群
+[includeme file="inc-package-table.php" name="alect-themes" where="melpa"]
 
 #+end:
-** 概要                                                             :noexport:
+** 概要
 *alect-themes.el* は、カラーテーマ集です。
 
 5つのテーマで構成されています。
@@ -175,6 +88,7 @@ M-x package-install alect-themes
 - [[https:/github.com/dholm/tabbar][tabbar]]
 - [[http://emacs-w3m.namazu.org/][w3m]]
 
+[includeme file="inc-package-install.php" name="alect-themes" where="melpa"]
 ** alect-dark
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_theme_template" t))
@@ -382,3 +296,4 @@ $ emacs -Q -f package-initialize -eval '(load-theme (quote alect-dark) t)'
 #+END_EXAMPLE
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+[includeme file="inc-package-relate.php" name="alect-themes"]

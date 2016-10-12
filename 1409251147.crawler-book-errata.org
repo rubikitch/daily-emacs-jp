@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 387
+#+POSTID: 314
+#+BLOG: rubikitch
 #+DATE: [2014-09-25 Thu 11:47]
 #+PERMALINK: crawler-book-errata
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t
@@ -7,14 +8,13 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: 著書,
+#+CATEGORY: Rubyによるクローラー開発技法,
 #+DESCRIPTION:
-#+MYTAGS: Rubyによるクローラー開発技法, ruby クローラー 正誤, ruby 正規表現 最短マッチ
-#+TAGS: Rubyによるクローラー開発技法, ruby クローラー 正誤, ruby 正規表現 最短マッチ, 著書,,
+#+TAGS: 正誤
 #+TITLE: 『Rubyによるクローラー開発技法』第1章正誤
 るびきちです。
 
-[[http://rubikitch.com/2014/08/03/ruby-crawler-book/][『Rubyによるクローラー開発技法』]] をお買上ありがとうございます。
+[[http://emacs.rubikitch.com/ruby-crawler-book/][『Rubyによるクローラー開発技法』]] をお買上ありがとうございます。
 
 執筆に対しては何重にもチェックし万全を期しましたが、
 誤植が見付かってしまいました。

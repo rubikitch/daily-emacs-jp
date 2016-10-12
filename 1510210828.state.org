@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 2101
+#+POSTID: 1204
+#+BLOG: rubikitch
 #+DATE: [2015-10-21 Wed 08:28]
 #+PERMALINK: state
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,65 +8,20 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, Emacs Lisp, 
+#+CATEGORY: ウィンドウ構成切り替え
 #+EL_PKG_NAME: state
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, relate:shell-pop, relate:eshell, relate:twittering-mode, relate:term, relate:ansi-term, relate:gnus, relate:mew, relate:erc, relate:ielm, relate:matlab-mode, relate:python, relate:inf-ruby, workspace, emacs ワークスペース, relate:elscreen, relate:persp-mode, relate:perspective, relate:0blayout, relate:windows, relate:spaces, relate:eyebrowse, eshellを次々に切替える, メールを読んでから復帰する, replで試行錯誤する, 
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 
+#+TAGS: るびきちオススメ
 #+EL_TITLE0: 【shell-pop一般化】一時的に特定の状態(shell/mew/gnus/*Messages*等)に切替え、同じキーで復帰する
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージstateの紹介
-#+MYTAGS: package:state, emacs 使い方, emacs コマンド, emacs, state, state.el, emacs lisp state, elisp state, emacs melpa state, emacs state 使い方, emacs state 設定, emacs パッケージ state, relate:shell-pop, relate:eshell, relate:twittering-mode, relate:term, relate:ansi-term, relate:gnus, relate:mew, relate:erc, relate:ielm, relate:matlab-mode, relate:python, relate:inf-ruby, workspace, emacs ワークスペース, relate:elscreen, relate:persp-mode, relate:perspective, relate:0blayout, relate:windows, relate:spaces, relate:eyebrowse, eshellを次々に切替える, メールを読んでから復帰する, replで試行錯誤する, 
-#+TAGS: package:state, emacs 使い方, emacs コマンド, emacs, state, state.el, emacs lisp state, elisp state, emacs melpa state, emacs state 使い方, emacs state 設定, emacs パッケージ state, relate:shell-pop, relate:eshell, relate:twittering-mode, relate:term, relate:ansi-term, relate:gnus, relate:mew, relate:erc, relate:ielm, relate:matlab-mode, relate:python, relate:inf-ruby, workspace, emacs ワークスペース, relate:elscreen, relate:persp-mode, relate:perspective, relate:0blayout, relate:windows, relate:spaces, relate:eyebrowse, eshellを次々に切替える, メールを読んでから復帰する, replで試行錯誤する, , Emacs, Emacs Lisp, , state.el, shell-pop.el, M-x shell, eshell, term, ansi-term, M-x shell-pop, state-define-state, shell-pop.el, M-x shell, eshell, term, ansi-term, M-x shell-pop, state-define-state, scratch, scratch, Messages, Messages, ansi-term (dotemacs), ansi-term (dotemacs), ansi-term (dotemacs), ansi-term (dotemacs), ansi-term (dotemacs), ansi-term, ansi-term, ansi-term, ielm, MATLAB, Python, ruby
-#+TITLE: emacs state.el : 【shell-pop一般化】一時的に特定の状態(shell/mew/gnus/*Messages*等)に切替え、同じキーで復帰する | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>state</td></tr>
-<tr><td>概要(原文)</td><td>Quick navigation between workspaces</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/thisirs/state">https://github.com/thisirs/state</a></td></tr>
-<tr><td>バージョン</td><td>20150714.1015</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:state/">package:state</a> <a href="http://rubikitch.com/tag/package:shell-pop/">package:shell-pop</a> <a href="http://rubikitch.com/tag/package:eshell/">package:eshell</a> <a href="http://rubikitch.com/tag/package:twittering-mode/">package:twittering-mode</a> <a href="http://rubikitch.com/tag/package:term/">package:term</a> <a href="http://rubikitch.com/tag/package:ansi-term/">package:ansi-term</a> <a href="http://rubikitch.com/tag/package:gnus/">package:gnus</a> <a href="http://rubikitch.com/tag/package:mew/">package:mew</a> <a href="http://rubikitch.com/tag/package:erc/">package:erc</a> <a href="http://rubikitch.com/tag/package:ielm/">package:ielm</a> <a href="http://rubikitch.com/tag/package:matlab-mode/">package:matlab-mode</a> <a href="http://rubikitch.com/tag/package:python/">package:python</a> <a href="http://rubikitch.com/tag/package:inf-ruby/">package:inf-ruby</a> <a href="http://rubikitch.com/tag/package:elscreen/">package:elscreen</a> <a href="http://rubikitch.com/tag/package:persp-mode/">package:persp-mode</a> <a href="http://rubikitch.com/tag/package:perspective/">package:perspective</a> <a href="http://rubikitch.com/tag/package:0blayout/">package:0blayout</a> <a href="http://rubikitch.com/tag/package:windows/">package:windows</a> <a href="http://rubikitch.com/tag/package:spaces/">package:spaces</a> <a href="http://rubikitch.com/tag/package:eyebrowse/">package:eyebrowse</a></td></tr>
-</table>
-<br />
-#+END_HTML
-*state.el* は同じキーで状態を行き来する設定を行うライブラリです。
-「Quick navigation between workspaces」と書いてありますが、[[http://rubikitch.com/2014/09/05/elscreen/][elscreen.el(レビュー)]] のようにウィンドウ構成に番号や名前をつけるものではありません。
-むしろ[[http://rubikitch.com/2015/06/16/shell-pop/][shell-pop.el(レビュー)]] を一般化したものです。
-
-state.elを理解するためには、まずshell-pop.elを試してください。
-
-#+BEGIN_QUOTE
-*shell-pop.el* はシェルバッファをサッと取り出せるようにします。
-
-*M-x shell* 以外にも *eshell* 、 *term* 、 *ansi-term* に対応しています。
-エントリポイントは *M-x shell-pop* のみです。
-
-このコマンドはシェルバッファをポップアップするだけでなく、
-シェルバッファを閉じて元のウィンドウ構成に戻すときにも使います。
-#+END_QUOTE
-
-shell-pop.elの設定でM-x shell-popをC-c cに割り当てているので、
-C-c cでshellを開き、shellから元のバッファに戻るのもC-c cです。
-
-shell-pop的にはshellバッファは一種の特別な状態であり、サッとshellを開きシェルコマンドを実行し、サッと元の状態に戻れることに意味があります。
-
-これをshell以外にも一般化しようとするのがstate.elです。
-使い方はstate-global-modeを有効にした上で *state-define-state* で「状態」を定義します。
-
-
-** state インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install state
-
+#+TITLE: state.el : 【shell-pop一般化】一時的に特定の状態(shell/mew/gnus/*Messages*等)に切替え、同じキーで復帰する
+[includeme file="inc-package-table.php" name="state" where="melpa"]
 
 #+end:
-** 概要                                                             :noexport:
+** 概要
 *state.el* は同じキーで状態を行き来する設定を行うライブラリです。
-「Quick navigation between workspaces」と書いてありますが、[[http://rubikitch.com/2014/09/05/elscreen/][elscreen.el(レビュー)]] のようにウィンドウ構成に番号や名前をつけるものではありません。
-むしろ[[http://rubikitch.com/2015/06/16/shell-pop/][shell-pop.el(レビュー)]] を一般化したものです。
+「Quick navigation between workspaces」と書いてありますが、[[http://emacs.rubikitch.com/elscreen/][elscreen.el(レビュー)]] のようにウィンドウ構成に番号や名前をつけるものではありません。
+むしろ[[http://emacs.rubikitch.com/shell-pop/][shell-pop.el(レビュー)]] を一般化したものです。
 
 state.elを理解するためには、まずshell-pop.elを試してください。
 
@@ -89,6 +45,7 @@ shell-pop的にはshellバッファは一種の特別な状態であり、サッ
 
 
 
+[includeme file="inc-package-install.php" name="state" where="melpa"]
 ** 設定例にみる使い方のパターン
 state-define-state は多くのキーワード引数を取るのですが、キーワードをひとつひとつ解説しても理解しづらいでしょう。
 こういうのは例を見て実際に使ってみて理解するのが一番です。
@@ -304,3 +261,4 @@ inやswitchなどのキーワードは本来S式を取りますが、文字列�
 $ wget http://rubikitch.com/f/151021073616.state.el
 $ emacs -Q -f package-initialize -l 151021073616.state.el
 #+END_EXAMPLE
+[includeme file="inc-package-relate.php" name="state"]

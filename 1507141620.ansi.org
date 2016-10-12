@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 1826
+#+POSTID: 1026
+#+BLOG: rubikitch
 #+DATE: [2015-07-14 Tue 16:20]
 #+PERMALINK: ansi
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,28 +8,17 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, Emacs Lisp, 
+#+CATEGORY: 文字列操作
 #+EL_PKG_NAME: ansi
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, エスケープシーケンス, 
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: 
 #+EL_TITLE0: ANSIエスケープシーケンスをつける関数群
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージansiの紹介
-#+MYTAGS: package:ansi, emacs 使い方, emacs コマンド, emacs, ansi, ansi.el, emacs lisp ansi, elisp ansi, emacs melpa ansi, emacs ansi 使い方, emacs ansi 設定, emacs パッケージ ansi, emacs ansi スクリーンショット, エスケープシーケンス, 
-#+TAGS: package:ansi, emacs 使い方, emacs コマンド, emacs, ansi, ansi.el, emacs lisp ansi, elisp ansi, emacs melpa ansi, emacs ansi 使い方, emacs ansi 設定, emacs パッケージ ansi, emacs ansi スクリーンショット, エスケープシーケンス, , Emacs, Emacs Lisp, , ansi.el
-#+TITLE: emacs ansi.el : ANSIエスケープシーケンスをつける関数群 | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>ansi</td></tr>
-<tr><td>概要(原文)</td><td>Turn string into ansi strings</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/rejeep/ansi">https://github.com/rejeep/ansi</a></td></tr>
-<tr><td>バージョン</td><td>20150703.126</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:ansi/">package:ansi</a> </td></tr>
-</table>
-<br />
-#+END_HTML
+#+TITLE: ansi.el : ANSIエスケープシーケンスをつける関数群
+[includeme file="inc-package-table.php" name="ansi" where="melpa"]
+
+#+end:
+** 概要
 *ansi.el* は文字列にANSIエスケープシーケンスを付加する関数群です。
 
 端末の文字に色をつけたくてもエスケープシーケンスを忘れた場合に
@@ -95,79 +85,6 @@ eshellはある程度エスケープシーケンスに対応しているので�
 #+ATTR_HTML: :width 480
 [[file:/r/sync/screenshots/20150714163754.png]]
 Fig1: eshellで動作確認
-** ansi インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
 
-M-x package-refresh-contents
-M-x package-install ansi
-
-
-#+end:
-** 概要                                                             :noexport:
-*ansi.el* は文字列にANSIエスケープシーケンスを付加する関数群です。
-
-端末の文字に色をつけたくてもエスケープシーケンスを忘れた場合に
-役立つことでしょう。
-
-以下のように使います。
-
-#+BEGIN_SRC emacs-lisp :results silent
-;; 文字色
-(ansi-red "foo")                        ; => "\e[31mfoo\e[0m"
-(ansi-blue "bar")                       ; => "\e[34mbar\e[0m"
-
-;; 背景色
-(ansi-on-red "foo")                     ; => "\e[41mfoo\e[0m"
-(ansi-on-blue "bar")                    ; => "\e[44mbar\e[0m"
-
-;; スタイル
-(ansi-bold "foo")                       ; => "\e[1mfoo\e[0m"
-(ansi-blink "bar")                      ; => "\e[5mbar\e[0m"
-
-;;; DSL化！with-ansiでansi-プレフィクスを省略できる
-;; 文字色
-(with-ansi
- (red "foo")                            ; => "\e[31mfoo\e[0m"
- (blue "bar")                           ; => "\e[34mbar\e[0m"
- )
-
-;; 背景色
-(with-ansi
- (on-red "foo")                         ; => "\e[41mfoo\e[0m"
- (on-blue "bar")                        ; => "\e[44mbar\e[0m"
- )
-
-;; スタイル
-(with-ansi
- (bold "foo")                           ; => "\e[1mfoo\e[0m"
- (blink "bar")                          ; => "\e[5mbar\e[0m"
- )
-
-;;; format + ansi-XXX
-(ansi-apply 'red "foo %s" "bar")        ; => "\e[31mfoo bar\e[0m"
-
-;;; カーソル移動
-(ansi-up)                               ; => "\e[1A"
-(ansi-down 3)                           ; => "\e[3B"
-(ansi-csi-apply 'forward)               ; => "\e[1C"
-(ansi-csi-apply "J" 10)                 ; => "\e[10J"
-
-;;; ネスト可能
-(ansi-bold
- (ansi-red (ansi-blink "foo bar")))
-;; => "\e[1m\e[31m\e[5mfoo bar\e[0m\e[0m\e[0m"
-(with-ansi
- (bold (red (blink "foo bar"))))
-;; => "\e[1m\e[31m\e[5mfoo bar\e[0m\e[0m\e[0m"
-#+END_SRC
-
-eshellはある程度エスケープシーケンスに対応しているので、
-色を確かめられます。
-
-
-
-# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150714163754.png]]
-Fig2: eshellで動作確認
-
+[includeme file="inc-package-install.php" name="ansi" where="melpa"]
+[includeme file="inc-package-relate.php" name="ansi"]

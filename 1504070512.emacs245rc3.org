@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 1454
+#+POSTID: 794
+#+BLOG: rubikitch
 #+DATE: [2015-04-07 Tue 05:12]
 #+PERMALINK: emacs245rc3
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,23 +8,25 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, Emacs 24.5, 
+#+CATEGORY: リリース情報
 #+DESCRIPTION: Emacs 24.5 Release Candidate 3
-#+MYTAGS: 
+#+TAGS: 
 #+TITLE: Emacs24.5本日リリース…のはずがRC3であった件について
 #+begin: org2blog-tags
-#+TAGS: , Emacs, Emacs 24.5, , 
+# content-length: 407
+#+HTML: <!-- noindex -->
+
 #+end:
 http://lists.gnu.org/archive/html/emacs-devel/2015-04/msg00295.html
 
-[[http://rubikitch.com/2015/04/02/emacs245rc2/][4/2にEmacs24.5 RC2がリリースされ、]]
+[[http://emacs.rubikitch.com/emacs245rc2/][4/2にEmacs24.5 RC2がリリースされ、]]
 本日本番かと思われましたが、ごたごたによりRC3がリリースされました。
 
 ftp://alpha.gnu.org/gnu/emacs/pretest/emacs-24.5-rc3.tar.xz
 
 金曜日に本番リリースされるっぽいです。
 
-[[http://rubikitch.com/2015/03/30/emacs245-news/][Emacs24.5の最新情報はこちら]] 
+[[http://emacs.rubikitch.com/emacs245-news/][Emacs24.5の最新情報はこちら]] 
 
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

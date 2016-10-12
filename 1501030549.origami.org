@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 855
+#+POSTID: 592
+#+BLOG: rubikitch
 #+DATE: [2015-01-03 Sat 05:49]
 #+PERMALINK: origami
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,78 +8,19 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs
+#+CATEGORY: コードリーディング
 #+EL_PKG_NAME: origami
-#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, Clojure, Ｃ言語, Ｃ＋＋, JavaScript, Java, Perl, relate:folding, relate:yafolding, relate:hideshow, relate:cn-outline, relate:org, relate:outline, relate:view, relate:outline-magic
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: アウトライン
 #+EL_TITLE0: elisp,Clojure,C系言語(C,Java,JavaScript,C++,Perl)でorg-mode風の折畳みをする
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージorigamiの紹介
-#+MYTAGS: package:origami, emacs 使い方, emacs コマンド, emacs, emacs lisp origami, elisp origami, emacs melpa origami, emacs origami 使い方, emacs origami 設定, emacs パッケージ origami, emacs origami スクリーンショット, Clojure, Ｃ言語, Ｃ＋＋, JavaScript, Java, Perl, relate:folding, relate:yafolding, relate:hideshow, relate:cn-outline, relate:org, relate:outline, relate:view, relate:outline-magic
-#+TAGS: package:origami, emacs 使い方, emacs コマンド, emacs, emacs lisp origami, elisp origami, emacs melpa origami, emacs origami 使い方, emacs origami 設定, emacs パッケージ origami, emacs origami スクリーンショット, Clojure, Ｃ言語, Ｃ＋＋, JavaScript, Java, Perl, relate:folding, relate:yafolding, relate:hideshow, relate:cn-outline, relate:org, relate:outline, relate:view, relate:outline-magic, Emacs, outline-mode, outline-minor-mode, org-mode, origami.el, org-mode, yafolding.el, hideshow.el, view-mode, outline-minor-mode, outline-mode, outline-minor-mode, org-mode, origami.el, org-mode, yafolding.el, hideshow.el, view-mode, outline-minor-mode
-#+TITLE: emacs origami.el : elisp,Clojure,C系言語(C,Java,JavaScript,C++,Perl)でorg-mode風の折畳みをする | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>origami</td></tr>
-<tr><td>概要(原文)</td><td>Flexible text folding</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/gregsexton/origami.el">https://github.com/gregsexton/origami.el</a></td></tr>
-<tr><td>バージョン</td><td>20141122.1357</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:origami/">package:origami</a> <a href="http://rubikitch.com/tag/package:folding/">package:folding</a> <a href="http://rubikitch.com/tag/package:yafolding/">package:yafolding</a> <a href="http://rubikitch.com/tag/package:hideshow/">package:hideshow</a> <a href="http://rubikitch.com/tag/package:cn-outline/">package:cn-outline</a> <a href="http://rubikitch.com/tag/package:org/">package:org</a> <a href="http://rubikitch.com/tag/package:outline/">package:outline</a> <a href="http://rubikitch.com/tag/package:view/">package:view</a> <a href="http://rubikitch.com/tag/package:outline-magic/">package:outline-magic</a></td></tr>
-</table>
-<br />
-#+END_HTML
-<2015-01-17 Sat>
-[[http://rubikitch.com/2015/01/17/outline-magic/][outline-magic.el(レビュー)]] は *outline-mode* や
-*outline-minor-mode* で *org-mode* と同等の折畳み・展開をします。
-
-<2015-01-05 Mon>
-view-modeを解除しても折畳みを保持するよう設定を更新しました。
-
-
-*origami.el* は、Lisp系言語とC系言語で関数・メソッドを
-折畳み・展開するマイナーモードです。
-
-いわば、 *org-mode* 風にコードのアウトラインを
-見るようにするものです。
-
-*yafolding.el* や *hideshow.el* と同様ですが
-これらよりも高機能です。
-
-また、origami.elは言語のパーサを内蔵している点も異なります。
-
-
-ただ、デフォルトの状態では単にコマンドが羅列してあるだけなので、
-本設定では *view-mode* 時にC-i(TAB)を押すことで
-org-mode風の挙動をさせています。
-
-C-iで現在の関数(メソッド)を折畳み・展開し、
-C-u C-iですべての関数(メソッド)の折畳み・展開をします。
-
-
-
-一般にアウトライン操作は閲覧時に使うものなので、
-view-modeにキーを割り当てておくことを強くおすすめします。
-
-*outline-minor-mode* のように普通に
-マイナーモードを定義しているだけでは、
-気が狂ったようなキーバインドになってしまうからです。
-
-コードを見るときはぜひともview-modeを使いましょう。
-
-指の保護にもなります。
-** origami インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install origami
-
+#+TITLE: origami.el : elisp,Clojure,C系言語(C,Java,JavaScript,C++,Perl)でorg-mode風の折畳みをする
+[includeme file="inc-package-table.php" name="origami" where="melpa"]
 
 #+end:
-** 概要                                                             :noexport:
+** 概要
 <2015-01-17 Sat>
-[[http://rubikitch.com/2015/01/17/outline-magic/][outline-magic.el(レビュー)]] は *outline-mode* や
+[[http://emacs.rubikitch.com/outline-magic/][outline-magic.el(レビュー)]] は *outline-mode* や
 *outline-minor-mode* で *org-mode* と同等の折畳み・展開をします。
 
 <2015-01-05 Mon>
@@ -117,6 +59,7 @@ view-modeにキーを割り当てておくことを強くおすすめします�
 
 指の保護にもなります。
 
+[includeme file="inc-package-install.php" name="origami" where="melpa"]
 ** 設定 [[http://rubikitch.com/f/150103055834.origami.el][150103055834.origami.el(以下のコードと同一)]]
 #+BEGIN: include :file "/r/sync/junk/150103/150103055834.origami.el"
 #+BEGIN_SRC fundamental
@@ -154,3 +97,4 @@ Fig2: C-iで展開
 
 # /r/sync/screenshots/20150103062240.png http://rubikitch.com/wp-content/uploads/2015/01/wpid-20150103062240.png
 # /r/sync/screenshots/20150103062245.png http://rubikitch.com/wp-content/uploads/2015/01/wpid-20150103062245.png
+[includeme file="inc-package-relate.php" name="origami"]

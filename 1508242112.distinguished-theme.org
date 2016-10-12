@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 1921
+#+POSTID: 1098
+#+BLOG: rubikitch
 #+DATE: [2015-08-24 Mon 21:12]
 #+PERMALINK: distinguished-theme
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,28 +8,17 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, theme
+#+CATEGORY: ダーク
 #+EL_PKG_NAME: distinguished-theme
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, color-theme, カラーテーマ
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: from:vim
 #+EL_TITLE0: Vimから移植された真っ黒背景のカラーテーマ
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージdistinguished-themeの紹介
-#+MYTAGS: package:distinguished-theme, emacs 使い方, emacs コマンド, emacs, distinguished-theme, distinguished-theme.el, emacs lisp distinguished-theme, elisp distinguished-theme, emacs melpa distinguished-theme, emacs distinguished-theme 使い方, emacs distinguished-theme 設定, emacs パッケージ distinguished-theme, emacs distinguished-theme スクリーンショット, color-theme, カラーテーマ
-#+TAGS: package:distinguished-theme, emacs 使い方, emacs コマンド, emacs, distinguished-theme, distinguished-theme.el, emacs lisp distinguished-theme, elisp distinguished-theme, emacs melpa distinguished-theme, emacs distinguished-theme 使い方, emacs distinguished-theme 設定, emacs パッケージ distinguished-theme, emacs distinguished-theme スクリーンショット, color-theme, カラーテーマ, Emacs, theme, distinguished-theme.el
-#+TITLE: emacs distinguished-theme.el : Vimから移植された真っ黒背景のカラーテーマ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>distinguished-theme</td></tr>
-<tr><td>概要(原文)</td><td>A dark and elegant theme for emacs.</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/Lokaltog/distinguished-theme">https://github.com/Lokaltog/distinguished-theme</a></td></tr>
-<tr><td>バージョン</td><td>20150428.146</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:distinguished-theme/">package:distinguished-theme</a> </td></tr>
-</table>
-<br />
-#+END_HTML
+#+TITLE: distinguished-theme.el : Vimから移植された真っ黒背景のカラーテーマ
+[includeme file="inc-package-table.php" name="distinguished-theme" where="melpa"]
+
+#+end:
+** 概要
 *distinguished-theme.el* は、Vimから移植されたカラーテーマです。
 
 # (save-window-excursion (async-shell-command "emacs-test -eval '(load-theme (quote distinguished) t)'"))
@@ -86,73 +76,8 @@ Fig8: markdown-mode
 #+ATTR_HTML: :width 480
 [[file:/r/sync/screenshots/20150824211529.png]]
 Fig9: helm
-** distinguished-theme インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
 
-M-x package-refresh-contents
-M-x package-install distinguished-theme
-
-
-#+end:
-** 概要                                                             :noexport:
-*distinguished-theme.el* は、Vimから移植されたカラーテーマです。
-
-# (save-window-excursion (async-shell-command "emacs-test -eval '(load-theme (quote distinguished) t)'"))
-以下のパッケージに対応しています。
-- font-lock
-- python-mode
-- js2-mode
-- highlight-numbers
-- whitespace-mode
-- show-paren
-- isearch
-- rainbow-delimiters
-- git-gutter
-- git-gutter-fr
-- flx
-- flycheck
-- ace-jump-mode
-- auto-complete
-- auto-dim-other-buffers
-- diff
-
-# (progn (forward-line 1)(shell-command "screenshot-time.rb org_theme_template" t))
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150824211456.png]]
-Fig10: emacs-lisp-mode
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150824211501.png]]
-Fig11: magit
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150824211504.png]]
-Fig12: grep
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150824211509.png]]
-Fig13: outline-mode
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150824211513.png]]
-Fig14: org-mode
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150824211517.png]]
-Fig15: dired
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150824211520.png]]
-Fig16: web-mode
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150824211524.png]]
-Fig17: markdown-mode
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150824211529.png]]
-Fig18: helm
-
+[includeme file="inc-package-install.php" name="distinguished-theme" where="melpa"]
 ** 設定
 #+BEGIN_SRC fundamental
 (load-theme 'distinguished t)
@@ -164,3 +89,4 @@ $ emacs -Q -f package-initialize -eval '(load-theme (quote distinguished) t)'
 #+END_EXAMPLE
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+[includeme file="inc-package-relate.php" name="distinguished-theme"]

@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 2581
+#+POSTID: 1502
+#+BLOG: rubikitch
 #+DATE: [2016-07-31 Sun 09:49]
 #+PERMALINK: crux-or-region
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,52 +8,17 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, ソース解読推奨, 
+#+CATEGORY: バッファ関連
 #+EL_PKG_NAME: crux
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, relate:whitespace, ホワイトスペース, advice, defadvice defmacro
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 
+#+TAGS: ソース解読推奨, crux
 #+EL_TITLE0: crux-with-region-or-*: regionの有無で場合分けするコマンド3つ・アドバイス3つ
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージcruxの紹介
-#+MYTAGS: package:crux, emacs 使い方, emacs コマンド, emacs, crux, crux.el, emacs lisp crux, elisp crux, emacs melpa crux, emacs crux 使い方, emacs crux 設定, emacs パッケージ crux, relate:whitespace, ホワイトスペース, advice, defadvice defmacro
-#+TAGS: package:crux, emacs 使い方, emacs コマンド, emacs, crux, crux.el, emacs lisp crux, elisp crux, emacs melpa crux, emacs crux 使い方, emacs crux 設定, emacs パッケージ crux, relate:whitespace, ホワイトスペース, advice, defadvice defmacro, Emacs, ソース解読推奨, , M-x untabify, M-x indent-region, M-x whitespace-cleanup, whitespace-style, crux-with-region-or-buffer, crux-with-region-or-line, crux-with-region-or-point-to-eol
-#+TITLE: emacs crux.el : crux-with-region-or-*: regionの有無で場合分けするコマンド3つ・アドバイス3つ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>crux</td></tr>
-<tr><td>概要(原文)</td><td>A Collection of Ridiculously Useful eXtensions</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/bbatsov/crux">https://github.com/bbatsov/crux</a></td></tr>
-<tr><td>バージョン</td><td>20160725.59</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:crux/">package:crux</a> <a href="http://rubikitch.com/tag/package:whitespace/">package:whitespace</a></td></tr>
-</table>
-<br />
-#+END_HTML
-
-# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
-#+INCLUDE: "include.crux.org"  
-
-Emacsはregionに作用するコマンドと
-バッファ全体や現在行に作用するコマンドが別個に分かれていたりします。
-それらが別なキーに割り当てられていると、つい統合したくなりますよね。
-
-regionがある場合はregionを、
-そうでない場合はバッファ全体や現在行に作用させれば、
-うまく空気を読んでくれるコマンドに大変身します。
-
-キーバインドの資源も節約できますしね。
-
-以下で紹介するコマンドはregionの有無によって挙動を変更します。
-** crux インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install crux
-
+#+TITLE: crux.el : crux-with-region-or-*: regionの有無で場合分けするコマンド3つ・アドバイス3つ
+[includeme file="inc-package-table.php" name="crux" where="melpa"]
 
 #+end:
-** 概要                                                             :noexport:
+** 概要
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
 #+INCLUDE: "include.crux.org"  
@@ -69,6 +35,7 @@ regionがある場合はregionを、
 
 以下で紹介するコマンドはregionの有無によって挙動を変更します。
 
+[includeme file="inc-package-install.php" name="crux" where="melpa"]
 ** M-x crux-duplicate-current-line-or-region
 *M-x crux-duplicate-current-line-or-region* は、
 regionがない場合は現在行をコピーし、
@@ -211,3 +178,4 @@ regionを指定しない場合はバッファ全体をインデントし、
 regionを指定した場合にregionをインデントするように挙動が変わります。
 設定ファイルに入れておくと便利になります。
 
+[includeme file="inc-package-relate.php" name="crux"]

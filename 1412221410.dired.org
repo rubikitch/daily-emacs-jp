@@ -1,7 +1,8 @@
 #+BLOG: rubikitch
-#+POSTID: 776
+#+POSTID: 567
+#+BLOG: rubikitch
 #+DATE: [2014-12-22 Mon 14:10]
-#+PERMALINK: dired
+#+PERMALINK: dired-subtree-update
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
 #+ISPAGE: nil
 #+DESCRIPTION:
@@ -9,16 +10,15 @@
 #+BLOG: rubikitch
 #+CATEGORY: 記事更新情報, 
 #+DESCRIPTION: 
-#+MYTAGS: 
-#+TAGS: , 記事更新情報, , M-x dired-hide-details-mode
+#+TAGS: 
 #+TITLE: dired-subtreeはdired-detailsと併用しよう / imenu-anywhere更新
-先程レビューしたばかりの[[http://rubikitch.com/2014/12/22/dired-subtree/][dired-subtree.el]] ですが、
+先程レビューしたばかりの[[http://emacs.rubikitch.com/dired-subtree/][dired-subtree.el]] ですが、
 Emacs 24.4標準の *M-x dired-hide-details-mode* には対応していません。
 
 diredでファイル名以外を隠している方は
-古くからある[[http://rubikitch.com/2014/09/08/dired-details/][dired-details.el]] と併用してください。
+古くからある[[http://emacs.rubikitch.com/dired-details/][dired-details.el]] と併用してください。
 
-また、レビュー当時バグっていた[[http://rubikitch.com/2014/12/17/imenu-anywhere/][imenu-anywhere.el]] のバグが
+また、レビュー当時バグっていた[[http://emacs.rubikitch.com/imenu-anywhere/][imenu-anywhere.el]] のバグが
 修正されたので記事も更新しました。
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

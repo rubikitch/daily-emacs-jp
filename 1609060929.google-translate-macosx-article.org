@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 2747
+#+POSTID: 1566
+#+BLOG: rubikitch
 #+DATE: [2016-09-06 Tue 09:29]
 #+PERMALINK: google-translate-macosx-article
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
@@ -7,17 +8,17 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, 記事紹介, 
+#+CATEGORY: サイト紹介
 #+DESCRIPTION: 
-#+MYTAGS: 
 #+TITLE: Emacs google-translate/カーソル移動 on OSX の記事が紹介されました
 #+begin: org2blog-tags
-#+TAGS: , Emacs, 記事紹介, , 
+# content-length: 881
+
 #+end:
 るびきち塾の塾生であるながやすさんから、僕の記事が紹介されました。
 
 ** google-translateの設定
-[[http://rubikitch.com/2014/12/07/google-translate/][emacs google-translate.el : 【設定パワーアップ】Google翻訳で言語自動判別しつつ英訳・和訳する！]]
+[[http://emacs.rubikitch.com/google-translate/][emacs google-translate.el : 【設定パワーアップ】Google翻訳で言語自動判別しつつ英訳・和訳する！]]
 
 from [[http://nagayasu-shinya.com/emacs-google-translate/][【設定簡単】Emacs から直接Google翻訳を使う方法｜google-translate.el＆るびきちさん設定  |  組込みエンジニアの思うところ]]
 
@@ -26,7 +27,7 @@ google-translate.elの僕設定は、英語・日本語を自動判別しなが�
 regionはもちろんのこと、デフォルトではセンテンス単位で翻訳します。
 僕も現役で使っている設定ですので、気楽に翻訳したい人は使ってみてください。
 ** Mac OS Xでカーソルが遅くなる怪現象
-[[http://rubikitch.com/2016/09/05/visible-bell-macosx-slow/][Mac OS XのEmacsのカーソル移動が重くなるならコレ試してみて！]]
+[[http://emacs.rubikitch.com/visible-bell-macosx-slow/][Mac OS XのEmacsのカーソル移動が重くなるならコレ試してみて！]]
 
 from [[http://nagayasu-shinya.com/emacs-osx-beepbug/][Mac OS X で Emacs のビープをビジュアルにすると中央に出る変な表示を消す｜visible-bell ring-bell-function  |  組込みエンジニアの思うところ]]
 

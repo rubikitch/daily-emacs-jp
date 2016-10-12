@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 1796
+#+POSTID: 1008
+#+BLOG: rubikitch
 #+DATE: [2015-07-04 Sat 14:38]
 #+PERMALINK: easy-escape
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,28 +8,17 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, Emacs Lisp, 
+#+CATEGORY: 見やすく表示
 #+EL_PKG_NAME: easy-escape
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, バックスラッシュ, elisp 正規表現, 
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: エスケープ, 正規表現
 #+EL_TITLE0: 文字列中の二重バックスラッシュをわかりやすく表示する
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージeasy-escapeの紹介
-#+MYTAGS: package:easy-escape, emacs 使い方, emacs コマンド, emacs, easy-escape, easy-escape.el, emacs lisp easy-escape, elisp easy-escape, emacs melpa easy-escape, emacs easy-escape 使い方, emacs easy-escape 設定, emacs パッケージ easy-escape, emacs easy-escape スクリーンショット, バックスラッシュ, elisp 正規表現, 
-#+TAGS: package:easy-escape, emacs 使い方, emacs コマンド, emacs, easy-escape, easy-escape.el, emacs lisp easy-escape, elisp easy-escape, emacs melpa easy-escape, emacs easy-escape 使い方, emacs easy-escape 設定, emacs パッケージ easy-escape, emacs easy-escape スクリーンショット, バックスラッシュ, elisp 正規表現, , Emacs, Emacs Lisp, , easy-escape.el, compose-region, compose-region
-#+TITLE: emacs easy-escape.el : 文字列中の二重バックスラッシュをわかりやすく表示する | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>easy-escape</td></tr>
-<tr><td>概要(原文)</td><td>Improve readability of escape characters in regular expressions</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/cpitclaudel/easy-escape">https://github.com/cpitclaudel/easy-escape</a></td></tr>
-<tr><td>バージョン</td><td>20150617.1614</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:easy-escape/">package:easy-escape</a> </td></tr>
-</table>
-<br />
-#+END_HTML
+#+TITLE: easy-escape.el : 文字列中の二重バックスラッシュをわかりやすく表示する
+[includeme file="inc-package-table.php" name="easy-escape" where="melpa"]
+
+#+end:
+** 概要
 *easy-escape.el* は、文字列リテラル中の
 二重バックスラッシュ「\\」を別な文字や色で表示します。
 
@@ -57,44 +47,8 @@ Fig1: 元は\\だったのが
 #+ATTR_HTML: :width 480
 [[file:/r/sync/screenshots/20150704143802.png]]
 Fig2: ￥と表示される！
-** easy-escape インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
 
-M-x package-refresh-contents
-M-x package-install easy-escape
-
-
-#+end:
-** 概要                                                             :noexport:
-*easy-escape.el* は、文字列リテラル中の
-二重バックスラッシュ「\\」を別な文字や色で表示します。
-
-elispを読み書きしていると、二重バックスラッシュの多いこと多いこと…
-
-特に正規表現は見てられませんよね。
-
-そんなときにこのパッケージを試してみてください。
-
-本設定ではすべてのソースコードバッファにおいて
-「\\」を「￥」と表示させています。
-
-あくまでも表示上「￥」と表示させているだけで、
-バッファのデータ上は「\\」です。
-
-その実現のためには *compose-region* という
-regionの文字列を別な文字で表示させる関数を使っています。
-
-
-
-# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150704143753.png]]
-Fig3: 元は\\だったのが
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150704143802.png]]
-Fig4: ￥と表示される！
-
+[includeme file="inc-package-install.php" name="easy-escape" where="melpa"]
 ** 設定 [[http://rubikitch.com/f/150704143326.easy-escape.el][150704143326.easy-escape.el(以下のコードと同一)]]
 #+BEGIN: include :file "/r/sync/junk/150704/150704143326.easy-escape.el"
 #+BEGIN_SRC fundamental
@@ -112,3 +66,4 @@ Fig4: ￥と表示される！
 $ wget http://rubikitch.com/f/150704143326.easy-escape.el
 $ emacs -Q -f package-initialize -l 150704143326.easy-escape.el
 #+END_EXAMPLE
+[includeme file="inc-package-relate.php" name="easy-escape"]

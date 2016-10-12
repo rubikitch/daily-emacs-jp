@@ -1,13 +1,14 @@
 #+BLOG: rubikitch
-#+POSTID: 600
+#+POSTID: 49
+#+BLOG: rubikitch
 #+DATE: [2014-11-21 Fri 03:38]
-#+PERMALINK: melmag
+#+PERMALINK: melmag156
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
 #+ISPAGE: nil
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: メルマガ,
+#+CATEGORY: るびきち塾メルマガ
 #+DESCRIPTION: Emacsの鬼るびきちのココだけの話#156
 #+MYTAGS:
 #+TITLE: プロジェクト管理あれこれ

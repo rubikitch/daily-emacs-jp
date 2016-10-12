@@ -1,18 +1,19 @@
 #+BLOG: rubikitch
-#+POSTID: 1835
+#+POSTID: 113
+#+BLOG: rubikitch
 #+DATE: [2015-07-17 Fri 09:09]
-#+PERMALINK: melmag
+#+PERMALINK: melmag190
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
 #+ISPAGE: nil
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: メルマガ,
+#+CATEGORY: るびきち塾メルマガ
 #+DESCRIPTION: るびきち塾メルマガ『Emacsの鬼るびきちのココだけの話#190』の予告
 #+TITLE: 【メルマガ#190】テキスト音声化のススメ
 #+MYTAGS: 
 #+begin: org2blog-tags
-#+TAGS: , メルマガ,, 
+
 #+end:
 今回はテキスト読み上げソフト
 及びそれを便利にするスクリプトを紹介します。

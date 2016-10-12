@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 2317
+#+POSTID: 1347
+#+BLOG: rubikitch
 #+DATE: [2016-01-08 Fri 18:10]
 #+PERMALINK: bliss-theme
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,54 +8,17 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, theme
+#+CATEGORY: ダーク
 #+EL_PKG_NAME: bliss-theme
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, color-theme, カラーテーマ
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: 
 #+EL_TITLE0: ダークなカラーテーマ
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージbliss-themeの紹介
-#+MYTAGS: package:bliss-theme, emacs 使い方, emacs コマンド, emacs, bliss-theme, bliss-theme.el, emacs lisp bliss-theme, elisp bliss-theme, emacs melpa bliss-theme, emacs bliss-theme 使い方, emacs bliss-theme 設定, emacs パッケージ bliss-theme, emacs bliss-theme スクリーンショット, color-theme, カラーテーマ
-#+TAGS: package:bliss-theme, emacs 使い方, emacs コマンド, emacs, bliss-theme, bliss-theme.el, emacs lisp bliss-theme, elisp bliss-theme, emacs melpa bliss-theme, emacs bliss-theme 使い方, emacs bliss-theme 設定, emacs パッケージ bliss-theme, emacs bliss-theme スクリーンショット, color-theme, カラーテーマ, Emacs, theme, bliss-theme.el
-#+TITLE: emacs bliss-theme.el : ダークなカラーテーマ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>bliss-theme</td></tr>
-<tr><td>概要(原文)</td><td>an Emacs 24 theme based on Bliss (tmTheme)</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/emacsfodder/emacs-bliss-theme">https://github.com/emacsfodder/emacs-bliss-theme</a></td></tr>
-<tr><td>バージョン</td><td>20141115.2301</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:bliss-theme/">package:bliss-theme</a> </td></tr>
-</table>
-<br />
-#+END_HTML
-*bliss-theme.el* は、以下のパッケージに対応したカラーテーマです。
-- linum
-- link
-- button
-- header-line
-- mode-line
-- isearch
-- tooltip
-- js3
-- cua-rectangle
-- magit
-- flyspell-mode
-- flymake-mode
-- git-gutter
-- diff
-- font-lock
-- rainbow-delimiters
-** bliss-theme インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install bliss-theme
-
+#+TITLE: bliss-theme.el : ダークなカラーテーマ
+[includeme file="inc-package-table.php" name="bliss-theme" where="melpa"]
 
 #+end:
-** 概要                                                             :noexport:
+** 概要
 *bliss-theme.el* は、以下のパッケージに対応したカラーテーマです。
 - linum
 - link
@@ -72,6 +36,7 @@ M-x package-install bliss-theme
 - diff
 - font-lock
 - rainbow-delimiters
+[includeme file="inc-package-install.php" name="bliss-theme" where="melpa"]
 ** スクリーンショット
 # (save-window-excursion (async-shell-command "emacs-test -eval '(load-theme (quote bliss) t)'"))
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_theme_template" t))
@@ -129,3 +94,4 @@ $ emacs -Q -f package-initialize -eval '(load-theme (quote bliss) t)'
 #+END_EXAMPLE
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+[includeme file="inc-package-relate.php" name="bliss-theme"]

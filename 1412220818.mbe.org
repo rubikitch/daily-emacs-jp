@@ -1,32 +1,21 @@
 #+BLOG: rubikitch
-#+POSTID: 770
+#+POSTID: 518
+#+BLOG: rubikitch
 #+DATE: [2014-12-22 Mon 08:18]
 #+PERMALINK: mbe
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
 #+ISPAGE: nil
-#+DESCRIPTION:
+#+DESCRIPTION:リストをScheme風パターンマッチによって分解する
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, Emacs Lisp, 
+#+CATEGORY: リスト操作
 #+EL_PKG_NAME: mbe
-#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs lisp scheme, elisp syntax-rules, elisp syntax-case, elisp srfi 46, elisp R6RS, elisp パターンマッチ
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 
+#+TAGS: 
 #+EL_TITLE0: Scheme風パターンマッチをEmacs Lispで実現するライブラリ！
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージmbeの紹介
-#+MYTAGS: package:mbe, emacs 使い方, emacs コマンド, emacs, emacs lisp mbe, elisp mbe, emacs melpa mbe, emacs mbe 使い方, emacs mbe 設定, emacs パッケージ mbe, emacs lisp scheme, elisp syntax-rules, elisp syntax-case, elisp srfi 46, elisp R6RS, elisp パターンマッチ
-#+TITLE: emacs mbe.el : Scheme風パターンマッチをEmacs Lispで実現するライブラリ！ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>mbe</td></tr>
-<tr><td>概要(原文)</td><td>Macros by Example</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/ijp/mbe.el">https://github.com/ijp/mbe.el</a></td></tr>
-<tr><td>バージョン</td><td>20141112.1042</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:mbe/">package:mbe</a> </td></tr>
-</table>
-<br />
-#+END_HTML
+#+TITLE: mbe.el : Scheme風パターンマッチをEmacs Lispで実現するライブラリ！
+[includeme file="inc-package-table.php" name="mbe" where="melpa"]
+** 概要
 *mbe.el* は *Scheme* の *パターンマッチ* のようなことができます。
 
 *SRFI 46* / *R6RS* スタイルのパターンが使えます。
@@ -37,12 +26,7 @@
 (<pattern> ... <ellipsis> <pattern> ...)
 (<pattern> ... <ellipsis> <pattern> ... . <pattern>)
 #+END_EXAMPLE
-** mbe インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install mbe
-
+[includeme file="inc-package-install.php" name="mbe" where="melpa"]
 
 #+end:
 ** 概要                                                             :noexport:
@@ -204,3 +188,4 @@ M-x package-install mbe
 #+END:
 
 
+[includeme file="inc-package-relate.php" name="mbe"]

@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 2484
+#+POSTID: 1473
+#+BLOG: rubikitch
 #+DATE: [2016-07-17 Sun 10:40]
 #+PERMALINK: meta-super-hyper
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,12 +8,13 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, 記事紹介, 
+#+CATEGORY: サイト紹介
 #+DESCRIPTION: 
-#+MYTAGS: 
 #+TITLE: Meta/Super/Hyperキーの秘密
 #+begin: org2blog-tags
-#+TAGS: , Emacs, 記事紹介, , 
+# content-length: 260
+#+HTML: <!-- noindex -->
+
 #+end:
 http://www.catonmat.net/blog/why-emacs-uses-meta-key/
 

@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 2274
+#+POSTID: 1311
+#+BLOG: rubikitch
 #+DATE: [2015-12-18 Fri 01:45]
 #+PERMALINK: color-theme-sanityinc-tomorrow
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,95 +8,17 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, theme
+#+CATEGORY: 明暗対応
 #+EL_PKG_NAME: color-theme-sanityinc-tomorrow-theme
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, color-theme, カラーテーマ
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: 
 #+EL_TITLE0: 5種類から選べるカラーテーマ
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: Emacs Lispパッケージcolor-theme-sanityinc-tomorrow-themeの紹介
-#+MYTAGS: package:color-theme-sanityinc-tomorrow-theme, emacs 使い方, emacs コマンド, emacs, color-theme-sanityinc-tomorrow-theme, color-theme-sanityinc-tomorrow-theme.el, emacs lisp color-theme-sanityinc-tomorrow-theme, elisp color-theme-sanityinc-tomorrow-theme, emacs  color-theme-sanityinc-tomorrow-theme, emacs color-theme-sanityinc-tomorrow-theme 使い方, emacs color-theme-sanityinc-tomorrow-theme 設定, emacs パッケージ color-theme-sanityinc-tomorrow-theme, emacs color-theme-sanityinc-tomorrow-theme スクリーンショット, color-theme, カラーテーマ
-#+TAGS: package:color-theme-sanityinc-tomorrow-theme, emacs 使い方, emacs コマンド, emacs, color-theme-sanityinc-tomorrow-theme, color-theme-sanityinc-tomorrow-theme.el, emacs lisp color-theme-sanityinc-tomorrow-theme, elisp color-theme-sanityinc-tomorrow-theme, emacs  color-theme-sanityinc-tomorrow-theme, emacs color-theme-sanityinc-tomorrow-theme 使い方, emacs color-theme-sanityinc-tomorrow-theme 設定, emacs パッケージ color-theme-sanityinc-tomorrow-theme, emacs color-theme-sanityinc-tomorrow-theme スクリーンショット, color-theme, カラーテーマ, Emacs, theme, color-theme-sanityinc-tomorrow-theme.el
-#+TITLE: emacs color-theme-sanityinc-tomorrow-theme.el : 5種類から選べるカラーテーマ |  Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>color-theme-sanityinc-tomorrow-theme</td></tr>
-<tr><td>概要(原文)</td><td>EL_DOCに説明文を入れてください</td></tr>
-<tr><td>リポジトリ</td><td>まだパッケージに登録されていない</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:color-theme-sanityinc-tomorrow-theme/">package:color-theme-sanityinc-tomorrow-theme</a> </td></tr>
-</table>
-<br />
-#+END_HTML
-*color-theme-sanityinc-tomorrow-theme.el* は、以下のパッケージに対応したカラーテーマ群です。
-- font-lock
-- Flycheck
-- Flymake
-- Clojure errors
-- EDTS errors
-- Rainbow-delimiters
-- MMM-mode
-- Search
-- Anzu
-- IDO
-- flx-ido
-- Ivy
-- which-function
-- Emacs interface
-- Parenthesis matching (built-in)
-- Smartparens paren matching
-- Parenthesis matching (mic-paren)
-- Parenthesis dimming (parenface)
-- macrostep
-- undo-tree
-- dired+
-- Magit
-- git-gutter
-- git-gutter-fringe
-- guide-key
-- Compilation
-- Grep
-- mark-multiple
-- helm
-- company
-- hl-line-mode
-- Hydra
-- our palette
-- Python-specific overrides
-- js2-mode
-- js3-mode
-- coffee-mode
-- nxml
-- RHTML
-- Message-mode
-- Jabber
-- Powerline
-- Powerline-evil
-- Outline
-- Ledger-mode
-- EMMS
-- mu4e
-- Gnus
-- twittering-mode
-- ansi-term
-- ansi-color
-
-
-以下のカラーテーマが定義されています。
-
-- sanityinc-tomorrow-bright
-- sanityinc-tomorrow-night
-- sanityinc-tomorrow-eighties
-- sanityinc-tomorrow-blue
-- sanityinc-tomorrow-day
-
-
-** color-theme-sanityinc-tomorrow-theme インストール
-これはまだパッケージ化されていないので、[[http://rubikitch.com/package-initialize/#sec-2][手動でインストール]] する必要があります。
-
+#+TITLE: color-theme-sanityinc-tomorrow-theme.el : 5種類から選べるカラーテーマ
+[includeme file="inc-package-table.php" name="color-theme-sanityinc-tomorrow-theme" where=""]
 
 #+end:
-** 概要                                                             :noexport:
+** 概要
 *color-theme-sanityinc-tomorrow-theme.el* は、以下のパッケージに対応したカラーテーマ群です。
 - font-lock
 - Flycheck
@@ -160,6 +83,7 @@
 
 #+end:
 
+[includeme file="inc-package-install.php" name="color-theme-sanityinc-tomorrow-theme" where=""]
 ** theme: sanityinc-tomorrow-bright
 # *sanityinc-tomorrow-bright-theme.el*
 *** スクリーンショット
@@ -442,3 +366,4 @@ $ emacs -Q -f package-initialize -eval '(load-theme (quote sanityinc-tomorrow-da
 
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+[includeme file="inc-package-relate.php" name="color-theme-sanityinc-tomorrow-theme"]

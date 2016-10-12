@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 1507
+#+POSTID: 845
+#+BLOG: rubikitch
 #+DATE: [2015-04-14 Tue 05:14]
 #+PERMALINK: olivetti
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,72 +8,18 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs
+#+CATEGORY: 執筆部屋
 #+EL_PKG_NAME: olivetti
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, relate:writeroom-mode, relate:tabula-rasa, WriteRoom, WriteRoom OS X, 超集中, WriteRoom iPhone, emacs 物書き, emacs ライティング, ライティング, emacs olivetti タイプライター
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: 
 #+EL_TITLE0: 執筆部屋その3！文字を中央寄せして執筆に集中
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージolivettiの紹介
-#+MYTAGS: package:olivetti, emacs 使い方, emacs コマンド, emacs, olivetti, olivetti.el, emacs lisp olivetti, elisp olivetti, emacs melpa olivetti, emacs olivetti 使い方, emacs olivetti 設定, emacs パッケージ olivetti, emacs olivetti スクリーンショット, relate:writeroom-mode, relate:tabula-rasa, WriteRoom, WriteRoom OS X, 超集中, WriteRoom iPhone, emacs 物書き, emacs ライティング, ライティング, emacs olivetti タイプライター
-#+TAGS: package:olivetti, emacs 使い方, emacs コマンド, emacs, olivetti, olivetti.el, emacs lisp olivetti, elisp olivetti, emacs melpa olivetti, emacs olivetti 使い方, emacs olivetti 設定, emacs パッケージ olivetti, emacs olivetti スクリーンショット, relate:writeroom-mode, relate:tabula-rasa, WriteRoom, WriteRoom OS X, 超集中, WriteRoom iPhone, emacs 物書き, emacs ライティング, ライティング, emacs olivetti タイプライター, Emacs, olivetti.el, olivetti-body-width, M-x olivetti-mode, M-x olivetti-expand, M-x olivetti-shrink, olivetti-body-width, M-x olivetti-mode, M-x olivetti-expand, M-x olivetti-shrink
-#+TITLE: emacs olivetti.el : 執筆部屋その3！文字を中央寄せして執筆に集中 | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>olivetti</td></tr>
-<tr><td>概要(原文)</td><td>Minor mode for a nice writing environment</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/rnkn/olivetti">https://github.com/rnkn/olivetti</a></td></tr>
-<tr><td>バージョン</td><td>20150408.244</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:olivetti/">package:olivetti</a> <a href="http://rubikitch.com/tag/package:writeroom-mode/">package:writeroom-mode</a> <a href="http://rubikitch.com/tag/package:tabula-rasa/">package:tabula-rasa</a></td></tr>
-</table>
-<br />
-#+END_HTML
-*olivetti.el* も[[http://rubikitch.com/2014/12/18/writeroom-mode/][writeroom-mode.el(レビュー)]] や [[http://rubikitch.com/2014/12/19/tabula-rasa/][tabula-rasa.el(レビュー)]] 同様、
-集中して物書きするためのマイナーモードです。
-
-ちなみにolivettiとは昔タイプライターで有名だった会社で、
-今はパソコンやタブレットを販売しているようです。
-
-一番機能が多いのはtabula-rasa.elですが、
-このolivetti.elはシンプルな機能にとどまっています。
-
-- 画面両横にマージンを設置し文字をセンター寄せ
-- 文字幅を調節
-- モードラインを消し飛ばす(オプション)
-
-1行あたりの文字数は *olivetti-body-width* で設定できます。
-
-場合によってフォントを切り替えている人は
-小数を指定することをおすすめします。
-
-有効にするには *M-x olivetti-mode* を実行し、
-桁数は *M-x olivetti-expand* と *M-x olivetti-shrink* で調節できます。
-
-類似品はいろいろありますが、どれも個性があって面白いですね。
-
-物書きに集中したい人は、好みのものを試してみてください。
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150414055740.png]]
-Fig1: 画面中央寄せ＆モードライン消し飛ばし
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150414055829.png]]
-Fig2: 白背景だとこんな感じ
-
-
-** olivetti インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install olivetti
-
+#+TITLE: olivetti.el : 執筆部屋その3！文字を中央寄せして執筆に集中
+[includeme file="inc-package-table.php" name="olivetti" where="melpa"]
 
 #+end:
-** 概要                                                             :noexport:
-*olivetti.el* も[[http://rubikitch.com/2014/12/18/writeroom-mode/][writeroom-mode.el(レビュー)]] や [[http://rubikitch.com/2014/12/19/tabula-rasa/][tabula-rasa.el(レビュー)]] 同様、
+** 概要
+*olivetti.el* も[[http://emacs.rubikitch.com/writeroom-mode/][writeroom-mode.el(レビュー)]] や [[http://emacs.rubikitch.com/tabula-rasa/][tabula-rasa.el(レビュー)]] 同様、
 集中して物書きするためのマイナーモードです。
 
 ちなみにolivettiとは昔タイプライターで有名だった会社で、
@@ -107,6 +54,7 @@ Fig2: 白背景だとこんな感じ
 
 
 
+[includeme file="inc-package-install.php" name="olivetti" where="melpa"]
 ** 設定 [[http://rubikitch.com/f/150414055120.olivetti.el][150414055120.olivetti.el(以下のコードと同一)]]
 #+BEGIN: include :file "/r/sync/junk/150414/150414055120.olivetti.el"
 #+BEGIN_SRC fundamental
@@ -132,3 +80,4 @@ $ emacs -Q -f package-initialize -l 150414055120.olivetti.el
 
 # /r/sync/screenshots/20150414055740.png http://rubikitch.com/wp-content/uploads/2015/04/wpid-20150414055740.png
 # /r/sync/screenshots/20150414055829.png http://rubikitch.com/wp-content/uploads/2015/04/wpid-20150414055829.png
+[includeme file="inc-package-relate.php" name="olivetti"]

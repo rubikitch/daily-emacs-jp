@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 1775
+#+POSTID: 994
+#+BLOG: rubikitch
 #+DATE: [2015-06-26 Fri 11:11]
 #+PERMALINK: org-doing
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,62 +8,17 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, org-mode, 
+#+CATEGORY: TODO・予定管理
 #+EL_PKG_NAME: org-doing
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: 
 #+EL_TITLE0: 自分が今やっていることを記録する
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージorg-doingの紹介
-#+MYTAGS: package:org-doing, emacs 使い方, emacs コマンド, emacs, org-doing, org-doing.el, emacs lisp org-doing, elisp org-doing, emacs melpa org-doing, emacs org-doing 使い方, emacs org-doing 設定, emacs パッケージ org-doing, emacs org-doing スクリーンショット
-#+TAGS: package:org-doing, emacs 使い方, emacs コマンド, emacs, org-doing, org-doing.el, emacs lisp org-doing, elisp org-doing, emacs melpa org-doing, emacs org-doing 使い方, emacs org-doing 設定, emacs パッケージ org-doing, emacs org-doing スクリーンショット, Emacs, org-mode, , org-doing.el, org-mode, M-x org-doing-log, C-u M-x org-doing-log, M-x org-doing-done, org-mode, M-x org-doing-log, C-u M-x org-doing-log, M-x org-doing-done
-#+TITLE: emacs org-doing.el : 自分が今やっていることを記録する | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>org-doing</td></tr>
-<tr><td>概要(原文)</td><td>Keep track of what you're doing</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/omouse/org-doing">https://github.com/omouse/org-doing</a></td></tr>
-<tr><td>バージョン</td><td>20150610.915</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:org-doing/">package:org-doing</a> </td></tr>
-</table>
-<br />
-#+END_HTML
-*org-doing.el* は、とても単純な作業記録ツールです。
-
-名の通り *org-mode* を使って記録しますが、
-あくまで記録形式がorg-modeなだけで、
-このパッケージ自体はorg-modeの機能は使っていません。
-
-org-modeに対してとっつきにくいと思っている人でも
-気張らずに使うことができるでしょう。
-
-org-doing.elが提供するコマンドを実行すると、いずれもdoing.orgを開き
-自分が何をやっているのかが明確にわかるようになります。
-
-記録する情報は3種類です。
-
-- *M-x org-doing-log* :: 現在やっていることを記録
-- *C-u M-x org-doing-log* :: 後でやろうとすることを記録
-- *M-x org-doing-done* :: 完了したことを記録
-
-M-x org-doing-doneの後でそのままRETを押せば、
-一番上のTODO(つまり、現在やっていること)をDONEにします。
-
-もちろんorg-modeに慣れている人はdoing.org内で
-C-c C-tでDONEにしてもかまいません。
-
-# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
-** org-doing インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install org-doing
-
+#+TITLE: org-doing.el : 自分が今やっていることを記録する
+[includeme file="inc-package-table.php" name="org-doing" where="melpa"]
 
 #+end:
-** 概要                                                             :noexport:
+** 概要
 *org-doing.el* は、とても単純な作業記録ツールです。
 
 名の通り *org-mode* を使って記録しますが、
@@ -88,6 +44,7 @@ M-x org-doing-doneの後でそのままRETを押せば、
 C-c C-tでDONEにしてもかまいません。
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+[includeme file="inc-package-install.php" name="org-doing" where="melpa"]
 ** 具体的な使い方
 
 今、ブログを書いているとすると
@@ -138,3 +95,4 @@ M-x org-doing-doneあるいは、C-c C-tでDONEにします。
 $ wget http://rubikitch.com/f/150626112735.org-doing.el
 $ emacs -Q -f package-initialize -l 150626112735.org-doing.el
 #+END_EXAMPLE
+[includeme file="inc-package-relate.php" name="org-doing"]

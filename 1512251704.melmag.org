@@ -1,18 +1,19 @@
 #+BLOG: rubikitch
-#+POSTID: 2288
+#+POSTID: 155
+#+BLOG: rubikitch
 #+DATE: [2015-12-25 Fri 17:04]
-#+PERMALINK: melmag
+#+PERMALINK: melmag213
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
 #+ISPAGE: nil
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: メルマガ,
+#+CATEGORY: るびきち塾メルマガ
 #+DESCRIPTION: るびきち塾メルマガ『Emacsの鬼るびきちのココだけの話#213』の予告
 #+TITLE: 【メルマガ#213】今年ラスト
 #+MYTAGS: 
 #+begin: org2blog-tags
-#+TAGS: , メルマガ,, 
+
 #+end:
 今年最後のメルマガは先々週から引き続き総集編をお送りします。
 当初の予定では今回で総集編をすべて終えるつもりでしたが、体調の悪化によりすべてを終えられませんでした。

@@ -1,82 +1,29 @@
 #+BLOG: rubikitch
-#+POSTID: 583
+#+POSTID: 410
+#+BLOG: rubikitch
 #+DATE: [2014-11-15 Sat 05:57]
 #+PERMALINK: helm-cmd-t
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
 #+ISPAGE: nil
-#+DESCRIPTION:
+#+DESCRIPTION:anything-project.elのhelm版。helm-ls-gitに近い。
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs
+#+CATEGORY: プロジェクト管理
 #+EL_PKG_NAME: helm-cmd-t
-#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, relate:anything, relate:helm, relate:anything-project, relate:projectile, relate:helm-projectile, emacs git find-file, emacs git grep, emacs helm 情報源, emacs helm source, cmd-t, relate:helm-ls-git, emacs helm git, relate:helm-projectile, relate:projectile
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+EL_TITLE0: GitやMercurial等リポジトリ内のファイルを電光石火で開いたりgrepしたり！anything-project.elのhelm版
+#+TAGS: helm, git, hg
+#+EL_TITLE0: GitやMercurial等リポジトリ内のファイルを電光石火で開いたりgrepしたり！
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージhelm-cmd-tの紹介
-#+MYTAGS: package:helm-cmd-t, emacs 使い方, emacs コマンド, emacs, emacs lisp helm-cmd-t, elisp helm-cmd-t, emacs melpa helm-cmd-t, emacs helm-cmd-t 使い方, emacs helm-cmd-t 設定, emacs パッケージ helm-cmd-t, emacs helm-cmd-t スクリーンショット, relate:anything, relate:helm, relate:anything-project, relate:projectile, relate:helm-projectile, emacs git find-file, emacs git grep, emacs helm 情報源, emacs helm source, cmd-t, relate:helm-ls-git, emacs helm git, relate:helm-projectile, relate:projectile
-#+TAGS: package:helm-cmd-t, emacs 使い方, emacs コマンド, emacs, emacs lisp helm-cmd-t, elisp helm-cmd-t, emacs melpa helm-cmd-t, emacs helm-cmd-t 使い方, emacs helm-cmd-t 設定, emacs パッケージ helm-cmd-t, emacs helm-cmd-t スクリーンショット, relate:anything, relate:helm, relate:anything-project, relate:projectile, relate:helm-projectile, emacs git find-file, emacs git grep, emacs helm 情報源, emacs helm source, cmd-t, relate:helm-ls-git, emacs helm git, relate:helm-projectile, relate:projectile, Emacs, helm-cmd-t.el, プロジェクト, リポジトリ, helm, プロジェクト管理, SCCS, RCS, CVS, MCVS, Subversion, Git, Mercurial, Bzr, Darcs, GNU Arch, anything.el, anything-project.el, スピード, helm-cmd-t-cache-threshhold, find, helm-cmd-t.el, プロジェクト, リポジトリ, helm, プロジェクト管理, SCCS, RCS, CVS, MCVS, Subversion, Git, Mercurial, Bzr, Darcs, GNU Arch, anything.el, anything-project.el, スピード, helm-cmd-t-cache-threshhold, find, M-x helm-cmd-t-grep, grep, git grep, helm-source-buffers-list, helm-source-session, helm-source-files-in-current-dir, helm-source-cmd-t, helm-source-buffer-not-found
-#+TITLE: emacs helm-cmd-t.el : GitやMercurial等リポジトリ内のファイルを電光石火で開いたりgrepしたり！anything-project.elのhelm版 | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>helm-cmd-t</td></tr>
-<tr><td>概要(原文)</td><td>cmd-t style completion</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/lewang/helm-cmd-t">https://github.com/lewang/helm-cmd-t</a></td></tr>
-<tr><td>バージョン</td><td>20141229.844</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:helm-cmd-t/">package:helm-cmd-t</a> <a href="http://rubikitch.com/tag/package:anything/">package:anything</a> <a href="http://rubikitch.com/tag/package:helm/">package:helm</a> <a href="http://rubikitch.com/tag/package:anything-project/">package:anything-project</a> <a href="http://rubikitch.com/tag/package:projectile/">package:projectile</a> <a href="http://rubikitch.com/tag/package:helm-projectile/">package:helm-projectile</a> <a href="http://rubikitch.com/tag/package:helm-ls-git/">package:helm-ls-git</a> <a href="http://rubikitch.com/tag/package:helm-projectile/">package:helm-projectile</a> <a href="http://rubikitch.com/tag/package:projectile/">package:projectile</a></td></tr>
-</table>
-<br />
-#+END_HTML
-
-*helm-cmd-t.el* は、様々な *プロジェクト* (*リポジトリ*) 内の
-ファイルを *helm* インターフェースで開くEmacs Lispです。
-
-<2014-12-28 Sun>追記
-git専門ならば [[http://rubikitch.com/2014/08/31/helm-ls-git/][helm-ls-git(レビュー)]] もあります。
-これはその他のバージョン管理システムにも対応しています。
-
-Emacsでは、そもそもプロジェクトという概念がないため、
-*プロジェクト管理* のEmacs Lispが乱立している状況です。
-
-以下のリポジトリに対応しています。
-- *SCCS*
-- *RCS*
-- *CVS*
-- *MCVS*
-- *Subversion*
-- *Git*
-- *Mercurial*
-- *Bzr*
-- *Darcs*
-- *GNU Arch*
-
-*anything.el* におけるの *anything-project.el* と同様の機能です。
-
-helm-cmd-t.elは、 *スピード* を重視して開発しています。
-
-1000( *helm-cmd-t-cache-threshhold* )個以上のファイルが
-含まれるリポジトリについてはキャッシュされるので
-大きなリポジトリのファイルを開く場合でも遅くなりません。
-
-また、 *find* コマンドが存在しないWindowsに対してはEmacs Lisp版が動作します。
-
-本家findには及ばないですが、それなりに最適化されてて速いです。
-** helm-cmd-t インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install helm-cmd-t
-
+#+TITLE: helm-cmd-t.el : GitやMercurial等リポジトリ内のファイルを電光石火で開いたりgrepしたり！
+[includeme file="inc-package-table.php" name="helm-cmd-t" where="melpa"]
 
 #+end:
-** 概要                                                             :noexport:
+** 概要
 
 *helm-cmd-t.el* は、様々な *プロジェクト* (*リポジトリ*) 内の
 ファイルを *helm* インターフェースで開くEmacs Lispです。
 
 <2014-12-28 Sun>追記
-git専門ならば [[http://rubikitch.com/2014/08/31/helm-ls-git/][helm-ls-git(レビュー)]] もあります。
+git専門ならば [[http://emacs.rubikitch.com/helm-ls-git/][helm-ls-git(レビュー)]] もあります。
 これはその他のバージョン管理システムにも対応しています。
 
 Emacsでは、そもそもプロジェクトという概念がないため、
@@ -105,6 +52,7 @@ helm-cmd-t.elは、 *スピード* を重視して開発しています。
 また、 *find* コマンドが存在しないWindowsに対してはEmacs Lisp版が動作します。
 
 本家findには及ばないですが、それなりに最適化されてて速いです。
+[includeme file="inc-package-install.php" name="helm-cmd-t" where="melpa"]
 ** 設定 [[http://rubikitch.com/f/141115060951.helm-cmd-t.el][141115060951.helm-cmd-t.el(以下のコードと同一)]]
 #+BEGIN: include :file "/r/sync/junk/141115/141115060951.helm-cmd-t.el"
 #+BEGIN_SRC fundamental
@@ -174,3 +122,4 @@ helm-cmd-t.el --- cmd-t style completion
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
 http://rubikitch.com/f/20141115061218.png
 Fig1: リポジトリ内のファイルをhelmで開く
+[includeme file="inc-package-relate.php" name="helm-cmd-t"]

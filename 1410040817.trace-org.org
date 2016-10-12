@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 424
+#+POSTID: 328
+#+BLOG: rubikitch
 #+DATE: [2014-10-04 Sat 08:17]
 #+PERMALINK: trace-org
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t
@@ -7,12 +8,11 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, Emacs Lisp,
+#+CATEGORY: デバッグ
 #+DESCRIPTION: M-x trace-functionは結果表示が見辛い問題がある。結果をorg-modeで表示することで関数呼び出しのデバッグを効率化する設定
-#+MYTAGS: package:trace, package:org, relate:org, emacs eval-defun C-M-x, emacs trace-function edebug, emacs untrace-all, emacs トレース, emacs トレーサ, emacs trace.el, emacs lisp 関数 トレース, emacs, package:edebug, emacs lisp, emacs lisp 関数 返り値 引数, eamcs lisp デバッグ, emacs lisp trace org-mode, 結果表示 org-mode, emacs トレーサ 改善
-#+TAGS: package:trace, package:org, relate:org, emacs eval-defun C-M-x, emacs trace-function edebug, emacs untrace-all, emacs トレース, emacs トレーサ, emacs trace.el, emacs lisp 関数 トレース, emacs, package:edebug, emacs lisp, emacs lisp 関数 返り値 引数, eamcs lisp デバッグ, emacs lisp trace org-mode, 結果表示 org-mode, emacs トレーサ 改善, Emacs, Emacs Lisp,, デバッグ, M-x trace-function, org-mode, trace-output, pp
+#+TAGS: org
 #+TITLE: 【デバッグ支援】Emacs Lispのトレース(M-x trace-function)結果をorg-modeでスパッと表示
-[[http://rubikitch.com/2014/10/01/eval-defun-or-trace-function/][この前はC-u C-u C-M-xでトレーサにかける設定を示しましたが、]]
+[[http://emacs.rubikitch.com/eval-defun-or-trace-function/][この前はC-u C-u C-M-xでトレーサにかける設定を示しましたが、]]
 今日もトレーサについてです。
 
 <2014-11-03 Mon>Emacs 24.4に対応させました。
@@ -44,7 +44,7 @@ Emacs Lispの *デバッグ* ではトレーサ(*M-x trace-function*) が超強�
 (require 'trace)
 (require 'org)
 
-;;;; trace-functionの結果をorg-modeで表示する設定
+;;;; FIXME trace-functionの結果をorg-modeで表示する設定
 (defadvice trace-function-internal (before trace-org-mode (function buffer &rest _) activate)
   "view-modeのままでも書き込みできるようにする"
   (with-current-buffer (get-buffer-create (or buffer trace-buffer))

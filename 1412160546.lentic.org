@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 722
+#+POSTID: 485
+#+BLOG: rubikitch
 #+DATE: [2014-12-16 Tue 05:46]
 #+PERMALINK: lentic
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -9,10 +10,9 @@
 #+BLOG: rubikitch
 #+CATEGORY: 記事更新情報, 
 #+DESCRIPTION: 
-#+MYTAGS: linked-buffer, lentic
-#+TAGS: linked-buffer, lentic, 記事更新情報, , 
+#+TAGS: 
 #+TITLE: linked-buffer→lenticと改名されました
-[[http://rubikitch.com/2014/09/06/linked-buffer/][linked-buffer.el(レビュー記事)]]  はlentic.elへと改名されました。
+[[http://emacs.rubikitch.com/linked-buffer/][linked-buffer.el(レビュー記事)]]  はlentic.elへと改名されました。
 
 linked-bufferというパッケージは消滅しているので注意してください。
 

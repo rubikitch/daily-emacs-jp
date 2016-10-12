@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 1701
+#+POSTID: 940
+#+BLOG: rubikitch
 #+DATE: [2015-05-30 Sat 06:51]
 #+PERMALINK: dash-threading-macro
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,12 +8,12 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, Emacs Lisp, 
+#+CATEGORY: リスト操作
 #+DESCRIPTION: 
-#+MYTAGS: package:dash, threading macro, elisp メソッドチェーン, 月刊少女野崎くん
 #+TITLE: 【dashでメソッドチェーン】月刊少女野崎くんに学ぶthreading macro
 #+begin: org2blog-tags
-#+TAGS: package:dash, threading macro, elisp メソッドチェーン, 月刊少女野崎くん, Emacs, Emacs Lisp, , メソッドチェーン, dash.el, it
+# content-length: 5845
+
 #+end:
 ** ハンタイのハンタイの〜
 月刊少女野崎くんED *ウラオモテ・フォーチュン* には
@@ -23,7 +24,7 @@
 #+END_QUOTE
 という歌詞が出てきます．
 
-[[http://furandon-pig.hatenablog.com/entry/2014/07/28/012735][これをEmacs Lispで解いた]] という記事があり、[[http://rubikitch.com/2015/05/28/nozakikun/][先日僕はRubyで解きました]]。
+[[http://furandon-pig.hatenablog.com/entry/2014/07/28/012735][これをEmacs Lispで解いた]] という記事があり、[[http://emacs.rubikitch.com/nozakikun/][先日僕はRubyで解きました]]。
 ** 語順がああああ
 通常のelispでは
 

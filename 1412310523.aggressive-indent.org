@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 839
+#+POSTID: 586
+#+BLOG: rubikitch
 #+DATE: [2014-12-31 Wed 05:23]
 #+PERMALINK: aggressive-indent
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,59 +8,16 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs
+#+CATEGORY: インデント
 #+EL_PKG_NAME: aggressive-indent
-#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, relate:smart-newline, emacs indent, emacs 自動インデント, emacs インデント 改善, relate:electric, electric-indent-mode, emacs lisp indent, 
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方
+#+TAGS: マイナーモード
 #+EL_TITLE0: インデントを強制させるマイナーモード
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージaggressive-indentの紹介
-#+MYTAGS: package:aggressive-indent, emacs 使い方, emacs コマンド, emacs, emacs lisp aggressive-indent, elisp aggressive-indent, emacs melpa aggressive-indent, emacs aggressive-indent 使い方, emacs aggressive-indent 設定, emacs パッケージ aggressive-indent, relate:smart-newline, emacs indent, emacs 自動インデント, emacs インデント 改善, relate:electric, electric-indent-mode, emacs lisp indent, 
-#+TAGS: package:aggressive-indent, emacs 使い方, emacs コマンド, emacs, emacs lisp aggressive-indent, elisp aggressive-indent, emacs melpa aggressive-indent, emacs aggressive-indent 使い方, emacs aggressive-indent 設定, emacs パッケージ aggressive-indent, relate:smart-newline, emacs indent, emacs 自動インデント, emacs インデント 改善, relate:electric, electric-indent-mode, emacs lisp indent, , Emacs, aggressive-indent.el, M-x electric-indent-mode, M-x global-aggressive-indent-mode, aggressive-indent-excluded-modes, ruby-mode, M-x electric-indent-mode, M-x global-aggressive-indent-mode, aggressive-indent-excluded-modes, ruby-mode
-#+TITLE: emacs aggressive-indent.el : インデントを強制させるマイナーモード | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>aggressive-indent</td></tr>
-<tr><td>概要(原文)</td><td>Minor mode to aggressively keep your code always indented</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/Bruce-Connor/aggressive-indent-mode">https://github.com/Bruce-Connor/aggressive-indent-mode</a></td></tr>
-<tr><td>バージョン</td><td>20141130.315</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:aggressive-indent/">package:aggressive-indent</a> <a href="http://rubikitch.com/tag/package:smart-newline/">package:smart-newline</a> <a href="http://rubikitch.com/tag/package:electric/">package:electric</a></td></tr>
-</table>
-<br />
-#+END_HTML
-*aggressive-indent.el* はあらゆるタイミングでインデントを整えます。
-
-標準マイナーモード *M-x electric-indent-mode* よりも信頼置けます。
-
-まさに「攻めのインデント」という感じで、
-ユーザからインデントの意識が消し飛ぶほどです。
-
-自分でインデントしようとしたら、
-aggressive-indentに強制されます(笑)
-
-*M-x global-aggressive-indent-mode* を実行すれば、
-*aggressive-indent-excluded-modes* に指定したメジャーモード
-以外のすべてのバッファで有効になります。
-
-*ruby-mode* のようにしばしばインデントが乱れる
-メジャーモードでは不快に感じるでしょう。
-
-反対に、Lisp系言語のようにシンプルかつ
-Emacsの自動インデントが信頼できる言語であれば
-十分快適な編集環境が整うことでしょう。
-
-ひとつひとつのメジャーモードで有効にして
-使い勝手を試してみることをおすすめします。
-** aggressive-indent インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install aggressive-indent
-
+#+TITLE: aggressive-indent.el : インデントを強制させるマイナーモード
+[includeme file="inc-package-table.php" name="aggressive-indent" where="melpa"]
 
 #+end:
-** 概要                                                             :noexport:
+** 概要
 *aggressive-indent.el* はあらゆるタイミングでインデントを整えます。
 
 標準マイナーモード *M-x electric-indent-mode* よりも信頼置けます。
@@ -84,6 +42,7 @@ Emacsの自動インデントが信頼できる言語であれば
 ひとつひとつのメジャーモードで有効にして
 使い勝手を試してみることをおすすめします。
 
+[includeme file="inc-package-install.php" name="aggressive-indent" where="melpa"]
 ** 設定 [[http://rubikitch.com/f/141231051642.aggressive-indent.1.el][141231051642.aggressive-indent.1.el(以下のコードと同一)]]
 #+BEGIN: include :file "/r/sync/junk/141231/141231051642.aggressive-indent.1.el"
 #+BEGIN_SRC fundamental
@@ -101,3 +60,4 @@ $ emacs -Q -f package-initialize -l 141231051642.aggressive-indent.1.el
 #+END_EXAMPLE
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+[includeme file="inc-package-relate.php" name="aggressive-indent"]

@@ -1,22 +1,25 @@
 #+BLOG: rubikitch
-#+POSTID: 1973
+#+POSTID: 129
+#+BLOG: rubikitch
 #+DATE: [2015-09-11 Fri 10:44]
-#+PERMALINK: melmag
+#+PERMALINK: melmag198
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
 #+ISPAGE: nil
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: メルマガ,
+#+CATEGORY: るびきち塾メルマガ
 #+DESCRIPTION: るびきち塾メルマガ『Emacsの鬼るびきちのココだけの話#198』の予告
 #+TITLE: 【メルマガ#198】文書が文書を解析する…とは
 #+MYTAGS: 
 #+begin: org2blog-tags
-#+TAGS: , メルマガ,, 
+# content-length: 341
+#+HTML: <!-- noindex -->
+
 #+end:
 今週は、本サイトのカラーテーマの記事を通してorg文書の底力を示します。
 
-http://rubikitch.com/2015/09/03/ample-theme/
+http://emacs.rubikitch.com/ample-theme/
 の「以下のカラーテーマが定義されています。」にて
 列挙されているテーマは手で書いているのではなく、
 元となるorg文書を解析して自動で求めています。

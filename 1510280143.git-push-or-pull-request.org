@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 2127
+#+POSTID: 1219
+#+BLOG: rubikitch
 #+DATE: [2015-10-28 Wed 01:43]
 #+PERMALINK: git-push-or-pull-request
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,12 +8,13 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, 自作プログラム
+#+CATEGORY: git
 #+DESCRIPTION: シェルスクリプトgit-push-or-pull-requestをリリース。EmacsでC-x v pで実行する設定も付けました。
-#+MYTAGS: git, github, hub pull-request, git push, vc, relate:vc, emacs vc git, C-x v p, relate:magit, emacs git pull-request, make-comint, shell-mode, comint-mode, comint-run
 #+TITLE: 自動判別でGitHubにpush/pull-requestするスクリプトを作りました(Emacsの設定付)
+#+TAGS: vc
 #+begin: org2blog-tags
-#+TAGS: git, github, hub pull-request, git push, vc, relate:vc, emacs vc git, C-x v p, relate:magit, emacs git pull-request, make-comint, shell-mode, comint-mode, comint-run, Emacs, 自作プログラム, 
+# content-length: 912
+
 #+end:
 https://github.com/rubikitch/git-push-or-pull-request
 

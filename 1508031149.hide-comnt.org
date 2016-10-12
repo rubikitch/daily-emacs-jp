@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 1874
+#+POSTID: 1062
+#+BLOG: rubikitch
 #+DATE: [2015-08-03 Mon 11:49]
 #+PERMALINK: hide-comnt
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,34 +8,23 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs
+#+CATEGORY: コードリーディング
 #+EL_PKG_NAME: hide-comnt
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, コメント, relate:hideshow, relate:hideshowvis, relate:fold-this, コメントを隠す, コードリーディング, relate:hide-lines
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: 
 #+EL_TITLE0: ソースコードのコメントを一時的に隠す
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージhide-comntの紹介
-#+MYTAGS: package:hide-comnt, emacs 使い方, emacs コマンド, emacs, hide-comnt, hide-comnt.el, emacs lisp hide-comnt, elisp hide-comnt, emacs melpa hide-comnt, emacs hide-comnt 使い方, emacs hide-comnt 設定, emacs パッケージ hide-comnt, emacs hide-comnt スクリーンショット, コメント, relate:hideshow, relate:hideshowvis, relate:fold-this, コメントを隠す, コードリーディング, relate:hide-lines
-#+TAGS: package:hide-comnt, emacs 使い方, emacs コマンド, emacs, hide-comnt, hide-comnt.el, emacs lisp hide-comnt, elisp hide-comnt, emacs melpa hide-comnt, emacs hide-comnt 使い方, emacs hide-comnt 設定, emacs パッケージ hide-comnt, emacs hide-comnt スクリーンショット, コメント, relate:hideshow, relate:hideshowvis, relate:fold-this, コメントを隠す, コードリーディング, relate:hide-lines, Emacs, hide-comnt.el, M-x hide/show-comments-toggle, hide-comnt.el, M-x hide/show-comments-toggle
-#+TITLE: emacs hide-comnt.el : ソースコードのコメントを一時的に隠す | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>hide-comnt</td></tr>
-<tr><td>概要(原文)</td><td>Hide/show comments in code.</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="http://www.emacswiki.org/hide-comnt.el">http://www.emacswiki.org/hide-comnt.el</a></td></tr>
-<tr><td>バージョン</td><td>20150801.920</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:hide-comnt/">package:hide-comnt</a> <a href="http://rubikitch.com/tag/package:hideshow/">package:hideshow</a> <a href="http://rubikitch.com/tag/package:hideshowvis/">package:hideshowvis</a> <a href="http://rubikitch.com/tag/package:fold-this/">package:fold-this</a> <a href="http://rubikitch.com/tag/package:hide-lines/">package:hide-lines</a></td></tr>
-</table>
-<br />
-#+END_HTML
+#+TITLE: hide-comnt.el : ソースコードのコメントを一時的に隠す
+[includeme file="inc-package-table.php" name="hide-comnt" where="melpa"]
+
+#+end:
+** 概要
 ソースコードを読んでいると、しばしばコメントが邪魔になるときがあります。
 
 そんなときは *hide-comnt.el* の *M-x hide/show-comments-toggle* で
 コメントを隠したり戻したりしてください。
 
-任意のregionを一時的に隠せる[[http://rubikitch.com/2015/05/16/fold-this/][fold-this.el(レビュー)]] もあわせてどうぞ。
+任意のregionを一時的に隠せる[[http://emacs.rubikitch.com/fold-this/][fold-this.el(レビュー)]] もあわせてどうぞ。
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
 #+ATTR_HTML: :width 480
@@ -46,30 +36,6 @@ Fig1: 元のソースコード
 #+ATTR_HTML: :width 480
 [[file:/r/sync/screenshots/20150803115322.png]]
 Fig2: コメントを隠した状態！
-** hide-comnt インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
 
-M-x package-refresh-contents
-M-x package-install hide-comnt
-
-
-#+end:
-** 概要                                                             :noexport:
-ソースコードを読んでいると、しばしばコメントが邪魔になるときがあります。
-
-そんなときは *hide-comnt.el* の *M-x hide/show-comments-toggle* で
-コメントを隠したり戻したりしてください。
-
-任意のregionを一時的に隠せる[[http://rubikitch.com/2015/05/16/fold-this/][fold-this.el(レビュー)]] もあわせてどうぞ。
-
-# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150803115318.png]]
-Fig3: 元のソースコード
-
-↓↑M-x hide/show-comments-toggle
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150803115322.png]]
-Fig4: コメントを隠した状態！
-
+[includeme file="inc-package-install.php" name="hide-comnt" where="melpa"]
+[includeme file="inc-package-relate.php" name="hide-comnt"]

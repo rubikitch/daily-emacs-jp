@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 2251
+#+POSTID: 1291
+#+BLOG: rubikitch
 #+DATE: [2015-12-08 Tue 06:07]
 #+PERMALINK: free-keys
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,214 +8,21 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs
+#+CATEGORY: キーバインド
 #+EL_PKG_NAME: free-keys
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, 
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 
+#+TAGS: 
 #+EL_TITLE0: 空いているキーバインドを見付ける
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージfree-keysの紹介
-#+MYTAGS: package:free-keys, emacs 使い方, emacs コマンド, emacs, free-keys, free-keys.el, emacs lisp free-keys, elisp free-keys, emacs melpa free-keys, emacs free-keys 使い方, emacs free-keys 設定, emacs パッケージ free-keys, 
-#+TAGS: package:free-keys, emacs 使い方, emacs コマンド, emacs, free-keys, free-keys.el, emacs lisp free-keys, elisp free-keys, emacs melpa free-keys, emacs free-keys 使い方, emacs free-keys 設定, emacs パッケージ free-keys, , Emacs, M-x free-keys, C-u M-x free-keys, C-u M-x free-keys
-#+TITLE: emacs free-keys.el : 空いているキーバインドを見付ける | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>free-keys</td></tr>
-<tr><td>概要(原文)</td><td>Show free keybindings for modkeys or prefixes</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/Fuco1/free-keys">https://github.com/Fuco1/free-keys</a></td></tr>
-<tr><td>バージョン</td><td>20151202.322</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:free-keys/">package:free-keys</a> </td></tr>
-</table>
-<br />
-#+END_HTML
-*M-x free-keys* は現在のメジャーモード・マイナーモードにおいて空いているキーバインドをリストします。
-*C-u M-x free-keys* はプレフィクスキーから始まる空いたキーバインドをリストします。
-新しくキーを割り当てる際に参考になることでしょう。
-*** org-modeでM-x free-keysを実行
-
-#+BEGIN_EXAMPLE
-Free keys in buffer 1512080607.free-keys.org (major mode: org-mode)
-
-With modifier C (17 free)
-=========================
-C-!     C-%     C-&     C-(     C-=     C-}     C-|     C->     C-?     C-~     
-C-$     C-^     C-*     C-)     C-{     C-"     C-<     
-
-With modifier M (18 free)
-=========================
-M-A     M-D     M-G     M-I     M-K     M-R     M-V     M-X     M-#     M-"     
-M-C     M-E     M-H     M-J     M-L     M-S     M-W     M-Z     
-
-With modifier C-M (24 free)
-=========================
-C-M-x     C-M-Z     C-M-$     C-M-*     C-M-=     C-M-'     C-M-|     C-M-?     
-C-M-z     C-M-!     C-M-^     C-M-(     C-M-{     C-M-:     C-M-<     C-M-`     
-C-M-X     C-M-#     C-M-&     C-M-)     C-M-}     C-M-"     C-M->     C-M-~     
-#+END_EXAMPLE
-
-*** org-modeでC-u M-x free-keys C-cを実行
-#+BEGIN_EXAMPLE
-Free keys with prefix C-c in buffer 1512080607.free-keys.org (major mode: org-mode)
-
-With no modifier (55 free)
-=========================
-C-c b     C-c m     C-c w     C-c D     C-c K     C-c R     C-c Z     C-c 7     
-C-c c     C-c n     C-c x     C-c E     C-c L     C-c S     C-c 1     C-c 8     
-C-c f     C-c o     C-c y     C-c F     C-c M     C-c T     C-c 2     C-c 9     
-C-c g     C-c q     C-c z     C-c G     C-c N     C-c U     C-c 3     C-c 0     
-C-c h     C-c r     C-c A     C-c H     C-c O     C-c V     C-c 4     C-c (     
-C-c j     C-c u     C-c B     C-c I     C-c P     C-c W     C-c 5     C-c )     
-C-c k     C-c v     C-c C     C-c J     C-c Q     C-c Y     C-c 6     
-
-With modifier C (41 free)
-=========================
-C-c C-d     C-c C-S     C-c C-7     C-c C-&     C-c C-}     C-c C-,     
-C-c C-g     C-c C-1     C-c C-8     C-c C-(     C-c C-;     C-c C-.     
-C-c C-h     C-c C-2     C-c C-!     C-c C-)     C-c C-'     C-c C-/     
-C-c C-s     C-c C-3     C-c C-@     C-c C--     C-c C-\     C-c C-?     
-C-c C-D     C-c C-4     C-c C-#     C-c C-=     C-c C-:     C-c C-`     
-C-c C-G     C-c C-5     C-c C-$     C-c C-]     C-c C-"     C-c C-~     
-C-c C-H     C-c C-6     C-c C-%     C-c C-{     C-c C-|     
-
-With modifier M (86 free)
-=========================
-C-c M-a     C-c M-u     C-c M-K     C-c M-Y     C-c M-#     C-c M-;     
-C-c M-c     C-c M-v     C-c M-L     C-c M-Z     C-c M-$     C-c M-'     
-C-c M-e     C-c M-x     C-c M-M     C-c M-1     C-c M-%     C-c M-\     
-C-c M-g     C-c M-y     C-c M-N     C-c M-2     C-c M-^     C-c M-:     
-C-c M-h     C-c M-z     C-c M-O     C-c M-3     C-c M-&     C-c M-"     
-C-c M-i     C-c M-A     C-c M-P     C-c M-4     C-c M-*     C-c M-|     
-C-c M-j     C-c M-B     C-c M-Q     C-c M-5     C-c M-(     C-c M-,     
-C-c M-k     C-c M-C     C-c M-R     C-c M-6     C-c M-)     C-c M-.     
-C-c M-m     C-c M-D     C-c M-S     C-c M-7     C-c M--     C-c M-/     
-C-c M-n     C-c M-E     C-c M-T     C-c M-8     C-c M-=     C-c M-<     
-C-c M-o     C-c M-F     C-c M-U     C-c M-9     C-c M-[     C-c M->     
-C-c M-q     C-c M-G     C-c M-V     C-c M-0     C-c M-]     C-c M-?     
-C-c M-r     C-c M-H     C-c M-W     C-c M-!     C-c M-{     C-c M-`     
-C-c M-s     C-c M-I     C-c M-X     C-c M-@     C-c M-}     C-c M-~     
-C-c M-t     C-c M-J     
-
-With modifier C-M (84 free)
-=========================
-C-c C-M-a     C-c C-M-v     C-c C-M-Q     C-c C-M-8     C-c C-M-{     
-C-c C-M-b     C-c C-M-w     C-c C-M-R     C-c C-M-9     C-c C-M-}     
-C-c C-M-c     C-c C-M-x     C-c C-M-S     C-c C-M-0     C-c C-M-;     
-C-c C-M-e     C-c C-M-y     C-c C-M-T     C-c C-M-!     C-c C-M-'     
-C-c C-M-f     C-c C-M-z     C-c C-M-U     C-c C-M-@     C-c C-M-\     
-C-c C-M-g     C-c C-M-A     C-c C-M-V     C-c C-M-#     C-c C-M-:     
-C-c C-M-h     C-c C-M-B     C-c C-M-W     C-c C-M-$     C-c C-M-"     
-C-c C-M-i     C-c C-M-C     C-c C-M-X     C-c C-M-%     C-c C-M-|     
-C-c C-M-j     C-c C-M-E     C-c C-M-Y     C-c C-M-^     C-c C-M-,     
-C-c C-M-k     C-c C-M-F     C-c C-M-Z     C-c C-M-&     C-c C-M-.     
-C-c C-M-m     C-c C-M-G     C-c C-M-1     C-c C-M-*     C-c C-M-/     
-C-c C-M-o     C-c C-M-H     C-c C-M-2     C-c C-M-(     C-c C-M-<     
-C-c C-M-q     C-c C-M-I     C-c C-M-3     C-c C-M-)     C-c C-M->     
-C-c C-M-r     C-c C-M-J     C-c C-M-4     C-c C-M--     C-c C-M-?     
-C-c C-M-s     C-c C-M-K     C-c C-M-5     C-c C-M-=     C-c C-M-`     
-C-c C-M-t     C-c C-M-M     C-c C-M-6     C-c C-M-[     C-c C-M-~     
-C-c C-M-u     C-c C-M-O     C-c C-M-7     C-c C-M-]     
-#+END_EXAMPLE
-
-*** org-modeでC-u M-x free-keys C-c C-xを実行
-
-#+BEGIN_EXAMPLE
-Free keys with prefix C-c C-x in buffer 1512080607.free-keys.org (major mode: org-mode)
-
-With no modifier (65 free)
-=========================
-C-c C-x h     C-c C-x z     C-c C-x Q     C-c C-x 4     C-c C-x (     
-C-c C-x j     C-c C-x B     C-c C-x R     C-c C-x 5     C-c C-x )     
-C-c C-x k     C-c C-x C     C-c C-x S     C-c C-x 6     C-c C-x =     
-C-c C-x l     C-c C-x D     C-c C-x T     C-c C-x 7     C-c C-x ]     
-C-c C-x m     C-c C-x F     C-c C-x U     C-c C-x 8     C-c C-x {     
-C-c C-x n     C-c C-x H     C-c C-x V     C-c C-x 9     C-c C-x }     
-C-c C-x r     C-c C-x I     C-c C-x W     C-c C-x @     C-c C-x '     
-C-c C-x s     C-c C-x J     C-c C-x X     C-c C-x #     C-c C-x "     
-C-c C-x t     C-c C-x K     C-c C-x Y     C-c C-x $     C-c C-x |     
-C-c C-x u     C-c C-x L     C-c C-x Z     C-c C-x %     C-c C-x /     
-C-c C-x w     C-c C-x M     C-c C-x 1     C-c C-x ^     C-c C-x ?     
-C-c C-x x     C-c C-x N     C-c C-x 2     C-c C-x &     C-c C-x `     
-C-c C-x y     C-c C-x O     C-c C-x 3     C-c C-x *     C-c C-x ~     
-
-
-With modifier C (45 free)
-=========================
-C-c C-x C-g     C-c C-x C-4     C-c C-x C-#     C-c C-x C-=     C-c C-x C-|     
-C-c C-x C-h     C-c C-x C-5     C-c C-x C-$     C-c C-x C-]     C-c C-x C-,     
-C-c C-x C-k     C-c C-x C-6     C-c C-x C-%     C-c C-x C-{     C-c C-x C-.     
-C-c C-x C-G     C-c C-x C-7     C-c C-x C-^     C-c C-x C-}     C-c C-x C-/     
-C-c C-x C-H     C-c C-x C-8     C-c C-x C-&     C-c C-x C-;     C-c C-x C-<     
-C-c C-x C-K     C-c C-x C-9     C-c C-x C-*     C-c C-x C-'     C-c C-x C->     
-C-c C-x C-1     C-c C-x C-0     C-c C-x C-(     C-c C-x C-\     C-c C-x C-?     
-C-c C-x C-2     C-c C-x C-!     C-c C-x C-)     C-c C-x C-:     C-c C-x C-`     
-C-c C-x C-3     C-c C-x C-@     C-c C-x C--     C-c C-x C-"     C-c C-x C-~     
-
-
-With modifier M (91 free)
-=========================
-C-c C-x M-a     C-c C-x M-t     C-c C-x M-M     C-c C-x M-5     C-c C-x M-[     
-C-c C-x M-b     C-c C-x M-u     C-c C-x M-N     C-c C-x M-6     C-c C-x M-]     
-C-c C-x M-c     C-c C-x M-v     C-c C-x M-O     C-c C-x M-7     C-c C-x M-{     
-C-c C-x M-d     C-c C-x M-x     C-c C-x M-P     C-c C-x M-8     C-c C-x M-}     
-C-c C-x M-e     C-c C-x M-y     C-c C-x M-Q     C-c C-x M-9     C-c C-x M-;     
-C-c C-x M-f     C-c C-x M-z     C-c C-x M-R     C-c C-x M-0     C-c C-x M-'     
-C-c C-x M-g     C-c C-x M-A     C-c C-x M-S     C-c C-x M-!     C-c C-x M-\     
-C-c C-x M-h     C-c C-x M-B     C-c C-x M-T     C-c C-x M-@     C-c C-x M-:     
-C-c C-x M-i     C-c C-x M-C     C-c C-x M-U     C-c C-x M-#     C-c C-x M-"     
-C-c C-x M-j     C-c C-x M-D     C-c C-x M-V     C-c C-x M-$     C-c C-x M-|     
-C-c C-x M-k     C-c C-x M-E     C-c C-x M-W     C-c C-x M-%     C-c C-x M-,     
-C-c C-x M-l     C-c C-x M-F     C-c C-x M-X     C-c C-x M-^     C-c C-x M-.     
-C-c C-x M-m     C-c C-x M-G     C-c C-x M-Y     C-c C-x M-&     C-c C-x M-/     
-C-c C-x M-n     C-c C-x M-H     C-c C-x M-Z     C-c C-x M-*     C-c C-x M-<     
-C-c C-x M-o     C-c C-x M-I     C-c C-x M-1     C-c C-x M-(     C-c C-x M->     
-C-c C-x M-p     C-c C-x M-J     C-c C-x M-2     C-c C-x M-)     C-c C-x M-?     
-C-c C-x M-q     C-c C-x M-K     C-c C-x M-3     C-c C-x M--     C-c C-x M-`     
-C-c C-x M-r     C-c C-x M-L     C-c C-x M-4     C-c C-x M-=     C-c C-x M-~     
-C-c C-x M-s     
-
-With modifier C-M (90 free)
-=========================
-C-c C-x C-M-a     C-c C-x C-M-y     C-c C-x C-M-W     C-c C-x C-M-(     
-C-c C-x C-M-b     C-c C-x C-M-z     C-c C-x C-M-X     C-c C-x C-M-)     
-C-c C-x C-M-c     C-c C-x C-M-A     C-c C-x C-M-Y     C-c C-x C-M--     
-C-c C-x C-M-d     C-c C-x C-M-B     C-c C-x C-M-Z     C-c C-x C-M-=     
-C-c C-x C-M-e     C-c C-x C-M-C     C-c C-x C-M-1     C-c C-x C-M-[     
-C-c C-x C-M-f     C-c C-x C-M-D     C-c C-x C-M-2     C-c C-x C-M-]     
-C-c C-x C-M-g     C-c C-x C-M-E     C-c C-x C-M-3     C-c C-x C-M-{     
-C-c C-x C-M-h     C-c C-x C-M-F     C-c C-x C-M-4     C-c C-x C-M-}     
-C-c C-x C-M-i     C-c C-x C-M-G     C-c C-x C-M-5     C-c C-x C-M-;     
-C-c C-x C-M-j     C-c C-x C-M-H     C-c C-x C-M-6     C-c C-x C-M-'     
-C-c C-x C-M-k     C-c C-x C-M-I     C-c C-x C-M-7     C-c C-x C-M-\     
-C-c C-x C-M-l     C-c C-x C-M-J     C-c C-x C-M-8     C-c C-x C-M-:     
-C-c C-x C-M-m     C-c C-x C-M-K     C-c C-x C-M-9     C-c C-x C-M-"     
-C-c C-x C-M-n     C-c C-x C-M-L     C-c C-x C-M-0     C-c C-x C-M-|     
-C-c C-x C-M-o     C-c C-x C-M-M     C-c C-x C-M-!     C-c C-x C-M-,     
-C-c C-x C-M-p     C-c C-x C-M-N     C-c C-x C-M-@     C-c C-x C-M-.     
-C-c C-x C-M-q     C-c C-x C-M-O     C-c C-x C-M-#     C-c C-x C-M-/     
-C-c C-x C-M-r     C-c C-x C-M-P     C-c C-x C-M-$     C-c C-x C-M-<     
-C-c C-x C-M-s     C-c C-x C-M-Q     C-c C-x C-M-%     C-c C-x C-M->     
-C-c C-x C-M-t     C-c C-x C-M-R     C-c C-x C-M-^     C-c C-x C-M-?     
-C-c C-x C-M-u     C-c C-x C-M-S     C-c C-x C-M-&     C-c C-x C-M-`     
-C-c C-x C-M-w     C-c C-x C-M-T     C-c C-x C-M-*     C-c C-x C-M-~     
-C-c C-x C-M-x     C-c C-x C-M-U     
-
-#+END_EXAMPLE
-
-# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
-** free-keys インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install free-keys
-
+#+TITLE: free-keys.el : 空いているキーバインドを見付ける
+[includeme file="inc-package-table.php" name="free-keys" where="melpa"]
 
 #+end:
-** 概要                                                             :noexport:
+** 概要
 *M-x free-keys* は現在のメジャーモード・マイナーモードにおいて空いているキーバインドをリストします。
 *C-u M-x free-keys* はプレフィクスキーから始まる空いたキーバインドをリストします。
 新しくキーを割り当てる際に参考になることでしょう。
+[includeme file="inc-package-install.php" name="free-keys" where="melpa"]
 *** org-modeでM-x free-keysを実行
 
 #+BEGIN_EXAMPLE
@@ -386,3 +194,4 @@ C-c C-x C-M-x     C-c C-x C-M-U
 #+END_EXAMPLE
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+[includeme file="inc-package-relate.php" name="free-keys"]

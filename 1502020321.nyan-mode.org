@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 1061
+#+POSTID: 665
+#+BLOG: rubikitch
 #+DATE: [2015-02-02 Mon 03:21]
 #+PERMALINK: nyan-mode
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,73 +8,17 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs
+#+CATEGORY: mode-line
 #+EL_PKG_NAME: nyan-mode
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, relate:sml-modeline, relate:yascroll
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: 
 #+EL_TITLE0: 【ぬこin Emacs】かわいい猫がバッファの相対位置を教えてくれる
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージnyan-modeの紹介
-#+MYTAGS: package:nyan-mode, emacs 使い方, emacs コマンド, emacs, nyan-mode, nyan-mode.el, emacs lisp nyan-mode, elisp nyan-mode, emacs melpa nyan-mode, emacs nyan-mode 使い方, emacs nyan-mode 設定, emacs パッケージ nyan-mode, emacs nyan-mode スクリーンショット, relate:sml-modeline, relate:yascroll
-#+TAGS: package:nyan-mode, emacs 使い方, emacs コマンド, emacs, nyan-mode, nyan-mode.el, emacs lisp nyan-mode, elisp nyan-mode, emacs melpa nyan-mode, emacs nyan-mode 使い方, emacs nyan-mode 設定, emacs パッケージ nyan-mode, emacs nyan-mode スクリーンショット, relate:sml-modeline, relate:yascroll, Emacs, nyan-mode.el, configureオプション, --without-xpm, sml-modeline.el, configureオプション, --without-xpm, sml-modeline.el
-#+TITLE: emacs nyan-mode.el : 【ぬこin Emacs】かわいい猫がバッファの相対位置を教えてくれる | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>nyan-mode</td></tr>
-<tr><td>概要(原文)</td><td>Nyan Cat shows position in current buffer in mode-line.</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/TeMPOraL/nyan-mode">https://github.com/TeMPOraL/nyan-mode</a></td></tr>
-<tr><td>バージョン</td><td>20150128.1218</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:nyan-mode/">package:nyan-mode</a> <a href="http://rubikitch.com/tag/package:sml-modeline/">package:sml-modeline</a> <a href="http://rubikitch.com/tag/package:yascroll/">package:yascroll</a></td></tr>
-</table>
-<br />
-#+END_HTML
-*nyan-mode.el* は、モードラインにてかわいい猫ちゃんが
-バッファの大まかな位置を知らせてくれます。
-
-モードラインに居座るかわいいスクロールバーみたいなものです。
-
-ただ、大画面で使っていると猫の画像が小さくてわかりにくいかも…
-
-拡大できれば言うことなしなんですけどねー。
-
-猫の画像はxpmフォーマットなので、
-Emacsを野良ビルドする際の *configureオプション* に
-*--without-xpm* を付けていると動作しません。
-
-#+BEGIN_EXAMPLE
-Cannot display image: (Invalid image type `xpm')
-#+END_EXAMPLE
-と怒られます。
-
-萌え要素はなくなりますが、 *sml-modeline.el* も
-モードラインにて大まかな位置をお知らせしてくれます。
-
-
-[[file:/r/sync/screenshots/20150202032059.png]]
-Fig1: バッファの先頭
-
-[[file:/r/sync/screenshots/20150202032115.png]]
-Fig2: バッファの真ん中あたり
-
-[[file:/r/sync/screenshots/20150202032137.png]]
-Fig3: バッファの末尾
-
-[[file:/r/sync/screenshots/20150202033433.png]]
-Fig4: 拡大したところ
-
-
-
-** nyan-mode インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install nyan-mode
-
+#+TITLE: nyan-mode.el : 【ぬこin Emacs】かわいい猫がバッファの相対位置を教えてくれる
+[includeme file="inc-package-table.php" name="nyan-mode" where="melpa"]
 
 #+end:
-** 概要                                                             :noexport:
+** 概要
 *nyan-mode.el* は、モードラインにてかわいい猫ちゃんが
 バッファの大まかな位置を知らせてくれます。
 
@@ -111,6 +56,7 @@ Fig4: 拡大したところ
 
 
 
+[includeme file="inc-package-install.php" name="nyan-mode" where="melpa"]
 ** 設定 [[http://rubikitch.com/f/150202031428.nyan-mode.1.el][150202031428.nyan-mode.1.el(以下のコードと同一)]]
 #+BEGIN: include :file "/r/sync/junk/150202/150202031428.nyan-mode.1.el"
 #+BEGIN_SRC fundamental
@@ -130,3 +76,4 @@ $ emacs -Q -f package-initialize -l 150202031428.nyan-mode.1.el
 # /r/sync/screenshots/20150202032115.png http://rubikitch.com/wp-content/uploads/2015/02/wpid-20150202032115.png
 # /r/sync/screenshots/20150202032137.png http://rubikitch.com/wp-content/uploads/2015/02/wpid-20150202032137.png
 # /r/sync/screenshots/20150202033433.png http://rubikitch.com/wp-content/uploads/2015/02/wpid-20150202033433.png
+[includeme file="inc-package-relate.php" name="nyan-mode"]

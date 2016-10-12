@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 2673
+#+POSTID: 1528
+#+BLOG: rubikitch
 #+DATE: [2016-08-15 Mon 10:13]
 #+PERMALINK: signal-emit
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
@@ -7,63 +8,18 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, Emacs Lisp, 
+#+CATEGORY: Emacs Lispライブラリ
 #+EL_PKG_NAME: signal
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs フック 使い方 調べる, add-hook, remove-hook, run-hooks, defvar, defcustom, defsignal, signal-emitb, signal-connect, signal-disconnect, signal, hook, フック, advice, アドバイス, run-hook-with-args-until-success, run-hook-with-args-until-failure, run-hook-with-args, run-with-timer, run-at-time, run-with-idle-timer, タイマー関数
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール  使い方 
+#+TAGS: signal
 #+EL_TITLE0: フックとタイマーを組み合わせたまったく新しい関数挙動変更方法
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージsignalの紹介
-#+MYTAGS: package:signal, emacs 使い方, emacs コマンド, emacs, signal, signal.el, emacs lisp signal, elisp signal, emacs melpa signal, emacs signal 使い方, emacs signal 設定, emacs パッケージ signal, emacs フック 使い方 調べる, add-hook, remove-hook, run-hooks, defvar, defcustom, defsignal, signal-emitb, signal-connect, signal-disconnect, signal, hook, フック, advice, アドバイス, run-hook-with-args-until-success, run-hook-with-args-until-failure, run-hook-with-args, run-with-timer, run-at-time, run-with-idle-timer, タイマー関数
-#+TAGS: package:signal, emacs 使い方, emacs コマンド, emacs, signal, signal.el, emacs lisp signal, elisp signal, emacs melpa signal, emacs signal 使い方, emacs signal 設定, emacs パッケージ signal, emacs フック 使い方 調べる, add-hook, remove-hook, run-hooks, defvar, defcustom, defsignal, signal-emitb, signal-connect, signal-disconnect, signal, hook, フック, advice, アドバイス, run-hook-with-args-until-success, run-hook-with-args-until-failure, run-hook-with-args, run-with-timer, run-at-time, run-with-idle-timer, タイマー関数, Emacs, Emacs Lisp, , run-hooks, signal-emitb, signal-emit, run-hooks, signal-emitb, signal-emit
-#+TITLE: emacs signal.el : フックとタイマーを組み合わせたまったく新しい関数挙動変更方法 | MELPA Emacs Lisp Elisp パッケージ インストール  使い方 
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>signal</td></tr>
-<tr><td>概要(原文)</td><td>Advanced hook</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/Mola-T/signal">https://github.com/Mola-T/signal</a></td></tr>
-<tr><td>バージョン</td><td>20160424.10</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:signal/">package:signal</a> </td></tr>
-</table>
-<br />
-#+END_HTML
-[[http://rubikitch.com/2016/08/14/signal-hook/][昨日はsignal.elのフックとの類似性を示し]] ました。
-今日はフックとの違いを示します。
-
-おさらいすると、hookとsignalの対応関係は以下のようになっています。
-| 定義     | defvar(defcustom) | defsignal         |
-| 呼び出し | run-hooks         | signal-emitb      |
-| 追加     | add-hook          | signal-connect    |
-| 削除     | remove-hook       | signal-disconnect |
-
-この表を見てわかるように、 *run-hooks* に対応するのが *signal-emitb* ですね。
-ところでemitbとは何なのかと疑問に思わなかったでしょうか？
-emitとは発行するという意味ですが、emitbという英単語は存在しません。
-ではこのbとは何でしょうか？
-
-答えばblockingのbです。
-
-run-hooks実行中はフックが実行されているように、signal-emitb実行中はsignal関数(worker)が実行されています。
-hook/signal実行中はそれらが実行されていて、次の処理をブロックしているのです。
-
-対してnon-blockingなsignal実行関数が *signal-emit* です。
-この関数は「signalを発行したよ。実行は後で任せた」という関数です。
-
-そのココロは
-/タイマー関数でsignal-emitbを呼んでいる/
-ことになります。
-** signal インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install signal
-
+#+TITLE: signal.el : フックとタイマーを組み合わせたまったく新しい関数挙動変更方法
+[includeme file="inc-package-table.php" name="signal" where="melpa"]
 
 #+end:
-** 概要                                                             :noexport:
-[[http://rubikitch.com/2016/08/14/signal-hook/][昨日はsignal.elのフックとの類似性を示し]] ました。
+** 概要
+[[http://emacs.rubikitch.com/signal-hook/][昨日はsignal.elのフックとの類似性を示し]] ました。
 今日はフックとの違いを示します。
 
 おさらいすると、hookとsignalの対応関係は以下のようになっています。
@@ -89,6 +45,7 @@ hook/signal実行中はそれらが実行されていて、次の処理をブロ
 /タイマー関数でsignal-emitbを呼んでいる/
 ことになります。
 
+[includeme file="inc-package-install.php" name="signal" where="melpa"]
 ** 実行例
 #+BEGIN_SRC emacs-lisp :results silent
 (require 'signal)
@@ -121,3 +78,4 @@ x                                       ; => "<emitted again>"
 #+END_SRC
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+[includeme file="inc-package-relate.php" name="signal"]

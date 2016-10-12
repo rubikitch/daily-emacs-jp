@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 2707
+#+POSTID: 1546
+#+BLOG: rubikitch
 #+DATE: [2016-08-24 Wed 06:06]
 #+PERMALINK: refine
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
@@ -7,30 +8,19 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, Emacs Lisp
+#+CATEGORY: Emacs Lisp支援
 #+EL_PKG_NAME: refine
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, relate:edit-list, , リストの値を編集する, リスト変数を対話的に変更する, 
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: 
 #+EL_TITLE0: リストの値をvi風コマンドで編集する
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージrefineの紹介
-#+MYTAGS: package:refine, emacs 使い方, emacs コマンド, emacs, refine, refine.el, emacs lisp refine, elisp refine, emacs melpa refine, emacs refine 使い方, emacs refine 設定, emacs パッケージ refine, emacs refine スクリーンショット, relate:edit-list, , リストの値を編集する, リスト変数を対話的に変更する, 
-#+TAGS: package:refine, emacs 使い方, emacs コマンド, emacs, refine, refine.el, emacs lisp refine, elisp refine, emacs melpa refine, emacs refine 使い方, emacs refine 設定, emacs パッケージ refine, emacs refine スクリーンショット, relate:edit-list, , リストの値を編集する, リスト変数を対話的に変更する, , Emacs, Emacs Lisp, refine.el, M-x refine, refine-previous, refine-next, refine-edit, refine-delete, refine-insert, refine-insert-after, refine-move-forward, refine-move-backward, kill-this-buffer, M-x refine, refine-previous, refine-next, refine-edit, refine-delete, refine-insert, refine-insert-after, refine-move-forward, refine-move-backward, kill-this-buffer
-#+TITLE: emacs refine.el : リストの値をvi風コマンドで編集する | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>refine</td></tr>
-<tr><td>概要(原文)</td><td>interactive value editing</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/Wilfred/refine">https://github.com/Wilfred/refine</a></td></tr>
-<tr><td>バージョン</td><td>20160726.2025</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:refine/">package:refine</a> <a href="http://rubikitch.com/tag/package:edit-list/">package:edit-list</a></td></tr>
-</table>
-<br />
-#+END_HTML
+#+TITLE: refine.el : リストの値をvi風コマンドで編集する
+[includeme file="inc-package-table.php" name="refine" where="melpa"]
+
+#+end:
+** 概要
 *refine.el* は、リストの値を編集するのに便利なユーザーインターフェースを提供します。
-昨日紹介した[[http://rubikitch.com/2016/08/23/edit-list/][edit-list.el(レビュー)]] はemacs-lisp-modeで直接編集する形ですが、
+昨日紹介した[[http://emacs.rubikitch.com/edit-list/][edit-list.el(レビュー)]] はemacs-lisp-modeで直接編集する形ですが、
 *M-x refine* を実行すると、viのようにコマンドベースで編集する画面が出てきます。
 
 p(*refine-previous*) とn(*refine-next*)で要素を移動し、
@@ -54,49 +44,11 @@ Fig1: 本家スクリーンショット(prog-mode-hook)
 [[https://github.com/Wilfred/refine/raw/master/kill_ring.gif]]
 Fig2: 本家スクリーンショット(kill-ring)
 
-っと、ここまで書いてきましたが、[[http://rubikitch.com/2016/08/23/edit-list/][edit-list.el]] と
+っと、ここまで書いてきましたが、[[http://emacs.rubikitch.com/edit-list/][edit-list.el]] と
 どちらかがいいかというと好みの問題だと思いました。
 
 edit-list.elはemacs-lisp-modeのままで編集できるので
 学習コストがほぼゼロであるメリットがあります。
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
-** refine インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install refine
-
-
-#+end:
-** 概要                                                             :noexport:
-*refine.el* は、リストの値を編集するのに便利なユーザーインターフェースを提供します。
-昨日紹介した[[http://rubikitch.com/2016/08/23/edit-list/][edit-list.el(レビュー)]] はemacs-lisp-modeで直接編集する形ですが、
-*M-x refine* を実行すると、viのようにコマンドベースで編集する画面が出てきます。
-
-p(*refine-previous*) とn(*refine-next*)で要素を移動し、
-RETあるいはe(*refine-edit*) で編集します。
-「k(*refine-delete*)」で要素を削除します。
-「i(*refine-insert*)」や「a(*refine-insert-after*)」で要素を追加するあたりがvi風味です。
-また、M-<up> (*refine-move-forward*) 、M-<down> (*refine-move-backward*) のように
-org-modeを思わせる要素の移動も可能です。
-
-リストの編集コマンドは即座に変数に反映されます。
-編集が終われば「q(*kill-this-buffer*)」でrefineから抜け出します。
-
-refineはフックのような大きいリストを編集するのに便利です。
-また、kill-ringの要素を入れ替えるとデバッグツールとして使えます。
-
-#+ATTR_HTML: :width 480
-[[https://github.com/Wilfred/refine/raw/master/edit_hook.gif]]
-Fig3: 本家スクリーンショット(prog-mode-hook)
-
-#+ATTR_HTML: :width 480
-[[https://github.com/Wilfred/refine/raw/master/kill_ring.gif]]
-Fig4: 本家スクリーンショット(kill-ring)
-
-っと、ここまで書いてきましたが、[[http://rubikitch.com/2016/08/23/edit-list/][edit-list.el]] と
-どちらかがいいかというと好みの問題だと思いました。
-
-edit-list.elはemacs-lisp-modeのままで編集できるので
-学習コストがほぼゼロであるメリットがあります。
-# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+[includeme file="inc-package-install.php" name="refine" where="melpa"]
+[includeme file="inc-package-relate.php" name="refine"]

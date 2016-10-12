@@ -1,16 +1,15 @@
 #+BLOG: rubikitch
-#+POSTID: 234
+#+POSTID: 31
+#+BLOG: rubikitch
 #+DATE: [2014-08-29 Fri 10:59]
-#+PERMALINK: melmag
+#+PERMALINK: melmag144
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t
 #+ISPAGE: nil
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: メルマガ,
+#+CATEGORY: るびきち塾メルマガ
 #+DESCRIPTION:
-#+MYTAGS: Emacsの鬼るびきちのココだけの話, emacs メルマガ, 集中力を上げる方法, 時間管理, org習慣仕事術
-#+TAGS: Emacsの鬼るびきちのココだけの話, emacs メルマガ, 集中力を上げる方法, 時間管理, org習慣仕事術, メルマガ,,
 #+TITLE: 集中力サポート
 たまには、org習慣仕事術の紹介のように
 Noコード回で問題の全体像を示し、

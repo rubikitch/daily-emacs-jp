@@ -1,43 +1,32 @@
 #+BLOG: rubikitch
-#+POSTID: 551
+#+POSTID: 390
+#+BLOG: rubikitch
 #+DATE: [2014-11-05 Wed 13:34]
 #+PERMALINK: auto-complete
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
 #+ISPAGE: nil
-#+DESCRIPTION:
+#+DESCRIPTION:auto-complete.elは大人気自動補完パッケージ。たくさんのメジャーモードに対応している。
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs
+#+CATEGORY: 自動補完
 #+EL_PKG_NAME: auto-complete
-#+EL_TAGS: emacs, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p 動画, emacs 自動補完, relate:company
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 動画
+#+TAGS: 補完
 #+EL_TITLE0: 和製自動補完の逆襲！auto-completeとcompany、あなたはどっちがお好み？
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージauto-completeの紹介
-#+MYTAGS: package:auto-complete, emacs 使い方, emacs コマンド, emacs, emacs lisp auto-complete, elisp auto-complete, emacs melpa auto-complete, emacs auto-complete 使い方, emacs auto-complete 設定, emacs パッケージ auto-complete, emacs auto-complete 動画, emacs 自動補完, relate:company
-#+TITLE: emacs auto-complete.el : 和製自動補完の逆襲！auto-completeとcompany、あなたはどっちがお好み？ | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 動画
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>auto-complete</td></tr>
-<tr><td>概要(原文)</td><td>Auto Completion for GNU Emacs</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/auto-complete/auto-complete">https://github.com/auto-complete/auto-complete</a></td></tr>
-<tr><td>バージョン</td><td>20141208.809</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:auto-complete/">package:auto-complete</a> <a href="http://rubikitch.com/tag/package:company/">package:company</a></td></tr>
-</table>
-<br />
-#+END_HTML
+#+TITLE: auto-complete.el : 和製自動補完の逆襲！auto-completeとcompany、あなたはどっちがお好み？
+[includeme file="inc-package-table.php" name="auto-complete" where="melpa"]
+** 概要
 久々に *auto-complete.el* がMELPAで更新されていました。
 
 2ヶ月前に *less-css-mode* に対応し、
-今回の更新で [[http://rubikitch.com/2014/08/24/web-mode/][web-mode]] に対応しました。
+今回の更新で [[http://emacs.rubikitch.com/web-mode/][web-mode]] に対応しました。
 
 これを使うと、タイプするだけで自動的に
 補完候補がポップアップしてきます。
 
 これがどういうものかは [[http://www.youtube.com/watch?v=rGVVnDxwJYE][YouTubeのデモ動画]] を見てください。
 
-この前紹介した[[http://rubikitch.com/2014/10/14/company/][company.el]] と機能的にはかぶりますが、
+この前紹介した[[http://emacs.rubikitch.com/company/][company.el]] と機能的にはかぶりますが、
 作者が日本人であることから、
 日本ではこっちの方が知名度があります。
 
@@ -136,26 +125,21 @@ auto-completeではanythingやhelmの情報源(source)
 [[http://cx4a.org/software/auto-complete/manual.ja.html][詳しい日本語マニュアル]] もあります。
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
-** auto-complete インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install auto-complete
-
+[includeme file="inc-package-install.php" name="auto-complete" where="melpa"]
 
 #+end:
 ** 概要                                                             :noexport:
 久々に *auto-complete.el* がMELPAで更新されていました。
 
 2ヶ月前に *less-css-mode* に対応し、
-今回の更新で [[http://rubikitch.com/2014/08/24/web-mode/][web-mode]] に対応しました。
+今回の更新で [[http://emacs.rubikitch.com/web-mode/][web-mode]] に対応しました。
 
 これを使うと、タイプするだけで自動的に
 補完候補がポップアップしてきます。
 
 これがどういうものかは [[http://www.youtube.com/watch?v=rGVVnDxwJYE][YouTubeのデモ動画]] を見てください。
 
-この前紹介した[[http://rubikitch.com/2014/10/14/company/][company.el]] と機能的にはかぶりますが、
+この前紹介した[[http://emacs.rubikitch.com/company/][company.el]] と機能的にはかぶりますが、
 作者が日本人であることから、
 日本ではこっちの方が知名度があります。
 
@@ -274,3 +258,4 @@ M-p/M-nで選択してください。
 
 ポップアップ中でもカーソルが移動できるようにするために
 C-p/C-nには割り当てられていません。
+[includeme file="inc-package-relate.php" name="auto-complete"]

@@ -1,16 +1,15 @@
 #+BLOG: rubikitch
-#+POSTID: 396
+#+POSTID: 35
+#+BLOG: rubikitch
 #+DATE: [2014-09-27 Sat 07:27]
-#+PERMALINK: melmag
+#+PERMALINK: melmag148
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t
 #+ISPAGE: nil
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: メルマガ, Emacs,
+#+CATEGORY: るびきち塾メルマガ
 #+DESCRIPTION: Emacsの鬼るびきちのココだけの話#148について
-#+MYTAGS:
-#+TAGS: , メルマガ, Emacs,, 心の状態, helm, anything, フローワード
 #+TITLE: Emacsメンタルトレーナーさんをパワーアップ！
 
 先週のメルマガでは、Emacsを使って
@@ -64,3 +63,4 @@ helmを開くたびにめっちゃテンション上がった」
 
 ちなみに来月はEmacsどっぷりな内容になる予定です。
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+[includeme file="inc-package-relate.php" name="

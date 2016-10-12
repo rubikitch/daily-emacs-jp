@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 941
+#+POSTID: 620
+#+BLOG: rubikitch
 #+DATE: [2015-01-14 Wed 05:40]
 #+PERMALINK: font-lock-studio
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,63 +8,17 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs
+#+CATEGORY: デバッグ
 #+EL_PKG_NAME: font-lock-studio
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, font-lock-keywords, font-lock デバッグ, emacs 色付け 設定, relate:rx, relate:re-builder, relate:edebug
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: font-lock, 
 #+EL_TITLE0: 【色付け】font-lockの挙動を調査・デバッグする
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージfont-lock-studioの紹介
-#+MYTAGS: package:font-lock-studio, emacs 使い方, emacs コマンド, emacs, font-lock-studio, font-lock-studio.el, emacs lisp font-lock-studio, elisp font-lock-studio, emacs melpa font-lock-studio, emacs font-lock-studio 使い方, emacs font-lock-studio 設定, emacs パッケージ font-lock-studio, emacs font-lock-studio スクリーンショット, font-lock-keywords, font-lock デバッグ, emacs 色付け 設定, relate:rx, relate:re-builder, relate:edebug
-#+TAGS: package:font-lock-studio, emacs 使い方, emacs コマンド, emacs, font-lock-studio, font-lock-studio.el, emacs lisp font-lock-studio, elisp font-lock-studio, emacs melpa font-lock-studio, emacs font-lock-studio 使い方, emacs font-lock-studio 設定, emacs パッケージ font-lock-studio, emacs font-lock-studio スクリーンショット, font-lock-keywords, font-lock デバッグ, emacs 色付け 設定, relate:rx, relate:re-builder, relate:edebug, Emacs, font-lock, font-lock-keywords, rx, M-x re-builder, 見える化, font-lock-studio.el, font-lock-keywords, rx, M-x re-builder, 見える化, font-lock-studio.el, edebug
-#+TITLE: emacs font-lock-studio.el : 【色付け】font-lockの挙動を調査・デバッグする | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>font-lock-studio</td></tr>
-<tr><td>概要(原文)</td><td>interactive debugger for Font Lock keywords.</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/Lindydancer/font-lock-studio">https://github.com/Lindydancer/font-lock-studio</a></td></tr>
-<tr><td>バージョン</td><td>20141201.1658</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:font-lock-studio/">package:font-lock-studio</a> <a href="http://rubikitch.com/tag/package:rx/">package:rx</a> <a href="http://rubikitch.com/tag/package:re-builder/">package:re-builder</a> <a href="http://rubikitch.com/tag/package:edebug/">package:edebug</a></td></tr>
-</table>
-<br />
-#+END_HTML
-Emacsには *font-lock* という、テキスト色付け機能があります。
-
-各言語のソースコードに自動的に適切な色がつくのは、
-font-lockが働いているからです。
-
-その設定は変数 *font-lock-keywords* でするのですが、
-これが難しいこと難しいこと…
-
-正規表現ベースで色付けしようにも、Emacsの正規表現自体が
-/「可読性などいらん！」/
-とばかりに腐敗しきってるので、これまた難しいです。
-
-正規表現を作るするには *rx* マクロとか
-*M-x re-builder* が便利ですが、
-出来上がった正規表現は読めたものではありません。
-
-正直、俺も何も見ずにfont-lock-keywordsは書けません(笑)
-
-僕は新しい言語のメジャーモードを書くことなどないので、
-既存のfont-lock-keywordsをパクったり改造するのが精一杯です。
-
-/font-lockは魔境というくらい/
-デバッグはとても難しいです。
-
-そこで、font-lockがどのような挙動をするのか *見える化* するのが、
-*font-lock-studio.el* です。
-** font-lock-studio インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install font-lock-studio
-
+#+TITLE: font-lock-studio.el : 【色付け】font-lockの挙動を調査・デバッグする
+[includeme file="inc-package-table.php" name="font-lock-studio" where="melpa"]
 
 #+end:
-** 概要                                                             :noexport:
+** 概要
 Emacsには *font-lock* という、テキスト色付け機能があります。
 
 各言語のソースコードに自動的に適切な色がつくのは、
@@ -90,6 +45,7 @@ font-lockが働いているからです。
 
 そこで、font-lockがどのような挙動をするのか *見える化* するのが、
 *font-lock-studio.el* です。
+[includeme file="inc-package-install.php" name="font-lock-studio" where="melpa"]
 ** 使い方
 設定なしでM-x font-lock-studioを実行します。
 
@@ -175,3 +131,4 @@ qで終了します。
 # /r/sync/screenshots/20150114065854.png http://rubikitch.com/wp-content/uploads/2015/01/wpid-20150114065854.png
 # /r/sync/screenshots/20150114065917.png http://rubikitch.com/wp-content/uploads/2015/01/wpid-20150114065917.png
 # /r/sync/screenshots/20150114065942.png http://rubikitch.com/wp-content/uploads/2015/01/wpid-20150114065942.png
+[includeme file="inc-package-relate.php" name="font-lock-studio"]

@@ -1,16 +1,16 @@
 #+BLOG: rubikitch
-#+POSTID: 577
+#+POSTID: 408
+#+BLOG: rubikitch
 #+DATE: [2014-11-13 Thu 06:32]
 #+PERMALINK: format
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
 #+ISPAGE: nil
-#+DESCRIPTION:
+#+DESCRIPTION:文字列操作はconcatよりもformat推奨。読みやすく、あらゆるオブジェクトを受け取れるから。
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs,
+#+CATEGORY: 文字列操作
 #+DESCRIPTION:
-#+MYTAGS: Emacs, Emacs Lisp, number-to-string, char-to-string, buffer-name, symbol-name, prin1-to-string
-#+TAGS: Emacs, Emacs Lisp, number-to-string, char-to-string, buffer-name, symbol-name, prin1-to-string, Emacs,, format, printf, string-match, buffer-name, scratch, scratch, scratch, scratch, scratch, scratch, scratch, scratch, concat, scratch, scratch, scratch
+#+TAGS: 
 #+TITLE: Emacs Lisp Tips: 文字列化はformat関数が鉄板である3つの理由
 今日はEmacs LispのTipsです。
 

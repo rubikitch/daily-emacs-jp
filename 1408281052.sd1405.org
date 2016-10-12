@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 226
+#+POSTID: 249
+#+BLOG: rubikitch
 #+DATE: [2014-08-28 Thu 10:52]
 #+PERMALINK: sd1405
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t
@@ -7,9 +8,8 @@
 #+DESCRIPTION: Unixとともに育ち、多くのプログラマの道具として愛されてきたEmacs。その使い方だけでなく、その背景にある思想からもEmacsの解説を行います。まずはエディタとしての性格、一番大きなメリットである文字入力の一元化、そして必須のEmacs Lispとの関係など、最初に知っておくとよい情報をガイダンスします。
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs,連載『るびきち流Emacs超入門』
-#+MYTAGS: Emacs 使い方, Emacs コマンド, Emacs入門, Emacsとは, Emacs 初心者, Emacs 魅力, Emacs 始めの一歩, Emacs 文字入力, Emacs 外部プログラム, Emacs 外部プロセス, Emacs 関数プログラミング, Software Design連載記事
-#+TAGS: Emacs 使い方, Emacs コマンド, Emacs入門, Emacsとは, Emacs 初心者, Emacs 魅力, Emacs 始めの一歩, Emacs 文字入力, Emacs 外部プログラム, Emacs 外部プロセス, Emacs 関数プログラミング, Software Design連載記事, Emacs,, Sublime Text, Atom, Vim, テキストエディタ, 文字入力の一元化, キルリング, eshell, 外部プログラム, Emacsはエディタではなくて環境だ, EmacsはOSだ, プロセス, シェルコマンド, M-x shell, M-x compile, M-x grep, M-x man, commandline-fuのEmacsインターフェース, M-x find-dired, Emacs Lisp, プログラマならばLispを学べ, 関数型言語
+#+CATEGORY: るびきち流Emacs超入門
+#+TAGS: るびきちオススメ, 初心者安心
 #+TITLE: #1 なぜEmacsをお勧めするのか？ (Software Design 2014年5月号掲載記事)
 技術評論社の雑誌Software Designで5月から連載させていただいていますが、
 古い記事の掲載許可をいただきましたので、ブログに載せます。

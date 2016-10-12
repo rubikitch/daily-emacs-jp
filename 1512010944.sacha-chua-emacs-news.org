@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 2235
+#+POSTID: 1279
+#+BLOG: rubikitch
 #+DATE: [2015-12-01 Tue 09:44]
 #+PERMALINK: sacha-chua-emacs-news
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,12 +8,12 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, 
+#+CATEGORY: サイト紹介
 #+DESCRIPTION: 
-#+MYTAGS: Emacs News, Sacha Chua, sachac, reddit.com/r/emacs, Hacker News, planet.emacsen.org, Youtube, the Emacs commit log, Emacs NEWS file,  emacs-devel. emacs-tangents, beginner tips, org-mode, relate:org, coding, configuration, dev news, Sandra Jean Chua
 #+TITLE: 最新のEmacs情報を追い掛けたいならばこのブログだけは見ておけ！
 #+begin: org2blog-tags
-#+TAGS: Emacs News, Sacha Chua, sachac, reddit.com/r/emacs, Hacker News, planet.emacsen.org, Youtube, the Emacs commit log, Emacs NEWS file,  emacs-devel. emacs-tangents, beginner tips, org-mode, relate:org, coding, configuration, dev news, Sandra Jean Chua, Emacs, , 
+# content-length: 609
+
 #+end:
 http://sachachua.com/blog/category/emacs-news
 

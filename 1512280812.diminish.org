@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 2294
+#+POSTID: 1329
+#+BLOG: rubikitch
 #+DATE: [2015-12-28 Mon 08:12]
 #+PERMALINK: diminish
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,28 +8,17 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs
+#+CATEGORY: mode-line
 #+EL_PKG_NAME: diminish
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, マイナーモード, mode-line, モードライン有効活用, 
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: マイナーモード
 #+EL_TITLE0: モードラインに表示されるマイナーモード名を短縮する
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージdiminishの紹介
-#+MYTAGS: package:diminish, emacs 使い方, emacs コマンド, emacs, diminish, diminish.el, emacs lisp diminish, elisp diminish, emacs melpa diminish, emacs diminish 使い方, emacs diminish 設定, emacs パッケージ diminish, emacs diminish スクリーンショット, マイナーモード, mode-line, モードライン有効活用, 
-#+TAGS: package:diminish, emacs 使い方, emacs コマンド, emacs, diminish, diminish.el, emacs lisp diminish, elisp diminish, emacs melpa diminish, emacs diminish 使い方, emacs diminish 設定, emacs パッケージ diminish, emacs diminish スクリーンショット, マイナーモード, mode-line, モードライン有効活用, , Emacs, diminish.el, minor-mode-alist, diminish, minor-mode-alist, diminish
-#+TITLE: emacs diminish.el : モードラインに表示されるマイナーモード名を短縮する | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>diminish</td></tr>
-<tr><td>概要(原文)</td><td>Diminished modes are minor modes with no modeline display</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/myrjola/diminish.el">https://github.com/myrjola/diminish.el</a></td></tr>
-<tr><td>バージョン</td><td>20151215.915</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:diminish/">package:diminish</a> </td></tr>
-</table>
-<br />
-#+END_HTML
+#+TITLE: diminish.el : モードラインに表示されるマイナーモード名を短縮する
+[includeme file="inc-package-table.php" name="diminish" where="melpa"]
+
+#+end:
+** 概要
 *diminish.el* は *minor-mode-alist* を変更することによってマイナーモード名を短縮します。
 マイナーモードを読み込んだ後(設定の後)で *diminish* 関数を使います。
 マイナーモードを読み込む前だとエラーになるので注意してください。
@@ -43,27 +33,6 @@ Fig1: デフォルトではmodelineにAbbrevと出ている
 #+ATTR_HTML: :width 480
 [[file:/r/sync/screenshots/20151228081639.png]]
 Fig2: diminish後はAbrになる
-** diminish インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
 
-M-x package-refresh-contents
-M-x package-install diminish
-
-
-#+end:
-** 概要                                                             :noexport:
-*diminish.el* は *minor-mode-alist* を変更することによってマイナーモード名を短縮します。
-マイナーモードを読み込んだ後(設定の後)で *diminish* 関数を使います。
-マイナーモードを読み込む前だとエラーになるので注意してください。
-
-以下のスクリーンショットではM-x abbrev-modeを有効にしたときにdiminish前後の様子を示します。
-
-# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20151228081631.png]]
-Fig3: デフォルトではmodelineにAbbrevと出ている
-
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20151228081639.png]]
-Fig4: diminish後はAbrになる
-
+[includeme file="inc-package-install.php" name="diminish" where="melpa"]
+[includeme file="inc-package-relate.php" name="diminish"]

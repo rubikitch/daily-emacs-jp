@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 2548
+#+POSTID: 1492
+#+BLOG: rubikitch
 #+DATE: [2016-07-25 Mon 14:24]
 #+PERMALINK: crux
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,56 +8,17 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, Emacs Lisp, ido, dired, ソース解読推奨, 
+#+CATEGORY: ツール集
 #+EL_PKG_NAME: crux
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, relate:smart-newline, , relate:sudo-edit, relate:recentf, relate:ido, relate:ispell, relate:advice, relate:dired-open, relate:openwith
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 使い方 
+#+TAGS: ソース解読推奨, crux
 #+EL_TITLE0: elisp学習支援★短くて便利なコマンド集(概要)
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージcruxの紹介
-#+MYTAGS: package:crux, emacs 使い方, emacs コマンド, emacs, crux, crux.el, emacs lisp crux, elisp crux, emacs melpa crux, emacs crux 使い方, emacs crux 設定, emacs パッケージ crux, relate:smart-newline, , relate:sudo-edit, relate:recentf, relate:ido, relate:ispell, relate:advice, relate:dired-open, relate:openwith
-#+TAGS: package:crux, emacs 使い方, emacs コマンド, emacs, crux, crux.el, emacs lisp crux, elisp crux, emacs melpa crux, emacs crux 使い方, emacs crux 設定, emacs パッケージ crux, relate:smart-newline, , relate:sudo-edit, relate:recentf, relate:ido, relate:ispell, relate:advice, relate:dired-open, relate:openwith, Emacs, Emacs Lisp, ido, dired, ソース解読推奨, , 
-#+TITLE: emacs crux.el : elisp学習支援★短くて便利なコマンド集(概要) | MELPA Emacs Lisp Elisp パッケージ インストール 使い方 
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>crux</td></tr>
-<tr><td>概要(原文)</td><td>A Collection of Ridiculously Useful eXtensions</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/bbatsov/crux">https://github.com/bbatsov/crux</a></td></tr>
-<tr><td>バージョン</td><td>20160725.59</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:crux/">package:crux</a> <a href="http://rubikitch.com/tag/package:smart-newline/">package:smart-newline</a> <a href="http://rubikitch.com/tag/package:sudo-edit/">package:sudo-edit</a> <a href="http://rubikitch.com/tag/package:recentf/">package:recentf</a> <a href="http://rubikitch.com/tag/package:ido/">package:ido</a> <a href="http://rubikitch.com/tag/package:ispell/">package:ispell</a> <a href="http://rubikitch.com/tag/package:advice/">package:advice</a> <a href="http://rubikitch.com/tag/package:dired-open/">package:dired-open</a> <a href="http://rubikitch.com/tag/package:openwith/">package:openwith</a></td></tr>
-</table>
-<br />
-#+END_HTML
-crux.elは作者のBozhidar Batsov氏が便利に感じているコマンド集です。
-本当に広範囲の便利なコマンドをたくさん提供しています。
-実際に使ってみると便利になるだけでなく、ひとつひとつのコマンドは短いのでソースコードを読んでみれば勉強になる点がたくさんあります。
-
-ただ、「便利なコマンド集」という形でのMELPAに登録するのは、本当に勿体ないと僕は思います。
-なぜなら、ユーザがそのコマンド集に含まれている機能を欲しがっても検索で見つけられないからです。
-それならば、たとえ10行そこそこであっても機能ごとにパッケージを分けた方が見つけてもらいやすいです。
-これまで紹介してきたパッケージとかぶるものも多々あります。
-ああ、非常に勿体ない…
-
-今回から、cruxのように多機能なパッケージの解説は複数回に分けることにしました。
-そうすることで、そのパッケージができることをタイトルから伝えることができるからです。
-明日から順を追って説明していきます。
-
-#+INCLUDE: "include.crux.org" 
-
-# include 
-
-# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
-** crux インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install crux
-
+#+TITLE: crux.el : elisp学習支援★短くて便利なコマンド集(概要)
+[includeme file="inc-package-table.php" name="crux" where="melpa"]
 
 #+end:
-** 概要                                                             :noexport:
+** 概要
 crux.elは作者のBozhidar Batsov氏が便利に感じているコマンド集です。
 本当に広範囲の便利なコマンドをたくさん提供しています。
 実際に使ってみると便利になるだけでなく、ひとつひとつのコマンドは短いのでソースコードを読んでみれば勉強になる点がたくさんあります。
@@ -76,3 +38,5 @@ crux.elは作者のBozhidar Batsov氏が便利に感じているコマンド集�
 # include 
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+[includeme file="inc-package-install.php" name="crux" where="melpa"]
+[includeme file="inc-package-relate.php" name="crux"]

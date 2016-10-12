@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 1227
+#+POSTID: 729
+#+BLOG: rubikitch
 #+DATE: [2015-03-01 Sun 07:32]
 #+PERMALINK: play-sound
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,12 +8,12 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, 
+#+CATEGORY: 音声再生,
+#+TAGS: 標準コマンド強化, 外部プログラム使用
 #+DESCRIPTION: 
-#+MYTAGS: play-sound, play-sound-file, relate:clipmon, mplayer, emacs サウンド, emacs mp3 再生, emacs wav 再生
 #+TITLE: Emacsの音声再生機能を強化する
 #+begin: org2blog-tags
-#+TAGS: play-sound, play-sound-file, relate:clipmon, mplayer, emacs サウンド, emacs mp3 再生, emacs wav 再生, Emacs, , サウンド機能, play-sound-file, play-sound, mp3, ogg, play-sound-external-command
+
 #+end:
 Emacsには *サウンド機能* があります。
 

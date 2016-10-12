@@ -1,92 +1,29 @@
 #+BLOG: rubikitch
-#+POSTID: 1019
+#+POSTID: 648
+#+BLOG: rubikitch
 #+DATE: [2015-01-28 Wed 07:22]
 #+PERMALINK: perspective
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
 #+ISPAGE: nil
-#+DESCRIPTION:
+#+DESCRIPTION:ワークスペース切り替え。persp.elの方がおすすめ。
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, helm, 
+#+CATEGORY: ウィンドウ構成切り替え
 #+EL_PKG_NAME: perspective
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, helm buffer-list, ido buffer-list, relate:recentf, relate:helm, relate:ido, relate:elscreen, relate:windows, relate:spaces, emacs プロジェクト 切り替え, プロジェクト, ウィンドウ構成, ウィンドウ構成管理, relate:persp-mode, relate:elscreen-separate-buffer-list, relate:eyebrowse, relate:state
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: 
 #+EL_TITLE0: 進化したワークスペース(ウィンドウ構成・プロジェクト)管理！ido/helm対応
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージperspectiveの紹介
-#+MYTAGS: package:perspective, emacs 使い方, emacs コマンド, emacs, perspective, perspective.el, emacs lisp perspective, elisp perspective, emacs melpa perspective, emacs perspective 使い方, emacs perspective 設定, emacs パッケージ perspective, emacs perspective スクリーンショット, helm buffer-list, ido buffer-list, relate:recentf, relate:helm, relate:ido, relate:elscreen, relate:windows, relate:spaces, emacs プロジェクト 切り替え, プロジェクト, ウィンドウ構成, ウィンドウ構成管理, relate:persp-mode, relate:elscreen-separate-buffer-list, relate:eyebrowse, relate:state
-#+TAGS: package:perspective, emacs 使い方, emacs コマンド, emacs, perspective, perspective.el, emacs lisp perspective, elisp perspective, emacs melpa perspective, emacs perspective 使い方, emacs perspective 設定, emacs パッケージ perspective, emacs perspective スクリーンショット, helm buffer-list, ido buffer-list, relate:recentf, relate:helm, relate:ido, relate:elscreen, relate:windows, relate:spaces, emacs プロジェクト 切り替え, プロジェクト, ウィンドウ構成, ウィンドウ構成管理, relate:persp-mode, relate:elscreen-separate-buffer-list, relate:eyebrowse, relate:state, Emacs, helm, , perspective.el, read-buffer-function, M-x helm-buffers-list, helm-source-buffers-list, perspective.el, read-buffer-function, M-x helm-buffers-list, helm-source-buffers-list, C-x x s, persp-switch, C-x x c, persp-kill, recentf, M-x helm-mini, M-x helm-for-files
-#+TITLE: emacs perspective.el : 進化したワークスペース(ウィンドウ構成・プロジェクト)管理！ido/helm対応 | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>perspective</td></tr>
-<tr><td>概要(原文)</td><td>switch between named "perspectives" of the editor</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/nex3/perspective-el">https://github.com/nex3/perspective-el</a></td></tr>
-<tr><td>バージョン</td><td>20151016.1423</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:perspective/">package:perspective</a> <a href="http://rubikitch.com/tag/package:recentf/">package:recentf</a> <a href="http://rubikitch.com/tag/package:helm/">package:helm</a> <a href="http://rubikitch.com/tag/package:ido/">package:ido</a> <a href="http://rubikitch.com/tag/package:elscreen/">package:elscreen</a> <a href="http://rubikitch.com/tag/package:windows/">package:windows</a> <a href="http://rubikitch.com/tag/package:spaces/">package:spaces</a> <a href="http://rubikitch.com/tag/package:persp-mode/">package:persp-mode</a> <a href="http://rubikitch.com/tag/package:elscreen-separate-buffer-list/">package:elscreen-separate-buffer-list</a> <a href="http://rubikitch.com/tag/package:eyebrowse/">package:eyebrowse</a> <a href="http://rubikitch.com/tag/package:state/">package:state</a></td></tr>
-</table>
-<br />
-#+END_HTML
-<2015-02-22 Sun> [[http://rubikitch.com/2015/02/22/elscreen-separate-buffer-list/][elscreen-separate-buffer-list.el(レビュー)]] は
-elscreenで同等のことを実現します。
-
-<2015-02-13 Fri>更新
-[[http://rubikitch.com/2015/02/13/persp-mode/][persp-mode.elは永続化されるなどより進化しています。]]
-そちらを使うことをおすすめします。
-
-
-*perspective.el* は、Emacsでワークスペースを実現します。
-
-ワークスペースというと、ウィンドウマネージャーやデスクトップ環境で
-用途別にウィンドウのレイアウトを切り替える機能です。
-
-Emacsでワークスペースといえば、
-ウィンドウ構成を切り替えるだけだと思いがちですが、
-perspective.elはそれだけでなく、バッファリストも管理します。
-
-つまり、現状のウィンドウ構成切り替えである
-- [[http://rubikitch.com/2014/09/05/elscreen/][elscreen.el(レビュー)]]
-- spaces.el
-などよりも進化しています。
-
-windows.elも一応バッファリストを管理していますが、
-単に順番を管理しているだけです。
-
-perspectiveとは「視点・見通し」という意味があり、
-現在のワークスペースにおいて選択できるバッファを限定することで
-現在のタスクに視点を集中し、見通しを良くします。
-
-こうすることで、Emacs内で複数のプロジェクトを動かしているときに、
-そのプロジェクトに集中できるようになります。
-
-バッファリストの管理について気になったのでコードを読んだところ、
-idoのバッファ選択の制御と *read-buffer-function* の設定を
-行っていることがわかりました。
-
-helmでのバッファ選択(*M-x helm-buffers-list* 、 *helm-source-buffers-list*) は、
-idoのバッファリストを呼び出しているので、perspective.elはhelmにも対応しています。
-
-anythingでのバッファ選択や標準のC-x C-bは、
-idoではなくて直接 (buffer-list) を呼んでいるので
-すべてのバッファが見えます。
-
-# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
-** perspective インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install perspective
-
+#+TITLE: perspective.el : 進化したワークスペース(ウィンドウ構成・プロジェクト)管理！ido/helm対応
+[includeme file="inc-package-table.php" name="perspective" where="melpa"]
 
 #+end:
-** 概要                                                             :noexport:
-<2015-02-22 Sun> [[http://rubikitch.com/2015/02/22/elscreen-separate-buffer-list/][elscreen-separate-buffer-list.el(レビュー)]] は
+** 概要
+<2015-02-22 Sun> [[http://emacs.rubikitch.com/elscreen-separate-buffer-list/][elscreen-separate-buffer-list.el(レビュー)]] は
 elscreenで同等のことを実現します。
 
 <2015-02-13 Fri>更新
-[[http://rubikitch.com/2015/02/13/persp-mode/][persp-mode.elは永続化されるなどより進化しています。]]
+[[http://emacs.rubikitch.com/persp-mode/][persp-mode.elは永続化されるなどより進化しています。]]
 そちらを使うことをおすすめします。
 
 
@@ -100,7 +37,7 @@ Emacsでワークスペースといえば、
 perspective.elはそれだけでなく、バッファリストも管理します。
 
 つまり、現状のウィンドウ構成切り替えである
-- [[http://rubikitch.com/2014/09/05/elscreen/][elscreen.el(レビュー)]]
+- [[http://emacs.rubikitch.com/elscreen/][elscreen.el(レビュー)]]
 - spaces.el
 などよりも進化しています。
 
@@ -126,6 +63,7 @@ idoではなくて直接 (buffer-list) を呼んでいるので
 すべてのバッファが見えます。
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+[includeme file="inc-package-install.php" name="perspective" where="melpa"]
 ** 設定 [[http://rubikitch.com/f/150128071612.perspective.1.el][150128071612.perspective.1.el(以下のコードと同一)]]
 #+BEGIN: include :file "/r/sync/junk/150128/150128071612.perspective.1.el"
 #+BEGIN_SRC fundamental
@@ -208,3 +146,4 @@ Fig5: idoにも対応！
 # /r/sync/screenshots/20150128083750.png http://rubikitch.com/wp-content/uploads/2015/01/wpid-20150128083750.png
 # /r/sync/screenshots/20150128083814.png http://rubikitch.com/wp-content/uploads/2015/01/wpid-20150128083814.png
 # /r/sync/screenshots/20150128084217.png http://rubikitch.com/wp-content/uploads/2015/01/wpid-20150128084217.png
+[includeme file="inc-package-relate.php" name="perspective"]

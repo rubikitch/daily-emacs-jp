@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 1842
+#+POSTID: 1036
+#+BLOG: rubikitch
 #+DATE: [2015-07-20 Mon 16:46]
 #+PERMALINK: gnupack1305
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,12 +8,12 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, gnupack, Emacs 24.5, 
+#+CATEGORY: リリース情報
 #+DESCRIPTION: gnupack 13.05-2015.07.19は展開するだけでCygwin 2.1.0とEmacs 24.5が使えるパッケージです。今回はRubyでのエラーを解決しました。
-#+MYTAGS: Emacs 24.5 windows, Emacs24.5 cygwin, Emacs24.5 gnupack, 
 #+TITLE: 【gnupack 13.05リリース】Cygwin2.1.0化＆Rubyでのエラーを解決
 #+begin: org2blog-tags
-#+TAGS: Emacs 24.5 windows, Emacs24.5 cygwin, Emacs24.5 gnupack, , Emacs, gnupack, Emacs 24.5, , 
+# content-length: 1180
+
 #+end:
 http://d.hatena.ne.jp/ksugita0510/
 

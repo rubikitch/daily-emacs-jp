@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 2397
+#+POSTID: 1417
+#+BLOG: rubikitch
 #+DATE: [2016-02-11 Thu 09:07]
 #+PERMALINK: sd1503-helm
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,9 +8,9 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs, 連載『るびきち流Emacs超入門』, helm
+#+CATEGORY: るびきち流Emacs超入門
 #+DESCRIPTION:
-#+TAGS:package:helm
+#+TAGS:helm
 #+TITLE: #11 Emacs に革命を起こすパッケージ「helm」 (Software Design 2015年3月号掲載記事) Emacs helm インストール 設定 使い方
 Software Design連載記事を掲載します。
 

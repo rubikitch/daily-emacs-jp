@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 1239
+#+POSTID: 735
+#+BLOG: rubikitch
 #+DATE: [2015-03-03 Tue 05:43]
 #+PERMALINK: imenu-list
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,74 +8,17 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs
+#+CATEGORY: タグジャンプ
 #+EL_PKG_NAME: imenu-list
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, emacs imenu カイゼン, emacs imenu, relate:helm, package:ido, imenu ido, relate:idomenu, relate:imenu-anywhere, emacs imenu 一覧, , 同一メジャーモードのバッファの関数一覧を表示, emacs imenu カイゼン, emacs imenu 強化, ファイル内の関数一覧を表示, バッファ内の関数一覧を表示, 特定の関数を抽出, 関数定義へジャンプ, バッファ内の特定箇所に直接移動
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: imenu
 #+EL_TITLE0: 関数・変数定義を別バッファに表示してIDEっぽくする
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージimenu-listの紹介
-#+MYTAGS: package:imenu-list, emacs 使い方, emacs コマンド, emacs, imenu-list, imenu-list.el, emacs lisp imenu-list, elisp imenu-list, emacs melpa imenu-list, emacs imenu-list 使い方, emacs imenu-list 設定, emacs パッケージ imenu-list, emacs imenu-list スクリーンショット, emacs imenu カイゼン, emacs imenu, relate:helm, package:ido, imenu ido, relate:idomenu, relate:imenu-anywhere, emacs imenu 一覧, , 同一メジャーモードのバッファの関数一覧を表示, emacs imenu カイゼン, emacs imenu 強化, ファイル内の関数一覧を表示, バッファ内の関数一覧を表示, 特定の関数を抽出, 関数定義へジャンプ, バッファ内の特定箇所に直接移動
-#+TAGS: package:imenu-list, emacs 使い方, emacs コマンド, emacs, imenu-list, imenu-list.el, emacs lisp imenu-list, elisp imenu-list, emacs melpa imenu-list, emacs imenu-list 使い方, emacs imenu-list 設定, emacs パッケージ imenu-list, emacs imenu-list スクリーンショット, emacs imenu カイゼン, emacs imenu, relate:helm, package:ido, imenu ido, relate:idomenu, relate:imenu-anywhere, emacs imenu 一覧, , 同一メジャーモードのバッファの関数一覧を表示, emacs imenu カイゼン, emacs imenu 強化, ファイル内の関数一覧を表示, バッファ内の関数一覧を表示, 特定の関数を抽出, 関数定義へジャンプ, バッファ内の特定箇所に直接移動, Emacs, imenu, M-x imenu, helm, ido, M-x helm-imenu, imenu-list.el, M-x imenu-list, M-x imenu-list-minor-mode, M-x imenu, helm, ido, M-x helm-imenu, imenu-list.el, M-x imenu-list, M-x imenu-list-minor-mode
-#+TITLE: emacs imenu-list.el : 関数・変数定義を別バッファに表示してIDEっぽくする | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>imenu-list</td></tr>
-<tr><td>概要(原文)</td><td>Show imenu entries in a seperate buffer</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/bmag/imenu-list">https://github.com/bmag/imenu-list</a></td></tr>
-<tr><td>バージョン</td><td>20150301.640</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:imenu-list/">package:imenu-list</a> <a href="http://rubikitch.com/tag/package:helm/">package:helm</a> <a href="http://rubikitch.com/tag/package:idomenu/">package:idomenu</a> <a href="http://rubikitch.com/tag/package:imenu-anywhere/">package:imenu-anywhere</a></td></tr>
-</table>
-<br />
-#+END_HTML
-Emacsには元々 *imenu* という、
-多言語対応の関数・変数定義をリストする機能があります。
-
-対応している言語は本当にたくさんあり、
-プログラミング言語はもちろんのこと、
-HTMLやorg-modeなどの文書にも使えます。
-
-しかし、素の *M-x imenu* はEmacsの元々の補完が使われるので
-使い勝手はイマイチです。
-
-そこで *helm* や *ido* を使った *M-x helm-imenu* や、
-[[http://rubikitch.com/2014/12/17/imenu-anywhere/][imenu-anywhere(レビュー)]] や [[http://rubikitch.com/2015/01/21/idomenu/][idomenu(レビュー)]] があります。
-
-helmやidoのおかげでカレントバッファ内の関数定義へ
-ジャンプしやすくなりました。
-
-*imenu-list.el* は、imenuの定義を一覧します。
-
-*M-x imenu-list* はimenuの各エントリを*Ilist*バッファで一覧します。
-
-このバッファでRETを押すと関数定義に移動します。
-
-さらに、 *M-x imenu-list-minor-mode* を使うとIDEっぽい挙動になります。
-
-このマイナーモードを有効にすると、*Ilist*が1秒ごとに更新され、
-カーソル位置に対応するimenuエントリを自動で指し示してくれます。
-
-いってみればimenuによる簡易IDEでしょうか。
-
-ソースコードや文書の全体像を見たいけれどhelmはちょっと…
-という方はおすすめです。
-
-3/1に開発されたばかりなので、発展が楽しみです。
-
-# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
-[[file:/r/sync/screenshots/20150303055929.png]]
-Fig1: カーソル行に対応したimenuエントリを自動で指し示すよ！
-** imenu-list インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install imenu-list
-
+#+TITLE: imenu-list.el : 関数・変数定義を別バッファに表示してIDEっぽくする
+[includeme file="inc-package-table.php" name="imenu-list" where="melpa"]
 
 #+end:
-** 概要                                                             :noexport:
+** 概要
 Emacsには元々 *imenu* という、
 多言語対応の関数・変数定義をリストする機能があります。
 
@@ -86,7 +30,7 @@ HTMLやorg-modeなどの文書にも使えます。
 使い勝手はイマイチです。
 
 そこで *helm* や *ido* を使った *M-x helm-imenu* や、
-[[http://rubikitch.com/2014/12/17/imenu-anywhere/][imenu-anywhere(レビュー)]] や [[http://rubikitch.com/2015/01/21/idomenu/][idomenu(レビュー)]] があります。
+[[http://emacs.rubikitch.com/imenu-anywhere/][imenu-anywhere(レビュー)]] や [[http://emacs.rubikitch.com/idomenu/][idomenu(レビュー)]] があります。
 
 helmやidoのおかげでカレントバッファ内の関数定義へ
 ジャンプしやすくなりました。
@@ -113,6 +57,7 @@ helmやidoのおかげでカレントバッファ内の関数定義へ
 [[file:/r/sync/screenshots/20150303055929.png]]
 Fig1: カーソル行に対応したimenuエントリを自動で指し示すよ！
 
+[includeme file="inc-package-install.php" name="imenu-list" where="melpa"]
 ** 設定 [[http://rubikitch.com/f/150303055659.imenu-list.1.el][150303055659.imenu-list.1.el(以下のコードと同一)]]
 ここではjとkで上下移動できるようにしていますが、
 設定しなくてもそのまま使えます。
@@ -133,3 +78,4 @@ $ emacs -Q -f package-initialize -l 150303055659.imenu-list.1.el
 #+END_EXAMPLE
 
 # /r/sync/screenshots/20150303055929.png http://rubikitch.com/wp-content/uploads/2015/03/wpid-20150303055929.png
+[includeme file="inc-package-relate.php" name="imenu-list"]

@@ -1,5 +1,6 @@
 #+BLOG: rubikitch
-#+POSTID: 1549
+#+POSTID: 861
+#+BLOG: rubikitch
 #+DATE: [2015-04-22 Wed 04:27]
 #+PERMALINK: myterminal-controls
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil
@@ -7,69 +8,17 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: Emacs
+#+CATEGORY: キーバインド
 #+EL_PKG_NAME: myterminal-controls
-#+EL_TAGS: emacs, %p, %p.el, emacs lisp %p, elisp %p, emacs %f %p, emacs %p 使い方, emacs %p 設定, emacs パッケージ %p, emacs %p スクリーンショット, relate:smartrep, relate:hydra, emacs repeat, emacs smartrep, emacs 繰り返しコマンド, emacs プレフィクスキー 省略, プレフィクスキー, 
-#+EL_TITLE: Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
+#+TAGS: 
 #+EL_TITLE0: 【smartrep/hydra似】制御ウィンドウを開き、特定のキーで連続的にコマンドを実行する
 #+EL_URL: 
 #+begin: org2blog
-#+DESCRIPTION: MELPAのEmacs Lispパッケージmyterminal-controlsの紹介
-#+MYTAGS: package:myterminal-controls, emacs 使い方, emacs コマンド, emacs, myterminal-controls, myterminal-controls.el, emacs lisp myterminal-controls, elisp myterminal-controls, emacs melpa myterminal-controls, emacs myterminal-controls 使い方, emacs myterminal-controls 設定, emacs パッケージ myterminal-controls, emacs myterminal-controls スクリーンショット, relate:smartrep, relate:hydra, emacs repeat, emacs smartrep, emacs 繰り返しコマンド, emacs プレフィクスキー 省略, プレフィクスキー, 
-#+TAGS: package:myterminal-controls, emacs 使い方, emacs コマンド, emacs, myterminal-controls, myterminal-controls.el, emacs lisp myterminal-controls, elisp myterminal-controls, emacs melpa myterminal-controls, emacs myterminal-controls 使い方, emacs myterminal-controls 設定, emacs パッケージ myterminal-controls, emacs myterminal-controls スクリーンショット, relate:smartrep, relate:hydra, emacs repeat, emacs smartrep, emacs 繰り返しコマンド, emacs プレフィクスキー 省略, プレフィクスキー, , Emacs, myterminal-controls.el, myterminal-controls.el
-#+TITLE: emacs myterminal-controls.el : 【smartrep/hydra似】制御ウィンドウを開き、特定のキーで連続的にコマンドを実行する | MELPA Emacs Lisp Elisp パッケージ インストール 設定 使い方 スクリーンショット
-#+BEGIN_HTML
-<table>
-<tr><td>パッケージ名</td><td>myterminal-controls</td></tr>
-<tr><td>概要(原文)</td><td>Quick toggle controls at a key-stroke</td></tr>
-<tr><td>リポジトリ</td><td><a href="http://melpa.org/">MELPA</a></td></tr>
-<tr><td>取得先</td><td><a href="https://github.com/myTerminal/myterminal-controls">https://github.com/myTerminal/myterminal-controls</a></td></tr>
-<tr><td>バージョン</td><td>20150420.2001</td></tr>
-<tr><td>関連記事</td><td><a href="http://rubikitch.com/tag/package:myterminal-controls/">package:myterminal-controls</a> <a href="http://rubikitch.com/tag/package:smartrep/">package:smartrep</a> <a href="http://rubikitch.com/tag/package:hydra/">package:hydra</a></td></tr>
-</table>
-<br />
-#+END_HTML
-4/18にリポジトリに登録された新入りです。
-
-*myterminal-controls.el* は制御メニューウィンドウをポップアップし、
-メニューで定められた操作を繰り返しできるようにするものです。
-
-たとえば、フォントやウィンドウの大きさを変更するようなときに、
-毎度プレフィクスキーを押さなくても微調整できたりします。
-
- [[http://rubikitch.com/2015/01/25/hydra/][hydra.el(レビュー)]] はエコーエリア上にメニューが出ますが、
-myterminal-controls.el は ポップアップウィンドウで出ます。
-
-terminalと名前がついていますが、端末エミュレータや
-term.el/terminal.elとは無関係です。
-
-本設定でもhydraと同様に文字の大きさを
-gで大きくlで小さくする例を示しています。
-
-エコーエリアよりもポップアップウィンドウが好きな方はどうぞ。
-
-開発初期の現時点では荒削りで、複数の制御ウィンドウを定義できません。
-
-今後の発展が楽しみです。
-
-
-[[file:/r/sync/screenshots/20150125090543.png]]
-Fig1: hydraはエコーエリアに使えるキーを表示
-
-
-# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
-#+ATTR_HTML: :width 480
-[[file:/r/sync/screenshots/20150422044725.png]]
-Fig1: myterminal-controlsはポップアップウィンドウに使えるキーを表示
-** myterminal-controls インストール
-このパッケージはmelpaにあるので [[http://rubikitch.com/package-initialize][パッケージの初期設定]] を行ってください。
-
-M-x package-refresh-contents
-M-x package-install myterminal-controls
-
+#+TITLE: myterminal-controls.el : 【smartrep/hydra似】制御ウィンドウを開き、特定のキーで連続的にコマンドを実行する
+[includeme file="inc-package-table.php" name="myterminal-controls" where="melpa"]
 
 #+end:
-** 概要                                                             :noexport:
+** 概要
 4/18にリポジトリに登録された新入りです。
 
 *myterminal-controls.el* は制御メニューウィンドウをポップアップし、
@@ -78,7 +27,7 @@ M-x package-install myterminal-controls
 たとえば、フォントやウィンドウの大きさを変更するようなときに、
 毎度プレフィクスキーを押さなくても微調整できたりします。
 
- [[http://rubikitch.com/2015/01/25/hydra/][hydra.el(レビュー)]] はエコーエリア上にメニューが出ますが、
+ [[http://emacs.rubikitch.com/hydra/][hydra.el(レビュー)]] はエコーエリア上にメニューが出ますが、
 myterminal-controls.el は ポップアップウィンドウで出ます。
 
 terminalと名前がついていますが、端末エミュレータや
@@ -101,8 +50,9 @@ Fig1: hydraはエコーエリアに使えるキーを表示
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
 #+ATTR_HTML: :width 480
 [[file:/r/sync/screenshots/20150422044725.png]]
-Fig1: myterminal-controlsはポップアップウィンドウに使えるキーを表示
+Fig2: myterminal-controlsはポップアップウィンドウに使えるキーを表示
 
+[includeme file="inc-package-install.php" name="myterminal-controls" where="melpa"]
 ** 設定 [[http://rubikitch.com/f/150422041700.myterminal-controls.el][150422041700.myterminal-controls.el(以下のコードと同一)]]
 #+BEGIN: include :file "/r/sync/junk/150422/150422041700.myterminal-controls.el"
 #+BEGIN_SRC fundamental
@@ -129,3 +79,4 @@ $ emacs -Q -f package-initialize -l 150422041700.myterminal-controls.el
 
 # /r/sync/screenshots/20150125090543.png http://rubikitch.com/wp-content/uploads/2015/04/wpid-20150125090543.png
 # /r/sync/screenshots/20150422044725.png http://rubikitch.com/wp-content/uploads/2015/04/wpid-20150422044725.png
+[includeme file="inc-package-relate.php" name="myterminal-controls"]
