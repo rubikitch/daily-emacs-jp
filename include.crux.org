@@ -1,0 +1,10 @@
+*crux* パッケージは以下の要素に分かれています。
+
+- [[http://rubikitch.com/tag/package:crux/][crux全体]]
+  1. [[http://emacs.rubikitch.com/crux-open-with][ファイルを外部プログラムで開く]]
+  2. [[http://emacs.rubikitch.com/crux-visit-term-buffer/][termバッファを開く]]
+  3. [[http://emacs.rubikitch.com/crux-editing-commands/][いろいろな編集コマンド]]
+  4. [[http://emacs.rubikitch.com/crux-buffer-file-window/][バッファ・ファイル操作]]
+  5. [[http://emacs.rubikitch.com/crux-emacs-lisp/][elisp関係]]
+  6. [[http://emacs.rubikitch.com/crux-sudo-edit/][rootで開く]]
+  7. [[http://emacs.rubikitch.com/crux-or-region/][region関係のコマンドとアドバイス]]
