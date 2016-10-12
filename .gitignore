@@ -1,0 +1,10 @@
+*.old
+*.org_archive
+/gcd.el
+/php-upload.sh
+/test-gcd.el
+/test-simple-fail.el
+/top.png
+/trace-output.txt
+/working.org
+/melpa-dl-counts.rb.1
