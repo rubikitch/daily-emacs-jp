@@ -1,0 +1,85 @@
+#+BLOG: rubikitch
+#+POSTID: 1701
+#+DATE: [2016-10-07 Fri 10:23]
+#+PERMALINK: dired-launch
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+#+DESCRIPTION:dired上で「J」を押すことで現在のファイル、またはマークされた全てのファイルにおいて関連付けたプログラムを起動します。Windows/Mac/Linuxにのみ対応していますが、ここではCygwinや*BSDに対応させる設定も書きました。
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY:   ファイル関連付け
+#+EL_PKG_NAME: dired-launch
+#+TAGS: dired, マイナーモード, 外部プログラム使用, 
+#+EL_TITLE: 
+#+EL_TITLE0: diredでファイルに関連付けられたプログラムを起動する
+#+EL_URL: 
+#+begin: org2blog
+#+TITLE: dired-launch.el : diredでファイルに関連付けられたプログラムを起動する
+[includeme file="inc-package-table.php" name="dired-launch" where="melpa"]
+
+#+end:
+** 概要
+dired-launch.elはdiredからファイルに関連付けられたアプリケーションを起動するマイナーモード、M-x dired-launch-modeを提供します。
+このマイナーモードを有効にしたら、dired上で「J」を押せば現在のファイル(マークされたファイル全体)に関連付けられたアプリケーションを起動します。
+
+同類のdired-open.elやopenwith.elやcrux.elはファイルをEmacsで開く代わりに関連付けられたアプリケーションを起動します。
+対してdired-launch.elはRETではなくて別のキーに割り当てられているという特徴があります。
+[includeme file="inc-package-install.php" name="dired-launch" where="melpa"]
+** 設定の注意
+Mac OS XとWindows(ネイティブ)はopenコマンドを使います。
+
+Cygwinは現時点では対応していませんが、dired-launch-commandを書き換えることで対応できます。
+実機がないので未確認ですが、こうでしょうか？
+
+#+BEGIN_SRC emacs-lisp :results silent
+(setq dired-launch-mailcap-friend '("env" "cygstart"))
+(defun dired-launch-command ()
+  "Attempt to launch appropriate executables on marked files in the current dired buffer."
+  (interactive)
+  (save-window-excursion
+    (dired-launch-homebrew
+     (dired-get-marked-files t current-prefix-arg)
+     (first dired-launch-mailcap-friend))))
+#+END_SRC
+
+
+GNU/LinuxではPerlスクリプトのmimeopenが使われるようにデフォルトでは設定されています。
+「J」を押したとき、mimeopen -n FILENAME が実行されるため、mimeopenで一番上に設定されているアプリケーションが起動します。
+もし一番上に設定されているアプリケーションが動かない場合は動作しないので注意してください。
+そういう場合は代わりにxdg-openコマンドを使えばいいです。
+
+FreeBSD等ではGNU/Linuxと同じように動くと思います。
+ただ、元のコードはGNU/Linuxの場合に限定されていますので、dired-launch-commandを上記と同じように再定義します。
+
+#+BEGIN_SRC emacs-lisp :results silent
+(defun dired-launch-command ()
+  "Attempt to launch appropriate executables on marked files in the current dired buffer."
+  (interactive)
+  (save-window-excursion
+    (dired-launch-homebrew
+     (dired-get-marked-files t current-prefix-arg)
+     (first dired-launch-mailcap-friend))))
+#+END_SRC
+
+
+** 設定 [[http://rubikitch.com/f/161007103716.dired-launch.el][161007103716.dired-launch.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/161007/161007103716.dired-launch.el"
+#+BEGIN_SRC fundamental
+;;; mimeopenが使えない人はxdg-openで代用
+(setq dired-launch-mailcap-friend '("env" "xdg-open"))
+;;; これでdired-launch-modeが有効になり[J]が使える
+(dired-launch-enable)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/161007103716.dired-launch.el
+$ emacs -Q -f package-initialize -l 161007103716.dired-launch.el
+#+END_EXAMPLE
+
+
+[includeme file="inc-package-relate.php" name="dired-launch"]
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

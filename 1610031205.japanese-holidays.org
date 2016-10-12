@@ -1,0 +1,66 @@
+#+BLOG: rubikitch
+#+POSTID: 1682
+#+DATE: [2016-10-03 Mon 12:05]
+#+PERMALINK: japanese-holidays
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY:   TODO・予定管理
+#+EL_PKG_NAME: japanese-holidays
+#+TAGS: calendar, 法律, org-agenda, org
+#+EL_TITLE: 
+#+EL_TITLE0: 【カレンダー・org-mode対応】日本の祝日をEmacsに教える
+#+EL_URL: 
+#+begin: org2blog
+#+TITLE: japanese-holidays.el : 【カレンダー・org-mode対応】日本の祝日をEmacsに教える
+[includeme file="inc-package-table.php" name="japanese-holidays" where="melpa"]
+
+#+end:
+** 概要
+*japanese-holidays.el* は、日本の祝日をEmacsに教えます。
+法律に基いて厳密な法則をプログラミングしてありますので正しく動作します。
+もちろん、今年からの「山の日」も対応しています。
+
+org-agenda-include-diaryを設定すれば、org-agenda上でも祝日を表示できます。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20161003120954.png]]
+Fig1: M-x calendarで土曜日と日祭に色付け
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20161003121025.png]]
+Fig2: M-x org-agendaでも祝日が表示される
+
+[includeme file="inc-package-install.php" name="japanese-holidays" where="melpa"]
+** 設定 [[http://rubikitch.com/f/161003115534.japanese-holidays.el][161003115534.japanese-holidays.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/161003/161003115534.japanese-holidays.el"
+#+BEGIN_SRC fundamental
+(with-eval-after-load "calendar"
+  (require 'japanese-holidays)
+  (setq calendar-holidays ; 他の国の祝日も表示させたい場合は適当に調整
+        (append japanese-holidays holiday-local-holidays holiday-other-holidays))
+  (setq calendar-mark-holidays-flag t)    ; 祝日をカレンダーに表示
+  ;; 土曜日・日曜日を祝日として表示する場合、以下の設定を追加します。
+  ;; 変数はデフォルトで設定済み
+  (setq japanese-holiday-weekend '(0 6)    ; 土日を祝日として表示
+        japanese-holiday-weekend-marker    ; 土曜日を水色で表示
+        '(holiday nil nil nil nil nil japanese-holiday-saturday))
+  (add-hook 'calendar-today-visible-hook 'japanese-holiday-mark-weekend)
+  (add-hook 'calendar-today-invisible-hook 'japanese-holiday-mark-weekend)
+  ;; “きょう”をマークするには以下の設定を追加します。
+  (add-hook 'calendar-today-visible-hook 'calendar-mark-today)
+  ;; org-agendaで祝日を表示する
+  (setq org-agenda-include-diary t))
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/161003115534.japanese-holidays.el
+$ emacs -Q -f package-initialize -l 161003115534.japanese-holidays.el
+#+END_EXAMPLE
+[includeme file="inc-package-relate.php" name="japanese-holidays"]

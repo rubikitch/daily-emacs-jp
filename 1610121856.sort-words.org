@@ -1,0 +1,45 @@
+#+BLOG: rubikitch
+#+POSTID: 1716
+#+DATE: [2016-10-12 Wed 18:56]
+#+PERMALINK: sort-words
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+#+DESCRIPTION:M-x sort-wordsはregion間の単語をソートして置き換えます。ソースコードはとても短いので、Emacs Lispに興味がある人は読んでみることをおすすめします。Emacs Lisp独自の機能を使っていますので、雰囲気をつかむことができます。
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY:   文書作成
+#+EL_PKG_NAME: sort-words
+#+TAGS: ソース解読推奨, 
+#+EL_TITLE0: regionの単語をソートする！Emacs Lisp初級者はソースコードも読んでみよう
+#+EL_URL: 
+#+begin: org2blog
+#+TITLE: sort-words.el : regionの単語をソートする！Emacs Lisp初級者はソースコードも読んでみよう
+[includeme file="inc-package-table.php" name="sort-words" where="melpa"]
+
+#+end:
+** 概要
+*sort-words* パッケージは単一のコマンドM-x sort-wordsを提供します。
+M-x sort-wordsはregion間の単語をソートして置き換えるだけです。
+標準コマンドM-x sort-linesでは行ごとに区切られている必要がありますが、このコマンドは1行であっても動作します。
+
+なにより、sort-words.elはコードの実行数がたった13行ですので、
+Emacs Lisp初心者でも十分読みこなせる内容となっています。
+Emacs Lispに少しでも興味があるのでしたら、M-x find-function sort-wordsで読んでみましょう。
+バッファ操作、ナローイング、リスト処理、文字列処理と一通り使っていますのでEmacs Lispの雰囲気を感じることができます。
+
+[includeme file="inc-package-install.php" name="sort-words" where="melpa"]
+** 実行例
+#+BEGIN_EXAMPLE
+foo bar word sort
+#+END_EXAMPLE
+
+↓ M-x sort-words
+
+#+BEGIN_EXAMPLE
+bar foo sort word
+#+END_EXAMPLE
+
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+[includeme file="inc-package-relate.php" name="sort-words"]

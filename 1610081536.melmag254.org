@@ -1,0 +1,51 @@
+#+BLOG: rubikitch
+#+POSTID: 1703
+#+DATE: [2016-10-08 Sat 15:36]
+#+PERMALINK: melmag254
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: るびきち塾メルマガ
+#+DESCRIPTION: るびきち塾メルマガ『Emacsの鬼るびきちのココだけの話#254』の予告
+#+TITLE: 【るびきち塾メルマガ#254】子供でも定義できる超簡単メジャーモード
+#+begin: org2blog-tags
+# content-length: 797
+
+#+end:
+『EmacsさんはWindowsユーザに対してはドSだよね』
+「ほんとそれ。Windowsに恨みでもあるんじゃないか(笑)」
+『そう思いたくなるよね』
+「CygwinとかMSYS2とかMSVCとかバイナリもいろいろあって…」
+『統一化されていないのはきつい』
+「いい加減1つに統一してほしいわ」
+『それができたらWindowsでも使いやすくなるのに』
+「システムが協調してない感じ」
+『Emacsのメイン環境はプログラム間の協調性が前提だからね』
+「Windows Subsystem for Linuxは希望の星か」
+『そうなればいいけど、今度はファイル名で混同しそうだ』
+「苦難は続くけど、以前よりはましになるだろうね」
+『ああ、きっとね』
+
+# (wop)
+#+BEGIN_SRC org
+今回のメルマガであなたが得られる結果は、
+- Windowsユーザでも使えるEmacs Lispによるgrepの実装
+- 爆速grepの使い方
+- メジャーモードを定義する意義
+- 1行で定義できるメジャーモードとは？
+- メジャーモードを定義するための簡単な公式
+- もうひとつのWindows用クリップボード履歴ツール
+となります。
+#+END_SRC
+
+# footer
+豪華な入塾特典付きで、初月無料月々527円のるびきち塾。
+Emacsについて、人生の質を上げる方法について
+メルマガでも個別メールでも懇切丁寧に指導します。
+絶対に損はさせませんので、ぜひとも登録してください。
+http://www.mag2.com/m/0001373131.html
+1週間あたり缶ジュース1本分の投資で、僕があなたのメンターになります。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

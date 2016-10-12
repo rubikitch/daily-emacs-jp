@@ -1,0 +1,146 @@
+#+BLOG: rubikitch
+#+POSTID: 1677
+#+DATE: [2016-10-02 Sun 08:27]
+#+PERMALINK: ripgrep
+#+OPTIONS: toc:t num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+#+DESCRIPTION:ripgrepことrgはthe_silver_searcher(ag)の3倍も高速なgrepツールです！！ripgrep.elはそのEmacsインターフェースで、正規表現と検索対象ディレクトリを入力するとM-x grepのように検索結果を出力します。rgはWindowsバイナリも用意されています。
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY:   検索
+#+EL_PKG_NAME: ripgrep
+#+TAGS: 外部プログラム使用, るびきちオススメ, 正規表現, ソース解読推奨, ripgrep
+#+EL_TITLE0: 【agより、ずっとはやい!!】超音速grepとEmacsインターフェース(Windows安心)
+#+EL_URL: 
+#+begin: org2blog
+#+TITLE: ripgrep.el : 【agより、ずっとはやい!!】超音速grepとEmacsインターフェース(Windows安心)
+[includeme file="inc-package-table.php" name="ripgrep" where="melpa"]
+
+#+end:
+** 概要
+*ripgrep.el* は、超高速grepこと[[https://github.com/BurntSushi/ripgrep][ripgrep(rg)]] のEmacsインターフェースです。
+<2016-10-02 Sun>現在、MELPAに登場したばかりの出来立てほやほやですが、十分便利に使えます。
+現時点においてM-x ripgrep-regexpのみがコマンドとして使えます。
+
+M-x ripgrep-regexpを実行すると、正規表現と検索対象のディレクトリを聞いてきます。
+するとM-x grep同様に正規表現にマッチした行が出力されます。
+
+rgはWindowsバイナリも配布されていますので、Windowsユーザにとっても嬉しいのではないでしょうか？
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20161002091001.png]]
+Fig1: M-x ripgrep-regexp
+
+
+[includeme file="inc-package-install.php" name="ripgrep" where="melpa"]
+** ripgrepとは
+ripgrepとは、2016年9月に登場したばかりの超高速grepです。
+その速度は目をみはるほどで、高速grepと名高い[[https://github.com/ggreer/the_silver_searcher][the_silver_searcher(ag)]] をもはるかに凌ぐほどです！！
+しかもagのように不要なファイル検索をしないし、GNU grepの高速性をも兼ね備えています。
+開発して間がないですが、すでにたくさんのオプションを持っていて、乗り変えを検討してもいいと思います。
+
+なぜ高速かというと、ripgrepが[[https://www.rust-lang.org/][Rust]] で書かれているからです。
+Rustは安全性、速度、並行性にフォーカスしたシステムプログラミング言語であることに加え、
+Rustの正規表現エンジンが超高速であることです。
+Rustに興味がある方は[[https://rust-lang-ja.github.io/the-rust-programming-language-ja/1.6/book/README.html][日本語の解説ページ]] があります。
+ripgrepのベンチマークについては[[http://blog.burntsushi.net/ripgrep/][作者の記事]] があります。
+
+** ripgrepをインストールする
+ripgrepはLinux/Mac/Windowsバイナリが配布されていますので、
+Rustの開発環境をインストールする必要はありません。
+<2016-10-02 Sun>現在毎日のようにリリースされています！
+やばいです。
+
+https://github.com/BurntSushi/ripgrep/releases
+からバイナリをダウンロードしてください。
+
+Windowsの方はMinGW(gnu)かMSVCのどちらかのバイナリを選べます。
+MSVC版を使う場合は[[http://landinghub.visualstudio.com/visual-cpp-build-tools][Microsoft Visual C++ Build Tools]] をインストールする必要があります。
+** 見よ、この速さ！
+Linuxカーネルツリーで検索したところ、agの3倍も速いっ！！
+
+https://github.com/BurntSushi/ripgrep より
+#+BEGIN_HTML
+<blockquote>
+<table><thead>
+<tr>
+<th>Tool</th>
+<th>Command</th>
+<th>Line count</th>
+<th>Time</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ripgrep</td>
+<td><code>rg -n -w '[A-Z]+_SUSPEND'</code></td>
+<td>450</td>
+<td><strong>0.245s</strong></td>
+</tr>
+<tr>
+<td><a href="https://github.com/ggreer/the_silver_searcher">The Silver Searcher</a></td>
+<td><code>ag -w '[A-Z]+_SUSPEND'</code></td>
+<td>450</td>
+<td>0.753s</td>
+</tr>
+<tr>
+<td><a href="https://www.kernel.org/pub/software/scm/git/docs/git-grep.html">git grep</a></td>
+<td><code>LC_ALL=C git grep -E -n -w '[A-Z]+_SUSPEND'</code></td>
+<td>450</td>
+<td>0.823s</td>
+</tr>
+<tr>
+<td><a href="https://www.kernel.org/pub/software/scm/git/docs/git-grep.html">git grep (Unicode)</a></td>
+<td><code>LC_ALL=en_US.UTF-8 git grep -E -n -w '[A-Z]+_SUSPEND'</code></td>
+<td>450</td>
+<td>2.880s</td>
+</tr>
+<tr>
+<td><a href="https://github.com/svent/sift">sift</a></td>
+<td><code>sift --git -n -w '[A-Z]+_SUSPEND'</code></td>
+<td>450</td>
+<td>3.656s</td>
+</tr>
+<tr>
+<td><a href="https://github.com/monochromegane/the_platinum_searcher">The Platinum Searcher</a></td>
+<td><code>pt -w -e '[A-Z]+_SUSPEND'</code></td>
+<td>450</td>
+<td>12.369s</td>
+</tr>
+<tr>
+<td><a href="http://beyondgrep.com/">ack</a></td>
+<td><code>ack -w '[A-Z]+_SUSPEND'</code></td>
+<td>1878</td>
+<td>16.952s</td>
+</tr>
+</tbody></table>
+</blockquote>
+#+END_HTML
+** おすすめオプション
+「-S」オプションは大文字小文字の区別において空気読んでくれます。
+すべてが小文字ならば大文字小文字区別せず、大文字が含まれていれば区別するようになります。
+
+「--no-heading」オプションはgrep形式の出力となります。
+実際ripgrep.elでも使われています。
+
+
+** 設定 [[http://rubikitch.com/f/161002090545.ripgrep.el][161002090545.ripgrep.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/161002/161002090545.ripgrep.el"
+#+BEGIN_SRC fundamental
+;;; rgバイナリの位置
+(setq ripgrep-executable "~/.cargo/bin/rg")
+;;; rgに渡すオプション
+(setq ripgrep-arguments '("-S"))
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/161002090545.ripgrep.el
+$ emacs -Q -f package-initialize -l 161002090545.ripgrep.el
+#+END_EXAMPLE
+
+** 参考サイト
+- [[http://www.softantenna.com/wp/review/ripgrep/][ripgrep - あのThe Silver Searcherを超えた超高速ファイル検索ユーティリティ]]
+[includeme file="inc-package-relate.php" name="ripgrep"]

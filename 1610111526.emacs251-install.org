@@ -1,0 +1,76 @@
+#+BLOG: rubikitch
+#+POSTID: 1714
+#+DATE: [2016-10-11 Tue 15:26]
+#+PERMALINK: emacs251-install
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+#+DESCRIPTION:Emacs 25.1のビルド・コンパイルオプション、必要なパッケージ。WebブラウザXWidgetを試用したときの感想。
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY:   リリース情報
+#+TAGS: Emacs 25.1以降, ビルド・インストール, 
+#+TITLE: 遅まきながらEmacs25.1をインストールしてみました
+#+begin: org2blog-tags
+# content-length: 1939
+
+#+end:
+** インストールは慎重に
+9/17にリリースされたEmacs 25.1を遅まきながらインストールしました。
+当時は新生日刊Emacs構築に忙しくてなかなか試せませんでした。
+Emacsのように根幹に関わるソフトウェアのメジャーアップデートはすぐにはしない方がいいです。
+なぜなら、自分の設定がエラーを引き起こしたり、外部パッケージが未対応であったり、
+パッケージの非互換な変更で躓くことがあるからです。
+仕事中にEmacsがエラーを起こしたために仕事が停滞したら一大事で、
+「Emacsのエラーのせいで納期に遅れた」なんて言い訳は通りません。
+くれぐれもEmacsのアップデートは時間のあるときに慎重に行ってください。
+いや、むしろ時間を捻出して行ってください。
+** コンパイル・インストール
+コンパイルはEmacs 25.1の目玉機能を有効にしました。
+- --with-xwidgets (Emacsの中でGUIなブラウザが動くんだぜ！！)
+- --with-modules (Ｃ言語で書かれたEmacs Lisp関数をユーザ側が定義できる！！)
+
+なお、僕の環境(Debian GNU/Linux)では、 libgtk-3-devとlibwebkitgtk-3.0-devをインストールする必要がありました。
+
+#+BEGIN_EXAMPLE
+$ cd /tmp
+$ wget -O-  http://ftp.gnu.org/gnu/emacs/emacs-25.1.tar.xz | tar xJvf -
+$ cd emacs-25.1
+$ sudo apt install libgtk-3-dev libwebkitgtk-3.0-dev
+$ ./configure --disable-largefile --with-x-toolkit=gtk3 \
+--without-toolkit-scroll-bars --without-xaw3d --without-xim \
+--without-compress-install --with-sound=no --without-pop \
+--without-xpm --without-tiff --without-rsvg --without-gconf \
+--without-gsettings --without-selinux --without-gpm \
+--without-makeinfo --with-x --with-modules --with-xwidgets && time make
+$ sudo make install
+#+END_EXAMPLE
+** 結果
+僕はたくさんの設定をinit.elに加えていますが、とりあえず問題なくEmacs 25.1は立ち上がりました。
+まだ試用段階のためおいおい検証していきます。
+** XWidgetを試す
+Webブラウザ on EmacsといわれるXWidgetを真っ先に試しました。
+M-x xwidget-webkit-browse-url でURLを開きます。
+
+Emacsのバッファの中でブラウザが動いていますっ！！
+
+スクロールはSPCとS-SPCで行ないます。
+
+リンクをマウスでクリックすることもできますが、そのままではフォームに文字列を入力することはできません。
+xwidgeteパッケージをインストールすると入力できるようになります。
+
+Web制作中において、パッとプレビューするのにはいいかもしれませんが、
+正直なところ、日常的なブラウジングにおいては実用的とは思えませんでした。
+KeySnailなどで使いやすく拡張したFirefoxの方が使い勝手がいいです。
+プログラミング言語のリファレンスマニュアルを見るのならばEWWで事足りますし。
+
+まだまだ出来立てホヤホヤなのでこれからが楽しみです。
+現時点でもxwidget-webkit-execute-script関数でJavaScriptを送信できますので、
+将来的には使いやすく改良できそうです。
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20161011155119.png]]
+Fig1: M-x xwidget-webkit-browse-url http://www.gnu.org/software/emacs/
+

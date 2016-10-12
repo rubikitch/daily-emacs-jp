@@ -1,0 +1,49 @@
+#+BLOG: rubikitch
+#+POSTID: 1697
+#+DATE: [2016-10-06 Thu 12:11]
+#+PERMALINK: helm-proc
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+#+DESCRIPTION:M-x helm-procを実行しコマンド名を入力すると、マッチしたプロセスが表示され、そこからシグナルを送信したりPIDをコピーできたりします。gdbやstraceを起動したりもできます。
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: プロセス
+#+EL_PKG_NAME: helm-proc
+#+TAGS: helm, 外部プログラム使用, 
+#+EL_TITLE: 
+#+EL_TITLE0: プロセスを検索してTERM/KILL/STOP/CONTシグナルを送信するなどのアクションを実行する
+#+EL_URL: 
+#+begin: org2blog
+#+TITLE: helm-proc.el : プロセスを検索してTERM/KILL/STOP/CONTシグナルを送信するなどのアクションを実行する
+[includeme file="inc-package-table.php" name="helm-proc" where="melpa"]
+
+#+end:
+** 概要
+*helm-process.el* はhelmインターフェースで起動中のプロセスを操作します。
+エントリポイントはM-x helm-procのみで、起動して起動中のコマンド名を2文字以上入力すると、そのリストが出てきます。
+入力はそのまま「pgrep -f」に渡されますので、helm固有の絞り込み検索はできません。
+
+対象のプロセスを選択し、TABを押せばいろいろな操作ができます。
+用意されているアクションは以下になります。
+
+- TERMシグナルを送信する (C-c t)
+- PIDをコピーする
+- TERMを送信し、終了しない場合は10秒後にKILLを送信する (C-c p)
+- KILLシグナルを送信する (C-c k)
+- STOPシグナルを送信する  (C-c s)
+- CONTシグナルを送信する (C-c c)
+- 対象プロセスの/procディレクトリを開く
+- [[http://sourceforge.net/projects/strace/][strace]] を実行する
+- 開いたファイルを一覧する (lsof)
+- gdbを実行する
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20161006145459.png]]
+Fig1: M-x helm-proc fire
+
+[includeme file="inc-package-install.php" name="helm-proc" where="melpa"]
+[includeme file="inc-package-relate.php" name="helm-proc"]
+
+

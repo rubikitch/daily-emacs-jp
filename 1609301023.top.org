@@ -1,0 +1,98 @@
+#+POSTID: 1648
+#+BLOG: rubikitch
+#+DATE: [2016-09-30 Fri 10:23]
+#+PERMALINK: top
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: t
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: 
+#+TAGS: 
+#+TITLE: ようこそ
+#+begin: org2blog-tags
+# content-length: 2746
+
+#+end:
+* 日本一のEmacs総合サイトは生まれ変わりました
+ども、るびきちです。
+日本唯一のEmacsレビューサイト「日刊Emacs」は生まれ変わりました。
+旧日刊Emacsは、知識が中途半端なままで続けていたため、記事が見付けにくくなってしまいました。
+そこでWordPressとPHPを勉強して情報を見付けやすくするように再構築しました。
+
+興味の幅が広がったため、本サイトはサブドメインで運用しています。
+
+** 記事URL
+記事URLは
+#+BEGIN_EXAMPLE
+http://emacs.rubikitch.com/PAGENAME/
+#+END_EXAMPLE
+という形で簡素になり、PAGENAMEは原則的にパッケージ名が入ります。
+
+旧日刊Emacsの各記事から新生日刊Emacsへリダイレクトしてありますので、リンク切れの心配はありません。
+
+記事URLにカテゴリを含めるべきという意見もありましたが、以下の理由でやりませんでした。
+1. 記事URLが長くなる
+2. 旧日刊Emacsからのリダイレクトがしづらくなる
+3. カテゴリを変更するのが困難になる
+4. SEOはパン屑リスト(名前ひどい(笑))で十分と判断
+
+** カテゴリとタグの方針
+サイトを再構築する際に一番悩んだのがカテゴリとタグの位置付けです。
+カテゴリは1つにしぼるべきだと聞きましたので、本当に悩みました。
+結論は、やりたいこと(バッファ切り替えなど)をカテゴリとして階層構造を作り、
+具体的なパッケージ名はカテゴリに含めることをやめました。
+たとえばhelmをカテゴリにしてしまうと、複数のカテゴリを横断することになるからです。
+
+そこで、パッケージ名は全てタグにしています。
+パッケージ名をタグにすることで、複数のパッケージに関連するパッケージも扱えます。
+たとえば、[[http://emacs.rubikitch.com/org-eshell/][org-eshell]] パッケージにはeshell、orgのタグをつけ、
+カテゴリは「各種ツール→ハイパーリンク」に置いています。
+[[http://emacs.rubikitch.com/category/%E5%90%84%E7%A8%AE%E3%83%84%E3%83%BC%E3%83%AB/%E3%83%8F%E3%82%A4%E3%83%91%E3%83%BC%E3%83%AA%E3%83%B3%E3%82%AF/%E3%83%8F%E3%82%A4%E3%83%91%E3%83%BC%E3%83%AA%E3%83%B3%E3%82%AF/][ハイパーリンク(カテゴリ)]] からも、 [[http://emacs.rubikitch.com/tag/eshell/][eshell(タグ)]]からも[[http://emacs.rubikitch.com/tag/org/][org(タグ)]] からもorg-eshellパッケージを見付けることができます。
+
+また、原則的に1つの子孫カテゴリに多くの記事が入りすぎないようバランスも考えています。
+
+** 結局どういうパッケージを取り上げているの？
+ユーザとして気になる点はこれだと思うのです。
+「やりたいことから探す」(PCでは左側、スマホでは下)でお気に入りのパッケージを見付けてみてください。
+あるいは[[http://emacs.rubikitch.com/sitemap/][サイトマップ]] 内をページ内検索してください。
+全文検索は左上の検索窓を使うか、以下のコマンドでGitHubから全記事を取得してローカルで全文検索してください。
+
+#+BEGIN_EXAMPLE
+$ git clone --depth=1 git://github.com/rubikitch/daily-emacs-jp.git
+$ cd daily-emacs-jp
+$ ag helm
+...
+#+END_EXAMPLE
+* Emacsとは
+[[http://www.gnu.org/software/emacs/][Emacs]] とは、Unix系OSでよく使われているテキストエディタ…
+ということになっていますが、実際はありとあらゆることができる *環境* です。
+
+初めて使うのであれば、[[http://emacs.rubikitch.com/category/books/sd-emacs-rensai/][Software Design連載記事]] を見ていただくのが早いです。
+
+連載記事は後でまとめて書籍にするという選択肢もありますが、
+より多くの人に見ていただく方が社会全体の利益になるため
+全文公開することにいたしました。
+Emacsが初めての人にも理解できるように書きました。
+もちろん、技術評論社には許可を得て掲載しています。
+
+WindowsでEmacsをインストールする方は[[http://emacs.rubikitch.com/category/%e3%81%8a%e7%9f%a5%e3%82%89%e3%81%9b/%e3%83%aa%e3%83%aa%e3%83%bc%e3%82%b9%e6%83%85%e5%a0%b1/][リリース情報]] を参考にどちらか選んでください。
+- gnupack 32bit(レビュー・インストールは簡単だがCygwinなのであとで苦労するかも)
+- NTEmacs64(レビュー・ネイティブで高速)
+
+ただ、EmacsをWindowsでのみ使っているのでは本当の価値がわかりません。
+
+ぜひともGNU/Linux、Mac等のUnix系OSで使ってみてください。
+
+* 本サイトが気に入れば
+「るびきち塾」に加入してくださるととても嬉しいです。
+毎週土曜日にEmacsに関するメルマガを配信しているだけでなく、
+メールによる個別指導も行っております。
+Emacsに対する問題解決だけでなく、聞かれたことであれば何でも御答えします。
+僕は持っている知識を出し惜しみしません。
+
+#+HTML: <div align="center" style="font-size: large; font-weight: bolder;">
+→ http://www.mag2.com/m/0001373131.html ←
+#+HTML: </div>
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

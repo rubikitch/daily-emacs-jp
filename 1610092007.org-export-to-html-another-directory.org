@@ -1,0 +1,49 @@
+#+BLOG: rubikitch
+#+POSTID: 1705
+#+DATE: [2016-10-09 Sun 20:07]
+#+PERMALINK: org-export-to-html-another-directory
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+#+DESCRIPTION:org-export-directory変数を設定することで、別ディレクトリにexportできるようにするorg-mode用adviceです。
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY:   文書作成
+#+TAGS: org, アドバイス, 
+#+TITLE: org-modeで別のディレクトリにHTML他エクスポートする | sshfs支援
+#+begin: org2blog-tags
+# content-length: 968
+
+#+end:
+org-modeは簡単にHTMLを作成できてとても便利です。
+しかし、なぜか別ディレクトリに出力する機能は存在しません。
+
+確かに EXPORT_FILE_NAME プロパティを付ければ別のファイル名にできますが、
+プロパティですのでsubtreeに限定されています。
+M-x org-publishを使えば別ディレクトリに出力できますが、
+同じディレクトリの別なHTMLも処理されてしまいます。
+どっちにしても「帯に短したすきに長し」です。
+ 
+原因は org-html-export-to-html 関数に出力ディレクトリを指定できないことです！
+内部で呼んでいる org-export-output-file-name 関数には出力ディレクトリ指定できます。
+
+そこで、 org-export-directory 変数を導入し、
+その変数が設定してある場合はそのディレクトリに
+HTML出力させるようなアドバイスを定義します。
+
+別ディレクトリにHTML出力できれば、
+特にsshfs等でサーバに接続している場合、
+アップロードの手間を省けます。
+
+exportすればその時点でアップロードされることになるからです。
+
+#+BEGIN_SRC emacs-lisp :results silent
+(defvar org-export-directory nil)
+
+(defun org-export-output-file-name--set-directory (orig-fn extension &optional subtreep pub-dir)
+  (setq pub-dir (or pub-dir org-export-directory))
+  (funcall orig-fn extension subtreep pub-dir))
+(advice-add 'org-export-output-file-name :around 'org-export-output-file-name--set-directory)
+#+END_SRC
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

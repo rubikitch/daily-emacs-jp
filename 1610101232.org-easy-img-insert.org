@@ -1,0 +1,58 @@
+#+BLOG: rubikitch
+#+POSTID: 1708
+#+DATE: [2016-10-10 Mon 12:32]
+#+PERMALINK: org-easy-img-insert
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+#+DESCRIPTION:org-modeはインライン画像に対応しています。M-x org-easy-img-insertはURLが示す画像へのリンク入力を簡単にします。画像のダウンロードはwgetが使われます。
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY:   画像表示
+#+EL_PKG_NAME: org-easy-img-insert
+#+TAGS: org, 外部プログラム使用, 
+#+EL_TITLE: 
+#+EL_TITLE0: URLで示された画像を簡単にorg文書に取り込む
+#+EL_URL: 
+#+begin: org2blog
+#+TITLE: org-easy-img-insert.el : URLで示された画像を簡単にorg文書に取り込む
+[includeme file="inc-package-table.php" name="org-easy-img-insert" where="melpa"]
+
+#+end:
+** 概要
+org-easy-img-insert.elは画像付きorg文書作成を支援します。
+唯一のコマンドM-x org-easy-img-insertは、以下の情報をミニバッファで入力することで、インライン画像を挿入します。
+- 画像のURL
+- ローカルに保存する画像のファイル名(拡張子無し)
+- 画像のキャプション(HTMLでいうIMG要素のALT属性に相当)
+
+画像ファイルはwgetを使ってダウンロードされます。
+まだwgetをインストールされていない人はインストールしてください。
+
+画像はResources/以下のorgファイル名に関するサブディレクトリに保存されます。
+orgファイル名がindex.orgだとすると、Resources/index/に置かれます。
+
+たとえば、 ~http://www.gnu.org/software/emacs/images/emacs.png~ をtest.orgに挿入する場合、
+- ~http://www.gnu.org/software/emacs/images/emacs.png~
+- emacs
+- Emacs logo
+と入力します。
+
+すると、このように入力されます。
+
+#+BEGIN_EXAMPLE
+,#+CAPTION: Emacs logo
+,#+NAME: emacs
+[[/tmp/Resources/test/emacs.png]]
+#+END_EXAMPLE
+
+入力直後はインライン画像が表示されませんのでC-c C-x C-v (org-toggle-inline-images)を1〜2回実行してください。
+インライン画像を表示する設定の場合は再表示する必要があるため、2回実行する必要があります。
+
+[includeme file="inc-package-install.php" name="org-easy-img-insert" where="melpa"]
+[includeme file="inc-package-relate.php" name="org-easy-img-insert"]
+** 参考サイト
+- [[http://www.gnu.org/software/wget/][Wget - GNU Project - Free Software Foundation]]
+- [[https://eternallybored.org/misc/wget/][GNU Wget 1.18 for Windows]]
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

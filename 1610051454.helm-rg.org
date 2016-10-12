@@ -1,0 +1,36 @@
+#+BLOG: rubikitch
+#+POSTID: 1695
+#+DATE: [2016-10-05 Wed 14:54]
+#+PERMALINK: helm-rg
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY:   記事更新情報
+#+TAGS: 
+#+TITLE: helm-rg.elなんていらない。helm-ag.elで十分。
+#+NOINDEX: t
+#+begin: org2blog-tags
+# because of explicit-noindex
+#+HTML: <!-- noindex -->
+
+#+end:
+今、the_silver_searcherを超える爆速grepのripgrep(rg)で盛り上がっています。
+[[http://emacs.rubikitch.com/ripgrep/][ripgrep.el]] の記事でも紹介しましたが、Emacsインターフェースもあります。
+Twitterでhelm-rg.el出てこないかなーって声がありましたので、急遽[[http://emacs.rubikitch.com/helm-ag/][helm-ag.el]] の記事を更新しました。
+
+#+BEGIN_QUOTE
+ 2016/10/04 13:31:59 tsubuyakisc  > ripgrep試してみてるけど速くていいなあ．そのうちhelm-rgとか出てくるのかな？ // by 銀の戦車(F1❤Lover) 
+#+END_QUOTE
+
+helm-ag.elで
+
+#+BEGIN_SRC emacs-lisp :results silent
+(setq helm-ag-base-command "rg --vimgrep --no-heading")
+#+END_SRC
+
+を設定すれば無事にripgrepに乗り換えられます。
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

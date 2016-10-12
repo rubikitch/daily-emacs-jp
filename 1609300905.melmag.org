@@ -1,0 +1,59 @@
+#+BLOG: rubikitch
+#+POSTID: 1643
+#+DATE: [2016-09-30 Fri 09:05]
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: るびきち塾メルマガ
+#+PERMALINK: melmag253
+#+DESCRIPTION: るびきち塾メルマガ『Emacsの鬼るびきちのココだけの話#253』の予告
+#+TITLE: 【るびきち塾メルマガ#253】Windowsユーザへ向けて
+#+begin: org2blog-tags
+# content-length: 644
+
+#+end:
+ちょっと謝罪させてください。
+
+この僕の姿勢には、
+大きな問題があったにもかかわらず、
+それを見て見ぬふりをしていたのです。
+
+ずっと放置していたのです。
+
+見ようとしなかったために、
+アンケートによって改めて明るみになったことです。
+
+
+それは、
+
+『Windowsユーザをあまりにも軽視しすぎていたこと』
+
+です。
+
+
+今までほとんど切り捨てていたも同然でした。
+
+それについては、本当に申し訳ないと思っています。
+
+
+そういうわけで、明日のメルマガはWindowsユーザが
+Emacsを使って効率的に作業する方法をお伝えします。
+
+確かにWindowsにおいてはEmacsをフル活用することは難しいですが、
+この視点で使っていけば快適に作業できるようになります。
+
+メールソフトなどが決められていても大丈夫です。
+
+楽しみにしててください。
+
+# footer
+豪華な入塾特典付きで、初月無料月々527円のるびきち塾。
+Emacsについて、人生の質を上げる方法について
+メルマガでも個別メールでも懇切丁寧に指導します。
+絶対に損はさせませんので、ぜひとも登録してください。
+http://www.mag2.com/m/0001373131.html
+1週間あたり缶ジュース1本分の投資で、僕があなたのメンターになります。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
