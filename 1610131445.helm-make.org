@@ -1,0 +1,72 @@
+#+BLOG: rubikitch
+#+POSTID: 1721
+#+DATE: [2016-10-13 Thu 14:45]
+#+PERMALINK: helm-make
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+#+DESCRIPTION:helm-make.elはMakefileのターゲットをhelm/ido/ivyインターフェースで選択するM-x helm-makeを定義しています。helm-make-completion-methodによりido/ivyも選択できます。
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: 
+#+EL_PKG_NAME: helm-make
+#+TAGS: helm, ido, ivy, 
+#+EL_TITLE: 
+#+EL_TITLE0: helm/ido/ivyインターフェースでMakefileターゲットを選択し、実行する
+#+EL_URL: 
+#+begin: org2blog
+#+TITLE: helm-make.el : helm/ido/ivyインターフェースでMakefileターゲットを選択し、実行する
+[includeme file="inc-package-table.php" name="helm-make" where="melpa"]
+
+#+end:
+** 概要
+helm-make.elは単一コマンドM-x helm-makeを提供します。
+M-x helm-makeはMakefileのターゲットをhelm/ido/ivyインターフェースで選択します。
+数引数をつければ「-jN」(並列処理)を実行できます。
+たくさんのMakefileターゲットを持つプロジェクトを管理するのに便利です。
+
+
+インターフェースはhelm-make-completion-methodで設定します。
+インターフェースがidoやivyを選択してもコマンドがhelm-makeなのはちょっと変な気もしますが、
+そのあたりはaliasでなんとかしてください(笑)
+
+図は/tmp/emacs-25.1/ で実行したところです。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20161013144920.png]]
+Fig1: M-x helm-make (helmインターフェース)
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20161013144929.png]]
+Fig2: M-x helm-make (idoインターフェース)
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20161013144938.png]]
+Fig3: M-x helm-make (ivyインターフェース)
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20161013144954.png]]
+Fig4: infoを選択したところ
+
+[includeme file="inc-package-install.php" name="helm-make" where="melpa"]
+** 設定 [[http://rubikitch.com/f/161013144745.helm-make.el][161013144745.helm-make.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/161013/161013144745.helm-make.el"
+#+BEGIN_SRC fundamental
+;;; (setq helm-make-completion-method 'ido)
+;;; (defalias 'ido-make 'helm-make)
+;;; (setq helm-make-completion-method 'ivy)
+;;; (defalias 'ivy-make 'helm-make)
+(setq helm-make-completion-method 'helm)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/161013144745.helm-make.el
+$ emacs -Q -f package-initialize -l 161013144745.helm-make.el
+#+END_EXAMPLE
+[includeme file="inc-package-relate.php" name="helm-make"]
+
+
+
