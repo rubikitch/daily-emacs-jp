@@ -1,0 +1,52 @@
+#+BLOG: rubikitch
+#+POSTID: 1723
+#+DATE: [2016-10-14 Fri 09:17]
+#+PERMALINK: melmag255
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: るびきち塾メルマガ
+#+DESCRIPTION: るびきち塾メルマガ『Emacsの鬼るびきちのココだけの話#255』の予告
+#+TITLE: 【るびきち塾メルマガ#255】0xFF回ですよ〜次回はキリ番
+#+begin: org2blog-tags
+# content-length: 725
+
+#+end:
+『便利な機能だったけど、過去にメルマガで取り上げてない機能があった！』
+「なあに？」
+『これを使うとEmacsの起動が爆速になる！』
+「えっなになに？」
+『●●』
+「ほう」
+『実際はすでに起動しているEmacsに接続するんだけどね(笑)』
+「ああ、新しいEmacsではないんだ」
+『でもシェルから一瞬で今開いているEmacsにアクセスできる』
+「ということは」
+『爆速で立ち上がるEmacsと考えて問題ないわけか』
+「そゆこと」
+『もう起動時間を気にするのは馬鹿らしくなるよ』
+「一度立ち上げてしまえば●●でつなげてしまえばいいもんね」
+
+
+# (wop)
+#+BEGIN_SRC org
+今回のメルマガであなたが得られる結果は、
+- 爆速で立ち上がるEmacs…そのカラクリとは
+- 僕が文章を書いているときの心構え
+- Emacs 25.1移行記
+- Windowsではgnupack？NTEmacs64？どっちを選ぶべきか
+- 起動時間にこだわることが無意味になる理由
+となります。
+#+END_SRC
+
+# footer
+豪華な入塾特典付きで、初月無料月々527円のるびきち塾。
+Emacsについて、人生の質を上げる方法について
+メルマガでも個別メールでも懇切丁寧に指導します。
+絶対に損はさせませんので、ぜひとも登録してください。
+http://www.mag2.com/m/0001373131.html
+1週間あたり缶ジュース1本分の投資で、僕があなたのメンターになります。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
