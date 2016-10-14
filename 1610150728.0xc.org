@@ -56,7 +56,6 @@ M-: #3r100 → 9 (#o11, #x9, ?\C-i)
 
 
 
-[includeme file="inc-package-relate.php" name="0xc"]
 ** 参考サイト
 - [[https://ja.wikipedia.org/wiki/%25E4%25B8%2589%25E9%2580%25B2%25E6%25B3%2595][三進法 - Wikipedia]]
 
