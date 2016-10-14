@@ -1,0 +1,63 @@
+#+BLOG: rubikitch
+#+POSTID: 1725
+#+DATE: [2016-10-15 Sat 07:28]
+#+PERMALINK: 0xc
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+#+DESCRIPTION:M-x 0xc-convertとM-x 0xc-convert-pointは基数を変換しますが、わざわざ0xc.elをインストールしなくてもEmacs Lispの標準機能で間に合います。
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY:   解析ツール
+#+EL_PKG_NAME: 0xc
+#+TAGS: 
+#+EL_TITLE: 
+#+EL_TITLE0: 基数変換(2進法、8進法、16進法etc)を行う2つのコマンド
+#+EL_URL: 
+#+begin: org2blog
+#+TITLE: 0xc.el : 基数変換(2進法、8進法、16進法etc)を行う2つのコマンド
+[includeme file="inc-package-table.php" name="0xc" where="melpa"]
+
+#+end:
+** 概要
+0xc.elは整数の基数変換(2進法、8進法、10進法、16進法etc)を行うコマンド集です。
+M-x 0xc-convertは数と変換後の基数を入力し、変換後の数を表示します。
+
+M-x 0xc-convert-pointはカーソル位置の数をデフォルトの基数に変換した数に置き換えます。
+デフォルトは10進数に置き換えますが、数引数で基数を指定できます。
+たとえば、カーソル位置の「27」を16進数に置き換えたければC-u 16 M-x 0xc-convert-pointで1Bになります。
+
+
+0xc.elが受け付ける整数の記法はこのようになります。
+3進数以外はよく見掛ける記法だと思います。
+| 0x | 16進数  |
+| 0b | 2進数   |
+| 0d | 10進数  |
+| 0o | 8進数   |
+| 0t | 3進数！ |
+[includeme file="inc-package-install.php" name="0xc" where="melpa"]
+** 標準機能でも実現可能
+でも、基数の変換は標準機能でもできるんですね。
+
+Emacs Lispの整数には#記法があります。
+| #b             | 2進数     |
+| #o             | 8進数     |
+| #x             | 16進数    |
+| #RADIXrINTEGER | RADIX進数 |
+
+M-: (eval-expression) に整数を評価させると、10進数以外にも8進数と16進数に変換された値も表示されます。
+
+#+BEGIN_EXAMPLE
+M-: 27 → 27 (#o33, #x1b, ?\C-\[)
+M-: #xff → 255 (#o377, #xff, ?ÿ)
+M-: #3r100 → 9 (#o11, #x9, ?\C-i)
+#+END_EXAMPLE
+
+また、C-u M-:は評価結果をバッファに書き込みますので、10進数への変換はこれで間に合ってしまいます。
+
+
+
+[includeme file="inc-package-relate.php" name="0xc"]
+** 参考サイト
+- [[https://ja.wikipedia.org/wiki/%25E4%25B8%2589%25E9%2580%25B2%25E6%25B3%2595][三進法 - Wikipedia]]
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
