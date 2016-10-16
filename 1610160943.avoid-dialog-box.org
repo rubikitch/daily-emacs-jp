@@ -4,7 +4,7 @@
 #+PERMALINK: avoid-dialog-box
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
 #+ISPAGE: nil
-#+DESCRIPTION:
+#+DESCRIPTION:(defalias 'message-box 'message) でダイアログボックスの表示を抑制する
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
 #+CATEGORY:   カスタマイズ
