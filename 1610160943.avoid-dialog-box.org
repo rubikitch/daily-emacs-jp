@@ -4,14 +4,14 @@
 #+PERMALINK: avoid-dialog-box
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
 #+ISPAGE: nil
-#+DESCRIPTION:(defalias 'message-box 'message) でダイアログボックスの表示を抑制する
+#+DESCRIPTION:(defalias 'message-box 'message) (setq use-dialog-box nil) でダイアログボックスの表示を抑制する
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
 #+CATEGORY:   カスタマイズ
 #+TAGS: 
-#+TITLE: 【一行設定】ダイアログボックスなんて大嫌い！
+#+TITLE: 【追記】ダイアログボックスなんて大嫌い！
 #+begin: org2blog-tags
-# content-length: 680
+# content-length: 784
 
 #+end:
 Emacsはキーボード操作が主体で、昔からコンピュータとの対話はミニバッファを介して行われます。
@@ -32,6 +32,7 @@ anything/helmインターフェースを愛用してい人ならわかると思�
 
 #+BEGIN_SRC emacs-lisp :results silent
 (defalias 'message-box 'message)
+(setq use-dialog-box nil)
 #+END_SRC
 
 *message-box* は *message* 関数と互換性のある関数で、
@@ -39,5 +40,7 @@ anything/helmインターフェースを愛用してい人ならわかると思�
 
 そこで、message関数の別名として動作させるようにすれば、
 ダイアログボックスは出てこなくなります。
+
+use-dialog-boxをnilにするとマウス操作でy-or-n-p/yes-or-no-pを発動したときに、ダイアログボックスの表示を抑制します。
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
