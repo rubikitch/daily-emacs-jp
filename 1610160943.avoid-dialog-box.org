@@ -1,0 +1,43 @@
+#+BLOG: rubikitch
+#+POSTID: 1728
+#+DATE: [2016-10-16 Sun 09:43]
+#+PERMALINK: avoid-dialog-box
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY:   カスタマイズ
+#+TAGS: 
+#+TITLE: 【一行設定】ダイアログボックスなんて大嫌い！
+#+begin: org2blog-tags
+# content-length: 680
+
+#+end:
+Emacsはキーボード操作が主体で、昔からコンピュータとの対話はミニバッファを介して行われます。
+対してGUIにおける対話はダイアログボックスが使われます。
+
+ダイアログボックス、たしかに初心者にはわかりやすいのですが、
+ある程度レベルが上がった人には煩わしく感じる人もいます。
+
+僕はダイアログボックスが憎くてしょうがありません。
+とくに多数の候補を選択するプルダウンメニュー(ドロップダウンメニュー、プルダウンリスト)が
+出てきたときにはコンピュータを叩き壊したくなるほど怒りを覚えます。
+なぜなら、多数の候補を目視で探すことほど非効率的で苦痛を強いられるインターフェースはないと思うからです。
+anything/helmインターフェースを愛用してい人ならわかると思います。
+
+そのうちダイアログボックスそのものが醜くなってきます(笑)
+
+そんなダイアログボックスを抹消する設定はこちら！
+
+#+BEGIN_SRC emacs-lisp :results silent
+(defalias 'message-box 'message)
+#+END_SRC
+
+*message-box* は *message* 関数と互換性のある関数で、
+できる限りダイアログボックスを使うようにします。
+
+そこで、message関数の別名として動作させるようにすれば、
+ダイアログボックスは出てこなくなります。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
