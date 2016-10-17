@@ -1,0 +1,51 @@
+#+BLOG: rubikitch
+#+POSTID: 1732
+#+DATE: [2016-10-17 Mon 14:25]
+#+PERMALINK: mew-w3m
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: メール
+#+TAGS: mew, w3m, EWW, 
+#+TITLE: MewでHTMLメールを高速でレンダリングする設定(要emacs-w3m)
+#+begin: org2blog-tags
+# content-length: 1263
+
+#+end:
+MewにはHTMLメールをレンダリングさせることができます。
+EWWで使われているレンダリングエンジンshrを使うこともできますが、
+HTMLメールで使われているHTMLをレンダリングするにはなぜか激重になります。
+対して昔からあるemacs-w3mだと一瞬でレンダリングされます。
+mew-w3m.elを使うことでそれが可能になります。
+
+とはいえemacs-w3mに含まれていたmew-w3m.elですが、いつのまにかなくなっています。
+ChangeLogにも載っていないので謎です。
+
+http://rubikitch.com/f/mew-w3m.el
+
+にアップロードしましたのでダウンロードしてload-pathに置いてください。
+もちろん、[[http://w3m.sourceforge.net/][w3mプログラム]] とemacs-w3m(w3mパッケージ)は入れておいてください。
+
+[includeme file="inc-package-install.php" name="w3m" where="melpa"]
+
+** 設定 [[http://rubikitch.com/f/161017142357.mew-w3m.el][161017142357.mew-w3m.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/161017/161017142357.mew-w3m.el"
+#+BEGIN_SRC fundamental
+(require 'mew-w3m)
+(setq mew-prog-text/html 'w3m-region)
+(setq mew-prog-text/xml 'w3m-region)
+(setq mew-use-text/html t)
+(setq mew-mime-multipart-alternative-list '("Text/Html" "Text/Plain" ".*"))
+(add-hook 'mew-message-hook 'w3m-minor-mode)
+(setq mew-file-max-size 10000000)
+#+END_SRC
+
+#+END:
+
+EWW(shr)ではshr-render-regionを使っているところを、w3m-regionに置き換えます。
+そして、メッセージが表示されるたびにw3m-minor-modeにしておけば、
+*Messages*バッファでもemacs-w3mと同じ操作が使えます。
+HTMLメールはしばしば大きくなりますのでmew-file-max-sizeも大きくしておきます。
+
