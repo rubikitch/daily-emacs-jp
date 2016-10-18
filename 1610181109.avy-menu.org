@@ -9,7 +9,7 @@
 #+BLOG: rubikitch
 #+CATEGORY:   候補選択
 #+EL_PKG_NAME: avy-menu
-#+TAGS: avy, 
+#+TAGS: avy, るびきちオススメ, 
 #+EL_TITLE: 
 #+EL_TITLE0: お手軽に使えるキーボード選択メニューライブラリ
 #+EL_URL: 
