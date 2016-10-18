@@ -1,0 +1,83 @@
+#+BLOG: rubikitch
+#+POSTID: 1734
+#+DATE: [2016-10-18 Tue 11:09]
+#+PERMALINK: avy-menu
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY:   候補選択
+#+EL_PKG_NAME: avy-menu
+#+TAGS: avy, 
+#+EL_TITLE: 
+#+EL_TITLE0: お手軽に使えるキーボード選択メニューライブラリ
+#+EL_URL: 
+#+begin: org2blog
+#+TITLE: avy-menu.el : お手軽に使えるキーボード選択メニューライブラリ
+[includeme file="inc-package-table.php" name="avy-menu" where="melpa"]
+
+#+end:
+** 概要
+候補選択インターフェースはたくさんありますが、
+少数の候補を選択する場合にhelm等は大袈裟ではないでしょうか。
+かといってダイアログボックスが好きなEmacsユーザはそんなにいないと思います。
+キーボード操作が主体のEmacsにおいては、やはりキーボード選択メニューが好まれます。
+
+キーボード選択メニューは、one-key.elや123-menu.elなどがありましたが、
+今ならばこのavy-menu.elがいい感じです。
+avy.elはace-jump-mode.elの後継として汎用的に使えるように再設計されました。
+
+エントリポイントはavy-menu関数です。
+
+[includeme file="inc-package-install.php" name="avy-menu" where="melpa"]
+** シンプルな使用例 [[http://rubikitch.com/f/161018111644.avy-menu-1.el][161018111644.avy-menu-1.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/161018/161018111644.avy-menu-1.el"
+#+BEGIN_SRC fundamental
+(defun avy-menu-1 ()
+  (interactive)
+  (message "Answer: %d"
+           (avy-menu "*avy-menu-1*"     ;バッファ名
+                     '("メニュー"       ;メニューの名前
+                       (""      ;セクション名(1つならば空文字列でよい)
+                        ;; 表示文字列と値のペア…
+                        ("Print one" . 1)
+                        ("Print two" . 2))))))
+#+END_SRC
+
+#+END:
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20161018112138.png]]
+Fig1: M-x avy-menu-1
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20161018112142.png]]
+Fig2: aを押して選択した結果
+
+** ちょっと複雑な使用例 [[http://rubikitch.com/f/161018112241.avy-menu-2.el][161018112241.avy-menu-2.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/161018/161018112241.avy-menu-2.el"
+#+BEGIN_SRC fundamental
+(defun avy-menu-2 ()
+  (interactive)
+  (eval (avy-menu
+         "*avy-menu-2*"
+         '("メニュー"
+           ("ファイル・ディレクトリを開く"
+            ;; 値にS式を指定してevalで評価させる
+            ("find init.el" . (find-file "~/.emacs.d/init.el"))
+            ("open home directory" . (find-file "~/")))
+           ("メッセージを表示する"
+            ("message" . (message "ok"))))
+         ;; 第3引数をtにすることでセクション名も表示する
+         t)))
+#+END_SRC
+
+#+END:
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20161018112517.png]]
+Fig3: M-x avy-menu-2
+
+
+[includeme file="inc-package-relate.php" name="avy-menu"]
