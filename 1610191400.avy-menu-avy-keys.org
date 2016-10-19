@@ -1,0 +1,24 @@
+#+BLOG: rubikitch
+#+POSTID: 1737
+#+DATE: [2016-10-19 Wed 14:00]
+#+PERMALINK: avy-menu-avy-keys
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY:   記事更新情報
+#+TAGS: 
+#+TITLE: avy-menuでメニューごとにキーを設定する方法を追記
+#+begin: org2blog-tags
+# content-length: 170
+#+HTML: <!-- noindex -->
+
+#+end:
+avy-menuでキーを設定する方法を書きました。
+avy-keys変数をローカル変数で設定します。
+
+http://emacs.rubikitch.com/avy-menu/
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
