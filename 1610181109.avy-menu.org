@@ -19,6 +19,8 @@
 
 #+end:
 ** 概要
+<2016-10-19 Wed>キーを設定する方法を追記
+
 候補選択インターフェースはたくさんありますが、
 少数の候補を選択する場合にhelm等は大袈裟ではないでしょうか。
 かといってダイアログボックスが好きなEmacsユーザはそんなにいないと思います。
@@ -78,6 +80,46 @@ Fig2: aを押して選択した結果
 #+ATTR_HTML: :width 480
 [[file:/r/sync/screenshots/20161018112517.png]]
 Fig3: M-x avy-menu-2
+
+** <2016-10-19 Wed>メニューごとにキーを設定する [[http://rubikitch.com/f/161019135329.avy-menu-3.el][161019135329.avy-menu-3.el(以下のコードと同一)]]
+現時点のavy-menuには、メニューごとにキーを設定する機能が存在しません。
+その代わりavyそのものの変数avy-keysをローカル変数にすることでそれが可能になります。
+
+avy-keysは文字のリストを指定しますが、appendに文字列とnilを渡して作成する方法もあります。
+
+#+BEGIN_SRC emacs-lisp :results silent
+(append "12" nil)                       ; => (49 50)
+'(?1 ?2)                                ; => (49 50)
+#+END_SRC
+
+
+#+BEGIN: include :file "/r/sync/junk/161019/161019135329.avy-menu-3.el"
+#+BEGIN_SRC fundamental
+(defun avy-menu-3 ()
+  (interactive)
+  ;; 1,2をキーにする
+  (let ((avy-keys (append "12" nil)))
+    (message "Answer: %d"
+             (avy-menu "*avy-menu-3*"
+                       '("メニュー"
+                         (""
+                          ("Print one" . 1)
+                          ("Print two" . 2)))))))
+#+END_SRC
+
+#+END:
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20161019135816.png]]
+Fig4: M-x avy-menu-3
+
+
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/161019135329.avy-menu-3.el
+$ emacs -Q -f package-initialize -l 161019135329.avy-menu-3.el
+#+END_EXAMPLE
 
 
 [includeme file="inc-package-relate.php" name="avy-menu"]
