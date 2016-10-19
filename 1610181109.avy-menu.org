@@ -4,7 +4,7 @@
 #+PERMALINK: avy-menu
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
 #+ISPAGE: nil
-#+DESCRIPTION:
+#+DESCRIPTION:少数の候補選択にはキーボード選択メニューが適しています。階層メニューも作成できます。ローカル変数としてavy-keysを設定すればキーを設定することもできます。
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
 #+CATEGORY:   候補選択
