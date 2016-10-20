@@ -1,0 +1,58 @@
+#+BLOG: rubikitch
+#+POSTID: 1740
+#+DATE: [2016-10-20 Thu 12:14]
+#+PERMALINK: tramp-shell-command
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+#+DESCRIPTION:リモート(sshなど)・sudoを扱う標準機能Trampはファイルを開く以外にもコマンド実行もサポートされています。ここではM-!、eshell、gdbについて使用例を示します。
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY:   シェル・端末
+#+TAGS: tramp, sudo, eshell, gud
+#+TITLE: tramp: リモート・sudoでコマンドを実行する(M-!, eshell, gud, gdbなど)
+#+begin: org2blog-tags
+# content-length: 1006
+
+#+end:
+Trampはリモートファイルやroot権限でファイルを開く機能として知られていますが、
+実はリモートコマンド実行・sudoでのコマンド実行もできます。
+
+その方法は2つあります。
+1. C-x C-fでリモート・sudoでdiredを開き、M-!(shell-command)を実行する
+2. eshellを使う
+
+rootでdiredを開くには[[http://emacs.rubikitch.com/dired-toggle-sudo/][dired-toggle-sudo]] を使うのもいいです。
+
+#+BEGIN_EXAMPLE
+C-x C-f /sudo:: RET →/rootがdiredで開かれる
+M-! echo $USER RET  →「root」と表示される
+M-! tail -f /var/log/syslog.log & RET → 「*Async Shell Command*バッファでtail -fが実行される」
+#+END_EXAMPLE
+
+eshellでの実行例です。
+
+#+BEGIN_EXAMPLE
+# /etc/gshadow-は一般ユーザでは開けない
+$ cd /etc
+$ ls -l gshadow-
+-rw------- 1 root root 1022  2月  1  2016 gshadow-
+$ find-file gshadow-
+File is not readable: /etc/gshadow-
+
+# けれども、sudoすれば開ける
+$ /sudo::/etc
+$ find-file gshadow-
+#<buffer gshadow->
+#+END_EXAMPLE
+
+M-x gdbでもtramp形式のファイル名を指定できます。
+内部で使われているgud.elでファイル名の変換を行ないますので、
+指定されたファイル名そのままがgdbに渡っているわけではありません。
+
+#+BEGIN_EXAMPLE
+M-x gdb RET
+Run gdb (like this): gdb --annotate=3 /ssh:host:~/myprog RET
+
+#+END_EXAMPLE
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
