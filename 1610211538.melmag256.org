@@ -11,7 +11,7 @@
 #+DESCRIPTION: るびきち塾メルマガ『Emacsの鬼るびきちのココだけの話#256』の予告
 #+TITLE: 【るびきち塾メルマガ#256】#x100回目のメルマガは？
 #+begin: org2blog-tags
-# content-length: 599
+# content-length: 598
 #+HTML: <!-- noindex -->
 
 #+end:
@@ -44,4 +44,4 @@ Emacsについて、人生の質を上げる方法について
 http://www.mag2.com/m/0001373131.html
 1週間あたり缶ジュース1本分の投資で、僕があなたのメンターになります。
 
-^# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
