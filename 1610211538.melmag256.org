@@ -1,0 +1,47 @@
+#+BLOG: rubikitch
+#+POSTID: 1742
+#+DATE: [2016-10-21 Fri 15:38]
+#+PERMALINK: melmag256
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: るびきち塾メルマガ
+#+DESCRIPTION: るびきち塾メルマガ『Emacsの鬼るびきちのココだけの話#256』の予告
+#+TITLE: 【るびきち塾メルマガ#256】#x100回目のメルマガは？
+#+begin: org2blog-tags
+# content-length: 599
+#+HTML: <!-- noindex -->
+
+#+end:
+ついにメルマガは256号に到達しました。
+256は16進数で最小の3桁の数(#x100)です。
+また、僕の処女作
+『Rubyを256倍使うための本　魔道編』
+も256という数字が出てきています。
+そういう意味で256は僕の中ではキリ番です。
+
+桁が1つ増えたことで、僕は新たな決意をすることにしました。
+その続きは本文で！
+
+# (wop)
+#+BEGIN_SRC org
+今回のメルマガであなたが得られる結果は、
+- るびきち新たな決意
+- 世界一優れたEmacs情報源
+- org-modeで表を転置させる標準コマンド
+- 自分が理解しない設定を加えてはいけない理由
+- Gitのコミットを面倒がってはいけない理由
+などなどです。
+#+END_SRC
+
+# footer
+豪華な入塾特典付きで、初月無料月々527円のるびきち塾。
+Emacsについて、人生の質を上げる方法について
+メルマガでも個別メールでも懇切丁寧に指導します。
+絶対に損はさせませんので、ぜひとも登録してください。
+http://www.mag2.com/m/0001373131.html
+1週間あたり缶ジュース1本分の投資で、僕があなたのメンターになります。
+
+^# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
