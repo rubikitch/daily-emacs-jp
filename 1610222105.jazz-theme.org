@@ -1,0 +1,138 @@
+#+BLOG: rubikitch
+#+POSTID: 1746
+#+DATE: [2016-10-22 Sat 21:05]
+#+PERMALINK: jazz-theme
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY:     ダーク
+#+EL_PKG_NAME: jazz-theme
+#+TAGS: 
+#+EL_TITLE: 
+#+EL_TITLE0: 暖かく暗いカラーテーマ
+#+EL_URL: 
+#+begin: org2blog
+#+TITLE: jazz-theme.el : 暖かく暗いカラーテーマ
+[includeme file="inc-package-table.php" name="jazz-theme" where="melpa"]
+
+#+end:
+** 概要
+*jazz-theme.el* は、以下のパッケージに対応したカラーテーマです。
+- button
+- link
+- fringe
+- header-line
+- compilation
+- grep
+- isearch
+- menu
+- mode-line
+- font-lock
+- ace-jump
+- anzu
+- full-ack
+- auctex
+- popup
+- auto-complete
+- company
+- diff
+- ert
+- eshell
+- flymake
+- flyspell
+- flycheck
+- erc
+- gnus
+- helm
+- hl-line-mode
+- ido-mode
+- js2-mode
+- jabber-mode
+- line-mode
+- magit
+- markdown
+- message-mode
+- mew
+- minimap
+- mic-paren
+- nav
+- org
+- outline
+- rainbow-delimiters
+- rcirc
+- rpm-mode
+- rst-mode
+- show-paren
+- slime
+- term
+- undo-tree
+- whitespace
+- wanderlust
+- ensime
+- coffee-mode
+- which-func
+- ansi-color
+- fill-column-indicator
+
+
+[includeme file="inc-package-install.php" name="jazz-theme" where="melpa"]
+** スクリーンショット
+# (save-window-excursion (async-shell-command "emacs-test -eval '(load-theme (quote jazz) t)'"))
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_theme_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20161022211021.png]]
+Fig1: emacs-lisp-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20161022211029.png]]
+Fig2: magit
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20161022211032.png]]
+Fig3: grep
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20161022211035.png]]
+Fig4: outline-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20161022211037.png]]
+Fig5: org-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20161022211040.png]]
+Fig6: dired
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20161022211134.png]]
+Fig7: web-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20161022211144.png]]
+Fig8: markdown-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20161022211147.png]]
+Fig9: helm
+
+
+#+ATTR_HTML: :width 480
+[[http://f.cl.ly/items/3O3v0h2m0r1W2U0a3g0z/screenshot.png]]
+Fig10: 本家スクリーンショット
+
+
+
+** 設定
+#+BEGIN_SRC fundamental
+(load-theme 'jazz t)
+#+END_SRC
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ emacs -Q -f package-initialize -eval '(load-theme (quote jazz) t)'
+#+END_EXAMPLE
+[includeme file="inc-package-relate.php" name="jazz-theme"]
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
