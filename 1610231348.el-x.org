@@ -1,0 +1,83 @@
+#+BLOG: rubikitch
+#+POSTID: 1749
+#+DATE: [2016-10-23 Sun 13:48]
+#+PERMALINK: el-x
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY:   関数再定義
+#+EL_PKG_NAME: el-x
+#+TAGS: flet, マクロ, 
+#+EL_TITLE: 
+#+EL_TITLE0: 【ローカル関数】cl-fletが使いものにならない？ならばdfletを使おう
+#+EL_URL: 
+#+begin: org2blog
+#+TITLE: el-x.el : 【ローカル関数】cl-fletが使いものにならない？ならばdfletを使おう
+[includeme file="inc-package-table.php" name="el-x" where="melpa"]
+
+#+end:
+** 概要
+Common Lispで使える関数・マクロを提供するclライブラリは
+cl-libライブラリとして合法的に使えるようになりました。
+Common Lisp関数・マクロ群にプレフィクスcl-を付けることで、安心して使えます。
+
+ただし、ひとつだけ例外があります！
+ローカル関数を定義するfletマクロはcl-fletマクロになりましたが、
+まったくの別物に変貌してしまったのです。
+そのため、flet→cl-fletの置換を施しても元の動作をしなくなりました。
+
+元々のfletはスコープ内で呼ばれるローカル関数は、
+他の関数の内側にまで波及していました。
+一時的に関数の挙動を変更したい場合においては便利なマクロでした。
+
+ところが、新しいEmacsではobsoleteとされました。
+
+この問題を解決するのがel-xパッケージに含まれるdfletマクロです。
+dfletはまさしく元のfletを今のEmacsでも使えるようにしてくれます。
+
+実行例を見て挙動を比較してください。
+
+[includeme file="inc-package-install.php" name="el-x" where="melpa"]
+
+** 実行例 [[http://rubikitch.com/f/161023134958.dflet.el][161023134958.dflet.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/161023/161023134958.dflet.el"
+#+BEGIN_SRC fundamental
+;;; 関数fは元の数を2倍にする
+(defun f (x) (* x 2))
+(f 3)                                   ; => 6
+;;; 関数gはfを呼び出すだけ
+(defun g (x) (f x))
+
+;;; そこで、ローカル関数fで[元の数に1を足す関数]に再定義する
+;; 元々はfletを使えば望み通りの結果になった
+(flet ((f (x) (1+ x)))
+  (f 3)                                 ; => 4
+  (g 3))                                ; => 4
+;; しかし！cl-fletはfletとは異なりgの内部で呼ばれるfには波及しない！！！
+;; しかも元のfletはobsolet扱いされている、困った
+(cl-flet ((f (x) (1+ x)))
+  (f 3)                                 ; => 4
+  ;; ！！！！！！！！！！！！！！！！！！！
+  (g 3))                                ; => 6
+
+;;; そこでcl-fletの代わりにdfletを使えば元のfletを再現してくれる
+(dflet ((f (x) (1+ x)))
+  (f 3)                                 ; => 4
+  (g 3))                                ; => 4
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/161023134958.dflet.el
+$ emacs -Q -f package-initialize -l 161023134958.dflet.el
+#+END_EXAMPLE
+
+[includeme file="inc-package-relate.php" name="el-x"]
+** 参考サイト
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
