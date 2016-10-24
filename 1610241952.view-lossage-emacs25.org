@@ -9,9 +9,9 @@
 #+BLOG: rubikitch
 #+CATEGORY:   Emacsコマンド実行
 #+TAGS: Emacs 25.1以降, 
-#+TITLE: 【Emacs 25.1】C-h l(view-lossage)が便利になったよ！
+#+TITLE: 【迷子になったら＠Emacs 25.1】C-h l(view-lossage)が便利になったよ！
 #+begin: org2blog-tags
-# content-length: 503
+# content-length: 573
 #+HTML: <!-- noindex -->
 
 #+end:
@@ -31,3 +31,4 @@ Fig1: Emacs 24.5
 [[file:/r/sync/screenshots/20161024195802.png]]
 Fig2: Emacs 25.1
 
+[includeme file="inc-package-relate.php" name="view-lossage-emacs25"]
