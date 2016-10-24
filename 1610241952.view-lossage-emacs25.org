@@ -11,8 +11,7 @@
 #+TAGS: Emacs 25.1以降, 
 #+TITLE: 【迷子になったら＠Emacs 25.1】C-h l(view-lossage)が便利になったよ！
 #+begin: org2blog-tags
-# content-length: 573
-#+HTML: <!-- noindex -->
+# content-length: 651
 
 #+end:
 C-h l / <f1> l (view-lossage) は最近実行したキーを表示します。
@@ -22,6 +21,7 @@ Emacs25では実行されたコマンド名も表示するようにパワーア�
 M-x showkey-log-mode ([[http://emacs.rubikitch.com/showkey/][showkey.el]]) のような挙動になりましたが、
 それは別フレームで操作履歴を表示する点が異なります。
 
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
 #+ATTR_HTML: :width 480
 [[file:/r/sync/screenshots/20161024195910.png]]
