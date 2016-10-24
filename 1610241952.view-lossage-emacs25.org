@@ -1,0 +1,33 @@
+#+BLOG: rubikitch
+#+POSTID: 1751
+#+DATE: [2016-10-24 Mon 19:52]
+#+PERMALINK: view-lossage-emacs25
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY:   Emacsコマンド実行
+#+TAGS: Emacs 25.1以降, 
+#+TITLE: 【Emacs 25.1】C-h l(view-lossage)が便利になったよ！
+#+begin: org2blog-tags
+# content-length: 503
+#+HTML: <!-- noindex -->
+
+#+end:
+C-h l / <f1> l (view-lossage) は最近実行したキーを表示します。
+本来このコマンドは問題解決時に最近どのような操作をしたのかを示すものですが、
+Emacs25では実行されたコマンド名も表示するようにパワーアップしました。
+
+M-x showkey-log-mode ([[http://emacs.rubikitch.com/showkey/][showkey.el]]) のような挙動になりましたが、
+それは別フレームで操作履歴を表示する点が異なります。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20161024195910.png]]
+Fig1: Emacs 24.5
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20161024195802.png]]
+Fig2: Emacs 25.1
+
