@@ -10,7 +10,7 @@
 #+TAGS: Emacs 25.1以降, 
 #+TITLE: 【Emacs 25.1】insert-register(C-x r i)の挙動が変わっていた件
 #+begin: org2blog-tags
-# content-length: 622
+# content-length: 761
 
 #+end:
 あなたはレジスタを使っていますか？
@@ -29,6 +29,10 @@ Emacs 25.1からは、どちらもC-y同様に貼り付けた後にカーソル�
 よかったですね、レジスタさん。
 これで少しは使ってもらえそうです。
 
+スクリーンショットは、「create」をregionに設定してC-x r r a (copy-rectangle-to-register)を実行した直後に、C-x r i aで貼り付けた後の様子です。
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
-# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20161026150948.png]]
+Fig1: C-x r i aでcreateを貼り付けると、カーソルが後に移動する！
+
