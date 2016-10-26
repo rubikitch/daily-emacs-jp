@@ -1,0 +1,34 @@
+#+DATE: [2016-10-26 Wed 14:59]
+#+PERMALINK: insert-register-emacs25
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+POSTID: 1756
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY:   コピー・貼り付け
+#+TAGS: Emacs 25.1以降, 
+#+TITLE: 【Emacs 25.1】insert-register(C-x r i)の挙動が変わっていた件
+#+begin: org2blog-tags
+# content-length: 622
+
+#+end:
+あなたはレジスタを使っていますか？
+レジスタはちょっととっつきにくいですが、いつも入力する文字列を予め格納したり、一時的に複数のテキストを記憶させたりと、使ってみると便利なものです。
+レジスタは文字列以外にもウィンドウ構成なども記憶できるのですが、ここでは文字列を対象にします。
+
+C-x r i(insert-register)とC-y(yank)は、どちらも文字列をバッファに貼り付けるコマンドです。
+ところが、Emacs 24.5まではなぜか貼り付け後のカーソル位置が異なる謎仕様でした。
+
+Emacs 25.1からは、どちらもC-y同様に貼り付けた後にカーソルも移動するようになりました。
+以前の仕様だと、C-x r iの後にC-x C-x(exchange-point-and-mark)を実行する必要があって使いづらかったです。
+今更感ありますが、今回の挙動変更は正解だと僕は思いました。
+
+なお、C-u C-x r iで旧来の挙動をします。
+
+よかったですね、レジスタさん。
+これで少しは使ってもらえそうです。
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
