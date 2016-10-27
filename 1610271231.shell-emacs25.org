@@ -1,0 +1,48 @@
+#+BLOG: rubikitch
+#+POSTID: 1760
+#+DATE: [2016-10-27 Thu 12:31]
+#+PERMALINK: shell-emacs25
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY:   シェル・端末
+#+TAGS: Emacs 25.1以降, shell, 
+#+TITLE: 【Emacs 25.1】M-x shellが別ウィンドウで表示されるようになったヨ
+#+begin: org2blog-tags
+# content-length: 739
+
+#+end:
+今日もetc/NEWSからの情報です。
+
+あなたはM-x shellを使っていますか？
+僕は大昔は愛用していました。
+今、僕が使っているシェルはeshellと[[http://fish.rubikitch.com/][fish]] の二刀流です。
+
+Emacs 25.1からM-x shellの表示方法が変更になりました。
+Emacs 24.5までは現在選択しているウィンドウに*shell*バッファが表示されましたが、
+Emacs 25.1からは別ウィンドウで表示されるようになりました。
+
+旧来の表示方法に戻したいのならば、以下の設定を加えます。
+
+#+BEGIN_SRC emacs-lisp :results silent
+(add-to-list 'display-buffer-alist
+     '("^\\*shell\\*$" . (display-buffer-same-window))).
+#+END_SRC
+
+なお、eshellでは現在選択しているウィンドウに*eshell*バッファが表示されます(笑)
+
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20161027123726.png]]
+Fig1: Emacs 24.5まで
+
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20161027123717.png]]
+Fig2: Emacs 25.1のデフォルト
+
+
