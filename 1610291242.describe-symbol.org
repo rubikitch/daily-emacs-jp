@@ -1,0 +1,38 @@
+#+BLOG: rubikitch
+#+POSTID: 1764
+#+DATE: [2016-10-29 Sat 12:42]
+#+PERMALINK: describe-symbol
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY:   Emacs Lisp支援
+#+TAGS: ヘルプ, 
+#+TITLE: 【Emacs 25.1】M-x describe-symbol (C-h o)で変数・関数・フェイスの説明を一括で表示する
+#+begin: org2blog-tags
+# content-length: 607
+
+#+end:
+Emacs 25.1になって、便利なヘルプコマンドが追加されました。
+C-h oまたは<f1> oにバインドされているM-x describe-symbolです。
+Emacsのシンボルには変数・関数・フェイスといった用途がありますが、
+describe-symbol一本があれば、それらすべてをカバーします。
+
+もちろん、デフォルト値はカーソル位置のシンボルとなります。
+
+view-modeのように関数名兼変数名となっている場合(主にマイナーモード)においては
+双方の説明が表示されます。
+
+C-h f(describe-function)やC-h v(describe-variable)やM-x describe-faceなどは、
+もう用済みになってしまうのではないでしょうか。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20161027125017.png]]
+Fig1: find-fileの説明
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20161027125038.png]]
+Fig2: view-modeの説明
+
