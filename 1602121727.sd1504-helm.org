@@ -17,9 +17,15 @@ Software Design連載記事を掲載します。
 株式会社技術評論社の許可を得て掲載しています。
 草稿なので細かい部分は実際の記事とは異なることがあります。
 
-他の記事は左下にある「■雑誌連載中(全文公開)」から見られます。
-
 なお、現在のhelmはmigemoが組み込まれているので、helm-migemoパッケージは *インストール不要* です。
+
+#+BEGIN_SRC emacs-lisp :results silent
+(helm-migemo-mode 1)
+#+END_SRC
+の設定を加えればmigemo検索の対象となります。
+
+参考: [[http://qiita.com/ballforest/items/4db3d66df16d84a027d0][helm-migemoのインストールなしにmigemo検索を可能にする新機能helm-migemo-modeについて - Qiita]]
+
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
 * もっと深くhelmを知ろう
