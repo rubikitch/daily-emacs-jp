@@ -1,0 +1,46 @@
+#+BLOG: rubikitch
+#+POSTID: 1766
+#+DATE: [2016-10-30 Sun 18:47]
+#+PERMALINK: save-place-mode-emacs25
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+#+DESCRIPTION:Emacs 25.1からはsaveplaceの設定は (save-place-mode 1) に変更しないと動きません。
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY:   ファイルを開く
+#+TAGS: Emacs 25.1以降, 
+#+TITLE: 【Emacs 25.1】カーソル位置が復元されない？それsaveplaceの設定が変更になったから！
+#+begin: org2blog-tags
+# content-length: 655
+
+#+end:
+Emacs25になってなぜかファイルを開いたときのカーソル位置が
+常に先頭になっていたりしませんか？
+
+それは標準パッケージsaveplace.elの設定方法が変更されたからです。
+
+Emacs 24.5までは
+
+#+BEGIN_SRC emacs-lisp :results silent
+(setq-local save-place t)
+(require 'saveplace)
+#+END_SRC
+
+でファイルが閉じられたときのカーソル位置が保存されました。
+
+けれども、Emacs 25.1からはsaveplace.elはマイナーモードとして設計されました。
+
+今のEmacsの風潮として、素のEmacsに新しい機能を追加するのはマイナーモードにする
+という暗黙の了解があるようで、saveplaceも例外ではありません。
+
+saveplaceの設定は以下のように置き換えてください。
+
+#+BEGIN_SRC emacs-lisp :results silent
+(save-place-mode 1)
+#+END_SRC
+
+save-place-modeはグローバルマイナーモードなのでこの一行で全バッファで有効になります。
+特定のバッファのみ有効・無効を切り替えるにはM-x save-place-local-modeを使います。
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
