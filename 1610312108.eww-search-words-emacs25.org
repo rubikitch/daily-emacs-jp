@@ -1,0 +1,39 @@
+#+BLOG: rubikitch
+#+POSTID: 1769
+#+DATE: [2016-10-31 Mon 21:08]
+#+PERMALINK: eww-search-words-emacs25
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY:   検索エンジン
+#+TAGS: Emacs 25.1以降, EWW, google, 
+#+TITLE: 【Google＠Emacs 25.1】M-s M-wでサーチエンジンによる検索が使えるよ
+#+begin: org2blog-tags
+# content-length: 621
+
+#+end:
+Emacs 25.1になってWeb検索のコマンドが標準で使えるようになりました。
+M-s M-w (eww-search-words) は検索エンジンによる検索結果をEWWで表示します。
+
+どの検索エンジンを使うかは変数 eww-search-prefix で指定します。
+デフォルトは duckduckgo を使います。
+Googleにする場合は
+
+#+BEGIN_SRC emacs-lisp :results silent
+(setq eww-search-prefix "https://www.google.co.jp/search?btnI&q=")
+#+END_SRC
+
+と設定します。
+
+このコマンドはregionの有無によって挙動を変えるなどの空気を読む機能はありません。
+M-@などでregionを指定するといいです。
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20161031211042.png]]
+Fig1: M-s M-wでGoogle検索
+
+[includeme file="inc-package-relate.php" name="eww-search-words-emacs25"]
