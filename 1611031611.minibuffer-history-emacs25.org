@@ -1,0 +1,70 @@
+#+BLOG: rubikitch
+#+POSTID: 1771
+#+DATE: [2016-11-03 Thu 16:11]
+#+PERMALINK: minibuffer-history-emacs25
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY:   ミニバッファ
+#+TAGS: Emacs 25.1以降, 
+#+TITLE: 【Emacs 25.1新機能＆オススメ設定】ミニバッファ履歴が使いやすくなったよ
+#+begin: org2blog-tags
+# content-length: 1752
+
+#+end:
+ここ数日、疲れがたまっていたのでブログをお休みしてしまいました。
+楽しみにしていた方、ほんとにごめんなさい。
+
+最近はEmacs 25.1の新機能探索をしていますが、今日はミニバッファについてです。
+
+かな〜り地味な変更点ですが、NEWSから抜粋します。
+
+#+BEGIN_QUOTE
+You can use <UP> and <DOWN> arrow keys to move through history by lines.
+The new commands 'next-line-or-history-element' and
+'previous-line-or-history-element', bound to <UP> and <DOWN> in the
+minibuffer, allow by-line movement through minibuffer history,
+similarly to an ordinary buffer.  Only when point moves over
+the bottom/top of the minibuffer it goes to the next/previous history
+element.  'M-p' and 'M-n' still move directly to previous/next history
+item as before.
+#+END_QUOTE
+
+ミニバッファにおいて新しいコマンド next-line-or-history-element と
+ previous-line-or-history-element がそれぞれ上下キーに割り当てられました。
+M-p (previous-history-element) とM-n (next-history-element) は
+いつも通り常に履歴をたどりますが、
+上下キーは複数行にわたるミニバッファの内容を扱うときに異なります。
+
+上下キーはミニバッファの先頭・末尾にあるときのみ履歴をたどり、
+その他の場合は前後の行にカーソルを移動します。
+そのため、ミニバッファもあたかも通常のバッファであるかのように振舞います。
+
+ちなみにC-p/C-nは上下キーとは異なり、常に前後の行にカーソルを移動します。
+
+
+M-p/M-nと上下キーの挙動の違いは、図のように複数行のミニバッファ履歴を作成すればよくわかります。
+ミニバッファにおいては、M-j (indent-new-comment-line) で改行を入力できます。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20161103163552.png]]
+Fig1: M-: (progn M-j 1 M-j 2) RET
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20161103163556.png]]
+Fig2: M-: (progn M-j 3 M-j 4) RET
+
+Fig2の後でM-:を押した後にM-p/M-nや上下キーを押して挙動を確認してください。
+
+どうせならばC-p/C-nに割り当ててしまえばよかったのではないでしょうか。
+さすがに挙動が変わりすぎてびっくりするから、そこまではやらなかったのかもしれませんが。
+
+#+BEGIN_SRC emacs-lisp :results silent
+(define-key minibuffer-local-map (kbd "C-p") 'previous-line-or-history-element)
+(define-key minibuffer-local-map (kbd "C-n") 'next-line-or-history-element)
+#+END_SRC
+
+この設定を加えれば、C-p/C-nがとても便利になります。
