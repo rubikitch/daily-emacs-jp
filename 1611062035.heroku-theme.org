@@ -1,0 +1,92 @@
+#+BLOG: rubikitch
+#+POSTID: 1775
+#+DATE: [2016-11-06 Sun 20:35]
+#+PERMALINK: heroku-theme
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY:     ダーク
+#+EL_PKG_NAME: heroku-theme
+#+TAGS: 
+#+EL_TITLE: 
+#+EL_TITLE0: herokuの記事で使われているようなカラーテーマ
+#+EL_URL: 
+#+begin: org2blog
+#+TITLE: heroku-theme.el : herokuの記事で使われているようなカラーテーマ
+[includeme file="inc-package-table.php" name="heroku-theme" where="melpa"]
+
+#+end:
+** 概要
+*heroku-theme.el* は、以下のパッケージに対応したカラーテーマです。
+- mode-line
+- magit
+- hl-line-mode
+- font-lock
+- show-paren
+- isearch
+- org
+[includeme file="inc-package-install.php" name="heroku-theme" where="melpa"]
+** スクリーンショット
+# (save-window-excursion (async-shell-command "emacs-test24 -eval '(load-theme (quote heroku) t)'"))
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_theme_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20161106203732.png]]
+Fig1: emacs-lisp-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20161106203738.png]]
+Fig2: magit
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20161106203741.png]]
+Fig3: grep
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20161106203743.png]]
+Fig4: outline-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20161106203745.png]]
+Fig5: org-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20161106203747.png]]
+Fig6: dired
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20161106203750.png]]
+Fig7: web-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20161106203752.png]]
+Fig8: markdown-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20161106203755.png]]
+Fig9: helm
+
+
+#+ATTR_HTML: :width 480
+http://i.imgur.com/Y5WYh.png
+Fig10: 本家スクリーンショット
+
+#+ATTR_HTML: :width 480
+http://i.imgur.com/JrGia.png
+Fig11: 本家スクリーンショット
+
+
+
+** 設定
+#+BEGIN_SRC fundamental
+(load-theme 'heroku t)
+#+END_SRC
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ emacs -Q -f package-initialize -eval '(load-theme (quote heroku) t)'
+#+END_EXAMPLE
+[includeme file="inc-package-relate.php" name="heroku-theme"]
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
