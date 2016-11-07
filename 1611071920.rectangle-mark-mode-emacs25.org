@@ -1,0 +1,46 @@
+#+BLOG: rubikitch
+#+POSTID: 1777
+#+DATE: [2016-11-07 Mon 19:20]
+#+PERMALINK: rectangle-mark-mode-emacs25
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY:   コピー・貼り付け
+#+TAGS: Emacs 25.1以降, 
+#+TITLE: 【矩形編集＠Emacs 25.1】さらに便利で使いやすくなったrectangle-mark-mode
+#+begin: org2blog-tags
+# content-length: 924
+
+#+end:
+Emacs 25.1では[[http://emacs.rubikitch.com/emacs244-edit-changes/][Emacs 24.4で導入されたrectangle-mark-mode (C-x SPC)]] がさらに便利になりました。
+なんといっても、rectangle-mark-modeでは改行よりも後ろにもカーソルが移動できるようになりました。
+以前だとわざわざスペースでpaddingする必要があってとても不便でした。
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20161107192654.png]]
+Fig1: ここでC-x SPC
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20161107192701.png]]
+Fig2: 改行の後にもカーソルが移動できる！
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20161107192704.png]]
+Fig3: 下へ移動
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20161107192725.png]]
+Fig4: C-wでカットし、C-yで貼り付ける
+
+
+また、C-x C-x (exchange-point-and-mark) では矩形の4隅に移動するようにもなりました。
+おかげで、矩形を任意の方向に大きくすることも自在です。
+
+C-x r t (string-rectangle) は[[http://emacs.rubikitch.com/multiple-cursors/][multiple-cursor]] のようにリアルタイムにバッファに編集を反映するようになりました。
+地味な変更点ですが、ユーザへの配慮が行き届いていると思います。
+
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
