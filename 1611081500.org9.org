@@ -1,0 +1,40 @@
+#+BLOG: rubikitch
+#+POSTID: 1779
+#+DATE: [2016-11-08 Tue 15:00]
+#+PERMALINK: org9
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY:   リリース情報
+#+TAGS: org, 
+#+TITLE: org-mode 9.0が出たー！
+#+begin: org2blog-tags
+# content-length: 628
+
+#+end:
+http://orgmode.org/Changes.html
+
+Emacs最大のバケモノメジャーモードOrgがメジャーリリースされました。
+Emacs 24.3以降のみサポートされるようです。
+XEmacsのサポートは打ち切られました。
+
+また、export blockの書式も変更されていて
+「#+BEGIN_HTML 〜 #+END_HTML」ではなくて
+「#+BEGIN_EXPORT HTML 〜 #+END_EXPORT HTML」と書く必要があるようです。
+
+変数 org-file-apps の設定方法も変更されました。
+
+org-agendaはいつも使っているのでいきなり動かなくなるのは怖いですが、
+ちょっとずつ試していきたく思います。
+
+https://www.reddit.com/r/emacs/comments/5avnw9/org_90_released/
+
+Emacs 24.4でいきなりorg7→org8になって大騒ぎになったのは記憶に新しいです。
+redditによるとEmacs 25.2でいきなりorg9になるのではなく、Emacs 26.1でorg9になるようです。
+Emacs 24.4のマイナーアップデート詐欺はもう繰り返さないでほしいものです。
+
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
