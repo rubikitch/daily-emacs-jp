@@ -10,11 +10,13 @@
 #+BLOG: rubikitch
 #+CATEGORY: 高速化
 #+DESCRIPTION: 
-#+TITLE: 【高速化】Emacsのカーソル移動が重い？現在行ハイライトhl-line-modeに原因があるかも…
+#+TITLE: <2016-11-09 Wed>更新【高速化】Emacsのカーソル移動が重い？現在行ハイライトhl-line-modeに原因があるかも…
 #+begin: org2blog-tags
-# content-length: 1040
+# content-length: 1599
 
 #+end:
+<2016-11-09 Wed>todotxt.elで挙動がおかしくなるのでコードを修正しました。
+
 現在行をハイライトする *global-hl-line-mode* は、
 当たり前すぎてもはや空気のようなマイナーモードだと思います。
 
@@ -50,10 +52,13 @@ global-hl-line-modeを使う代わりに
 
 #+BEGIN_SRC emacs-lisp :results silent
 (require 'hl-line)
+;;; hl-lineを無効にするメジャーモードを指定する
+(defvar global-hl-line-timer-exclude-modes '(todotxt-mode))
 (defun global-hl-line-timer-function ()
-  (global-hl-line-unhighlight-all)
-  (let ((global-hl-line-mode t))
-    (global-hl-line-highlight)))
+  (unless (memq major-mode global-hl-line-timer-exclude-modes)
+    (global-hl-line-unhighlight-all)
+    (let ((global-hl-line-mode t))
+      (global-hl-line-highlight))))
 (setq global-hl-line-timer
       (run-with-idle-timer 0.03 t 'global-hl-line-timer-function))
 ;; (cancel-timer global-hl-line-timer)
@@ -62,5 +67,11 @@ global-hl-line-modeを使う代わりに
 騙されたと思って設定してみてください。
 
 ほんと、カーソル移動が軽くなりますから！！
+** <2016-11-09 Wed>hl-lineを無効にするメジャーモードを指定
+[[http://www.mag2.com/m/0001373131.html][るびきち塾]] の塾生からtodotxt.elとこの設定が競合するという報告を頂きました。
+元のglobal-hl-line-timerのコードではtodotxt.elがうまく動きません。
+よって、todotxt-modeではglobal-hl-line-timerを働かないようにコードを改良しました。
+他にも、global-hl-line-timerと愛称の悪いメジャーモードがあったら、 global-hl-line-timer-exclude-modes に加えてください。
+報告していただけると、コードを更新します。
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
