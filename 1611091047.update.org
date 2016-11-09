@@ -1,0 +1,25 @@
+#+BLOG: rubikitch
+#+POSTID: 1782
+#+DATE: [2016-11-09 Wed 10:47]
+#+PERMALINK: update
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY:   記事更新情報
+#+TAGS: 
+#+TITLE: hl-line-modeを高速化する設定の競合問題を解決しました
+#+begin: org2blog-tags
+# content-length: 254
+#+HTML: <!-- noindex -->
+
+#+end:
+http://emacs.rubikitch.com/global-hl-line-mode-timer/
+
+カーソル行をハイライトするhl-line-modeはタイマーを使うことで描画が高速化されます。
+しかしtodotxt.elでは挙動がおかしくなってしまいます。
+これを解決するために、無効にするメジャーモードを指定できるようにしました。
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
