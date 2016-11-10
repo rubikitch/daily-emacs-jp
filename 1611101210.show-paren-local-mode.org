@@ -1,0 +1,36 @@
+#+BLOG: rubikitch
+#+POSTID: 1785
+#+DATE: [2016-11-10 Thu 12:10]
+#+PERMALINK: show-paren-local-mode
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY:   見やすく表示
+#+TAGS: マイナーモード, 標準コマンド強化, 
+#+TITLE: show-paren-modeをバッファローカルにする
+#+begin: org2blog-tags
+# content-length: 593
+#+HTML: <!-- noindex -->
+
+#+end:
+http://stackoverflow.com/questions/10266986/how-to-enable-show-paren-mode-only-for-el-files
+
+Emacs標準機能であるshow-paren-modeは、対応する括弧に色付けで示してくれる嬉しいマイナーモードです。
+ただ、名前とはうらはらにグローバルマイナーモードになっています。
+特定のモードのみに有効にさせるには、自分で show-paren-local-mode を定義するしかありません。
+標準で定義してほしいものです。
+
+以下の設定ではプログラミングのメジャーモードのみshow-paren-modeを有効にします。
+
+#+BEGIN_SRC emacs-lisp :results silent
+(show-paren-mode -1)
+(defun show-paren-local-mode ()
+  (interactive)
+  (setq-local show-paren-mode t))
+(add-hook 'prog-mode-hook 'show-paren-local-mode)
+#+END_SRC
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
