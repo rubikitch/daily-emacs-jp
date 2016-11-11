@@ -1,0 +1,64 @@
+#+BLOG: rubikitch
+#+POSTID: 1788
+#+DATE: [2016-11-11 Fri 11:41]
+#+PERMALINK: melmag259
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: るびきち塾メルマガ
+#+DESCRIPTION: るびきち塾メルマガ『Emacsの鬼るびきちのココだけの話#259』の予告
+#+TITLE: 【るびきち塾メルマガ#259】秘密の勉強法＋Emacs News
+#+begin: org2blog-tags
+# content-length: 781
+
+#+end:
+
+「おいるびきち！いつに増して元気だな」
+『ああ、絶好調だぜ』
+「妖怪のせいだったり？」
+『妖怪ウォッチかよwww』
+「wwww」
+『ちがうちがう』
+「じゃあなに？」
+『知りたい？』
+「知りたい」
+『始めたばかりだから、今はまだそのタイミングではない』
+「チッ」
+『それはそうと、いい読書法を教えるよ』
+「なになに？」
+『耳で読書する！』
+「なんやそれ？」
+『読書って時間もかかるし大変だよね』
+「ああ」
+『けど耳って空いてること多いじゃない？』
+「つまり？」
+『続きは本文でっ！』
+
+# (wop)
+#+BEGIN_SRC org
+今回のメルマガであなたが得られる結果は、
+- 『学び』の意義
+- 耳で読書する方法
+- 脳を2.5倍活性化する方法
+- org-modeのリストを整形する方法
+- key-valueペアを整形するたった1行のコマンド
+- dynamic moduleの作り方
+- Emacsでジョイスティックを使う方法
+- eldocでカーソル位置に情報を表示する方法
+- Emacsの起動時間を測定する方法
+- 存在しないテキストをEmacsに表示させる高速な方法
+となります。
+#+END_SRC
+
+
+# footer
+豪華な入塾特典付きで、初月無料月々527円のるびきち塾。
+Emacsについて、人生の質を上げる方法について
+メルマガでも個別メールでも懇切丁寧に指導します。
+絶対に損はさせませんので、ぜひとも登録してください。
+http://www.mag2.com/m/0001373131.html
+1週間あたり缶ジュース1本分の投資で、僕があなたのメンターになります。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
