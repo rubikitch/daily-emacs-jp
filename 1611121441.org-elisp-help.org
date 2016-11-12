@@ -1,0 +1,82 @@
+#+BLOG: rubikitch
+#+POSTID: 1790
+#+DATE: [2016-11-12 Sat 14:41]
+#+PERMALINK: org-elisp-help
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY:   ハイパーリンク
+#+EL_PKG_NAME: org-elisp-help
+#+TAGS: org, 
+#+EL_TITLE: 
+#+EL_TITLE0: 【org-mode】Emacs Lisp関数・変数へのリンクが使えるよ
+#+EL_URL: 
+#+begin: org2blog
+#+TITLE: org-elisp-help.el : 【org-mode】Emacs Lisp関数・変数へのリンクが使えるよ
+[includeme file="inc-package-table.php" name="org-elisp-help" where="melpa"]
+
+#+end:
+** 概要
+*org-elisp-help.el* は、2つの新しいorg-modeのハイパーリンクを提供します。
+elisp-functionとelisp-variableはそれぞれ関数と変数へのリンクです。
+
+たとえば、M-x find-fileへのリンクはこのように記述します。
+
+#+BEGIN_EXAMPLE
+elisp-function::find-file
+[[elisp-function::find-file]]
+[[elisp-function::find-file][link to find-file]]
+#+END_EXAMPLE
+
+外部ライブラリを読み込む必要がある場合は、このように記述します。
+たとえばorg-drill-entry-statusはorg-drill.elに定義されています。
+
+#+BEGIN_EXAMPLE
+elisp-function:org-drill:org-drill-entry-status
+[[elisp-function:org-drill:org-drill-entry-status]]
+[[elisp-function:org-drill:org-drill-entry-status][link to org-drill-entry-status]]
+#+END_EXAMPLE
+
+変数についても同様です。
+
+#+BEGIN_EXAMPLE
+elisp-variable::auto-mode-alist
+[[elisp-variable::auto-mode-alist][link to auto-mode-alist]
+[[elisp-variable:org-drill:org-drill-card-type-alist]]
+#+END_EXAMPLE
+
+リンクをたどると、関数・変数の説明(describe-function/describe-variable)が表示されます。
+
+なお、org-plus-contrib に含まれている org-elisp-symbol.el にも elisp-symbol リンクが定義されています。
+
+[includeme file="inc-package-install.php" name="org-elisp-help" where="melpa"]
+** 関数・変数定義にジャンプするようにカスタマイズする
+定義にジャンプするようにカスタマイズできます。
+
+変数 org-elisp-help-function-open-function で関数へのリンクを、
+変数 org-elisp-help-variable-open-function で変数へのリンクを
+find-function/find-variable系列に変更できます。
+
+#+BEGIN_SRC emacs-lisp :results silent
+;;; 関数定義
+;; 現在のウィンドウ
+(setq org-elisp-help-function-open-function 'find-function)
+;; 別ウィンドウ
+(setq org-elisp-help-function-open-function 'find-function-other-window)
+;; 別フレーム
+(setq org-elisp-help-function-open-function 'find-function-other-frame)
+
+;;; 変数定義も同様
+(setq org-elisp-help-variable-open-function 'find-variable)
+(setq org-elisp-help-variable-open-function 'find-variable-other-window)
+(setq org-elisp-help-variable-open-function 'find-variable-other-frame)
+#+END_SRC
+
+
+[includeme file="inc-package-relate.php" name="org-elisp-help"]
+
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
