@@ -1,0 +1,49 @@
+#+BLOG: rubikitch
+#+POSTID: 1792
+#+DATE: [2016-11-13 Sun 12:15]
+#+PERMALINK: set-mark-command-repeat-pop
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY:   マーク
+#+TAGS: 初心者安心, るびきちオススメ, 
+#+TITLE: 【Mark Ring】「VimのCtrl-oみたいにマークをたどる」をさらに快適にする設定
+#+begin: org2blog-tags
+# content-length: 791
+
+#+end:
+[[http://qiita.com/acro5piano/items/37ce1dd22de8d079d33e][Emacsで、VimのCtrl-oみたいにマークをたどる - Qiita]]
+
+#+BEGIN_QUOTE
+Vimは、C-oを連打することで、直前に編集していた箇所に戻れるという素晴らしい機能がある。
+
+EmacsではC-x C-xで直前のマークに戻れるが、更に前に付けたマークに戻るにはどうすればよいか分からなかった。
+
+(略)
+
+C-u C-SPC でOK。
+
+#+END_QUOTE
+
+Emacsにはmark-ringという機能があります。
+デフォルトでは過去のマークを辿るにはC-u C-SPC C-u C-SPCと連続して操作する必要があります。
+これは面倒ですね。
+
+#+BEGIN_SRC emacs-lisp :results silent
+(setq set-mark-command-repeat-pop t)
+#+END_SRC
+
+の一行を入れればC-u C-SPC C-SPC...とC-SPCを連打することで過去のマークに戻れます。
+便利なので是非とも設定しておくことをおすすめします。
+
+また、mark-ringに保持するマークは16個ですが、増減させることができます。
+
+#+BEGIN_SRC emacs-lisp :results silent
+(setq mark-ring-max 32)
+#+END_SRC
+
+なお、本題となっている「直前に編集していた箇所に戻る」にはgoto-chgパッケージをインストールしてM-x goto-last-changeを使います。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
