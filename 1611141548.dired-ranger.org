@@ -1,0 +1,88 @@
+#+BLOG: rubikitch
+#+POSTID: 1795
+#+DATE: [2016-11-14 Mon 15:48]
+#+PERMALINK: dired-ranger
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY:   ファイラ
+#+EL_PKG_NAME: dired-ranger
+#+TAGS: dired, 
+#+EL_TITLE: 
+#+EL_TITLE0: diredに今風なファイルのコピー・貼り付けをする機能を追加
+#+EL_URL: 
+#+begin: org2blog
+#+TITLE: dired-ranger.el : diredに今風なファイルのコピー・貼り付けをする機能を追加
+[includeme file="inc-package-table.php" name="dired-ranger" where="melpa"]
+
+#+end:
+** 概要
+dired-ranger.elはdiredで「今風」なファイル操作を行うEmacs Lispです。
+dired-hacksメタパッケージに含まれています。
+
+通常のdiredでコピー・移動するには、コピー先を入力するのが面倒です。
+そこで dired-dwim-target 変数を t にすることで隣のdiredバッファをデフォルトのコピー先にできます。
+
+dired-ranger.elでは、それをさらに推し進めて、
+「仮想クリップボード」にファイルを格納して、
+コピー・貼り付け感覚でファイルのコピー・移動ができるようにしました。
+
+デフォルトではキーに割り当てられていませんので「設定」を施す必要があります。
+
+その上で、、、
+
+仮想クリップボードにコピーするにはWを押します。
+diredの他のコマンド同様、マークされていない場合は現在のファイル、マークされているときはマークされているファイル全部が対象です。
+
+他のdiredに移動してC-u Wで仮想クリップボードに「追加」もできます。
+
+仮想クリップボードにファイルがある状態でターゲットのdiredバッファを開きます。
+
+Yで仮想クリップボードのファイルをターゲットにコピーします。
+
+Xで仮想クリップボードにあるファイルをターゲットに移動します。
+つまり、元のファイルは削除されます。
+
+とはいえ、、、
+
+仮想クリップボードが一覧できるわけでもないですし、
+どうせ他のdiredを開くのであればわざわざ新しいコマンドを使わなくても
+dired-dwim-target で十分だと僕は思います。
+
+気に入れば使ってみてください。
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20161114155457.png]]
+Fig1: mでマークしてWで「仮想クリップボード」へコピー
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20161114155523.png]]
+Fig2: 別なdiredバッファでYで実際にコピーされる
+
+
+[includeme file="inc-package-install.php" name="dired-ranger" where="melpa"]
+[includeme file="inc-package-relate.php" name="dired-ranger"]
+** 設定 [[http://rubikitch.com/f/161114155141.dired-ranger.el][161114155141.dired-ranger.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/161114/161114155141.dired-ranger.el"
+#+BEGIN_SRC fundamental
+(require 'dired)
+(define-key dired-mode-map (kbd "W") 'dired-ranger-copy)
+(define-key dired-mode-map (kbd "X") 'dired-ranger-move)
+(define-key dired-mode-map (kbd "Y") 'dired-ranger-paste)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/161114155141.dired-ranger.el
+$ emacs -Q -f package-initialize -l 161114155141.dired-ranger.el
+#+END_EXAMPLE
+
+** 参考サイト
+- [[https://github.com/Fuco1/dired-hacks][GitHub - Fuco1/dired-hacks: Collection of useful dired additions]]
+- [[http://pragmaticemacs.com/emacs/copy-and-paste-files-with-dired-ranger/][Copy and paste files with dired-ranger | Pragmatic Emacs]]
+- [[http://ranger.nongnu.org/][ranger]]
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
