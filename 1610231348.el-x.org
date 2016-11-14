@@ -77,7 +77,5 @@ $ emacs -Q -f package-initialize -l 161023134958.dflet.el
 #+END_EXAMPLE
 
 [includeme file="inc-package-relate.php" name="el-x"]
-** 参考サイト
-
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
