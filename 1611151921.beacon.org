@@ -28,6 +28,10 @@ hl-line-modeで十分…そうですか、はい(笑)
 
 beaconとは灯台という意味です。
 
+#+ATTR_HTML: :width 480
+[[/r/sync/emacs/quelpa/build/beacon/example-beacon.gif]]
+Fig1: 本家スクリーンショット
+
 
 M-x customize-group beacon で細かくカスタマイズができます。
 
