@@ -1,0 +1,47 @@
+#+BLOG: rubikitch
+#+POSTID: 1797
+#+DATE: [2016-11-15 Tue 19:21]
+#+PERMALINK: beacon
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY:   見やすく表示
+#+EL_PKG_NAME: beacon
+#+TAGS: 
+#+EL_TITLE: 
+#+EL_TITLE0: 【迷子防止】スクロール・バッファ切り替え時にカーソル位置をアニメーションでわかりやすく
+#+EL_URL: 
+#+begin: org2blog
+#+TITLE: beacon.el : 【迷子防止】スクロール・バッファ切り替え時にカーソル位置をアニメーションでわかりやすく
+[includeme file="inc-package-table.php" name="beacon" where="melpa"]
+
+#+end:
+** 概要
+Emacsのカーソル位置ってたまに迷子になりませんか？
+
+hl-line-modeで十分…そうですか、はい(笑)
+
+カーソル位置が迷子になるのは、たいていスクロールやバッファ切り替えではありませんか？
+そこで、beacon.elはhl-line-modeとは違って行をアニメーションさせる形で現在行とカーソルをわかりやすく表現します。
+
+beaconとは灯台という意味です。
+
+
+M-x customize-group beacon で細かくカスタマイズができます。
+
+- beaconの見た目は変数 beacon-size と beacon-color で設定できます。
+- 光る時間は変数 beacon-blink-duration と beacon-blink-delay で設定できます。
+- いつbeaconが光るかは変数 beacon-blink-when-window-scrolls と beacon-blink-when-window-changes と beacon-blink-when-point-moves で設定できます。
+- 特定の状況で光らないようにするには変数 beacon-dont-blink-major-modes と beacon-dont-blink-predicates と beacon-dont-blink-commands で設定します。
+- 特定のバッファを光らなくするには (setq-local beacon-mode nil) と設定します。
+- カーソルを長距離移動させたとき、beaconはmarkします。 変数 beacon-push-mark をカスタマイズしてください。
+
+
+[includeme file="inc-package-install.php" name="beacon" where="melpa"]
+[includeme file="inc-package-relate.php" name="beacon"]
+
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
