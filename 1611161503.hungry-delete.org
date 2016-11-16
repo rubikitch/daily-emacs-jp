@@ -1,0 +1,52 @@
+#+BLOG: rubikitch
+#+POSTID: 1801
+#+DATE: [2016-11-16 Wed 15:03]
+#+PERMALINK: hungry-delete
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: 編集
+#+EL_PKG_NAME: hungry-delete
+#+TAGS: マイナーモード, 標準コマンド強化, 初心者安心, 
+#+EL_TITLE: 
+#+EL_TITLE0: 【便利かも】貪欲にホワイトスペースを削除するマイナーモード
+#+EL_URL: 
+#+begin: org2blog
+#+TITLE: hungry-delete.el : 【便利かも】貪欲にホワイトスペースを削除するマイナーモード
+[includeme file="inc-package-table.php" name="hungry-delete" where="melpa"]
+
+#+end:
+** 概要
+hungry-delete.elは、DeleteやBackSpaceキーでカーソル前後すべてのホワイトスペースを削除するパッケージです。
+ホワイトスペースを貪欲に食べるイメージですね。
+ホワイトスペースだけをまとめて削除するのはちょっとした工夫ですが、以外に便利ではないでしょうか。
+
+マイナーモードM-x hungry-delete-modeでカレントバッファのみに有効になり、
+M-x global-hungry-delete-modeで全体的に有効になります。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20161116151233.png]]
+Fig1: *の桁でBackSpaceとC-dを押した結果！
+
+[includeme file="inc-package-install.php" name="hungry-delete" where="melpa"]
+** 設定 [[http://rubikitch.com/f/161116150749.hungry-delete.el][161116150749.hungry-delete.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/161116/161116150749.hungry-delete.el"
+#+BEGIN_SRC fundamental
+(global-hungry-delete-mode 1)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/161116150749.hungry-delete.el
+$ emacs -Q -f package-initialize -l 161116150749.hungry-delete.el
+#+END_EXAMPLE
+
+
+
+
+[includeme file="inc-package-relate.php" name="hungry-delete"]
