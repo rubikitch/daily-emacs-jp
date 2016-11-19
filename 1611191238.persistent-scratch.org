@@ -1,0 +1,51 @@
+#+BLOG: rubikitch
+#+POSTID: 1805
+#+DATE: [2016-11-19 Sat 09:58]
+#+PERMALINK: persistent-scratch
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY:   scratchバッファ
+#+EL_PKG_NAME: persistent-scratch
+#+TAGS: 永続化, 
+#+EL_TITLE: 
+#+EL_TITLE0: *scratch*バッファを永続化・自動保存・復元する
+#+EL_URL: 
+#+begin: org2blog
+#+TITLE: persistent-scratch.el : *scratch*バッファを永続化・自動保存・復元する
+[includeme file="inc-package-table.php" name="persistent-scratch" where="melpa"]
+
+#+end:
+** 概要
+scratchバッファはちょっとしたテキストを書き出したり、Emacs Lispコードを試すのに便利ですね。
+内容が保存されないというのは大きな欠点です。
+
+そこで、Emacsを再起動したときにscratchバッファの状態が復元されたら便利ですよね。
+persistent-scratch.elはたった1行でやってくれます。
+
+persistent-scratch-setup-defaultによって
+マイナーモードpersistent-scratch-autosave-modeが有効になり、
+5分ごとに自動的に内容が ~/.emacs.d/.persistent-scratch に保存されます。
+
+[includeme file="inc-package-install.php" name="persistent-scratch" where="melpa"]
+** 設定 [[http://rubikitch.com/f/161119100233.persistent-scratch.el][161119100233.persistent-scratch.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/161119/161119100233.persistent-scratch.el"
+#+BEGIN_SRC fundamental
+(persistent-scratch-setup-default)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/161119100233.persistent-scratch.el
+$ emacs -Q -f package-initialize -l 161119100233.persistent-scratch.el
+#+END_EXAMPLE
+
+[includeme file="inc-package-relate.php" name="persistent-scratch"]
+** 参考サイト
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
