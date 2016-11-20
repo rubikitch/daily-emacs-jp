@@ -1,0 +1,49 @@
+#+BLOG: rubikitch
+#+POSTID: 1807
+#+DATE: [2016-11-20 Sun 09:59]
+#+PERMALINK: browse-url-emacs
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+#+DESCRIPTION:M-x browse-url-emacsはURLの内容をそのままEmacsで開きます。HTMLソースはもちろん、Emacs Lispファイルやorgファイルなどを開くのに便利です。快適に保存するための設定も掲載。
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY:   Web
+#+TAGS: アドバイス, 初心者安心, 標準コマンド強化, 
+#+TITLE: 【知ってた？】ネット上のファイルを簡単に開く標準コマンド
+#+begin: org2blog-tags
+# content-length: 925
+
+#+end:
+あなたは、ネット上にあるEmacs Lispファイルやorgファイルをどう開いていますか？
+わざわざ外部ブラウザで開いて保存するのは面倒ですよね。
+
+今ではEWWというEmacs組み込みブラウザが存在しますが、
+C-x C-wで保存してもメジャーモードがeww-modeのままです(笑)
+
+実は大昔からM-x browse-url-emacsというEmacs内でURLのソースコードを開くコマンドが存在していました。
+恥ずかしながら、僕はつい最近知りました。
+
+試しに
+
+M-x browse-url-emacs http:/rubikitch.com/f/161120095702.test.el
+
+を実行してみてください。
+
+別ウィンドウに1行のEmacs Lispファイルが表示されます。
+おもしろいことに buffer-file-name は URL そのものです。
+
+ファイルを保存するときはC-x C-w (write-file) を使います。
+
+とはいえファイル名を再入力するのは面倒ですので、
+ディレクトリ名を取り除いたファイル名をキルリングに入れるアドバイスを書きました。
+
+#+BEGIN_SRC emacs-lisp :results silent
+(defun browse-url-emacs--kill-basename (&rest them)
+  (kill-new (file-name-nondirectory buffer-file-name)))
+(advice-add 'browse-url-emacs :after 'browse-url-emacs--kill-basename)
+#+END_SRC
+
+これを使えばC-x C-wで保存先ディレクトリを指定してC-yで楽にファイル名を指定できるようになります。
+たとえば、C-x C-w /tmp/ C-y RETで /tmp/161120095702.test.el として保存されます。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
