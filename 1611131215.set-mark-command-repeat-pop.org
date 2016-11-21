@@ -11,7 +11,7 @@
 #+TAGS: 初心者安心, るびきちオススメ, 
 #+TITLE: 【Mark Ring】「VimのCtrl-oみたいにマークをたどる」をさらに快適にする設定
 #+begin: org2blog-tags
-# content-length: 791
+# content-length: 834
 
 #+end:
 [[http://qiita.com/acro5piano/items/37ce1dd22de8d079d33e][Emacsで、VimのCtrl-oみたいにマークをたどる - Qiita]]
@@ -44,6 +44,6 @@ Emacsにはmark-ringという機能があります。
 (setq mark-ring-max 32)
 #+END_SRC
 
-なお、本題となっている「直前に編集していた箇所に戻る」にはgoto-chgパッケージをインストールしてM-x goto-last-changeを使います。
+なお、本題となっている「直前に編集していた箇所に戻る」には[[http://emacs.rubikitch.com/goto-chg/][goto-chgパッケージ]] をインストールしてM-x goto-last-changeを使います。
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
