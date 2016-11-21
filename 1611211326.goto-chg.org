@@ -1,0 +1,77 @@
+#+BLOG: rubikitch
+#+POSTID: 1809
+#+DATE: [2016-11-21 Mon 13:26]
+#+PERMALINK: goto-chg
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY:   カーソル移動
+#+EL_PKG_NAME: goto-chg
+#+TAGS: るびきちオススメ, 初心者安心, 
+#+EL_TITLE: 
+#+EL_TITLE0: 【超古参】過去に編集した位置を遡ってくれるよ！
+#+EL_URL: 
+#+begin: org2blog
+#+TITLE: goto-chg.el : 【超古参】過去に編集した位置を遡ってくれるよ！
+[includeme file="inc-package-table.php" name="goto-chg" where="melpa"]
+
+#+end:
+** 概要
+あなたは、遠くの場所を編集した後にサッと戻りたいと思ったことはありますか？
+
+たとえばコーディングをしていてrequire文を書き忘れたために
+バッファ先頭に戻り、require文を書いてから、
+再び元の場所に戻りたいとか、
+そんな経験は何度かしていると思います。
+
+実はEmacsには長距離移動をしたときにはmark-ringに現在位置を記憶し、
+C-u C-SPCで元の位置に戻れるようになっています。
+
+[[http://emacs.rubikitch.com/set-mark-command-repeat-pop/][【Mark Ring】「VimのCtrl-oみたいにマークをたどる」をさらに快適にする設定]]
+で紹介したように、 set-mark-command-repeat-pop を設定すればさらに快適になります。
+
+ですが、もうひとつの方法があります。
+
+buffer-undo-listという編集履歴を格納する変数を使ったものです。
+
+mark-ringに保存してくれないコマンドにも使えるメリットがあります。
+
+C-/ は直前の編集をキャンセルするM-x undoですが、
+undoした位置にカーソルが戻ります。
+
+goto-chg.elによるM-x goto-last-changeはundoする代わりに
+過去に編集した場所をどんどん遡ります。
+
+とはいっても単にbuffer-undo-listを辿るのではなくて、
+複雑なアルゴリズムにより最小回数で編集箇所にたどりつけるようになっています。
+
+あちこち編集して戻りたいとよく思っているならば、
+ぜひとも導入してみてください。
+
+本設定ではF8で過去に編集した箇所に戻りますが、
+行き過ぎてしまった場合はM-F8で逆方向になります。
+
+[includeme file="inc-package-install.php" name="goto-chg" where="melpa"]
+** 設定 [[http://rubikitch.com/f/161121133736.goto-chg.el][161121133736.goto-chg.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/161121/161121133736.goto-chg.el"
+#+BEGIN_SRC fundamental
+(global-set-key (kbd "<f8>") 'goto-last-change)
+(global-set-key (kbd "<M-f8>") 'goto-last-change-reverse)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/161121133736.goto-chg.el
+$ emacs -Q -f package-initialize -l 161121133736.goto-chg.el
+#+END_EXAMPLE
+
+
+[includeme file="inc-package-relate.php" name="goto-chg"]
+
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
