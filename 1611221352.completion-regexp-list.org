@@ -1,0 +1,100 @@
+#+BLOG: rubikitch
+#+POSTID: 1812
+#+DATE: [2016-11-22 Tue 13:52]
+#+PERMALINK: completion-regexp-list
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+#+DESCRIPTION:all-completions + completion-regexp-listで正規表現リストによる絞り込み検索が行えます。とはいえ、大量の候補がある場合はバッファを用意してからre-search-forwardする方がよほど高速です。
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY:   リスト操作
+#+TAGS: 
+#+TITLE: all-completions + completion-regexp-list で文字列・シンボルリストの絞り込み検索を行う
+#+begin: org2blog-tags
+# content-length: 2911
+
+#+end:
+あなたは、completion-regexp-listという変数を知っていますか？
+
+標準ライブラリでも、僕がインストールしている(使っているとは限らない)1000ものパッケージを検索しても、ほとんどマッチしません。
+いちおうマニュアルには書いてありますが、かな〜りマイナーな変数です。
+
+たまたまall-completionsのＣ言語による定義を読んでいたら、
+regexpという文字列が出てきたので正規表現検索できることを知りました。
+
+そこからcompletion-regexp-listという変数を知りました。
+
+これが何者かというと、文字列・シンボルのリストあるいはobarrayの要素を絞り込み検索するものです。
+
+絞り込み検索といえば、helmやanythingが有名ですが、まさか標準機能で存在するとはびっくりでした。
+
+#+BEGIN_SRC emacs-lisp :results silent
+;;; そのまま文字列のリストを返す
+(all-completions "" '("foo" "bar" "baz" "z")) ; => ("foo" "bar" "baz" "z")
+;;; シンボルのリストは文字列リストに変換される
+(all-completions "" '(foo bar baz z))   ; => ("foo" "bar" "baz" "z")
+;;; 正規表現fooにマッチするものを取り出す
+(let ((completion-regexp-list '("foo")))
+  (all-completions "" '("foo" "foobar" "xfoox" "bar" "baz" "z")))
+;;; => ("foo" "foobar" "xfoox")
+
+;;; 正規表現fooとxを同時に満たすものを取り出す
+(let ((completion-regexp-list '("foo" "x")))
+  (all-completions "" '("foo" "foobar" "xfooz" "fooxz" "bar" "baz" "z")))
+;;; => ("xfooz" "fooxz")
+
+;;; xから始まり、かつ正規表現fooとxを同時に満たすものを取り出す
+(let ((completion-regexp-list '("foo" "x")))
+  (all-completions "x" '("foo" "foobar" "xfooz" "fooxz" "bar" "baz" "z")))
+;;; => ("xfooz")
+#+END_SRC
+
+では、規模を大きくして全変数を調査してみましょう。
+
+2つのアルゴリズムでfind-を含む変数の数を求めます。
+1. 全変数を格納したバッファを用意して、検索ベースでチェックする
+2. 全変数からcompletion-regexp-listを使って検索する
+
+前者はanythingで行われている方法、後者は本題のall-completions + completion-regexp-list です。
+
+#+BEGIN_SRC emacs-lisp :results silent
+(let ()
+  (set-buffer " *variable symbols*")
+  (erase-buffer)
+  (setq all-variables (all-completions "" obarray 'boundp))
+  (length all-variables)                ; => 17157
+  (insert (mapconcat 'identity all-variables "\n"))
+  ;; (1)全変数を格納したバッファを用意して、検索ベースでチェックする
+  (benchmark-run 10
+    (let (ret)
+      (with-current-buffer " *variable symbols*"
+        (goto-char (point-min))
+        (while (re-search-forward "find-" nil t)
+          (push (buffer-substring-no-properties (point-at-bol) (point-at-eol)) ret))
+
+        )
+      (length ret)     ; => 85, 85, 85, 85, 85, 85, 85, 85, 85, 85
+      )))              ; => (0.005250705 0 0.0)
+
+;;; (2)全変数からcompletion-regexp-listを使って検索する
+(benchmark-run 10
+  (let ((completion-regexp-list '("find-")))
+    (length (all-completions "" all-variables)) ; => 85, 85, 85, 85, 85, 85, 85, 85, 85, 85
+    )) ; => (0.040305617 0 0.0)
+;;; (参考)obarrayから直接boundpを使う(遅い)
+(benchmark-run 10
+  (let ((completion-regexp-list '("find-")))
+    (length (all-completions "" obarray 'boundp)) ; => 85, 85, 85, 85, 85, 85, 85, 85, 85, 85
+    )) ; => (1.843329051 0 0.0)
+#+END_SRC
+
+anything式のバッファ内検索の方が10倍速い結果が出ました。
+
+all-completionsもcompletion-regexp-listもＣ言語で処理されているのにこれは意外でした。
+けれども、全変数各々に対して正規表現マッチ判定をしているのに対し、バッファの中から正規表現にマッチする部分を見付ける方が圧倒的に安い処理であることを考えると妥当ですね。
+
+それにしても、obarrayの中からboundpを満たすシンボルを探す方法はとても時間がかかるものです。
+
+とはいえ、文字列(シンボル)リストを絞り込み検索するのであれば、Emacs Lispでループを書くよりもall-completions + completion-regexp-list を使う方がＣ言語による処理ですので高速なのは言うまでもないでしょう。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
