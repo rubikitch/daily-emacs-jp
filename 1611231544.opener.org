@@ -1,0 +1,68 @@
+#+BLOG: rubikitch
+#+POSTID: 1815
+#+DATE: [2016-11-23 Wed 15:44]
+#+PERMALINK: opener
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY:   Web
+#+EL_PKG_NAME: opener
+#+TAGS: 
+#+EL_TITLE: 
+#+EL_TITLE0: 【非同期browse-url-emacs】URLをEmacsのバッファとして開くよ
+#+EL_URL: 
+#+begin: org2blog
+#+TITLE: opener.el : 【非同期browse-url-emacs】URLをEmacsのバッファとして開くよ
+[includeme file="inc-package-table.php" name="opener" where="melpa"]
+
+#+end:
+** 概要
+opener.elはURLをEmacsで開く小さなパッケージです。
+標準コマンドに[[http://emacs.rubikitch.com/browse-url-emacs/][M-x browse-url-emacs]] がありますが、
+こちらは[[http://emacs.rubikitch.com/request/][request.el]] を使っています。
+
+だから非同期で動作する上に、curlがインストールされていれば使ってくれます。
+
+M-x opener-openはURL/ファイルを開きます。
+M-x opener-open-at-pointはカーソル上のURL/ファイルを開きます。
+
+ともにURLの拡張子が存在する場合はEmacsで開き、
+「/」で終わっている場合はbrowse-urlを使います。
+
+現時点ではどの拡張子でもfundamental-modeになってしまいますので、
+適切なメジャーモードを選択できるようにpull requestを送っておきました。
+
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20161123155751.png]]
+Fig1: M-x opener-open https://raw.github.com/ongaeshi/emacs-milkode/master/milkode.el
+
+[includeme file="inc-package-install.php" name="opener" where="melpa"]
+** カスタマイズ
+opener-major-mode-hooksを設定すれば、メジャーモードごとに加工関数を設定できます。
+たとえば以下の設定では、nxml-modeにおいてはxmllintで整形してから表示します。
+
+infoより抜粋。
+
+#+BEGIN_SRC emacs-lisp :results silent
+(defun nxml-pretty-format ()
+  (interactive)
+  (save-excursion
+    (shell-command-on-region (point-min) (point-max) "xmllint --format -" (buffer-name) t)
+    (nxml-mode)
+    (deactivate-mark t)))
+
+(setq-default opener-major-mode-hooks
+  '((nxml-mode (nxml-pretty-format))))
+
+#+END_SRC
+
+
+[includeme file="inc-package-relate.php" name="opener"]
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
