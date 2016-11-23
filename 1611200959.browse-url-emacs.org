@@ -11,7 +11,7 @@
 #+TAGS: アドバイス, 初心者安心, 標準コマンド強化, 
 #+TITLE: 【知ってた？】ネット上のファイルを簡単に開く標準コマンド
 #+begin: org2blog-tags
-# content-length: 925
+# content-length: 926
 
 #+end:
 あなたは、ネット上にあるEmacs Lispファイルやorgファイルをどう開いていますか？
@@ -25,7 +25,7 @@ C-x C-wで保存してもメジャーモードがeww-modeのままです(笑)
 
 試しに
 
-M-x browse-url-emacs http:/rubikitch.com/f/161120095702.test.el
+M-x browse-url-emacs http://rubikitch.com/f/161120095702.test.el
 
 を実行してみてください。
 
