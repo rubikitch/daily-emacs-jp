@@ -1,0 +1,88 @@
+#+BLOG: rubikitch
+#+POSTID: 1817
+#+DATE: [2016-11-24 Thu 13:58]
+#+PERMALINK: schrute
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY:   カーソル移動
+#+EL_PKG_NAME: schrute
+#+TAGS: avy, 
+#+EL_TITLE0: 単純なコマンドを連発したときに、よりよいコマンドを提示する
+#+EL_URL: 
+#+begin: org2blog
+#+TITLE: schrute.el : 単純なコマンドを連発したときに、よりよいコマンドを提示する
+[includeme file="inc-package-table.php" name="schrute" where="melpa"]
+
+#+end:
+** 概要
+Emacsには様々な便利機能が存在します。
+あまりにも多すぎて、上級者であってもついつい忘れてしまうこともあるのではないでしょうか？
+そこで、思い出させてくれるのを支援するマイナーモードがあります。
+
+schrute.elが提供するグローバルモードM-x schrute-modeです。
+
+たとえば、[[http://emacs.rubikitch.com/avy/][avy]] を導入している場合、C-pやC-nを連発するよりもM-x avy-goto-lineを使った方が効率がよいです。
+特定のコマンドを一定時間以内に連続して実行したときに、よりよい方法を教えてくれるのがschrute-modeの役割です。
+
+オリジナルの設定では、左右移動を連発したときにavy-goto-charを実行させるようにしていますが、日本語環境ではかえって面倒なことになるので本設定では外しています。
+
+他にもいろいろな設定を加えると面白いと思います。
+
+
+[includeme file="inc-package-install.php" name="schrute" where="melpa"]
+** 設定 [[http://rubikitch.com/f/161124140404.schrute.el][161124140404.schrute.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/161124/161124140404.schrute.el"
+#+BEGIN_SRC fundamental
+(setf schrute-shortcuts-commands
+      '((avy-goto-line                  ;便利なコマンド
+         ;; 以下のコマンドを連発したときに発動させる
+         next-line previous-line)))
+
+
+;;; [2016-11-24 Thu]時点ではバグがあるので再定義しておく
+;;; 修正され次第消す
+(require 'schrute)
+(defun schrute-mode-activate ()
+  "Do some setup when the global minor mode is activated."
+  (if schrute-mode
+      (add-hook 'post-command-hook #'schrute-check-last-command)
+    (remove-hook 'post-command-hook 'schrute-check-last-command))
+  ;; regenerate the list of commands we are interested
+  (let* ((elemen)
+         (command-list))
+    (setf schrute--interesting-commands nil)
+    (dolist (elemen schrute-shortcuts-commands)
+      (setf command-list (cdr elemen))
+      (cond ((symbolp command-list) (push command-list schrute--interesting-commands))
+            ((listp command-list) (setf schrute--interesting-commands (append schrute--interesting-commands command-list)))))))
+(defun schrute--run-command ()
+  "Helper that will run an alternative-command."
+  (let* ((alternative-command)
+         (command-list))
+    (dolist (elem schrute-shortcuts-commands)
+      (setf alternative-command (car elem))
+      (setf command-list (cdr elem))
+      (when (or (member this-command command-list)
+               (eq this-command command-list))
+        (schrute--call-until-success alternative-command)))))
+
+(schrute-mode)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/161124140404.schrute.el
+$ emacs -Q -f package-initialize -l 161124140404.schrute.el
+#+END_EXAMPLE
+
+[includeme file="inc-package-relate.php" name="schrute"]
+** 参考サイト
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+[includeme file="inc-package-relate.php" name="schrute"]
