@@ -1,0 +1,63 @@
+#+BLOG: rubikitch
+#+POSTID: 1822
+#+DATE: [2016-11-26 Sat 14:05]
+#+PERMALINK: dashboard
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY:   init.el
+#+EL_PKG_NAME: dashboard
+#+TAGS: 初心者安心, 
+#+EL_TITLE: 
+#+EL_TITLE0: 【起動画面】spacemacsのスタートアップ画面をEmacsに移植
+#+EL_URL: 
+#+begin: org2blog
+#+TITLE: dashboard.el : 【起動画面】spacemacsのスタートアップ画面をEmacsに移植
+[includeme file="inc-package-table.php" name="dashboard" where="melpa"]
+
+#+end:
+** 概要
+dashboard.elはspacemacsの起動画面を移植したものです。
+画像のように、カッコイイEmacsのロゴとともに
+- recentf
+- bookmark
+- projectile
+のファイル・ディレクトリリストがEmacs起動時に並べられます。
+TAB/Shift+TABで候補選択して、RETで開きます。
+
+初心者にとっては使いやすいでしょう。
+
+Emacs起動後でも*dashboard*バッファに切り替えればいいです。
+更新したい時はM-x dashboard-insert-startupify-listsを実行しましょう。
+
+
+#+ATTR_HTML: :width 480
+[[/r/sync/emacs/quelpa/build/dashboard/screenshot.png]]
+Fig1: 起動画面
+
+[includeme file="inc-package-install.php" name="dashboard" where="melpa"]
+** 設定 [[http://rubikitch.com/f/161126141243.dashboard.el][161126141243.dashboard.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/161126/161126141243.dashboard.el"
+#+BEGIN_SRC fundamental
+(dashboard-setup-startup-hook)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/161126141243.dashboard.el
+$ emacs -Q -f package-initialize -l 161126141243.dashboard.el
+#+END_EXAMPLE
+
+[includeme file="inc-package-relate.php" name="dashboard"]
+** 参考サイト
+- [[https://github.com/syl20bnr/spacemacs][GitHub - syl20bnr/spacemacs: A community-driven Emacs distribution - The best editor is neither Emacs nor Vim,  it&#39;s Emacs *and* Vim!]]
+- [[http://qiita.com/nobkz/items/994c6b3e6f42a0e33fef][spacemacsについて ~~spacemacsが最強で最高で神エディタであると思い始めた件~~ - Qiita]]
+- [[http://qiita.com/konnyakmannan/items/87a2859a5f137d1b0a6d][Spacemacsの使い勝手が安定してきたのでまとめる - Qiita]]
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+
+# /r/sync/emacs/quelpa/build/dashboard/screenshot.png http://emacs.rubikitch.com/wp-content/uploads/2016/11/screenshot.png
