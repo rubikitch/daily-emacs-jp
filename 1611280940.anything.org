@@ -7,7 +7,7 @@
 #+DESCRIPTION:
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: 
+#+CATEGORY:   候補選択
 #+EL_PKG_NAME: anything
 #+TAGS: anything, helm, るびきちオススメ, Migemo対応, 
 #+EL_TITLE: 
