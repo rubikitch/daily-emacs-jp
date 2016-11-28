@@ -1,0 +1,126 @@
+#+BLOG: rubikitch
+#+POSTID: 1824
+#+DATE: [2016-11-28 Mon 09:40]
+#+PERMALINK: anything
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: 
+#+EL_PKG_NAME: anything
+#+TAGS: anything, helm, るびきちオススメ, Migemo対応, 
+#+EL_TITLE: 
+#+EL_TITLE0: 【新機能・互換性維持・復活】ずっと安心して使えるあなただけの候補選択フレームワーク
+#+EL_URL: 
+#+begin: org2blog
+#+TITLE: anything.el : 【新機能・互換性維持・復活】ずっと安心して使えるあなただけの候補選択フレームワーク
+[includeme file="inc-package-table.php" name="anything" where="melpa"]
+
+#+end:
+** 概要
+<2016-11-28 Mon>新機能ニュース！
+1. ワンタッチ候補選択の見た目を整えた
+2. ワンタッチ候補選択でデフォルト以外のアクションも選択できるようにした
+3. ワンタッチ候補選択のヒント文字をスクロールのたびにつけなおすようにした
+4. ワンタッチ候補選択をデフォルトで有効にした
+
+anything.elは、僕が2007年からじっくりと育ててきた候補選択フレームワークです。
+
+2012年からはhelmに改名されて袂を分かち、helmはとてつもない勢いで開発が進められています。
+いつしか
+「anything.elは終わった、これからはhelmの時代だ」
+「anything.elからhelmに移行だ」
+と言われるようになりました。
+実際MELPAにあるアドオンパッケージ数は8対125でhelmの圧勝です。
+
+現に候補選択フレームワークといえば、helm、ido、新勢力の[[http://emacs.rubikitch.com/ivy/][ivy/counsel]] の三つ巴状態で、今更anything.elの名を出す人はいません。
+
+そんな中で僕はhelmを観察しつつも、ずっとanything.elを使い続けてきました。
+
+次第にhelmの決定的な欠点が明るみになってきました。
+それは、あまりにも開発速度がはやすぎるためにユーザがついていけないことです。
+helm開発者は非互換な変更を平気でやります。
+そのために以前は動いていた設定がいきなり動かなくなってしまいます。
+それも一度や二度ではなく、あまりにも多く行われてきました。
+「helmを更新したら動かなくなった」、そんな声を何度も聞きました。
+
+非互換な変更をしたのであれば、ユーザに対し移行手段を用意してしかるべきです。
+非互換な変更のために動かなくなったという問題解決にかかる時間は、とくにEmacsの熟練度が低い人にとっては致命的です。
+「時は金なり」どころか *「時は命」* と思います。
+相手に時間を取らせるということは、その分、相手の命を奪っていることに他なりません。
+
+*ユーザが安心して使えないようでは、フレームワークとは呼べません。*
+
+実際、僕もhelmプログラミングをしてきましたが、急に動かなくなったり遅くなったりしましたので、anything.elベースに書き直しました。
+
+候補選択インターフェースの中において、確かに機能面においては複数の情報源・複数のアクションが持てるhelmが最強でしょう。
+idoもivyも単一情報源・アクションです。
+helmが王者として君臨する中でなぜivyが登場してきたかは、おそらくhelm開発者とユーザの温度差ではないかと推測しています。
+
+僕は以下の理念でもってanything.elをこれからも育てていきます。
+
+1. 互換性重視！いきなり動かなくなることをなくす
+2. Emacs Lisp初級者でも情報源を簡単に組める！連想リスト上等
+3. ユーザ目線！初級者から安心して使えるようにする
+4. anything-config.elは情報源のカタログ
+5. anything.elからEmacs Lispを学べるようにする
+
+anything.elは *「Emacs Lisp学習キット」* と考えています。
+これから細かいバグ修正にソースコードの整理を始めたいと思います。
+helmと明確な差別化をはかり、 *捲土重来を期す* ことにします！
+[includeme file="inc-package-install.php" name="anything" where="melpa"]
+** 使い方
+helmの前身だけに、基本的な使い方はhelmに準じています。
+M-x anything-miniやM-x anything-for-filesから試してください。
+
+** NEWワンタッチ候補選択！
+helmにはなくanything独自の機能として、ワンタッチ候補選択・アクション実行があります。
+機能そのものは大昔から存在していましたが、先程marginを使うように書き換えました。
+以前はヒント文字が出ている候補と出ていない候補で不揃いになっていましたが、marginを使うことで見た目が良くなりました。
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20161128150955.png]]
+Fig1: C-x bでanything-miniを開く
+
+左にA〜Gというヒント文字があります。
+ここで「@」を押すとヒント文字で候補選択できるようになります。
+たとえば「@d」で*Messages*バッファに切り替えられます。
+
+使い慣れていくにつれて、アクションの場所も覚えてくるようになります。
+たとえばバッファの3番目のアクションは「別ウィンドウで開く」ことです。
+そこで「@3d」を押すと*Messages*バッファを別ウィンドウで開くようになります。
+このアクション番号選択機能もさっき実装しました。
+
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20161128151002.png]]
+Fig2: ヒント文字はスクロールに合わせて自動で設定される
+
+通常の絞り込み検索に加え、ワンタッチ候補選択が合わさることで、候補数の大小にかかわらず快適な候補選択ができるインターフェースになったのではないでしょうか。
+
+anything.elは決して死んでいません！
+生まれ変わったanything.el、試していただけると幸いです。
+
+** 設定 [[http://rubikitch.com/f/161128150730.anything.el][161128150730.anything.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/161128/161128150730.anything.el"
+#+BEGIN_SRC fundamental
+(require 'anything-config)
+(setq anything-enable-shortcuts 'prefix)
+(define-key anything-map (kbd "@") 'anything-select-with-prefix-shortcut)
+(global-set-key (kbd "C-x b") 'anything-mini)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/161128150730.anything.el
+$ emacs -Q -f package-initialize -l 161128150730.anything.el
+#+END_EXAMPLE
+
+[includeme file="inc-package-relate.php" name="anything"]
+** 参考サイト
+- [[http://d.hatena.ne.jp/rubikitch/20100718/anything][anything導入のeverything 〜3分で使えるanything.el〜 - http://rubikitch.com/に移転しました]]
+- [[https://gist.github.com/Shougo/7fc95389ab6fddac7f78deb6ce42e82a][anything.el/helm.el と unite.vim を比較してみた · GitHub]]
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
