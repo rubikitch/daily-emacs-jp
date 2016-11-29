@@ -4,7 +4,7 @@
 #+PERMALINK: anything
 #+OPTIONS: toc:t num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
 #+ISPAGE: nil
-#+DESCRIPTION:
+#+DESCRIPTION:anything.elは2007年から僕が開発・メンテナンスしているhelmの前身となる候補選択フレームワークです。anything.elはhelmと明確に差別化し、Emacs Lisp学習者に対して実用的な成功体験とずっと使える安心を提供します。
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
 #+CATEGORY:   候補選択
@@ -18,12 +18,16 @@
 [includeme file="inc-package-table.php" name="anything" where="melpa"]
 
 #+end:
+** ニュース！
+このページは随時更新していきます。
+
+- <2016-11-29 Tue>記事更新
+- <2016-11-28 Mon>
+  1. ツータッチ候補選択の見た目を整えた
+  2. ツータッチ候補選択でデフォルト以外のアクションも選択できるようにした
+  3. ツータッチ候補選択のヒント文字をスクロールのたびにつけなおすようにした
+  4. ツータッチ候補選択をデフォルトで有効にした
 ** 概要
-<2016-11-28 Mon>新機能ニュース！
-1. ワンタッチ候補選択の見た目を整えた
-2. ワンタッチ候補選択でデフォルト以外のアクションも選択できるようにした
-3. ワンタッチ候補選択のヒント文字をスクロールのたびにつけなおすようにした
-4. ワンタッチ候補選択をデフォルトで有効にした
 
 anything.elは、僕が2007年からじっくりと育ててきた候補選択フレームワークです。
 
@@ -74,12 +78,63 @@ anything.elは *「Emacs Lisp学習キット」* と考えています。
 helmと明確な差別化をはかり、 *捲土重来を期す* ことにします！
 
 [includeme file="inc-package-install.php" name="anything" where="melpa"]
+** <2016-11-29 Tue>こんな人は使わないでください
+anything.elはhelmの4年前の姿です。
+僕の中ではanything.elは昔の段階で成熟していると考えています。
+
+ですがhelmはとてつもない勢いで開発が続けられています。
+helmが好きな人は無理にanything.elを使う必要性を感じません。
+
+1. helmを使って満足している人
+2. 常にhelmの最新を追い掛けたい人
+3. helmの突然の変更にも喜んで受け入れられる人
+4. 複雑さを好む人
+5. EIEIO厨
+
+** <2016-11-29 Tue>こんな人にこそ使ってください
+逆にこんな人にこそanything.elは試していただきたいです。
+
+1. Emacs Lispを学ぼうとしている人
+2. 自分で書いたanything.elのコードを無変更でずっと使いたい
+3. 情報源を自在に組み合わせたい
+4. シンプルなものが好きな人
+5. 安定・安心という価値観を大切にする人
+6. helmに嫌気を感じている人・ついていけない人
+7. idoやivyを使っている人
+8. helmを使ってても結局はバッファやファイルの選択ばかりしている人
+9. サッと候補選択をしたい人
+
+helmはあまりにも複雑化してしまいました。
+新しく情報源を定義する方法も変わってしまいました。
+
+anything.elでは、連想リストというシンプルなデータ構造で情報源を定義できます。
+
+情報源を定義することはEmacs Lisp初級者でも難しくありません。
+候補の集合とアクションさえ与えれば、あとはanything.elが面倒を見ます。
+情報源の実際の定義方法はanything-config.elが参考になります。
+
+Emacs Lisp初級者にとって必要なものは、何といっても
+実用的なプログラムを作れたという *成功体験* です。
+そして、自分のプログラムが未来永劫動くという *安心感* です。
+
+すでにある情報源を組み合わせたコマンドを作成することでさえも、
+れっきとした実用的Emacs Lispプログラミングです。
+
+anything.elによってEmacs Lisp初級者を中級者へと引き上げるお手伝いができたら嬉しいです。
+
+僕はEmacs 25.1でも現役でanything.elを使い続けています。
+なので、バグは迅速に直します。
+
+
 ** 使い方
 helmの前身だけに、基本的な使い方はhelmに準じています。
 M-x anything-miniやM-x anything-for-filesから試してください。
 
-** NEWワンタッチ候補選択！
-helmにはなくanything独自の機能として、ワンタッチ候補選択・アクション実行があります。
+[[http://emacs.rubikitch.com/sd1503-helm/][#11 Emacs に革命を起こすパッケージ「helm」 (Software Design 2015年3月号掲載記事) Emacs helm インストール 設定 使い方]]
+も参考になるでしょう。
+
+** NEWツータッチ候補選択！
+helmにはなくanything独自の機能として、ツータッチ候補選択・アクション実行があります。
 機能そのものは大昔から存在していましたが、先程marginを使うように書き換えました。
 以前はヒント文字が出ている候補と出ていない候補で不揃いになっていましたが、marginを使うことで見た目が良くなりました。
 
@@ -101,7 +156,9 @@ Fig1: C-x bでanything-miniを開く
 [[file:/r/sync/screenshots/20161128151002.png]]
 Fig2: ヒント文字はスクロールに合わせて自動で設定される
 
-通常の絞り込み検索に加え、ワンタッチ候補選択が合わさることで、候補数の大小にかかわらず快適な候補選択ができるインターフェースになったのではないでしょうか。
+通常の絞り込み検索に加え、ツータッチ候補選択が合わさることで、候補数の大小にかかわらず快適な候補選択ができるインターフェースになったのではないでしょうか。
+
+ツータッチ候補選択機能は、idoやivyユーザにも是非とも試していただきたいです。
 
 anything.elは決して死んでいません！
 生まれ変わったanything.el、試していただけると幸いです。
@@ -125,6 +182,7 @@ $ emacs -Q -f package-initialize -l 161128150730.anything.el
 
 [includeme file="inc-package-relate.php" name="anything"]
 ** 参考サイト
+- [[http://emacs.rubikitch.com/sd1503-helm/][#11 Emacs に革命を起こすパッケージ「helm」 (Software Design 2015年3月号掲載記事) Emacs helm インストール 設定 使い方]]
 - [[http://d.hatena.ne.jp/rubikitch/20100718/anything][anything導入のeverything 〜3分で使えるanything.el〜 - http://rubikitch.com/に移転しました]]
 - [[https://gist.github.com/Shougo/7fc95389ab6fddac7f78deb6ce42e82a][anything.el/helm.el と unite.vim を比較してみた · GitHub]]
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
