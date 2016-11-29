@@ -1,0 +1,26 @@
+#+BLOG: rubikitch
+#+POSTID: 1829
+#+DATE: [2016-11-29 Tue 10:25]
+#+PERMALINK: anything-update
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY:   記事更新情報
+#+TAGS: 
+#+TITLE: anything.elのページを更新しました
+#+begin: org2blog-tags
+# content-length: 233
+#+HTML: <!-- noindex -->
+
+#+end:
+http://emacs.rubikitch.com/anything/
+
+僕が9年間育てているanything.elのページを更新しました。
+1. 目次追加
+2. 表現更新: ワンタッチ候補選択→ツータッチ候補選択
+3. 「こんな人は使わないでください」追加
+4. 「こんな人にこそ使ってください」追加
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
