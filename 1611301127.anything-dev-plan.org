@@ -1,0 +1,31 @@
+#+BLOG: rubikitch
+#+POSTID: 1832
+#+DATE: [2016-11-30 Wed 11:27]
+#+PERMALINK: anything-dev-plan
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY:   記事更新情報
+#+TAGS: 
+#+TITLE: anything.elの開発予定を書いた
+#+begin: org2blog-tags
+# content-length: 269
+#+HTML: <!-- noindex -->
+
+#+end:
+http://emacs.rubikitch.com/anything/
+
+今後の開発予定を書きました。
+
+機能的にはすでに完成していると僕の中では感じていますので、
+全体的にはメンテナンスが中心となっています。
+
+そして、何より
+*「Emacs Lisp学習者に成功体験を！」*
+というミッションを達成するために、
+コードを精査し、ドキュメントをしっかり書くことにします。
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
