@@ -20,7 +20,7 @@
 #+end:
 ** ニュース！
 このページは随時更新していきます。
-
+- <2016-11-30 Wed>開発予定を追記
 - <2016-11-29 Tue>記事更新
 - <2016-11-28 Mon>
   1. ツータッチ候補選択の見た目を整えた
@@ -179,6 +179,76 @@ anything.elは決して死んでいません！
 $ wget http://rubikitch.com/f/161128150730.anything.el
 $ emacs -Q -f package-initialize -l 161128150730.anything.el
 #+END_EXAMPLE
+
+** <2016-11-30 Wed>開発予定
+これからの開発予定を軽く立ててみました。
+機能的にはすでに完成していると僕の中では感じていますので、
+全体的にはメンテナンスが中心となっています。
+
+そして、何より
+*「Emacs Lisp学習者に成功体験を！」*
+というミッションを達成するために、
+コードを精査し、ドキュメントをしっかり書くことにします。
+
+*** anything.elの整理
+anything.el本体は長く使っているコードです。
+わかりにくいところは書き直して、トラブル時の原因究明をやりやすいようにします。
+anything.elは完成品を提供することよりも、
+ユーザが自分の意志でいじくれるような形にしていくことを狙っています。
+
+ちょっと慣れてきた人には、フックで挙動をカスタマイズできるようにし、
+上級者はadviceで自由自在に挙動を変更できるような余地を残しておきます。
+*** candidates関数でのカレントバッファの変更
+元々candidates関数はanything-bufferをカレントバッファとして評価していましたが、
+anything-current-bufferをカレントバッファとした方が都合がいいことが多いことに気付いていました。
+現行の挙動だと、ついついハマってしまうこともありました。
+
+特にカレントバッファ(anything-current-buffer)の情報を集める情報源を作成する場合に、
+「なんで見付からないんだよ！」
+となるのは混乱の大元と考えています。
+
+これはおそらくanything.el史上最後の非互換な変更となるでしょう。
+ですが、この変更で被る影響はほとんどないと考えています。
+
+もし、現行の挙動がいいという声が多ければ、
+candidates属性は現行のままにし、新たに candidates* 属性を作成するつもりです。
+*** anything-config.elの整理
+anything-config.elは現状では、
+すべての設定をひとまとめにしてあり、
+12000行を超えています。
+
+現状では見通しが悪すぎますので、大きいコードは別ファイルに分けることにします。
+たとえばM-x anything-find-files関連やgrep関連は別ファイル行き確定です。
+
+anything-config.elはカタログとして読めるようにします。
+
+小さくてわかりやすい情報源を最初に配列しておくことで、
+参考資料として使えるようにと考えています。
+
+また、 anything-c-* 変数群は anything-* 変数群としてアクセスできるようにします。
+-c-は冗長だと思うからです。
+*** anything-complete.elの整理
+Emacsシンボル収集関連はanything-apropos.el行きにします。
+シンボル収集は毎回行うか、手動で行うかの設定もできるようにしておきます。
+
+非互換性を排除するため、anything-complete.elを読み込めば、
+anything-apropos.elも読み込むことにします。
+
+anything-read-string-modeはanything-completion-modeに置き換えることにします。
+*** anything-grep.elの開発
+anything-grep.elは僕自身が長年使っているEmacs Lispです。
+grepに限らず、the_silver_searcher(ag)、ripgrep(rg)、codesearch(csearch)にしても動作しています。
+M-x anything-grep-by-nameは本当に重宝しています。
+*** オンラインドキュメント・チュートリアル
+anything.elは使っていくうちに覚えられるようなシステムにしたいです。
+
+使い方・情報源作成のチュートリアルを作成予定です。
+
+また、ドキュメントは日本語・英語の両方で書いていきます。
+僕の方としても、日本語で一旦書いてから寝かして英語化した方が効率いいと考えているからです。
+ファイルは anything-doc-en.el と anything-doc-ja.el を予定しています。
+
+
 
 [includeme file="inc-package-relate.php" name="anything"]
 ** 参考サイト
