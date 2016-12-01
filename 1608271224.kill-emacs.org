@@ -13,10 +13,10 @@
 #+TITLE: うっかりEmacsを終了することを二度となくす超簡単な方法
 #+TAGS: るびきちオススメ
 #+begin: org2blog-tags
-# content-length: 1078
+# content-length: 1059
 
 #+end:
-http://nagayasu-shinya.seesaa.net/article/emacs-confirm-kill-emacs.html
+http://nagayasu-shinya.com/emacs-confirm-kill-emacs/
 
 #+BEGIN_QUOTE
 ご存知の通りEmacs のファイル保存のコマンドはC-x C-s です。また、終了コマンドは C-x C-c です。このせいで、Emacs使いなら一度は経験があるのではと思うミスが「ファイルを保存しようとしたらうっかりEmacsを終了してしまった」というやつです。キーボードのxとsとcが近すぎるゆえに起こる不幸……C-x C-s とタイプしたつもりが C-x C-c とタイプミスしてしまうというかなしい事故。
