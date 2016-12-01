@@ -1,0 +1,82 @@
+#+BLOG: rubikitch
+#+POSTID: 1834
+#+DATE: [2016-12-01 Thu 12:16]
+#+PERMALINK: google-maps
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY:   検索エンジン
+#+EL_PKG_NAME: google-maps
+#+TAGS: google, 
+#+EL_TITLE: 
+#+EL_TITLE0: 知ってた？EmacsでGoogle Mapsにアクセスできるんだぜ！ズームも移動も自由自在
+#+EL_URL: 
+#+begin: org2blog
+#+TITLE: google-maps.el : 知ってた？EmacsでGoogle Mapsにアクセスできるんだぜ！ズームも移動も自由自在
+[includeme file="inc-package-table.php" name="google-maps" where="melpa"]
+
+#+end:
+** 概要
+実はEmacsでGoogle Mapsにアクセスできるんです！
+使い方はM-x google-mapsで場所を入力するだけ！
+regionが指定してある場合は、その場所を表示します。
+
+ズームインやズームアウトもできます。
+
+| ズームイン                 | + > .    |
+| ズームアウト               | - < ,    |
+| ズームのレベルを設定       | z        |
+| ズームのレベルを削除       | Z        |
+| URLをコピー                | w        |
+| 地図のタイプを設定         | t        |
+| 更新                       | g        |
+| 移動                       | 矢印キー |
+| マウスでズームイン・アウト | ホイール |
+|----------------------------+----------|
+| 終了                       | q        |
+
+ただ、マウスドラッグによる移動には対応していません。
+
+デフォルトは英語表記になっていますので、
+本設定では日本語表記にするようアドバイスをかけました。
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20161201122647.png]]
+Fig1: M-x google-maps 東京駅
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20161201122657.png]]
+Fig2: t satellite で航空地図
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20161201122829.png]]
+Fig3: t hybrid
+
+
+
+[includeme file="inc-package-install.php" name="google-maps" where="melpa"]
+** 設定 [[http://rubikitch.com/f/161201121855.google-maps.el][161201121855.google-maps.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/161201/161201121855.google-maps.el"
+#+BEGIN_SRC fundamental
+;;; 日本語表示にするための設定
+(defun google-maps-url--language-ja (&rest them)
+  (concat (apply them) "&language=ja"))
+(advice-add 'google-maps-static-build-url :around 'google-maps-url--language-ja)
+(advice-add 'google-maps-geocode-build-url :around 'google-maps-url--language-ja)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/161201121855.google-maps.el
+$ emacs -Q -f package-initialize -l 161201121855.google-maps.el
+#+END_EXAMPLE
+
+[includeme file="inc-package-relate.php" name="google-maps"]
+** 参考サイト
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
