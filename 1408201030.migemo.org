@@ -15,6 +15,8 @@
 #+begin: org2blog
 #+TITLE: migemo.el : ローマ字で日本語検索する神ツールMigemoが更新されたよ！
 [includeme file="inc-package-table.php" name="migemo" where="melpa"]
+
+#+end:
 ** 概要
 日本人でEmacsを使っていてMigemoを使っていないならば、
 /今すぐインストール/ してください。
@@ -44,36 +46,6 @@ $ sudo apt-get install cmigemo
 [[http://www.kaoriya.net/software/cmigemo/]]
 にWindowsバイナリやソースコードがあります。
 [includeme file="inc-package-install.php" name="migemo" where="melpa"]
-
-#+end:
-** 概要                                                             :noexport:
-日本人でEmacsを使っていてMigemoを使っていないならば、
-/今すぐインストール/ してください。
-
-そう、今すぐです。
-
-Emacsのisearchは少ないタイプ数で目的地に到達してくれる
-優れたカーソル移動手段です。
-
-しかし日本語文字列の場合は、
-ローマ字から変換をする必要があるため、
-isearchの恩恵が受けられません。
-
-Migemoは漢字変換の手間を排除し、
-ローマ字を入力するだけで
-日本語文字列を検索してくれます。
-
-たとえば、C-s nihonで「日本」にカーソルが行きます。
-
-
-Migemoを使うには、cmigemoというバックエンドをインストールする必要があります。
-
-Debian系列ならば
-$ sudo apt-get install cmigemo
-でインストールできます。
-
-[[http://www.kaoriya.net/software/cmigemo/]]
-にWindowsバイナリやソースコードがあります。
 ** 設定 [[http://rubikitch.com/f/140820103842.el][140820103842.el(以下のコードと同一)]]
 #+BEGIN: include :file "/r/sync/junk/140820/140820103842.el"
 #+BEGIN_SRC fundamental
@@ -103,3 +75,5 @@ $ emacs -Q -f package-initialize -l 140820103842.el
 http://rubikitch.com/f/20140820103943.png
 Fig1: ローマ字で日本語検索！！
 [includeme file="inc-package-relate.php" name="migemo"]
+** 参考サイト
+- [[http://nagayasu-shinya.com/emacs-cmigemo-windows/][Windowsでの Emacsでmigemo を有効にする設定方法]]
