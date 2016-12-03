@@ -1,0 +1,46 @@
+#+BLOG: rubikitch
+#+POSTID: 1843
+#+DATE: [2016-12-03 Sat 13:27]
+#+PERMALINK: cmd-to-echo
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY:   プログラム実行
+#+EL_PKG_NAME: cmd-to-echo
+#+TAGS: 非同期処理, shell, Emacs 24.4以降, 
+#+EL_TITLE: 
+#+EL_TITLE0: 時間がかかるプログラムをバックグラウンドで実行する
+#+EL_URL: 
+#+begin: org2blog
+#+TITLE: cmd-to-echo.el : 時間がかかるプログラムをバックグラウンドで実行する
+[includeme file="inc-package-table.php" name="cmd-to-echo" where="melpa"]
+
+#+end:
+** 概要
+cmd-to-echoパッケージに含まれるM-x cmd-to-echoは、
+シェルコマンドを非同期実行し、その結果をエコーエリアに表示するものです。
+標準コマンドのM-! (shell-command) も実行結果が短いときはエコーエリアに表示してくれますが、
+プロセス実行終了までEmacsを操作できません。
+
+M-& (async-shell-command) やM-x compileも非同期実行してくれますが、
+すぐに別ウィンドウが開いてしまいます。
+
+M-x cmd-to-echoは実行に時間がかかるコマンドをM-!のように実行してくれるものと考えてください。
+入力を求められるプログラムには対応していません。
+
+M-x cmd-to-echoを実行すると、プログラム名と引数を別個に尋ねてきます。
+たとえばシェルで「sleep 1; echo ok」と実行したければ、
+#+BEGIN_EXAMPLE
+M-x cmd-to-echo RET sh RET -c 'sleep 1; echo ok' RET
+#+END_EXAMPLE
+と実行する必要があります。
+
+すると、1秒後にエコーエリアにokと表示されます。
+
+[includeme file="inc-package-install.php" name="cmd-to-echo" where="melpa"]
+[includeme file="inc-package-relate.php" name="cmd-to-echo"]
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
