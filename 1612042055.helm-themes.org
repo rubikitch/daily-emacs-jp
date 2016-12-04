@@ -1,0 +1,50 @@
+#+BLOG: rubikitch
+#+POSTID: 1845
+#+DATE: [2016-12-04 Sun 20:55]
+#+PERMALINK: helm-themes
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY:     テーマ設定
+#+EL_PKG_NAME: helm-themes
+#+TAGS: helm, 初心者安心, るびきちオススメ, 
+#+EL_TITLE: 
+#+EL_TITLE0: カラーテーマを初心者でも1分で設定する秘技を伝授！
+#+EL_URL: 
+#+begin: org2blog
+#+TITLE: helm-themes.el : カラーテーマを初心者でも1分で設定する秘技を伝授！
+[includeme file="inc-package-table.php" name="helm-themes" where="melpa"]
+
+#+end:
+** 概要
+カラーテーマはいろいろあって迷いますよね。
+ちょっと試してみたいけど、確認が面倒…そんな悩みを解決してくれるのがhelm-themes.elです。
+
+M-x helm-themesはhelmインターフェースでカラーテーマをリストし、
+C-z (persistent-action) を押すことで一時的にカラーテーマを設定しつつ、
+好みのカラーテーマが見付かったらRETで確定します。
+
+気分によってカラーテーマを変えるのも自在です。
+いろいろなカラーテーマで遊んでみてください。
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20161204210211.png]]
+Fig1: abyssを選んでC-zを押すとhelmの中でabyss-themeになる
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20161204210226.png]]
+Fig2: organic-greenを選んでRETを押すとorganic-green-themeになってhelmを終了する
+
+
+
+[includeme file="inc-package-install.php" name="helm-themes" where="melpa"]
+[includeme file="inc-package-relate.php" name="helm-themes"]
+** 参考サイト
+本サイトにはカラーテーマのカタログを多数用意しています。
+- [[http://emacs.rubikitch.com/category/%e8%a1%a8%e7%a4%ba/%e3%82%ab%e3%83%a9%e3%83%bc%e3%83%86%e3%83%bc%e3%83%9e/%e3%83%a9%e3%82%a4%e3%83%88/][カラーテーマ/ライト]]
+- [[http://emacs.rubikitch.com/category/%e8%a1%a8%e7%a4%ba/%e3%82%ab%e3%83%a9%e3%83%bc%e3%83%86%e3%83%bc%e3%83%9e/%e3%83%80%e3%83%bc%e3%82%af/][カラーテーマ/ダーク]]
+- [[http://emacs.rubikitch.com/category/%e8%a1%a8%e7%a4%ba/%e3%82%ab%e3%83%a9%e3%83%bc%e3%83%86%e3%83%bc%e3%83%9e/%e6%98%8e%e6%9a%97%e5%af%be%e5%bf%9c/][カラーテーマ/明暗対応(ライト・ダークどっちも用意)]]
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
