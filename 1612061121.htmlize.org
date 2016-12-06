@@ -1,0 +1,73 @@
+#+BLOG: rubikitch
+#+POSTID: 1849
+#+DATE: [2016-12-06 Tue 11:21]
+#+PERMALINK: htmlize
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY:     テキスト色付け
+#+EL_PKG_NAME: htmlize
+#+TAGS: org, 
+#+EL_TITLE: 
+#+EL_TITLE0: バッファの表示内容をそのままWebブラウザで見せよう
+#+EL_URL: 
+#+begin: org2blog
+#+TITLE: htmlize.el : バッファの表示内容をそのままWebブラウザで見せよう
+[includeme file="inc-package-table.php" name="htmlize" where="melpa"]
+
+#+end:
+** 概要
+あなたは、自分のEmacsの作業環境を見せたいと思ったことはありますか？
+スクリーンショットや動画を撮る方法もありますね。
+
+このhtmlizeパッケージは、バッファをHTML化することで、
+Webブラウザ上でシンタックスハイライトや使っている色を再現させることができます。
+
+特筆すべき点は
+1. 古いEmacsでも動作する(なんとEmacs21やXEmacsまで！)
+2. インライン画像にも対応
+3. リンクも再現できる
+
+とくに2と3はorg文書を作成している場合に助かりますね。
+
+[[http://emacs.rubikitch.com/language-detection/][language-detection.elのページ]] のorg文書をHTML化したのはこちら
+→ http://rubikitch.com/f/language-detection.org.html
+
+僕は黒背景で緑文字が好きですので、こんな感じになります。
+
+ただ、文字のバックグラウンド色とフォアグラウンド色を完璧に再現できていません。
+たとえば「** 概要」は白背景に黒文字ですが、htmlizeでは黒背景に白文字になっています。
+現時点ではinverseに対応していないからです。
+[includeme file="inc-package-install.php" name="htmlize" where="melpa"]
+** 使い方
+M-x htmlize-bufferでカレントバッファをHTML化したバッファが作成されます。
+M-x htmlize-fileで指定したファイルのHTML版を作成します。
+
+重要なカスタマイズ変数は htmlize-output-type です。
+デフォルトではcssが指定されていて、出力HTMLの冒頭にCSSが載ります。
+HTML化されたものをそのまま見たりWebにアップロードする場合に向いています。
+
+inline-cssまたはfontを指定すると、各行ごとにスタイル情報が記述されます。
+冗長であるためファイルサイズが大きくなりがちですが、
+HTML化された部分的に切り取って他のドキュメントに貼り付けられるメリットがあります。
+
+
+** リンクはどのように取得しているのか
+htmlize.el自身はorg-modeについてのコードは書かれていません。
+けれどもorg文書をHTML化すると、リンクは再現されます。
+なぜでしょうか？
+
+それは、org-modeがhtmlize-linkテキストプロパティを使っていて、
+htmlize.elがhtmlize-linkを解釈するからです。
+
+僕が知る限り現在はorg-modeくらいしかhtmlize-linkを活用していませんが、
+あなたがハイパーリンクを扱うEmacs Lispを開発するのであれば
+htmlize-linkテキストプロパティを付けるとhtmlizeに対応できます。
+
+[includeme file="inc-package-relate.php" name="htmlize"]
+** 参考サイト
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
