@@ -1,0 +1,24 @@
+#+BLOG: rubikitch
+#+POSTID: 1851
+#+DATE: [2016-12-07 Wed 19:30]
+#+PERMALINK: 161207
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY:   記事更新情報
+#+TAGS: 
+#+TITLE: 「新生日刊Emacs」少しお休みします
+#+begin: org2blog-tags
+# content-length: 186
+#+HTML: <!-- noindex -->
+
+#+end:
+ただいま大きなタスクを抱え、かなりの脳のリソースを割く必要があるため、
+しばらく新生日刊Emacsをお休みさせてください。
+
+楽しみにしてくださる皆様には迷惑をおかけしますが、
+復活までしばらくお待ちください。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
