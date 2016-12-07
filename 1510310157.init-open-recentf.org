@@ -12,9 +12,9 @@
 #+EL_PKG_NAME: init-open-recentf
 #+EL_URL: http://qiita.com/tadsan/items/3d4c5d14850cff7fbcb5
 #+TAGS: recentf, ido, anything, helm
-#+EL_TITLE0: Emacs起動時にrecentfを開く(ido/anything/helm対応)
+#+EL_TITLE0: Emacs起動時にrecentfを開く(ido/anything/helm/ivy対応)
 #+begin: org2blog
-#+TITLE: init-open-recentf.el : Emacs起動時にrecentfを開く(ido/anything/helm対応)
+#+TITLE: init-open-recentf.el : Emacs起動時にrecentfを開く(ido/anything/helm/ivy対応)
 [includeme file="inc-package-table.php" name="init-open-recentf" where="melpa"]
 
 #+end:
