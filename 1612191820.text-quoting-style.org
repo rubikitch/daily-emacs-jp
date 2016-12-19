@@ -1,0 +1,112 @@
+#+BLOG: rubikitch
+#+POSTID: 1857
+#+DATE: [2016-12-19 Mon 18:20]
+#+PERMALINK: text-quoting-style
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY:   カスタマイズ
+#+TAGS: Emacs 25.1以降, マイナーモード, 
+#+TITLE: Emacs 25以降で説明文字列中のクオートを全角から半角に戻す
+#+begin: org2blog-tags
+# content-length: 2029
+
+#+end:
+Emacsでは変数や関数の使い方を書くための
+ドキュメントとしてdocstringがありますね。
+
+Emacs 25.1からはdocstring中のクオートが
+勝手に全角に変換されるようになりました。
+
+たとえば、
+
+#+BEGIN_SRC emacs-lisp :results silent
+(defun test2 ()
+  "This is `test2'")
+#+END_SRC
+
+を定義して<f1> f (describe-function) して
+docstringを表示させるとこのように表示されます。
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20161219182724.png]]
+Fig1: `〜' が全角で表示される
+
+実はこれが悪さをしてしまうのです！
+docstringの中にS式を書くときがあるのですが、
+S式中のクオートも全角になってしまいます。
+
+#+BEGIN_SRC emacs-lisp :results silent
+(defun test ()
+  "(setq foo '(1 2))")
+#+END_SRC
+
+当然、この状態でdocstring中のS式を
+C-x C-eしたら当然エラーになります。
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20161219182415.png]]
+Fig2: Emacs 24.5では半角
+
+
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20161219182338.png]]
+Fig3: Emacs 25.1では全角
+
+
+この問題に対処するには以下の設定を加えます。
+
+#+BEGIN_SRC emacs-lisp :results silent
+(setq text-quoting-style 'straight)
+#+END_SRC
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20161219183327.png]]
+Fig4: Emacs 25.1でも半角に！
+
+まったく、余計なお世話な機能ですこと。
+** どう調べたか
+僕はこれをhelp.elの機能かと思い、
+コードを検索してみたのですが見付かりませんでした。
+
+そこで<f1> nでNEWSを開き、
+[[http://emacs.rubikitch.com/helm-swoop/][helm-swoop]] で「quot」を検索しました。
+
+28個候補があった中で、
+curveという単語が気になったので
+コレだと思いました！
+
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20161219183636.png]]
+Fig5: helm-swoopでquot curvを検索
+
+ドンピシャな情報が見付かりました。
+
+#+BEGIN_QUOTE
+,** New variable 'text-quoting-style' to control how Emacs translates quotes.
+
+Set it to 'curve' for curved single quotes, to 'straight' for straight
+apostrophes, and to 'grave' for grave accent and apostrophe.  The
+default value nil acts like 'curve' if curved single quotes are
+displayable, and like 'grave' otherwise.  The new variable affects
+display of diagnostics and help, but not of info.  As the variable is
+not intended for casual use, it is not a user option.
+#+END_QUOTE
+
+けっこうな個数ヒットしますので、
+Emacs 25.1からは積極的にcurved quote(全角クオート)が
+使われているようです。
+
+** M-x electric-quote-mode
+M-x electric-quote-modeなんてのも出てきています。
+
+キーボードでクオートとバッククォートを入力したら
+自動で全角になるグローバルマイナーモードです。
+
+ローカルマイナーモードとして
+M-x electric-quote-local-modeも用意されています。
+
