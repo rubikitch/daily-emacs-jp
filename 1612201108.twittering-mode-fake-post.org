@@ -1,0 +1,114 @@
+#+BLOG: rubikitch
+#+POSTID: 1859
+#+DATE: [2016-12-20 Tue 11:08]
+#+PERMALINK: twittering-mode-fake-post
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+#+DESCRIPTION:通常のtwittering-modeの操作性を維持しながらファイルにツイートを蓄えて夜に一括送信する設定。朝になって反応を見る。活動時間が増え、集中力が上がり、失言も防げる。
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: ネットワーク
+#+TAGS: twittering-mode, 
+#+TITLE: 【時間管理・失言防止】Twitterしながら毎日1時間稼ぐ方法
+#+begin: org2blog-tags
+# content-length: 2670
+
+#+end:
+あなたはTwitterやってますか？
+Twitterは手軽につぶやけて便利ですね。
+僕はもちろんtwittering-modeでTwitterを使っています。
+
+Twitterは気楽につぶやけますが、同時に時間泥棒でもあります。
+つぶやいた後、どうしても気になってしまいますよね。
+Twitterが気になって仕事に集中できないのは本末転倒です。
+
+*では、Twitterをやめればいい*
+というのも確かに正論ですが、
+問題をシステム的に解決するのがEmacs使いです。
+
+その方法というのは、
+
+*twittering-modeで普通につぶやく動作をしながら、*
+*実はツイートを特定のファイルに蓄積して、*
+*夜になって一括ツイートすればいい*
+
+のです！
+
+メリットは以下の4点です
+1. Twitterを頻繁に見る必要がなくなる
+2. 当然、活動時間が増える
+3. 集中力が増す
+4. つぶやきから時間がたっているので見直せて失言が防げる
+
+このようにシステムを組んでしまえば
+つぶやきながらも実際に送信されていませんので、
+自分のツイートが気になることはありません。
+
+以下の設定を加え、夜になったら
+M-x twittering-open-fake-statuses
+を実行し、C-c C-cを連打します。
+
+すると、蓄えられたツイートが1行ごとに送信され、
+最終行に到達したらウィンドウが閉じられます。
+
+そして朝起きたときに反応を見ればいいです。
+
+リプしたければ、通常通りリプをします。
+でも実際にはファイルに蓄積されますので、
+夜になったら送信します。
+
+確かにリアルタイム性は損なわれますが、
+夜に送信する際に見直しもできますので失言も防げます。
+
+
+
+** 設定 [[http://rubikitch.com/f/161220112057.twittering-mode-fake-post.el][161220112057.twittering-mode-fake-post.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/161220/161220112057.twittering-mode-fake-post.el"
+#+BEGIN_SRC fundamental
+(require 'twittering-mode)
+
+(defvar twittering-fake-status-file (concat user-emacs-directory "twittering-fake-status"))
+(defun twittering-edit-post-status--fake ()
+  (interactive)
+  (twittering-edit-fake-status))
+(defun twittering-edit-fake-status ()
+  (interactive)
+  (append-to-file (concat (twittering-edit-extract-status) "\n")
+                  nil twittering-fake-status-file)
+  (twittering-edit-close))
+(defun twittering-post-this-line ()
+  (interactive)
+  (twittering-call-api 'update-status
+   `((status . ,(buffer-substring-no-properties (point-at-bol) (point-at-eol))))))
+(defun twittering-post-this-line-or-quit ()
+  (interactive)
+  (if (eobp)
+      (quit-window t)
+    (twittering-post-this-line)
+    (forward-line 1)))
+(defun twittering-open-fake-statuses ()
+  (interactive)
+  (switch-to-buffer "*twittering-fake-status*")
+  (twittering-fake-status-mode)
+  (erase-buffer)
+  (condition-case _
+      (insert-file-contents twittering-fake-status-file)
+    (file-error (message "No tweets")))
+  (ignore-errors (delete-file twittering-fake-status-file)))
+(define-derived-mode twittering-fake-status-mode text-mode "TwFake"
+  (define-key twittering-fake-status-mode-map (kbd "C-c C-c") 'twittering-post-this-line-or-quit))
+
+(define-key twittering-edit-mode-map (kbd "C-c C-c") 'twittering-edit-post-status--fake)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/161220112057.twittering-mode-fake-post.el
+$ emacs -Q -f package-initialize -l 161220112057.twittering-mode-fake-post.el
+#+END_EXAMPLE
+
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
