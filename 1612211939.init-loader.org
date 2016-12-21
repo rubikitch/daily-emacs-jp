@@ -1,0 +1,152 @@
+#+BLOG: rubikitch
+#+POSTID: 1861
+#+DATE: [2016-12-21 Wed 19:39]
+#+PERMALINK: init-loader
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: 
+#+EL_PKG_NAME: init-loader
+#+TAGS: 
+#+EL_TITLE: 
+#+EL_TITLE0: init.elを分割すると得られる7つの恩恵
+#+EL_URL: 
+#+begin: org2blog
+#+TITLE: init-loader.el : init.elを分割すると得られる7つの恩恵
+[includeme file="inc-package-table.php" name="init-loader" where="melpa"]
+
+#+end:
+** 概要
+Emacsを長く使っていくと、
+どうしてもinit.elが長くなってしまいます。
+
+そこで提案するのがinit.elを分割することです。
+
+メリットは7つあります。
+1. 管理が容易になる
+2. 設定を加えたときの動作確認が楽になる
+3. 分割されたファイルのみで動作確認できるようになる
+4. 設定を加えるのは新しいファイルを作成するだけ
+5. 設定を外すのはファイルをリネーム・移動するだけ
+6. OS・プラットフォームごとの設定が書ける
+7. 関数は別ファイルに分けてからバイトコンパイルすると起動が早くなる
+
+このinit-loader.elは
+特定のディレクトリに定められた
+ファイル名で配置するだけで、
+自動的に読み込んでくれます。
+
+とても楽に管理できますので、
+僕も長年愛用しています。
+[includeme file="inc-package-install.php" name="init-loader" where="melpa"]
+** 使い方
+ディレクトリ ~/.emacs.d/inits/ 以下に
+数字2つから始まる.elファイルを配置します。
+
+たとえば、
+
+- 00_util.el
+- 01_ik-cmd.el
+- 21_javascript.el
+- 99_global-keys.el
+
+のように。
+
+上記のファイル名は数字の後に
+「_」を入れていますが、
+なくても構いません。
+
+init-loader.elは数字の順番に
+設定を読み込んでいきます。
+
+初めて使うには以下の手順を踏みます。
+
+1. mkdir ~/.emacs.d/inits を実行してディレクトリを作成する
+2. mv ~/.emacs.d/init.el ~/.emacs.d/inits/50_init.el でinit.elを移動する
+3. init.el を以下の内容にする
+
+#+BEGIN_SRC emacs-lisp :results silent
+(package-initialize)
+(init-loader-load)
+#+END_SRC
+
+あとは 50_init.el を順番に
+分割していってください。
+
+最初は粗く、だんだんと細かく
+分割していくといいです。
+
+これはEmacsのinit.elを抜本的に改革しますので、
+時間をかけてゆっくり行ってください。
+
+同時にEmacs全体の見直しになります。
+
+不要な設定を除去する
+「断捨離」「デトックス」
+の効果があります。
+
+それにより、
+Emacsがすっきりして
+安定稼働するようになります。
+** OS(プラットフォーム)ごとの独自の設定ファイル
+init-loader.elはプラットフォームごとの
+設定も書けるようになっています。
+
+以下のファイルはデフォルトのファイル群
+(数字2つから始まる)を読み込んだ後で読み込まれます。
+
+| プラットフォーム        | プレフィクス    | 例                          |
+|-------------------------+-----------------+-----------------------------|
+| Windows                 | `windows-`      | windows-fonts.el            |
+| Windows  (Meadow)       | `meadow-`       | meadow-commands.el          |
+| Mac OS X (Carbon Emacs) | `carbon-emacs-` | carbon-emacs-applescript.el |
+| Mac OS X (Cocoa Emacs)  | `cocoa-emacs-`  | cocoa-emacs-plist.el        |
+| GNU/Linux               | `linux-`        | linux-commands.el           |
+| CUI環境                 | `nw-`           | nw-key.el                   |
+** 関数と設定を分ける案
+init-loader.elで分割されたファイルを
+バイトコンパイルすると管理が面倒になります。
+
+そのため、デフォルトでは
+バイトコンパイルしないようになっています。
+
+というか、バイトコンパイルはおすすめしません。
+
+なぜなら、
+一度だけ実行されるただの設定を
+バイトコンパイルしても
+速度の向上は得られないからです。
+
+そこで、僕は関数のみを ~/.emacs.d/inits/
+以下でmylisp-をプレフィクスしたファイル名で配置し、
+バイトコンパイルしています。
+
+たとえば、以下のように
+- mylisp-org.el
+- mylisp-anything.el
+
+設定ファイル群からは
+#+BEGIN_SRC emacs-lisp :results silent
+(require 'mylisp-org)
+#+END_SRC
+のように読み込んで使っています。
+
+設定ファイル群には極力関数定義を書かずに、
+add-hookやsetqなどの設定の記述にとどめておきます。
+
+この管理法ならば、
+バイトコンパイルによる速度と、
+管理の容易さを両立できます。
+
+[includeme file="inc-package-relate.php" name="init-loader"]
+** 参考サイト
+- [[http://qiita.com/catatsuy/items/5f1cd86e2522fd3384a0][init-loader.el と package.el を導入して快適 Emacs ライフ - Qiita]]
+- [[http://vdeep.net/emacs-init-loader]]
+- [[http://blog.aqutras.com/entry/2016/07/14/210000][Emacsの設定ファイルをinit-loaderを使ってきれいにした話 - Aqutras Members&#39; Blog]]
+- [[http://skygrid.co.jp/jojakudoctor/emacs-init-loader/][Emacsの設定を分割して管理する方法 | Sky Grid]]
+- [[http://blog.shibayu36.org/entry/20101229/1293624201][emacsでinit-loaderを導入してみた - $shibayu36->blog;]]
+- [[http://block-given.hatenablog.com/entry/2014/11/09/134725][モダンなEmacsを求めて (3) init-loaderで設定ファイルを分割する - block_given?]]
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
