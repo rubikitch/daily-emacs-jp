@@ -1,0 +1,146 @@
+#+BLOG: rubikitch
+#+POSTID: 1863
+#+DATE: [2016-12-22 Thu 17:11]
+#+PERMALINK: zoom-window
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY:   ウィンドウ構成切り替え
+#+EL_PKG_NAME: zoom-window
+#+TAGS: 標準コマンド強化, 
+#+EL_TITLE: 
+#+EL_TITLE0: C-x 1を復元可能にする7つのメリット
+#+EL_URL: 
+#+begin: org2blog
+#+TITLE: zoom-window:C-x 1を復元可能にする7つのメリット
+[includeme file="inc-package-table.php" name="zoom-window" where="melpa"]
+
+#+end:
+** 概要
+zoom-window.elは、
+tmuxのzoom/unzoomコマンドを
+Emacsに移植したものです。
+
+といっても
+tmuxを使っていない人には
+ピンときませんね。
+
+別な言い方をすれば
+C-x 1 (delete-other-windows) に
+復元機能をつけたものです。
+
+あなたが普段C-x 1を使うときは、
+どういうときでしょうか？
+
+複数のウィンドウを開いているけど、
+作業中のウィンドウが狭いと
+感じたときではないでしょうか。
+
+そのときにC-x 1で
+作業中のウィンドウを
+最大化表示します。
+
+けれども、
+元のウィンドウ構成に戻れたら
+嬉しくはないでしょうか？
+
+それを叶えるのが
+zoom-window.elです。
+
+7つの特徴があります。
+1. C-x 1の上位互換
+2. 挙動が単純明解
+3. ズームされたときは
+   モードラインの色が変わる
+4. elscreen対応
+5. persp-mode対応
+6. 複数のフレームに対応
+7. ズーム状態のまま隣の
+   ウィンドウをズームできる
+
+M-x zoom-windowは
+以下の挙動をします。
+
+1. フレームが複数のウィンドウに
+   なっているときは、
+   選択中のウィンドウを最大化する
+2. 最大化された状態ならば
+   元のウィンドウ構成に戻す
+
+M-x zoom-window-nextは
+元のウィンドウ構成に含まれている
+バッファを切り替えます。
+
+READMEにはC-x C-zに割り当てていますが、
+本設定ではC-x 1に割り当てました。
+
+パワーアップしたC-x 1をお楽しみください。
+
+[includeme file="inc-package-install.php" name="zoom-window" where="melpa"]
+** 基本設定
+*** 設定 [[http://rubikitch.com/f/161222164917.zoom-window.el][161222164917.zoom-window.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/161222/161222164917.zoom-window.el"
+#+BEGIN_SRC fundamental
+(require 'zoom-window)
+(global-set-key (kbd "C-x 1") 'zoom-window-zoom)
+(setq zoom-window-mode-line-color "DarkGreen")
+#+END_SRC
+
+#+END:
+
+*** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/161222164917.zoom-window.el
+$ emacs -Q -f package-initialize -l 161222164917.zoom-window.el
+#+END_EXAMPLE
+** elscreenと併用する設定
+*** 設定 [[http://rubikitch.com/f/161222165021.zoom-window-elscreen.el][161222165021.zoom-window-elscreen.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/161222/161222165021.zoom-window-elscreen.el"
+#+BEGIN_SRC fundamental
+(require 'elscreen)
+(elscreen-start)
+
+(require 'zoom-window)
+(setq zoom-window-use-elscreen t)
+(zoom-window-setup)
+
+(global-set-key (kbd "C-x 1") 'zoom-window-zoom)
+#+END_SRC
+
+#+END:
+
+*** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/161222165021.zoom-window-elscreen.el
+$ emacs -Q -f package-initialize -l 161222165021.zoom-window-elscreen.el
+#+END_EXAMPLE
+** persp-modeと併用する設定
+*** 設定 [[http://rubikitch.com/f/161222165209.zoom-window-persp.el][161222165209.zoom-window-persp.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/161222/161222165209.zoom-window-persp.el"
+#+BEGIN_SRC fundamental
+(with-eval-after-load "persp-mode-autoloads"
+  (add-hook 'after-init-hook #'(lambda () (persp-mode 1))))
+
+(require 'zoom-window)
+(setq zoom-window-use-persp t)
+(zoom-window-setup)
+
+(global-set-key (kbd "C-x 1") 'zoom-window-zoom)
+#+END_SRC
+
+#+END:
+
+*** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/161222165209.zoom-window-persp.el
+$ emacs -Q -f package-initialize -l 161222165209.zoom-window-persp.el
+#+END_EXAMPLE
+
+
+[includeme file="inc-package-relate.php" name="zoom-window"]
+** 参考サイト
+- [[http://syohex.hatenablog.com/entry/20130914/1379166283][Emacsで tmuxの zoom, unzoomを実現する zoom-window.el書きました - syohex’s diary]]
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
