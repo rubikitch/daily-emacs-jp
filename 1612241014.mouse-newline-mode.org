@@ -1,0 +1,258 @@
+#+BLOG: rubikitch
+#+POSTID: 1868
+#+DATE: [2016-12-24 Sat 10:14]
+#+PERMALINK: mouse-newline-mode
+#+OPTIONS: toc:t num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+#+DESCRIPTION:
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY:   見やすく表示
+#+TAGS: 長い行, マウス, 
+#+TITLE: ブログやメルマガを圧倒的に読みやすくする3ステップ(コード付き)
+#+begin: org2blog-tags
+# content-length: 3584
+
+#+end:
+** こまめな改行のススメ
+僕の最近の文章の書き方として
+改行をこまめに入れています。
+
+なぜなら、
+そうすることによって
+圧倒的に読みやすくなることを
+Webライターから教わったからです。
+
+横書きの本は、
+左端から右端までぎっしりと
+書かれていますよね。
+
+読むときは、
+ぎっしりと書かれた文字と対峙するため、
+気合が必要だと思います。
+
+一方で、
+1行の文字数を短くして
+こまめに改行を入れると
+かなり読みやすくなります。
+
+その分縦長にはなるのですが、
+読むスピードは早くなるはずです。
+
+それは、
+人間の目は左右よりも
+上下の移動の方が得意だからです。
+
+僕は視野が狭いので
+特にそう感じます。
+
+ビジネス書が縦書きになっているのも、
+縦書きの文章の方が日本人に好まれるのも、
+それが理由だと僕は考えています。
+
+文章を書いた後に
+読者に読みやすくするための気配りとして、
+こまめに改行してみてはいかがでしょうか。
+** 読みやすい文章を書くための3ステップ
+やり方は、
+1. 最初は普通に書いていく
+2. 内容の校正をする
+3. 改行を入れる
+の3ステップです。
+
+1行は20文字、
+1段落は4行まで
+にするといいです。
+
+適宜箇条書きを入れると
+よりよいです。
+
+でも、
+改行を入れるのは面倒ですよね。
+
+高機能なテキストエディタを
+使えない人は矢印キーやマウスで
+位置を指定してEnterを
+ポチッてると思います。
+
+Emacsでインクリメンタルサーチが
+使えるならそれを使うでしょう。
+** マウスを使え！
+僕も改行入れ作業に
+インクリメンタルサーチを使っていましたが
+ちょっと面倒だと感じていました。
+
+そこで
+意外な方法を編み出しました。
+
+*マウスを使うことです！*
+
+[[http://www.nongnu.org/ratpoison/][ratpoison ]]というマウス排除の
+ハードコアなウィンドウマネージャーを使い、
+Emacsもメニューをほとんど使わない
+僕にとってはものすごい意外な発想です。
+
+
+ですが、
+改行を入れる作業において必要なのは、
+1. クリックした位置に改行を入れる
+2. クリックした行を前の行とつなげる
+3. スクロールする
+だけです。
+
+2が必要なのは、
+改行位置を容易に修正できるように
+するためです。
+
+それならば
+マウスが適任
+ということになります。
+
+僕がマウスをほとんど使わないのは、
+マウスとキーボードの往復が嫌なだけです。
+
+マウスが適任であれば、
+そのままマウスを使えば
+いいだけのことです。
+** mouse-newline-modeマイナーモードの定義
+そこで、、、
+
+マウスで改行を実現するためのマイナーモード、
+M-x mouse-newline-modeを
+サクッと定義しました。
+
+以下の仕様です。
+1. バッファの文字を拡大する(height=330)
+2. 左クリックで改行挿入
+3. 右クリックで上の行と連結する
+
+スクロールはデフォルト通り
+ホイールを使えばいいだけです。
+
+文字の大きさは 
+mouse-newline-face-height 
+を調整してください。
+
+** コード [[http://rubikitch.com/f/mylisp-mouse-newline.el][mylisp-mouse-newline.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/emacs/init.d/mylisp-mouse-newline.el"
+#+BEGIN_SRC fundamental
+(require 'org)
+(defvar mouse-newline-face-height 330)
+
+(defun mouse-newline (event)
+  (interactive "e")
+  (posn-set-point (event-end event))
+  (cond ((org-in-item-p)
+         (insert "\n ")
+         (org-indent-line))
+        (t
+         (insert "\n"))))
+(defun mouse-delete-indentation (event)
+  (interactive "e")
+  (posn-set-point (event-end event))
+  (delete-indentation)
+  (when (eq (char-after) ?\s)
+    (delete-char 1)))
+
+(defvar mouse-newline-face-remap-cookie nil)
+
+;; (makunbound 'mouse-newline-mode-map)
+(define-minor-mode mouse-newline-mode
+  "Insert and delete newline by mouse"
+  nil " Mouse\\n"
+  '(([mouse-1] . mouse-newline)
+    ([mouse-3] . mouse-delete-indentation))
+  (if mouse-newline-mode
+      (setq mouse-newline-face-remap-cookie
+            (face-remap-add-relative
+             'default :height mouse-newline-face-height))
+    (face-remap-remove-relative mouse-newline-face-remap-cookie)))
+
+
+(provide 'mylisp-mouse-newline)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/mylisp-mouse-newline.el
+$ emacs -Q -l mylisp-mouse-newline.el
+#+END_EXAMPLE
+
+その後に
+M-x mouse-newline-mode
+を実行します。
+** 解説
+*** マウスカーソルを移動させる
+マウスイベントは
+interactiveのeで
+取ります。
+
+僕はその方法をよく知らなかったので、
+M-x find-function mouse-set-point
+でマウスカーソルを
+移動する方法を知りました。
+
+#+BEGIN_SRC emacs-lisp :results silent
+(posn-set-point (event-end event))
+#+END_SRC
+で移動できることがわかりました。
+
+
+また、
+org-modeの箇条書きでも
+正しくインデントしてほしいので、
+それ用のコードも書きました。
+
+org-in-item-pと
+org-indent-line関数です。
+
+前の行とつなげるのは
+M-^ (delete-indentation) 
+を使います。
+
+これもマウスでやるためには
+
+同様の方法でマウスカーソルを
+移動させてから
+delete-indentation
+を実行しました。
+
+ただ、
+これを実行すると
+スペースが入ってしまいますので、
+削除しています。
+*** 文字を大きくする
+マウスで操作するには、
+文字を大きくした方が
+操作しやすいですよね。
+
+そこで、 
+face-remap-add-relative 
+関数を使いました。
+
+これはバッファローカルで
+フェイスに手を加える関数です。
+
+文字を大きくするために 
+height = 330 (mouse-newline-face-height)、
+defaultフェイス(普段の文字のフェイス)に
+適用しました。
+
+face-remap-add-relative 
+の返り値は 
+face-remap-remove-relative 
+に指定すれば元に戻せます。
+
+なお、この関数は
+C-x C-- (text-scale-adjust) 
+に使われています。
+
+正確には
+1. text-scale-adjust
+2. text-scale-increase
+3. text-scale-mode
+   
+の順番にたどれば
+わかります。
