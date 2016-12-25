@@ -11,14 +11,25 @@
 #+TAGS: バグ修正, Emacs 25.1以降, アドバイス, 
 #+TITLE: M-%(query-replace)でエラーになる場合の修正方法
 #+begin: org2blog-tags
-# content-length: 1065
+# content-length: 1323
 
 #+end:
 僕の環境限定かわかりませんが、
 最近M-%(query-replace)を使っていて、
 いきなりエラーになることがあります。
 
-ですが、
+こんな感じに
+リストが入るべきところに
+コンスセルが入ってくるのです。
+
+#+BEGIN_EXAMPLE
+Debugger entered--Lisp error: (wrong-type-argument listp "キー名")
+  mapcar(#[略] (#("キーの名前" 略) . "キー名"))
+  query-replace-read-from("Query replace" nil)
+#+END_EXAMPLE
+
+コンスセルが入ってくるその変数は
+query-replace-defaults ですので
 
 #+BEGIN_SRC emacs-lisp :results silent
 (setq query-replace-defaults nil)
