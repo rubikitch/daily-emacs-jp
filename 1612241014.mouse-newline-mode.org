@@ -4,7 +4,7 @@
 #+PERMALINK: mouse-newline-mode
 #+OPTIONS: toc:t num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
 #+ISPAGE: nil
-#+DESCRIPTION:
+#+DESCRIPTION:こまめに改行を入れると記事が圧倒的に読まれやすくなるというWebライターの教え。Emacsで効率的に実践するためにマウスを活用した自作マイナーモードを紹介。マウスイベントの取得とバッファごとに文字を大きくする方法も解説。
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
 #+CATEGORY:   見やすく表示
@@ -162,11 +162,13 @@ mouse-newline-face-height
   nil " Mouse\\n"
   '(([mouse-1] . mouse-newline)
     ([mouse-3] . mouse-delete-indentation))
-  (if mouse-newline-mode
-      (setq mouse-newline-face-remap-cookie
-            (face-remap-add-relative
-             'default :height mouse-newline-face-height))
-    (face-remap-remove-relative mouse-newline-face-remap-cookie)))
+  (cond (mouse-newline-mode
+         (visible-mode -1)
+         (setq mouse-newline-face-remap-cookie
+               (face-remap-add-relative
+                'default :height mouse-newline-face-height)))
+        (t
+         (face-remap-remove-relative mouse-newline-face-remap-cookie))))
 
 
 (provide 'mylisp-mouse-newline)
