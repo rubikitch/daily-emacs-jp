@@ -11,10 +11,10 @@
 #+EL_PKG_NAME: init-loader
 #+TAGS: 
 #+EL_TITLE: 
-#+EL_TITLE0: init.elを分割すると得られる7つの恩恵
+#+EL_TITLE0: init.elを分割で得られる7つの恩恵
 #+EL_URL: 
 #+begin: org2blog
-#+TITLE: init-loader.el : init.elを分割すると得られる7つの恩恵
+#+TITLE: init-loader:init.elを分割で得られる7つの恩恵
 [includeme file="inc-package-table.php" name="init-loader" where="melpa"]
 
 #+end:
