@@ -1,0 +1,64 @@
+#+BLOG: rubikitch
+#+POSTID: 1874
+#+DATE: [2016-12-25 Sun 14:13]
+#+PERMALINK: query-replace-error-fix
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+#+DESCRIPTION:M-%(query-replace)でエラーになるならば、このページで示しているアドバイスをどうぞ。query-replace-defaultsをnilにすれば直る。
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY:   置換
+#+TAGS: バグ修正, Emacs 25.1以降, アドバイス, 
+#+TITLE: M-%(query-replace)でエラーになる場合の修正方法
+#+begin: org2blog-tags
+# content-length: 1065
+
+#+end:
+僕の環境限定かわかりませんが、
+最近M-%(query-replace)を使っていて、
+いきなりエラーになることがあります。
+
+ですが、
+
+#+BEGIN_SRC emacs-lisp :results silent
+(setq query-replace-defaults nil)
+#+END_SRC
+を設定すれば直ることがわかっています。
+
+毎回M-:やeshellで
+設定するのは面倒ですので、
+アドバイスを書いて対策しています。
+
+最初はvisual-regexpや
+visual-regexp-steroids固有の
+問題かと思いましたが、
+
+通常のquery-replaceを使っていても
+エラーが起きましたので、
+Emacsのバグの可能性があります。
+
+同じ問題に悩まされている方は
+以下のアドバイスを設定してみてください。
+
+** 設定 [[http://rubikitch.com/f/50query-replace-fix.el][50query-replace-fix.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/emacs/init.d/50query-replace-fix.el"
+#+BEGIN_SRC fundamental
+(defun query-replace-read-from--fix-error (&rest them)
+  (condition-case _
+      (apply them)
+    (error (setq query-replace-defaults nil)
+           (apply them))))
+(advice-add 'query-replace-read-from :around
+            'query-replace-read-from--fix-error)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/50query-replace-fix.el
+$ emacs -Q -f package-initialize -l 50query-replace-fix.el
+#+END_EXAMPLE
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
