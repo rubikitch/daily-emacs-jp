@@ -4,13 +4,12 @@
 #+PERMALINK: init-loader
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
 #+ISPAGE: nil
-#+DESCRIPTION:
+#+DESCRIPTION:init.elを分割して~/.emacs.d/initsに数字2つから始まるファイル名で配置することで、順番に読み込む。管理・動作確認がしやすくなる。OSごとの設定も書ける。バイトコンパイルのテクも紹介。
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
-#+CATEGORY: 
+#+CATEGORY:   init.el
 #+EL_PKG_NAME: init-loader
 #+TAGS: 
-#+EL_TITLE: 
 #+EL_TITLE0: init.elを分割で得られる7つの恩恵
 #+EL_URL: 
 #+begin: org2blog
@@ -150,3 +149,4 @@ add-hookやsetqなどの設定の記述にとどめておきます。
 - [[http://block-given.hatenablog.com/entry/2014/11/09/134725][モダンなEmacsを求めて (3) init-loaderで設定ファイルを分割する - block_given?]]
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+[includeme file="inc-package-relate.php" name="init-loader"]
