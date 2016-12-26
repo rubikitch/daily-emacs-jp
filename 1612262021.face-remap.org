@@ -1,0 +1,141 @@
+#+BLOG: rubikitch
+#+POSTID: 1877
+#+DATE: [2016-12-26 Mon 20:21]
+#+PERMALINK: face-remap
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+#+DESCRIPTION:標準ライブラリface-remap.el内のface-remap-add-relative関数を使えば、フェイスに手を加えられ、フォントの大きさ等を自在に変更できる。org-agendaの例、prog-modeの例あり。
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY:   見やすく表示, 
+#+TAGS: 標準コマンド強化, org, 
+#+TITLE: バッファごとに文字の大きさを変更して見やすくする5ステップ
+#+begin: org2blog-tags
+# content-length: 2322
+
+#+end:
+** バッファごとに文字の大きさを変更しよう
+あなたはバッファごとに
+文字の大きさを変更することが
+できることを知っていますか？
+
+実はC-x C-+やC-x C--
+(ともに M-x text-scale-adjust)によって、
+フォントの大きさを変更できるのです。
+
+これらのコマンドを
+起動した後は+や-を押すことで
+段階的に拡大縮小できます。
+
+しかも、この拡大縮小したフォントは
+カレントバッファのみに有効
+(バッファローカル)なのです。
+
+フォントの大きさを自在に変更できれば、
+小さくて目が疲れることも、
+大きくて画面が狹くなることもなくなります。
+
+バッファローカルに
+フォントを変更するのは
+標準機能のface-remap.elです。
+
+これをうまく使ってあげれば、
+バッファやメジャーモードごとに
+固有のフォント・大きさを設定できます。
+
+2日前、[[http://emacs.rubikitch.com/mouse-newline-mode/][マウスで改行を入れるときに文字を拡大したのも]] 、
+この機能を使ったものです。
+
+face-remap.elで重要な関数が
+1. face-remap-add-relative
+2. face-remap-remove-relative
+です。
+
+1が現在のフェイスに
+属性を追加する関数です。
+
+返り値を2に渡せば
+元に戻るようになっています。
+
+2が必要になるのは
+マイナーモードにしたとき
+くらいでしょうけど。
+** 文字の高さを計測する
+それでは、
+バッファごとに固有の
+文字の大きさにしてみましょう。
+
+そのためには、以下の5ステップです。
+1. C-x C--でフォントの大きさを変更する
+2. 希望の大きさを見付ける
+3. C-gでフォントの大きさを確定する
+4. M-: (* (nth 2 text-scale-mode-remapping) (face-attribute 'default :height)) 
+   の値をメモする
+5. (face-remap-add-relative 'default :height 値) を
+   適当な場所で実行させる
+** org-agendaの例
+
+たとえば僕の場合、
+org-agendaのエントリがとても長いので
+- ウィンドウを3分割にして
+- follow-modeで前のウィンドウの続きを
+  次のウィンドウに表示させ
+- 文字を小さくする
+ことで*Org Agenda*全体を見られるようにしています。
+
+そのときのheightは105で、
+1920x1080の解像度でも
+かなり文字が小さいです。
+
+#+BEGIN_SRC emacs-lisp :results silent
+(setq org-agenda-font-height 105)
+(defun my-org-agenda-display ()
+  (interactive)
+  ;; zに限らずいつも使っているorg-agendaのキーを指定する
+  (save-window-excursion (org-agenda nil "z"))
+  (delete-other-windows)
+  (switch-to-buffer "*Org Agenda*")
+  ;; ポイント！ここでフォントのサイズを変更
+  (face-remap-add-relative 'default :height org-agenda-font-height)
+  ;; 3分割にして大きさを揃える
+  (split-window-horizontally)
+  (split-window-horizontally)
+  (balance-windows)
+  ;; 続きを隣のウィンドウに表示させる
+  (follow-mode 1)
+  (set-window-buffer (next-window) (current-buffer))
+  (goto-char (point-min)))
+#+END_SRC
+** prog-modeやtext-modeで使う
+応用例はいろいろあります。
+
+たとえばプログラミング用に
+フォントを小さくしたいのならば、
+このように prog-mode-hook を設定します。
+
+#+BEGIN_SRC emacs-lisp :results silent
+(defun prog-mode-hook--font-size ()
+  (face-remap-add-relative 'default :height 130))
+(add-hook 'prog-mode-hook 'prog-mode-hook--font-size)
+#+END_SRC
+
+逆に文章を書くのに集中するならば
+大きめの値にして text-mode-hook を
+設定すると目が疲れにくいです。
+
+** まとめ
+C-x C--でフォントサイズを
+バッファローカルに変更できます。
+
+この機能を使って
+希望のフォントサイズを見付け、
+意図的に設定することで、
+バッファの用途に応じたフォントサイズにできます。
+
+*Emacsはバッファごとに*
+*文字の大きさを変更できるのです！*
+
+あなたも自在にフォントを使いこなし、
+効率よく作業しましょう。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
