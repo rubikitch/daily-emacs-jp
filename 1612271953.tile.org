@@ -19,8 +19,14 @@
 
 #+end:
 ** 概要
-[[http://emacs.rubikitch.com/zoom-window/][先日紹介した「戻せるC-x 1」]] が人気でしたが、これもC-x 1 (delete-other-windows)を強化するパッケージです。
-C-x 1は元々すべてのウィンドウを削除しますが、今回の設定では直前のバッファを隣のウィンドウに表示させてみます。
+[[http://emacs.rubikitch.com/zoom-window/][先日紹介した「戻せるC-x 1」]] が人気でしたが、
+これもC-x 1 (delete-other-windows)を
+強化するパッケージです。
+
+C-x 1は元々
+すべてのウィンドウを削除しますが、
+今回の設定では直前のバッファを
+隣のウィンドウに表示させてみます。
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
 #+ATTR_HTML: :width 480
@@ -35,12 +41,21 @@ Fig2: 2分割
 [[file:/r/sync/screenshots/20161227202050.png]]
 Fig3: 3分割
 
-ここでFig1の状態でC-x 1を押すと、Fig2のように分割されます。
+Fig1の状態でC-x 1を押すと、
+Fig2のように分割されます。
 
-ここで使うtile.elは元々、多分割のウィンドウ構成を順次切り替えていくものですが、こういう応用例もあるということです。
+ここで使うtile.elは元々、
+多分割のウィンドウ構成を
+順次切り替えていくものですが、
+こういう応用例もあるということです。
 
-また、ウィンドウの分割個数を1〜3個に切り替えるM-x tileの設定もしておきます。
-こちらはC-.でFig1→Fig2→Fig3→Fig1…と分割状態を切り替えていきます。
+また、ウィンドウの分割個数を
+1〜3個に切り替える
+M-x tileの設定もしておきます。
+
+こちらはC-.で
+Fig1→Fig2→Fig3→Fig1…と
+分割状態を切り替えていきます。
 
 
 [includeme file="inc-package-install.php" name="tile" where="melpa"]
