@@ -1,0 +1,76 @@
+#+BLOG: rubikitch
+#+POSTID: 1880
+#+DATE: [2016-12-27 Tue 19:53]
+#+PERMALINK: tile
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+DESCRIPTION:M-x tileは予め設定されたウィンドウ分割状態を順次切り替える。これを応用することでC-x 1をトグル化できる。応用範囲が広く、おもしろいパッケージである。
+#+BLOG: rubikitch
+#+CATEGORY:   ウィンドウ構成切り替え
+#+EL_PKG_NAME: tile
+#+TAGS: Emacs 25.1以降, 標準コマンド強化, 
+#+EL_TITLE: 
+#+EL_TITLE0: 【C-x 1強化】非分割時に隣のバッファを分割表示する
+#+EL_URL: 
+#+begin: org2blog
+#+TITLE: tile:【C-x 1強化】非分割時に隣のバッファを分割表示する
+[includeme file="inc-package-table.php" name="tile" where="melpa"]
+
+#+end:
+** 概要
+[[http://emacs.rubikitch.com/zoom-window/][先日紹介した「戻せるC-x 1」]] が人気でしたが、これもC-x 1 (delete-other-windows)を強化するパッケージです。
+C-x 1は元々すべてのウィンドウを削除しますが、今回の設定では直前のバッファを隣のウィンドウに表示させてみます。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20161227202039.png]]
+Fig1: 分割されていない状態
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20161227202047.png]]
+Fig2: 2分割
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20161227202050.png]]
+Fig3: 3分割
+
+ここでFig1の状態でC-x 1を押すと、Fig2のように分割されます。
+
+ここで使うtile.elは元々、多分割のウィンドウ構成を順次切り替えていくものですが、こういう応用例もあるということです。
+
+また、ウィンドウの分割個数を1〜3個に切り替えるM-x tileの設定もしておきます。
+こちらはC-.でFig1→Fig2→Fig3→Fig1…と分割状態を切り替えていきます。
+
+
+[includeme file="inc-package-install.php" name="tile" where="melpa"]
+** 設定 [[http://rubikitch.com/f/161227175259.tile.el][161227175259.tile.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/161227/161227175259.tile.el"
+#+BEGIN_SRC fundamental
+(require 'tile)
+;;; C-x 1をトグルする
+(setq tile-two-windows (tile-split-n-tall 2))
+(defun delete-other-windows-or-split ()
+  (interactive)
+  (if (one-window-p)
+      (tile :strategy tile-two-windows)
+    (delete-other-windows)))
+(global-set-key (kbd "C-x 1") 'delete-other-windows-or-split)
+
+;;; ウィンドウの個数を1〜3個順次切り替える
+(setq tile-cycler (tile-strategies :strategies
+                                   (list tile-one
+                                         tile-two-windows
+                                         (tile-split-n-tall 3))))
+(global-set-key (kbd "C-,") 'tile)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/161227175259.tile.el
+$ emacs -Q -f package-initialize -l 161227175259.tile.el
+#+END_EXAMPLE
+
+[includeme file="inc-package-relate.php" name="tile"]
