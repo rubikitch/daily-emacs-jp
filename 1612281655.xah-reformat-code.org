@@ -80,7 +80,7 @@ MakefileやPythonには対応していません。
   (setq -p2 (point)))
 #+END_SRC
 
-↓M-x xah-reformat-code
+↓M-x xah-reformat-codeで長い1行になる。
 
 #+BEGIN_SRC emacs-lisp :results silent
 (if (re-search-forward -blanks-regex nil "NOERROR") (progn (re-search-backward -blanks-regex) (setq -p2 (point))) (setq -p2 (point))) 
