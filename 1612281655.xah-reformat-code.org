@@ -1,0 +1,112 @@
+#+BLOG: rubikitch
+#+POSTID: 1883
+#+DATE: [2016-12-28 Wed 16:55]
+#+PERMALINK: xah-reformat-code
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+DESCRIPTION:M-x xah-reformat-linesはプログラミング言語用M-q(fill-paragraph)。複数のホワイトスペースを等価と扱う言語で、長い行と短い行の変換を行う。将来はきれいに整形するとのこと。
+#+BLOG: rubikitch
+#+CATEGORY: 
+#+EL_PKG_NAME: xah-reformat-code
+#+TAGS: 
+#+EL_TITLE: 
+#+EL_TITLE0: プログラミング用M-q
+#+EL_URL: 
+#+begin: org2blog
+#+TITLE: xah-reformat-code:プログラミング用M-q
+[includeme file="inc-package-table.php" name="xah-reformat-code" where="melpa"]
+
+#+end:
+** 概要
+xah-reformat-code.elは、
+たったひとつのコマンド
+M-x xah-reformat-lines
+を提供しています。
+
+一言でいうと、
+プログラミング言語用の
+M-x fill-paragraph
+です。
+
+以下の2つの働きがあります。
+1. 長い行は短い複数行に変換する
+2. 短い行は長い1行に変換する
+
+動作原理は以下のとおりです。
+- ホワイトスペースとは以下の3種類
+  - スペース
+  - タブ
+  - 改行文字
+- 複数のホワイトスペースは1つのスペース・改行と同じ
+- 存在しなかったホワイトスペースは作成されない
+- ホワイトスペースは取り除かれない
+- ホワイトスペース以外の文字は除去・追加されない
+
+regionにも対応しています。
+- regionが設定されているときは、
+  regionに対して作用。
+- 設定されていないときは、
+  現在のパラグラフ(複数の空行)に対して作用。
+
+当然のことながら、
+ホワイトスペース(スペース、タブ、改行)を
+等価とみなしている言語のみに対応しています。
+
+たとえば
+- XML
+- HTML
+- CSS
+- Lisp
+- Wolfram
+などです。
+
+インデントに意味を持たせている
+MakefileやPythonには対応していません。
+
+[includeme file="inc-package-install.php" name="xah-reformat-code" where="melpa"]
+** 使用例
+#+BEGIN_SRC emacs-lisp :results silent
+(setq fill-column 40)
+#+END_SRC
+
+を設定した状態で、
+以下のコードに対してやってみます。
+
+#+BEGIN_SRC emacs-lisp :results silent
+(if (re-search-forward -blanks-regex nil "NOERROR")
+    (progn (re-search-backward -blanks-regex)
+           (setq -p2 (point)))
+  (setq -p2 (point)))
+#+END_SRC
+
+↓M-x xah-reformat-code
+
+#+BEGIN_SRC emacs-lisp :results silent
+(if (re-search-forward -blanks-regex nil "NOERROR") (progn (re-search-backward -blanks-regex) (setq -p2 (point))) (setq -p2 (point))) 
+#+END_SRC
+
+↓再度M-x xah-reformat-code
+
+#+BEGIN_SRC emacs-lisp :results silent
+(if (re-search-forward -blanks-regex nil
+"NOERROR") (progn (re-search-backward
+-blanks-regex) (setq -p2 (point))) (setq
+-p2 (point)))
+#+END_SRC
+
+インデントは乱れてしまいました(笑)
+
+ですが将来的には
+きれいに整形できるように
+改良する予定とのことです。
+- 正しい位置に改行が置かれ
+- 正しくインデントされ
+- コメントや文字列は処理されない
+
+これからが楽しみですね。
+[includeme file="inc-package-relate.php" name="xah-reformat-code"]
+** 参考サイト
+- [[http://ergoemacs.org/emacs/emacs_reformat_lines.html][Emacs: Reformat Lines for Source Code(作者のページ)]]
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
