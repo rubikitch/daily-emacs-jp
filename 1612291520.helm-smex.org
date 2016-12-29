@@ -1,0 +1,97 @@
+#+BLOG: rubikitch
+#+POSTID: 1886
+#+DATE: [2016-12-29 Thu 15:20]
+#+PERMALINK: helm-smex
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+DESCRIPTION:強化M-xとも言えるsmexにhelmの絞り込み検索を合体！smexの巧妙な表示順序選択と曖昧検索が保持されるのでsmexやhelm-M-xに物足りない方は試してみよう。
+#+BLOG: rubikitch
+#+CATEGORY:   Emacsコマンド実行
+#+EL_PKG_NAME: helm-smex
+#+TAGS: ido, helm, 
+#+EL_TITLE: 
+#+EL_TITLE0: 【超強化M-x】smexにhelmを悪魔合体
+#+EL_URL: 
+#+begin: org2blog
+#+TITLE: helm-smex:【超強化M-x】smexにhelmを悪魔合体
+[includeme file="inc-package-table.php" name="helm-smex" where="melpa"]
+
+#+end:
+** 概要
+helm-smex.elは、[[http://emacs.rubikitch.com/smex][smex]] とhelmを
+いいとこどりしたものです。
+
+smexはM-xのidoインターフェースで、
+idoには曖昧検索機能があります。
+
+たとえば
+「vifi」と入力すれば
+「view-file」にマッチします。
+
+smexにはランキング機能が
+巧妙に出来ているため、
+コマンドの使用頻度に応じて
+候補を並び換えてくれます。
+
+けれども
+絞り込み検索ができない分、
+helmの検索機能にはやや見劣りします。
+
+そこでhelmと合体させることにより
+idoの曖昧検索と
+helmの絞り込み検索が
+両方とも使えるようになります。
+
+たとえば
+「vifi」でも
+「fi vi」でも
+「view-file」にマッチします。
+
+M-x helm-M-xでも
+M-x smexでも
+しっくり来ない方は、
+
+ぜひともM-x helm-smexを
+試してみてください。
+
+ただ、欠点もないわけではなく、
+
+smexでは存在している
+describe-functionと
+find-functionへ渡す機能が
+M-x helm-smexにはありません。
+
+まあhelmですので、
+アクションを追加すれば可能です。
+
+欲しい方はpull requestを
+投げてください。
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20161229153345.png]]
+Fig1: vifiと入力
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20161229153351.png]]
+Fig2: fiviと入力
+
+
+
+[includeme file="inc-package-install.php" name="helm-smex" where="melpa"]
+** 設定 [[http://rubikitch.com/f/161229153245.helm-smex.el][161229153245.helm-smex.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/161229/161229153245.helm-smex.el"
+#+BEGIN_SRC fundamental
+(require 'helm-smex)
+(global-set-key [remap execute-extended-command] #'helm-smex)
+(global-set-key (kbd "M-X") #'helm-smex-major-mode-commands)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/161229153245.helm-smex.el
+$ emacs -Q -f package-initialize -l 161229153245.helm-smex.el
+#+END_EXAMPLE
+[includeme file="inc-package-relate.php" name="helm-smex"]
