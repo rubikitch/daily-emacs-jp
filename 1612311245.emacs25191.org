@@ -1,0 +1,56 @@
+#+BLOG: rubikitch
+#+POSTID: 1890
+#+DATE: [2016-12-31 Sat 12:45]
+#+PERMALINK: emacs25191
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+DESCRIPTION:
+#+BLOG: rubikitch
+#+CATEGORY:   リリース情報
+#+TAGS: 
+#+TITLE: Emacs25.2のpretest(25.1.91)リリース
+#+begin: org2blog-tags
+# content-length: 956
+
+#+end:
+http://lists.gnu.org/archive/html/emacs-devel/2016-12/msg01148.html
+
+大晦日ですね。
+
+[[http://qiita.com/itckw/items/ff079c7572d6a1acd349][Emacs存続の危機の中]] ですが、
+Emacs 25.2リリースのpretestが出ました。
+
+さっそくインストールして
+25.1.91でこの記事を書いています。
+
+#+BEGIN_EXAMPLE
+$ wget ftp://alpha.gnu.org/gnu/emacs/pretest/emacs-25.1.91.tar.xz
+$ unar emacs-25.1.91.tar.xz
+$ cd emacs-25.1.91
+$ ./configure --disable-largefile --with-x-toolkit=gtk3 \
+--without-toolkit-scroll-bars --without-xaw3d  \
+--without-xim --without-compress-install  \
+--with-sound=no --without-pop --without-xpm  \
+--without-tiff --without-rsvg --without-gconf  \
+--without-gsettings --without-selinux --without-gpm  \
+--without-makeinfo --with-x --with-modules --with-xwidgets && make
+$ sudo make install
+#+END_EXAMPLE
+
+Emacs開発者は
+必ず危機を乗り切ってくれると
+僕は信じています。
+
+万が一間に合わなかったとしても、
+専用ビルド環境を構築するなどの
+抜け道があると思います。
+
+だから僕はEmacsを使い続けます。
+
+
+来年もよろしくお願いします。
+
+よいお年を〜
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
