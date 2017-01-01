@@ -1,0 +1,71 @@
+#+BLOG: rubikitch
+#+POSTID: 1892
+#+DATE: [2017-01-01 Sun 11:25]
+#+PERMALINK: new-year-2017
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+DESCRIPTION:
+#+BLOG: rubikitch
+#+CATEGORY: 
+#+TAGS: 
+#+TITLE: 謹賀新年！Emacsは衰退しません
+#+begin: org2blog-tags
+# content-length: 1359
+
+#+end:
+明けまして、おめでとうございます。
+
+昨年はEmacs 25.1がリリースされた一方で、
+[[http://qiita.com/itckw/items/ff079c7572d6a1acd349][unexec問題によりGNU Emacsが
+危機に立たされました。]]
+
+そんな中で昨日は、
+[[http://emacs.rubikitch.com/emacs25191/][Emacs 25.2 pretetがリリース]]
+されました。
+
+unexec問題を解決すべく、
+Daniel Colascione氏は
+[[http://lists.gnu.org/archive/html/emacs-devel/2016-11/msg00625.html][portable dumperパッチ]]
+を出しました。
+
+[[http://lists.gnu.org/archive/html/emacs-devel/2016-12/msg00819.html][テスト段階に入った]] ところで、
+[[http://lists.gnu.org/archive/html/emacs-devel/2016-12/msg00861.html][バグを見付けたため、
+それを修正してからブランチに取り込む予定]] です。
+
+#+BEGIN_QUOTE
+> Has anyone had a chance to play around with the portable dumper branch, and to
+> review the changes?  I'd love to hear some thoughts.
+
+I've found that pdumper does awful things to weak hash tables restored
+from dump.  I'm fixing that bug --- I'll push when that bit works.
+#+END_QUOTE
+
+彼は、
+ [[https://lists.gnu.org/archive/html/emacs-devel/2016-10/msg00626.html][flicker-free double-buffered patch]]
+を出すほどの猛者です。
+
+だから、
+彼はやってくれると信じています。
+
+世界中にこれだけ熱狂的ファンがいるEmacsが、
+滅びるなんてことはまず考えられません。
+
+それに[[http://www.finseth.com/emacs.html][Emacsの実装は無数に存在]] します。
+
+2000年問題を乗り切ったように、
+Emacs危機も必ず乗り越えてくれると
+僕は信じています。
+
+人間には
+「火事場の馬鹿力」が象徴するように
+とてつもない力が秘められています。
+
+僕はGNU Emacsの存続を信じて、
+今年も使い続けます。
+
+もちろん新生日刊Emacsも更新し続けます。
+
+今年もよろしくお願いします。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
