@@ -7,7 +7,7 @@
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+DESCRIPTION:M-x xah-reformat-linesはプログラミング言語用M-q(fill-paragraph)。複数のホワイトスペースを等価と扱う言語で、長い行と短い行の変換を行う。将来はきれいに整形するとのこと。
 #+BLOG: rubikitch
-#+CATEGORY: 
+#+CATEGORY: プログラミング支援
 #+EL_PKG_NAME: xah-reformat-code
 #+TAGS: 
 #+EL_TITLE: 
