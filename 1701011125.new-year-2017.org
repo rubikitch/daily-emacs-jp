@@ -159,7 +159,7 @@ INLINE void alloc_unexec_post (void) {}
 [[https://sourceware.org/git/?p=glibc.git;a=blob_plain;f=NEWS;hb=HEAD][glibcの開発版のNEWS]] を見ても
 
 #+BEGIN_EXAMPLE
-* The malloc_get_state and malloc_set_state functions have been removed.
+  The malloc_get_state and malloc_set_state functions have been removed.
   Already-existing binaries that dynamically link to these functions will
   get a hidden implementation in which malloc_get_state is a stub.  As far
   as we know, these functions are used only by GNU Emacs and this change
