@@ -11,7 +11,7 @@
 #+TAGS: 
 #+TITLE: 謹賀新年！Emacsは衰退しません
 #+begin: org2blog-tags
-# content-length: 1359
+# content-length: 3600
 
 #+end:
 明けまして、おめでとうございます。
@@ -67,5 +67,109 @@ Emacs危機も必ず乗り越えてくれると
 もちろん新生日刊Emacsも更新し続けます。
 
 今年もよろしくお願いします。
+** Debian GNU/Linuxは大丈夫
+ちょっと気になってしまいましたので、
+コードを追ってみました。
+
+僕はDebian GNU/Linux testingの環境で
+glibc 2.24-8を使っていますが、
+
+./configure で
+#+BEGIN_EXAMPLE
+checking whether malloc is Doug Lea style... no
+#+END_EXAMPLE
+と出ています。
+
+config.hでは
+#+BEGIN_EXAMPLE
+/* Define to 1 if the system memory allocator is Doug Lea style, with malloc
+   hooks and malloc_set_state. */
+/* #undef DOUG_LEA_MALLOC */
+#+END_EXAMPLE
+となります。
+
+そこで、 =malloc_[gs]et_state= で
+ソースコードを検索してみると、
+このように =#ifdef DOUG_LEA_MALLOC= で
+囲まれていることがわかります。
+
+#+BEGIN_EXAMPLE
+#ifdef DOUG_LEA_MALLOC
+
+略
+/* Get and free this pointer; useful around unexec.  */
+void
+alloc_unexec_pre (void)
+{
+  malloc_state_ptr = malloc_get_state ();
+}
+void
+alloc_unexec_post (void)
+{
+  free (malloc_state_ptr);
+}
+
+/* Restore the dumped malloc state.  Because malloc can be invoked
+   even before main (e.g. by the dynamic linker), the dumped malloc
+   state must be restored as early as possible using this special hook.  */
+static void
+malloc_initialize_hook (void)
+{
+  static bool malloc_using_checking;
+
+  if (! initialized)
+    {
+      略
+    }
+  else
+    {
+      略
+      malloc_set_state (malloc_state_ptr);
+# ifndef XMALLOC_OVERRUN_CHECK
+      alloc_unexec_post ();
+# endif
+    }
+}
+
+略
+#endif
+
+#+END_EXAMPLE
+
+となり、
+削除される予定の
+- malloc_get_state
+- malloc_set_state
+は使われません。
+
+lisp.hでも空定義になっています。
+
+#+BEGIN_EXAMPLE
+#ifdef DOUG_LEA_MALLOC
+extern void alloc_unexec_pre (void);
+extern void alloc_unexec_post (void);
+#else
+INLINE void alloc_unexec_pre (void) {}
+INLINE void alloc_unexec_post (void) {}
+#endif
+#+END_EXAMPLE
+
+だから、Emacsのビルドは問題なくできます。
+
+[[https://sourceware.org/git/?p=glibc.git;a=blob_plain;f=NEWS;hb=HEAD][glibcの開発版のNEWS]] を見ても
+
+#+BEGIN_EXAMPLE
+* The malloc_get_state and malloc_set_state functions have been removed.
+  Already-existing binaries that dynamically link to these functions will
+  get a hidden implementation in which malloc_get_state is a stub.  As far
+  as we know, these functions are used only by GNU Emacs and this change
+  will not adversely affect already-built Emacs executables.  Any undumped
+  Emacs executables, which normally exist only during an Emacs build, should
+  be rebuilt by re-running “./configure; make” in the Emacs build tree.
+#+END_EXAMPLE
+
+他の環境ではどうかわかりませんが、
+そう悲観する問題ではありませんよね。
+
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
