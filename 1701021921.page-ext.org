@@ -2,23 +2,26 @@
 #+POSTID: 1897
 #+DATE: [2017-01-02 Mon 19:21]
 #+PERMALINK: page-ext
-#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+OPTIONS: toc:t num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
 #+ISPAGE: nil
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+DESCRIPTION:テキストを改ページ(^L)で区切り、標準page-ext.elを使うことでアウトライン操作が可能になる。ソースコードでも文書でも使えるし軽いし、解析も容易。org-modeなどに手を出す前に改ページ区切りのテキストファイルには一考の余地あり。
 #+BLOG: rubikitch
 #+CATEGORY:   文書作成
 #+TAGS: org, アウトライン, 
+#+TITLE: page-ext:テキストの区切りに改ページを使うべき10の理由
+#+EL_URL: 
+
 #+begin: org2blog
 
 #+end:
-** 概要
+** ^Lってなあに？
 あなたはEmacsを使っていて
 =^L= 
 という文字を見たことがありますか？
 
-これは改ページ文字といい、
-Ctrl+Lに相当する文字です。
+これは *改ページ文字* といい、
+=Ctrl+L= に相当する文字です。
 
 ワープロソフトでは、
 強制的に次のページにする機能はありますが、
@@ -36,7 +39,7 @@ Ctrl+Lに相当する文字です。
 この文字で
 ファイルを分割するのが
 目的です。
-
+** 改ページ文字を使う理由
 あなたは、
 積極的に
 改ページ文字を使うべきです。
@@ -74,7 +77,7 @@ Emacs Lispが標準添付されています。
 
 まずは
 上記の設定を加えましょう。
-
+** 標準でもちょっとだけ使える
 実はpage-ext.elなしでも
 
 デフォルトのEmacsで
@@ -89,7 +92,7 @@ Emacs Lispが標準添付されています。
 これだとただ単に
 ページを移動したり
 ページ数を数えてるに過ぎません。
-
+** page-ext.elでパワーアップ
 page-extを使うと、
 ページを扱うコマンドが
 パワーアップします。
