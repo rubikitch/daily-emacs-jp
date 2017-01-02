@@ -1,0 +1,131 @@
+#+BLOG: rubikitch
+#+POSTID: 1902
+#+DATE: [2017-01-03 Tue 08:13]
+#+PERMALINK: elisp-depend
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+DESCRIPTION:
+#+BLOG: rubikitch
+#+CATEGORY:   Emacs Lisp支援
+#+EL_PKG_NAME: elisp-depend
+#+TAGS: 
+#+EL_TITLE: 
+#+EL_TITLE0: require漏れと永久にオサラバする
+#+EL_URL: 
+#+begin: org2blog
+#+TITLE: elisp-depend:require漏れと永久にオサラバする
+[includeme file="inc-package-table.php" name="elisp-depend" where="melpa"]
+
+#+end:
+** 概要
+あなたは、Emacs Lispを書いていて、
+つい =require= を入れるのを
+忘れてしまったことはありませんか？
+
+=require= 漏れは、
+動作確認中では正しく動作しても、
+
+いざ新規Emacsで立ち上げたら
+関数や変数が未定義であるために
+エラーになってしまいます。
+
+そこで、
+現在のEmacsセッションの中で 
+=require= を入れてくれるのが、
+このelisp-depend.elです。
+
+あなたがやるべきことは、
+ただひたすらに
+Emacs Lispコードを書き、
+
+新しいEmacsで動作させようとしたときに、 
+=M-x elisp-depend-insert-require= 
+を実行すればいいのです。
+
+標準ライブラリまで過剰に 
+=require= をしてきますので、
+余剰な =require= は適宜削ってください。
+
+いきなり実行することに
+抵抗があるかもしれません。
+
+ならば、 
+=M-x elisp-depend-print-dependencies= 
+でどの関数がどのfeatureに依存しているのかを
+別バッファで表示させてください。
+
+[includeme file="inc-package-install.php" name="elisp-depend" where="melpa"]
+** メカニズム
+elisp-depend.elは
+以下のように動作します。
+1. カレントバッファのEmacs Lispファイルを解析
+2. 依存しているライブラリを得る
+
+その表現方法として
+3つのコマンドがあります。
+- M-x elisp-depend-print-dependencies :: featureと関数の対応を表示
+- M-x elisp-depend-insert-comment :: featureをコメントとして挿入
+- M-x elisp-depend-insert-require :: featureを =require= で挿入
+
+デフォルトでは
+現在のシンボルの依存情報を
+1. =symbol-file= で得る
+2. =featurep= で得る
+   - =t= ならば =require= を挿入
+   - =nil= ならば =autoload= を挿入
+3. =provide= が使われていない場合は =autoload= を挿入
+
+** 設定 [[http://rubikitch.com/f/170103082712.elisp-depend.el][170103082712.elisp-depend.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/170103/170103082712.elisp-depend.el"
+#+BEGIN_SRC fundamental
+;;; bug: この設定がないと未定義エラーになる
+(defalias 'string-equal-p 'string-equal)
+;;; Emacsのライブラリがあるディレクトリを指定する
+;; デフォルト
+;; (setq elisp-depend-directory-list '("/usr/share/emacs/"))
+;; カスタム
+(setq elisp-depend-directory-list '("/usr/local/share/emacs/" "~/.emacs.d/elpa/"))
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/170103082712.elisp-depend.el
+$ emacs -Q -f package-initialize -l 170103082712.elisp-depend.el
+#+END_EXAMPLE
+** M-x elisp-depend-insert-requireの実行例
+以下のコードでM-x elisp-depend-insert-requireを実行してみます。
+
+#+BEGIN_SRC emacs-lisp :results silent
+(defun test ()
+  (helm-for-files)
+  (ido-find-file))
+#+END_SRC
+*** idoやhelmが読み込まれていないとき
+
+#+BEGIN_SRC emacs-lisp :results silent
+(autoload 'ido-find-file "ido")
+(autoload 'helm-for-files "helm-files")
+
+(defun test ()
+  (helm-for-files)
+  (ido-find-file))
+#+END_SRC
+*** idoやhelmが読み込まれているとき
+
+#+BEGIN_SRC emacs-lisp :results silent
+(require 'ido)
+(require 'helm-files)
+
+(defun test ()
+  (helm-for-files)
+  (ido-find-file))
+#+END_SRC
+
+
+[includeme file="inc-package-relate.php" name="elisp-depend"]
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
