@@ -1,0 +1,221 @@
+#+BLOG: rubikitch
+#+POSTID: 1897
+#+DATE: [2017-01-02 Mon 19:21]
+#+PERMALINK: page-ext
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+DESCRIPTION:テキストを改ページ(^L)で区切り、標準page-ext.elを使うことでアウトライン操作が可能になる。ソースコードでも文書でも使えるし軽いし、解析も容易。org-modeなどに手を出す前に改ページ区切りのテキストファイルには一考の余地あり。
+#+BLOG: rubikitch
+#+CATEGORY:   文書作成
+#+EL_PKG_NAME: page-ext
+#+TAGS: org, アウトライン, 
+#+EL_TITLE: 
+#+EL_TITLE0: テキストの区切りに改ページを使うべき10の理由
+#+EL_URL: 
+#+begin: org2blog
+#+TITLE: page-ext:テキストの区切りに改ページを使うべき10の理由
+[includeme file="inc-package-table.php" name="page-ext" where="built-in"]
+
+#+end:
+** 概要
+あなたはEmacsを使っていて
+=^L= 
+という文字を見たことがありますか？
+
+これは改ページ文字といい、
+Ctrl+Lに相当する文字です。
+
+ワープロソフトでは、
+強制的に次のページにする機能はありますが、
+
+テキストエディタでは
+あまり馴染みがないかもしれません。
+
+改ページ文字の入力方法は 
+=C-q C-l= です。
+
+けれども、
+プログラマはしばしば
+改ページ文字を使っています。
+
+この文字で
+ファイルを分割するのが
+目的です。
+
+あなたは、
+積極的に
+改ページ文字を使うべきです。
+
+以下の理由です。
+
+1. 入力が簡単
+2. ページ単位に移動するコマンドがある
+3. 今のページをナローイングできる
+4. 改ページを使ったアウトラインが実現可能！！
+5. しかも特定の文字列を含むページのみを選択可能
+6. ナローイングしながら前後のページに移動できる
+7. 改ページ文字はソースコードでも文書でもあらゆるテキストファイルで使える
+8. 解析が容易
+9. org-mode不要
+10. 動作が軽い
+
+[includeme file="inc-package-install.php" name="page-ext" where="built-in"]
+** 隠れた豪傑page-ext.el
+実はEmacsには
+改ページ文字を活用する
+Emacs Lispが標準添付されています。
+
+知名度はとても低くて
+地味なのですが、
+使ってみると便利でした。
+
+標準添付にもかかわらず、
+使うためには
+#+BEGIN_SRC emacs-lisp :results silent
+(require 'page-ext)
+#+END_SRC
+
+という設定が必要なのも
+知られてない理由のひとつでしょう。
+
+まずは
+上記の設定を加えましょう。
+
+実はpage-ext.elなしでも
+
+デフォルトのEmacsで
+キーに割り当てられている
+ページ移動コマンドがあります。
+
+- C-x [     :: *backward-page* (前ページへ移動)
+- C-x ]     :: *forward-page* (次ページへ移動)
+- C-x l     :: *count-lines-page* (現在のページの行数を数える)
+- C-x n p   :: *narrow-to-page* (現在のページにナローイング)
+
+これだとただ単に
+ページを移動したり
+ページ数を数えてるに過ぎません。
+
+page-extを使うと、
+ページを扱うコマンドが
+パワーアップします。
+
+- C-x C-p C-a :: *add-new-page* (新しいページを追加する)
+- C-x C-p C-d :: *pages-directory* (*ページごとにアウトラインを作成する！*)
+- C-x C-p C-l :: *set-page-delimiter* (ページ区切りの正規表現を設定する)
+- C-x C-p RET :: *mark-page* (現在のページをマークする)
+- C-x C-p C-n :: *next-page* (次のページへナローイングしながら移動)
+- C-x C-p C-p :: *previous-page* (前のページへナローイングしながら移動)
+- C-x C-p C-s :: *search-pages* (現在位置から正規表現検索し、ナローイング表示)
+- C-x C-p d   :: *pages-directory-for-addresses* (アドレス帳を表示)
+- C-x C-p s   :: *sort-pages-buffer* (ページをソートする)
+** 簡易アウトラインプロセッサ！
+特筆すべきは 
+*C-x C-p C-d* 
+です。
+
+このコマンドは
+改ページで区切られたテキストに対し、
+
+改ページの次の行を
+見出しとした *アウトライン* を
+作成してくれます。
+
+コマンド実行直後に
+アウトラインのバッファに
+切り替えてくれますので、
+
+行きたい行を選択して、
+C-c C-cを押せば
+そのページへ移動できます。
+
+しかも、
+移動したら
+*該当ページがナローイング*
+された状態です。
+
+page-ext.el自身が
+改ページ区切りのテキストですので、
+実際に使ってみましょう。
+
+#+BEGIN_EXAMPLE
+M-x find-library page-ext
+#+END_EXAMPLE
+
+でpage-ext.elを開きます。
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20170102194309.png]]
+Fig1: C-x C-p C-dを実行
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20170102194317.png]]
+Fig2: C-c C-cを押したらそのページへ移動
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20170102195008.png]]
+Fig3: C-u C-x C-p C-d defun RETで関数定義を含むページのみを候補に
+
+まるでdiredで
+ファイルを見るかのように
+
+改ページ区切りのテキストを
+自然に分割して
+見られるようになるのです。
+
+さらに、
+C-x C-p C-pと
+C-x C-p C-nで
+
+前後のページに
+ナローイングしながら
+移動できます。
+
+なかなか便利な機能だと
+思いませんか？
+
+** まとめ
+このように、改ページ文字は
+- C-q C-l で入力でき
+- C-x C-p C-dで検索機能付きアウトライン表示が可能
+です。
+
+1つのファイル中に
+複数のセクションを
+入れたファイルを作成したいが、
+
+org-modeを使うのも大袈裟だ、
+
+そう思ったのならば、
+改ページ区切りのテキストを
+作成してみませんか？
+
+org-modeは
+標準添付ですが
+重いという欠点があります。
+
+改ページ区切りであれば、
+ソースコード含め
+あらゆるテキストファイルで適用でき、
+よりお手軽です。
+
+階層構造が不要な
+区切りテキストですから、
+Emacs Lispでも他言語でも
+簡単に解析できます。
+
+あなたも積極的に
+改ページ区切りのテキストを
+活用してみましょう。
+
+独自ファイルフォーマットを考えるならば、
+まずは改ページ区切りのテキストファイルを
+考慮してみてください。
+
+
+[includeme file="inc-package-relate.php" name="page-ext"]
+
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
