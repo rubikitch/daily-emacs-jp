@@ -8,14 +8,8 @@
 #+DESCRIPTION:テキストを改ページ(^L)で区切り、標準page-ext.elを使うことでアウトライン操作が可能になる。ソースコードでも文書でも使えるし軽いし、解析も容易。org-modeなどに手を出す前に改ページ区切りのテキストファイルには一考の余地あり。
 #+BLOG: rubikitch
 #+CATEGORY:   文書作成
-#+EL_PKG_NAME: page-ext
 #+TAGS: org, アウトライン, 
-#+EL_TITLE: 
-#+EL_TITLE0: テキストの区切りに改ページを使うべき10の理由
-#+EL_URL: 
 #+begin: org2blog
-#+TITLE: page-ext:テキストの区切りに改ページを使うべき10の理由
-[includeme file="inc-package-table.php" name="page-ext" where="built-in"]
 
 #+end:
 ** 概要
