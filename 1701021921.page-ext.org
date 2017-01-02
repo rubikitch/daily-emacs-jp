@@ -54,7 +54,6 @@ Ctrl+Lに相当する文字です。
 9. org-mode不要
 10. 動作が軽い
 
-[includeme file="inc-package-install.php" name="page-ext" where="built-in"]
 ** 隠れた豪傑page-ext.el
 実はEmacsには
 改ページ文字を活用する
