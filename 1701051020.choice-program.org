@@ -2,7 +2,7 @@
 #+POSTID: 1907
 #+DATE: [2017-01-05 Thu 10:20]
 #+PERMALINK: choice-program
-#+OPTIONS: toc:t num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
 #+ISPAGE: nil
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+DESCRIPTION:choice-program.elは候補リストから選択してアクションを実行するコマンドを定義する。けれども、普通にコマンドを自作した方がわかりやすいだろう。
@@ -18,6 +18,8 @@
 [includeme file="inc-package-table.php" name="choice-program" where="melpa"]
 
 #+end:
+#+TOC: headlines 2
+
 ** 概要
 *choice-program.el* は、
 1. 候補リストを得て
