@@ -1,0 +1,205 @@
+#+BLOG: rubikitch
+#+POSTID: 1907
+#+DATE: [2017-01-05 Thu 10:20]
+#+PERMALINK: choice-program
+#+OPTIONS: toc:t num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+DESCRIPTION:choice-program.elは候補リストから選択してアクションを実行するコマンドを定義する。けれども、普通にコマンドを自作した方がわかりやすいだろう。
+#+BLOG: rubikitch
+#+CATEGORY:   プログラム実行
+#+EL_PKG_NAME: choice-program
+#+TAGS: eieio
+#+EL_TITLE: 
+#+EL_TITLE0: かっこつけてeieio使った結果ｗ
+#+EL_URL: 
+#+begin: org2blog
+#+TITLE: choice-program:かっこつけてeieio使った結果ｗ
+[includeme file="inc-package-table.php" name="choice-program" where="melpa"]
+
+#+end:
+** 概要
+*choice-program.el* は、
+1. 候補リストを得て
+2. その候補に対して何らかのアクションを行う
+プログラムを実行することを支援します。
+
+たとえば、gitでは 
+1. =git branch= でブランチのリストを得て、
+2. =git checkout= でそのブランチに切り替えます。
+
+
+Rubyのパッケージ(gem)を扱う =gem= は 
+1. =gem search= で全gemのリストを得て、
+2. =gem install= でそのgemをインストールします。
+
+このようなプログラムでは
+候補リストからアクションを選択できると、
+とても便利ですよね！
+
+そこでchoice-program.elが役立ちます。
+
+リストを得るのは
+同期プロセスで行われるので
+多少待たされますが、
+
+アクションは 
+=compilation-mode= を使うため
+待たされません。
+
+[includeme file="inc-package-install.php" name="choice-program" where="melpa"]
+** 使い方
+候補選択は
+#+BEGIN_EXAMPLE
+$ ${interpreter} ${program} ${selection-args}
+#+END_EXAMPLE
+で行われます。
+
+アクションは
+#+BEGIN_EXAMPLE
+$ #{interpreter} ${program} ${choice-switch-name} 選択した候補
+#+END_EXAMPLE
+で行われます。
+
+=git= ではそのまま使えます。
+
+以下の設定で 
+=M-x git-checkout= 
+が定義されます
+
+#+BEGIN_EXAMPLE
+(require 'choice-program)
+
+(defvar git-checkout-instance
+  (choice-prog nil
+	       :interpreter nil         ;スクリプトではないときはnilの指定が必須
+	       :program "git"
+               :buffer-name "*git-checkout*"
+	       :verbose-switch-form ""  ;おまじない
+               :choice-prompt "Branch"
+	       :choice-switch-name "checkout" ;アクションを行うときの引数
+	       :selection-args '("branch") ;候補選択のときの引数(これはリストで渡す)
+	       :documentation
+               "Run git-checkout from git-branch")
+  "The git-checkout object instance.")
+
+(choice-prog-create-exec-function 'git-checkout-instance 'git-checkout)
+#+END_EXAMPLE
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20170105104508.png]]
+Fig1: emacsリポジトリでM-x git-checkoutを実行する([[http://emacs.rubikitch.com/][ivy]] を有効にした状態で)
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20170105104515.png]]
+Fig2: emacs-25を選択すると =git checkout= が実行される
+
+補完は 
+=completing-read= を使っていますので、
+
+helm/ido/ivy/anythingなど
+お好きなインターフェースを
+使ってください。
+
+** 制限
+=selection-args= は
+引数をリスト渡す必要があるため、
+アクションに渡すための
+加工ができません。
+
+たとえば、
+emacsの開発リポジトリにおいて 
+=git branch= を実行すると
+
+#+BEGIN_EXAMPLE
+  dynamic-modules-rc2
+  emacs-25
+* master
+  xwidget
+  xwidget_mvp
+#+END_EXAMPLE
+
+と出ますが、
+最初の2列を削除できません。
+
+幸い
+現在のブランチである =master= を
+選択することはないので
+問題はありません。
+
+=gem list= のように
+バージョンも表示される場合は、
+ラッパースクリプトで
+gem名のみを取り出す必要があります。
+
+#+BEGIN_EXAMPLE
+$ gem list
+- (1)
+0mq (0.5.3)
+0xffffff (0.1.0)
+10to1-crack (0.1.3 ruby)
+略
+#+END_EXAMPLE
+
+** 【重要】過度な抽象化は逆に理解を困難にさせる
+とはいえ、正直なところ
+この程度のことならば、
+
+わざわざ複雑な
+choice-program.elを
+使わなくても
+
+簡単なコマンドを
+定義すればいいだけです。
+
+choice-program.elは
+eieioというオブジェクト指向
+で書かれているため、
+
+初見さんがプログラムを
+理解して使いこなすまでに
+時間がかかります。
+
+この程度ならば
+普通に自分でコマンドを
+定義した方が楽ですし、
+理解が容易です。
+
+#+BEGIN_SRC emacs-lisp :results silent
+(defun git-checkout (branch)
+  (interactive
+   (list (completing-read
+          "Branch: "
+          (split-string
+           (shell-command-to-string "git branch | grep -v '^\\*' | cut -c3-" ) nil t)
+          nil t)))
+  (compilation-start (format "git checkout %s" branch)))
+#+END_SRC
+
+上記のM-x git-checkoutは
+- list
+- completing-read
+- split-string
+- shell-command-to-string
+- compilation-start
+- format
+と初歩的な関数のみで
+構成されています。
+
+どちらが理解しやすいのかは
+火を見るよりも明らかです。
+
+しかも
+=grep -v= で現在のブランチ、
+=cut= で余計なスペースを
+取り除いています。
+
+過度の抽象化は
+かえって理解を困難にさせる
+ということの見本です。
+
+
+[includeme file="inc-package-relate.php" name="choice-program"]
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
