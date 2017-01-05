@@ -1,0 +1,97 @@
+#+BLOG: rubikitch
+#+POSTID: 1911
+#+DATE: [2017-01-06 Fri 08:04]
+#+PERMALINK: backward-forward
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+DESCRIPTION:eclipseのようにC-left/C-rightでマークした位置を行き来する。バッファをまたがっていてもＯＫ。global-mark-ringを使いこなせない人にこそおすすめ。
+#+BLOG: rubikitch
+#+CATEGORY:   マーク
+#+EL_PKG_NAME: backward-forward
+#+TAGS: るびきちオススメ, 
+#+EL_TITLE: 
+#+EL_TITLE0: マークを統一して圧倒的に使いやすく！eclipse的に
+#+EL_URL: 
+#+begin: org2blog
+#+TITLE: backward-forward:マークを統一して圧倒的に使いやすく！eclipse的に
+[includeme file="inc-package-table.php" name="backward-forward" where="melpa"]
+
+#+end:
+** 概要
+Emacsにはふたつのマークリング、
+- =mark-ring=
+- =global-mark-ring=
+があるのですが、
+あなたは使いこなせていますか？
+
+バッファ内の移動において、 
+=C-u C-SPC= で過去のマーク位置に
+戻れる前者は便利ですよね。
+
+けれど、僕は後者の 
+=global-mark-ring= は
+いまだに使いこなせません。
+
+そこで、 
+backward-forward.el は
+マークを統一して
+使いやすくしてくれます。
+
+両者を併合する 
+=backward-forward-mark-ring= という
+第3のマークを用意してくれます。
+
+マイナーモード 
+=M-x backward-forward-mode= 
+を有効にすれば、
+以下の効果が得られます。
+1. =C-left= で過去方向のマークへ移動(=backward-forward-previous-location=)
+2. =C-right= で未来方向のマークへ移動(=backward-forward-next-location=)
+3. =push-mark= 時に =backward-forward-mark-ring= にも登録
+4. =ggtags-find-tag-dwim= 時に =push-mark= する
+5. =switch-to-buffer= 時に =push-mark= する
+
+よって、
+- とりあえず前のマークに行きたいと思ったら =C-left=
+- 行きすぎたと思ったら =C-right=
+でバッファ内でもバッファ間でも
+過去にマークした場所に
+移動してくれるようになります。
+
+この機能が気に入って
+頻繁に使用するようになれば、
+矢印キーにまで手をのばすのは億劫でしょう。
+
+そのときは 
+=backward-forward-mode-map= に
+キーを割り当てましょう。
+
+個人的に、
+けっこういい感じにできていると思います。
+
+[includeme file="inc-package-install.php" name="backward-forward" where="melpa"]
+** 設定 [[http://rubikitch.com/f/170106081610.backward-forward.el][170106081610.backward-forward.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/170106/170106081610.backward-forward.el"
+#+BEGIN_SRC fundamental
+(backward-forward-mode 1)
+;;; 慣れてきたら他のキーに割り当ててもよい
+(define-key backward-forward-mode-map (kbd "H-h") 'backward-forward-previous-location)
+(define-key backward-forward-mode-map (kbd "H-l") 'backward-forward-next-location)
+;;; push-markしてほしいコマンドがあったらこのようにアドバイスを設定する
+;; (advice-add 'ggtags-find-tag-dwim :before #'backward-forward-push-mark-wrapper)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/170106081610.backward-forward.el
+$ emacs -Q -f package-initialize -l 170106081610.backward-forward.el
+#+END_EXAMPLE
+
+[includeme file="inc-package-relate.php" name="backward-forward"]
+
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
