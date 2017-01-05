@@ -9,7 +9,7 @@
 #+BLOG: rubikitch
 #+CATEGORY:   ウィンドウ構成切り替え
 #+EL_PKG_NAME: tile
-#+TAGS: Emacs 25.1以降, 標準コマンド強化, 
+#+TAGS: Emacs 25.1以降, 標準コマンド強化, eieio
 #+EL_TITLE: 
 #+EL_TITLE0: 【C-x 1強化】非分割時に隣のバッファを分割表示する
 #+EL_URL: 
