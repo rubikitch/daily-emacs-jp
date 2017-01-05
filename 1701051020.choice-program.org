@@ -114,7 +114,7 @@ emacsの開発リポジトリにおいて
 #+BEGIN_EXAMPLE
   dynamic-modules-rc2
   emacs-25
-* master
+,* master
   xwidget
   xwidget_mvp
 #+END_EXAMPLE
