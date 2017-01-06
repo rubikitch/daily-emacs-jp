@@ -19,11 +19,19 @@
 
 #+end:
 ** 概要
-bool-flip.elは、 =M-x bool-flip-do-flip= というコマンドのみを提供しています。
-カーソル位置の真偽値を反転させるコマンドです。
-多くの言語に対応していて、汎用的です。
+bool-flip.elは、 
+=M-x bool-flip-do-flip= という
+コマンドのみを提供しています。
 
-デフォルトでは以下の真偽値に対応しています。
+カーソル位置の真偽値を
+反転させるコマンドです。
+
+多くの言語に対応していて、
+汎用的です。
+
+デフォルトでは
+以下の真偽値に対応しています。
+
 bool-flip.elより抜き出し。
 
 #+BEGIN_SRC emacs-lisp :results silent
@@ -42,9 +50,20 @@ bool-flip.elより抜き出し。
   ...)
 #+END_SRC
 
-たとえば、FALSEの位置にカーソルがあるときに、 =M-x bool-flip-do-flip= を実行すると、TRUEになります。
+たとえば、
+FALSEの位置に
+カーソルがあるときに、 
 
-本設定ではEmacs Lispのt/nilに対応させるために、 =emacs-lisp-mode-hook= を加えています。
+=M-x bool-flip-do-flip= 
+を実行すると、
+TRUEになります。
+
+本設定では
+Emacs Lispのt/nilに
+対応させるために、 
+
+=emacs-lisp-mode-hook= を
+加えています。
 
 #+ATTR_HTML: :width 480
 [[file:/r/sync/screenshots/20170107074041.png]]
@@ -54,7 +73,10 @@ Fig1: この状態でM-x bool-flip-do-flipすると
 [[file:/r/sync/screenshots/20170107074045.png]]
 Fig2: nilに変わる。再実行でtになる。
 
-ソースコードは30行少々と短いですので、挙動を理解するのは難しくありません。
+ソースコードは
+30行少々と短いですので、
+挙動を理解するのは
+難しくありません。
 
 
 [includeme file="inc-package-install.php" name="bool-flip" where="melpa"]
