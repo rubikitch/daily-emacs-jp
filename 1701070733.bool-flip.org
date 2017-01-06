@@ -1,0 +1,84 @@
+#+BLOG: rubikitch
+#+POSTID: 1913
+#+DATE: [2017-01-07 Sat 07:33]
+#+PERMALINK: bool-flip
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+DESCRIPTION:M-x bool-flip-do-flipはカーソル位置の真偽値を反転させるコマンド。多くのプログラミング言語に対応している。Emacs Lisp専用設定有。ソースコードも短いので読んでみるといい。
+#+BLOG: rubikitch
+#+CATEGORY: プログラミング支援
+#+EL_PKG_NAME: bool-flip
+#+TAGS: ソース解読推奨, 
+#+EL_TITLE: 
+#+EL_TITLE0: カーソル位置の真偽値を反転させる小物コマンド
+#+EL_URL: 
+#+begin: org2blog
+#+TITLE: bool-flip:カーソル位置の真偽値を反転させる小物コマンド
+[includeme file="inc-package-table.php" name="bool-flip" where="melpa"]
+
+#+end:
+** 概要
+bool-flip.elは、 =M-x bool-flip-do-flip= というコマンドのみを提供しています。
+カーソル位置の真偽値を反転させるコマンドです。
+多くの言語に対応していて、汎用的です。
+
+デフォルトでは以下の真偽値に対応しています。
+bool-flip.elより抜き出し。
+
+#+BEGIN_SRC emacs-lisp :results silent
+(defcustom bool-flip-alist
+  '(("T"    . "F")
+    ("t"    . "f")
+    ("TRUE" . "FALSE")
+    ("True" . "False")
+    ("true" . "false")
+    ("Y"    . "N")
+    ("y"    . "n")
+    ("YES"  . "NO")
+    ("Yes"  . "No")
+    ("yes"  . "no")
+    ("1"    . "0"))
+  ...)
+#+END_SRC
+
+たとえば、FALSEの位置にカーソルがあるときに、 =M-x bool-flip-do-flip= を実行すると、TRUEになります。
+
+本設定ではEmacs Lispのt/nilに対応させるために、 =emacs-lisp-mode-hook= を加えています。
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20170107074041.png]]
+Fig1: この状態でM-x bool-flip-do-flipすると
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20170107074045.png]]
+Fig2: nilに変わる。再実行でtになる。
+
+ソースコードは30行少々と短いですので、挙動を理解するのは難しくありません。
+
+
+[includeme file="inc-package-install.php" name="bool-flip" where="melpa"]
+** 設定 [[http://rubikitch.com/f/170107073133.bool-flip.el][170107073133.bool-flip.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/170107/170107073133.bool-flip.el"
+#+BEGIN_SRC fundamental
+;;; Emacs Lisp用にt/nilを入れ替えられるようにする
+(require 'bool-flip)
+(defun emacs-lisp-mode-hook--t-nil ()
+  (make-local-variable 'bool-flip-alist)
+  (push '("t" . "nil") bool-flip-alist))
+(add-hook 'emacs-lisp-mode-hook 'emacs-lisp-mode-hook--t-nil)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/170107073133.bool-flip.el
+$ emacs -Q -f package-initialize -l 170107073133.bool-flip.el
+#+END_EXAMPLE
+
+[includeme file="inc-package-relate.php" name="bool-flip"]
+** 参考サイト
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
