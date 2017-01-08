@@ -1,0 +1,118 @@
+#+BLOG: rubikitch
+#+POSTID: 1917
+#+DATE: [2017-01-08 Sun 11:56]
+#+PERMALINK: org-seek
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+DESCRIPTION:org-seek.elはag/ripgrep/pt対応のorg-mode専用検索ツール。クエリとディレクトリを尋ねてから高速検索！特にorg-seek-headlinesで見出し限定検索もできるので素早くメモを取り出せる。
+#+BLOG: rubikitch
+#+CATEGORY:   検索
+#+EL_PKG_NAME: org-seek
+#+TAGS: org, ripgrep, the_silver_searcher, 外部プログラム使用, るびきちオススメ, ソース解読推奨, 
+#+EL_TITLE0: 【必携】すぐ使える高速メモ検索コマンド3選
+#+EL_URL: 
+#+begin: org2blog
+#+TITLE: org-seek:【必携】すぐ使える高速メモ検索コマンド3選
+[includeme file="inc-package-table.php" name="org-seek" where="melpa"]
+
+#+end:
+** 概要
+org-mode専用の
+高速全文検索・見出し検索が
+欲しいですか？
+
+それならば 
+*org-seek.el* を使ってみてください。
+
+org-seek.elは
+以下の高速検索プログラムを使って
+ディレクトリ内のorgファイルから
+検索してくれます。
+
+- [[https://github.com/ggreer/the_silver_searcher/wiki][ag(the_silver_searcher)]]
+- [[https://github.com/BurntSushi/ripgrep][ripgrep(rg)]]
+- [[https://github.com/monochromegane/the_platinum_searcher][pt(the_platinum_searcher)]]
+  
+デフォルトはagです。
+
+実際は
+対応するEmacsインターフェース
+- [[http://emacs.rubikitch.com/ag/][ag.el]]
+- [[http://emacs.rubikitch.com/ripgrep/][ripgrep.el]]
+- pt.el
+をorg-mode専用に
+ラップしているだけなので
+org-seek.elのコード自体は短いです。
+
+org-seek.elは3つのコマンドを用意しています。
+- M-x org-seek-string :: 全文検索
+- M-x org-seek-regexp :: 全文正規表現検索
+- M-x org-seek-headlines :: *見出しのみ検索*
+
+どのコマンドも
+1. 検索クエリ
+2. 検索対象ディレクトリ
+を順番に尋ね、
+対応する検査ツールで
+結果を表示してくれます。
+
+あとはM-x grep同様に
+- =M-g M-n= ( =next-error= )
+- =M-g M-p= ( =previous-error= )
+などでマッチした行に
+ジャンプしてください。
+
+
+[includeme file="inc-package-install.php" name="org-seek" where="melpa"]
+** 現時点ではagのままでいい
+#+BEGIN_SRC emacs-lisp :results silent
+(setq org-seek-search-tool 'ripgrep)
+#+END_SRC
+
+の設定を加えると
+ripgrepで検索してくれます。
+
+確かにripgrepは
+agの数倍高速ですが、
+<2017-01-08 Sun>の時点では
+日本語を含む正規表現で動作しません。
+
+日本語文字列
+そのものならば動作します。
+
+#+BEGIN_EXAMPLE
+$ rg --version
+ripgrep 0.3.2
+#+END_EXAMPLE
+
+現時点ではripgrepは
+ソースコード検索や辞書検索など、
+日本語正規表現を使わない場合に
+限定して使うべきです。
+** 実行例
+
+たとえば、
+M-x org-seek-headlinesを
+実行したら、
+
+このように見出しのみを
+表示してくれます。
+
+#+BEGIN_EXAMPLE
+-*- mode: ag; default-directory: "~/sync/memo/wp/rubikitch/" -*-
+Ag started at Sun Jan  8 12:21:37
+
+ag --file-search-regex .\*.org --nocolor --line-number --smart-case --nogroup --column -- \^\(\\\*\)\+.\*ripgrep .
+1502090701.helm-ag.org:83:1:** <2016-10-05 Wed>ripgrep対応
+1610020827.ripgrep.org:21:1:*ripgrep.el* は、超高速grepこと[[https://github.com/BurntSushi/ripgrep][ripgrep(rg)]] のEmacsインターフェースです。
+1610020827.ripgrep.org:37:1:** ripgrepとは
+1610020827.ripgrep.org:49:1:** ripgrepをインストールする
+1610020827.ripgrep.org:127:1:** 設定 [[http://rubikitch.com/f/161002090545.ripgrep.el][161002090545.ripgrep.el(以下のコードと同一)]]
+
+Ag finished at Sun Jan  8 12:21:37
+#+END_EXAMPLE
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+[includeme file="inc-package-relate.php" name="org-seek"]
