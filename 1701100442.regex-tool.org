@@ -1,0 +1,217 @@
+#+BLOG: rubikitch
+#+POSTID: 1921
+#+DATE: [2017-01-10 Tue 04:42]
+#+PERMALINK: regex-tool
+#+OPTIONS: toc:t num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+DESCRIPTION:regex-tool.elは文字列に対して正規表現(emacs,perl,ruby)にマッチさせ、マッチ情報をリアルタイムに表示しながら正規表現を組み立てるツール。
+#+BLOG: rubikitch
+#+CATEGORY: プログラミング支援
+#+EL_PKG_NAME: regex-tool
+#+TAGS: 正規表現, use:perl, use:ruby, ソース解読推奨, るびきちオススメ, 
+#+EL_TITLE: 
+#+EL_TITLE0: 正規表現チェッカー(perl/rubyも)
+#+EL_URL: 
+#+begin: org2blog
+#+TITLE: regex-tool:正規表現チェッカー(perl/rubyも)
+[includeme file="inc-package-table.php" name="regex-tool" where="melpa"]
+
+#+end:
+** 概要
+あなたは
+
+- 正規表現を組み立てるのに苦労していませんか？
+- マッチさせようと思った正規表現がうまく動かなくて困っていませんか？
+- 正規表現のグルーピングは使いこなせていませんか？
+
+それならば、
+ここで紹介する 
+=regex-tool.el= を
+おすすめします。
+
+作者は20年以上
+Emacs開発に携わっている
+現Emacsメンテナの
+John Wiegley氏です。
+
+標準の =M-x re-builder= と
+コンセプトは似ていますが、
+
+こちらはターゲットとなる
+文字列を指定して、
+正規表現を組み立てる点が
+違います。
+
+=M-x regex-tool= を起動すると、
+1. 新たなフレームが現れ
+2. 上中下のウィンドウに分割される
+   - 上→ *Regex*バッファ(正規表現を書くバッファ)
+   - 中→ *Text*バッファ(ターゲットとなる文字列のバッファ)
+   - 下→ *Groups*バッファ(マッチ箇所を表示するバッファ)
+3. *Regex*と*Text*を自由に編集すると
+4. *Regex*を書き換えると*Text*と*Groups*がリアルタイムに更新される
+5. =C-c C-k= で終了
+のような流れで正規表現を組み立てます。
+
+本設定では方言に合わせて
+- =M-x regex-tool-emacs= :: Emacs正規表現
+- =M-x regex-tool-perl= :: Perl正規表現
+- =M-x regex-tool-ruby= :: Ruby正規表現
+で起動できるようにしています。
+
+なお、
+ソースコードは
+平易に書かれているため、
+
+Emacs Lisp中級者ならば
+解読に挑戦してみましょう。
+
+[includeme file="inc-package-install.php" name="regex-tool" where="melpa"]
+** Perlにも対応
+=regex-tool.el= は
+Emacsの正規表現だけでなく
+Perlにも対応しています。
+
+正規表現の情報を
+表示するスクリプトは 
+=regex-tool.el= に内蔵されているため、
+Perlインタプリタがあれば動作します。
+
+カスタマイズ変数 
+=regex-tool-backend= で
+emacs/perlを切り替えられますが、
+
+本設定では
+コマンドを定義して
+両方とも使えるようにしておきます。
+
+=regex-tool.el= が
+Perl対応になっているのは、
+
+ =regex-render-perl= 関数が
+正規表現と文字列を受け取って
+S式を返す関数になっているからです。
+
+#+BEGIN_SRC emacs-lisp :results silent
+(defun regex-render-perl (regex sample)
+  (with-temp-buffer
+    (insert (format "@lines = <DATA>;
+$line = join(\"\", @lines);
+print \"(\";
+while ($line =~ m/%s/mg) {
+  print \"(\", length($`), \" \", length($&), \" \";
+  for $i (1 .. 20) {
+    if ($$i) {
+      my $group = $$i;
+      $group =~ s/([\\\\\"])/\\\\\\1/g;
+      print \"(\", $i, \" . \\\"\", $group, \"\\\") \";
+    }
+  }
+  print \")\";
+}
+print \")\";
+__DATA__
+%s" regex sample))
+   (call-process-region (point-min) (point-max) "perl" t t)
+   (goto-char (point-min))
+   (read (current-buffer))))
+#+END_SRC
+
+評価させると、
+こんな感じになります。
+
+#+BEGIN_EXAMPLE
+$ (regex-render-perl "perl" "I love perl.")
+((7 4))
+$ (regex-render-perl "p(e)(r)l" "I love perl.")
+((7 4
+    (1 . "e")
+    (2 . "r")))
+$ (regex-render-perl "(.)a" "I love papa and mama.")
+((7 2
+    (1 . "p"))
+ (9 2
+    (1 . "p"))
+ (11 2
+     (1 . " "))
+ (16 2
+     (1 . "m"))
+ (18 2
+     (1 . "m")))
+#+END_EXAMPLE
+
+文字列全体に対して何度もマッチさせ、それぞれ
+- マッチ開始オフセット
+- マッチ部分の長さ
+- 部分文字列をインデックスつきのコンスセルのリスト
+を返していることがわかります。
+** Rubyにも対応させてみる
+それならば、
+Rubyでも同様のことをすれば
+Rubyの正規表現(Onigmo)にも
+対応できます。
+
+Rubyの正規表現を使いたければ、
+1. =regex-render-ruby= を定義し
+2. =regex-render-perl= に =:override= アドバイスをかける
+の手順でできます。
+
+上記の情報を使えば、
+他言語にも対応できます。
+
+** 設定 [[http://rubikitch.com/f/170110054733.regex-tool.el][170110054733.regex-tool.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/170110/170110054733.regex-tool.el"
+#+BEGIN_SRC fundamental
+(defun regex-render-ruby (regex sample)
+  (with-temp-buffer
+    (insert (format "
+line = DATA.read
+re = /%s/
+print '('
+pos = 0
+while md=re.match(line,pos)
+  printf '(%%d %%d', md.begin(0), md.end(0)-md.begin(0)
+  puts
+  md.captures.each_with_index{|c,i| printf '(%%d . %%s)', i+1,c.inspect }
+  pos = md.end(0)
+  puts ')'
+end
+print ')'
+__END__
+%s" regex sample))
+    (insert (format ""))
+   (call-process-region (point-min) (point-max) "ruby" t t)
+   (goto-char (point-min))
+   (read (current-buffer))))
+
+(defun regex-tool-emacs ()
+  (interactive)
+  (setq regex-tool-backend 'emacs)
+  (regex-tool))
+(defun regex-tool-perl ()
+  (interactive)
+  (setq regex-tool-backend 'perl)
+  (advice-remove 'regex-render-perl 'regex-render-ruby)
+  (regex-tool))
+(defun regex-tool-ruby ()
+  (interactive)
+  (setq regex-tool-backend 'perl)
+  (advice-add 'regex-render-perl :override 'regex-render-ruby)
+  (regex-tool))
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/170110054733.regex-tool.el
+$ emacs -Q -f package-initialize -l 170110054733.regex-tool.el
+#+END_EXAMPLE
+
+
+[includeme file="inc-package-relate.php" name="regex-tool"]
+
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
