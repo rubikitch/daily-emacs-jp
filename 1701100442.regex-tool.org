@@ -62,6 +62,12 @@ John Wiegley氏です。
 - =M-x regex-tool-ruby= :: Ruby正規表現
 で起動できるようにしています。
 
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20170110060554.png]]
+Fig1: M-x regex-tool-ruby
+
+
+
 なお、
 ソースコードは
 平易に書かれているため、
