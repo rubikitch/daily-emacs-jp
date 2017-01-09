@@ -2,7 +2,7 @@
 #+POSTID: 1921
 #+DATE: [2017-01-10 Tue 04:42]
 #+PERMALINK: regex-tool
-#+OPTIONS: toc:t num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
 #+ISPAGE: nil
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+DESCRIPTION:regex-tool.elは文字列に対して正規表現(emacs,perl,ruby)にマッチさせ、マッチ情報をリアルタイムに表示しながら正規表現を組み立てるツール。
@@ -18,6 +18,8 @@
 [includeme file="inc-package-table.php" name="regex-tool" where="melpa"]
 
 #+end:
+#+TOC: headlines 2
+
 ** 概要
 あなたは
 
