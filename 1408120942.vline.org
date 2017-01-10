@@ -5,12 +5,12 @@
 #+PERMALINK: vline
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t
 #+ISPAGE: nil
-#+DESCRIPTION:
+#+DESCRIPTION:vline.elは現在桁をハイライトしてくれる。グローバル、ローカルマイナーモードが用意されている。強化版にcol-highlight.elがある。
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
 #+CATEGORY: テキスト色付け
 #+EL_PKG_NAME: vline
-#+TAGS: 表作成
+#+TAGS: 表作成, マイナーモード, 
 #+EL_TITLE0: 大きい表のレイアウトもバッチリ！vlineは現在桁を教えてくれるヨ
 #+begin: org2blog
 #+TITLE: vline:大きい表のレイアウトもバッチリ！vlineは現在桁を教えてくれるヨ
@@ -20,7 +20,7 @@
 ** 概要
 *vline.el* は *現在桁をハイライト* して教えてくれます。
 
-同種のパッケージに [[http://emacs.rubikitch.com/col-highlight/][col-highlight.el]]  もあります。
+強化パッケージに [[http://emacs.rubikitch.com/col-highlight/][col-highlight.el]]  もあります。
 
 *org-mode* 等で大きい表を編集するときに見やすくなりますね。
 [includeme file="inc-package-install.php" name="vline" where="melpa"]
