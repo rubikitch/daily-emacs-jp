@@ -1,0 +1,113 @@
+#+BLOG: rubikitch
+#+POSTID: 1926
+#+DATE: [2017-01-11 Wed 06:09]
+#+PERMALINK: col-highlight
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+DESCRIPTION:col-highlight.elは、現在桁をハイライトさせる3つの方法を提供します。カーソル移動直後に自動・アイドル時・明示的に。ハイライトする範囲(関数・段落・文・ページ)も設定できる。
+#+BLOG: rubikitch
+#+CATEGORY: 
+#+EL_PKG_NAME: col-highlight
+#+TAGS: 
+#+EL_TITLE: 
+#+EL_TITLE0: 現在桁をハイライトさせるお好み3手段
+#+EL_URL: 
+#+begin: org2blog
+#+TITLE: col-highlight:現在桁をハイライトさせるお好み3手段
+[includeme file="inc-package-table.php" name="col-highlight" where="melpa"]
+
+#+end:
+** 概要
+=col-highlight.el= は、
+現在桁をハイライト表示する
+[[http://emacs.rubikitch.com/vline/][vline.el]] を強化したものです。
+
+ちょうど標準機能の 
+=hl-line-mode= が
+現在行をハイライトするように 
+
+=col-highlight.el= は
+現在 *桁* をハイライトします。
+
+現在桁をハイライトさせるための
+3つの方法を用意しています。
+
+- =M-x column-highlight-mode= :: カーソル移動直後にハイライトさせる
+     グローバルマイナーモード
+- =M-x toggle-highlight-column-when-idle= :: Emacsがアイドル状態になったら
+     自動でハイライトする
+- =M-x flash-column-highlight= :: 今から1秒間だけハイライトする
+
+また、 
+=M-x col-highlight-set-interval= を実行すれば
+自動ハイライトまでのアイドル秒数を設定します。
+
+カーソル移動の直後に
+ハイライトするよりも、
+アイドル状態でハイライトする方が
+動作が軽くなります。
+
+これは、
+[[http://emacs.rubikitch.com/global-hl-line-mode-timer/][global-hl-line-modeで重くなることがある]] 
+のと同じ理由です。
+
+よって、自動ハイライトは 
+=toggle-highlight-column-when-idle= を
+おすすめします。
+
+自動ハイライトまではいらないけど、
+現在桁を一時的にハイライトさせたいのであれば 
+=M-x flash-column-highlight= を
+キーに割り当てるとよいです。
+
+[includeme file="inc-package-install.php" name="col-highlight" where="melpa"]
+** 注意
+=toggle-highlight-column-when-idle= の引数の1は
+「有効にする」という意味の1であり、
+1秒後という意味では *ありません* 。
+
+ハイライトするまでの
+アイドル秒数を設定するには、
+直後に =col-highlight-set-interval= を
+加えてください。
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20170111064005.png]]
+Fig1: global-hl-line-modeと組み合わせると…
+
+
+
+** 現在のセクションのみをハイライトさせる
+変数 =col-highlight-show-only= を設定すると、
+ハイライトする桁の範囲を限定できます。
+
+- =(setq col-highlight-show-only 'end-of-defun)= :: 現在の関数
+- =(setq col-highlight-show-only 'forward-paragraph)= :: 現在の段落
+- =(setq col-highlight-show-only 'forward-sentence)= :: 現在の文
+- =(setq col-highlight-show-only 'forward-paragraph)= :: 現在のページ
+- =(setq col-highlight-show-only nil)= :: バッファ全体(デフォルト)
+
+** 設定 [[http://rubikitch.com/f/170111062045.col-highlight.el][170111062045.col-highlight.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/170111/170111062045.col-highlight.el"
+#+BEGIN_SRC fundamental
+;;; アイドルになって0.2秒後桁を表示させる
+(toggle-highlight-column-when-idle 1)
+(col-highlight-set-interval 0.2)
+;;; hl-lineと併用すればカーソル位置を十字形にハイライトできる
+(custom-set-faces
+ '(col-highlight ((t (:inherit hl-line)))))
+(global-hl-line-mode 1)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/170111062045.col-highlight.el
+$ emacs -Q -f package-initialize -l 170111062045.col-highlight.el
+#+END_EXAMPLE
+[includeme file="inc-package-relate.php" name="col-highlight"]
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
