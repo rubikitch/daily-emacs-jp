@@ -7,9 +7,9 @@
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+DESCRIPTION:col-highlight.elは、現在桁をハイライトさせる3つの方法を提供します。カーソル移動直後に自動・アイドル時・明示的に。ハイライトする範囲(関数・段落・文・ページ)も設定できる。
 #+BLOG: rubikitch
-#+CATEGORY: 
+#+CATEGORY:   テキスト色付け
 #+EL_PKG_NAME: col-highlight
-#+TAGS: 
+#+TAGS: 表作成, マイナーモード, 初心者安心, 
 #+EL_TITLE: 
 #+EL_TITLE0: 現在桁をハイライトさせるお好み3手段
 #+EL_URL: 
