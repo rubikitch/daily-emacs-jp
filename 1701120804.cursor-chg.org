@@ -1,0 +1,101 @@
+#+BLOG: rubikitch
+#+POSTID: 1930
+#+DATE: [2017-01-12 Thu 08:04]
+#+PERMALINK: cursor-chg
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+DESCRIPTION:cursor-chg.elはEmacsの状態をカーソルでひと目で表現します。読み込み専用、上書き状態、インプットメソッド使用時、アイドル(任意)のときにカーソルの色と形(5種)に変形させます。
+#+BLOG: rubikitch
+#+CATEGORY:   見やすく表示
+#+EL_PKG_NAME: cursor-chg
+#+TAGS: 初心者安心, 
+#+TITLE: 場面をひと目でわかるようにカーソルの色と形を4形態に変化させる
+#+EL_URL: 
+#+begin: org2blog
+[includeme file="inc-package-table.php" name="cursor-chg" where="melpa"]
+
+#+end:
+** 概要
+=cursor-chg.el= は、場面に応じてカーソルの色や形状を変更します。
+1. 通常時
+2. バッファが読み込み専用( =read-only-mode= )または上書き( =overwrite-mode= )のとき
+3. インプットメソッドを使っているとき
+4. アイドル時(任意)
+
+それにより、カーソルを見るだけでEmacsの状態がひと目でわかるようになります。
+
+Emacs20から動作します。
+[includeme file="inc-package-install.php" name="cursor-chg" where="melpa"]
+** カーソルの形状について
+それでは、Emacsが使えるカーソルについて見てみましょう。
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20170112082601.png]]
+Fig1: box
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20170112082612.png]]
+Fig2: hollow
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20170112082619.png]]
+Fig3: bar
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20170112082628.png]]
+Fig4: hbar
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20170112082637.png]]
+Fig5: nil (透明!)
+
+** カスタマイズ
+以下のカスタマイズ変数があります。()内はデフォルトです。
+
+- =curchg-default-cursor-color= :: デフォルトのカーソルの色(デフォルトの設定か ="Red"= )
+- =curchg-default-cursor-type=  :: デフォルトのカーソルの形状( =bar= )
+- =curchg-change-cursor-on-input-method-flag= :: インプットメソッド使用時にカーソルを変更させるか( =t= )
+- =curchg-input-method-cursor-color=  :: インプットメソッド使用時のカーソルの色( ="Orange"= )
+- =curchg-change-cursor-on-overwrite/read-only-mode= :: read-onlyかoverwriteのときにカーソルを変更させるか( =t= )
+- =curchg-overwrite/read-only-cursor-type=  :: read-onlyかoverwriteのときのカーソルの形状( =box= )
+- =curchg-idle-cursor-type=  :: アイドル時のカーソルの形状( =box= )
+
+また、 =curchg-set-cursor-type= 関数でデフォルトのカーソルの形状を変更できます。
+=curchg-change-cursor-when-idle-interval= 関数でアイドル時にカーソルの形状を変更するまでの秒数を設定します。
+デフォルトは2秒です。
+
+
+[includeme file="inc-package-relate.php" name="cursor-chg"]
+** 設定 [[http://rubikitch.com/f/170112082314.cursor-type.el][170112082314.cursor-type.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/170112/170112082314.cursor-type.el"
+#+BEGIN_SRC fundamental
+(require 'cursor-chg)
+
+;;; デフォルトのカーソルの色はピンク
+(setq curchg-default-cursor-color "Pink")
+;;; デフォルトのカーソルの形状はbox
+(setq curchg-default-cursor-type 'box)
+;;; overwrite/read-onlyのカーソルの形状はbar
+(setq curchg-overwrite/read-only-cursor-type 'bar)
+;;; カーソル形状の変更を有効！
+(change-cursor-mode 1)
+
+;;; 5秒のアイドル時にもカーソルをhbarに変更させる
+;;; 以下の3行はお好みで
+(toggle-cursor-type-when-idle 1)
+(setq curchg-idle-cursor-type 'hbar)
+(curchg-change-cursor-when-idle-interval 5)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/170112082314.cursor-type.el
+$ emacs -Q -f package-initialize -l 170112082314.cursor-type.el
+#+END_EXAMPLE
+
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
