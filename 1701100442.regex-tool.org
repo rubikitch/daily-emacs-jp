@@ -15,7 +15,6 @@
 #+EL_URL: 
 #+TITLE: 正規表現アレルギー完全克服！3方言対応リアルタイムチェッカー
 #+begin: org2blog
-#+TITLE: regex-tool:正規表現チェッカー(perl/rubyも)
 [includeme file="inc-package-table.php" name="regex-tool" where="melpa"]
 
 #+end:
