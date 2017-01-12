@@ -1,0 +1,142 @@
+#+BLOG: rubikitch
+#+POSTID: 1934
+#+DATE: [2017-01-14 Sat 07:02]
+#+PERMALINK: modeline-char
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+DESCRIPTION:modeline-char.elは、カーソル位置の16進文字コードをモードラインに表示させるマイナーモードM-x mlc-char-in-mode-line-modeとグローバル版を提供します。
+#+BLOG: rubikitch
+#+CATEGORY:   mode-line
+#+EL_PKG_NAME: modeline-char
+#+TAGS: マイナーモード, 
+#+TITLE: カーソル位置の16進文字コードをモードラインにリアルタイム表示
+#+EL_URL: 
+#+begin: org2blog
+[includeme file="inc-package-table.php" name="modeline-char" where="melpa"]
+
+#+end:
+** 概要
+あなたは、文字に対する
+文字コードを知りたいとき
+どうしますか？
+
+標準コマンドの =C-x == 
+( =what-cursor-position= )
+を使えばわかりますね。
+
+たとえば「あ」に対しては
+#+BEGIN_EXAMPLE
+Char: あ (12354, #o30102, #x3042, file ...) point=452 of 664 (68%) column=10
+#+END_EXAMPLE
+のようにエコーエリアに表示されます。
+
+情報は左から
+- 現在文字
+- 10進数
+- 8進数
+- 16進数
+- エンコーディング情報(file) ASCII文字では表示されない
+- 現在位置
+- バッファサイズ
+- 現在の相対位置(%)
+- 現在桁
+となります。
+
+ときには、リアルタイムに
+文字コードを知りたい場合があるでしょう。
+
+そこで =modeline-char.el= を使えば、
+モードラインに
+カーソル位置の文字と文字コードを
+16進数で表示します。
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20170113071917.png]]
+Fig1: 「あ」は0x003042
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20170113071933.png]]
+Fig2: 「T」は0x000054
+
+
+
+そのためのマイナーモードが
+2種類用意されています。
+
+- =M-x mlc-char-in-mode-line-mode= :: カレントバッファのみ有効。
+     ローカルマイナーモード。
+- =M-x mlc-char-in-mode-line-mode-global= :: 全バッファで有効。
+     グローバルマイナーモード。
+
+文字コード表示部分を
+マウスクリックすることで、
+以下が可能になります。
+
+- 左クリック ::  =C-u C-x == で得られる文字の詳細情報が表示される
+- 中クリック :: 現在の文字をsecondary selectionにコピーする
+- 右クリック :: tooltipで現在の文字を表示する
+
+設定不要でいきなり使えますが、
+色はカスタマイズできます。
+
+=M-x customize-face RET Modeline= 
+を実行してお好みの色にしてください。
+
+貴重なモードラインをかなりの幅
+占有してしまいますので、
+常に有効にするのは僕としては
+おすすめできません。
+
+必要に応じて 
+=M-x mlc-char-in-mode-line-mode= 
+を実行しましょう。
+
+[includeme file="inc-package-install.php" name="modeline-char" where="melpa"]
+[includeme file="inc-package-relate.php" name="modeline-char"]
+** C-u C-x =で文字情報詳細表示
+=C-x == に =C-u= をつけると、
+別バッファに現在の文字の詳細情報が出てきます。
+
+「あ」については以下の表示になります。
+
+#+BEGIN_EXAMPLE
+             position: 452 of 1580 (29%), column: 10
+            character: あ (displayed as あ) (codepoint 12354, #o30102, #x3042)
+    preferred charset: japanese-jisx0208 (JISX0208.1983/1990 Japanese Kanji: ISO-IR-87)
+code point in charset: 0x2422
+               script: kana
+               syntax: w 	which means: word
+             category: .:Base, H:2-byte Hiragana, L:Left-to-right (strong), c:Chinese, h:Korean, j:Japanese, |:line breakable
+             to input: type "C-x 8 RET 3042" or "C-x 8 RET HIRAGANA LETTER A"
+          buffer code: #xE3 #x81 #x82
+            file code: #xE3 #x81 #x82 (encoded by coding system utf-8-unix)
+              display: by this font (glyph code)
+    xft:-unknown-Ricty-bold-normal-normal-*-32-*-*-*-*-0-iso10646-1 (#x917)
+
+Character code properties: customize what to show
+  name: HIRAGANA LETTER A
+  general-category: Lo (Letter, Other)
+  decomposition: (12354) ('あ')
+
+There is an overlay here:
+ From 447 to 460
+  face                 hl-line
+  priority             -50
+  window               #<window 1735 on 1701140702.modeline-char.org>
+
+
+There are text properties here:
+  fontified            t
+
+#+END_EXAMPLE
+
+文字の詳細情報だけでなく、
+オーバーレイやテキストプロパティの
+情報まで出てきます。
+
+僕はオーバーレイやテキストプロパティの調査に 
+=C-u C-x == を重宝しています。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+[includeme file="inc-package-relate.php" name="modeline-char"]
