@@ -17,18 +17,24 @@
 
 #+end:
 ** 概要
-=cursor-chg.el= は、場面に応じてカーソルの色や形状を変更します。
+=cursor-chg.el= は、場面に応じて
+カーソルの色や形状を変更します。
+
 1. 通常時
-2. バッファが読み込み専用( =read-only-mode= )または上書き( =overwrite-mode= )のとき
+2. バッファが読み込み専用( =read-only-mode= )
+   または上書き( =overwrite-mode= )のとき
 3. インプットメソッドを使っているとき
 4. アイドル時(任意)
 
-それにより、カーソルを見るだけでEmacsの状態がひと目でわかるようになります。
+それにより、
+カーソルを見るだけでEmacsの状態が
+ひと目でわかるようになります。
 
 Emacs20から動作します。
 [includeme file="inc-package-install.php" name="cursor-chg" where="melpa"]
 ** カーソルの形状について
-それでは、Emacsが使えるカーソルについて見てみましょう。
+それでは、
+Emacsが使えるカーソルについて見てみましょう。
 
 #+ATTR_HTML: :width 480
 [[file:/r/sync/screenshots/20170112082601.png]]
@@ -51,7 +57,8 @@ Fig4: hbar
 Fig5: nil (透明!)
 
 ** カスタマイズ
-以下のカスタマイズ変数があります。()内はデフォルトです。
+以下のカスタマイズ変数があります。
+()内はデフォルトです。
 
 - =curchg-default-cursor-color= :: デフォルトのカーソルの色(デフォルトの設定か ="Red"= )
 - =curchg-default-cursor-type=  :: デフォルトのカーソルの形状( =bar= )
@@ -61,8 +68,13 @@ Fig5: nil (透明!)
 - =curchg-overwrite/read-only-cursor-type=  :: read-onlyかoverwriteのときのカーソルの形状( =box= )
 - =curchg-idle-cursor-type=  :: アイドル時のカーソルの形状( =box= )
 
-また、 =curchg-set-cursor-type= 関数でデフォルトのカーソルの形状を変更できます。
-=curchg-change-cursor-when-idle-interval= 関数でアイドル時にカーソルの形状を変更するまでの秒数を設定します。
+また、 =curchg-set-cursor-type= 関数で
+デフォルトのカーソルの形状を変更できます。
+
+=curchg-change-cursor-when-idle-interval= 関数で
+アイドル時にカーソルの形状を
+変更するまでの秒数を設定します。
+
 デフォルトは2秒です。
 
 
