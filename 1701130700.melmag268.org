@@ -1,0 +1,71 @@
+#+BLOG: rubikitch
+#+POSTID: 1932
+#+DATE: [2017-01-13 Fri 07:00]
+#+PERMALINK: melmag268
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: るびきち塾メルマガ
+#+DESCRIPTION: るびきち塾メルマガ『Emacsの鬼るびきちのココだけの話#268』の予告
+#+TITLE: 【るびきち塾メルマガ#268】条件分岐と自動テスト
+#+begin: org2blog-tags
+# content-length: 1046
+
+#+end:
+ども、るびきちです。
+
+「Emacs Lisp回、好評のようだね」
+『ああ、とても嬉しいよ』
+「Software Design連載でもEmacs Lisp触れてないもんね」
+『ああ、Emacsはあまりに広大で30回の連載ではとても語り尽くせない』
+「学ぶことが多いよね」
+『ある意味、俺はEmacsに育ててもらったようなものかも』
+「Emacsに…」
+『これまで何度もパソコントラブル起きたけど乗り越えられたし』
+「るびきちさんにはRubyという武器も」
+『そそ、EmacsとRubyだね』
+「プログラミングって大事？」
+『めちゃ大事。』
+「やっぱ？」
+『問題解決するときに手作業では手に負えないものも処理できるし』
+「Emacs Lispを覚えれば…」
+『Lispだから他言語にも考え方は応用できるし』
+「テキスト処理が自在にできそう」
+『できるよ。余裕があったらスクリプト言語を1つ修得すると楽』
+「なんで？」
+『Emacs Lispよりも速いし、書きやすい言語もあるから』
+「RubyとかPythonとか？」
+『そうだね。両者は甲乙付けがたいから、好きな方を』
+「で、今回のメルマガは？」
+『条件分岐に入るよ！』
+「やっとか…」
+『それと自動テスト』
+「なんでテスト？」
+『条件分岐するといろいろなケースでテストする必要あるから』
+「大変そう…」
+『大変になる。だからテストを書くんだよ』
+「ってなわけで」
+『続きは本文でっ！』
+
+# (wop)
+#+BEGIN_SRC org
+今回のメルマガであなたが得られる結果は、
+- Emacs Lispでの条件分岐の方法
+- Emacs Lispでの真偽値
+- 同値を表す万能選手
+- 自動テストを書くべき理由
+- 自動テストの簡単な書き方
+- 自動テストの実行方法
+となります。
+#+END_SRC
+
+# footer
+豪華な入塾特典付きで、初月無料月々527円のるびきち塾。
+Emacsについて、人生の質を上げる方法について
+メルマガでも個別メールでも懇切丁寧に指導します。
+絶対に損はさせませんので、ぜひとも登録してください。
+http://www.mag2.com/m/0001373131.html
+1週間あたり缶ジュース1本分の投資で、僕があなたのメンターになります。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
