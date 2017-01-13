@@ -88,7 +88,10 @@ ewwなどの *テキストブラウザ* で閲覧したときに、
   (eww-set-start-at "www.weblio.jp" "^ *Weblio 辞書")
   ;; 他のサイトの設定も同様に追加できる
   )
-(advice-add 'eww-render :after 'eww-render--after)
+;;; [2017-01-14 Sat]バージョンごとに分岐
+(if (boundp 'eww-after-render-hook)     ;25.1
+    (add-hook 'eww-after-render-hook 'eww-render--after)
+  (advice-add 'eww-render :after 'eww-render--after)) ;24.4
 
 ;;; weblio
 (defun weblio (str)
