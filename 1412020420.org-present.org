@@ -10,10 +10,9 @@
 #+BLOG: rubikitch
 #+CATEGORY: 文書作成
 #+EL_PKG_NAME: org-present
-#+TAGS: org
+#+TAGS: org, プレゼンテーション
 #+EL_TITLE0: org-modeでプレゼンテーションしようぜ！もちろん画像対応
 #+begin: org2blog
-#+TITLE: org-present.el : org-modeでプレゼンテーションしようぜ！もちろん画像対応
 [includeme file="inc-package-table.php" name="org-present" where="melpa"]
 
 #+end:
