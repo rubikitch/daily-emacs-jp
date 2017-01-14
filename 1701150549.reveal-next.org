@@ -1,0 +1,87 @@
+#+BLOG: rubikitch
+#+POSTID: 1940
+#+DATE: [2017-01-15 Sun 05:49]
+#+PERMALINK: reveal-next
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+DESCRIPTION:
+#+BLOG: rubikitch
+#+CATEGORY:   文書作成
+#+EL_PKG_NAME: reveal-next
+#+TAGS: マイナーモード, プレゼンテーション, 初心者安心, 
+#+TITLE: 超楽！初心者でもカッコいいプレゼンテーションできる2つのコマンド
+#+EL_URL: 
+#+begin: org2blog
+[includeme file="inc-package-table.php" name="reveal-next" where="melpa"]
+
+#+end:
+** 概要
+あなたはプレゼンテーションするとき、
+どんなツールを使いますか？
+
+[[http://emacs.rubikitch.com/org-present/][org-present]] は
+org-modeの見出し単位で
+スライドを移動させています。
+
+ここで紹介する =reveal-next.el= は
+また別のアプローチです。
+- カーソルの後の行・文字を隠し、
+- カーソルを移動させると徐々に見えるよう
+にします。
+
+使い方はとても簡単です！
+1. =M-x reveal-next-mode= を実行する
+2. するとカーソル位置から後ろの行が見えなくなる
+3. カーソルを下に移動すると次の行が見えるようになる
+4. 再び =M-x reveal-next-mode= を実行すると通常の表示に戻る
+
+ただただ、
+カーソルを下に下に移動させるだけで
+プレゼンできてしまいます。
+
+とにかく簡単で使えますので、
+プレゼン資料を作ったら 
+1. 標準の =C-x C-+= ( =text-scale-adjust= )でフォントを大きくし
+2. =M-x reveal-next-mode= を実行する
+だけです。
+
+また =M-x reveal-next-mode= は
+マイナーモードですので、
+他のメジャーモードと併用できます。
+
+
+[includeme file="inc-package-install.php" name="reveal-next" where="melpa"]
+** 文字単位でもできる
+=M-x reveal-next-char/line= で
+隠す単位を変更します。
+
+デフォルトでは行ですが、実行すると
+文字←→行
+をトグルします。
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20170115055919.png]]
+Fig1: Cの位置でM-x reveal-next-modeを実行すると…
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20170115055926.png]]
+Fig2: 次の行から見えなくなる
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20170115055930.png]]
+Fig3: 下に移動すると、次の行が見えるようになる
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20170115055959.png]]
+Fig4: M-x reveal-next-char/lineで文字ごとに隠すようにもできる
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20170115060001.png]]
+Fig5: 右に移動すると次の文字が見えるようになる
+
+
+[includeme file="inc-package-relate.php" name="reveal-next"]
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
