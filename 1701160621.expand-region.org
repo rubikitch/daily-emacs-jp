@@ -1,0 +1,112 @@
+#+BLOG: rubikitch
+#+POSTID: 1942
+#+DATE: [2017-01-16 Mon 06:21]
+#+PERMALINK: expand-region
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+DESCRIPTION:expand-region.elはカーソル位置に応じて賢くregionを広げてくれる。特に文字列リテラルの中身をマークしてくれるのは便利。本設定でC-M-SPCを置き換えてもいい。easy-killはいいライバル。
+#+BLOG: rubikitch
+#+CATEGORY:   コピー・貼り付け
+#+EL_PKG_NAME: expand-region
+#+TAGS: るびきちオススメ, 
+#+TITLE: 34のモードに対応しカーソル位置に応じて賢く範囲を広げるコマンド
+#+EL_URL: 
+#+begin: org2blog
+[includeme file="inc-package-table.php" name="expand-region" where="melpa"]
+
+#+end:
+** 概要
+=expand-region.el= は
+連続的に実行するたびに
+regionを広げていくパッケージです。
+
+標準の =C-M-SPC= ( =mark-sexp= ) や  
+=M-@= ( =mark-word= )も
+連続実行でregionを広げていきますが、
+同じ単位でしか広がりません。
+
+=M-x er/expand-region= はカーソル位置に応じて
+
+1. 単語 (=er/mark-word=)
+2. シンボル (=er/mark-symbol=)
+3. クオートつきシンボル(Lisp) (=er/mark-symbol-with-prefix=)
+4. アクセサ(ドット付きメソッド呼び出し) (=er/mark-next-accessor=)
+5. メソッド・関数呼び出し (=er/mark-method-call=)
+6. クオートの中身 (=er/inside-quotes=)
+7. クオートの外側 (=er/outside-quotes=)
+8. 括弧の中身 (=er/inside-pairs=)
+9. 括弧の外側 (=er/outside-pairs=)
+10. URL (=er/mark-url=)
+11. Eメール (=er/mark-email=)
+12. 関数 (=er/mark-defun=)
+    
+と自動判別でregionを広げていきます。
+
+
+[[http://emacsrocks.com/e09.html][Emacs Rocks! Episode 09: expand-region]]
+にて動画があります。
+[includeme file="inc-package-install.php" name="expand-region" where="melpa"]
+** 対応メジャーモード
+基本的にEmacsの汎用的な機能を使っていますが、
+メジャーモード個別にも対応しています。
+1. =nxml-mode=
+2. =sml-mode=
+3. =clojure-mode=
+4. =nrepl-mode=
+5. =text-mode=
+6. =python-mode=
+7. =cperl-mode=
+8. =org-mode=
+9. =subword-mode=
+10. =erlang-mode=
+11. =html-mode=
+12. =c-mode=
+13. =c++-mode=
+14. =objc-mode=
+15. =java-mode=
+16. =idl-mode=
+17. =pike-mode=
+18. =awk-mode=
+19. =js2-mode=
+20. =text-mode=
+21. =css-mode=
+22. =html-mode=
+23. =rhtml-mode=
+24. =nxhtml-mode=
+25. =web-mode=
+26. =octave-mode=
+27. =python-mode=
+28. =ruby-mode=
+29. =feature-modepython-mode=
+30. =enh-ruby-mode=
+31. =latex-mode=
+32. =js-mode=
+33. =js2-mode=
+34. =js3-mode=
+
+** 設定 [[http://rubikitch.com/f/170116064130.expand-region.el][170116064130.expand-region.el(以下のコードと同一)]]
+C-M-SPC の置き換えとして設定しました。
+
+#+BEGIN: include :file "/r/sync/junk/170116/170116064130.expand-region.el"
+#+BEGIN_SRC fundamental
+(require 'expand-region)
+;; 真っ先に入れておかないとすぐに括弧に対応してくれない…
+(push 'er/mark-outside-pairs er/try-expand-list)
+(global-set-key (kbd "C-M-SPC") 'er/expand-region)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/170116064130.expand-region.el
+$ emacs -Q -f package-initialize -l 170116064130.expand-region.el
+#+END_EXAMPLE
+
+[includeme file="inc-package-relate.php" name="expand-region"]
+** 参考サイト
+- [[http://syohex.hatenablog.com/entry/20120117/1326814127][expand-region.elの紹介 - syohex’s diary]]
+- [[http://qiita.com/ongaeshi/items/abd1016bf484c4e05ab1][Emacsで選択範囲をインタラクティブに広げる expand-region - Qiita]]
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
