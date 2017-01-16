@@ -10,10 +10,9 @@
 #+CATEGORY:   検索
 #+EL_PKG_NAME: org-seek
 #+TAGS: org, ripgrep, the_silver_searcher, 外部プログラム使用, るびきちオススメ, ソース解読推奨, 
-#+EL_TITLE0: 【必携】すぐ使える高速メモ検索コマンド3選
 #+EL_URL: 
+#+TITLE: 【ripgrep推奨org用】すぐ使える高速メモ検索コマンド3選
 #+begin: org2blog
-#+TITLE: org-seek:【必携】すぐ使える高速メモ検索コマンド3選
 [includeme file="inc-package-table.php" name="org-seek" where="melpa"]
 
 #+end:
@@ -65,31 +64,28 @@ org-seek.elは3つのコマンドを用意しています。
 
 
 [includeme file="inc-package-install.php" name="org-seek" where="melpa"]
-** 現時点ではagのままでいい
+** <2017-01-16 Mon>ripgrep日本語対応
 #+BEGIN_SRC emacs-lisp :results silent
 (setq org-seek-search-tool 'ripgrep)
 #+END_SRC
 
 の設定を加えると
-ripgrepで検索してくれます。
+ripgrep(rg) で検索してくれます。
 
-確かにripgrepは
-agの数倍高速ですが、
-<2017-01-08 Sun>の時点では
-日本語を含む正規表現で動作しません。
+<2017-01-08 Sun>の時点(0.3.2)では
+日本語を含む正規表現で動作しなかったripgrepですが
+0.4.0では動作するようになりました。
 
-日本語文字列
-そのものならば動作します。
+agよりも数倍高速ですので
+[[http://emacs.rubikitch.com/ripgrep/][ripgrep.el]] とともにインストール推奨です。
+
+Windowsバイナリもあります。
 
 #+BEGIN_EXAMPLE
 $ rg --version
-ripgrep 0.3.2
+ripgrep 0.4.0
 #+END_EXAMPLE
 
-現時点ではripgrepは
-ソースコード検索や辞書検索など、
-日本語正規表現を使わない場合に
-限定して使うべきです。
 ** 実行例
 
 たとえば、
