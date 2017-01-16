@@ -1,0 +1,68 @@
+#+BLOG: rubikitch
+#+POSTID: 1945
+#+DATE: [2017-01-17 Tue 06:22]
+#+PERMALINK: pp-c-l
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+DESCRIPTION:pp-c-l.elのM-x pretty-control-l-mode(M-x pp^l)は改ページ文字をわかりやすく表示させる。改ページ文字は文書やソースコードの区切りとして使われるので、インストールしておくと見栄えが良くなる。
+#+BLOG: rubikitch
+#+CATEGORY:   見やすく表示
+#+EL_PKG_NAME: pp-c-l
+#+TAGS: マイナーモード, るびきちオススメ, 
+#+TITLE: お手軽・簡単！改ページ文字を区切線としてわかりやすく表示
+#+EL_URL: 
+#+begin: org2blog
+[includeme file="inc-package-table.php" name="pp-c-l" where="melpa"]
+
+#+end:
+** 概要
+=pp-c-l.el= は
+改ページ文字をわかりやすく
+表示させるパッケージです。
+
+改ページ文字は
+文書やソースコードの区切りとして使われますので、
+インストールしておくと見栄えがよくなります。
+
+標準機能の [[http://emacs.rubikitch.com/page-ext/][page-ext.el]] では
+改ページごとにセクションを区切ったり
+アウトラインを表示できますので、
+組み合わせて使うとなおよいです。
+
+=M-x pretty-control-l-mode= (別名 =M-x pp^l= )は
+グローバルマイナーモードで、Emacs20から動作します。
+
+僕も長年使っています。
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20170117064254.png]]
+Fig1: before
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20170117064303.png]]
+Fig2: after
+
+
+[includeme file="inc-package-install.php" name="pp-c-l" where="melpa"]
+** 設定 [[http://rubikitch.com/f/170117063922.pp-c-l.el][170117063922.pp-c-l.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/170117/170117063922.pp-c-l.el"
+#+BEGIN_SRC fundamental
+(require 'pp-c-l)
+(pretty-control-l-mode 1)
+;;; 
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/170117063922.pp-c-l.el
+$ emacs -Q -f package-initialize -l 170117063922.pp-c-l.el
+#+END_EXAMPLE
+
+[includeme file="inc-package-relate.php" name="pp-c-l"]
+** 参考サイト
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
