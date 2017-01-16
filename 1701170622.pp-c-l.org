@@ -62,7 +62,5 @@ $ emacs -Q -f package-initialize -l 170117063922.pp-c-l.el
 #+END_EXAMPLE
 
 [includeme file="inc-package-relate.php" name="pp-c-l"]
-** 参考サイト
-
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
