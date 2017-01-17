@@ -1,0 +1,75 @@
+#+BLOG: rubikitch
+#+POSTID: 1948
+#+DATE: [2017-01-18 Wed 07:34]
+#+PERMALINK: rg
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+DESCRIPTION:rg.elはagの3倍高速な超音速grepであるripgrep(rg)のEmacsインターフェース。類似品ripgrep.elとの違いを詳しく解説。
+#+BLOG: rubikitch
+#+CATEGORY:   検索
+#+EL_PKG_NAME: rg
+#+TAGS: 外部プログラム使用, 正規表現, ripgrep
+#+TITLE: 【Windows安心超音速grep】ファイルタイプ対応版rg検索
+#+EL_URL: 
+#+begin: org2blog
+[includeme file="inc-package-table.php" name="rg" where="melpa"]
+
+#+end:
+** 概要
+ =rg.el= は [[http://emacs.rubikitch.com/ripgrep/][ripgrep.el]] の別実装です。
+
+ripgrep(rg)は
+あのthe_silver_searcher(ag)の
+三倍速い超音速grepです。
+
+Windowsバイナリもありますので
+検索ツールに悩んでいる方の
+特効薬になるでしょう。
+
+詳細は [[http://emacs.rubikitch.com/ripgrep/][ripgrep.el紹介ページ]] 
+を参照してください。
+
+ripgrep.elとの違いは、
+1. ファイルタイプを選択できる
+2. M-x grepを踏襲している
+3. =case-fold-search= によって大文字小文字の区別をしている
+4. マッチ行が折り返されずに表示される
+5.  =rg-custom-type-aliases= 変数で新たにファイルタイプを追加できる
+6. <2017-01-18 Wed>時点で =--vimgrep= オプション未対応であるため、列には移動できない
+です。
+
+内部でripgrep検索を行う
+[[http://emacs.rubikitch.com/org-seek][org-seek.el]] はripgrep.elを使っています。
+
+以下の人はripgrep.elがよいです。
+1. ファイルタイプの選択が煩わしいと感じる
+2.  =--vimgrep= オプションによりマッチした場所に正確に移動したい
+
+ファイルタイプにこだわる人は
+rg.elがよいです。
+
+M-x rgを起動すると
+1. 検索クエリ
+2. ファイルタイプ
+3. 検索ディレクトリ
+を尋ねてきます。
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20170118083409.png]]
+Fig1: M-x rg (rg.el)
+
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20170118083358.png]]
+Fig2: M-x ripgrep-regexp (ripgrep.el)
+
+
+
+[includeme file="inc-package-install.php" name="rg" where="melpa"]
+[includeme file="inc-package-relate.php" name="ripgrep"]
+** 参考サイト
+- [[http://www.softantenna.com/wp/review/ripgrep/][ripgrep - あのThe Silver Searcherを超えた超高速ファイル検索ユーティリティ]]
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
