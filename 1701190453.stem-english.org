@@ -1,0 +1,113 @@
+#+BLOG: rubikitch
+#+POSTID: 1950
+#+DATE: [2017-01-19 Thu 04:53]
+#+PERMALINK: stem-english
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+DESCRIPTION:stem-english.elは英語の活用語尾を取り除くライブラリ。正規表現と応用すれば現在の単語に活用語尾が含まれていても語幹を検索するようになる。
+#+BLOG: rubikitch
+#+CATEGORY:   文字列操作
+#+EL_PKG_NAME: stem-english
+#+TAGS: helm, 
+#+TITLE: 英語の活用語尾を取り除くライブラリ/helm-swoopで応用
+#+EL_URL: 
+#+begin: org2blog
+[includeme file="inc-package-table.php" name="stem-english" where="melpa"]
+
+#+end:
+** 概要
+=stem-english.el= は、
+英語の活用語尾を取り除いて
+語幹を得るライブラリです。
+
+英語には、
+1. 比較級
+2. 最上級
+3. 三人称単数現在形
+4. 複数形
+5. 過去形
+6. 過去分詞
+7. 現在分詞
+で語尾が変化しますね。
+
+他にも
+- active→activeness
+- emotion→emotional
+などの変形もあります。
+
+buy→boughtのような
+不規則動詞は独特のもので、
+覚えるのに苦労した人もいるでしょう。
+
+このライブラリで使われているアルゴリズムは、
+論文『An algorithm for suffix stripping (M.F.Porter)』
+によるものです。
+
+元々は昔にあった辞書検索ツール
+sdicに付属していたstem.elを
+現在のEmacsで動くようにしたものです。
+[includeme file="inc-package-install.php" name="stem-english" where="melpa"]
+** 使用例
+エントリポイントは =stem-english= 関数です。
+
+#+BEGIN_SRC emacs-lisp :results silent
+(stem-english "worked")     ; => ("work" "worked")
+(stem-english "healthier")  ; => ("health" "healthy" "healthie" "healthier")
+(stem-english "teacher")    ; => ("teach" "teache" "teacher")
+(stem-english "blew")       ; => ("blew" "blow")
+(stem-english "came")       ; => ("came" "come")
+(stem-english "thankful")   ; => ("thank" "thankful")
+(stem-english "rationale")  ; => ("rational" "rationale")
+(stem-english "bit")        ; => ("bit" "bite")
+(stem-english "heroic")     ; => ("heroic")
+(stem-english "debianize")  ; => ("debian" "debianize")
+(stem-english "criticism")  ; => ("critic" "criticism")
+(stem-english "was")        ; => ("am" "be" "is" "are" "was")
+(stem-english "been")       ; => ("am" "be" "is" "are" "been")
+(stem-english "fallen")     ; => ("fall" "fallen")
+(stem-english "cable")      ; => ("cabl" "cable")
+(stem-english "challenger") ; => ("challeng" "challenge" "challenger")
+;;; 不完全なので…
+(stem-english "happiness")  ; => ("happi" "happines" "happiness")
+(stem-english "ironic")     ; => ("iron" "ironic")
+;;; ableやmentは活用語尾に含まれているのでバグかな？
+(stem-english "chewable")   ; => ("chewabl" "chewable")
+(stem-english "agreement")  ; => ("agreement")
+#+END_SRC
+** 正規表現で応用する [[http://rubikitch.com/f/170119051551.stem-english.regexp.el][170119051551.stem-english.regexp.el(以下のコードと同一)]]
+[[http://emacs.rubikitch.com/helm-swoop/][helm-swoop]] と併用させてみました。
+
+ただ、原形から不規則動詞や
+活用語尾を含めるところまではできていません。
+
+#+BEGIN: include :file "/r/sync/junk/170119/170119051551.stem-english.regexp.el"
+#+BEGIN_SRC fundamental
+(require 'stem-english)
+(defun stem-english-make-regexp (word)
+  "活用語尾を考えた単語の正規表現を作成する"
+  (concat "\\b" (regexp-opt (stem-english word) t) "\\b"))
+;;; bought
+;;; buy
+;;; catch
+(defun helm-swoop-stem-word ()
+  "活用語尾が含まれる現在の単語を検索する"
+  (interactive)
+  (helm-swoop
+   :$query
+   (concat (stem-english-make-regexp (thing-at-point 'word)) " ")))
+#+END_SRC
+
+#+END:
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20170119053112.png]]
+Fig1: boughtの位置でM-x helm-swoop-stem-wordするとbuyにもヒットする
+
+
+
+[includeme file="inc-package-relate.php" name="stem-english"]
+** 参考サイト
+- [[http://www.namazu.org/~tsuchiya/sdic/][English Japanese Dictionary for mule/emacs]]
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
