@@ -1,0 +1,80 @@
+#+BLOG: rubikitch
+#+POSTID: 1954
+#+DATE: [2017-01-21 Sat 04:42]
+#+PERMALINK: info-buffer
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+DESCRIPTION:M-x infoは*info*バッファを再利用する。そこでM-x info-bufferはinfoファイルごとに独自のバッファを作成し、複数のinfoファイルを同時参照可能にする。置き換え推奨。
+#+BLOG: rubikitch
+#+CATEGORY: ドキュメント
+#+EL_PKG_NAME: info-buffer
+#+TAGS: info, ソース解読推奨, 
+#+TITLE: *info*バッファを複数個作成させドキュメントを同時に参照する
+#+EL_URL: 
+#+begin: org2blog
+[includeme file="inc-package-table.php" name="info-buffer" where="melpa"]
+
+#+end:
+** 概要
+あなたはEmacsでinfoを読んでますか？
+そして快適ですか？
+
+デフォルトの =M-x info= は
+*info*バッファを再利用しようとします。
+
+たとえば、
+emacs.infoを読んでいるときに
+elisp.infoを読もうとしても、
+
+*info*バッファ内で切り替わり、
+同時に表示できません。
+
+そこで、 =M-x info-buffer= を使うことで、
+- =*info: elisp.info*=
+- =*info: emacs.info*=
+と別個にバッファが作成され、
+両方を同時に参照できます。
+
+また、 
+=C-u M-x info-buffer= で
+新しいバッファを強制的に作成しますので、
+同じinfoの別ノードを参照できます。
+
+実ソースコードは20行くらいと
+ととても読みやすいですので、
+Emacs Lisp初心者でも十分理解できます。
+
+=<f1> i= をそのまま置き換えるといいです。
+[includeme file="inc-package-install.php" name="info-buffer" where="melpa"]
+** 実は…
+実は =info= 関数には
+第2引数BUFFERを取り、
+別バッファで表示できるようになっています。
+
+=C-u M-x info= で
+*info*<2>などのバッファ名で
+同時に複数のinfoを表示できます。
+
+=M-x info-buffer= は
+infoファイル名を明示する
+という点で親切です。
+
+[includeme file="inc-package-relate.php" name="info-buffer"]
+** 設定 [[http://rubikitch.com/f/170121044858.info-buffer.el][170121044858.info-buffer.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/170121/170121044858.info-buffer.el"
+#+BEGIN_SRC fundamental
+(global-set-key (kbd "<f1> i") 'info-buffer)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/170121044858.info-buffer.el
+$ emacs -Q -f package-initialize -l 170121044858.info-buffer.el
+#+END_EXAMPLE
+
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
