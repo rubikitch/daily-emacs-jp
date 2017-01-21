@@ -1,0 +1,133 @@
+#+BLOG: rubikitch
+#+POSTID: 1957
+#+DATE: [2017-01-22 Sun 05:05]
+#+PERMALINK: perspeen
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+DESCRIPTION:perspeen.elはperspective.elとelscreen.elのいいとこどりで、しかもpowerline.elによるタブも使える。複数のプロジェクトを同時進行させる人は使ってみよう。
+#+BLOG: rubikitch
+#+CATEGORY:   ウィンドウ構成切り替え
+#+EL_PKG_NAME: perspeen
+#+TAGS: elscreen, header-line, 
+#+TITLE: ワークスペース×タブ切り替えで複数プロジェクトを同時進行させる
+#+EL_URL: 
+#+begin: org2blog
+[includeme file="inc-package-table.php" name="perspeen" where="melpa"]
+
+#+end:
+** 概要
+ =perspeen.el= は、[[http://emacs.rubikitch.com/perspective/][perspective.el]] と [[http://emacs.rubikitch.com/elscreen/][elscreen.el]] を悪魔合体させたものです。
+どういうものかというと、
+1. 操作性はelscreen
+2. ワークスペース(elscreenでいうウィンドウ)のリストがモードラインに表示される
+3. ワークスペースごとに独立したタブを持てる
+4. ワークスペースごとに独立したバッファリストを持てる
+5. ワークスペースでeshellを立ち上げられる
+
+とくにワークスペースごとに独立したタブ・バッファリストを持てるのがポイントです。
+つまり、 *ワークスペース×タブ切り替え* の分だけウィンドウ構成を管理できます。
+elscreenやperspective/[[http://emacs.rubikitch.com/persp-mode/][persp-mode]] は好きだけど、ワークスペース(ウィンドウ)が増えすぎて管理しづらいと感じたら是非とも試してみる価値はあります。
+複数のプロジェクトを同時進行させている人におすすめです。
+
+ちなみに作者は元vimmerで、iTerms/zsh/tmux/vimを愛用していました。
+[[https://www.youtube.com/watch?v=cCgJaOwCNaI][そのときの動画]] を元にperspeen.elは作成されました。
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20170122053634.png]]
+Fig1: タブを切り替える
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20170122053707.png]]
+Fig2: タブを切り替える
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20170122053715.png]]
+Fig3: ワークスペースを切り替える
+
+
+[includeme file="inc-package-install.php" name="perspeen" where="melpa"]
+** コマンド
+以下のコマンドが使えます。
+ =perspeen-keymap-prefix= を設定することで別のプレフィクスキーを設定できます。
+
+- =C-z c= (=perspeen-create-ws=) :: 新しいワークスペース作成
+- =C-z n= (=perspeen-next-ws=) :: 次のワークスペースへ
+- =C-z p= (=perspeen-previous-ws=) :: 前のワークスペースへ
+- =C-z '= (=perspeen-goto-last-ws=) :: 最後に選択したワークスペースへ
+- =M-x perspeen-goto-ws= :: 数値引数でワークスペース選択
+- =C-z e= (=perspeen-ws-eshell=) :: eshell起動
+- =C-z k= (=perspeen-delete-ws=) :: 現在のワークスペースを削除
+- =C-z r= (=perspeen-rename-ws=) :: ワークスペース名を変更
+- =C-z d= (=perspeen-change-root-dir=) :: 現在のワークスペースのルートディレクトリを変更
+- =C-z 1= (=perspeen-ws-jump=) :: ワークスペース1へ (1〜9が使用可能)
+- =C-z t= (=perspeen-tab-create=) :: 新しいタブを作成
+- =C-z C-d= (=perspeen-tab-del=) :: タブを削除 (本設定)
+- =C-z l= (=perspeen-tab-next=) :: 次のタブへ (本設定)
+- =C-z h= (=perspeen-tab-prev=) :: 前のタブへ (本設定)
+** <2017-01-22 Sun>時点のバグ
+sd/powerline-active1をpowerline-active1に変更しないとエラーになってタブが動作しません。
+
+#+BEGIN_EXAMPLE
+diff --git a/perspeen-tab.el b/perspeen-tab.el
+index e2dc139..076ac45 100644
+--- a/perspeen-tab.el
++++ b/perspeen-tab.el
+@@ -161,10 +161,10 @@ Argument OTHER-FACE the face of un-selected tabs."
+ 					(powerline-current-separator)
+ 					(car powerline-default-separator-dir))))
+ 	(face1 'powerline-active1)
+-	(selected-face 'sd/powerline-active1)
++	(selected-face 'powerline-active1)
+ 	(inacted-face 'perspeen-tab--powerline-inactive1)
+ 	(face-list nil))
+-    
++
+     (push inacted-face face-list)
+     (dotimes (var (length (perspeen-tab-get-tabs)))
+       (push (cond ((eq (car face-list) face1) inacted-face)
+@@ -196,11 +196,11 @@ Argument OTHER-FACE the face of un-selected tabs."
+ 					 (powerline-current-separator)
+ 					 (car powerline-default-separator-dir))))
+ 	 (lhs  (perspeen-tab-header-line-left-tabs 1 2 4))
+-	 
++
+ 	 (rhs (list
+-	       (funcall separator-right 'perspeen-tab--powerline-inactive1 'sd/powerline-active1)
+-	       (powerline-raw (format-time-string " %Y-%m-%d %I:%M %p %a ") 'sd/powerline-active1 'r))))
+-    
++	       (funcall separator-right 'perspeen-tab--powerline-inactive1 'powerline-active1)
++	       (powerline-raw (format-time-string " %Y-%m-%d %I:%M %p %a ") 'powerline-active1 'r))))
++
+     (cond ((eq current-window first-window)
+ 	   (if (eq first-window top-right-window)
+ 	       (concat
+
+#+END_EXAMPLE
+
+** 設定 [[http://rubikitch.com/f/170122043937.perspeen.1.el][170122043937.perspeen.1.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/170122/170122043937.perspeen.1.el"
+#+BEGIN_SRC fundamental
+(setq perspeen-use-tab t)
+(perspeen-mode)
+;; プレフィクスキー
+(setq perspeen-keymap-prefix (kbd "C-z"))
+(define-key perspeen-command-map (kbd "h") 'perspeen-tab-prev)
+(define-key perspeen-command-map (kbd "l") 'perspeen-tab-next)
+(define-key perspeen-command-map (kbd "C-d") 'perspeen-tab-del)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/170122043937.perspeen.1.el
+$ emacs -Q -f package-initialize -l 170122043937.perspeen.1.el
+#+END_EXAMPLE
+
+
+[includeme file="inc-package-relate.php" name="perspeen"]
+
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
