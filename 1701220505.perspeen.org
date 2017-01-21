@@ -9,7 +9,7 @@
 #+BLOG: rubikitch
 #+CATEGORY:   ウィンドウ構成切り替え
 #+EL_PKG_NAME: perspeen
-#+TAGS: elscreen, header-line, 
+#+TAGS: elscreen, header-line, Emacs 25.1以降, 
 #+TITLE: ワークスペース×タブ切り替えで複数プロジェクトを同時進行させる
 #+EL_URL: 
 #+begin: org2blog
