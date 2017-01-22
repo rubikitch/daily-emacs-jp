@@ -1,0 +1,99 @@
+#+BLOG: rubikitch
+#+POSTID: 1960
+#+DATE: [2017-01-23 Mon 06:53]
+#+PERMALINK: eshell-fixed-prompt
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+DESCRIPTION:eshell-fixed-promp.elはプロンプトの位置を画面上部に固定するマイナーモード。コマンド実行後も目線が移動しないメリットはあるものの、注意点もいくつか…
+#+BLOG: rubikitch
+#+CATEGORY: 
+#+EL_PKG_NAME: eshell-fixed-prompt
+#+TAGS: eshell, ivy, helm, anything
+#+TITLE: eshellのプロンプト行を固定して見栄えを良くする！注意点2つ
+#+EL_URL: 
+#+begin: org2blog
+[includeme file="inc-package-table.php" name="eshell-fixed-prompt" where="melpa"]
+
+#+end:
+** 概要
+eshellを使っていて、
+出力が流れてしまって
+わざわざ =C-c C-p= や =C-c C-r= で戻るのを
+面倒だと思ったことはありませんか？
+
+そこで、マイナーモード 
+=M-x eshell-fixed-prompt-mode= は
+プロンプトを画面上部に固定します。
+
+どんな挙動になるのかは、
+[[https://raw.github.com/mallt/eshell-fixed-prompt-mode/master/eshell-fixed-prompt-mode.gif][作者によるアニメーションgif]] 
+を見てください。
+
+目線が移動しないのは素晴しいですよね。
+
+ただ、注意点が2つあります。
+
+1. 出力履歴が消える
+2. =M-p= と =M-n= の挙動が変わる
+
+状況に応じて使い分けるのがいいでしょう。
+
+[includeme file="inc-package-install.php" name="eshell-fixed-prompt" where="melpa"]
+** 出力履歴が消える
+ただ、注意してほしいのは、
+過去の出力履歴が消去されてしまうことです。
+
+そのためこのマイナーモードは
+常時有効にすべきものではなく、
+キーに割り当てて必要に応じて
+使い分けるべきです。
+
+本設定では =C-c C-v= に割り当てて
+切り替えられるようにしています。
+** 履歴に挙動も変化
+現時点では =M-p= や =M-n= での
+履歴の挙動も変更されています。
+
+両者は同じコマンド 
+=M-x eshell-fixed-prompt-select-history-item= に
+割り当て直されていて、
+
+過去の履歴は =M-n= で
+拾えるようになっています。
+
+=completing-read= を
+呼んでいますので、
+- helm
+- ivy
+- anything
+が使えます。
+
+履歴の挙動に違和感を感じるならば 
+- =M-x helm-mode=
+- =M-x ivy-mode=
+- =M-x anything-completion-mode= ( =(require 'anything-config)= が必要)
+と併用してください。
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20170123071320.png]]
+Fig1: 履歴にアクセスしようとするとcompleting-readが呼ばれて…
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20170123071331.png]]
+Fig2: ivy-modeならばこのように
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20170123071347.png]]
+Fig3: helm-modeならこのように
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20170123072227.png]]
+Fig4: anything-completion-modeならこのように
+
+
+
+[includeme file="inc-package-relate.php" name="eshell-fixed-prompt"]
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
