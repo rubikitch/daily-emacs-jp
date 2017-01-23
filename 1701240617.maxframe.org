@@ -1,0 +1,83 @@
+#+BLOG: rubikitch
+#+POSTID: 1962
+#+DATE: [2017-01-24 Tue 06:17]
+#+PERMALINK: maxframe
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+DESCRIPTION:maxframe.elはEmacsを最大化表示するパッケージ。マルチモニターにも対応。起動時に自動でディスプレイサイズめいいっぱいに最大化する設定有。
+#+BLOG: rubikitch
+#+CATEGORY: 表示
+#+EL_PKG_NAME: maxframe
+#+TAGS: るびきちオススメ, 初心者安心, 
+#+TITLE: マルチモニター対応最大化表示！画面を有効に使って作業効率アップ
+#+EL_URL: 
+#+begin: org2blog
+[includeme file="inc-package-table.php" name="maxframe" where="melpa"]
+
+#+end:
+** 概要
+Emacsユーザにとって
+Emacsは大黒柱となる作業環境です。
+
+当然、
+コンピュータを使っている時間のうち
+Emacsの占める割合は多いでしょう。
+
+それならば、
+Emacsは最大化表示した方が
+よいのではないでしょうか。
+
+小さいフレームで
+ちまちま作業するのは
+とても非効率です。
+
+=maxframe.el= は、
+Emacsのフレームを最大化表示したり
+戻したりするパッケージです。
+
+マルチモニターにも対応しています。
+
+=M-x maximize-frame= でフレームを最大化し、
+=M-x restore-frame= で元の大きさに戻します。
+
+以下のメカニズムです。
+
+1. 現在のフレームの位置と大きさを記憶する
+2. フレームを左上に配置する
+3. 解像度を得る
+4. フォントの長さ・幅を得る
+5. 解像度からフォントの長さ・幅を割り、表示可能な最大の文字数を得る
+6. 最大化表示する
+
+
+WindowsではWindows標準機能として
+最大化・元のサイズに戻せますが、
+=maxframe.el= は他の環境でも
+使えるようにしたものです。
+
+本設定を加えることで、
+Emacs起動時に最大化表示をします。
+
+[includeme file="inc-package-install.php" name="maxframe" where="melpa"]
+[includeme file="inc-package-relate.php" name="maxframe"]
+** 設定 [[http://rubikitch.com/f/170124061500.maxframe.el][170124061500.maxframe.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/170124/170124061500.maxframe.el"
+#+BEGIN_SRC fundamental
+(require 'maxframe)
+;;; マルチモニターのときはメインモニターの幅を設定する
+;; (setq mf-max-width 1600)
+(add-hook 'window-setup-hook 'maximize-frame t)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/170124061500.maxframe.el
+$ emacs -Q -f package-initialize -l 170124061500.maxframe.el
+#+END_EXAMPLE
+
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
