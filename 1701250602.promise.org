@@ -1,0 +1,356 @@
+#+BLOG: rubikitch
+#+POSTID: 1964
+#+DATE: [2017-01-25 Wed 06:02]
+#+PERMALINK: promise
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+DESCRIPTION:promise.elはEmacs LispでのPromiseの実装。JavaScriptのPromises/A+の忠実な移植で、非同期処理がとても簡単に記述できる。deferred.elよりも手軽。
+#+BLOG: rubikitch
+#+CATEGORY:   マルチスレッド
+#+EL_PKG_NAME: promise
+#+TAGS: タイマー, 非同期処理, 
+#+TITLE: Emacs LispでPromise！非同期処理もテストも超簡単
+#+EL_URL: 
+#+begin: org2blog
+[includeme file="inc-package-table.php" name="promise" where="melpa"]
+
+#+end:
+#+TOC: headlines 2
+** 概要
+JavaScript界隈では
+Promiseというイケてる非同期処理が
+アツいですよね。
+
+本来、非同期処理を記述するには
+コールバックを書きますが、
+コードが難読化してしまう
+という欠点があります。
+
+そこで救世主となるのがPromiseです。
+
+http://qiita.com/koki_cheese/items/c559da338a3d307c9d88 より
+#+BEGIN_QUOTE
+Promiseを使ってない場合だと非同期のメソッドを繋げる場合
+いわゆるコールバック地獄となってしまいます。
+
+#+BEGIN_EXAMPLE
+//Promiseを使わない非同期を繋げる場合
+A(function(a){
+  B(a, function(b){
+    C(b, function(c){
+      done(c); // ABC
+    });
+  });
+});
+#+END_EXAMPLE
+
+でもPromiseを使えばメソッドチェーンにすることができコールバック地獄を回避することができます。
+
+#+BEGIN_EXAMPLE
+A().then(B).then(C).then(done);  // ABC
+#+END_EXAMPLE
+
+#+END_QUOTE
+
+実はEmacs Lispでも
+以下の非同期処理が記述できます。
+- タイマー
+- プロセス
+- ネットワーク
+- スレッド！(Emacs26より)
+[includeme file="inc-package-install.php" name="promise" where="melpa"]
+** タイマーによる非同期処理
+では、簡単な例として、
+タイマーを使った非同期処理を書いてみましょう。
+
+1. 1秒後に33と表示させる
+2. また1秒後に33*2を表示させる
+3. また1秒後に33*2*2を表示させる
+
+=print-delay-value= は 
+=run-at-time= 関数を使って値を表示し、
+値をコールバック関数に渡します。
+
+ここで =lexical-binding= を 
+=t= に設定しておく必要があります。
+
+なぜなら、タイマーに渡す関数から
+引数を参照するためです。
+
+(はあ… =lexical-let= を使う必要があった頃は醜くて死んでた…)
+
+#+BEGIN_SRC emacs-lisp :results silent
+;;; -*- lexical-binding: t -*-
+(defun print-delay-value (delay-sec format-string value next-callback)
+  "DELAY-SEC秒後にVALUEをFORMAT-STRINGに従って表示させ、NEXT-CALLBACK関数にVALUEを渡す。"
+  (run-at-time delay-sec nil
+               (lambda ()
+                 (message format-string value)
+                 (funcall next-callback value))))
+(print-delay-value
+ 1 "first result: %s" 33
+ (lambda (result)
+   (print-delay-value
+    1 "second result: %s" (* result 2)
+    (lambda (second-result)
+      (print-delay-value
+       1 "third result: %s" (* second-result 2)
+       #'ignore)))))
+#+END_SRC
+
+
+実行してみると、
+*Message*バッファに1秒ごとに
+
+#+BEGIN_EXAMPLE
+first result: 33
+second result: 66
+third result: 132
+#+END_EXAMPLE
+
+と表示されます。
+
+ただ、、、
+
+だんだんとコールバックの入れ子が
+深くなっていくのがわかりますね。
+
+コードの流れが理解しづらいのです。
+
+ここでは一回の
+タイマー呼び出ししかしていませんが、
+
+ネットワークアクセスなどが絡むと
+本当にやっかいです。
+** そこでPromiseですよ！
+ここでPromiseを導入してみます。
+
+#+BEGIN_SRC emacs-lisp :results silent
+;;; -*- lexical-binding: t -*-
+(require 'promise)
+(defun do-something-async (delay-sec value)
+  "Return `Promise' to resolve the value asynchronously."
+  (promise-new (lambda (resolve _reject)
+                 (run-at-time delay-sec
+                              nil
+                              (lambda ()
+                                (funcall resolve value))))))
+
+(promise-chain (do-something-async 1 33)
+  (then (lambda (result)
+          (message "first result: %s" result)
+          (do-something-async 1 (* result 2))))
+  (then (lambda (second-result)
+          (message "second result: %s" second-result)
+          (do-something-async 1 (* second-result 2))))
+  (then (lambda (third-result)
+          (message "third result: %s" third-result))))
+#+END_SRC
+
+すっきり整理されたではありませんか！！！
+
+テストだって楽に書けてしまいます。
+
+#+BEGIN_SRC emacs-lisp :results silent
+(ert-deftest promise-async-test ()
+  (let (expected actual)
+    (promise-chain (do-something-async 1 33)
+      (then (lambda (result)
+              (push 33 expected)
+              (push result actual)
+              (do-something-async 1 (* result 2))))
+      (then (lambda (second-result)
+              (push 66 expected)
+              (push second-result actual)
+              (do-something-async 1 (* second-result 2))))
+      (then (lambda (third-result)
+              (push 132 expected)
+              (push third-result actual))))
+    (sit-for 3.1)
+    (should (equal expected actual))))
+#+END_SRC
+** 基本的な使い方
+ =promise.el= は [[https://github.com/then/promise][Promises/A+]] の忠実な移植です。
+
+基本的には
+- =promise-new=
+- =promise-chain=
+- =then= 
+で記述します。
+
+=promise-new= は、2つの2引数関数
+- =resolve=
+- =reject=
+を引数に取ります。
+
+- =resolve= は処理が成功したときに
+- =reject= はエラーが起きたときに
+呼び出します。
+
+=promise-chain= は
+最初にpromiseオブジェクトを渡し、
+後に =then= を取っていきます。
+
+=then= は、
+値を引数とする関数を引数に取ります。
+** エラーをcatchする
+=then= は、
+第2引数の関数によって
+エラーが起きたときの処理も記述できます。
+
+#+BEGIN_SRC emacs-lisp :results silent
+(promise-chain (do-something-async 1 33)
+  (then (lambda (result)
+          (message "first result: %s" result)
+          (setq a-dummy (/ 1 0)))) ; An `(arith-error)' occurs here.
+
+  (then (lambda (second-result)
+          (message "second result: %s" second-result)
+          (do-something-async 1 (* second-result 2)))
+        (lambda (reason)
+          (message "catch the error: %s" reason))))
+#+END_SRC
+
+実行すると
+
+#+BEGIN_EXAMPLE
+first result: 33
+catch the error: (arith-error)
+#+END_EXAMPLE
+と表示されます。
+** promise-race:早い者勝ち
+=promise-race= で
+一番早い処理のみ実行させられます。
+
+#+BEGIN_SRC emacs-lisp :results silent
+(promise-chain (promise-race (vector (do-something-async 2 "2 seccods")
+                                     (do-something-async 1 "1 second")
+                                     (do-something-async 3 "3 secconds")))
+  (then (lambda (result)
+          (message "result: %s" result))))
+#+END_SRC
+
+実行すると
+#+BEGIN_EXAMPLE
+result: 1 second
+#+END_EXAMPLE
+と表示されます。
+** タイムアウトを記述する
+=promise-race= で
+タイムアウト処理が記述できます。
+
+#+BEGIN_SRC emacs-lisp :results silent
+(defun promise-timeout (time)
+  "Return `Promise' which times out after the specified time."
+  (promise-new (lambda (_resolve reject)
+                 (run-at-time time
+                              nil
+                              (lambda ()
+                                (funcall reject "time out"))))))
+
+(promise-chain (promise-race (vector (timeout 2)
+                                     (do-something-async 3 "3 seconds")))
+  (then (lambda (result)
+          (message "result: %s" result))
+        (lambda (reason)
+                   (message "promise-catch: %s" reason))))
+#+END_SRC
+
+実行すると
+#+BEGIN_EXAMPLE
+promise-catch: time out
+#+END_EXAMPLE
+と表示されます。
+** promise-all:すべての処理を待つ
+=promise-all= で並行処理をし、
+すべての処理が終了するまで待ちます。
+
+#+BEGIN_SRC emacs-lisp :results silent
+(promise-chain (promise-all (vector (do-something-async 2 "2 seccods")
+                                    (do-something-async 1 "1 second")
+                                    (do-something-async 3 "3 secconds")))
+  (then (lambda (results)
+          (message "result[0]: %s" (aref results 0))
+          (message "result[1]: %s" (aref results 1))
+          (message "result[2]: %s" (aref results 2)))))
+#+END_SRC
+
+実行すると3秒後に
+#+BEGIN_EXAMPLE
+result[0]: 2 seccods
+result[1]: 1 second
+result[2]: 3 secconds
+#+END_EXAMPLE
+と一度に表示されます。
+** ネットワークアクセスの例
+ネットワークの例は
+以下のコードを参照してください。
+
+https://raw.githubusercontent.com/chuntaro/emacs-promise/master/promise-examples-jp.el
+
+** deferred.elと比べてみる
+最後に、既出の非同期ライブラリ
+[[http://emacs.rubikitch.com/deferred/][deferred.el]] と比べてみます。
+
+#+BEGIN_SRC emacs-lisp :results silent
+;;; -*- lexical-binding: t -*-
+(require 'deferred)
+(defun do-something-deferred (delay-sec value)
+  (deferred:$
+    (deferred:wait (* 1000 delay-sec))
+    (deferred:nextc it
+      (lambda (x) value))))
+
+(deferred:$
+  (deferred:next
+    (lambda () (do-something-deferred 1 33)))
+  (deferred:nextc it
+    (lambda (result)
+      (message "first result: %s" result)
+      (do-something-deferred 1 (* result 2))))
+  (deferred:nextc it
+    (lambda (second-result)
+      (message "second result: %s" second-result)
+      (do-something-deferred 1 (* second-result 2))))
+  (deferred:nextc it
+    (lambda (third-result)
+      (message "third result: %s" third-result))))
+#+END_SRC
+
+処理順に記述できるものの、
+いくぶん複雑になっています。
+
+とはいえdeferred.elは
+プロセスやネットワークを立ち上げる
+専用の関数が用意されている
+という利便性があります。
+** まとめ
+=promise.el= は内部でタイマーを使った
+[[https://github.com/then/promise][Promises/A+]] の忠実な移植です。
+
+Promiseを使うことでEmacs Lispで
+非同期処理がとても書きやすくなります。
+
+既存の =deferred.el= や =concurrent.el= と同類ですが、
+以下の相異点があります。
+- JavaScriptのPromiseの忠実な移植
+- 記述がより簡潔
+- プロセスやネットワークの専用関数は用意されていない
+
+まだ出来立てホヤホヤですので、
+そのうちEmacsに特化した関数群も
+書かれることでしょう。
+
+これからがとても楽しみです。
+
+[includeme file="inc-package-relate.php" name="promise"]
+** 参考サイト
+- [[http://qiita.com/koki_cheese/items/c559da338a3d307c9d88][今更だけどPromise入門 - Qiita]]
+- [[https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Promise][Promise - JavaScript | MDN]]
+- [[https://html5experts.jp/takazudo/17107/][Promiseで簡単！JavaScript非同期処理入門【前編】 | HTML5Experts.jp]]
+- [[http://hakuhin.jp/js/promise.html][JavaScriptプログラミング講座【Promise について】]]
+- [[http://d.hatena.ne.jp/kiwanami/20101008/1286518936][deferred.el リリース - 技術日記＠kiwanami]]
+- [[http://d.hatena.ne.jp/kiwanami/20110420/1303319508][concurrent.el リリース - 技術日記＠kiwanami]]
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
