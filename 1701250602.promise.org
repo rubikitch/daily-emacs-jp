@@ -249,7 +249,7 @@ result: 1 second
                               (lambda ()
                                 (funcall reject "time out"))))))
 
-(promise-chain (promise-race (vector (timeout 2)
+(promise-chain (promise-race (vector (promise-timeout 2)
                                      (do-something-async 3 "3 seconds")))
   (then (lambda (result)
           (message "result: %s" result))
