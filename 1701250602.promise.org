@@ -16,7 +16,7 @@
 [includeme file="inc-package-table.php" name="promise" where="melpa"]
 
 #+end:
-
+** 概要
 #+TOC: headlines 2
 JavaScript界隈では
 Promiseというイケてる非同期処理が
