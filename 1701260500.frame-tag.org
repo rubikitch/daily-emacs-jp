@@ -1,0 +1,62 @@
+#+BLOG: rubikitch
+#+POSTID: 1970
+#+DATE: [2017-01-26 Thu 05:00]
+#+PERMALINK: frame-tag
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+DESCRIPTION: frame-tag.elはM-1〜M-9でフレームを切り替える機能を提供する。フレームをたくさん開く人は試す価値があるだろう。
+#+BLOG: rubikitch
+#+CATEGORY: フレーム
+#+EL_PKG_NAME: frame-tag
+#+TAGS: ソース解読推奨, 初心者安心, 
+#+TITLE: 初心者向けフレームをワンタッチで切り替える方法
+#+EL_URL: 
+#+begin: org2blog
+[includeme file="inc-package-table.php" name="frame-tag" where="melpa"]
+
+#+end:
+** 概要
+あなたはフレームを
+たくさん開く人ですか？
+
+それとも1枚のフレームで
+[[http://emacs.rubikitch.com/category/%e3%83%90%e3%83%83%e3%83%95%e3%82%a1%e3%83%bb%e3%82%a6%e3%82%a3%e3%83%b3%e3%83%89%e3%82%a6%e3%83%bb%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab/%e3%82%a6%e3%82%a3%e3%83%b3%e3%83%89%e3%82%a6%e6%a7%8b%e6%88%90%e5%88%87%e3%82%8a%e6%9b%bf%e3%81%88/][ウィンドウ構成を切り替え]] たりしますか？
+
+僕は長年後者ですが、
+前者ならば =frame-tag.el= は
+使ってみる価値があります。
+
+グローバルマイナーモード 
+=frame-tag-mode= を有効にすれば、
+=M-1= 〜 =M-9= でフレームを
+ワンタッチで切り替えられるようになります。
+
+もう =C-x 5 o= などで
+迷子になることはありません。
+
+番号は左上の座標が
+若い順から振られていきます。
+
+とはいえ、
+ウィンドウマネージャー・デスクトップ環境の機能で
+フレームを切り替える方法もあります。
+
+
+[includeme file="inc-package-install.php" name="frame-tag" where="melpa"]
+** 設定 [[http://rubikitch.com/f/170126050534.frame-tag.el][170126050534.frame-tag.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/170126/170126050534.frame-tag.el"
+#+BEGIN_SRC fundamental
+(frame-tag-mode 1)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/170126050534.frame-tag.el
+$ emacs -Q -f package-initialize -l 170126050534.frame-tag.el
+#+END_EXAMPLE
+[includeme file="inc-package-relate.php" name="frame-tag"]
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
