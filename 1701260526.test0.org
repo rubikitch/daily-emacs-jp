@@ -1,0 +1,20 @@
+#+BLOG: rubikitch
+#+POSTID: 1972
+#+DATE: [2017-01-26 Thu 05:26]
+#+PERMALINK: test0
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+DESCRIPTION:
+#+BLOG: rubikitch
+#+CATEGORY: ほげ
+#+TAGS: 
+#+TITLE: あ
+#+begin: org2blog-tags
+# content-length: 81
+#+HTML: <!-- noindex -->
+
+#+end:
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
