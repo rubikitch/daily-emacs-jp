@@ -1,0 +1,62 @@
+#+BLOG: rubikitch
+#+POSTID: 1976
+#+DATE: [2017-01-28 Sat 06:22]
+#+PERMALINK: eshell-fringe-status
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+DESCRIPTION:eshell-fringe-status.elはeshellで最後に実行したコマンドの終了ステータスを色で示してくれる。入れてて損はない。
+#+BLOG: rubikitch
+#+CATEGORY: シェル・端末
+#+EL_PKG_NAME: eshell-fringe-status
+#+TAGS: eshell, 
+#+TITLE: eshellでコマンドの終了ステータスをプロンプト左の色で示す
+#+EL_URL: 
+#+begin: org2blog
+[includeme file="inc-package-table.php" name="eshell-fringe-status" where="melpa"]
+
+#+end:
+** 概要
+=eshell-fringe-status.el= は、
+eshellで最後に実行した
+コマンドの終了ステータスを
+プロンプトの左に矢印として表示します。
+
+- 正常終了のときに緑矢印
+- 異常終了のときに赤矢印
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20170127062511.png]]
+Fig1: 左端注目！
+
+[[http://fish.rubikitch.com/][fish]] のような現代的なシェルでも
+この機能は備わっています。
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20170127062752.png]]
+Fig2: 【おまけ】ちなみにfishでも
+
+eshellでもその機能が欲しいのならば
+ぜひ使ってみてください。
+
+
+[includeme file="inc-package-install.php" name="eshell-fringe-status" where="melpa"]
+** 設定 [[http://rubikitch.com/f/170127061729.eshell-fringe-status.1.el][170127061729.eshell-fringe-status.1.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/170127/170127061729.eshell-fringe-status.1.el"
+#+BEGIN_SRC fundamental
+(add-hook 'eshell-mode-hook 'eshell-fringe-status-mode)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/170127061729.eshell-fringe-status.1.el
+$ emacs -Q -f package-initialize -l 170127061729.eshell-fringe-status.1.el
+#+END_EXAMPLE
+[includeme file="inc-package-relate.php" name="eshell-fringe-status"]
+** 参考サイト
+- [[http://fish.rubikitch.com/][全訳！fishシェル普及計画【コマンドラインは怖くない】]]
+- [[https://github.com/p-e-w/finalterm][GitHub - p-e-w/finalterm: At last – a modern terminal emulator. THIS PROJECT IS NO LONGER BEING ACTIVELY DEVELOPED.]]
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
