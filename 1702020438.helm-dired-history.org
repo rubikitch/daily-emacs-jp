@@ -1,0 +1,58 @@
+#+BLOG: rubikitch
+#+POSTID: 1978
+#+DATE: [2017-02-02 Thu 04:38]
+#+PERMALINK: helm-dired-history
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+DESCRIPTION:helm-dired-history.elはdiredでディレクトリ名を入力するときに、過去に開いたdired履歴をhelmインターフェースで選択できるようにする。
+#+BLOG: rubikitch
+#+CATEGORY: ファイラ
+#+EL_PKG_NAME: helm-dired-history
+#+TAGS: helm, dired, 
+#+TITLE: diredのコピー・移動先を履歴からhelm選択
+#+EL_URL: 
+#+begin: org2blog
+[includeme file="inc-package-table.php" name="helm-dired-history" where="melpa"]
+
+#+end:
+** 概要
+diredを使ってコピーや移動などをするとき、事前にコピー・移動先のディレクトリを確認する場合があります。
+そこでいざコピー・移動するときに改めて、コピー・移動先を入力するのは面倒です。
+その解決策として =dired-dwim-target= 変数はありますが、2つのdiredバッファを並べる必要があります。
+
+ =helm-dired-history.el=  は、diredでディレクトリ名を入力するときに過去のdiredの履歴を加えたhelmインターフェースに置き換えます。
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20170128044734.png]]
+Fig1: Cでコピーしようとすると、dired履歴付きファイル名入力インターフェースが出てくる
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20170128044741.png]]
+Fig2: 「,」でdiredで開いたディレクトリの履歴をたどれる
+
+
+
+[includeme file="inc-package-install.php" name="helm-dired-history" where="melpa"]
+** 設定 [[http://rubikitch.com/f/90helm-dired-history.el][90helm-dired-history.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/emacs/init.d/90helm-dired-history.el"
+#+BEGIN_SRC fundamental
+(with-eval-after-load 'dired
+  (require 'helm-dired-history)
+  (define-key dired-mode-map "," 'helm-dired-history-view))
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/90helm-dired-history.el
+$ emacs -Q -f package-initialize -l 90helm-dired-history.el
+#+END_EXAMPLE
+
+
+[includeme file="inc-package-relate.php" name="helm-dired-history"]
+** 参考サイト
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
