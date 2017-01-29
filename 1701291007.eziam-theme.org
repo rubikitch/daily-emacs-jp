@@ -10,7 +10,7 @@
 #+CATEGORY: 明暗対応
 #+EL_PKG_NAME: eziam-theme
 #+TAGS: 
-#+EL_TITLE: 多数のパッケージに対応した明暗カラーテーマ
+#+TITLE: 多数のパッケージに対応した明暗カラーテーマ
 #+EL_TITLE0: 
 #+EL_URL: 
 #+begin: org2blog
@@ -152,15 +152,15 @@ Fig6: dired
 
 #+ATTR_HTML: :width 480
 [[file:/r/sync/screenshots/20170129212923.png]]
-Fig7: markdown-mode
+Fig7: web-mode
 
 #+ATTR_HTML: :width 480
 [[file:/r/sync/screenshots/20170129212926.png]]
-Fig8: helm
+Fig8: markdown-mode
 
 #+ATTR_HTML: :width 480
 [[file:/r/sync/screenshots/20170129212929.png]]
-Fig9: _
+Fig9: helm
 
 
 #+ATTR_HTML: :width 480
