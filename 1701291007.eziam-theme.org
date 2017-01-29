@@ -1,0 +1,256 @@
+#+BLOG: rubikitch
+#+POSTID: 1980
+#+DATE: [2017-01-29 Sun 10:07]
+#+PERMALINK: eziam-theme
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+DESCRIPTION:
+#+BLOG: rubikitch
+#+CATEGORY: 明暗対応
+#+EL_PKG_NAME: eziam-theme
+#+TAGS: 
+#+EL_TITLE: 多数のパッケージに対応した明暗カラーテーマ
+#+EL_TITLE0: 
+#+EL_URL: 
+#+begin: org2blog
+[includeme file="inc-package-table.php" name="eziam-theme" where="melpa"]
+
+#+end:
+** 概要
+*eziam-theme.el* は、以下のパッケージに対応したカラーテーマ群です。
+[includeme file="inc-package-install.php" name="eziam-theme" where="melpa"]
+* [2017-01-29 Sun 10:08]
+- button
+- link
+- compilation
+- grep
+- make
+- isearch
+- font-lock
+- newsticker
+- highlight-symbol
+- ace-jump-mode
+- anzu
+- full-ack
+- auctex
+- auto-complete
+- android-mode
+- bm
+- clojure-test-mode
+- coq
+- ctable
+- diff
+- dired
+- dired+
+- ediff
+- ert
+- eshell
+- flx
+- flycheck
+- flymake
+- flyspell
+- erc
+- git-gutter
+- git-gutter-fringe
+- gnus
+- guide-key
+- helm
+- hl-sexp
+- ido-mode
+- iedit-mode
+- js2-mode
+- jabber-mode
+- ledger-mode
+- linum-mode
+- linum-relative-mode
+- macrostep
+- magit
+- egg
+- message-mode
+- mew
+- mic-paren
+- mingus
+- nav
+- mu4e
+- mumamo
+- org
+- outline
+- p4
+- perspective
+- powerline
+- proofgeneral
+- rainbow-delimiters
+- rcirc
+- rpm-mode
+- rst-mode
+- sh-mode
+- show-paren
+- smartparens
+- sml-mode-line
+- slime
+- speedbar
+- tabbar
+- term
+- undo-tree
+- volatile-highlights
+- w3m
+- web-mode
+- whitespace-mode
+- wanderlust
+- which-func-mode
+- yascroll
+- markdown mode
+- swoop
+- company
+- eval-sexp-fu
+- neotree
+- geiser
+- elixir
+- tuareg
+- avy
+- ansi-color
+- fill-column-indicator
+
+
+以下のカラーテーマが定義されています。
+#+begin: org2blog-sub-color-themes
+- eziam-dark
+- eziam-light
+
+#+end:
+
+** theme: eziam-dark
+# *eziam-dark-theme.el*
+*** スクリーンショット
+# (save-window-excursion (async-shell-command "emacs-test -l eziam-dark-theme"))
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_theme_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20170129212836.png]]
+Fig1: emacs-lisp-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20170129212844.png]]
+Fig2: magit
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20170129212847.png]]
+Fig3: grep
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20170129212850.png]]
+Fig4: outline-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20170129212853.png]]
+Fig5: org-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20170129212858.png]]
+Fig6: dired
+
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20170129212923.png]]
+Fig7: markdown-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20170129212926.png]]
+Fig8: helm
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20170129212929.png]]
+Fig9: _
+
+
+#+ATTR_HTML: :width 480
+[[https://raw.githubusercontent.com/thblt/eziam-theme-emacs/master/screenshots/org-dark.png]]
+Fig10: 本家スクリーンショット
+
+#+ATTR_HTML: :width 480
+[[https://raw.githubusercontent.com/thblt/eziam-theme-emacs/master/screenshots/code-dark.png]]
+Fig11: 本家スクリーンショット
+
+#+ATTR_HTML: :width 480
+[[https://raw.githubusercontent.com/thblt/eziam-theme-emacs/master/screenshots/rainbow-delimiters.png]]
+Fig12: 本家スクリーンショット
+
+
+
+*** 設定
+#+BEGIN_SRC fundamental
+(require 'eziam-dark-theme)
+#+END_SRC
+
+*** 実行方法
+#+BEGIN_EXAMPLE
+$ emacs -Q -f package-initialize -l eziam-dark-theme
+#+END_EXAMPLE
+
+** theme: eziam-light
+# *eziam-theme.el*
+*** スクリーンショット
+# (save-window-excursion (async-shell-command "emacs-test -l eziam-light-theme"))
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_theme_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20170129213116.png]]
+Fig13: emacs-lisp-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20170129213122.png]]
+Fig14: magit
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20170129213124.png]]
+Fig15: grep
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20170129213126.png]]
+Fig16: outline-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20170129213128.png]]
+Fig17: org-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20170129213131.png]]
+Fig18: dired
+
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20170129213154.png]]
+Fig19: markdown-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20170129213158.png]]
+Fig20: helm
+
+
+#+ATTR_HTML: :width 480
+https://raw.githubusercontent.com/thblt/eziam-theme-emacs/master/screenshots/org-light.png
+Fig21: 本家スクリーンショット
+
+#+ATTR_HTML: :width 480
+https://raw.githubusercontent.com/thblt/eziam-theme-emacs/master/screenshots/org-light-scaled.png
+Fig22: 本家スクリーンショット
+
+#+ATTR_HTML: :width 480
+https://raw.githubusercontent.com/thblt/eziam-theme-emacs/master/screenshots/org-light-scaled.png
+Fig23: 本家スクリーンショット
+
+
+
+
+*** 設定
+#+BEGIN_SRC fundamental
+(require 'eziam-light-theme)
+#+END_SRC
+
+*** 実行方法
+#+BEGIN_EXAMPLE
+$ emacs -Q -f package-initialize -l eziam-light-theme
+#+END_EXAMPLE
+
+[includeme file="inc-package-relate.php" name="eziam-theme"]
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
