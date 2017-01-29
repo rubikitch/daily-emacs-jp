@@ -1,0 +1,95 @@
+#+BLOG: rubikitch
+#+POSTID: 1984
+#+DATE: [2017-01-30 Mon 05:29]
+#+PERMALINK: second-sel
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+DESCRIPTION:second-sel.elはSECONDARYクリップボードによるコピー＆ペースト機能を提供する。これにより、事実上2つのkill-ringが使えることになる。
+#+BLOG: rubikitch
+#+CATEGORY: コピー・貼り付け
+#+EL_PKG_NAME: second-sel
+#+TAGS: クリップボード, 
+#+TITLE: 隠し機能？もうひとつのクリップボードでコピペする
+#+EL_URL: 
+#+begin: org2blog
+[includeme file="inc-package-table.php" name="second-sel" where="melpa"]
+
+#+end:
+** 概要
+# =browse-kill-ring+.el= は[[http://emacs.rubikitch.com/browse-kill-ring/][browse-kill-ring.el]] で2つ目のkill-ringが持てるように拡張したものです。
+# もし、あなたが「もうひとつのkill-ring」が欲しければインストールしてみましょう。
+もうひとつのキルリング
+(kill-ring)は欲しいですか？
+
+確かにキルリング以外の
+コピー＆ペースト手段として
+レジスタもありますが、
+ちょっと使いづらいですよね。
+
+それならば、 
+=second-sel.el= を導入してみては
+いかがでしょうか。
+
+実はX Window Systemには「クリップボード」が3つあります。
+- PRIMARY :: マウスでテキストを反転させたとき
+- CLIPBOARD :: マウスでテキストを反転させた後、右クリックでコピーを選択したとき
+- *SECONDARY* :: 未使用←ココが重要
+
+SECONDARYクリップボードは
+アプリケーションでは未使用ですが、
+xselやxclipなどのツールではアクセスできます。
+
+=second-sel.el= は、
+この SECONDARY クリップボードを
+媒介してコピー＆ペーストします。
+
+[includeme file="inc-package-install.php" name="second-sel" where="melpa"]
+** 基本的な使い方
+本設定では  =C-y= にちなんで 
+=C-M-y= にコマンドを集約しています。
+
+SECONDARYクリップボードで
+コピー＆ペーストするのは以下の3ステップです。
+
+1. regionを設定する
+2.  =C-u C-M-y= あるいは =C-M-7 C-M-y= でregionをSECONDARYクリップボードに入れる
+3. =C-M-y= でSECONDARYクリップボードの内容を貼り付ける
+
+=C-M-7= は数値引数7を指定していますが、
+別に =C-M-6= でも =C-M-8= でもいいです。
+
+=C-M-y= に1以上の数値引数を指定すると
+挙動が変更しますので、yに近い7を選んだだけです。
+
+** isearchが便利に
+また、isearch時に =C-M-y= で
+SECONDARYクリップボードの内容を
+検索文字列に指定できます。
+
+isearch中に =C-y= と =C-M-y= で
+2つのテキストを検索文字列として
+貼り付けられるのは便利ですよね。
+
+# なお、インストールした時点でオリジナルの =browse-kill-ring.el= の一部の関数が再定義されます。
+** 設定 [[http://rubikitch.com/f/170129073107.second-sel.el][170129073107.second-sel.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/170129/170129073107.second-sel.el"
+#+BEGIN_SRC fundamental
+(global-set-key (kbd "C-M-y")               'secondary-yank|select|move|swap)
+(define-key esc-map "y"                     'yank-pop-commands)
+(define-key isearch-mode-map (kbd "C-M-y")  'isearch-yank-secondary)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/170129073107.second-sel.el
+$ emacs -Q -f package-initialize -l 170129073107.second-sel.el
+#+END_EXAMPLE
+
+[includeme file="inc-package-relate.php" name="second-sel"]
+** 参考サイト
+- [[http://tototoshi.hatenablog.com/entry/20100719/1279546250][コマンドラインからXのクリップボードを操作する - tototoshi の日記]]
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
