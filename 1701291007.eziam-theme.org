@@ -251,6 +251,5 @@ Fig23: 本家スクリーンショット
 $ emacs -Q -f package-initialize -l eziam-light-theme
 #+END_EXAMPLE
 
-[includeme file="inc-package-relate.php" name="eziam-theme"]
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
