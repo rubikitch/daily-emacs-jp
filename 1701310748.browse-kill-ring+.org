@@ -1,7 +1,7 @@
 #+BLOG: rubikitch
 #+POSTID: 1987
 #+DATE: [2017-01-31 Tue 07:48]
-#+PERMALINK: browse-kill-ring+
+#+PERMALINK: browse-kill-ring-plus
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
 #+ISPAGE: nil
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
