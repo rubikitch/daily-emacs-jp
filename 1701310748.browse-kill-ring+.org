@@ -51,7 +51,6 @@ Fig1: SECONDARYクリップボードをキルリング化する
 
 
 
-[includeme file="inc-package-relate.php" name="browse-kill-ring+"]
 ** 設定 [[http://rubikitch.com/f/170129070934.browse-kill-ring+.el][170129070934.browse-kill-ring+.el(以下のコードと同一)]]
 #+BEGIN: include :file "/r/sync/junk/170129/170129070934.browse-kill-ring+.el"
 #+BEGIN_SRC fundamental
@@ -75,5 +74,6 @@ Fig1: SECONDARYクリップボードをキルリング化する
 $ wget http://rubikitch.com/f/170129070934.browse-kill-ring+.el
 $ emacs -Q -f package-initialize -l 170129070934.browse-kill-ring+.el
 #+END_EXAMPLE
+[includeme file="inc-package-relate.php" name="browse-kill-ring+"]
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
