@@ -51,6 +51,9 @@ browse-kill-ring.elの関数を再定義しますので、
 難点を言うと、パッケージ名からは
 パッケージの内容がわからないことです(^^;
 [includeme file="inc-package-install.php" name="browse-kill-ring+" where="melpa"]
+
+前提となるsecond-sel.elも
+インストールしてください。
 #+BEGIN_EXAMPLE
 M-x package-install second-sel
 #+END_EXAMPLE
