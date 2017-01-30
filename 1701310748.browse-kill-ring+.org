@@ -17,17 +17,39 @@
 
 #+end:
 ** 概要
-[[http://emacs.rubikitch.com/second-sel][second-sel.el]] では、SECONDARYクリップボードを使うことで事実上もうひとつのキルリングを手に入れました。
-とはいえ、完全なキルリングではなく、1つのテキストしか記憶できません。
-[[http://emacs.rubikitch.com/browse-kill-ring][browse-kill-ring.el]] ではキルリングの内容を一覧できますが、ここで紹介する =browse-kill-ring+.el= でもSECONDARYクリップボードに複数のテキストを記憶させ一覧できるようにします。
-SECONDARYクリップボードの履歴を一覧するとも言えます。
+[[http://emacs.rubikitch.com/second-sel][second-sel.el]] では、
+SECONDARYクリップボードを使うことで
+事実上もうひとつのキルリングを手に入れました。
 
-このパッケージを使うには、second-selパッケージのインストールが前提です。
+とはいえ、完全なキルリングではなく、
+1つのテキストしか記憶できません。
 
-browse-kill-ring+.elはbrowse-kill-ring.elの関数を再定義しますので、インストールした時点でbrowse-kill-ring+.elの実装を使うことになります。
-別にSECONDARYクリップボードはそんなに使わないし、ちょっと試していらないかなと思ったら削除してください。
+[[http://emacs.rubikitch.com/browse-kill-ring][browse-kill-ring.el]] では
+キルリングの内容を一覧できますが、
 
-難点を言うと、パッケージ名からはパッケージの内容がわからないことです(^^;
+ここで紹介する =browse-kill-ring+.el= でも
+SECONDARYクリップボードに複数のテキストを
+記憶させ一覧できるようにします。
+
+SECONDARYクリップボードの
+履歴を一覧するとも言えます。
+
+このパッケージを使うには、
+second-selパッケージの
+インストールが前提です。
+
+browse-kill-ring+.elは
+browse-kill-ring.elの関数を再定義しますので、
+インストールした時点でbrowse-kill-ring+.elの
+実装を使うことになります。
+
+別にSECONDARYクリップボードは
+そんなに使わないし、
+ちょっと試していらないかなと
+思ったら削除してください。
+
+難点を言うと、パッケージ名からは
+パッケージの内容がわからないことです(^^;
 [includeme file="inc-package-install.php" name="browse-kill-ring+" where="melpa"]
 ** 使い方
 本設定では
@@ -36,9 +58,14 @@ browse-kill-ring+.elはbrowse-kill-ring.elの関数を再定義しますので�
 - =M-y= に =M-x browse-kill-ring= 
 を割り当てています。
 
-second-sel.elとbrowse-kill-ring+.elがインストールされた状態で =C-u M-y= で2つのキルリング(kill-ringと =secondary-selection-ring= )を切り替えるようになっています。
+second-sel.elとbrowse-kill-ring+.elが
+インストールされた状態で 
+=C-u M-y= で2つのキルリング
+(kill-ringと =secondary-selection-ring= )
+を切り替えるようになっています。
 
-SECONDARYクリップボードでM-x browse-kill-ringを使うには5ステップです。
+SECONDARYクリップボードで
+M-x browse-kill-ringを使うには5ステップです。
 1. regionを設定し、C-u C-M-yでSECONDARYクリップボードに入れる
 2. 1を繰り返す
 3. C-u M-yでsecondary-selection-ringを一覧する
