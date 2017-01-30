@@ -1,0 +1,79 @@
+#+BLOG: rubikitch
+#+POSTID: 1987
+#+DATE: [2017-01-31 Tue 07:48]
+#+PERMALINK: browse-kill-ring+
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+DESCRIPTION:browse-kill-ring+.elはsecond-sel.elとbrowse-kill-ring.elを組み合わせることで、SECONDARYクリップボードを第二のキルリングとして記憶・一覧する。
+#+BLOG: rubikitch
+#+CATEGORY: コピー・貼り付け
+#+EL_PKG_NAME: browse-kill-ring+
+#+TAGS: クリップボード, 
+#+TITLE: もうひとつのクリップボードをキルリング化して一覧する
+#+EL_URL: 
+#+begin: org2blog
+[includeme file="inc-package-table.php" name="browse-kill-ring+" where="melpa"]
+
+#+end:
+** 概要
+[[http://emacs.rubikitch.com/second-sel][second-sel.el]] では、SECONDARYクリップボードを使うことで事実上もうひとつのキルリングを手に入れました。
+とはいえ、完全なキルリングではなく、1つのテキストしか記憶できません。
+[[http://emacs.rubikitch.com/browse-kill-ring][browse-kill-ring.el]] ではキルリングの内容を一覧できますが、ここで紹介する =browse-kill-ring+.el= でもSECONDARYクリップボードに複数のテキストを記憶させ一覧できるようにします。
+SECONDARYクリップボードの履歴を一覧するとも言えます。
+
+このパッケージを使うには、second-selパッケージのインストールが前提です。
+
+browse-kill-ring+.elはbrowse-kill-ring.elの関数を再定義しますので、インストールした時点でbrowse-kill-ring+.elの実装を使うことになります。
+別にSECONDARYクリップボードはそんなに使わないし、ちょっと試していらないかなと思ったら削除してください。
+
+難点を言うと、パッケージ名からはパッケージの内容がわからないことです(^^;
+[includeme file="inc-package-install.php" name="browse-kill-ring+" where="melpa"]
+** 使い方
+本設定では
+- =C-u C-M-y= にSECONDARYクリップボードへのコピー
+- =C-M-y= にSECONDARYクリップボードのヤンク
+- =M-y= に =M-x browse-kill-ring= 
+を割り当てています。
+
+second-sel.elとbrowse-kill-ring+.elがインストールされた状態で =C-u M-y= で2つのキルリング(kill-ringと =secondary-selection-ring= )を切り替えるようになっています。
+
+SECONDARYクリップボードでM-x browse-kill-ringを使うには5ステップです。
+1. regionを設定し、C-u C-M-yでSECONDARYクリップボードに入れる
+2. 1を繰り返す
+3. C-u M-yでsecondary-selection-ringを一覧する
+4. p/nで候補選択
+5. qで終了
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20170131080937.png]]
+Fig1: SECONDARYクリップボードをキルリング化する
+
+
+
+[includeme file="inc-package-relate.php" name="browse-kill-ring+"]
+** 設定 [[http://rubikitch.com/f/170129070934.browse-kill-ring+.el][170129070934.browse-kill-ring+.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/170129/170129070934.browse-kill-ring+.el"
+#+BEGIN_SRC fundamental
+(require 'second-sel)
+(require 'browse-kill-ring+)
+(global-set-key (kbd "C-M-y")               'secondary-yank|select|move|swap)
+(define-key isearch-mode-map (kbd "C-M-y")  'isearch-yank-secondary)
+(setq browse-kill-ring-yank-commands secondary-selection-yank-commands)
+(setq browse-kill-ring-alternative-yank-commands secondary-selection-yank-secondary-commands)
+(setq browse-kill-ring-alternative-ring 'secondary-selection-ring)
+(setq browse-kill-ring-alternative-push-function 'add-secondary-to-ring)
+(global-set-key (kbd "M-y") 'browse-kill-ring)
+#+END_SRC
+
+#+END:
+
+現時点において、一連のsetqがないと正しく動作してくれません。
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/170129070934.browse-kill-ring+.el
+$ emacs -Q -f package-initialize -l 170129070934.browse-kill-ring+.el
+#+END_EXAMPLE
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
