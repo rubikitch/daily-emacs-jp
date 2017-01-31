@@ -1,0 +1,122 @@
+#+BLOG: rubikitch
+#+POSTID: 1993
+#+DATE: [2017-02-01 Wed 05:25]
+#+PERMALINK: rebecca-theme
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+DESCRIPTION:
+#+BLOG: rubikitch
+#+CATEGORY: ダーク
+#+EL_PKG_NAME: rebecca-theme
+#+TAGS: 
+#+TITLE: 紫色が特徴なダークなカラーテーマ
+#+EL_URL: 
+#+begin: org2blog
+[includeme file="inc-package-table.php" name="rebecca-theme" where="melpa"]
+
+#+end:
+** 概要
+*rebecca-theme.el* は、以下のパッケージに対応したカラーテーマです。
+- ffap
+- fringe
+- header-line
+- hl-line
+- info
+- link
+- linum
+- show-paren
+- whitespace
+- font-lock
+- auto-complete
+- company
+- diff-hl
+- enh-ruby
+- elixir
+- evil
+- font-latex
+- gnus-group
+- helm
+- icomplete
+- ido
+- isearch
+- jde-java
+- js2-mode
+- js3-mode
+- magit
+- mode-line
+- mu4e
+- neotree
+- org
+- outline
+- powerline
+- rainbow-delimiters
+- rpm-spec
+- slime
+- spam
+- spacemacs
+- term
+- undo-tree
+- web-mode
+- which-func
+
+[includeme file="inc-package-install.php" name="rebecca-theme" where="melpa"]
+** スクリーンショット
+# (save-window-excursion (async-shell-command "emacs-test -eval '(load-theme (quote rebecca) t)'"))
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_theme_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20170201052719.png]]
+Fig1: emacs-lisp-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20170201052727.png]]
+Fig2: magit
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20170201052730.png]]
+Fig3: grep
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20170201052733.png]]
+Fig4: outline-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20170201052736.png]]
+Fig5: org-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20170201052739.png]]
+Fig6: dired
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20170201052755.png]]
+Fig7: web-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20170201052805.png]]
+Fig8: markdown-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20170201052811.png]]
+Fig9: helm
+
+
+
+#+ATTR_HTML: :width 480
+https://cloud.githubusercontent.com/assets/331/21472090/b359061a-ca8e-11e6-8320-fad08268e883.png
+Fig10: 本家スクリーンショット
+
+
+
+** 設定
+#+BEGIN_SRC fundamental
+(load-theme 'rebecca t)
+#+END_SRC
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ emacs -Q -f package-initialize -eval '(load-theme (quote rebecca) t)'
+#+END_EXAMPLE
+[includeme file="inc-package-relate.php" name="rebecca-theme"]
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
