@@ -1,0 +1,69 @@
+#+BLOG: rubikitch
+#+POSTID: 1997
+#+DATE: [2017-02-04 Sat 08:15]
+#+PERMALINK: eros
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+DESCRIPTION:eros.elはC-x C-eやC-M-xによるEmacs Lispの評価値をカーソルの右側にオーバーレイで表示する。目線の移動がストレスになる人はおすすめ。
+#+BLOG: rubikitch
+#+CATEGORY: Emacs Lisp支援
+#+EL_PKG_NAME: eros
+#+TAGS: 標準コマンド強化, 
+#+TITLE: 目線移動なし！Lisp式の評価値をカーソル右にも表示させる
+#+EL_URL: 
+#+begin: org2blog
+[includeme file="inc-package-table.php" name="eros" where="melpa"]
+
+#+end:
+** 概要
+=C-x C-e= ( =eval-last-sexp= )や 
+=C-M-x= ( =eval-defun= ) は
+Emacs Lisp式を評価して
+ミニバッファに結果を表示します。
+
+目線の移動に敏感な人は、
+カーソル位置から画面最下部まで
+目線を移動するよりも、
+カーソル行に結果を表示してほしいでしょう。
+
+それを実現するのが =eros.el= です。
+
+erosとは
+Evaluation Result OverlayS for Emacs Lisp
+の略です。
+
+グローバルマイナーモード 
+=eros-mode= を有効にすれば、
+- eval-defun → eros-eval-defun
+- eval-last-sexp → eros-eval-last-sexp
+のリマップが行われます。
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20170204082838.png]]
+Fig1: C-x C-eでカーソルの右側にも結果が表示される
+
+helm/anything補完よりも
+[[http://emacs.rubikitch.com/auto-complete][auto-complete]] /[[http://emacs.rubikitch.com/company][company]] 
+を好む方は気に入るでしょう。
+
+[includeme file="inc-package-install.php" name="eros" where="melpa"]
+** 設定 [[http://rubikitch.com/f/170204082751.eros.el][170204082751.eros.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/170204/170204082751.eros.el"
+#+BEGIN_SRC fundamental
+(eros-mode 1)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/170204082751.eros.el
+$ emacs -Q -f package-initialize -l 170204082751.eros.el
+#+END_EXAMPLE
+
+[includeme file="inc-package-relate.php" name="eros"]
+
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
