@@ -1,0 +1,107 @@
+#+BLOG: rubikitch
+#+POSTID: 1999
+#+DATE: [2017-02-05 Sun 07:41]
+#+PERMALINK: golden-ratio
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+DESCRIPTION:golden-ratio.elはカレントウィンドウの大きさ黄金比に基いて拡大する。たくさんウィンドウを開いてて、狭くて不自由な人におすすめ。除外バッファの指定が柔軟にできる。
+#+BLOG: rubikitch
+#+CATEGORY: ウィンドウ切り替え
+#+EL_PKG_NAME: golden-ratio
+#+TAGS: 
+#+TITLE: ウィンドウを自動的にリサイズする最も美しい方法
+#+EL_URL: 
+#+begin: org2blog
+[includeme file="inc-package-table.php" name="golden-ratio" where="melpa"]
+
+#+end:
+** 概要
+フレームをたくさん分割し、
+ウィンドウをたくさん開いていると、
+カレントウィンドウの領域が狭くて
+不自由な思いをしたことがありますか？
+
+それならば 
+=golden-ratio.el= が役立つかもしれません。
+
+グローバルマイナーモード 
+=M-x golden-ratio-mode= を有効にすると、
+自動でウィンドウのサイズを調節してくれます。
+
+黄金比(1:1.618)に基いて
+カレントウィンドウを拡大し、
+他のウィンドウを縮小します。
+
+言葉で説明するよりも
+本家アニメーションgifを見てみましょう。
+
+C-x oを繰り返すと
+自動でウィンドウのサイズが
+変更されるのがわかります。
+
+#+ATTR_HTML: :width 480
+[[https://raw.github.com/roman/golden-ratio.el/assets/golden_ratio_el.gif]]
+Fig1: 自動リサイズ
+
+
+ちなみに僕は似たようなコードを書いています。
+[includeme file="inc-package-install.php" name="golden-ratio" where="melpa"]
+** カスタマイズ
+一部のバッファは
+リサイズしたくないですね。
+
+たとえばM-x calendarは
+すっぽりカレンダーの内容が
+おさまるように表示されます。
+
+golden-ratio-exclude-*系の変数を
+設定すればリサイズの対象外になります。
+- =golden-ratio-exclude-modes=
+- =golden-ratio-exclude-buffer-names=
+- =golden-ratio-exclude-buffer-regexp=
+
+=golden-ratio-inhibit-functions= に
+無引数関数リストを指定できます。
+
+ウィンドウを選択した直後に関数を呼び出し、
+真を返したときにはリサイズしません。
+
+golden-ratio.elはあくまで 
+- =M-x other-window=
+- =M-x pop-to-buffer=
+にアドバイスをかけているだけですので、
+他のウィンドウ選択系のコマンドでは動作しません。
+
+そこで =golden-ratio-extra-commands= に
+明示的にウィンドウ選択系のコマンドを指定します。
+
+** 設定 [[http://rubikitch.com/f/170205073035.golden-ratio.el][170205073035.golden-ratio.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/170205/170205073035.golden-ratio.el"
+#+BEGIN_SRC fundamental
+(golden-ratio-mode 1)
+;;; 条件に応じてウィンドウの大きさを変更しない
+;; ウィンドウの大きさを変更しないメジャーモード
+(setq golden-ratio-exclude-modes '(calendar-mode))
+;; ウィンドウの大きさを変更しないバッファ名
+(setq golden-ratio-exclude-buffer-names '(" *Org tags*" " *Org todo*"))
+;; ウィンドウの大きさを変更しないバッファ名の正規表現
+(setq golden-ratio-exclude-buffer-regexp '("\\*anything" "\\*helm"))
+
+;;; ウィンドウ選択系のコマンドで作用させる
+(setq golden-ratio-extra-commands
+      '(windmove-left windmove-right windmove-down windmove-up))
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/170205073035.golden-ratio.el
+$ emacs -Q -f package-initialize -l 170205073035.golden-ratio.el
+#+END_EXAMPLE
+
+[includeme file="inc-package-relate.php" name="golden-ratio"]
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
