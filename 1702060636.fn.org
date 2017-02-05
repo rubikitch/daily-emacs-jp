@@ -7,7 +7,7 @@
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+DESCRIPTION:fn.elはlambda式に超簡潔な記法を与える。(lambda (x &rest r) (list x r))→(fn (list <1> <rest>))
 #+BLOG: rubikitch
-#+CATEGORY: 
+#+CATEGORY: Emacs Lispライブラリ
 #+EL_PKG_NAME: fn
 #+TAGS: 
 #+TITLE: lambdaにサヨナラバイバイ！無名関数をスタイリッシュに書く
