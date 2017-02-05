@@ -76,7 +76,5 @@ fnの中では以下の記法で引数を参照します。
 #+END_SRC
 
 
-[includeme file="inc-package-relate.php" name="fn"]
-
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
