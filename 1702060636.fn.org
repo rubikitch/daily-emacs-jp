@@ -1,0 +1,82 @@
+#+BLOG: rubikitch
+#+POSTID: 2001
+#+DATE: [2017-02-06 Mon 06:36]
+#+PERMALINK: fn
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+DESCRIPTION:fn.elはlambda式に超簡潔な記法を与える。(lambda (x &rest r) (list x r))→(fn (list <1> <rest>))
+#+BLOG: rubikitch
+#+CATEGORY: 
+#+EL_PKG_NAME: fn
+#+TAGS: 
+#+TITLE: lambdaにサヨナラバイバイ！無名関数をスタイリッシュに書く
+#+EL_URL: 
+#+begin: org2blog
+[includeme file="inc-package-table.php" name="fn" where="melpa"]
+
+#+end:
+** 概要
+Emacs Lispの無名関数lambdaは
+冗長だと感じませんか？
+
+=fn.el= は無名関数を
+コンパクトに書く方法を提供します。
+
+たとえば、こんなふうに。
+
+#+BEGIN_SRC emacs-lisp :results silent
+(lambda (x) x)
+;; ↓
+(fn <>)
+
+(lambda (x y) (list x y))
+;; ↓
+(fn (list <1> <2>))
+
+(lambda (x &rest r) (list x r))
+;; ↓
+(fn (list <1> <rest>))
+#+END_SRC
+
+fnの中では以下の記法で引数を参照します。
+- =<>= は最初の引数
+- =<1>= 〜 =<9>= はN+1番目の引数
+- =<rest>= は残りの引数
+
+=fn= は複数個の式を置けますが、
+1つの式からなる無名関数は 
+=fn:= という簡易記法も用意されています。
+
+#+BEGIN_SRC emacs-lisp :results silent
+(lambda (x y) (list x y))
+;; ↓
+(fn (list <1> <2>))
+;; ↓
+(fn: list <1> <2>)
+#+END_SRC
+
+通常のラムダ式と比べると
+圧倒的に短くなったのがわかるでしょう。
+
+[includeme file="inc-package-install.php" name="fn" where="melpa"]
+** 使用例
+#+BEGIN_SRC emacs-lisp :results silent
+(setq 0-5 (number-sequence 0 5))        ; => (0 1 2 3 4 5)
+(mapcar (lambda (x) (* x x)) 0-5)       ; => (0 1 4 9 16 25)
+(mapcar (fn (* <> <>)) 0-5)             ; => (0 1 4 9 16 25)
+(mapcar (fn: * <> <>) 0-5)              ; => (0 1 4 9 16 25)
+
+(funcall (fn (setq x 3)
+             (list x <1> <2> <rest>))
+         "foo" "bar" "rest1" "rest2")   ; => (3 "foo" "bar" ("rest1" "rest2"))
+(funcall (fn (setq x 3)
+             (list x <> <> <>))
+         "foo" "bar" "rest1" "rest2")   ; => (3 "foo" "foo" "foo")
+#+END_SRC
+
+
+[includeme file="inc-package-relate.php" name="fn"]
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
