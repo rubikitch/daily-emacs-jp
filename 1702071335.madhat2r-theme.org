@@ -11,7 +11,7 @@
 #+EL_PKG_NAME: madhat2r-theme
 #+TAGS: 
 #+EL_TITLE: 
-#+EL_TITLE0: 目にやさしいダークなカラーテーマ
+#+TITLE: 目にやさしいダークなカラーテーマ
 #+EL_URL: 
 #+begin: org2blog
 [includeme file="inc-package-table.php" name="madhat2r-theme" where="melpa"]
