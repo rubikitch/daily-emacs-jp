@@ -1,0 +1,58 @@
+#+BLOG: rubikitch
+#+POSTID: 2011
+#+DATE: [2017-02-08 Wed 06:19]
+#+PERMALINK: highlight-numbers
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+DESCRIPTION:
+#+BLOG: rubikitch
+#+CATEGORY: プログラミング支援
+#+EL_PKG_NAME: highlight-numbers
+#+TAGS: font-lock, 
+#+TITLE: 数値リテラルを目立たせてマジックナンバーを阻止しよう
+#+EL_URL: 
+#+begin: org2blog
+[includeme file="inc-package-table.php" name="highlight-numbers" where="melpa"]
+
+#+end:
+** 概要
+プログラム内に書かれた、プログラマ本人にしかわからない数字をマジックナンバーといいます。
+
+マジックナンバーは他人または未来の自分がコードを読むときに、プログラムの理解を困難にさせるものです。
+一般に、マジックナンバーは避けるべきです。
+
+なぜなら、複数箇所に同じ数値が書かれている場合、その数値を変更する場合はすべてを変更する必要があるからです。
+
+たとえば、税込価格を計算するために数式に直接 1.08 と書いたら、それはマジックナンバーです。
+将来消費税率10%になったときに 1.1 に書き換える必要があるからです。
+
+マジックナンバーを阻止するためには、数値をハイライトするのがいいです。
+
+そこで、 =highlight-numbers.el= が役立ちます。
+
+マイナーモード =M-x highlight-numbers-mode= を有効にすると、数値をハイライトします。
+プログラミング言語固有の数値リテラルにも対応しています。
+
+- c-mode
+- c++-mode
+- emacs-lisp-mode
+- clojure-mode
+
+以上のメジャーモードと派生モードでは、言語固有のハイライトを行ないます。
+たとえば、lisp-interaction-modeはemacs-lisp-modeの派生モードですので、emacs-lisp-modeの数値リテラルをハイライトします。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20170208064250.png]]
+Fig1: before
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20170208064255.png]]
+Fig2: after
+
+
+[includeme file="inc-package-install.php" name="highlight-numbers" where="melpa"]
+[includeme file="inc-package-relate.php" name="highlight-numbers"]
+
+
