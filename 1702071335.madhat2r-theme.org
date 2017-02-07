@@ -5,7 +5,7 @@
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
 #+ISPAGE: nil
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
-#+DESCRIPTION:madhat2r-theme.elはグレーベースのカラーテーマです。多くのパッケージに対応し、目にやさしいのがウリです。
+#+DESCRIPTION:madhat2r-theme.elは黒ベースのカラーテーマです。多くのパッケージに対応し、目にやさしいのがウリです。
 #+BLOG: rubikitch
 #+CATEGORY: ダーク
 #+EL_PKG_NAME: madhat2r-theme
