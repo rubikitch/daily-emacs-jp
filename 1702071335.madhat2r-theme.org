@@ -1,0 +1,161 @@
+#+BLOG: rubikitch
+#+POSTID: 2007
+#+DATE: [2017-02-07 Tue 13:35]
+#+PERMALINK: madhat2r-theme
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+DESCRIPTION:madhat2r-theme.elはグレーベースのカラーテーマです。多くのパッケージに対応し、目にやさしいのがウリです。
+#+BLOG: rubikitch
+#+CATEGORY: ダーク
+#+EL_PKG_NAME: madhat2r-theme
+#+TAGS: 
+#+EL_TITLE: 
+#+EL_TITLE0: 目にやさしいダークなカラーテーマ
+#+EL_URL: 
+#+begin: org2blog
+[includeme file="inc-package-table.php" name="madhat2r-theme" where="melpa"]
+
+#+end:
+** 概要
+*madhat2r-theme.el* は、以下のパッケージに対応したカラーテーマです。
+- eval-sexp-fu
+- font-lock
+- fringe
+- header-line
+- hl-line
+- isearch
+- link
+- secondary-selection
+- tooltip
+- basics
+- ahs
+- Message-mode
+- anzu-mode
+- auto-complete
+- avy
+- cider
+- company
+- diff
+- diff-hl
+- dired
+- ediff
+- ein
+- eldoc
+- elfeed
+- enh-ruby
+- erc
+- eshell
+- evil
+- flycheck
+- jabber
+- git-gutter-fr
+- git-timemachine
+- gnus
+- guide-key
+- helm
+- helm-swoop
+- highlights
+- highlight-indentation
+- highlight-symbol
+- hydra
+- ido
+- info
+- ivy
+- latex
+- linum-mode
+- linum-relative
+- magit
+- man
+- markdown
+- mode-line
+- mu4e
+- neotree
+- org
+- perspective
+- popup
+- powerline
+- rainbow-delimiters
+- shm
+- show-paren
+- smartparens
+- spaceline
+- spacemacs-specific
+- swiper
+- term
+- web-mode
+- which-key
+- which-function-mode
+- whitespace-mode
+
+[includeme file="inc-package-install.php" name="madhat2r-theme" where="melpa"]
+** スクリーンショット
+# (save-window-excursion (async-shell-command "emacs-test -eval '(load-theme (quote madhat2r) t)'"))
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_theme_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20170207133933.png]]
+Fig1: emacs-lisp-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20170207133940.png]]
+Fig2: magit
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20170207133944.png]]
+Fig3: grep
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20170207133946.png]]
+Fig4: outline-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20170207133949.png]]
+Fig5: org-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20170207133952.png]]
+Fig6: dired
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20170207133955.png]]
+Fig7: web-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20170207133957.png]]
+Fig8: markdown-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20170207134001.png]]
+Fig9: helm
+
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/emacs/quelpa/build/madhat2r-theme/madhat2r-code.png]]
+Fig10: 本家スクリーンショット(code)
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/emacs/quelpa/build/madhat2r-theme/madhat2r-org.png]]
+Fig11: 本家スクリーンショット(org)
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/emacs/quelpa/build/madhat2r-theme/madhat2r-magit.png]]
+Fig12: 本家スクリーンショット(magit)
+
+
+
+** 設定
+#+BEGIN_SRC fundamental
+(load-theme 'madhat2r t)
+#+END_SRC
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ emacs -Q -f package-initialize -eval '(load-theme (quote madhat2r) t)'
+#+END_EXAMPLE
+[includeme file="inc-package-relate.php" name="madhat2r-theme"]
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+
+# /r/sync/emacs/quelpa/build/madhat2r-theme/madhat2r-code.png http://emacs.rubikitch.com/wp-content/uploads/2017/02/madhat2r-code.png
+# /r/sync/emacs/quelpa/build/madhat2r-theme/madhat2r-org.png http://emacs.rubikitch.com/wp-content/uploads/2017/02/madhat2r-org.png
+# /r/sync/emacs/quelpa/build/madhat2r-theme/madhat2r-magit.png http://emacs.rubikitch.com/wp-content/uploads/2017/02/madhat2r-magit.png
