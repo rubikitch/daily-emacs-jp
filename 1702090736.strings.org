@@ -1,0 +1,161 @@
+#+BLOG: rubikitch
+#+POSTID: 2014
+#+DATE: [2017-02-09 Thu 07:36]
+#+PERMALINK: strings
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+DESCRIPTION:strings.elは古くからある雑多な文字列関数ライブラリ。Emacs Lispプログラミングに役立つことだろう。s.elは純粋な文字列関数であるのに対し、strings.elはバッファと関連している関数が多い。
+#+BLOG: rubikitch
+#+CATEGORY: 
+#+EL_PKG_NAME: strings
+#+TAGS: 
+#+TITLE: 昔からある主にバッファに関連する文字列関数20選ライブラリ！
+#+EL_URL: 
+#+begin: org2blog
+[includeme file="inc-package-table.php" name="strings" where="melpa"]
+
+#+end:
+** 概要
+ =strings.el= は昔からある文字列関数ライブラリです。
+以下の関数が用意されています。
+他のライブラリで使われている関数で汎用的なものを取り込んでいます。
+
+- ordinal-suffix (n)
+- pick-some-words (pos direction limit)
+- region-description (width &optional prefix suffix begin end)
+- current-d-m-y-string ()
+- current-line-string (&optional buffer)
+- display-lines-containing (buffer string &optional flush-p)
+- word-before-point ()
+- symbol-name-before-point ()
+- echo-in-buffer (buffer-name string &optional force-display-p)
+- set-minibuffer-empty-p (flag)
+- minibuffer-empty-p ()
+- erase-nonempty-inactive-minibuffer ()
+- erase-inactive-minibuffer ()
+- fill-string (string &optional justify nosqueeze to-eop)
+- string-w-face (arg)
+- concat-w-faces (&rest arguments)
+- insert-in-minibuffer (&rest arguments)
+- buffer-alist (&optional nospacep)
+- read-any-variable (prompt &optional default-value)
+- frame-alist ()
+
+[includeme file="inc-package-install.php" name="strings" where="melpa"]
+** empty-name-p (name)
+ =empty-name-p= は空文字列かnilのときに =t= を返します。
+
+#+BEGIN_SRC emacs-lisp :results silent
+(empty-name-p "nonempty")               ; => nil
+(empty-name-p "")                       ; => t
+(empty-name-p nil)                      ; => t
+#+END_SRC
+** non-empty-name-p (name)
+=non-empty-name-p= は空文字列かnilのときに =nil= を返します。
+文字列に対しては文字列そのものを返します。
+
+#+BEGIN_SRC emacs-lisp :results silent
+(non-empty-name-p "nonempty")               ; => "nonempty"
+(non-empty-name-p "")                       ; => nil
+(non-empty-name-p nil)                      ; => nil
+#+END_SRC
+** ordinal-suffix (n)
+ =ordinal-suffix= は数に対して除数を返します。
+
+#+BEGIN_SRC emacs-lisp :results silent
+(ordinal-suffix 0)                      ; => "th"
+(ordinal-suffix 1)                      ; => "st"
+(ordinal-suffix 2)                      ; => "nd"
+(ordinal-suffix 3)                      ; => "rd"
+(ordinal-suffix 4)                      ; => "th"
+(ordinal-suffix 11)                     ; => "th"
+(ordinal-suffix 12)                     ; => "th"
+(ordinal-suffix 13)                     ; => "th"
+(ordinal-suffix 1021)                   ; => "st"
+(ordinal-suffix 1022)                   ; => "nd"
+(ordinal-suffix 1023)                   ; => "rd"
+#+END_SRC
+** pick-some-words (pos direction limit)
+ =pick-some-words= はバッファ位置 =pos= で最大文字数 =limit= に到達するまで単語を読み込みます。
+カーソル位置は移動しません。
+
+カーソル位置の単語が =limit= よりも長い場合は =limit= 文字の部分文字列を返します。
+
+#+BEGIN_SRC emacs-lisp :results silent
+(defun test-pick-some-words (before-string after-string direction limit)
+  "pick-some-wordsのテスト関数。
+
+一時バッファでカーソル位置をBEFORE-STRINGとAFTER-STRINGの間に置き、
+その位置でpick-some-words関数を呼び出す"
+  (with-temp-buffer
+    (insert before-string)
+    (save-excursion (insert after-string))
+    (pick-some-words (point) direction limit)))
+;;;; カーソル位置は[a b c]と[pick some words]の間にある
+;; DIRECTIONがnilのときは前方を見る
+(test-pick-some-words "a b c" "pick some words" nil 1)  ; => "p"
+(test-pick-some-words "a b c" "pick some words" nil 4)  ; => "pick"
+(test-pick-some-words "a b c" "pick some words" nil 5)  ; => "pick"
+(test-pick-some-words "a b c" "pick some words" nil 9)  ; => "pick some"
+(test-pick-some-words "a b c" "pick some words" nil 99) ; => "pick some words"
+;; DIRECTIONがtのときは後方を見る
+(test-pick-some-words "a b c" "pick some words" t 1)    ; => "c"
+(test-pick-some-words "a b c" "pick some words" t 3)    ; => "b c"
+(test-pick-some-words "a b c" "pick some words" t 9)    ; => "a b c"
+#+END_SRC
+** region-description (width &optional prefix suffix begin end)
+ =region-description= は =begin= から =end= までのregionを =width= (>= 20)文字になるよう短縮表記します。
+
+=begin= と =end= がnilのときはregionを取得します。
+=prefix= と =suffix= は「"」がデフォルトです。
+
+#+BEGIN_SRC emacs-lisp :results silent
+(defun test-region-description (width &optional prefix suffix)
+  (with-temp-buffer
+    (insert "This is a temporary buffer.")
+    (region-description width prefix suffix (point-min) (point-max))))
+(test-region-description 20 "\"" "\"")
+;; => "\"T   ...   .\"     (27 chars)"
+(test-region-description 22 "\"" "\"")
+;; => "\"Th   ...   r.\"     (27 chars)"
+(test-region-description 25 "\"" "\"")
+;; => "\"This   ...   fer.\"     (27 chars)"
+(test-region-description 30 "\"" "\"")
+;; => "\"This is a temporary buffer.\""
+(test-region-description 50 "\"" "\"")
+;; => "\"This is a temporary buffer.\""
+#+END_SRC
+** current-d-m-y-string ()
+ =current-d-m-y-string= は現在の日付を「dd-mon-year」の表記で返します。
+
+#+BEGIN_SRC emacs-lisp :results silent
+(current-d-m-y-string)                  ; => "9-Feb-2017"
+#+END_SRC
+** current-line-string (&optional buffer)
+ =current-line-string= はカーソル位置の現在行の内容を改行抜きの文字列で返します。
+ =buffer= が与えられた場合はそのバッファが対象となります。
+
+#+BEGIN_SRC emacs-lisp :results silent
+(with-temp-buffer
+  ;; [abc]と[def]の間にカーソルがある場合
+  (insert "abc")
+  (save-excursion (insert "def\n"))
+  (current-line-string))                ; => "abcdef"
+#+END_SRC
+** display-lines-containing (buffer string &optional flush-p)
+ =M-x display-lines-containing= は =M-x occur= に似たコマンドです。
+カレントバッファにおいて文字列を含む行を*Lines Containing*バッファに書き出して表示します。
+ =C-u= をつけた場合は文字列を含まない行を表示します。
+
+Lispプログラムから呼ぶ場合は、
+- =buffer= に出力バッファ
+- =flush-p= がnilのときは =string= を含む行、tのときは含まない行
+を出力します。
+** word-before-point ()
+TODO 後日書きます
+[includeme file="inc-package-relate.php" name="strings"]
+
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
