@@ -1,0 +1,25 @@
+#+BLOG: rubikitch
+#+POSTID: 2019
+#+DATE: [2017-02-11 Sat 11:49]
+#+PERMALINK: strings-update
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+DESCRIPTION:
+#+BLOG: rubikitch
+#+CATEGORY: 記事更新情報
+#+TAGS: 
+#+TITLE: strings.elのページを更新しました
+#+begin: org2blog-tags
+# content-length: 144
+#+HTML: <!-- noindex -->
+
+#+end:
+時間がかかりましたが
+http://emacs.rubikitch.com/strings/
+のページを完成させました。
+
+
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
