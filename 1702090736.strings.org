@@ -17,9 +17,13 @@
 
 #+end:
 ** 概要
- =strings.el= は昔からある文字列関数ライブラリです。
+ =strings.el= は昔からある
+文字列関数ライブラリです。
+
 以下の関数が用意されています。
-他のライブラリで使われている関数で汎用的なものを取り込んでいます。
+
+他のライブラリで使われている関数で
+汎用的なものも取り込んでいます。
 
 - ordinal-suffix (n)
 - pick-some-words (pos direction limit)
@@ -44,7 +48,8 @@
 
 [includeme file="inc-package-install.php" name="strings" where="melpa"]
 ** empty-name-p (name)
- =empty-name-p= は空文字列かnilのときに =t= を返します。
+ =empty-name-p= は空文字列か
+nilのときに =t= を返します。
 
 #+BEGIN_SRC emacs-lisp :results silent
 (empty-name-p "nonempty")               ; => nil
@@ -52,7 +57,9 @@
 (empty-name-p nil)                      ; => t
 #+END_SRC
 ** non-empty-name-p (name)
-=non-empty-name-p= は空文字列かnilのときに =nil= を返します。
+=non-empty-name-p= は空文字列か
+nilのときに =nil= を返します。
+
 文字列に対しては文字列そのものを返します。
 
 #+BEGIN_SRC emacs-lisp :results silent
@@ -61,7 +68,7 @@
 (non-empty-name-p nil)                      ; => nil
 #+END_SRC
 ** ordinal-suffix (n)
- =ordinal-suffix= は数に対して除数を返します。
+ =ordinal-suffix= は数に対して序数を返します。
 
 #+BEGIN_SRC emacs-lisp :results silent
 (ordinal-suffix 0)                      ; => "th"
@@ -77,10 +84,16 @@
 (ordinal-suffix 1023)                   ; => "rd"
 #+END_SRC
 ** pick-some-words (pos direction limit)
- =pick-some-words= はバッファ位置 =pos= で最大文字数 =limit= に到達するまで単語を読み込みます。
+ =pick-some-words= は
+バッファ位置 =pos= で
+最大文字数 =limit= に到達するまで
+単語を読み込みます。
+
 カーソル位置は移動しません。
 
-カーソル位置の単語が =limit= よりも長い場合は =limit= 文字の部分文字列を返します。
+カーソル位置の単語が 
+=limit= よりも長い場合は 
+=limit= 文字の部分文字列を返します。
 
 #+BEGIN_SRC emacs-lisp :results silent
 (defun test-pick-some-words (before-string after-string direction limit)
@@ -105,9 +118,12 @@
 (test-pick-some-words "a b c" "pick some words" t 9)    ; => "a b c"
 #+END_SRC
 ** region-description (width &optional prefix suffix begin end)
- =region-description= は =begin= から =end= までのregionを =width= (>= 20)文字になるよう短縮表記します。
+ =region-description= は 
+=begin= から =end= までのregionを 
+=width= (>= 20)文字になるよう短縮表記します。
 
 =begin= と =end= がnilのときはregionを取得します。
+
 =prefix= と =suffix= は「"」がデフォルトです。
 
 #+BEGIN_SRC emacs-lisp :results silent
@@ -127,14 +143,19 @@
 ;; => "\"This is a temporary buffer.\""
 #+END_SRC
 ** current-d-m-y-string ()
- =current-d-m-y-string= は現在の日付を「dd-mon-year」の表記で返します。
+ =current-d-m-y-string= は
+現在の日付を「dd-mon-year」の表記で返します。
 
 #+BEGIN_SRC emacs-lisp :results silent
 (current-d-m-y-string)                  ; => "9-Feb-2017"
 #+END_SRC
 ** current-line-string (&optional buffer)
- =current-line-string= はカーソル位置の現在行の内容を改行抜きの文字列で返します。
- =buffer= が与えられた場合はそのバッファが対象となります。
+=current-line-string= は
+カーソル位置の現在行の内容を
+改行抜きの文字列で返します。
+
+=buffer= が与えられた場合は
+そのバッファが対象となります。
 
 #+BEGIN_SRC emacs-lisp :results silent
 (with-temp-buffer
@@ -144,16 +165,154 @@
   (current-line-string))                ; => "abcdef"
 #+END_SRC
 ** display-lines-containing (buffer string &optional flush-p)
- =M-x display-lines-containing= は =M-x occur= に似たコマンドです。
-カレントバッファにおいて文字列を含む行を*Lines Containing*バッファに書き出して表示します。
- =C-u= をつけた場合は文字列を含まない行を表示します。
+=M-x display-lines-containing= は 
+=M-x occur= に似たコマンドです。
+
+カレントバッファにおいて
+文字列を含む行を*Lines Containing*バッファに
+書き出して表示します。
+
+=C-u= をつけた場合は
+文字列を含まない行を表示します。
 
 Lispプログラムから呼ぶ場合は、
 - =buffer= に出力バッファ
 - =flush-p= がnilのときは =string= を含む行、tのときは含まない行
+  
 を出力します。
 ** word-before-point ()
-TODO 後日書きます
+=word-before-point= は、
+カーソル位置、または
+直前の単語を文字列で得ます。
+
+#+BEGIN_SRC emacs-lisp :results silent
+(defun test-word-at-point (before after)
+  "カーソル位置の前の文字列BEFORE、後の文字列AFTERを設定して word-at-pointを呼び出す"
+  (with-temp-buffer
+    (insert before)
+    (save-excursion (insert after))
+    (word-at-point)))
+(test-word-at-point "find" " file")     ; => "find"
+(test-word-at-point "find " "file")     ; => "file"
+(test-word-at-point "find fi" "le")     ; => "file"
+#+END_SRC
+** symbol-name-before-point ()
+ =symbol-name-before-point= は、
+カーソル位置、または
+直前のシンボルを文字列で得ます。
+
+#+BEGIN_SRC emacs-lisp :results silent
+(defun test-symbol-name-at-point (before after)
+  "カーソル位置の前の文字列BEFORE、後の文字列AFTERを設定して symbol-name-at-pointを呼び出す"
+  (with-temp-buffer
+    (emacs-lisp-mode)
+    (insert before)
+    (save-excursion (insert after))
+    (symbol-name-at-point)))
+(test-symbol-name-at-point "defun" " find-file")     ; => nil
+(test-symbol-name-at-point "defun " "find-file")     ; => "find-file"
+(test-symbol-name-at-point "defun find-" "file")     ; => "find-file"
+#+END_SRC
+
+** echo-in-buffer (buffer-name string &optional force-display-p)
+ =echo-in-buffer= は
+バッファ =buffer-name= の末尾に、
+文字列 =string= を書き込みます。
+
+=force-display-p= がtのときは、
+最後尾を表示します。
+
+バッファが存在しない場合は作成します。
+** set-minibuffer-empty-p (flag)
+ =set-minibuffer-empty-p= は
+ミニバッファの内容が空であることを宣言します。
+** minibuffer-empty-p ()
+ =minibuffer-empty-p= は
+ミニバッファが空であるかどうかを判定します。
+** erase-nonempty-inactive-minibuffer ()
+ =erase-nonempty-inactive-minibuffer= は
+非アクティブで空ではないミニバッファを空にします。
+
+入力のたびに設定したけば、
+次の設定を加えます。
+
+#+BEGIN_SRC emacs-lisp :results silent
+(add-hook 'pre-command-hook 'erase-nonempty-inactive-minibuffer)
+#+END_SRC
+
+
+** erase-inactive-minibuffer ()
+ =erase-inactive-minibuffer= は
+非アクティブなミニバッファを空にします。
+
+入力のたびに設定したけば、
+次の設定を加えます。
+
+ただし、こちらの方はやや重いです。
+
+#+BEGIN_SRC emacs-lisp :results silent
+(add-hook 'pre-command-hook 'erase-inactive-minibuffer)
+#+END_SRC
+** fill-string (string &rest ignore)
+ =fill-string= は =fill-region= で
+字詰めした文字列を返します。
+
+#+BEGIN_SRC emacs-lisp :results silent
+(let ((fill-column 10))
+  (fill-string "あいうえおかきくけこさしすせそ"))
+;;; => "あいうえお
+;;;    かきくけこ
+;;;    さしすせそ"
+#+END_SRC
+
+** string-w-face (arg)
+=string-w-face= は =(FACE STRING)= で
+与えられた引数に対して =face= を付加します。
+
+普通に =propertize= を使いましょう。
+
+#+BEGIN_SRC emacs-lisp :results silent
+;;; 両者は等価
+(string-w-face '(org-level-1 "hoge"))   
+(propertize "hoge" 'face 'org-level-1)
+#+END_SRC
+** concat-w-faces (&rest arguments)
+=concat-w-faces= は 
+=arguments= 各々に対して 
+=string-w-face= を呼び出します。
+
+普通に =concat= と =propertize= を使いましょう。
+** insert-in-minibuffer (&rest arguments)
+=insert-in-minibuffer= は
+ミニバッファに各 =arguments= を書き込みます。
+
+内部で =string-w-faces= が呼び出されていますので、  
+=(FACE STRING)= も受け付けます。
+** buffer-alist (&optional nospacep)
+=buffer-alist= は 
+(バッファ名 . バッファオブジェクト) 
+の連想リストを返します。
+
+=nospacep= がtならば
+隠しバッファを除きます。
+** read-any-variable (prompt &optional default-value)
+=read-any-variable= は 
+=read-variable= の亜種で、
+全ての変数を対象に
+変数名をミニバッファから読み込みます。
+
+標準関数 =read-variable= は
+ユーザオプションのみが対象です。
+** frame-alist ()
+=frame-alist= は 
+(フレーム名 . フレームオブジェクト) 
+の連想リストを返します。
+
+標準関数の  =make-frame-names-alist= と同様ですが、
+ =frame-alist= が返すフレーム名は
+逆アルファベット順にソートされます。
+
+
 [includeme file="inc-package-relate.php" name="strings"]
 
 
