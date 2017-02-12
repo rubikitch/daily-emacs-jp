@@ -1,0 +1,159 @@
+#+BLOG: rubikitch
+#+POSTID: 2021
+#+DATE: [2017-02-12 Sun 08:40]
+#+PERMALINK: iflipb
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+DESCRIPTION:iflipb.elはワンタッチでバッファを切り替えるコマンドiflipb-next-bufferとiflipb-previous-bufferを提供する。類似の標準コマンドとの挙動の違いを詳しく解説！
+#+BLOG: rubikitch
+#+CATEGORY: バッファ切り替え
+#+EL_PKG_NAME: iflipb
+#+TAGS: るびきちオススメ, 
+#+TITLE: 詳説！Alt+Tab感覚で賢くバッファをワンタッチで切り替える
+#+EL_URL: 
+#+begin: org2blog
+[includeme file="inc-package-table.php" name="iflipb" where="melpa"]
+
+#+end:
+** 概要
+ =iflipb.el= は、ワンタッチで
+バッファを切り替えるEmacs Lispです。
+
+直前・直後のバッファに切り替えるのであれば、
+Emacs24で導入された
+- =M-x switch-to-next-buffer=
+- =M-x switch-to-prev-buffer=
+があります。
+
+これらは単純に
+buffer-listの順に切り替えているだけですが、
+
+iflipbでは
+Windows他GUIシステムのAlt+Tabのように
+連続的に実行されたときの挙動を
+エミュレートしています。
+
+コマンドの対応関係は以下のようになります
+- =M-x switch-to-next-buffer= →  =M-x iflipb-next-buffer=
+- =M-x switch-to-prev-buffer= →  =M-x iflipb-previous-buffer=
+
+iflipbコマンドにおいて、
+一部のバッファは条件により無視されます。
+- C-uをつけないで実行したとき、*またはスペースから始まるバッファは無視される
+- C-uをつけて実行したとき、スペースから始まるバッファは無視される
+
+switch-to-*-bufferと
+iflipb-*-bufferの挙動の違いを示します。
+
+以下の状況では共通しています。
+
+#+BEGIN_EXAMPLE
+                   切り替わるバッファ バッファリスト
+------------------------------------------------------
+初期状態:                             A B C D E
+次のバッファ:      A [B] C D E        B A C D E
+次のバッファ:      A B [C] D E        C A B D E
+次のバッファ:      A B C [D] E        D A B C E
+
+初期状態:                             A B C D E
+次のバッファ:      A [B] C D E        B A C D E
+次のバッファ:      A B [C] D E        C A B D E
+前のバッファ:      A [B] C D E        B A C D E
+#+END_EXAMPLE
+
+ところが、ここから
+両者の挙動が変わります。
+
+switch-to-next-bufferを連続したとき、
+ただ単にbuffer-listをたどるだけです。
+
+#+BEGIN_EXAMPLE
+                   切り替わるバッファ バッファリスト
+------------------------------------------------------
+初期状態:                             A B C D E
+次のバッファ:      A [B] C D E        A B C D E
+次のバッファ:      A B [C] D E        A B C D E
+[Cで他の操作をする]:                  A B C D E
+次のバッファ:      A B C [D] E        A B C D E
+#+END_EXAMPLE
+
+iflipb-next-bufferは以下の挙動になります。
+
+iflipbユーザの意図はA→Cの切り替えで、
+iflipb-next-bufferを2回連続で実行します。
+
+そこでCで他の操作をした後に
+Aに戻りたいときはそのまま
+iflipb-next-bufferを実行できるようにします。
+
+このことにより、ひとつのコマンドで
+バッファの行き来ができます。
+
+iflipb-previous-bufferは
+行き過ぎたときに戻るために存在します。
+
+#+BEGIN_EXAMPLE
+                   切り替わるバッファ バッファリスト
+------------------------------------------------------
+初期状態:                             A B C D E
+次のバッファ:      A [B] C D E        B A C D E
+次のバッファ:      A B [C] D E        C A B D E
+[Cで他の操作をする]:                  C A B D E
+次のバッファ:      C [A] B D E        A C B D E
+#+END_EXAMPLE
+
+
+両者の違いは以下のコードで検証できます
+。
+以下のコードを実行する際、
+ファイルを保存後に
+全バッファが削除されますので
+注意してください。
+
+#+BEGIN_SRC emacs-lisp :results silent
+(save-some-buffers)
+(defun make-buffer-list ()
+  (dolist (b (cdr (buffer-list)))
+    (ignore-errors (kill-buffer b)))
+  (dolist (b '("B" "C" "D" "E"))
+    (ignore-errors (kill-buffer b))
+    (get-buffer-create b))
+  (prog1 (buffer-list)
+    (when (get-buffer "*scratch*")
+      (switch-to-buffer "*scratch*")
+      (rename-buffer "A"))))
+(keydef "C-z" (message "%S" (make-buffer-list)))
+(keydef "C-q" (message "%S" (buffer-list)))
+(global-set-key (kbd "M-o") 'switch-to-next-buffer)
+(global-set-key (kbd "M-O") 'switch-to-prev-buffer)
+(global-set-key (kbd "M-h") 'iflipb-next-buffer)
+(global-set-key (kbd "M-H") 'iflipb-previous-buffer)
+(make-buffer-list)
+#+END_SRC
+
+バッファ切り替えは微差で
+操作性は大きく変わります。
+
+気に入ったならばぜひとも導入してみてください。
+
+[includeme file="inc-package-install.php" name="iflipb" where="melpa"]
+** 設定 [[http://rubikitch.com/f/170212090019.iflipb.el][170212090019.iflipb.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/170212/170212090019.iflipb.el"
+#+BEGIN_SRC fundamental
+(global-set-key (kbd "M-o") 'iflipb-next-buffer)
+(global-set-key (kbd "M-O") 'iflipb-previous-buffer)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/170212090019.iflipb.el
+$ emacs -Q -f package-initialize -l 170212090019.iflipb.el
+#+END_EXAMPLE
+
+[includeme file="inc-package-relate.php" name="iflipb"]
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
