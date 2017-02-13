@@ -338,6 +338,87 @@ S式化したXMLを得ます。
   "\n\n"))
 
 #+END_SRC
+** promise:async-start:別のEmacsプロセスで結果を得る
+[[http://emacs.rubikitch.com/async/][async.el]] の =async-start= は
+Emacsの子プロセスを立ち上げて関数を実行します。
+
+=promise:async-start= はそのpromise版です。
+
+async-startの例では
+
+#+BEGIN_SRC emacs-lisp :results silent
+(async-start
+ ;; What to do in the child process
+ (lambda ()
+   (message "This is a test")
+   (sleep-for 3)
+   222)
+
+ ;; What to do when it finishes
+ (lambda (result)
+   (message "Async process done, result should be 222: %s"
+            result)))
+#+END_SRC
+
+があります。
+
+実行すると3秒後にはエコーエリアに
+#+BEGIN_EXAMPLE
+Async process done, result should be 222: 222
+#+END_EXAMPLE
+と表示されます。
+
+これをpromiseを使って書き換えると、
+次のようになります。
+
+#+BEGIN_SRC emacs-lisp :results silent
+(promise-chain (promise:async-start
+                ;; What to do in the child process
+                (lambda ()
+                  (message "This is a test")
+                  (sleep-for 3)
+                  222))
+  (then (lambda (result) ;; What to do when it finishes
+          (message "Async process done, result should be 222: %s"
+                   result))))
+#+END_SRC
+
+実行結果は同じです。
+
+prpmise:async-startはasync-startと
+引数の互換性があるため、
+async-startのコールバックも記述できます。
+
+#+BEGIN_SRC emacs-lisp :results silent
+(promise-chain (promise:async-start
+                ;; What to do in the child process
+                (lambda ()
+                  (message "This is a test")
+                  (sleep-for 3)
+                  222)
+
+                ;; What to do when it finishes
+                (lambda (result)
+                  (message "Async process done, result should be 222: %s"
+                           result)))
+  (then (lambda (result2)
+          (sit-for 1)
+          (message "%s" result2))))
+#+END_SRC
+
+実行すると3秒後にはエコーエリアに
+#+BEGIN_EXAMPLE
+Async process done, result should be 222: 222
+#+END_EXAMPLE
+と表示され、さらに1秒後に
+#+BEGIN_EXAMPLE
+222
+#+END_EXAMPLE
+と表示されます。
+
+あくまでもpromiseに渡されるのは
+子プロセスでの結果であることに注意してください。
+
 
 ** promise-race:早い者勝ち
 =promise-race= で
