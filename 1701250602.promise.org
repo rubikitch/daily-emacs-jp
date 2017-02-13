@@ -18,6 +18,17 @@
 #+end:
 #+TOC: headlines 2
 ** 概要
+<2017-02-13 Mon> *更新！新関数追加によりとても使いやすくなりました！*
+- =promise:run-at-time= :: タイマーによる関数実行
+- =promise:delay= :: 遅延評価
+- =promise:time-out= :: タイムアウト
+- =promise:make-process= :: プロセス作成
+- =promise:make-process-string= :: プロセス実行結果の文字列
+- =promise:url-retrieve= :: URLにアクセスした結果の文字列
+- =promise:xml-retrieve= :: URLにアクセスした結果のXMLオブジェクト
+- =promise:async-start= :: async-start([[http://emacs.rubikitch.com/async/][async.el]])による別プロセスで得た結果
+
+
 JavaScript界隈では
 Promiseというイケてる非同期処理が
 アツいですよね。
@@ -126,24 +137,20 @@ third result: 132
 ** そこでPromiseですよ！
 ここでPromiseを導入してみます。
 
+=promise:delay (SEC VALUE)= は
+SEC秒後にVALUEのpromiseを返します。
+
 #+BEGIN_SRC emacs-lisp :results silent
 ;;; -*- lexical-binding: t -*-
 (require 'promise)
-(defun do-something-async (delay-sec value)
-  "Return `Promise' to resolve the value asynchronously."
-  (promise-new (lambda (resolve _reject)
-                 (run-at-time delay-sec
-                              nil
-                              (lambda ()
-                                (funcall resolve value))))))
 
-(promise-chain (do-something-async 1 33)
+(promise-chain (promise:delay 1 33)
   (then (lambda (result)
           (message "first result: %s" result)
-          (do-something-async 1 (* result 2))))
+          (promise:delay 1 (* result 2))))
   (then (lambda (second-result)
           (message "second result: %s" second-result)
-          (do-something-async 1 (* second-result 2))))
+          (promise:delay 1 (* second-result 2))))
   (then (lambda (third-result)
           (message "third result: %s" third-result))))
 #+END_SRC
@@ -155,15 +162,15 @@ third result: 132
 #+BEGIN_SRC emacs-lisp :results silent
 (ert-deftest promise-async-test ()
   (let (expected actual)
-    (promise-chain (do-something-async 1 33)
+    (promise-chain (promise:delay 1 33)
       (then (lambda (result)
               (push 33 expected)
               (push result actual)
-              (do-something-async 1 (* result 2))))
+              (promise:delay 1 (* result 2))))
       (then (lambda (second-result)
               (push 66 expected)
               (push second-result actual)
-              (do-something-async 1 (* second-result 2))))
+              (promise:delay 1 (* second-result 2))))
       (then (lambda (third-result)
               (push 132 expected)
               (push third-result actual))))
@@ -200,14 +207,14 @@ third result: 132
 エラーが起きたときの処理も記述できます。
 
 #+BEGIN_SRC emacs-lisp :results silent
-(promise-chain (do-something-async 1 33)
+(promise-chain (promise:delay 1 33)
   (then (lambda (result)
           (message "first result: %s" result)
           (setq a-dummy (/ 1 0)))) ; An `(arith-error)' occurs here.
 
   (then (lambda (second-result)
           (message "second result: %s" second-result)
-          (do-something-async 1 (* second-result 2)))
+          (promise:delay 1 (* second-result 2)))
         (lambda (reason)
           (message "catch the error: %s" reason))))
 #+END_SRC
@@ -219,14 +226,127 @@ first result: 33
 catch the error: (arith-error)
 #+END_EXAMPLE
 と表示されます。
+** promise:run-at-time:関数を遅延実行する
+=promise:delay= は値を返しますが、 
+=promise:run-at-time= は関数を実行します。
+
+promise:delayの一部を
+promise:run-at-timeに置き換えてみます。
+
+#+BEGIN_SRC emacs-lisp :results silent
+(promise-chain (promise:delay 1 33)
+  (then (lambda (result)
+          (message "first result: %s" result)
+          (promise:run-at-time 1 '* result 2)))
+  (then (lambda (second-result)
+          (message "second result: %s" second-result)
+          (promise:run-at-time 1 '* second-result 2)))
+  (then (lambda (third-result)
+          (message "third result: %s" third-result))))
+#+END_SRC
+
+
+** promise:make-process:プロセスを実行する
+ =promise:make-process= は
+プロセス(プログラム)を実行します。
+
+プロセスオブジェクトを返しますので、
+実行結果を表示するには 
+=process-buffer= と 
+=display-buffer= を使います。
+
+#+BEGIN_SRC emacs-lisp :results silent
+(promise-chain (promise:make-process "sh" "-c" "sleep 1; echo OK")
+  (then (lambda (proc)
+          (display-buffer (process-buffer proc)))))
+#+END_SRC
+
+実行すると1秒後に
+OKと表示されたバッファが
+ポップアップします。
+
+** promise:make-process-string:プロセス実行結果の文字列を得る
+=promise:make-process-string= は 
+=promise:make-process= と同様に
+プロセスを実行しますが、
+文字列を返す点が異なります。
+
+こっちの方が手軽ともいえます。
+
+#+BEGIN_SRC emacs-lisp :results silent
+(promise-chain (promise:make-process-string "sh" "-c" "sleep 1; echo OK")
+  (then (lambda (output)
+          (message "%s" output))))
+#+END_SRC
+
+実行すると1秒後に
+OKとエコーエリアに表示されます。
+
+** promise:url-retrieve:URLにアクセスする
+=promise:url-retrieve= は
+URLにアクセスし、その内容を返します。
+
+#+BEGIN_SRC emacs-lisp :results silent
+(promise-chain (promise:url-retrieve "https://httpbin.org/ip")
+  (then (lambda (output)
+          (message "%s" output))))
+#+END_SRC
+
+実行すると自分のIPアドレスが
+JSON形式でエコーエリアに表示されます。
+
+** promise:xml-retrieve:URLにアクセスしたXMLを得る
+=promise:xml-retrieve= はURLにアクセスし、
+S式化したXMLを得ます。
+
+#+BEGIN_SRC emacs-lisp :results silent
+(promise-chain (promise:xml-retrieve "https://httpbin.org/xml")
+  (then (lambda (output)
+          (pp-display-expression output "*xml-output*"))))
+#+END_SRC
+
+実行すると*xml-output*バッファが
+ポップアップし、このような結果が出ます。
+
+#+BEGIN_SRC emacs-lisp :results silent
+((slideshow
+  ((title . "Sample Slide Show")
+   (date . "Date of publication")
+   (author . "Yours Truly"))
+  "\n\n    "
+  (slide
+   ((type . "all"))
+   "\n      "
+   (title nil "Wake up to WonderWidgets!")
+   "\n    ")
+  "\n\n    "
+  (slide
+   ((type . "all"))
+   "\n        "
+   (title nil "Overview")
+   "\n        "
+   (item nil "Why "
+         (em nil "WonderWidgets")
+         " are great")
+   "\n        "
+   (item nil)
+   "\n        "
+   (item nil "Who "
+         (em nil "buys")
+         " WonderWidgets")
+   "\n    ")
+  "\n\n"))
+
+#+END_SRC
+
 ** promise-race:早い者勝ち
 =promise-race= で
 一番早い処理のみ実行させられます。
 
 #+BEGIN_SRC emacs-lisp :results silent
-(promise-chain (promise-race (vector (do-something-async 2 "2 seccods")
-                                     (do-something-async 1 "1 second")
-                                     (do-something-async 3 "3 secconds")))
+(promise-chain (promise-race (vector (promise:delay 2 "2 seccods")
+                                     (promise:delay 1 "1 second")
+                                     (promise:delay 3 "3 secconds")))
   (then (lambda (result)
           (message "result: %s" result))))
 #+END_SRC
@@ -236,21 +356,13 @@ catch the error: (arith-error)
 result: 1 second
 #+END_EXAMPLE
 と表示されます。
-** タイムアウトを記述する
-=promise-race= で
+** promise:time-out:タイムアウトを記述する
+=promise-race= と =promise:time-out= で
 タイムアウト処理が記述できます。
 
 #+BEGIN_SRC emacs-lisp :results silent
-(defun promise-timeout (time)
-  "Return `Promise' which times out after the specified time."
-  (promise-new (lambda (_resolve reject)
-                 (run-at-time time
-                              nil
-                              (lambda ()
-                                (funcall reject "time out"))))))
-
-(promise-chain (promise-race (vector (promise-timeout 2)
-                                     (do-something-async 3 "3 seconds")))
+(promise-chain (promise-race (vector (promise:time-out 2 "time out")
+                                     (promise:delay 3 "3 seconds")))
   (then (lambda (result)
           (message "result: %s" result))
         (lambda (reason)
@@ -267,9 +379,9 @@ promise-catch: time out
 すべての処理が終了するまで待ちます。
 
 #+BEGIN_SRC emacs-lisp :results silent
-(promise-chain (promise-all (vector (do-something-async 2 "2 seccods")
-                                    (do-something-async 1 "1 second")
-                                    (do-something-async 3 "3 secconds")))
+(promise-chain (promise-all (vector (promise:delay 2 "2 seccods")
+                                    (promise:delay 1 "1 second")
+                                    (promise:delay 3 "3 secconds")))
   (then (lambda (results)
           (message "result[0]: %s" (aref results 0))
           (message "result[1]: %s" (aref results 1))
@@ -283,11 +395,6 @@ result[1]: 1 second
 result[2]: 3 secconds
 #+END_EXAMPLE
 と一度に表示されます。
-** ネットワークアクセスの例
-ネットワークの例は
-以下のコードを参照してください。
-
-https://raw.githubusercontent.com/chuntaro/emacs-promise/master/promise-examples-jp.el
 
 ** deferred.elと比べてみる
 最後に、既出の非同期ライブラリ
@@ -320,14 +427,14 @@ https://raw.githubusercontent.com/chuntaro/emacs-promise/master/promise-examples
 
 処理順に記述できるものの、
 いくぶん複雑になっています。
+** 作者による使用例
+作者による使用例も詳しく書かれています。
 
-とはいえdeferred.elは
-プロセスやネットワークを立ち上げる
-専用の関数が用意されている
-という利便性があります。
+- https://raw.githubusercontent.com/chuntaro/emacs-promise/master/examples/promise-examples.el
+- https://raw.githubusercontent.com/chuntaro/emacs-promise/master/examples/promise-examples-jp.el
 ** まとめ
 =promise.el= は内部でタイマーを使った
-[[https://github.com/then/promise][Promises/A+]] の忠実な移植です。
+[[https://github.com/then/promise][Promises/A+]] の忠実な移植＋Emacs特化関数群です。
 
 Promiseを使うことでEmacs Lispで
 非同期処理がとても書きやすくなります。
@@ -336,13 +443,18 @@ Promiseを使うことでEmacs Lispで
 以下の相異点があります。
 - JavaScriptのPromiseの忠実な移植
 - 記述がより簡潔
-- プロセスやネットワークの専用関数は用意されていない
 
-まだ出来立てホヤホヤですので、
-そのうちEmacsに特化した関数群も
-書かれることでしょう。
-
-これからがとても楽しみです。
+<2017-02-13 Mon>現在のバージョンでは
+- =promise:run-at-time= :: タイマーによる関数実行
+- =promise:delay= :: 遅延評価
+- =promise:time-out= :: タイムアウト
+- =promise:make-process= :: プロセス作成
+- =promise:make-process-string= :: プロセス実行結果の文字列
+- =promise:url-retrieve= :: URLにアクセスした結果の文字列
+- =promise:xml-retrieve= :: URLにアクセスした結果のXMLオブジェクト
+- =promise:async-start= :: async-start([[http://emacs.rubikitch.com/async/][async.el]])による別プロセスで得た結果
+とEmacs専用関数が充実し、今では
+deferred.elよりも使いやすくなっています。
 
 [includeme file="inc-package-relate.php" name="promise"]
 ** 参考サイト
