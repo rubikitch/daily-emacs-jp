@@ -1,0 +1,73 @@
+#+BLOG: rubikitch
+#+POSTID: 2027
+#+DATE: [2017-02-14 Tue 04:04]
+#+PERMALINK: helm-perspeen
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+DESCRIPTION:
+#+BLOG: rubikitch
+#+CATEGORY: ウィンドウ構成切り替え
+#+EL_PKG_NAME: helm-perspeen
+#+TAGS: helm, elscreen, header-line, Emacs 25.1以降, 
+#+TITLE: ワークスペース×タブ切り替えのperspeenをhelmで選択
+#+EL_URL: 
+#+begin: org2blog
+[includeme file="inc-package-table.php" name="helm-perspeen" where="melpa"]
+
+#+end:
+** 概要
+ =helm-perspeen.el= は [[http://emacs.rubikitch.com/perspeen/][perspeen.el]] の
+helmインターフェースです。
+
+perspeen.elは
+ワークスペース＞タブの
+二層にわたってウィンドウ構成を管理します。
+
+1. 操作性はelscreen
+2. ワークスペース(elscreenでいうウィンドウ)のリストがモードラインに表示される
+3. ワークスペースごとに独立したタブを持てる
+4. ワークスペースごとに独立したバッファリストを持てる
+5. ワークスペースでeshellを立ち上げられる
+
+ =M-x helm-perspeen= は3つの情報源を持つコマンドです。
+- =helm-source-perspeen-tabs= :: 現在のワークスペースのタブを切り換える
+- =helm-source-perspeen-workspaces= :: ワークスペースを切り換える
+- =helm-source-perspeen-create-workspace= :: ワークスペース新規作成
+
+複雑なperspeen.elをhelmで
+まとめたのは素晴しいです。
+
+これがあるとperspeen.elの
+使い勝手は大幅に向上します。
+
+- ワークスペースのリネーム
+- ワークスペースの削除
+- タブの作成
+- タブの削除
+- キーマップ
+  
+もあればなお
+使い勝手がよくなるでしょう。
+
+[includeme file="inc-package-install.php" name="helm-perspeen" where="melpa"]
+** 設定 [[http://rubikitch.com/f/170214041200.helm-perspeen.el][170214041200.helm-perspeen.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/170214/170214041200.helm-perspeen.el"
+#+BEGIN_SRC fundamental
+(setq perspeen-use-tab t)
+(perspeen-mode)
+(global-set-key (kbd "C-c z") 'helm-perspeen)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/170214041200.helm-perspeen.el
+$ emacs -Q -f package-initialize -l 170214041200.helm-perspeen.el
+#+END_EXAMPLE
+
+[includeme file="inc-package-relate.php" name="helm-perspeen"]
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
