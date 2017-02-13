@@ -1,0 +1,36 @@
+#+BLOG: rubikitch
+#+POSTID: 2025
+#+DATE: [2017-02-13 Mon 09:38]
+#+PERMALINK: promise-update
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+DESCRIPTION:
+#+BLOG: rubikitch
+#+CATEGORY: 記事更新情報
+#+TAGS: 
+#+TITLE: 優秀な非同期ライブラリpromiseがメチャガチャ使いやすい！
+#+begin: org2blog-tags
+# content-length: 616
+
+#+end:
+http://emacs.rubikitch.com/promise/
+
+Emacs LispでPromiseするpromise.elに
+Emacs専用関数がたくさん追加され
+プログラミングしやすくなりました。
+
+- =promise:run-at-time= :: タイマーによる関数実行
+- =promise:delay= :: 遅延評価
+- =promise:time-out= :: タイムアウト
+- =promise:make-process= :: プロセス作成
+- =promise:make-process-string= :: プロセス実行結果の文字列
+- =promise:url-retrieve= :: URLにアクセスした結果の文字列
+- =promise:xml-retrieve= :: URLにアクセスした結果のXMLオブジェクト
+- =promise:async-start= :: async-start([[http://emacs.rubikitch.com/async/][async.el]])による別プロセスで得た結果
+
+以上の新関数を導入してページを書き直しました。
+
+手軽にできる非同期プログラミングを楽しんでください。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
