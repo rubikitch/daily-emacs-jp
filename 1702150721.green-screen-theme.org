@@ -1,0 +1,93 @@
+#+BLOG: rubikitch
+#+POSTID: 2029
+#+DATE: [2017-02-15 Wed 07:21]
+#+PERMALINK: green-screen-theme
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+DESCRIPTION:green-screen-theme.elは黒背景緑文字のカラーテーマ。僕も似たようなカラーテーマ＋独自設定をやっている。
+#+BLOG: rubikitch
+#+CATEGORY: ダーク
+#+EL_PKG_NAME: green-screen-theme
+#+TAGS: 
+#+TITLE: 昔ながらの緑画面を再現させたカラーテーマ
+#+EL_URL: 
+#+begin: org2blog
+[includeme file="inc-package-table.php" name="green-screen-theme" where="melpa"]
+
+#+end:
+** 概要
+*green-screen-theme.el* は、以下のパッケージに対応したカラーテーマです。
+- font-lock
+- button
+- link
+- fringe
+- mode-line
+- isearch
+- match
+- compilation
+- query-replace
+- hl-line
+- linum
+
+僕の使っている色設定に似ています。
+
+[includeme file="inc-package-install.php" name="green-screen-theme" where="melpa"]
+** スクリーンショット
+# (save-window-excursion (async-shell-command "emacs-test -l green-screen-theme "))
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_theme_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20170215072428.png]]
+Fig1: emacs-lisp-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20170215072437.png]]
+Fig2: magit
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20170215072441.png]]
+Fig3: grep
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20170215072445.png]]
+Fig4: outline-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20170215072448.png]]
+Fig5: org-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20170215072451.png]]
+Fig6: dired
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20170215072455.png]]
+Fig7: web-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20170215072458.png]]
+Fig8: markdown-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20170215072502.png]]
+Fig9: helm
+
+
+#+ATTR_HTML: :width 480
+[[https://raw.githubusercontent.com/wiki/rbanffy/green-screen-emacs/screenshot.png]]
+Fig10: 本家スクリーンショット
+
+
+
+** 設定
+#+BEGIN_SRC fundamental
+(require 'green-screen-theme)
+#+END_SRC
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ emacs -Q -f package-initialize -l green-screen-theme
+#+END_EXAMPLE
+[includeme file="inc-package-relate.php" name="green-screen-theme"]
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
