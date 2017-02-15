@@ -1,0 +1,84 @@
+#+BLOG: rubikitch
+#+POSTID: 2031
+#+DATE: [2017-02-16 Thu 07:57]
+#+PERMALINK: icicles
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+DESCRIPTION:icicles.elはzlc.elの超強化版。ミニバッファ補完に多くの機能を違和感なく追加する。古いEmacsを使ってる人やhelmなどが合わない人はおすすめ。
+#+BLOG: rubikitch
+#+CATEGORY: ミニバッファ
+#+EL_PKG_NAME: icicles
+#+TAGS: 
+#+TITLE: 違和感なくミニバッファをパワーアップさせる古代からあるライブラリ
+#+EL_URL: 
+#+begin: org2blog
+[includeme file="inc-package-table.php" name="icicles" where="melpa"]
+
+#+end:
+** 概要
+=icicles.el= は、古くからある
+ミニバッファ補完強化ライブラリです。
+
+1996年から開発されていて、
+なんと、Emacs20から動作します！
+
+ミニバッファ補完強化はいまや
+- M-x ido-mode
+- M-x helm-mode
+- M-x ivy-mode
+などに取って代われられていますが、
+
+これらが肌に合わなかったり、
+古いEmacsを使い続けてる人には
+試す価値があるでしょう。
+
+ドキュメントがあまりにも長過ぎて
+概略がつかみにくいのが難点ですが、
+
+一言で言うと
+/デフォルトのEmacsのインターフェースのままTAB補完が便利になる/
+ものです。
+
+特筆すべき機能は以下の5つです。
+
+1. =M-?= でヘルプが表示される
+2. TABを連打すると次の候補を選択する([[http://emacs.rubikitch.com/zlc/][zlc.el]] 同様)
+3. =C-M-RET= でその候補の詳細が表示される
+4. 選択中の候補の情報がミニバッファなどに表示される
+5. ワイルドカード「*」を入れると任意の0文字以上の文字にマッチする
+
+ミニバッファを扱う
+多くのコマンドを扱っているため、
+コードは膨大な行数になっています。
+
+けれども、必要となる機能を
+使っていけば十分です。
+
+他にも機能を探したければ 
+=M-?= を押して見付けてください。
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20170216083026.png]]
+Fig1: M-x fi*oth TAB でキー割り当てとともに候補が表示される。
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20170216083046.png]]
+Fig2: C-x C-fの後にTABを連打すると次の候補が選択される。
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20170216083058.png]]
+Fig3: M-?を押すとヘルプが表示される。
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20170216083319.png]]
+Fig4: C-M-RETで候補の詳細が表示される
+
+
+
+
+[includeme file="inc-package-install.php" name="icicles" where="melpa"]
+[includeme file="inc-package-relate.php" name="icicles"]
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
