@@ -58,6 +58,8 @@
 他にも機能を探したければ 
 =M-?= を押して見付けてください。
 
+僕もanything.elに出会う前は愛用してました。
+
 #+ATTR_HTML: :width 480
 [[file:/r/sync/screenshots/20170216083026.png]]
 Fig1: M-x fi*oth TAB でキー割り当てとともに候補が表示される。
