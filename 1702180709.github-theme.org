@@ -1,0 +1,186 @@
+#+BLOG: rubikitch
+#+POSTID: 2036
+#+DATE: [2017-02-18 Sat 07:09]
+#+PERMALINK: github-theme
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+DESCRIPTION:github-theme.elはGitHubのデザインを元にした対応カラーテーマです。多くのパッケージの色使いをGitHubライクにしてくれます。
+#+BLOG: rubikitch
+#+CATEGORY: ライト
+#+EL_PKG_NAME: github-theme
+#+TAGS: 
+#+TITLE: GitHubのデザインを元にした多パッケージ対応カラーテーマ
+#+EL_URL: 
+#+begin: org2blog
+[includeme file="inc-package-table.php" name="github-theme" where="melpa"]
+
+#+end:
+** 概要
+*github-theme.el* は、以下のパッケージに対応したカラーテーマです。
+- button
+- link
+- header-line
+- tooltip
+- compilation
+- completions
+- grep
+- info
+- isearch
+- font-lock
+- newsticker
+- ace-jump-mode
+- ace-window
+- android-mode
+- anzu
+- auctex
+- agda-mode
+- auto-complete
+- avy
+- company-mode
+- bm
+- cider
+- circe
+- context-coloring
+- coq
+- ctable
+- diff
+- diff-hl
+- dim-autoload
+- dired+
+- dired-async
+- ediff
+- egg
+- elfeed
+- emacs-w3m
+- erc
+- ert
+- eshell
+- flx
+- flycheck
+- flymake
+- flyspell
+- full-ack
+- git-commit
+- git-gutter
+- git-gutter-fr
+- git-rebase
+- gnus
+- guide-key
+- helm
+- helm-swoop
+- highlight-numbers
+- hl-line-mode
+- hl-sexp
+- hlinum
+- hydra
+- ivy
+- ido-mode
+- iedit-mode
+- jabber-mode
+- js2-mode
+- ledger-mode
+- linum-mode
+- lispy
+- ruler-mode
+- lui
+- macrostep
+- magit
+- message-mode
+- mew
+- mic-paren
+- mingus
+- nav
+- mu4e
+- mumamo
+- neotree
+- org-mode
+- outline
+- p4
+- perspective
+- powerline
+- proofgeneral
+- racket-mode
+- rainbow-delimiters
+- rcirc
+- rpm-mode
+- rst-mode
+- sh-mode
+- show-paren
+- smart-mode-line
+- smartparens
+- sml-mode-line
+- SLIME
+- speedbar
+- tabbar
+- term
+- undo-tree
+- volatile-highlights
+- web-mode
+- whitespace-mode
+- wanderlust
+- which-func-mode
+- xcscope
+- yascroll
+- ansi-color
+- fill-column-indicator
+- nrepl-client
+- pdf-tools
+- vc-annotate
+
+[includeme file="inc-package-install.php" name="github-theme" where="melpa"]
+** スクリーンショット
+# (save-window-excursion (async-shell-command "emacs-test -eval '(load-theme (quote github) t)'"))
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_theme_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20170218071215.png]]
+Fig1: emacs-lisp-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20170218071224.png]]
+Fig2: magit
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20170218071229.png]]
+Fig3: grep
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20170218071232.png]]
+Fig4: outline-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20170218071236.png]]
+Fig5: org-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20170218071239.png]]
+Fig6: dired
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20170218071243.png]]
+Fig7: web-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20170218071247.png]]
+Fig8: markdown-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20170218071251.png]]
+Fig9: helm
+
+
+
+
+
+** 設定
+#+BEGIN_SRC fundamental
+(load-theme 'github t)
+#+END_SRC
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ emacs -Q -f package-initialize -eval '(load-theme (quote github) t)'
+#+END_EXAMPLE
+[includeme file="inc-package-relate.php" name="github-theme"]
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
