@@ -170,7 +170,7 @@ Fig9: helm
 
 
 #+ATTR_HTML: :width 480
-[[file:/r/sync/emacs/quelpa/build/github-theme/screenshots/github-theme.png]]
+[[https://github.com/philiparvidsson/emacs-github-theme/raw/master/screenshots/github-theme.png]]
 Fig10: 本家スクリーンショット
 
 
