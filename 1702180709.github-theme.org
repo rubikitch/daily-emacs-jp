@@ -170,7 +170,7 @@ Fig9: helm
 
 
 #+ATTR_HTML: :width 480
-[[/r/sync/emacs/quelpa/build/github-theme/screenshots/github-theme.png]]
+[[file:/r/sync/emacs/quelpa/build/github-theme/screenshots/github-theme.png]]
 Fig10: 本家スクリーンショット
 
 
@@ -187,3 +187,5 @@ $ emacs -Q -f package-initialize -eval '(load-theme (quote github) t)'
 [includeme file="inc-package-relate.php" name="github-theme"]
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+
+# /r/sync/emacs/quelpa/build/github-theme/screenshots/github-theme.png http://emacs.rubikitch.com/wp-content/uploads/2017/02/github-theme.png
