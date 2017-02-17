@@ -169,6 +169,9 @@ Fig8: markdown-mode
 Fig9: helm
 
 
+#+ATTR_HTML: :width 480
+[[/r/sync/emacs/quelpa/build/github-theme/screenshots/github-theme.png]]
+Fig10: 本家スクリーンショット
 
 
 
