@@ -9,7 +9,7 @@
 #+BLOG: rubikitch
 #+CATEGORY:   マルチスレッド
 #+EL_PKG_NAME: promise
-#+TAGS: タイマー, 非同期処理, 
+#+TAGS: タイマー, 非同期処理, Emacs 25.1以降, 
 #+TITLE: Emacs LispでPromise！非同期処理もテストも超簡単
 #+EL_URL: 
 #+begin: org2blog
