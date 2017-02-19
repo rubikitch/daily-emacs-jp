@@ -1,0 +1,194 @@
+#+BLOG: rubikitch
+#+POSTID: 2041
+#+DATE: [2017-02-20 Mon 05:38]
+#+PERMALINK: async-await
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+DESCRIPTION:async-await.elはAsync/AwaitのEmacs Lisp実装。promise.el単独よりもさらにわかりやすく非同期処理を記述できる。プロセスやネットワークも簡単に。
+#+BLOG: rubikitch
+#+CATEGORY: マルチスレッド
+#+EL_PKG_NAME: async-await
+#+TAGS: タイマー, 非同期処理, Emacs 25.1以降, 
+#+TITLE: Async/Await！Promiseを超えた非同期処理
+#+EL_URL: 
+#+begin: org2blog
+[includeme file="inc-package-table.php" name="async-await" where="melpa"]
+
+#+end:
+** 概要
+=async-await.el= はAsync/Awaitの
+Emacs Lispによる実装です。
+
+Async/AwaitはTypeScript由来の
+イケてる非同期処理です。
+
+[[http://emacs.rubikitch.com/promise/][promise.el]] と併用することで、
+非同期処理をさらに平易に書けるようになります。
+
+Promiseのおかげで、
+非同期処理を流れに沿って
+書けるようになりましたが、
+
+Async/Awaitを使うと、
+もっとわかりやすくなります。
+
+使い方は
+- Promiseを =await= で受け、
+- =defun= を =async-defun= に置き換える
+だけです。
+
+=async-defun= のlambda版である 
+=async-lambda= も用意されています。
+
+async-await.elはEmacs 25.1の新機能
+=generator.el= の貴重な使用例でもあります。
+
+ジェネレータ・イテレータが
+Emacs標準添付になったことは
+ほとんど知られていません。
+
+[includeme file="inc-package-install.php" name="async-await" where="melpa"]
+** コールバック地獄→Promise
+まずはコールバック地獄を
+Promiseで解決した例を示しましょう。
+
+この例ではタイマーを使った非同期処理です。
+
+#+BEGIN_SRC emacs-lisp :results silent
+(setq lexical-binding t)
+(defun print-delay-value (delay-sec format-string value next-callback)
+  "DELAY-SEC秒後にVALUEをFORMAT-STRINGに従って表示させ、NEXT-CALLBACK関数にVALUEを渡す。"
+  (run-at-time delay-sec nil
+               (lambda ()
+                 (message format-string value)
+                 (funcall next-callback value))))
+(defun callback-sample ()
+  (interactive)
+  (print-delay-value
+   1 "first result: %s" 33
+   (lambda (result)
+     (print-delay-value
+      1 "second result: %s" (* result 2)
+      (lambda (second-result)
+        (print-delay-value
+         1 "third result: %s" (* second-result 2)
+         #'ignore))))))
+#+END_SRC
+
+M-x callback-sampleを実行すると
+
+1. 1秒後に33と表示され
+2. また1秒後に33*2と表示され
+3. また1秒後に33*2*2と表示されます
+
+
+=print-delay-value= は 
+=run-at-time= 関数を使って値を表示し、
+値をコールバック関数に渡します。
+
+ここで =lexical-binding= を 
+=t= に設定しておく必要があります。
+
+なぜなら、タイマーに渡す関数から
+引数を参照するためです。
+
+だんだんとコールバックの入れ子が
+深くなっていくのがわかりますね。
+
+コードの流れが理解しづらいのです。
+
+そこでpromise.elを使って書き直すと…
+
+#+BEGIN_SRC emacs-lisp :results silent
+(require 'promise)
+(setq lexical-binding t)
+(defun promise-sample ()
+  (interactive)
+  (promise-chain (promise:delay 1 33)
+    (then (lambda (result)
+            (message "first result: %s" result)
+            (promise:delay 1 (* result 2))))
+    (then (lambda (second-result)
+            (message "second result: %s" second-result)
+            (promise:delay 1 (* second-result 2))))
+    (then (lambda (third-result)
+            (message "third result: %s" third-result)))))
+#+END_SRC
+
+M-x promise-sampleも同じ結果になります。
+
+ここで登場する =promise:delay= 
+は一定時間後に値を返す関数です。
+
+コードはすっきりしました。
+** Promise→Async/Await
+Async/Awaitはさらに上をいきます。
+
+同じ動作をするコマンドを書き直してみます。
+
+#+BEGIN_SRC emacs-lisp :results silent
+(require 'async-await)
+(setq lexical-binding t)
+(async-defun async-await-sample ()
+  (interactive)
+  (let (result second-result third-result)
+    (setq result (await (promise:delay 1 33)))
+    (message "first result: %s" result)
+    (setq second-result (await (promise:delay 1 (* result 2))))
+    (message "second result: %s" second-result)
+    (setq third-result (await (promise:delay 1 (* second-result 2))))
+    (message "third result: %s" third-result)))
+#+END_SRC
+
+ここでM-x async-await-sampleを
+実行すると同じ結果になります。
+
+async/await/promiseを取り除いたら、
+
+#+BEGIN_SRC emacs-lisp :results silent
+(defun sync-sample ()
+  (interactive)
+  (let (result second-result third-result)
+    (setq result 33)
+    (message "first result: %s" result)
+    (setq second-result (* result 2))
+    (message "second result: %s" second-result)
+    (setq third-result (* second-result 2))
+    (message "third result: %s" third-result)))
+#+END_SRC
+
+/ごくごく普通のコードになってしまいました！！/
+
+逆に言えば、
+Promiseを作ってawaitで受け取るようにすれば、
+あっさり非同期化ができてしまうのです。
+
+しかも今のpromise.elには
+以下のようにPromiseを作る関数群が
+たくさん用意されています。
+
+- =promise:run-at-time= :: タイマーによる関数実行
+- =promise:delay= :: 遅延評価
+- =promise:time-out= :: タイムアウト
+- =promise:make-process= :: プロセス作成
+- =promise:make-process-string= :: プロセス実行結果の文字列
+- =promise:url-retrieve= :: URLにアクセスした結果の文字列
+- =promise:xml-retrieve= :: URLにアクセスした結果のXMLオブジェクト
+- =promise:async-start= :: async-start([[http://emacs.rubikitch.com/async/][async.el]])による別プロセスで得た結果
+
+プロセスもネットワークも
+非同期処理が当たり前に書けてしまいます。
+
+/これってすごくないですか？/
+
+さらなるサンプルは
+https://github.com/chuntaro/emacs-async-await/tree/master/examples/async-await-examples.el
+を参照してください。
+
+[includeme file="inc-package-relate.php" name="async-await"]
+** 参考サイト
+- [[https://www.gnu.org/software/emacs/manual/html_node/elisp/Generators.html][GNU Emacs Lisp Reference Manual: Generators]]
+- [[http://qiita.com/kawabata@github/items/239345c38c431e1feb7d][Emacs のジェネレータについて - Qiita]]
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
