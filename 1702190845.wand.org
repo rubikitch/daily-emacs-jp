@@ -1,0 +1,98 @@
+#+BLOG: rubikitch
+#+POSTID: 2039
+#+DATE: [2017-02-19 Sun 08:45]
+#+PERMALINK: wand
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+DESCRIPTION:wand.elはテキスト内に書かれたシェルコマンドやS式を実行したり、URLを開いたりする。コメントはスキップされるのでソースコード内にWiki的リンクを書くような感覚で使える。
+#+BLOG: rubikitch
+#+CATEGORY: ハイパーリンク
+#+EL_PKG_NAME: wand
+#+TAGS: 
+#+TITLE: ハイパーリンク！現在行のコマンド等に対し適切なアクションを実行
+#+EL_URL: 
+#+begin: org2blog
+[includeme file="inc-package-table.php" name="wand" where="melpa"]
+
+#+end:
+** 概要
+=wand.el= は、あらゆるテキストをハイパーリンク化します。
+
+=wand:*rules*= に設定を記述する必要があります。
+汎用的に作られているため、設定は自由自在です。
+
+本設定では
+- シェルコマンド
+- URL
+- ファイル
+- S式
+に対応させています。
+
+該当行にて<f9>を押せばアクションを実行します。
+
+行頭のコメント文字は除去されるため、
+ソースコードに関連リンクやURLを載せられます。
+
+ただ、制限事項としてリンクの行に余計な文字列を含められません。
+
+org-modeにはハイパーリンク機能がありますが、
+任意のテキストで使えるのは便利です。
+
+
+
+[includeme file="inc-package-install.php" name="wand" where="melpa"]
+** 設定 [[http://rubikitch.com/f/170219085330.wand.el][170219085330.wand.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/170219/170219085330.wand.el"
+#+BEGIN_SRC fundamental
+(require 'wand)
+(setq wand:*rules*
+      (list
+       ;; $ の後にシェルコマンドを書くと M-x shell-command で実行
+       (wand:create-rule :match "\\$ "
+                         :capture :after
+                         :action shell-command)
+       ;; http/httpsのURLをM-x browse-urlで開く
+       (wand:create-rule :match "https?://"
+                         :capture :whole
+                         :action browse-url)
+       ;; fileのURLをfind-fileで開く
+       (wand:create-rule :match "file:"
+                         :capture :after
+                         :action find-file)
+       ;; #> の後のS式を評価し結果を表示する
+       (wand:create-rule :match "#> "
+                         :capture :after
+                         :action (lambda (string)
+                                   (message "%S" (eval (read string)))))))
+;;; 使用例
+;; $ ls
+;; http://emacs.rubikitch.com/
+;; test file:~/.emacs.d/init.el
+;; #> (+ 1 3)
+(global-set-key (kbd "<f9>") 'wand:execute-current-line)
+#+END_SRC
+
+#+END:
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20170219094126.png]]
+Fig1: lsを実行
+
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20170219094140.png]]
+Fig2: (+ 1 3)を実行
+
+
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/170219085330.wand.el
+$ emacs -Q -f package-initialize -l 170219085330.wand.el
+#+END_EXAMPLE
+[includeme file="inc-package-relate.php" name="wand"]
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+[includeme file="inc-package-relate.php" name="wand"]
