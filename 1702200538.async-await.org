@@ -20,7 +20,8 @@
 =async-await.el= はAsync/Awaitの
 Emacs Lispによる実装です。
 
-Async/AwaitはTypeScript由来の
+Async/AwaitはC#由来で
+TypeScriptにも導入されている
 イケてる非同期処理です。
 
 [[http://emacs.rubikitch.com/promise/][promise.el]] と併用することで、
