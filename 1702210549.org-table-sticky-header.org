@@ -1,0 +1,55 @@
+#+BLOG: rubikitch
+#+POSTID: 2044
+#+DATE: [2017-02-21 Tue 05:49]
+#+PERMALINK: org-table-sticky-header
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+DESCRIPTION:org-table-sticky-header.elはorg-modeの大きな表の表題をスクロール時に見失わないようにする。
+#+BLOG: rubikitch
+#+CATEGORY: 表作成
+#+EL_PKG_NAME: org-table-sticky-header
+#+TAGS: org, 
+#+TITLE: org-modeの大きな表の表題を見失わないように表示する
+#+EL_URL: 
+#+begin: org2blog
+[includeme file="inc-package-table.php" name="org-table-sticky-header" where="melpa"]
+
+#+end:
+** 概要
+行数の多い表は、表題を見失いがちですよね。
+ =org-table-sticky-header.el= はorg-modeの表に対して、header-lineに表題を表示させるようにします。
+M-x org-table-sticky-header-modeを実行するとこのようになります。
+
+#+ATTR_HTML: :width 480
+[[https://github.com/cute-jumper/org-table-sticky-header/raw/master/screenshots/demo.gif]]
+Fig1: 表題を見失わない！
+
+長い表を使っているのならば、ぜひとも導入してみてください。
+常に有効にするならばフックを設定してください。
+
+僕は大きな表が含まれるorgファイルに対して個別にファイルローカル変数で設定しています。
+#+BEGIN_EXAMPLE
+# -*- eval: (org-table-sticky-header-mode t) -*-
+#+END_EXAMPLE
+
+のように。
+
+[includeme file="inc-package-install.php" name="org-table-sticky-header" where="melpa"]
+[includeme file="inc-package-relate.php" name="org-table-sticky-header"]
+
+** 設定 [[http://rubikitch.com/f/170221060029.org-table-sticky-header.el][170221060029.org-table-sticky-header.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/170221/170221060029.org-table-sticky-header.el"
+#+BEGIN_SRC fundamental
+(add-hook 'org-mode-hook 'org-table-sticky-header-mode)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/170221060029.org-table-sticky-header.el
+$ emacs -Q -f package-initialize -l 170221060029.org-table-sticky-header.el
+#+END_EXAMPLE
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
