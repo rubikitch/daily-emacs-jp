@@ -1,0 +1,83 @@
+#+BLOG: rubikitch
+#+POSTID: 2046
+#+DATE: [2017-02-22 Wed 05:51]
+#+PERMALINK: blackboard-theme
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+DESCRIPTION:blackboard-theme.elは黒背景のカラーテーマ。org/font-lock/mode-lineに対応。
+#+BLOG: rubikitch
+#+CATEGORY: ダーク
+#+EL_PKG_NAME: blackboard-theme
+#+TAGS: 
+#+TITLE: 黒背景のカラーテーマ
+#+EL_URL: 
+#+begin: org2blog
+[includeme file="inc-package-table.php" name="blackboard-theme" where="melpa"]
+
+#+end:
+** 概要
+*blackboard-theme.el* は、以下のパッケージに対応したカラーテーマです。
+- org
+- font-lock
+- mode-line
+
+[includeme file="inc-package-install.php" name="blackboard-theme" where="melpa"]
+** スクリーンショット
+# (save-window-excursion (async-shell-command "emacs-test -eval '(load-theme (quote blackboard) t)'"))
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_theme_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20170222055250.png]]
+Fig1: emacs-lisp-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20170222055259.png]]
+Fig2: magit
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20170222055305.png]]
+Fig3: grep
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20170222055310.png]]
+Fig4: outline-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20170222055314.png]]
+Fig5: org-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20170222055318.png]]
+Fig6: dired
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20170222055322.png]]
+Fig7: web-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20170222055325.png]]
+Fig8: markdown-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20170222055332.png]]
+Fig9: helm
+
+
+#+ATTR_HTML: :width 480
+[[https://github.com/don9z/blackboard-theme/blob/master/screenshot.png?raw=true]]
+Fig10: 本家スクリーンショット
+
+
+
+** 設定
+#+BEGIN_SRC fundamental
+(load-theme 'blackboard t)
+#+END_SRC
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ emacs -Q -f package-initialize -eval '(load-theme (quote blackboard) t)'
+#+END_EXAMPLE
+[includeme file="inc-package-relate.php" name="blackboard-theme"]
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
