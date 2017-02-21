@@ -64,7 +64,7 @@ Fig9: helm
 
 
 #+ATTR_HTML: :width 480
-[[https://github.com/don9z/blackboard-theme/blob/master/screenshot.png?raw=true]]
+[[https://raw.githubusercontent.com/don9z/blackboard-theme/master/screenshot.png]]
 Fig10: 本家スクリーンショット
 
 
