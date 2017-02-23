@@ -1,0 +1,123 @@
+#+BLOG: rubikitch
+#+POSTID: 2051
+#+DATE: [2017-02-24 Fri 06:01]
+#+PERMALINK: prassee-theme
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+DESCRIPTION:prassee-theme.elはdoom-themeを元にしたハイコントラストで濃紺がバックのカラーテーマです。
+#+BLOG: rubikitch
+#+CATEGORY: ダーク
+#+EL_PKG_NAME: prassee-theme
+#+TITLE: ハイコントラストで濃紺なカラーテーマ
+#+EL_URL: 
+#+begin: org2blog
+[includeme file="inc-package-table.php" name="prassee-theme" where="melpa"]
+
+#+end:
+** 概要
+*prassee-theme.el* は、以下のパッケージに対応したカラーテーマです。
+作者自身の名前をテーマ名にしています。
+
+- fringe
+- hl-line
+- tooltip
+- secondary-selection
+- show-paren
+- linum
+- font-lock
+- mode-line
+- powerline
+- spaceline
+- dired
+- dired-k
+- iearch
+- window-divider
+- Plugins
+- avy
+- company-mode
+- diff-hl
+- elscreen
+- flycheck
+- git-gutter
+- Helm
+- indent-guide
+- highlight-quoted
+- highlight-numbers
+- highlight-indentation
+- neotree
+- pos-tip
+- stripe-buffer
+- volatile-highlights
+- rainbow-delimiters
+- re-builder
+- which-key
+- whitespace
+- workgroups2
+- css-mode
+- scss-mode
+- js2-mode
+- makefile-mode
+- markdown-mode
+- org-mode
+- web-mode
+
+[includeme file="inc-package-install.php" name="prassee-theme" where="melpa"]
+** スクリーンショット
+# (save-window-excursion (async-shell-command "emacs-test -eval '(load-theme (quote prassee) t)'"))
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_theme_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20170224060627.png]]
+Fig1: emacs-lisp-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20170224060635.png]]
+Fig2: magit
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20170224060639.png]]
+Fig3: grep
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20170224060642.png]]
+Fig4: outline-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20170224060646.png]]
+Fig5: org-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20170224060648.png]]
+Fig6: dired
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20170224060651.png]]
+Fig7: web-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20170224060653.png]]
+Fig8: markdown-mode
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20170224060658.png]]
+Fig9: helm
+
+
+#+ATTR_HTML: :width 480
+[[https://cloud.githubusercontent.com/assets/863188/23050977/871adf92-f4eb-11e6-98da-467fc2d31f5c.png]]
+Fig10: 本家スクリーンショット
+
+
+
+** 設定
+#+BEGIN_SRC fundamental
+(load-theme 'prassee t)
+#+END_SRC
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ emacs -Q -f package-initialize -eval '(load-theme (quote prassee) t)'
+#+END_EXAMPLE
+[includeme file="inc-package-relate.php" name="prassee-theme"]
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
