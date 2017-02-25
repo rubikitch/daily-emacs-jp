@@ -84,7 +84,6 @@ regionに対して独自のコマンドを
 メカニズムも理解しやすいです。
 
 [includeme file="inc-package-install.php" name="selected" where="melpa"]
-[includeme file="inc-package-relate.php" name="selected"]
 ** 設定 [[http://rubikitch.com/f/170225091939.selected.el][170225091939.selected.el(以下のコードと同一)]]
 #+BEGIN: include :file "/r/sync/junk/170225/170225091939.selected.el"
 #+BEGIN_SRC fundamental
@@ -110,6 +109,7 @@ $ wget http://rubikitch.com/f/170225091939.selected.el
 $ emacs -Q -f package-initialize -l 170225091939.selected.el
 #+END_EXAMPLE
 
+[includeme file="inc-package-relate.php" name="selected"]
 
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
