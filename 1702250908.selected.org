@@ -1,0 +1,115 @@
+#+BLOG: rubikitch
+#+POSTID: 2053
+#+DATE: [2017-02-25 Sat 09:08]
+#+PERMALINK: selected
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+DESCRIPTION:selected.elはregionが設定されたときのキーマップselected-keymapを設定できる。メジャーモード固有のselected-MODENAME-mode-mapも設定できる。
+#+BLOG: rubikitch
+#+CATEGORY: キーバインド
+#+EL_PKG_NAME: selected
+#+TAGS: るびきちオススメ, ソース解読推奨, 
+#+TITLE: region設定時のキーマップ設定！メジャーモードにも対応
+#+EL_URL: 
+#+begin: org2blog
+[includeme file="inc-package-table.php" name="selected" where="melpa"]
+
+#+end:
+** 概要
+=selected.el= はregionが設定されているときの
+キーマップを設定できるようにします。
+
+たとえば、本設定を施すとregionを指定した後に
+
+- uを押すと大文字になり
+- dを押すと小文字になり
+- wを押すと単語数を数え
+- mを押すとキーボードマクロを各行に対して実行
+  
+したりします。
+
+regionを設定してから
+C-x C-uではなくてuで操作できるのですから、
+かなり操作性は上がります。
+
+org-modeではregionを指定して
+t で表を作成してくれます。
+
+なぜそのようなことができるかというと、
+regionが存在するとき限定で
+特別なキーマップにアクセスしているからです。
+
+[[http://emacs.rubikitch.com/mykie/][mykie.el]] でもその機能は含まれていますが、
+mykieは複数の機能を持つ新しいコマンドを
+定義するアプローチです。
+
+新しいコマンドを定義するため、
+元のコマンドをremapするパッケージに対しては
+余計な設定を書く必要性が生じることがあります。
+
+selectedは純粋にコマンドを
+割り当てるだけなので
+シンプルかつ純粋です。
+
+regionが与えられたときに
+常に作用するキーマップは 
+=selected-keymap= です。
+
+メジャーモード固有のキーマップは 
+=selected-MODENAME-mode-map= です。
+
+たとえば、org-modeで
+regionが与えられたときには 
+=selected-org-mode-map= が使われます。
+
+メジャーモード固有の
+キーマップを設定するには、
+予め =make-sparse-keymap= で
+キーマップを作成してから
+キーを割り当ててください。
+
+まれにselectedを
+無効にしたいときがあります。
+
+そのときは =
+M-x selected-off= (本設定ではq)
+を使います。
+
+regionに対して独自のコマンドを
+割り当てられるこのパッケージは、
+すべてのEmacsユーザにおすすめできます。
+
+ソースコードは短いので
+メカニズムも理解しやすいです。
+
+[includeme file="inc-package-install.php" name="selected" where="melpa"]
+[includeme file="inc-package-relate.php" name="selected"]
+** 設定 [[http://rubikitch.com/f/170225091939.selected.el][170225091939.selected.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/170225/170225091939.selected.el"
+#+BEGIN_SRC fundamental
+(require 'selected)
+;;; 他のパッケージよりもselectedの設定を優先させる
+(setq selected-minor-mode-override t)
+(selected-global-mode 1)
+(define-key selected-keymap (kbd "q") #'selected-off)
+(define-key selected-keymap (kbd "u") #'upcase-region)
+(define-key selected-keymap (kbd "d") #'downcase-region)
+(define-key selected-keymap (kbd "w") #'count-words-region)
+(define-key selected-keymap (kbd "m") #'apply-macro-to-region-lines)
+
+(setq selected-org-mode-map (make-sparse-keymap))
+(define-key selected-org-mode-map (kbd "t") #'org-table-convert-region)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/170225091939.selected.el
+$ emacs -Q -f package-initialize -l 170225091939.selected.el
+#+END_EXAMPLE
+
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
