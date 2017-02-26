@@ -1,0 +1,80 @@
+#+BLOG: rubikitch
+#+POSTID: 2056
+#+DATE: [2017-02-26 Sun 08:46]
+#+PERMALINK: generic-x
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+DESCRIPTION:(require 'generic-x)を設定に加えることで、多くの設定ファイル専用のメジャーモードが定義される。デフォルトのconf-modeよりもキーワードハイライトがきちんとしている。
+#+BLOG: rubikitch
+#+CATEGORY: 見やすく表示
+#+TAGS: 設定ファイル, 
+#+TITLE: あなたは知ってる？多くの設定ファイル用メジャーモードがあるけど…
+#+begin: org2blog-tags
+# content-length: 2501
+
+#+end:
+コンピュータをいじっていると、
+色々な設定ファイルを触ることになりますね。
+
+たとえばUnix系OSだと、
+- /etc/fstab
+- /etc/passwd
+などなどがあります。
+
+とくに頻繁に触るファイルについては
+メジャーモードが欲しいと思い、
+パッケージや設定を探す人がいると思います。
+
+実は、以下のたった1行の設定で
+多くの設定ファイル用のメジャーモードが
+定義されるようになります！
+
+#+BEGIN_SRC emacs-lisp :results silent
+(require 'generic-x)
+#+END_SRC
+
+一応/etc/passedなどは定義が弱い 
+=conf-mode= や =conf-space-mode= などの
+モードになるように設定されています。
+
+=auto-mode-alist= のデフォルトの定義を抜粋すると…
+
+#+BEGIN_SRC emacs-lisp :results silent
+     ;; Windows candidates may be opened case sensitively on Unix
+     ("\\.\\(?:[iI][nN][iI]\\|[lL][sS][tT]\\|[rR][eE][gG]\\|[sS][yY][sS]\\)\\'" . conf-mode)
+     ("\\.\\(?:desktop\\|la\\)\\'" . conf-unix-mode)
+     ("\\.ppd\\'" . conf-ppd-mode)
+     ("java.+\\.conf\\'" . conf-javaprop-mode)
+     ("\\.properties\\(?:\\.[a-zA-Z0-9._-]+\\)?\\'" . conf-javaprop-mode)
+     ("\\`/etc/\\(?:DIR_COLORS\\|ethers\\|.?fstab\\|.*hosts\\|lesskey\\|login\\.?de\\(?:fs\\|vperm\\)\\|magic\\|mtab\\|pam\\.d/.*\\|permissions\\(?:\\.d/.+\\)?\\|protocols\\|rpc\\|services\\)\\'" . conf-space-mode)
+     ("\\`/etc/\\(?:acpid?/.+\\|aliases\\(?:\\.d/.+\\)?\\|default/.+\\|group-?\\|hosts\\..+\\|inittab\\|ksysguarddrc\\|opera6rc\\|passwd-?\\|shadow-?\\|sysconfig/.+\\)\\'" . conf-mode)
+     ;; ChangeLog.old etc.  Other change-log-mode entries are above;
+     ;; this has lower priority to avoid matching changelog.sgml etc.
+     ("[cC]hange[lL]og[-.][-0-9a-z]+\\'" . change-log-mode)
+     ;; either user's dot-files or under /etc or some such
+     ("/\\.?\\(?:gitconfig\\|gnokiirc\\|hgrc\\|kde.*rc\\|mime\\.types\\|wgetrc\\)\\'" . conf-mode)
+     ;; alas not all ~/.*rc files are like this
+     ("/\\.\\(?:enigma\\|gltron\\|gtk\\|hxplayer\\|net\\|neverball\\|qt/.+\\|realplayer\\|scummvm\\|sversion\\|sylpheed/.+\\|xmp\\)rc\\'" . conf-mode)
+     ("/\\.\\(?:gdbtkinit\\|grip\\|orbital/.+txt\\|rhosts\\|tuxracer/options\\)\\'" . conf-mode)
+     ("/\\.?X\\(?:default\\|resource\\|re\\)s\\>" . conf-xdefaults-mode)
+     ("/X11.+app-defaults/\\|\\.ad\\'" . conf-xdefaults-mode)
+     ("/X11.+locale/.+/Compose\\'" . conf-colon-mode)
+     ;; this contains everything twice, with space and with colon :-(
+     ("/X11.+locale/compose\\.dir\\'" . conf-javaprop-mode)
+#+END_SRC
+
+ですが、generic-x.elの方が
+キーワードハイライトがきっちりされています。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20170226085833.png]]
+Fig1: デフォルト
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20170226085838.png]]
+Fig2: generic-xロード後
+
+知らない人はぜひとも設定してみてください。
+
