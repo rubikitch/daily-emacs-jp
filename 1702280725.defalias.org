@@ -1,0 +1,84 @@
+#+BLOG: rubikitch
+#+POSTID: 2058
+#+DATE: [2017-02-28 Tue 07:25]
+#+PERMALINK: defalias
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+DESCRIPTION:defaliasは関数の別名を定義する関数。これを利用して長いコマンドの短縮名を定義しよう。
+#+BLOG: rubikitch
+#+CATEGORY: Emacsコマンド実行
+#+TAGS: defalias
+#+TITLE: キー割り当て問題に対する意外な解決策:defalias
+#+begin: org2blog-tags
+# content-length: 1209
+
+#+end:
+諸事情で昨日休んでしまいました。
+
+落ち着くまで間が空くかもしれません。
+
+御了承ください。
+
+さて、、、
+
+** キー割り当ての限界
+
+Emacsの設定をするとき、
+どうしても悩んでしまうのが
+キー割り当てですよね。
+
+せっかく便利なコマンドを知ったのに、
+キーに割り当てる場所が見付からなくて、
+結局忘却の彼方へ…
+
+/そんなの、もったいなさすぎます。/
+
+「C-c 文字」はユーザ側が
+自由に使えるように予約されています。
+
+Infoより引用すると…
+
+#+BEGIN_QUOTE
+    Don't define `C-c LETTER' as a key in Lisp programs.  Sequences
+     consisting of `C-c' and a letter (either upper or lower case) are
+     reserved for users; they are the *only* sequences reserved for
+     users, so do not block them.
+#+END_QUOTE
+
+一見たくさん割り当てられそうですが、
+記憶に負荷をかけてしまう問題があります。
+
+かといって毎回
+M-xで実行するのも面倒ですよね。
+
+** 中途半端コマンドにはdefalias 
+/キーに割り当てるほどではないけど、/
+/M-xで毎回起動するのも面倒/
+
+という中途半端なコマンドへの対処のひとつが
+=defalias= を使うことです。
+
+defaliasは関数の別名を定義する関数です。
+
+defaliasで短縮名を自分で定義すれば、
+M-x経由でも面倒にはなりません。
+
+しかもM-xを圧倒的に使いやすくした
+- [[http://emacs.rubikitch.com/smex/][smex.el]]
+- [[http://emacs.rubikitch.com/helm-smex][helm-smex.el]]
+を使えば、最近M-xで使ったコマンドが上の方に出てきます。
+
+** 使用例
+では、実際に短縮コマンドを定義しましょう。
+
+#+BEGIN_SRC emacs-lisp :results silent
+;;; query-replace-regexpをqrrで実行できるようにする
+(defalias 'qrr 'query-replace-regexp)
+(defalias 'dbg 'toggle-debug-on-error)
+#+END_SRC
+
+/「あえてキーに割り当てないスタイル」/
+も悪くはないのではないでしょうか。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
