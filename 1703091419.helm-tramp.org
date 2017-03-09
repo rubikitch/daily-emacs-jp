@@ -1,0 +1,47 @@
+#+BLOG: rubikitch
+#+POSTID: 2064
+#+DATE: [2017-03-09 Thu 14:19]
+#+PERMALINK: helm-tramp
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+DESCRIPTION:helm-tramp.elは~/.ssh/configで定義されているhostをhelmインターフェースで選択し、Trampを使って開く。
+#+BLOG: rubikitch
+#+CATEGORY: ネットワーク
+#+EL_PKG_NAME: helm-tramp
+#+TAGS: helm, tramp, 
+#+TITLE: SSHホストをhelmインターフェースで選択しTrampで開く
+#+EL_URL: 
+#+begin: org2blog
+[includeme file="inc-package-table.php" name="helm-tramp" where="melpa"]
+
+#+end:
+** 概要
+ =helm-tramp.el= は ~/.ssh/config 内で書かれているサーバをhelmインターフェースで選択し、Trampで開きます。
+現在のところ ssh のみ対応しています。
+~/.ssh/configが存在しないときは動作しません。
+
+僕の環境では
+#+BEGIN_EXAMPLE
+Host github.com
+略
+#+END_EXAMPLE
+と書いていますので、以下の2つが候補に出てきます。
+
+#+BEGIN_EXAMPLE
+/scp:github.com:/
+/scp:github.com|sudo:github.com:/
+#+END_EXAMPLE
+
+アクションはそのまま開く( =find-file= ) だけです。
+
+多くのSSHホストを管理してTrampで開くのであれば便利です。
+
+anythingインターフェースの =anything-tramp= パッケージも存在します。
+
+
+[includeme file="inc-package-install.php" name="helm-tramp" where="melpa"]
+[includeme file="inc-package-relate.php" name="helm-tramp"]
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
