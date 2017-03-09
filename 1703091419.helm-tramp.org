@@ -41,7 +41,6 @@ anythingインターフェースの =anything-tramp= パッケージも存在し
 
 
 [includeme file="inc-package-install.php" name="helm-tramp" where="melpa"]
-[includeme file="inc-package-relate.php" name="helm-tramp"]
 
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
