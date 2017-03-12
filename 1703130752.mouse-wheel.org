@@ -1,0 +1,114 @@
+#+BLOG: rubikitch
+#+POSTID: 2067
+#+DATE: [2017-03-13 Mon 07:52]
+#+PERMALINK: mouse-wheel
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+DESCRIPTION:
+#+BLOG: rubikitch
+#+CATEGORY: カーソル移動
+#+TAGS: マウス, 
+#+TITLE: マウスホイールでのスクロールを超快適にする3つの変数設定
+#+begin: org2blog-tags
+# content-length: 1633
+
+#+end:
+意外に思うかもしれませんが、
+僕はEmacsでそれなりにマウスも使います。
+
+たとえば文章の校正や
+フォーマッティング(整形)をするときに
+[[http://emacs.rubikitch.com/mouse-newline-mode/][マウスを使って改行]] しています。
+
+ところが、Emacsにおける
+マウスホイールの挙動が
+ストレスフルでした。
+
+なぜなら、
+
+1. ホイールで一気に5行も進んでしまう
+2. 1行進むのにShiftを押す必要がある
+3. ホイールを速く移動させるとたくさんスクロールしてしまう
+4. 画面上におけるカーソルが変わってしまう(*1)
+
+からです。
+** マウスホイールでスクロールする行数を変更する
+そこで、マウスホイールで
+スクロールする行数を
+以下のように変更することで、
+快適になりました。
+
+1. ホイールで1行ごとにスクロールする
+2. Shiftを押しながらホイールを動かすと2行スクロールする
+3. Ctrlを押しながらホイールを動かすと1画面スクロールする
+4. ホイールの速度に関わらずスクロールする行数を一定にする
+
+1〜3の挙動は 
+=mouse-wheel-scroll-amount= を
+設定すればできます。
+
+4の挙動は 
+=mouse-wheel-progressive-speed= を
+nilにします。
+
+#+BEGIN_SRC emacs-lisp :results silent
+(setq
+ ;; ホイールでスクロールする行数を設定
+ mouse-wheel-scroll-amount '(1 ((shift) . 2) ((control)))
+ ;; 速度を無視する
+ mouse-wheel-progressive-speed nil)
+#+END_SRC
+** 画面上のカーソル位置を一定にする
+Emacsのデフォルトの設定では
+行単位でスクロールすると
+画面上のカーソル位置が
+変わってしまいます。
+
+マウスホイールとは直接関係ありませんが、
+これがまたストレスフルなんです。
+
+なぜなら、バッファを読んでいるときの
+普段の目線(おそらくですが)
+画面の真ん中です。
+
+ところがスクロールにともない
+カーソル位置が上や下に移動してしまうと、
+目線が無意識にカーソルに向かってしまいます。
+
+そうなると迷子になってしまいます。
+
+<f1> nなどで長いバッファを
+読んでみるとわかります。
+
+そこで、 
+=scroll-preserve-screen-position= を
+設定すれば、
+画面上のカーソル位置が一定になります。
+
+#+BEGIN_SRC emacs-lisp :results silent
+(setq scroll-preserve-screen-position 'always)
+#+END_SRC
+
+マウスホイールと合わせて
+活用してみてください。
+** まとめ
+Emacsユーザはもしかしたら
+キーボード偏重主義に
+なっているかもしれません。
+
+けれども快適な設定にしてしまえば
+マウスも十分使えます。
+
+そこで以下の3つの変数を設定しました。
+
+1. mouse-wheel-scroll-amount
+2. mouse-wheel-progressive-speed
+3. scroll-preserve-screen-position
+
+マウスもうまく使っていきましょう。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+
+** 参考ページ
+- [[http://yohshiy.blog.fc2.com/blog-entry-320.html][Emacs におけるスクロールの挙動とその設定 | プログラマーズ雑記帳]]
