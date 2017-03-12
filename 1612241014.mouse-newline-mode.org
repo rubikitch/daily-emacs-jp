@@ -11,7 +11,7 @@
 #+TAGS: 長い行, マウス, 
 #+TITLE: ブログやメルマガを圧倒的に読みやすくする3ステップ(コード付き)
 #+begin: org2blog-tags
-# content-length: 3755
+# content-length: 3918
 
 #+end:
 ** こまめな改行のススメ
@@ -141,18 +141,34 @@ mouse-newline-face-height
 
 (defun mouse-newline (event)
   (interactive "e")
+  (setq-local inhibit-read-only t)
   (posn-set-point (event-end event))
   (cond ((org-in-item-p)
          (insert "\n ")
          (org-indent-line))
         (t
          (insert "\n"))))
+(defun mouse-open-line (event)
+  (interactive "e")
+  (setq-local inhibit-read-only t)
+  (posn-set-point (event-end event))
+  (open-line 1))
+(defun mouse-newline-and-recenter (event)
+  (interactive "e")
+  (mouse-newline event)
+  (recenter))
 (defun mouse-delete-indentation (event)
   (interactive "e")
   (posn-set-point (event-end event))
   (delete-indentation)
-  (when (eq (char-after) ?\s)
+  (when (and (not (< 0 (char-before) 127 ))
+             (eq (char-after) ?\s))
     (delete-char 1)))
+
+(defun mouse-delete-char (event)
+  (interactive "e")
+  (mouse-set-point event)
+  (delete-char 1))
 
 (defvar mouse-newline-face-remap-cookie nil)
 
@@ -160,8 +176,10 @@ mouse-newline-face-height
 (define-minor-mode mouse-newline-mode
   "Insert and delete newline by mouse"
   nil " Mouse\\n"
-  '(([mouse-1] . mouse-newline)
-    ([mouse-3] . mouse-delete-indentation))
+  '(([mouse-1] . mouse-newline-and-recenter)
+    ([mouse-3] . mouse-delete-indentation)
+    ([mouse-7] . mouse-set-point)
+    ([mouse-6] . mouse-delete-char))
   (cond (mouse-newline-mode
          (visible-mode -1)
          (setq mouse-newline-face-remap-cookie
@@ -277,3 +295,6 @@ M-x mouse-newline-mode
 あなたもこまめな改行を使って
 読みやすい記事書いてみましょう。
 
+マウスホイールによる快適なスクロールの設定は
+[[http://emacs.rubikitch.com/mouse-wheel/][マウスホイールでのスクロールを超快適にする3つの変数設定]]
+を見てください。
