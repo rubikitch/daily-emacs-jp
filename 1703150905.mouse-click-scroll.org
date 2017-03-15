@@ -11,7 +11,7 @@
 #+TAGS: マウス, るびきちオススメ, 
 #+TITLE: シンプル！マウスクリックでいつでもスクロールする設定
 #+begin: org2blog-tags
-# content-length: 2032
+# content-length: 2033
 
 #+end:
 少し前から
@@ -84,7 +84,10 @@
     ([mouse-2] . mouse-set-point)
     ([mouse-3] . mouse-click-scroll)
     ([down-mouse-1] . ignore)
-    ([down-mouse-3] . ignore))
+    ([down-mouse-3] . ignore)
+    ([C-down-mouse-2] . ignore)
+    ([drag-mouse-1] . ignore)
+    ([drag-mouse-3] . ignore))
   :global t)
 
 (mouse-click-scroll-mode 1)
