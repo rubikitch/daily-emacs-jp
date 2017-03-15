@@ -5,7 +5,7 @@
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
 #+ISPAGE: nil
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
-#+DESCRIPTION:
+#+DESCRIPTION:マウスホイールでスクロールを快適にする設定。デフォルトでは一気にスクロールしてしまうけど、この設定を加えればカーソル位置も一定になり、少しずつ快適にスクロールできるようになる。
 #+BLOG: rubikitch
 #+CATEGORY: カーソル移動
 #+TAGS: マウス, 
