@@ -1,0 +1,114 @@
+#+BLOG: rubikitch
+#+POSTID: 2073
+#+DATE: [2017-03-15 Wed 09:05]
+#+PERMALINK: mouse-click-scroll
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+DESCRIPTION:マウスクリックで常にスクロールするための設定。ノートパソコンでは特におすすめ。
+#+BLOG: rubikitch
+#+CATEGORY: カーソル移動
+#+TAGS: マウス, るびきちオススメ, 
+#+TITLE: シンプル！マウスクリックでいつでもスクロールする設定
+#+begin: org2blog-tags
+# content-length: 2032
+
+#+end:
+少し前から
+マウスのありかたについて
+考えていました。
+
+しばらく使っていると、
+僕の場合ですが、マウスは
+主にバッファを閲覧する目的で使うと
+快適になることがわかりました。
+
+普段はあまりマウスを使わないのですが、
+稼働率が低いのでは
+やはり勿体ないと思っています。
+
+一昨日は [[http://emacs.rubikitch.com/mouse-wheel/][マウスホイールでスムーズスクロール]] を
+実現させました。
+
+今度は左右クリックも
+ほとんど使っていなかったことに気付きましたので、
+左右クリックによる画面単位の
+スクロールを設定してみました。
+
+思えばダブルクリックも
+まったく使っていませんでした。
+
+使う必要性を感じていません。
+
+というわけで、
+/マウスカーソルのウィンドウをスクロールするための道具/
+という位置付けにしています。
+
+とくにノートパソコンのトラックパッドは
+細かい位置調整がしづらいですので、
+これくらい思い切った設定も
+悪くはないと思います。
+
+以下の設定を加えると
+
+1. ダブルクリックが無効になる
+2. 左クリックでC-vの効果
+3. 右クリックでM-vの効果
+4. 中クリックでマウスカーソル移動
+5. マイナーモードなのでメジャーモードのマウス設定より優先する
+
+となります。
+
+なお、ウィンドウ大きさの
+調整などは普通に使えます。
+
+** 設定 [[http://rubikitch.com/f/170315091753.mouse-click-scroll.el][170315091753.mouse-click-scroll.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/170315/170315091753.mouse-click-scroll.el"
+#+BEGIN_SRC fundamental
+(defun mouse-click-scroll (e)
+  (interactive "e")
+  (let ((curwin (prog1
+                    (selected-window)
+                  (select-window (posn-window (event-start e))))))
+    (unwind-protect
+        (funcall (if (eq (event-basic-type e) 'mouse-1)
+                     'scroll-up
+                   'scroll-down))
+      (select-window curwin))))
+
+;; (makunbound 'mouse-click-scroll-mode-map)
+(define-minor-mode mouse-click-scroll-mode
+  "マウスクリックで画面単位でスクロールする"
+  nil ""
+  '(([mouse-1] . mouse-click-scroll)
+    ([mouse-2] . mouse-set-point)
+    ([mouse-3] . mouse-click-scroll)
+    ([down-mouse-1] . ignore)
+    ([down-mouse-3] . ignore))
+  :global t)
+
+(mouse-click-scroll-mode 1)
+
+;; 面倒なのでダブルクリックは無効にする
+(setq double-click-time nil)
+
+;; orgのマウス操作を無効にする
+(with-eval-after-load "org"
+  (setq org-mouse-map nil))
+;;key-translation-mapで余計なことをさせないようにする
+(define-key key-translation-map [down-mouse-1] nil)
+(define-key key-translation-map [double-down-mouse-1] nil)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/170315091753.mouse-click-scroll.el
+$ emacs -Q -l 170315091753.mouse-click-scroll.el
+#+END_EXAMPLE
+
+
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
