@@ -1,0 +1,479 @@
+#+BLOG: rubikitch
+#+POSTID: 2077
+#+DATE: [2017-03-16 Thu 05:39]
+#+PERMALINK: english-reading
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+DESCRIPTION:日本人の英語が苦手な原因をEmacsで解決。環境を整え、苦手意識の原因を排除し、マウスをフル活用すれば英語をスラスラ読めるようになる。
+#+BLOG: rubikitch
+#+CATEGORY: ドキュメント
+#+TAGS: マウス, 
+#+TITLE: 英語が苦手な4つの原因をブチ壊してスラスラ読む術！完全克服の道
+#+begin: org2blog-tags
+# content-length: 7202
+
+#+end:
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+あなたは英文をスラスラと読めますか？
+
+そうだとしたら、うらやましいです。
+
+僕はけっこう英語が苦手でした。
+
+ですが、、、
+
+英文読解が滞っている原因を突き止め、
+それをEmacsを使って
+システム的に解消していくことで、
+少しずつ読むのが速くなってきました。
+
+それではその方法を紹介していきます。
+
+#+TOC: headlines 2
+
+** コンピュータ上の英文をスラスラ読めない原因
+我々エンジニアにとって
+英語は必須です。
+
+なぜなら、ソフトウェアなどの
+ドキュメントのほとんどが
+英語で書かれているからです。
+
+もちろん人気あるソフトウェアについては
+日本語訳が存在しますが、
+往々にして古いです。
+
+ネットで検索しても、
+古い情報に当たってしまい、
+最新版では通用しないことも
+経験しているでしょう。
+
+ですから、最新情報を得るためには
+英語のドキュメントは避けられません。
+
+ですが、英語が苦手な
+日本人はけっこういます。
+
+大量の英語を見て
+逃げだしそうになる人もいるでしょう。
+
+/わかります、僕だってそうですから笑/
+
+でも、このままでは
+いつまでたっても成長できません。
+
+どうすれば英語をスラスラ読んで
+理解できるようになるのかを、
+僕なりに考えてみました。
+
+英語読解を妨げている原因を
+潰していけばいいのです。
+
+1. 集中力不足
+2. 苦手意識
+3. *1行の長さが長い*
+4. 完璧主義
+
+ひとつひとつ潰していきましょう。
+** 集中力不足
+我々日本人が英語を読み書きするには、
+日本語よりも集中力が要求されます。
+
+ネイティブではない以上、
+それは言うまでもありません。
+
+集中力は *他力* です。
+
+「よしっ、集中するぞ」
+
+と身構えるのではなく、
+集中できる環境を
+作っていくことが大切です。
+
+集中力は環境作りでほぼ決まってきます。
+
+日頃から体調を整えるのは
+言うまでもありません。
+
+自分なりのエネルギーが高まる
+パターンを発見しましょう。
+
+Emacs上で英語を読む場合はたとえば…
+
+- Emacsを最大化表示する
+- LINEやTwitterなどの通知をオフにする
+- 携帯電話の電源を切る
+- ブラウザを閉じる
+- 目が疲れにくいカラーテーマにする
+- 文字を大きくする
+- 波や雨音など集中力が上がる音を見付ける
+
+などが考えられます。
+
+集中力が途切れないようにするためには、
+一定時間ごとに強制的に休憩を入れ、
+軽く身体を動かしてみましょう。
+
+疲れが来る前に休めば回復は早いです。
+
+** 苦手意識
+次にやっつけなければならない敵は 
+*苦手意識* です。
+
+「俺は英語が苦手だ」
+と思っていては、
+本当に英語が苦手になってしまいます。
+
+思考は現実化しますので
+いつまでたっても上達しなくなります。
+
+周りに英語が得意な人がいて、
+劣等感を感じているかもしれません。
+
+悔しくてたまらないでしょう。
+
+苦手意識というのは、
+言葉が示すように
+「意識」の問題です。
+
+意識を変えてしまえば、
+苦手意識というものはなくなってきます。
+
+ようは「とらえかた」です。
+
+とらえかた一つで
+何もかも変わってきます。
+
+子供のころ、
+初めて英語に出会ったときを
+思い出してください。
+
+子供は好奇心旺盛ですから、
+「なんだろう？」と思った
+のではないでしょうか？
+
+「ABCの歌」は楽しく歌っていた
+のではないでしょうか？
+
+その後は
+テストがあったり
+単語が覚えられなかったりで
+挫折していたかもしれませんが…
+
+これは教育の問題ですので…。
+
+本来、人間は新しいものを
+学ぶことは楽しいものです。
+
+楽しかった頃を思い出してください。
+
+さて、、、
+
+競争社会に生きている以上
+ある程度は仕方ないかもしれませんが、
+他人との比較もよくありません。
+
+他人と比べるから
+劣等感が生じるのです。
+
+/今のあなたは、過去のどのあなたよりも頭がよいのです！/
+
+なぜなら、過去のあなたよりも
+たくさん知識もスキルも経験も
+積んでいるのですから。
+
+間違いなく今のあなたは
+中1の頃のあなたよりも
+英語は読み書きできます。
+
+比べるならば、
+他人ではなくて過去の自分自身です。
+
+苦手意識は他人との比較で
+生まれてしまったのです。
+
+これから、新しい気持ちで
+英語と接してみてください。
+
+/「どうすれば英語を楽しく読めるのか」/
+
+と問い掛けてみましょう。
+
+その答えのひとつを僕が提示します。
+** 1行の長さが長い
+英語力が育っていない人は、
+
+1. 英語を一度日本語に翻訳してしまう
+2. 一度に理解できる単語の数が少ない
+
+ため、英語を読むのが遅いです。
+
+どちらの問題もEmacsを
+使っているのならば解決できます。
+
+第一の問題として、英語を理解するのに、
+日本語にわざわざ翻訳する必要はありません。
+
+少し慣れが必要ですが、
+頭から英語を英語として
+理解してしまいましょう。
+
+語順が異なるだけですから。
+
+第二の問題も、
+英語を英語として理解できる単語数に砕けば
+解決してしまいます。
+
+多くの英語ドキュメントは
+1行70文字くらいで書かれています。
+
+しかし、よほど慣れた人でない限り、
+1行ぎっしりと書かれた英語を
+スラスラと読むのは厳しいでしょう。
+
+一度に理解できる単語の数が少ないと、
+理解するために戻り読みしたりして、
+再び元の位置に戻るまでの
+手間もかかります。
+
+では、どうすればいいかというと、
+
+英語を理解できる範囲で
+勝手に改行を入れてしまえばいいのです！
+
+たとえば、簡単な例でいえば
+#+BEGIN_EXAMPLE
+Emacs is the extensible, customizable, self-documenting real-time display editor.
+#+END_EXAMPLE
+
+ならば
+
+#+BEGIN_EXAMPLE
+Emacs is
+the extensible,
+customizable,
+self-documenting
+real-time display editor.
+#+END_EXAMPLE
+のように改行を入れていきます。
+
+このようにすれば、
+わざわざ英語を日本語に翻訳することなく
+理解できるはずです。
+
+もちろん、この例は
+理解できる単語数が最小である場合ですので、
+理解できる範囲内で改行を入れるといいです。
+
+思えば僕は高校の頃、英語の先生から
+「理解できる語句を/で区切れ」
+と教わったのを思い出しました。
+
+それをEmacsで行うのです。
+
+また、最近Web・メルマガライティングを学んでいますが、
+- 1行の長さを短くする
+- 箇条書きを頻繁に使う
+と教わっています。
+
+上記の例では
+- the extensible
+- customizable
+- self-documenting
+- real-time display editor
+のように箇条書きに見えるため、
+理解しやすいです。
+
+日本語でさえも
+短い1行文字数＋箇条書きだけで
+読みやすくなるのですから、
+英語で効果てきめんなのは言うまでもないです。
+
+ちなみに
+[[http://fish.rubikitch.com/][fishドキュメント全訳]] においても、
+理解しやすいように
+箇条書きに変換している部分が多数あります。
+** わからない単語を逐一調べてしまう
+日本人は学校で英語を
+「すべてちゃんと理解する」
+ように教育されてきました。
+
+完璧主義になるように
+教育されてきたのです。
+
+けれども、果たして
+完璧主義はいいものでしょうか？
+
+僕は完璧主義は手放した方が
+いいと思っています。
+
+完璧主義がもたらす習慣として、
+英語でわからない単語があったら
+すぐに調べてしまうことです。
+
+わからない単語があった時点で
+1. 英語を読む作業から調べる作業に切り替わり、
+2. 日本語で意味を表示してから、
+3. 再び英語を読む作業に戻ります。
+   
+これを繰り返していたら、
+タスクが切り替わりまくって
+疲れてしまいます。
+
+そこで、逆転の発想で、
+/わからない単語は飛ばしてしまう/
+ことをおすすめします。
+
+読み進めるにつれて、
+英語全体が理解できるように
+なってくるからです。
+
+細かいところに足をとられていては、
+全体像の理解を妨げてしまいます。
+
+いわば「木を見て森を見ず」状態です。
+
+それならば、わからない単語で困ったら、
+その単語をEmacsでハイライトして、
+読み終わった時に一度に調べてしまえばいいです。
+
+一度読み終わった後は、
+英語は短い文字数で改行されていて
+読みやすい状態になっていますから、
+理解するのが楽になります。
+
+** 結論:マウスを有効活用して英語を克服する！
+僕は昔からキーボード偏重主義でしたが、
+最近になって考えが変わり始めました。
+
+閲覧目的においては
+マウスが適任だと
+やっと気付いたのです。
+
+英語読解においても
+マウスで改行を入れていくと
+サクサク読めます。
+
+- 英語を読むときは =M-x english-reading= を実行して準備する
+  - バッファの内容がコピーされる
+  - コメント文字を除去する
+  - english-reading-modeというメジャーモードになる
+  - クリックしやすいように文字が大きくなる
+- ホイールで3行ずつスクロール
+- 左クリックでカーソル位置の単語の直後に改行を入れる
+- 中クリックでカーソル位置の単語をハイライト
+- 右クリックで前の行とつなげる
+
+要は
+- 理解できる範囲で左クリックで改行を入れ
+- 中途半端な改行は右クリックでつなげ
+- わからない単語や注意したい単語は中クリックでハイライトして
+- ホイールで徐々にスクロールしていけば
+Emacs上で楽に英語を読めるようになります。
+
+しかもマウスクリックが
+リズムをもたらしてくれますので、
+楽しく読めるようになります。
+
+** 設定 [[http://rubikitch.com/f/mylisp-english-reading.el][mylisp-english-reading.el(以下のコードと同一)]]
+HEREと書いている部分は
+お好みに合わせて
+カスタマイズしてください。
+
+#+BEGIN: include :file "/r/sync/emacs/init.d/mylisp-english-reading.el"
+#+BEGIN_SRC fundamental
+(defun english-reading ()
+  (interactive)
+  (let ((bname (format "*ER:%s*" (buffer-name)))
+        (pt (point))
+        (ws (window-start))
+        (mode major-mode)
+        (cb (current-buffer)))
+    (switch-to-buffer (generate-new-buffer bname))
+    (funcall mode)
+    (insert-buffer-substring-no-properties cb)
+    (goto-char pt)
+    (set-window-start (selected-window) ws)
+    ;; uncomment-region-function in org-mode is org-comment-or-uncomment-region
+    ;; so, uncomment-region COMMENTS whole buffer.
+    (when (and comment-start
+               (not (memq major-mode '(org-mode))))
+      (uncomment-region (point-min) (point-max)))
+    (english-reading-mode)))
+
+(defun english-reading-mouse-open-line (event)
+  (interactive "e")
+  (setq-local inhibit-read-only t)
+  (posn-set-point (event-end event))
+  (unless (eq ?\  (char-syntax (char-after)))
+    (forward-word 1))
+  (open-line 1))
+
+(defun english-reading-mouse-highlight-current-word (e)
+  (interactive "e")
+  (mouse-set-point e)
+  (let ((bow (bounds-of-thing-at-point 'word)))
+    (overlay-put (make-overlay (car bow) (cdr bow))
+                 'face 'highlight)))
+
+(defun english-reading-mouse-delete-indentation (event)
+  (interactive "e")
+  (posn-set-point (event-end event))
+  (delete-indentation)
+  (when (and (not (< 0 (char-before) 127 ))
+             (eq (char-after) ?\s))
+    (delete-char 1)))
+
+(define-derived-mode english-reading-mode text-mode "ER"
+  (when (bound-and-true-p mouse-click-scroll-mode)
+    (setq-local mouse-click-scroll-mode nil))
+  (setq-local mouse-wheel-scroll-amount '(3))    ; HERE!
+  (face-remap-add-relative 'default :height 300) ; HERE!
+  (define-key english-reading-mode-map (kbd "<down-mouse-1>") 'ignore)
+  (define-key english-reading-mode-map (kbd "<down-mouse-2>") 'ignore)
+  (define-key english-reading-mode-map (kbd "<down-mouse-3>") 'ignore)
+  (define-key english-reading-mode-map (kbd "<mouse-1>") 'english-reading-mouse-open-line)
+  (define-key english-reading-mode-map (kbd "<mouse-2>") 'english-reading-mouse-highlight-current-word)
+  (define-key english-reading-mode-map (kbd "<mouse-3>") 'english-reading-mouse-delete-indentation))
+
+(provide 'mylisp-english-reading)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/mylisp-english-reading.el
+$ emacs -Q -l mylisp-english-reading.el
+#+END_EXAMPLE
+** まとめ
+英語ドキュメントが苦手な原因は
+1. 集中力不足
+2. 苦手意識
+3. 理解できる語数＜1行の長さ
+4. わからない単語を逐一調べる
+ことにあると僕は考えています。
+
+そこで、
+1. 集中できる環境を整え
+2. 苦手意識をとらえ直し
+3. Emacs内で英語読解を支援するコマンドを定義する
+方法を提案しました。
+
+M-x english-readingを実行してからマウスを使って
+- 左クリックで理解できる範囲の単語を区切り
+- 右クリックで中途半端な改行をつなげ
+- ホイールで3行ずつスクロールし
+- 中クリックでわからない・注目したい単語をハイライトして
+どんどん読み進めていきます。
+
+わからない単語は
+読み終わった後で調べましょう。
+
+とにかく、英文を読むときは
+集中して読み込むことです。
+
+本記事が英語克服の助けになれば幸いです。
