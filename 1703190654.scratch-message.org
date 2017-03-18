@@ -1,0 +1,81 @@
+#+BLOG: rubikitch
+#+POSTID: 2079
+#+DATE: [2017-03-19 Sun 06:54]
+#+PERMALINK: scratch-message
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+DESCRIPTION:scratch-message.elは*scratch*バッファに名言を表示させる。言霊のパワーであなたの生産性もアップ？
+#+BLOG: rubikitch
+#+CATEGORY: scratchバッファ
+#+EL_PKG_NAME: scratch-message
+#+TAGS: 
+#+TITLE: 【日本語対応】*scratch*バッファを言霊でパワーアップ
+#+EL_URL: 
+#+begin: org2blog
+[includeme file="inc-package-table.php" name="scratch-message" where="melpa"]
+
+#+end:
+** 概要
+あなたは*scratch*バッファを
+使う方ですか？
+
+そしたら、
+*scratch*バッファを
+パワーアップさせてみましょう。
+
+パワーアップといっても、
+機能的なパワーアップではないのですが…
+
+エネルギー的なパワーアップです。
+
+言葉というのは、
+たった一言で相手を元気づけたり、
+逆に一生消えないトラウマを作ったりもします。
+
+偉人の残した名言には
+「言霊」というエネルギーが
+こめられています。
+
+それにより、人々が鼓舞されます。
+
+そこで*scratch*バッファに
+偉人の名言を入れてみるのは
+どうでしょうか？
+
+マイナーモード =scratch-message-mode= を有効にすると、
+*scratch*バッファを表示させるたびに名言が変わります。
+
+とはいえ、デフォルトで用意されている
+メッセージは英語ですので、
+本設定では日本人の名言にしておきます。
+
+#+ATTR_HTML: :width 480
+[[file:/r/sync/screenshots/20170319070746.png]]
+Fig1: 名言を*scratch*バッファに挿入
+
+
+
+[includeme file="inc-package-install.php" name="scratch-message" where="melpa"]
+** 設定 [[http://rubikitch.com/f/170319070440.scratch-message.el][170319070440.scratch-message.el(以下のコードと同一)]]
+#+BEGIN: include :file "/r/sync/junk/170319/170319070440.scratch-message.el"
+#+BEGIN_SRC fundamental
+;;; 日本語の名言を変数scratch-message-quotesに設定するためにファイルで読み込む
+(load "scratch-message-quotes-ja")
+(setq scratch-message-invisible nil)
+(scratch-message-mode 1)
+(run-with-timer 0.1 nil 'funcall scratch-message-function)
+#+END_SRC
+
+#+END:
+
+** 実行方法
+#+BEGIN_EXAMPLE
+$ wget http://rubikitch.com/f/170319070440.scratch-message.el
+$ wget http://rubikitch.com/f/scratch-message-quotes-ja.el
+$ emacs -Q -f package-initialize -L . -l 170319070440.scratch-message.el
+#+END_EXAMPLE
+
+
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
