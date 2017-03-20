@@ -11,7 +11,7 @@
 #+TAGS: マウス, 
 #+TITLE: 英語が苦手な4つの原因をブチ壊してスラスラ読む術！完全克服の道
 #+begin: org2blog-tags
-# content-length: 7202
+# content-length: 7203
 
 #+end:
 
@@ -394,6 +394,7 @@ HEREと書いている部分は
         (cb (current-buffer)))
     (switch-to-buffer (generate-new-buffer bname))
     (funcall mode)
+    (setq-local inhibit-read-only t)
     (insert-buffer-substring-no-properties cb)
     (goto-char pt)
     (set-window-start (selected-window) ws)
