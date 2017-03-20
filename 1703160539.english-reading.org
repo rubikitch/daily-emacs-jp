@@ -8,15 +8,17 @@
 #+DESCRIPTION:日本人の英語が苦手な原因をEmacsで解決。環境を整え、苦手意識の原因を排除し、マウスをフル活用すれば英語をスラスラ読めるようになる。
 #+BLOG: rubikitch
 #+CATEGORY: ドキュメント
-#+TAGS: マウス, 
+#+TAGS: マウス, Emacs 24.4以降, 
 #+TITLE: 英語が苦手な4つの原因をブチ壊してスラスラ読む術！完全克服の道
 #+begin: org2blog-tags
-# content-length: 7203
+# content-length: 7291
 
 #+end:
 
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+<2017-03-21 Tue>*Help*などread-onlyなバッファでエラーになるのを修正
+
 あなたは英文をスラスラと読めますか？
 
 そうだとしたら、うらやましいです。
