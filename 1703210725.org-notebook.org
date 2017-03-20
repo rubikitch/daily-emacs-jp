@@ -1,0 +1,96 @@
+#+BLOG: rubikitch
+#+POSTID: 2083
+#+DATE: [2017-03-21 Tue 07:25]
+#+PERMALINK: org-notebook
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+DESCRIPTION:【議事録や講義ノートにうってつけ】org-modeで手書メモを実現する。M-x org-notebook-insert-imageで新規ファイル名でペイントソフトを立ち上げ、画像リンクを挿入する。
+#+BLOG: rubikitch
+#+CATEGORY: 画像表示
+#+EL_PKG_NAME: org-notebook
+#+TAGS: org2blog, 
+#+TITLE: 手書メモ！ペイント起動と同時に画像リンクをorgファイルに張る
+#+EL_URL: 
+#+begin: org2blog
+[includeme file="inc-package-table.php" name="org-notebook" where="melpa"]
+
+#+end:
+** 概要
+パソコンで議事録や
+講義ノートを録っているとき、
+図表を描きたくなったらどうしますか？
+
+場合によってはキーボードより
+手書きでメモをしたいですよね。
+
+org-modeはインライン画像を表示できますので、
+- 画像付きのメモを作成したり、
+- その結果をHTMLやLaTeXに変換もできます。
+
+けれどもノートを録っている途中に
+1. わざわざ手でペイントソフトを起動させて、
+2. 画像ファイルのリンクを挿入する
+のは時間がかかってしまいます。
+
+ =org-notebook.el= は、以下を自動化して、
+手書きメモをすぐに作成できるようにしてくれます。
+
+1. 手書きメモの新規画像ファイル名を決定する
+2. そのファイル名ペイントソフトを立ち上げる
+3. そのファイル名のorgリンクを挿入する
+
+ =org-notebook.el= ではファイル名に規定があります。
+   
+本来は新しいノートを録るときは
+a-note.orgと名付けるところですが、
+
+1. a-noteというディレクトリを作成し、
+2. その直下にimg/ディレクトリを配置します。
+
+とはいえ、実際のところ
+カレントディレクトリ直下に
+img/サブディレクトリを作っておけば、
+
+ファイル名の規定を守らなくても
+手軽に手書メモを作成できます。
+[includeme file="inc-package-install.php" name="org-notebook" where="melpa"]
+** 使い方
+まずは =M-x org-notebook-new-notebook= で
+新規ノートを作成します。
+
+すると
+1. ノート名のディレクトリが作成され、
+2. notebook.orgファイルが開かれ、
+3. テンプレートが挿入されます。
+
+=M-x org-notebook-insert-image= で
+手書メモを作成します。
+
+画像を表示するときは
+org-modeで用意されている
+C-c C-x C-v( =org-toggle-inline-images= )を
+使います。
+
+img/サブディレクトリを作成すれば
+任意のorgファイルで =M-x org-notebook-insert-image= を
+使用できることを確認しました。
+
+** 対応ペイントソフト
+新規ファイル名を引数に取る
+ペイントソフトならば何でも使えますが、
+
+1. kolourpaint
+2. mypaint
+3. krita
+4. gimp
+
+を自動検出してくれます。
+
+その他のペイントソフトを使うには、 
+=org-notebook-drawing-program= に
+プログラム名を指定してください。
+
+[includeme file="inc-package-relate.php" name="org-notebook"]
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
