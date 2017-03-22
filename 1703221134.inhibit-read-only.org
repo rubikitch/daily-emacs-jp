@@ -1,0 +1,113 @@
+#+BLOG: rubikitch
+#+POSTID: 2086
+#+DATE: [2017-03-22 Wed 11:34]
+#+PERMALINK: inhibit-read-only
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+DESCRIPTION:buffer-read-onlyやテキストプロパティで書き込み禁止(読み込み専用)になっているバッファ文字列を強制的に書き込み可能にする変数がinhibit-read-only。ローカル変数として使う。
+#+BLOG: rubikitch
+#+CATEGORY: バッファ関連
+#+TAGS: 
+#+TITLE: 読み込み専用バッファに強制的に書き込む強引なelispテクニック
+#+begin: org2blog-tags
+# content-length: 1438
+
+#+end:
+Emacsを使っていて、
+文字入力しようとしたら
+#+BEGIN_EXAMPLE
+Text is read-only
+#+END_EXAMPLE
+とエラーメッセージが
+出たことがありますよね？
+
+これはバッファが
+書き込み禁止だからです。
+
+書き込み禁止は
+- view-mode
+- help-mode
+など、バッファに書き込むことを意図しない
+メジャーモード・マイナーモードで
+設定されます。
+
+バッファ全体において
+書き込み禁止にするには
+変数 =buffer-read-only= を 
+=t= にします。
+
+一方で、
+テキストプロパティによって
+バッファの一部分のみ
+書き込み禁止にもできます。
+
+たとえば =twittering-mode= を使って
+ツイートするときにポップアップされる
+*twittering-edit*バッファです。
+
+#+BEGIN_EXAMPLE
+Keymap:
+  M-x twittering-edit-post-status: send a tweet
+  C-c C-k: cancel a tweet
+  C-c C-r: toggle a normal tweet and a reply.
+  M-n: next history element
+  M-p: previous history element
+  <f4>: shorten URL at point
+
+---- text above this line is ignored ----
+ここから書き込める
+#+END_EXAMPLE
+
+このバッファは
+Keymapの行から
+----の行までは
+書き込み禁止になっています。
+
+ですが、特殊な事情で
+「書き込み禁止」の意図を
+破りたいこともあります。
+
+この場合は
+変数 =inhibit-read-only= を 
+=t= にします。
+
+使い道は
+
+1. =let= で一時的に =t= にするか
+2. =setq-local= でバッファローカル変数にすることです。
+
+間違っても
+#+BEGIN_SRC emacs-lisp :results silent
+(setq inhibit-read-only t)
+#+END_SRC
+と設定ファイルには
+書かないようにしてください。
+
+この変数は一時的に有効にすることが
+本来の意図です。
+
+=setq= で設定してしまうと、
+本来の書き込み禁止が
+機能しなくなってしまいます。
+
+=setq-local= で 
+=inhibit-read-only= を設定している例は
+[[http://emacs.rubikitch.com/english-reading][mylisp-english-reading.el]] です。
+
+英語を読むために
+元のバッファの内容をコピーし、
+同じメジャーモードにしていますが、
+
+元のバッファが書き込み禁止だと
+改行できなくなってしまいます。
+
+そこで英語読み専用バッファでは 
+=inhibit-read-only= を
+バッファローカルで =t= にしています。
+
+奥の手ですが、
+Emacs Lispプログラマならば
+知っておいて損はありません。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
