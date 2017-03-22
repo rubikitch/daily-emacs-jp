@@ -409,7 +409,6 @@ HEREと書いている部分は
 
 (defun english-reading-mouse-open-line (event)
   (interactive "e")
-  (setq-local inhibit-read-only t)
   (posn-set-point (event-end event))
   (unless (eq ?\  (char-syntax (char-after)))
     (forward-word 1))
