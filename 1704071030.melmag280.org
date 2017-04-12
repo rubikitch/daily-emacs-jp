@@ -7,8 +7,8 @@
 # (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
 #+BLOG: rubikitch
 #+CATEGORY: るびきち塾メルマガ
-#+DESCRIPTION: るびきち塾メルマガ『Emacsの鬼るびきちのココだけの話#167』の予告
-#+TITLE: 【るびきち塾メルマガ#167】マイナーモードを定義しよう
+#+DESCRIPTION: るびきち塾メルマガ『Emacsの鬼るびきちのココだけの話#280』の予告
+#+TITLE: 【るびきち塾メルマガ#280】マイナーモードを作ってしまおう
 #+begin: org2blog-tags
 # content-length: 1222
 
