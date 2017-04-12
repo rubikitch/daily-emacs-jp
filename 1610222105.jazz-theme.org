@@ -133,6 +133,6 @@ Fig10: 本家スクリーンショット
 #+BEGIN_EXAMPLE
 $ emacs -Q -f package-initialize -eval '(load-theme (quote jazz) t)'
 #+END_EXAMPLE
-[includeme file="inc-package-relate.php" name="jazz-theme"]
+
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))

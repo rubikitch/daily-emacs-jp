@@ -49,3 +49,5 @@ M-x customize-group beacon で細かくカスタマイズができます。
 
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
+
+# /r/sync/emacs/quelpa/build/beacon/example-beacon.gif http://emacs.rubikitch.com/wp-content/uploads/2016/11/example-beacon.gif

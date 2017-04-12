@@ -9,7 +9,7 @@
 #+BLOG: rubikitch
 #+CATEGORY: 記事更新情報
 #+TAGS: 
-#+TITLE: 優秀な非同期ライブラリpromiseがメチャガチャ使いやすい！
+#+TITLE: 優秀な非同期ライブラリpromise.el
 #+begin: org2blog-tags
 # content-length: 616
 
