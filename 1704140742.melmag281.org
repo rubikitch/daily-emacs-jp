@@ -1,0 +1,47 @@
+#+BLOG: rubikitch
+#+POSTID: 2093
+#+DATE: [2017-04-14 Fri 07:42]
+#+PERMALINK: melmag281
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: るびきち塾メルマガ
+#+DESCRIPTION: るびきち塾メルマガ『Emacsの鬼るびきちのココだけの話#281』の予告
+#+TITLE: 【るびきち塾メルマガ#281】今回は近況報告
+#+begin: org2blog-tags
+# content-length: 512
+#+HTML: <!-- noindex -->
+
+#+end:
+今回は思い切り雑談回です。
+
+るびきちの近況報告ということで
+軽く流し読みしていただけると
+嬉しいです。
+
+最近、僕の中でものすごい
+大きな変化が起きています。
+
+今回の内容は以下になります。
+
+1. Software Design連載最終回
+2. 新しいライティングのお仕事してます
+3. 環境を変える
+4. 図書館ノマド生活
+5. 昼食は簡単サラダ
+6. ネットブック復活
+7. スマートフォン兼タブレット慣れてきた
+8. 電磁波対策
+9. 初テザリング
+10. 読者と会ったよ
+
+# footer
+豪華な入塾特典付きで、初月無料月々527円のるびきち塾。
+Emacsについて、人生の質を上げる方法について
+メルマガでも個別メールでも懇切丁寧に指導します。
+絶対に損はさせませんので、ぜひとも登録してください。
+http://www.mag2.com/m/0001373131.html
+1週間あたり缶ジュース1本分の投資で、僕があなたのメンターになります。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
