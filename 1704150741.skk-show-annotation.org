@@ -1,0 +1,51 @@
+#+BLOG: rubikitch
+#+POSTID: 2095
+#+DATE: [2017-04-15 Sat 07:41]
+#+PERMALINK: skk-show-annotation
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+DESCRIPTION:ddskkが激重になる大きな原因はこの設定にある。設定を解除することで、超非力なネットブックでも本来の快適な日本語入力ができるようになる。
+#+BLOG: rubikitch
+#+CATEGORY: 日本語入力
+#+TAGS: skk, ddskk, 
+#+TITLE: ddskkが激重になるときはこの変数が原因かも…試してみて
+#+begin: org2blog-tags
+# content-length: 737
+
+#+end:
+最近バタバタしていて更新が止まっていたのですが、
+ものすごい久々のEmacsネタを投稿します。
+
+SKK(DDSKK)を使っていて、いつのまにか重く感じたことはありませんか？
+
+僕自身、最近はネットブックも活用するようになり、ネットブックでのEmacsを整備するようになりました。
+メインのデスクトップ機の設定をネットブックに移行させたとき、ddskkが激重になっていました。
+変換候補を出したり、次の候補を出すのに1秒近く待たされるのです。
+
+そういえばメイン機でも、誤変換や打ち間違いをC-g で打ち消すときにも何回もC-g を押すことになり、すぐには打ち消せません。
+
+その原因は、アノテーション機能にあります。
+アノテーション機能とは、ddskkで変換したときに注釈が表示されるやつです。
+
+たとえば、「とりい」でしたら、
+#+BEGIN_EXAMPLE
+人名 同僚の名前です。
+#+END_EXAMPLE
+のようにエコーエリアに注釈が出ます。
+
+この機能はデフォルトではoffになっているのですが、注釈が出たらonになっています。
+
+offにするにはinit.elや~/.skkに以下の設定を加えてください。
+
+#+BEGIN_SRC emacs-lisp :results silent
+(setq skk-show-annotation nil)
+#+END_SRC
+
+すると注釈が表示されなくなり、以前の軽さに戻ります。
+
+結果として、超非力なネットブックでも快適に入力できます。
+
+お試しあれ。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
