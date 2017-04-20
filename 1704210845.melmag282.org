@@ -1,0 +1,60 @@
+#+BLOG: rubikitch
+#+POSTID: 2097
+#+DATE: [2017-04-21 Fri 08:45]
+#+PERMALINK: melmag282
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: るびきち塾メルマガ
+#+DESCRIPTION: るびきち塾メルマガ『Emacsの鬼るびきちのココだけの話#282』の予告
+#+TITLE: 【るびきち塾メルマガ#282】Emacsで爆速検索！
+#+begin: org2blog-tags
+# content-length: 871
+
+#+end:
+『前回は休憩コンテンツでしたね』
+「どうだろう〜」
+『ちょっと反応見てみないとわからないかな』
+「どうあれ、一連のEmacs Lisp回は一段落したと」
+『そうだね。かなり長かったから』
+「キリないし」
+『ああ。できることが多いからね』
+「ネットアクセスもできるから、Emacs LispでWebAPIをいじったりもできるし」
+『うん。まだ触れてないけどそういうパッケージはたくさんあるね』
+「じゃあ今回は」
+『一連のEmacs Lisp回でプログラミングもついてきたと思うから…』
+「思うから？」
+『ソースコード検索の話題にしよう』
+「grepとか？」
+『grepは時代遅れだよ、ソースコード検索においてはね』
+「えっ、まぁたしかに？the_silver_searcherとかあるし…」
+『もっと速いのあるよ』
+「まぢか」
+『まさにgrepの王者とでも言うべき新鋭がいる』
+「おお」
+『しかもWindowsバイナリもある』
+「おおお」
+『気になるよね？』
+「気になる！というわけで」
+『続きは本文で♪』
+
+# (wop)
+#+BEGIN_SRC org
+今回のメルマガであなたが得られる結果は、
+- スピード狂たちによるソースコード検索レース
+- 最速grepはコレ！
+- Emacsから最速で検索する優れたインターフェース3選
+- grepと同様に使うための工夫
+となります。
+#+END_SRC
+
+# footer
+豪華な入塾特典付きで、初月無料月々527円のるびきち塾。
+Emacsについて、人生の質を上げる方法について
+メルマガでも個別メールでも懇切丁寧に指導します。
+絶対に損はさせませんので、ぜひとも登録してください。
+http://www.mag2.com/m/0001373131.html
+1週間あたり缶ジュース1本分の投資で、僕があなたのメンターになります。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
