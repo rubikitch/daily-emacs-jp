@@ -106,7 +106,7 @@ Software Design連載記事を掲載します。
 
 　基本的なコマンドを効率的に学ぶには、チュートリアルをやりながら御自身でチートシートを作ることをおすすめします。コマンドは実際に手を動かして学ぶのが一番です。そのため、あえてコマンド一覧を本稿に載せませんでした。
 
-　もっとEmacsについて学びたいのであれば、筆者のEmacs専門メルマガに登録してみませんか？無制限メール相談権付きであなたを徹底サポート致します。http://www.mag2.com/m/0001373131.html Happy Emacsing！
+　もっとEmacsについて学びたいのであれば、筆者のEmacs専門メルマガに登録してみませんか？無制限メール相談権付きであなたを徹底サポート致します。http://rubikitch.com/juku/ Happy Emacsing！
 
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
