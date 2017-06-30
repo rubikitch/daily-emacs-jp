@@ -13,6 +13,8 @@
 #+TITLE: 【メルマガ#175】elisp添削の実況中継・前編
 #+MYTAGS: 
 #+begin: org2blog-tags
+# content-length: 514
+#+HTML: <!-- noindex -->
 
 #+end:
 新年度初のメルマガはelisp添削の実況です。
@@ -41,6 +43,6 @@ Emacsに関すること関しないことなんでも受け付けています。
 
 登録はコチラ
 ↓
-http://www.mag2.com/m/0001373131.html
+http://rubikitch.com/juku/
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
