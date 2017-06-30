@@ -210,5 +210,5 @@ Fig4: dired-details + dired-toggle
 * 終わりに
 　今回はdiredを取り上げました。通常のファイル操作はもちろんのこと、シェルコマンドの連携とwdiredは超強力です。MELPAにはたくさんのdired拡張があるので、ぜひあなた好みのdiredを作り上げていってください。
 
-　筆者のサイトrubikitch.comではEmacsの情報発信基地をめざすべく、定番情報や最新情報を日々更新しています。さらにステップアップしたい方はメルマガ登録お願いします。http://www.mag2.com/m/0001373131.html Happy Emacsing！
+　筆者のサイトrubikitch.comではEmacsの情報発信基地をめざすべく、定番情報や最新情報を日々更新しています。さらにステップアップしたい方はメルマガ登録お願いします。http://rubikitch.com/juku/ Happy Emacsing！
 
