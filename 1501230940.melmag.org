@@ -13,6 +13,7 @@
 #+MYTAGS: 
 #+TITLE: 集中力の秘密
 #+begin: org2blog-tags
+# content-length: 906
 
 #+end:
 我々Emacsユーザにとって、
@@ -73,7 +74,7 @@ Emacs関係か、Ruby関係か、
 
 メルマガ登録はこちら！
 ↓
-http://www.mag2.com/m/0001373131.html
+http://rubikitch.com/juku/
 
 初月無料なので御気軽に〜
 来月から527円です。
