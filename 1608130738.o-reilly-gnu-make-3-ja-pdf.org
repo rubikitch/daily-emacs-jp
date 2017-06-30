@@ -12,7 +12,7 @@
 #+DESCRIPTION: 
 #+TITLE: 【電子書籍プレゼント】GNU makeの日本語書籍304ページ全文無料公開
 #+begin: org2blog-tags
-# content-length: 691
+# content-length: 680
 
 #+end:
 今日はEmacsから外れた話題になりますが、有益だと思ったのでシェアします。
@@ -30,7 +30,7 @@ http://www.oreilly.co.jp/library/4873112699/
 
 他にも[[http://www.oreilly.co.jp/library/][オープンソースについての本2冊が無料で読める]] ようになっています。
 
-この情報は[[http://www.mag2.com/m/0001373131.html][るびきち塾]]の の塾生である[[http://nagayasu-shinya.com/gmake-3rd-pdf/][永安さんのブログ記事]] から知りました。
+この情報は[[http://rubikitch.com/juku/][るびきち塾]]の の塾生である[[http://nagayasu-shinya.com/gmake-3rd-pdf/][永安さんのブログ記事]] から知りました。
 
 これを気にGNU makeの勉強をしてみてはいかがでしょうか？
 
