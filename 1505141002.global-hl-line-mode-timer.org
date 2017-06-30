@@ -12,7 +12,7 @@
 #+DESCRIPTION: 
 #+TITLE: <2016-11-09 Wed>更新【高速化】Emacsのカーソル移動が重い？現在行ハイライトhl-line-modeに原因があるかも…
 #+begin: org2blog-tags
-# content-length: 1599
+# content-length: 1588
 
 #+end:
 <2016-11-09 Wed>todotxt.elで挙動がおかしくなるのでコードを修正しました。
@@ -68,7 +68,7 @@ global-hl-line-modeを使う代わりに
 
 ほんと、カーソル移動が軽くなりますから！！
 ** <2016-11-09 Wed>hl-lineを無効にするメジャーモードを指定
-[[http://www.mag2.com/m/0001373131.html][るびきち塾]] の塾生からtodotxt.elとこの設定が競合するという報告を頂きました。
+[[http://rubikitch.com/juku/][るびきち塾]] の塾生からtodotxt.elとこの設定が競合するという報告を頂きました。
 元のglobal-hl-line-timerのコードではtodotxt.elがうまく動きません。
 よって、todotxt-modeではglobal-hl-line-timerを働かないようにコードを改良しました。
 他にも、global-hl-line-timerと愛称の悪いメジャーモードがあったら、 global-hl-line-timer-exclude-modes に加えてください。
