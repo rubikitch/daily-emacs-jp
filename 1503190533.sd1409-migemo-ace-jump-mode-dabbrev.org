@@ -12,7 +12,7 @@
 #+DESCRIPTION: エディタ選びで最初に注目するのは、やはり「どれだけ効率的に文章・コードを書けるか」ですよね。今回は「isearch＋Migemo(＋ace-jump-mode)」を使った高速なカーソル移動、「dabbrev-expand」、「hippie-expand」を使った強力な入力支援を紹介します。
 #+TITLE: #5 カーソル移動と入力支援でスピードアップ！ (Software Design 2014年9月号掲載記事) Emacs Migemo ace-jump-mode dabbrev hippie-exp
 #+begin: org2blog-tags
-# content-length: 12398
+# content-length: 12387
 
 #+end:
 Software Design連載記事を掲載します。
@@ -257,7 +257,7 @@ SD1405.pdf
 * 終わりに
 　今回はカーソル移動と文字入力というテキストエディタの基本機能を快適に使うお話でした。少し難しすぎましたか？入力支援機能は、もっともっと高度で便利なものが存在しますが、今回はシンプルなものを取り上げました。それでもにMigemoとdabbrevには驚かれるかと思います。
 
-　筆者はEmacsの週刊メルマガを書いています。Emacsをもっともっと便利に使いたい、将来的にはEmacsの達人になりたいのならば登録お願いします。http://www.mag2.com/m/0001373131.html Happy Emacsing！
+　筆者はEmacsの週刊メルマガを書いています。Emacsをもっともっと便利に使いたい、将来的にはEmacsの達人になりたいのならば登録お願いします。http://rubikitch.com/juku/ Happy Emacsing！
 
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
