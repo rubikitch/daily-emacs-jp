@@ -13,6 +13,8 @@
 #+TITLE: 【メルマガ#176】入塾者限定elisp徹底添削サービスやってます
 #+MYTAGS: 
 #+begin: org2blog-tags
+# content-length: 474
+#+HTML: <!-- noindex -->
 
 #+end:
 新年度2発目のメルマガは先週のelisp添削の続きです。
@@ -41,6 +43,6 @@
 添削はいつでも受け付けているので
 入塾者は気楽にメールください。
 
-→ http://www.mag2.com/m/0001373131.html
+→ http://rubikitch.com/juku/
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
