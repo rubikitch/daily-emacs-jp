@@ -13,6 +13,8 @@
 #+TITLE: 【るびきち塾メルマガ#249】Emacsコーチ！
 #+MYTAGS: 
 #+begin: org2blog-tags
+# content-length: 543
+#+HTML: <!-- noindex -->
 
 #+end:
 かつてガンジーはこう言いました。
@@ -40,7 +42,7 @@ org-captureを自分の人生に活かす方法をお伝えします。
 Emacsについて、人生の質を上げる方法について
 メルマガでも個別メールでも懇切丁寧に指導します。
 絶対に損はさせませんので、ぜひとも登録してください。
-http://www.mag2.com/m/0001373131.html
+http://rubikitch.com/juku/
 1週間あたり缶ジュース1本分の投資で、僕があなたのメンターになります。
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
