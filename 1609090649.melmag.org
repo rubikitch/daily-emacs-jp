@@ -13,6 +13,7 @@
 #+TITLE: 【るびきち塾メルマガ#250】大きな出会い＋Emacsコーチ実践編
 #+MYTAGS: 
 #+begin: org2blog-tags
+# content-length: 715
 
 #+end:
 「るびきちさんが活動を一時停止したって？」
@@ -49,7 +50,7 @@
 Emacsについて、人生の質を上げる方法について
 メルマガでも個別メールでも懇切丁寧に指導します。
 絶対に損はさせませんので、ぜひとも登録してください。
-http://www.mag2.com/m/0001373131.html
+http://rubikitch.com/juku/
 1週間あたり缶ジュース1本分の投資で、僕があなたのメンターになります。
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
