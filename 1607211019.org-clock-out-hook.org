@@ -13,12 +13,12 @@
 #+DESCRIPTION: 
 #+TITLE: Emacs org-mode: org-clock-out-hookの罠！
 #+begin: org2blog-tags
-# content-length: 1796
+# content-length: 1785
 
 #+end:
 僕は普段の作業をorg-modeのclock機能を使って管理しています。
 
-[[http://www.mag2.com/m/0001373131.html][メルマガ登録者]] 限定特典で僕の秘技「org習慣仕事術」もclock機能をシンプルかつ効果的に使う方法です。
+[[http://rubikitch.com/juku/][メルマガ登録者]] 限定特典で僕の秘技「org習慣仕事術」もclock機能をシンプルかつ効果的に使う方法です。
 この方法は絶大ですので、ぜひとも登録していただけると嬉しいです。
 
 僕はいつも音楽をかけながら作業をしていますが、タスクによっては音楽を一時停止したいこともあります。
