@@ -11,7 +11,7 @@
 #+DESCRIPTION: るびきち塾メルマガ『Emacsの鬼るびきちのココだけの話#265』の予告
 #+TITLE: 【るびきち塾メルマガ#265】Emacs Lisp入門！コマンド定義まで
 #+begin: org2blog-tags
-# content-length: 977
+# content-length: 966
 
 #+end:
 
@@ -65,7 +65,7 @@
 Emacsについて、人生の質を上げる方法について
 メルマガでも個別メールでも懇切丁寧に指導します。
 絶対に損はさせませんので、ぜひとも登録してください。
-http://www.mag2.com/m/0001373131.html
+http://rubikitch.com/juku/
 1週間あたり缶ジュース1本分の投資で、僕があなたのメンターになります。
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
