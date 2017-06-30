@@ -13,11 +13,11 @@
 #+MYTAGS: 
 #+TITLE: M-x suspend-daily-emacs
 #+begin: org2blog-tags
-# content-length: 2674
+# content-length: 2663
 
 #+end:
 病気のため、本日よりサイトの更新を一時停止します。
-Software Design連載と [[http://www.mag2.com/m/0001373131.html][るびきち塾(メルマガ)]] にエネルギーを注ぎ込みます。
+Software Design連載と [[http://rubikitch.com/juku/][るびきち塾(メルマガ)]] にエネルギーを注ぎ込みます。
 治りましたら更新を再開しますのでそれまでお待ちください。
 
 連載『るびきち流Emacs超入門』の先月号までの草稿を置いておきます。
