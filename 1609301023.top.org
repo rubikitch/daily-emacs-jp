@@ -11,7 +11,7 @@
 #+TAGS: 
 #+TITLE: ようこそ
 #+begin: org2blog-tags
-# content-length: 2746
+# content-length: 2735
 
 #+end:
 * 日本一のEmacs総合サイトは生まれ変わりました
@@ -92,7 +92,7 @@ Emacsに対する問題解決だけでなく、聞かれたことであれば何
 僕は持っている知識を出し惜しみしません。
 
 #+HTML: <div align="center" style="font-size: large; font-weight: bolder;">
-→ http://www.mag2.com/m/0001373131.html ←
+→ http://rubikitch.com/juku/ ←
 #+HTML: </div>
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
