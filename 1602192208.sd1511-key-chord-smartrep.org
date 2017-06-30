@@ -225,7 +225,7 @@ smartrep状態を解除するにはC-gを押すか、登録されていないキ
 
 また、EmacsユーザのQOLを上げるための厳選した情報を週間メルマガで配信しています。
 Emacsについてはもちろんのこと、ライフハックなどいろいろな分野について書いています。
-登録はこちら→http://www.mag2.com/m/0001373131.html
+登録はこちら→http://rubikitch.com/juku/
 
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
