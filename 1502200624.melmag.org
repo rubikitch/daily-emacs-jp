@@ -13,6 +13,7 @@
 #+TITLE: この世を『天国』として生きる方法
 #+MYTAGS: 
 #+begin: org2blog-tags
+# content-length: 755
 
 #+end:
 
@@ -60,6 +61,6 @@ Emacsでの実装まで深く掘り下げていきます。
 org習慣仕事術＋org自動日記に加え、
 これもあなたの人生の宝として大切にしていただけると幸いです。
 
-登録はこちら→ http://www.mag2.com/m/0001373131.html
+登録はこちら→ http://rubikitch.com/juku/
 
 # (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
