@@ -13,11 +13,11 @@
 #+TITLE: Mac OS XのEmacsのカーソル移動が重くなるならコレ試してみて！
 #+TAGS: バグ修正
 #+begin: org2blog-tags
-# content-length: 508
+# content-length: 497
 #+HTML: <!-- noindex -->
 
 #+end:
-これは[[http://www.mag2.com/m/0001373131.html][るびきち塾]] 塾生からの情報なのですが、
+これは[[http://rubikitch.com/juku/][るびきち塾]] 塾生からの情報なのですが、
 Emacs for Mac OS X 24.5-1 において動作がもっさりすることがあるらしいです。
 
 具体的にはC-pで上の行に移動するだけでカクカクもっさりしているという症状です。
