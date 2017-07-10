@@ -1,0 +1,49 @@
+#+BLOG: rubikitch
+#+POSTID: 2198
+#+DATE: [2017-07-10 Mon 18:29]
+#+PERMALINK: melmag294
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil \n:t -:nil tex:nil ':nil
+#+ISPAGE: nil
+# (progn (erase-buffer)(find-file-hook--org2blog/wp-mode))
+#+BLOG: rubikitch
+#+CATEGORY: るびきち塾メルマガ
+#+DESCRIPTION: るびきち塾メルマガ『Emacsの鬼るびきちのココだけの話#294』の予告
+#+TITLE: 【るびきち塾メルマガ#294】
+#+begin: org2blog-tags
+# content-length: 653
+
+#+end:
+『前回に引き続き、視点の切り替えの大切さを』
+「今回もかー」
+『けっこう大事なところだと思ってね』
+「ああ、今日のお題は？」
+『ソート』
+「Emacsにソートのコマンドなんてあるの？」
+『あるよ。まあオモチャ程度だけど』
+「Emacsのコマンドになっていれば気軽だね」
+『気軽だね。何も考えずに呼び出せる』
+「テキストエディタで扱う程度のテキストならば高速性はいらんし」
+『そそ。けれども何に焦点を置くかで解き方は変わってくるから』
+「なるほど。いろいろな方法を知っておくのは大事だよね」
+『うん、使い分けるの大事』
+「ってなわけで」
+『続きは本文で！！』
+
+# (wop)
+#+BEGIN_SRC org
+今回のメルマガであなたが得られる結果は、
+- フォーカスの法則とは？
+- あらゆるソートの方法
+- Emacsコマンドと外部プログラムの使い分け
+となります。
+#+END_SRC
+
+# footer
+豪華な入塾特典付きで、初月無料月々527円のるびきち塾。
+Emacsについて、人生の質を上げる方法について
+メルマガでも個別メールでも懇切丁寧に指導します。
+絶対に損はさせませんので、ぜひとも登録してください。
+http://rubikitch.com/juku/
+1週間あたり缶ジュース1本分の投資で、僕があなたのメンターになります。
+
+# (progn (forward-line 1)(shell-command "screenshot-time.rb org_template" t))
