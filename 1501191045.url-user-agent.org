@@ -13,7 +13,7 @@
 #+DESCRIPTION: 
 #+TITLE: <2017-08-01 Tue>更新:EWWなどのEmacsにおけるHTTPアクセスのUser-Agentを変更する方法
 #+begin: org2blog-tags
-# content-length: 809
+# content-length: 717
 
 #+end:
 <2017-08-01 Tue>最新版Emacsでは動かなかったので修正しました。
@@ -40,7 +40,7 @@ http://www.cman.jp/network/support/go_access.cgi
 #+BEGIN: include :file "/r/sync/junk/150118/150118132054.eww.user-agent.el"
 #+BEGIN_SRC fundamental
 ;;; (eww "http://www.cman.jp/network/support/go_access.cgi")
-(setq url-user-agent "User-Agent: w3m/0.5.3\n")
+(setq url-user-agent "User-Agent: w3m/0.5.3\r\n")
 #+END_SRC
 
 #+END:
