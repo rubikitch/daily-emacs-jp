@@ -11,11 +11,13 @@
 #+CATEGORY: Web
 #+TAGS: eww
 #+DESCRIPTION: 
-#+TITLE: EWWなどのEmacsにおけるHTTPアクセスのUser-Agentを変更する方法
+#+TITLE: <2017-08-01 Tue>更新:EWWなどのEmacsにおけるHTTPアクセスのUser-Agentを変更する方法
 #+begin: org2blog-tags
-# content-length: 766
+# content-length: 809
 
 #+end:
+<2017-08-01 Tue>最新版Emacsでは動かなかったので修正しました。
+
 Webサイトにアクセスするとき、
 ブラウザ情報としてUser-Agentヘッダを送信しますよね。
 
@@ -38,10 +40,7 @@ http://www.cman.jp/network/support/go_access.cgi
 #+BEGIN: include :file "/r/sync/junk/150118/150118132054.eww.user-agent.el"
 #+BEGIN_SRC fundamental
 ;;; (eww "http://www.cman.jp/network/support/go_access.cgi")
-(require 'url-http)
-(defvar url-user-agent "w3m/0.5.3")
-(defun url-http-user-agent-string ()
-  (format "User-Agent: %s\r\n" url-user-agent))
+(setq url-user-agent "User-Agent: w3m/0.5.3\n")
 #+END_SRC
 
 #+END:
